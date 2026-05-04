@@ -13,7 +13,7 @@
         }
 
         html {
-            overflow-x: hidden;
+            overflow-x: clip; /* clip prevents layout expansion; hidden creates a scroll container with side effects */
         }
 
         body {
@@ -1063,8 +1063,23 @@
         }
 
         @media (max-width: 768px) {
-            html { overflow-x: hidden; max-width: 100%; }
+            html { overflow-x: clip; max-width: 100%; }
             body { padding: 15px 8px; overflow-x: hidden; max-width: 100%; }
+
+            /* Tab nav: scrollable strip on mobile, no visible scrollbar */
+            .tab-nav {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .tab-nav::-webkit-scrollbar { display: none; }
+            .tab-btn {
+                flex-shrink: 0;
+                padding: 10px 16px;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
             .header { margin-bottom: 20px; }
             .header h1 { font-size: 1.5rem; }
             .container { max-width: 100%; overflow: hidden; }
