@@ -86,25 +86,28 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 .mode-cards{display:flex;flex-direction:column;gap:10px}
 .portal-footer{padding:16px 20px 34px;flex-shrink:0}
 
-/* ── MODE CARD ── moonlit, no accent strip */
-.mode-card{position:relative;background:var(--bg-card);border:1px solid rgba(245,232,200,0.16);
-  border-radius:8px;padding:18px 18px 16px 18px;display:flex;align-items:stretch;gap:14px;
-  cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;
-  box-shadow:0 0 0 1px rgba(245,232,200,0.04),
-             0 0 18px -6px rgba(245,232,200,0.22),
-             0 0 38px -14px rgba(245,232,200,0.18) inset;
-  transition:background var(--d),box-shadow var(--d),border-color var(--d);
+/* ── MODE CARD ── v6: moon-cream cards floating on the night sky.
+   To revert to dark cards, restore the previous .mode-card / .mc-* rules from
+   git commit ede4768 (v5). Whole block is self-contained. */
+.mode-card{position:relative;background:var(--moon);
+  border:1px solid rgba(245,232,200,0.55);border-radius:8px;
+  padding:18px 18px 16px 18px;display:flex;align-items:stretch;gap:14px;
+  color:#0a1028;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;
+  box-shadow:0 0 0 1px rgba(245,232,200,0.18),
+             0 0 24px -2px rgba(245,232,200,0.34),
+             0 0 64px -18px rgba(245,232,200,0.28);
+  transition:background var(--d),box-shadow var(--d),border-color var(--d),transform var(--d);
   opacity:0;animation:cardIn 0.38s var(--ease) forwards}
-.mode-card:active{background:var(--bg-card-h);
-  box-shadow:0 0 0 1px rgba(245,232,200,0.10),
-             0 0 26px -4px rgba(245,232,200,0.32),
-             0 0 38px -14px rgba(245,232,200,0.22) inset;
-  border-color:rgba(245,232,200,0.28)}
+.mode-card:active{background:#ecddb8;
+  box-shadow:0 0 0 1px rgba(245,232,200,0.32),
+             0 0 38px 0 rgba(245,232,200,0.46),
+             0 0 80px -16px rgba(245,232,200,0.38);
+  border-color:rgba(245,232,200,0.75);transform:translateY(1px)}
 .mc-body{flex:1;min-width:0}
-.mc-label{font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);line-height:1.05}
-.mc-desc{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--ink-60);
+.mc-label{font-family:var(--fd);font-size:24px;font-weight:500;color:#0a1028;line-height:1.05}
+.mc-desc{font-family:var(--fd);font-size:13px;font-style:italic;color:rgba(10,16,40,0.62);
   margin-top:4px;line-height:1.35}
-.mc-arrow{font-size:18px;color:var(--ink-30);align-self:center;flex-shrink:0}
+.mc-arrow{font-size:18px;color:rgba(10,16,40,0.4);align-self:center;flex-shrink:0}
 
 /* ── VENDOR ALERT ── */
 .vendor-alert{margin-top:14px;background:var(--terra-bg);border:1px solid rgba(224,135,99,0.3);
