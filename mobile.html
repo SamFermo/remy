@@ -503,7 +503,7 @@ function updateMarkButtons() {
 }
 
 // ── SETTINGS ───────────────────────────────────────────────────────
-function getWorkerUrl() { return localStorage.getItem('remy_worker_url')||''; }
+function getWorkerUrl() { return localStorage.getItem('remy_worker_url')||'https://remy-outreach.sam-d1f.workers.dev'; }
 function getVoiceRules(){ return localStorage.getItem('remy_voice_rules')||DEFAULT_VOICE_RULES; }
 function openSettings() {
   document.getElementById('ss-worker-url').value = getWorkerUrl();
