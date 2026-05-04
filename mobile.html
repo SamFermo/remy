@@ -28,17 +28,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 
 /* ── INTRO ── */
 #intro{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;
-  justify-content:center;z-index:800;transition:opacity 0.45s var(--ease)}
-#intro.gone{opacity:0;pointer-events:none}
-.intro-word{font-family:var(--fd);font-size:72px;font-weight:400;letter-spacing:0.12em;
-  color:var(--ink);opacity:0;
-  animation:introRemy 2.1s var(--ease) forwards;animation-delay:0.1s}
-@keyframes introRemy{
-  0%  {opacity:0;transform:scale(1.07)}
-  13% {opacity:1;transform:scale(1)}
-  68% {opacity:1;transform:scale(1)}
-  90% {opacity:0;transform:scale(0.94)}
-  100%{opacity:0;transform:scale(0.94)}
+  justify-content:center;z-index:800;transition:opacity 0.35s var(--ease);
+  pointer-events:none}
+#intro.gone{opacity:0}
+.intro-word{font-family:var(--fd);font-size:72px;font-weight:500;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--ink);opacity:0;transform-origin:center center;
+  animation:introFadeIn 0.5s var(--ease) 0.1s forwards;
+  will-change:transform,opacity}
+.intro-word.morph{
+  transition:transform 0.85s cubic-bezier(0.65,0,0.25,1)}
+@keyframes introFadeIn{
+  from{opacity:0;transform:scale(1.07)}
+  to  {opacity:1;transform:scale(1)}
 }
 
 /* ── APP SHELL ── */
@@ -51,9 +52,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 .ph-wordmark{display:flex;align-items:baseline;gap:7px;flex:1}
 .ph-remy{font-family:var(--fd);font-size:16px;font-weight:500;letter-spacing:0.22em;
   text-transform:uppercase;color:var(--ink);
-  opacity:0;animation:fadeUp 0.45s var(--ease) 1.8s forwards}
+  opacity:0;transition:opacity 0.25s var(--ease)}
+.ph-remy.in{opacity:1}
 .ph-brand{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--ink-60);
-  opacity:0;animation:fadeUp 0.4s var(--ease) 2.05s forwards}
+  opacity:0;transition:opacity 0.4s var(--ease)}
+.ph-brand.in{opacity:1}
 .ph-actions{display:flex;align-items:center;gap:4px}
 .ph-icon-btn{background:none;border:none;cursor:pointer;padding:8px;
   -webkit-tap-highlight-color:transparent;position:relative;touch-action:manipulation}
@@ -66,7 +69,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 .portal-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:22px 20px 0}
 .portal-prompt{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--ink);
   margin-bottom:20px;line-height:1.15;
-  opacity:0;animation:fadeUp 0.4s var(--ease) 2.25s forwards}
+  opacity:0;animation:fadeUp 0.4s var(--ease) 1.7s forwards}
 .mode-cards{display:flex;flex-direction:column;gap:10px}
 .portal-footer{padding:16px 20px 34px;flex-shrink:0}
 
@@ -7387,7 +7390,11 @@ function toggleCart(ing){
     b.classList.toggle('marked',isInCart(ing.name));
   });
 }
-function clearCart(){ cart=[]; saveCart(); renderCart(); }
+function clearCart(){
+  cart=[]; saveCart(); renderCart();
+  // strip checkmarks from any rendered ingredient rows so visible state matches
+  document.querySelectorAll('.mark-btn.marked').forEach(function(b){ b.classList.remove('marked'); });
+}
 function updateBadges(){
   var n=cart.length,show=n>0;
   ['portal-badge','browse-badge'].forEach(function(id){
@@ -7578,6 +7585,13 @@ function matchKeyword(term){
   return best;
 }
 
+function resetShorted(){
+  var inp=document.getElementById('shorted-input');
+  if(inp) inp.value='';
+  var el=document.getElementById('shorted-results');
+  if(el) el.innerHTML='<div class="empty-msg" style="padding-top:32px">Start typing to find alternatives.</div>';
+}
+
 function runShorted(val){
   var el=document.getElementById('shorted-results');
   if(!el) return;
@@ -7638,21 +7652,26 @@ function runShorted(val){
 }
 
 // ── EVENT / PLANNING FLOWS ──────────────────────────────────────────
-var BUCKETS=[
-  {id:'week',  label:'This week',   months:0, look:0},
-  {id:'2w',    label:'2 weeks',     months:0, look:0},
-  {id:'month', label:'This month',  months:0, look:1},
-  {id:'season',label:'Next season', months:2, look:3},
-];
+// Buckets are computed dynamically from the current month — current + next 3 months by name.
+// 'look' controls how many months ahead the planning window expands beyond the start.
+function getBuckets(){
+  var out=[];
+  for(var i=0;i<4;i++){
+    var m=(curM+i)%12;
+    out.push({id:'m'+i, label:MONTHS[m], months:i, look:0});
+  }
+  return out;
+}
 
 function buildFlow(containerId, mode){
   var el=document.getElementById(containerId);
   if(!el) return;
   var title=mode==='event'?'When is it?':'When does it need to launch?';
+  var buckets=getBuckets();
   el.innerHTML='<div class="flow-question">'+title+'</div>'+
     '<div class="bucket-grid">'+
-      BUCKETS.map(function(b){
-        return '<button class="bucket-btn" onclick="selectBucket(\''+containerId+'\',\''+mode+'\',\''+b.id+'\',this)">'+b.label+'</button>';
+      buckets.map(function(b){
+        return '<button class="bucket-btn" onclick="selectBucket(\''+containerId+'\',\''+mode+'\',\''+b.id+'\','+b.months+',this)">'+b.label+'</button>';
       }).join('')+
       '<button class="bucket-btn wide" onclick="toggleDatePicker(\''+containerId+'\',\''+mode+'\',this)">Pick a date</button>'+
     '</div>'+
@@ -7660,19 +7679,27 @@ function buildFlow(containerId, mode){
     '<div class="flow-results" id="'+containerId+'-results"></div>';
 }
 
-function selectBucket(containerId, mode, bucketId, btn){
+function selectBucket(containerId, mode, bucketId, monthsAheadVal, btn){
   document.querySelectorAll('#'+containerId+' .bucket-btn').forEach(function(b){ b.classList.remove('sel'); });
   btn.classList.add('sel');
-  document.getElementById(containerId+'-date').classList.remove('show');
-  var b=BUCKETS.find(function(x){ return x.id===bucketId; });
-  if(b) renderFlowResults(containerId, mode, b.months, b.look);
+  var di=document.getElementById(containerId+'-date');
+  if(di) di.classList.remove('show');
+  // event mode targets a single month; planning mode looks at that month + the next one
+  var look = (mode==='planning') ? 1 : 0;
+  renderFlowResults(containerId, mode, monthsAheadVal, look);
 }
 
 function toggleDatePicker(containerId, mode, btn){
   document.querySelectorAll('#'+containerId+' .bucket-btn').forEach(function(b){ b.classList.remove('sel'); });
   btn.classList.add('sel');
   var di=document.getElementById(containerId+'-date');
-  di.classList.toggle('show');
+  if(!di) return;
+  // open native calendar directly — no intermediate styled box
+  if(typeof di.showPicker==='function'){
+    try { di.showPicker(); return; } catch(e){ /* fall through to click fallback */ }
+  }
+  di.click();
+  if(di.focus) di.focus();
 }
 
 function selectDate(containerId, mode, val){
@@ -7885,7 +7912,7 @@ function showVendorAlert(){
 
 // ── PORTAL CARDS ─────────────────────────────────────────────────────
 var MODE_DEFS=[
-  {id:'shorted',  label:'Got Shorted',          desc:'Find what\'s available to replace an ingredient now.',   accent:'var(--terra)',  action:function(){ goTo('shorted'); document.getElementById('shorted-input').focus(); }},
+  {id:'shorted',  label:'Got Shorted',          desc:'Find what\'s available to replace an ingredient now.',   accent:'var(--terra)',  action:function(){ resetShorted(); goTo('shorted'); setTimeout(function(){ var el=document.getElementById('shorted-input'); if(el) el.focus(); },320); }},
   {id:'event',    label:'Event Coming Up',       desc:'Build around what will be at peak when you need it.',    accent:'var(--navy)',   action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
   {id:'planning', label:'Planning a Menu Change',desc:'See what\'s arriving and fading in your launch window.', accent:'var(--olive)',  action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
   {id:'market',   label:'How\'s the Market?',    desc:'Cost creep and value plays this week.',                  accent:'var(--gold)',   action:function(){ goTo('market'); }},
@@ -7895,7 +7922,7 @@ var MODE_DEFS=[
 function buildPortal(){
   var el=document.getElementById('mode-cards');
   if(!el) return;
-  var BASE_DELAY=2.45;
+  var BASE_DELAY=1.9;
   el.innerHTML=MODE_DEFS.map(function(def,i){
     return '<div class="mode-card" style="animation-delay:'+(BASE_DELAY+i*0.08)+'s" onclick="handleMode('+i+')">'+
       '<div class="mc-accent" style="background:'+def.accent+'"></div>'+
@@ -7938,13 +7965,30 @@ function closeFullView(){ document.getElementById('full-view').classList.remove(
 
 // ── NAVIGATION ────────────────────────────────────────────────────────
 var screenHistory=[];
+function clearLeavingScreen(id){
+  // wipe transient content so it can't bleed if the user re-enters via back-stack
+  if(id==='outreach'){
+    var oi=document.getElementById('outreach-inner');
+    if(oi) oi.innerHTML='';
+  }
+  if(id==='shorted'){
+    // reset only when navigating away (entry path resets independently)
+    var si=document.getElementById('shorted-input');
+    if(si) si.value='';
+    var sr=document.getElementById('shorted-results');
+    if(sr) sr.innerHTML='<div class="empty-msg" style="padding-top:32px">Start typing to find alternatives.</div>';
+  }
+}
 function goTo(id){
+  var leaving=screenHistory.length?screenHistory[screenHistory.length-1]:null;
   document.querySelectorAll('.ss').forEach(function(s){ s.classList.remove('active'); });
   var el=document.getElementById('screen-'+id);
   if(el){ el.classList.add('active'); screenHistory.push(id); }
+  if(leaving && leaving!==id) clearLeavingScreen(leaving);
   if(id==='cart') renderCart();
 }
 function goBack(){
+  var leaving=screenHistory.length?screenHistory[screenHistory.length-1]:null;
   document.querySelectorAll('.ss').forEach(function(s){ s.classList.remove('active'); });
   screenHistory.pop();
   if(screenHistory.length){
@@ -7953,6 +7997,7 @@ function goBack(){
     if(el) el.classList.add('active');
     if(prev==='cart') renderCart();
   }
+  if(leaving) clearLeavingScreen(leaving);
 }
 
 // touch-to-dismiss full view
@@ -7979,11 +8024,56 @@ document.getElementById('fv-sheet').addEventListener('touchend',function(e){ if(
   buildPortal();
   checkVendorAlert();
 
-  // Intro → portal: remove intro overlay, portal is always visible underneath
-  setTimeout(function(){
-    document.getElementById('intro').classList.add('gone');
-  }, 2150);
+  // Intro → portal: continuous shrink-to-header morph.
+  // Big REMY fades in at center, holds briefly, then morphs (translate + scale)
+  // to the exact header REMY position, where the header element takes over.
+  runIntroMorph();
 })();
+
+function runIntroMorph(){
+  var word = document.querySelector('.intro-word');
+  var headerRemy = document.querySelector('.ph-remy');
+  var headerBrand = document.querySelector('.ph-brand');
+  var intro = document.getElementById('intro');
+  if(!word || !headerRemy || !intro){
+    // Safety: if anything is missing, just hide the overlay so the app is usable
+    if(intro) intro.classList.add('gone');
+    return;
+  }
+  // Wait for header to be laid out so getBoundingClientRect is correct
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      var hr = headerRemy.getBoundingClientRect();
+      var wr = word.getBoundingClientRect();
+      // Both share the same letter-spacing/text-transform, so widths/heights
+      // scale proportionally. Use height as the scale anchor.
+      var scale = hr.height / wr.height;
+      var tx = (hr.left + hr.width/2) - (wr.left + wr.width/2);
+      var ty = (hr.top + hr.height/2) - (wr.top + wr.height/2);
+
+      // Phase 1: hold center for ~600ms (intro fade-in completes at ~0.6s)
+      // Phase 2: morph for 850ms (matches CSS transition duration)
+      // Phase 3: at end of morph, reveal header REMY + brand, fade overlay out
+      setTimeout(function(){
+        word.classList.add('morph');
+        word.style.transform = 'translate('+tx+'px, '+ty+'px) scale('+scale+')';
+      }, 600);
+
+      setTimeout(function(){
+        // Reveal the real header REMY at the exact spot the morph lands
+        headerRemy.classList.add('in');
+      }, 1430);
+
+      setTimeout(function(){
+        // San Fermo brand fades in alongside, just after REMY settles
+        if(headerBrand) headerBrand.classList.add('in');
+        // Fade the overlay (which contains the morphed intro word) so the
+        // header REMY underneath is what stays visible
+        intro.classList.add('gone');
+      }, 1500);
+    });
+  });
+}
 </script>
 </body>
 </html>
