@@ -9,53 +9,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2EBD9;--bg-card:#FAF6EE;--bg-card-h:#F0E9D8;
-  --ink:#1C180F;--ink-60:rgba(28,24,15,0.6);--ink-30:rgba(28,24,15,0.3);
-  --ink-12:rgba(28,24,15,0.12);--ink-6:rgba(28,24,15,0.06);
-  --terra:#B84E26;--terra-bg:rgba(184,78,38,0.1);
-  --olive:#46592B;--olive-bg:rgba(70,89,43,0.1);
-  --gold:#9B7A28;--gold-bg:rgba(155,122,40,0.1);
-  --navy:#2B3A52;--navy-bg:rgba(43,58,82,0.1);
+  /* Moonstruck — deep night sky with Cosmo's moon */
+  --bg:#0a1028;--bg-deep:#060a1c;--bg-card:#16204d;--bg-card-h:#1d2858;
+  --ink:#f5e8c8;--ink-60:rgba(245,232,200,0.62);--ink-30:rgba(245,232,200,0.32);
+  --ink-12:rgba(245,232,200,0.13);--ink-6:rgba(245,232,200,0.06);
+  --moon:#f5e8c8;--moon-glow:rgba(245,232,200,0.45);
+  --terra:#e08763;--terra-bg:rgba(224,135,99,0.14);
+  --olive:#a8b97e;--olive-bg:rgba(168,185,126,0.14);
+  --gold:#e2b95e;--gold-bg:rgba(226,185,94,0.14);
+  --navy:#7b9bd1;--navy-bg:rgba(123,155,209,0.14);
   --fd:'Cormorant Garamond',Georgia,serif;
   --fb:'DM Sans',system-ui,sans-serif;
   --r:4px;--ease:cubic-bezier(0.4,0,0.2,1);--d:0.26s;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--ink);
-  font-family:var(--fb);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E")}
+html,body{height:100%;overflow:hidden;color:var(--ink);
+  font-family:var(--fb);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+  background:radial-gradient(ellipse at 50% 30%, #131c45 0%, #0a1028 55%, #060a1c 100%)}
+/* starfield sits behind everything */
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;width:100%;height:100%;
+  opacity:0.85}
 
-/* ── INTRO ── */
-#intro{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;
-  justify-content:center;z-index:800;transition:opacity 0.35s var(--ease);
-  pointer-events:none}
+/* ── INTRO ── moonlit big REMY morphs into header position */
+#intro{position:fixed;inset:0;display:flex;align-items:center;
+  justify-content:center;z-index:800;transition:opacity 0.4s var(--ease);
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%, #131c45 0%, #0a1028 60%, #060a1c 100%)}
 #intro.gone{opacity:0}
 .intro-word{font-family:var(--fd);font-size:72px;font-weight:500;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--ink);opacity:0;transform-origin:center center;
-  animation:introFadeIn 0.5s var(--ease) 0.1s forwards;
+  text-transform:uppercase;color:var(--moon);opacity:0;transform-origin:center center;
+  text-shadow:0 0 36px rgba(245,232,200,0.55),
+              0 0 72px rgba(245,232,200,0.32),
+              0 0 12px rgba(245,232,200,0.7);
+  animation:introFadeIn 0.55s var(--ease) 0.1s forwards;
   will-change:transform,opacity}
 .intro-word.morph{
-  transition:transform 0.85s cubic-bezier(0.65,0,0.25,1)}
+  transition:transform 0.95s cubic-bezier(0.55,0,0.2,1),
+             text-shadow 0.95s var(--ease)}
+.intro-word.morph.landed{
+  text-shadow:0 0 6px rgba(245,232,200,0.4),
+              0 0 14px rgba(245,232,200,0.2)}
 @keyframes introFadeIn{
-  from{opacity:0;transform:scale(1.07)}
-  to  {opacity:1;transform:scale(1)}
+  from{opacity:0}
+  to  {opacity:1}
 }
 
 /* ── APP SHELL ── */
-#app{height:100%;position:relative;overflow:hidden}
+#app{height:100%;position:relative;overflow:hidden;z-index:1}
 
-/* ── PORTAL ── */
+/* ── PORTAL ── transparent so the starfield shines through */
 #portal{position:absolute;inset:0;display:flex;flex-direction:column;
-  overflow:hidden;background:var(--bg)}
+  overflow:hidden;background:transparent}
 .ph{display:flex;align-items:center;padding:52px 20px 0;flex-shrink:0;gap:10px}
 .ph-wordmark{display:flex;align-items:baseline;gap:7px;flex:1}
 .ph-remy{font-family:var(--fd);font-size:16px;font-weight:500;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--ink);
-  opacity:0;transition:opacity 0.25s var(--ease)}
+  text-transform:uppercase;color:var(--moon);
+  text-shadow:0 0 8px rgba(245,232,200,0.42),0 0 16px rgba(245,232,200,0.22);
+  opacity:0;transition:opacity 0.3s var(--ease)}
 .ph-remy.in{opacity:1}
 .ph-brand{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--ink-60);
-  opacity:0;transition:opacity 0.4s var(--ease)}
+  opacity:0;transition:opacity 0.45s var(--ease)}
 .ph-brand.in{opacity:1}
 .ph-actions{display:flex;align-items:center;gap:4px}
 .ph-icon-btn{background:none;border:none;cursor:pointer;padding:8px;
@@ -69,18 +82,24 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 .portal-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:22px 20px 0}
 .portal-prompt{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--ink);
   margin-bottom:20px;line-height:1.15;
-  opacity:0;animation:fadeUp 0.4s var(--ease) 1.7s forwards}
+  opacity:0;animation:fadeUp 0.4s var(--ease) 1.85s forwards}
 .mode-cards{display:flex;flex-direction:column;gap:10px}
 .portal-footer{padding:16px 20px 34px;flex-shrink:0}
 
-/* ── MODE CARD ── */
-.mode-card{background:var(--bg-card);border:1px solid var(--ink-12);border-radius:6px;
-  padding:18px 18px 16px 14px;display:flex;align-items:stretch;gap:14px;
-  cursor:pointer;-webkit-tap-highlight-color:transparent;
-  transition:background var(--d);user-select:none;
+/* ── MODE CARD ── moonlit, no accent strip */
+.mode-card{position:relative;background:var(--bg-card);border:1px solid rgba(245,232,200,0.16);
+  border-radius:8px;padding:18px 18px 16px 18px;display:flex;align-items:stretch;gap:14px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;
+  box-shadow:0 0 0 1px rgba(245,232,200,0.04),
+             0 0 18px -6px rgba(245,232,200,0.22),
+             0 0 38px -14px rgba(245,232,200,0.18) inset;
+  transition:background var(--d),box-shadow var(--d),border-color var(--d);
   opacity:0;animation:cardIn 0.38s var(--ease) forwards}
-.mode-card:active{background:var(--bg-card-h)}
-.mc-accent{width:3px;border-radius:2px;flex-shrink:0}
+.mode-card:active{background:var(--bg-card-h);
+  box-shadow:0 0 0 1px rgba(245,232,200,0.10),
+             0 0 26px -4px rgba(245,232,200,0.32),
+             0 0 38px -14px rgba(245,232,200,0.22) inset;
+  border-color:rgba(245,232,200,0.28)}
 .mc-body{flex:1;min-width:0}
 .mc-label{font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);line-height:1.05}
 .mc-desc{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--ink-60);
@@ -88,7 +107,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 .mc-arrow{font-size:18px;color:var(--ink-30);align-self:center;flex-shrink:0}
 
 /* ── VENDOR ALERT ── */
-.vendor-alert{margin-top:14px;background:var(--terra-bg);border:1px solid rgba(184,78,38,0.2);
+.vendor-alert{margin-top:14px;background:var(--terra-bg);border:1px solid rgba(224,135,99,0.3);
   border-radius:6px;padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;
   display:none}
 .vendor-alert.show{display:block}
@@ -282,7 +301,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 /* ── SETTINGS SHEET ── */
 #settings-sheet{position:fixed;inset:0;z-index:600;pointer-events:none}
 #settings-sheet.open{pointer-events:all}
-.ss-backdrop{position:absolute;inset:0;background:rgba(28,24,15,0.4);opacity:0;
+.ss-backdrop{position:absolute;inset:0;background:rgba(6,10,28,0.7);opacity:0;
   transition:opacity var(--d)}
 #settings-sheet.open .ss-backdrop{opacity:1}
 .ss-panel{position:absolute;bottom:0;left:0;right:0;height:70%;background:var(--bg-card);
@@ -312,7 +331,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 /* ── FULL VIEW ── */
 #full-view{position:fixed;inset:0;z-index:500;pointer-events:none}
 #full-view.open{pointer-events:all}
-.fv-bd{position:absolute;inset:0;background:rgba(28,24,15,0.45);opacity:0;transition:opacity var(--d)}
+.fv-bd{position:absolute;inset:0;background:rgba(6,10,28,0.7);opacity:0;transition:opacity var(--d)}
 #full-view.open .fv-bd{opacity:1}
 .fv-sheet{position:absolute;bottom:0;left:0;right:0;height:92%;background:var(--bg-card);
   border-radius:10px 10px 0 0;display:flex;flex-direction:column;overflow:hidden;
@@ -337,9 +356,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 .fv-row:last-child{border-bottom:none}
 .fv-rn{font-family:var(--fd);font-size:16px;color:var(--ink);padding:8px 0}
 .fv-cell{height:26px;border-radius:3px;display:flex;align-items:center;justify-content:center}
-.fv-c0{background:transparent}.fv-c1{background:rgba(70,89,43,0.18)}
-.fv-c2{background:rgba(70,89,43,0.45)}.fv-c3{background:rgba(155,122,40,0.28)}
-.fv-c4{background:transparent;border:1px dashed rgba(70,89,43,0.28)}
+.fv-c0{background:transparent}.fv-c1{background:rgba(168,185,126,0.20)}
+.fv-c2{background:rgba(168,185,126,0.42)}.fv-c3{background:rgba(226,185,94,0.30)}
+.fv-c4{background:transparent;border:1px dashed rgba(168,185,126,0.32)}
 .fv-dot{width:5px;height:5px;border-radius:50%}
 .fv-c0 .fv-dot{display:none}.fv-c1 .fv-dot{background:var(--olive);opacity:0.6}
 .fv-c2 .fv-dot{background:var(--olive);width:7px;height:7px}
@@ -352,6 +371,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
 </style>
 </head>
 <body>
+
+<!-- STARFIELD -->
+<svg id="stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1800" preserveAspectRatio="xMidYMid slice"><circle cx="219" cy="434" r="0.71" fill="#f5e8c8" opacity="0.58"/><circle cx="367" cy="214" r="1.04" fill="#f5e8c8" opacity="0.35"/><circle cx="624" cy="288" r="1.01" fill="#f5e8c8" opacity="0.61"/><circle cx="583" cy="1432" r="0.62" fill="#f5e8c8" opacity="0.52"/><circle cx="838" cy="559" r="0.68" fill="#f5e8c8" opacity="0.55"/><circle cx="386" cy="426" r="0.64" fill="#f5e8c8" opacity="0.33"/><circle cx="467" cy="1727" r="0.93" fill="#f5e8c8" opacity="0.46"/><circle cx="918" cy="1208" r="0.86" fill="#f5e8c8" opacity="0.49"/><circle cx="224" cy="483" r="0.89" fill="#f5e8c8" opacity="0.62"/><circle cx="697" cy="1381" r="1.01" fill="#f5e8c8" opacity="0.66"/><circle cx="47" cy="1710" r="0.87" fill="#f5e8c8" opacity="0.4"/><circle cx="410" cy="990" r="0.59" fill="#f5e8c8" opacity="0.39"/><circle cx="740" cy="58" r="1.36" fill="#f5e8c8" opacity="0.65"/><circle cx="993" cy="385" r="0.54" fill="#f5e8c8" opacity="0.64"/><circle cx="724" cy="72" r="1.0" fill="#f5e8c8" opacity="0.39"/><circle cx="55" cy="683" r="0.77" fill="#f5e8c8" opacity="0.66"/><circle cx="384" cy="1380" r="0.71" fill="#f5e8c8" opacity="0.56"/><circle cx="59" cy="742" r="0.7" fill="#f5e8c8" opacity="0.53"/><circle cx="668" cy="552" r="0.84" fill="#f5e8c8" opacity="0.35"/><circle cx="426" cy="721" r="0.9" fill="#f5e8c8" opacity="0.39"/><circle cx="159" cy="365" r="2.34" fill="#f5e8c8" opacity="0.88"/><circle cx="80" cy="958" r="1.66" fill="#f5e8c8" opacity="0.7"/><circle cx="711" cy="1112" r="0.84" fill="#f5e8c8" opacity="0.37"/><circle cx="799" cy="1230" r="1.52" fill="#f5e8c8" opacity="0.71"/><circle cx="471" cy="85" r="1.04" fill="#f5e8c8" opacity="0.45"/><circle cx="271" cy="1731" r="0.6" fill="#f5e8c8" opacity="0.53"/><circle cx="745" cy="1134" r="0.72" fill="#f5e8c8" opacity="0.36"/><circle cx="247" cy="1313" r="1.05" fill="#f5e8c8" opacity="0.45"/><circle cx="403" cy="1736" r="0.97" fill="#f5e8c8" opacity="0.68"/><circle cx="978" cy="677" r="1.58" fill="#f5e8c8" opacity="0.73"/><circle cx="908" cy="538" r="0.93" fill="#f5e8c8" opacity="0.4"/><circle cx="355" cy="1362" r="1.0" fill="#f5e8c8" opacity="0.35"/><circle cx="75" cy="1378" r="1.44" fill="#f5e8c8" opacity="0.85"/><circle cx="79" cy="1793" r="1.65" fill="#f5e8c8" opacity="0.61"/><circle cx="893" cy="299" r="0.84" fill="#f5e8c8" opacity="0.59"/><circle cx="760" cy="790" r="0.91" fill="#f5e8c8" opacity="0.65"/><circle cx="934" cy="1427" r="1.05" fill="#f5e8c8" opacity="0.39"/><circle cx="780" cy="1396" r="0.74" fill="#f5e8c8" opacity="0.69"/><circle cx="831" cy="1026" r="1.07" fill="#f5e8c8" opacity="0.43"/><circle cx="541" cy="1401" r="0.66" fill="#f5e8c8" opacity="0.35"/><circle cx="951" cy="1659" r="1.07" fill="#f5e8c8" opacity="0.4"/><circle cx="130" cy="1262" r="1.43" fill="#f5e8c8" opacity="0.6"/><circle cx="572" cy="676" r="0.83" fill="#f5e8c8" opacity="0.57"/><circle cx="353" cy="165" r="0.69" fill="#f5e8c8" opacity="0.34"/><circle cx="674" cy="469" r="0.68" fill="#f5e8c8" opacity="0.41"/><circle cx="880" cy="225" r="0.51" fill="#f5e8c8" opacity="0.64"/><circle cx="374" cy="1164" r="0.96" fill="#f5e8c8" opacity="0.32"/><circle cx="768" cy="511" r="2.33" fill="#f5e8c8" opacity="0.92"/><circle cx="931" cy="98" r="1.03" fill="#f5e8c8" opacity="0.46"/><circle cx="590" cy="1432" r="1.85" fill="#f5e8c8" opacity="0.83"/><circle cx="716" cy="1023" r="1.33" fill="#f5e8c8" opacity="0.58"/><circle cx="36" cy="219" r="0.83" fill="#f5e8c8" opacity="0.33"/><circle cx="722" cy="1499" r="1.58" fill="#f5e8c8" opacity="0.68"/><circle cx="814" cy="365" r="0.85" fill="#f5e8c8" opacity="0.57"/><circle cx="195" cy="1550" r="0.88" fill="#f5e8c8" opacity="0.32"/><circle cx="242" cy="501" r="0.54" fill="#f5e8c8" opacity="0.69"/><circle cx="650" cy="1480" r="0.69" fill="#f5e8c8" opacity="0.47"/><circle cx="250" cy="695" r="0.6" fill="#f5e8c8" opacity="0.6"/><circle cx="869" cy="438" r="0.95" fill="#f5e8c8" opacity="0.42"/><circle cx="224" cy="1555" r="0.73" fill="#f5e8c8" opacity="0.39"/><circle cx="670" cy="797" r="1.31" fill="#f5e8c8" opacity="0.61"/><circle cx="937" cy="1026" r="0.61" fill="#f5e8c8" opacity="0.66"/><circle cx="616" cy="1275" r="0.88" fill="#f5e8c8" opacity="0.69"/><circle cx="885" cy="1035" r="0.56" fill="#f5e8c8" opacity="0.54"/><circle cx="142" cy="580" r="0.81" fill="#f5e8c8" opacity="0.39"/><circle cx="33" cy="298" r="1.05" fill="#f5e8c8" opacity="0.36"/><circle cx="372" cy="1046" r="1.64" fill="#f5e8c8" opacity="0.77"/><circle cx="278" cy="1409" r="2.27" fill="#f5e8c8" opacity="0.89"/><circle cx="81" cy="915" r="0.63" fill="#f5e8c8" opacity="0.53"/><circle cx="15" cy="67" r="0.56" fill="#f5e8c8" opacity="0.37"/><circle cx="182" cy="1539" r="1.01" fill="#f5e8c8" opacity="0.33"/><circle cx="439" cy="1678" r="1.01" fill="#f5e8c8" opacity="0.63"/><circle cx="921" cy="1335" r="0.84" fill="#f5e8c8" opacity="0.41"/><circle cx="487" cy="983" r="0.88" fill="#f5e8c8" opacity="0.64"/><circle cx="553" cy="1432" r="0.73" fill="#f5e8c8" opacity="0.6"/><circle cx="333" cy="1480" r="0.88" fill="#f5e8c8" opacity="0.7"/><circle cx="613" cy="217" r="0.71" fill="#f5e8c8" opacity="0.62"/><circle cx="265" cy="10" r="0.57" fill="#f5e8c8" opacity="0.52"/><circle cx="163" cy="197" r="0.56" fill="#f5e8c8" opacity="0.54"/><circle cx="687" cy="96" r="0.69" fill="#f5e8c8" opacity="0.38"/><circle cx="126" cy="1241" r="0.69" fill="#f5e8c8" opacity="0.64"/><circle cx="282" cy="1617" r="1.52" fill="#f5e8c8" opacity="0.8"/><circle cx="552" cy="1468" r="0.55" fill="#f5e8c8" opacity="0.58"/><circle cx="182" cy="1617" r="0.91" fill="#f5e8c8" opacity="0.43"/><circle cx="166" cy="744" r="0.9" fill="#f5e8c8" opacity="0.37"/><circle cx="933" cy="1023" r="0.97" fill="#f5e8c8" opacity="0.54"/><circle cx="34" cy="63" r="0.52" fill="#f5e8c8" opacity="0.36"/><circle cx="423" cy="170" r="0.75" fill="#f5e8c8" opacity="0.34"/><circle cx="462" cy="683" r="0.53" fill="#f5e8c8" opacity="0.36"/><circle cx="45" cy="1750" r="1.69" fill="#f5e8c8" opacity="0.65"/><circle cx="952" cy="806" r="0.72" fill="#f5e8c8" opacity="0.52"/><circle cx="646" cy="1725" r="0.94" fill="#f5e8c8" opacity="0.47"/><circle cx="839" cy="39" r="0.86" fill="#f5e8c8" opacity="0.55"/><circle cx="162" cy="334" r="1.34" fill="#f5e8c8" opacity="0.67"/><circle cx="175" cy="84" r="0.84" fill="#f5e8c8" opacity="0.59"/><circle cx="742" cy="868" r="1.48" fill="#f5e8c8" opacity="0.67"/><circle cx="974" cy="89" r="1.1" fill="#f5e8c8" opacity="0.38"/><circle cx="961" cy="1240" r="1.01" fill="#f5e8c8" opacity="0.69"/><circle cx="639" cy="664" r="0.85" fill="#f5e8c8" opacity="0.42"/><circle cx="330" cy="261" r="0.64" fill="#f5e8c8" opacity="0.43"/><circle cx="778" cy="242" r="1.26" fill="#f5e8c8" opacity="0.71"/><circle cx="770" cy="1062" r="1.35" fill="#f5e8c8" opacity="0.76"/><circle cx="66" cy="1185" r="0.92" fill="#f5e8c8" opacity="0.44"/><circle cx="255" cy="899" r="1.24" fill="#f5e8c8" opacity="0.62"/><circle cx="458" cy="1787" r="0.95" fill="#f5e8c8" opacity="0.44"/><circle cx="424" cy="221" r="0.9" fill="#f5e8c8" opacity="0.55"/><circle cx="280" cy="1332" r="0.76" fill="#f5e8c8" opacity="0.41"/><circle cx="719" cy="298" r="2.07" fill="#f5e8c8" opacity="0.88"/><circle cx="222" cy="1447" r="0.75" fill="#f5e8c8" opacity="0.38"/><circle cx="388" cy="812" r="1.41" fill="#f5e8c8" opacity="0.59"/></svg>
 
 <!-- INTRO -->
 <div id="intro"><div class="intro-word">Remy</div></div>
@@ -450,7 +472,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
   <div class="flow-wrap" id="event-flow"></div>
 </div>
 
-<!-- SCREEN: PLANNING -->
+<!-- SCREEN: PLANNING (seasonal menu change) -->
 <div class="ss" id="screen-planning">
   <div class="sh">
     <button class="back-btn" onclick="goBack()">&#8592; Back</button>
@@ -458,6 +480,16 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
   </div>
   <div class="sh-rule"></div>
   <div class="flow-wrap" id="planning-flow"></div>
+</div>
+
+<!-- SCREEN: MENU ITEM (single dish swap) -->
+<div class="ss" id="screen-menuitem">
+  <div class="sh">
+    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
+    <span class="sh-title">Swap a Dish</span>
+  </div>
+  <div class="sh-rule"></div>
+  <div class="flow-wrap" id="menuitem-flow"></div>
 </div>
 
 <!-- SCREEN: MARKET -->
@@ -7651,14 +7683,26 @@ function runShorted(val){
   el.innerHTML=html;
 }
 
-// ── EVENT / PLANNING FLOWS ──────────────────────────────────────────
-// Buckets are computed dynamically from the current month — current + next 3 months by name.
-// 'look' controls how many months ahead the planning window expands beyond the start.
-function getBuckets(){
+// ── EVENT / PLANNING / MENUITEM FLOWS ──────────────────────────────────
+// Three flow shapes:
+//   event    → date picker only (single target month)
+//   planning → seasons (Spring/Summer/Fall/Winter) + date picker fallback (3-month span)
+//   menuitem → months (this month + next 3) + date picker (single target month, planning view)
+
+// Season → 3 month indices (Northern Hemisphere, Pacific NW)
+var SEASONS=[
+  {id:'spring', label:'Spring', months:[2,3,4]},   // Mar Apr May
+  {id:'summer', label:'Summer', months:[5,6,7]},   // Jun Jul Aug
+  {id:'fall',   label:'Fall',   months:[8,9,10]},  // Sep Oct Nov
+  {id:'winter', label:'Winter', months:[11,0,1]},  // Dec Jan Feb
+];
+
+function getMonthBuckets(){
+  // current + next 3, by name
   var out=[];
   for(var i=0;i<4;i++){
     var m=(curM+i)%12;
-    out.push({id:'m'+i, label:MONTHS[m], months:i, look:0});
+    out.push({id:'m'+i, label:MONTHS[m], monthIndex:m});
   }
   return out;
 }
@@ -7666,27 +7710,48 @@ function getBuckets(){
 function buildFlow(containerId, mode){
   var el=document.getElementById(containerId);
   if(!el) return;
-  var title=mode==='event'?'When is it?':'When does it need to launch?';
-  var buckets=getBuckets();
-  el.innerHTML='<div class="flow-question">'+title+'</div>'+
-    '<div class="bucket-grid">'+
-      buckets.map(function(b){
-        return '<button class="bucket-btn" onclick="selectBucket(\''+containerId+'\',\''+mode+'\',\''+b.id+'\','+b.months+',this)">'+b.label+'</button>';
-      }).join('')+
-      '<button class="bucket-btn wide" onclick="toggleDatePicker(\''+containerId+'\',\''+mode+'\',this)">Pick a date</button>'+
-    '</div>'+
-    '<input type="date" class="date-input" id="'+containerId+'-date" onchange="selectDate(\''+containerId+'\',\''+mode+'\',this.value)">'+
+  var html='';
+
+  if(mode==='event'){
+    html+='<div class="flow-question">When is the event?</div>'+
+      '<div class="bucket-grid">'+
+        '<button class="bucket-btn wide" onclick="toggleDatePicker(\''+containerId+'\',\''+mode+'\',this)">Pick a date</button>'+
+      '</div>';
+  } else if(mode==='planning'){
+    html+='<div class="flow-question">Which season are you planning for?</div>'+
+      '<div class="bucket-grid">'+
+        SEASONS.map(function(s){
+          return '<button class="bucket-btn" onclick="selectSeason(\''+containerId+'\',\''+s.id+'\',this)">'+s.label+'</button>';
+        }).join('')+
+        '<button class="bucket-btn wide" onclick="toggleDatePicker(\''+containerId+'\',\''+mode+'\',this)">Or pick a date</button>'+
+      '</div>';
+  } else { // menuitem
+    var buckets=getMonthBuckets();
+    html+='<div class="flow-question">Which month?</div>'+
+      '<div class="bucket-grid">'+
+        buckets.map(function(b){
+          return '<button class="bucket-btn" onclick="selectMonth(\''+containerId+'\',\''+mode+'\','+b.monthIndex+',this)">'+b.label+'</button>';
+        }).join('')+
+        '<button class="bucket-btn wide" onclick="toggleDatePicker(\''+containerId+'\',\''+mode+'\',this)">Or pick a date</button>'+
+      '</div>';
+  }
+
+  html+='<input type="date" class="date-input" id="'+containerId+'-date" onchange="selectDate(\''+containerId+'\',\''+mode+'\',this.value)">'+
     '<div class="flow-results" id="'+containerId+'-results"></div>';
+  el.innerHTML=html;
 }
 
-function selectBucket(containerId, mode, bucketId, monthsAheadVal, btn){
+function selectMonth(containerId, mode, monthIndex, btn){
   document.querySelectorAll('#'+containerId+' .bucket-btn').forEach(function(b){ b.classList.remove('sel'); });
   btn.classList.add('sel');
-  var di=document.getElementById(containerId+'-date');
-  if(di) di.classList.remove('show');
-  // event mode targets a single month; planning mode looks at that month + the next one
-  var look = (mode==='planning') ? 1 : 0;
-  renderFlowResults(containerId, mode, monthsAheadVal, look);
+  renderFlowResults(containerId, mode, [monthIndex]);
+}
+
+function selectSeason(containerId, seasonId, btn){
+  document.querySelectorAll('#'+containerId+' .bucket-btn').forEach(function(b){ b.classList.remove('sel'); });
+  btn.classList.add('sel');
+  var s=SEASONS.find(function(x){ return x.id===seasonId; });
+  if(s) renderFlowResults(containerId, 'planning', s.months, s.label);
 }
 
 function toggleDatePicker(containerId, mode, btn){
@@ -7706,19 +7771,28 @@ function selectDate(containerId, mode, val){
   if(!val) return;
   var d=new Date(val);
   var m=d.getMonth();
-  var ahead=((m-curM)+12)%12;
-  renderFlowResults(containerId, mode, ahead, Math.min(ahead+1,3));
+  // Event + menuitem: single-month focus on the picked date's month.
+  // Planning: show the 3-month span starting at the picked date's month.
+  if(mode==='planning'){
+    var months=[m, (m+1)%12, (m+2)%12];
+    renderFlowResults(containerId, mode, months, MONTHS[m]+'–'+MONTHS[(m+2)%12]);
+  } else {
+    renderFlowResults(containerId, mode, [m]);
+  }
 }
 
-function renderFlowResults(containerId, mode, startAhead, lookAhead){
+// monthIndices: array of 0-11 month indices (target window)
+// label: optional human-readable label for the window (used in section heads)
+function renderFlowResults(containerId, mode, monthIndices, label){
   var resEl=document.getElementById(containerId+'-results');
   if(!resEl) return;
   var ings=DATA.ingredients||[];
   var html='';
+  var winLabel = label || (monthIndices.length===1 ? MONTHS[monthIndices[0]] : MONTHS[monthIndices[0]]+'–'+MONTHS[monthIndices[monthIndices.length-1]]);
 
   if(mode==='event'){
-    // Show what's at peak in the target month
-    var target=monthsAhead(startAhead);
+    // Single-month event focus — what's at peak, what's arriving fresh
+    var target=monthIndices[0];
     var atPeak=ings.filter(function(i){ return sc(i,target)>=2; })
       .sort(function(a,b){ return catIdx(a)-catIdx(b)||a.name.localeCompare(b.name); });
     var arriving=ings.filter(function(i){
@@ -7727,33 +7801,31 @@ function renderFlowResults(containerId, mode, startAhead, lookAhead){
     }).sort(function(a,b){ return catIdx(a)-catIdx(b)||a.name.localeCompare(b.name); });
 
     if(atPeak.length){
-      html+='<div class="flow-section-hd">At peak '+MONTHS[target]+'</div>';
+      html+='<div class="flow-section-hd">At peak '+winLabel+'</div>';
       html+=atPeak.map(function(i){ return ingRow(i,'var(--terra)'); }).join('');
     }
     if(arriving.length){
-      html+='<div class="flow-section-hd">Arriving '+MONTHS[target]+'</div>';
+      html+='<div class="flow-section-hd">Arriving '+winLabel+'</div>';
       html+=arriving.map(function(i){ return ingRow(i,'var(--olive)'); }).join('');
     }
     if(!atPeak.length&&!arriving.length){
       html='<div class="flow-empty">Not enough trend data for that window yet.</div>';
     }
   } else {
-    // Planning: show what's available across the window
-    var months=[];
-    for(var i=0;i<=lookAhead;i++) months.push(monthsAhead(i+startAhead));
+    // Planning + menuitem: show what's available across the window + what's ending before it
     var available=ings.filter(function(ing){
-      return months.some(function(m){ return sc(ing,m)>0; });
+      return monthIndices.some(function(m){ return sc(ing,m)>0; });
     }).sort(function(a,b){ return catIdx(a)-catIdx(b)||a.name.localeCompare(b.name); });
     var endingSoon=ings.filter(function(ing){
-      return sc(ing,curM)>0 && months.every(function(m){ return sc(ing,m)===0; });
+      return sc(ing,curM)>0 && monthIndices.every(function(m){ return sc(ing,m)===0; });
     }).sort(function(a,b){ return catIdx(a)-catIdx(b)||a.name.localeCompare(b.name); });
 
     if(available.length){
-      html+='<div class="flow-section-hd">Available in your window</div>';
+      html+='<div class="flow-section-hd">Available in '+winLabel+'</div>';
       html+=available.map(function(i){ return ingRow(i,'var(--olive)'); }).join('');
     }
     if(endingSoon.length){
-      html+='<div class="flow-section-hd">Gone before then — use now</div>';
+      html+='<div class="flow-section-hd">Gone before '+winLabel+' — use now</div>';
       html+=endingSoon.map(function(i){ return ingRow(i,'var(--gold)'); }).join('');
     }
     if(!available.length){
@@ -7912,20 +7984,20 @@ function showVendorAlert(){
 
 // ── PORTAL CARDS ─────────────────────────────────────────────────────
 var MODE_DEFS=[
-  {id:'shorted',  label:'Got Shorted',          desc:'Find what\'s available to replace an ingredient now.',   accent:'var(--terra)',  action:function(){ resetShorted(); goTo('shorted'); setTimeout(function(){ var el=document.getElementById('shorted-input'); if(el) el.focus(); },320); }},
-  {id:'event',    label:'Event Coming Up',       desc:'Build around what will be at peak when you need it.',    accent:'var(--navy)',   action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
-  {id:'planning', label:'Planning a Menu Change',desc:'See what\'s arriving and fading in your launch window.', accent:'var(--olive)',  action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
-  {id:'market',   label:'How\'s the Market?',    desc:'Cost creep and value plays this week.',                  accent:'var(--gold)',   action:function(){ goTo('market'); }},
-  {id:'browse',   label:'Just Browsing',         desc:'Arriving, peaking, ending, and price moves.',            accent:'var(--ink-30)', action:function(){ goTo('browse'); }},
+  {id:'shorted',  label:'Got Shorted',         desc:'Find what\'s available to replace an ingredient now.',           action:function(){ resetShorted(); goTo('shorted'); setTimeout(function(){ var el=document.getElementById('shorted-input'); if(el) el.focus(); },320); }},
+  {id:'event',    label:'Event Coming Up',     desc:'Pick a date — see what will be at peak when you need it.',       action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
+  {id:'planning', label:'Planning a Menu Change',desc:'Big seasonal shift. Spring, summer, fall, winter.',             action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
+  {id:'menuitem', label:'Swap a Dish',         desc:'One item changing this month or soon. Month by month.',          action:function(){ goTo('menuitem'); buildFlow('menuitem-flow','menuitem'); }},
+  {id:'market',   label:'How\'s the Market?',  desc:'Cost creep and value plays this week.',                          action:function(){ goTo('market'); }},
+  {id:'browse',   label:'Just Browsing',       desc:'Arriving, peaking, ending, and price moves.',                    action:function(){ goTo('browse'); }},
 ];
 
 function buildPortal(){
   var el=document.getElementById('mode-cards');
   if(!el) return;
-  var BASE_DELAY=1.9;
+  var BASE_DELAY=2.05;
   el.innerHTML=MODE_DEFS.map(function(def,i){
     return '<div class="mode-card" style="animation-delay:'+(BASE_DELAY+i*0.08)+'s" onclick="handleMode('+i+')">'+
-      '<div class="mc-accent" style="background:'+def.accent+'"></div>'+
       '<div class="mc-body">'+
         '<div class="mc-label">'+def.label+'</div>'+
         '<div class="mc-desc">'+def.desc+'</div>'+
@@ -8051,18 +8123,25 @@ function runIntroMorph(){
       var tx = (hr.left + hr.width/2) - (wr.left + wr.width/2);
       var ty = (hr.top + hr.height/2) - (wr.top + wr.height/2);
 
-      // Phase 1: hold center for ~600ms (intro fade-in completes at ~0.6s)
-      // Phase 2: morph for 850ms (matches CSS transition duration)
+      // Phase 1: hold center for ~650ms (intro opacity fade-in completes at ~0.65s)
+      // Phase 2: morph for 950ms (matches CSS transition duration)
       // Phase 3: at end of morph, reveal header REMY + brand, fade overlay out
       setTimeout(function(){
         word.classList.add('morph');
+        // Force a reflow so the browser registers the .morph class (with its
+        // transition rule) BEFORE the inline transform change. Without this,
+        // Safari sometimes treats the transform write as initial-state and
+        // skips the transition — which is what made the shrink feel like a pop.
+        void word.offsetHeight;
         word.style.transform = 'translate('+tx+'px, '+ty+'px) scale('+scale+')';
-      }, 600);
+        // Same idea for the glow: shrink the text-shadow as it lands
+        word.classList.add('landed');
+      }, 650);
 
       setTimeout(function(){
         // Reveal the real header REMY at the exact spot the morph lands
         headerRemy.classList.add('in');
-      }, 1430);
+      }, 1530);
 
       setTimeout(function(){
         // San Fermo brand fades in alongside, just after REMY settles
@@ -8070,7 +8149,7 @@ function runIntroMorph(){
         // Fade the overlay (which contains the morphed intro word) so the
         // header REMY underneath is what stays visible
         intro.classList.add('gone');
-      }, 1500);
+      }, 1620);
     });
   });
 }
