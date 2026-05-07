@@ -8605,7 +8605,7 @@ var MODE_DEFS=[
   {id:'shorted',  label:'Got Shorted',         desc:'Find what\'s available to replace an ingredient now.',           action:function(){ resetShorted(); goTo('shorted'); setTimeout(function(){ var el=document.getElementById('shorted-input'); if(el) el.focus(); },320); }},
   {id:'event',    label:'Event Coming Up',     desc:'Pick a date — see what will be at peak when you need it.',       action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
   {id:'planning', label:'Planning a Menu Change',desc:'Big seasonal shift. Spring, summer, fall, winter.',             action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
-  {id:'menuitem', label:'How's the Menu?',         desc:'Pick from your current menu. See what to swap with what\'s in season.', action:function(){ goTo('menuitem'); buildSwapDishList(); }},
+  {id:'menuitem', label:"How's the Menu?",         desc:'Pick from your current menu. See what to swap with what\'s in season.', action:function(){ goTo('menuitem'); buildSwapDishList(); }},
   {id:'market',   label:'How\'s the Market?',  desc:'Cost creep and value plays this week.',                          action:function(){ goTo('market'); }},
   {id:'browse',   label:'Just Browsing',       desc:'Arriving, peaking, ending, and price moves.',                    action:function(){ goTo('browse'); }},
 ];
