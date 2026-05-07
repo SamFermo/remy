@@ -558,7 +558,7 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 <div class="ss" id="screen-menuitem">
   <div class="sh">
     <button class="back-btn" onclick="goBack()">&#8592; Back</button>
-    <span class="sh-title">Swap a Dish</span>
+    <span class="sh-title">How's the Menu?</span>
   </div>
   <div class="sh-rule"></div>
   <div class="flow-wrap" id="menuitem-wrap"></div>
@@ -7406,8 +7406,8 @@ const DATA = {
           "description": "",
           "components": [
             "Sea Wolf baguette",
-            "les pres sales cultured butter",
-            "sea salt"
+            "les pres sales butter",
+            "Maldon sea salt"
           ],
           "slot": ""
         },
@@ -7416,12 +7416,11 @@ const DATA = {
           "description": "",
           "components": [
             "castelvetrano olives",
-            "fennel pollen",
             "citrus peel",
             "garlic",
             "chili flake",
             "olive oil",
-            "rosemary"
+            "fennel pollen"
           ],
           "slot": ""
         },
@@ -7430,9 +7429,9 @@ const DATA = {
           "description": "",
           "components": [
             "marcona almonds",
+            "Maldon sea salt",
             "fried rosemary",
-            "sea salt",
-            "olive oil"
+            "rosemary frying oil"
           ],
           "slot": ""
         },
@@ -7440,11 +7439,11 @@ const DATA = {
           "name": "Farinata",
           "description": "",
           "components": [
-            "chickpea flour flatbread",
-            "house cagliata",
-            "Swan House Farm seasonal preserves",
-            "sea salt",
-            "olive oil"
+            "chickpea flour",
+            "rosemary olive oil",
+            "housemade cagliatta",
+            "rhubarb caramelized onion jam",
+            "thyme leaves"
           ],
           "slot": ""
         },
@@ -7452,11 +7451,13 @@ const DATA = {
           "name": "House Caesar",
           "description": "",
           "components": [
-            "gem or romaine lettuce",
-            "house caesar dressing",
-            "white anchovy",
+            "romaine lettuce",
+            "caesar dressing",
             "parmigiano reggiano",
-            "red wine vinegar croutons"
+            "lemon",
+            "black pepper",
+            "boquerones anchovies",
+            "red wine croutons"
           ],
           "slot": ""
         },
@@ -7464,11 +7465,14 @@ const DATA = {
           "name": "Endive Salad",
           "description": "",
           "components": [
-            "belgian endive",
+            "endive",
             "frisee",
             "smoked trout",
             "oregano vinaigrette",
-            "marcona almond"
+            "fresno chili",
+            "chives",
+            "parsley",
+            "marcona almonds"
           ],
           "slot": ""
         },
@@ -7477,11 +7481,16 @@ const DATA = {
           "description": "",
           "components": [
             "burrata",
-            "radicchio",
-            "red bell pepper",
-            "aged balsamic vinegar",
-            "fresh mint",
-            "crostini"
+            "english peas",
+            "snap peas",
+            "mint",
+            "dill",
+            "english pea puree",
+            "bresaola",
+            "crostini",
+            "Maldon sea salt",
+            "black pepper",
+            "olive oil"
           ],
           "slot": ""
         },
@@ -7490,12 +7499,14 @@ const DATA = {
           "description": "",
           "components": [
             "grilled bread",
-            "speck",
-            "poached pear",
-            "gorgonzola dolce",
-            "walnuts",
-            "miners lettuce",
-            "saba"
+            "ricotta",
+            "roasted red peppers",
+            "peruvian pickled peppers",
+            "basil",
+            "balsamic vinegar",
+            "Maldon sea salt",
+            "black pepper",
+            "olive oil"
           ],
           "slot": ""
         }
@@ -7509,13 +7520,9 @@ const DATA = {
           "description": "",
           "components": [
             "saffron spaghetti",
-            "pork",
-            "veal",
-            "san marzano tomato",
-            "rosemary",
-            "fennel",
-            "white wine",
-            "parmigiano reggiano"
+            "pork and veal bolognese ragu",
+            "parmigiano reggiano",
+            "oregano"
           ],
           "slot": ""
         },
@@ -7523,12 +7530,12 @@ const DATA = {
           "name": "Agnolotti del Plin",
           "description": "",
           "components": [
-            "house pasta dough",
+            "egg pasta dough",
             "lemon ricotta filling",
-            "preserved meyer lemon",
             "nettle pesto",
-            "pistachio",
-            "brown butter"
+            "preserved lemon peel",
+            "pistachios",
+            "parmigiano reggiano"
           ],
           "slot": ""
         },
@@ -7551,9 +7558,10 @@ const DATA = {
           "components": [
             "paccheri pasta",
             "guanciale",
-            "san marzano tomato",
+            "marinara sauce",
             "pecorino romano",
-            "black pepper"
+            "black pepper",
+            "red onions"
           ],
           "slot": "roman_pasta"
         },
@@ -7561,10 +7569,14 @@ const DATA = {
           "name": "Risotto Funghi",
           "description": "",
           "components": [
-            "Par-cooked risotto base",
-            "Risotto pick-up",
-            "Marinated maitake mushrooms",
-            "Final garnish"
+            "par-cooked risotto base",
+            "roasted cultivated mushrooms",
+            "butter",
+            "lemon",
+            "goat cheese",
+            "fried leeks",
+            "marjoram",
+            "marinated maitake mushrooms"
           ],
           "slot": "risotto"
         },
@@ -7573,11 +7585,12 @@ const DATA = {
           "description": "",
           "components": [
             "sea scallops",
-            "stone ground polenta",
-            "tomato concasse",
-            "fresh basil",
-            "duck fat",
-            "lemon"
+            "asparagus",
+            "fingerling potatoes",
+            "ramps",
+            "butter lemon braising stock",
+            "thyme",
+            "parsley"
           ],
           "slot": "fish"
         },
@@ -7585,11 +7598,10 @@ const DATA = {
           "name": "Filet Mignon",
           "description": "",
           "components": [
-            "filet mignon",
-            "confit fingerling potatoes",
-            "garlic aioli",
-            "horseradish gremolata",
-            "herb garnish"
+            "beef tenderloin",
+            "polenta",
+            "creamed spinach",
+            "horseradish gremolata"
           ],
           "slot": "meat"
         }
@@ -8593,7 +8605,7 @@ var MODE_DEFS=[
   {id:'shorted',  label:'Got Shorted',         desc:'Find what\'s available to replace an ingredient now.',           action:function(){ resetShorted(); goTo('shorted'); setTimeout(function(){ var el=document.getElementById('shorted-input'); if(el) el.focus(); },320); }},
   {id:'event',    label:'Event Coming Up',     desc:'Pick a date — see what will be at peak when you need it.',       action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
   {id:'planning', label:'Planning a Menu Change',desc:'Big seasonal shift. Spring, summer, fall, winter.',             action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
-  {id:'menuitem', label:'Swap a Dish',         desc:'Pick from your current menu. See what to swap with what\'s in season.', action:function(){ goTo('menuitem'); buildSwapDishList(); }},
+  {id:'menuitem', label:'How's the Menu?',         desc:'Pick from your current menu. See what to swap with what\'s in season.', action:function(){ goTo('menuitem'); buildSwapDishList(); }},
   {id:'market',   label:'How\'s the Market?',  desc:'Cost creep and value plays this week.',                          action:function(){ goTo('market'); }},
   {id:'browse',   label:'Just Browsing',       desc:'Arriving, peaking, ending, and price moves.',                    action:function(){ goTo('browse'); }},
 ];
