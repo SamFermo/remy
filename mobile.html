@@ -7492,6 +7492,7 @@ const DATA = {
         {
           "name": "Sea Wolf Bakery Baguette",
           "description": "",
+          "brief": "table bread \u2014 no seasonal pitch",
           "components": [
             "Sea Wolf baguette",
             "les pres sales butter",
@@ -7502,6 +7503,7 @@ const DATA = {
         {
           "name": "Castelvetrano Olives",
           "description": "",
+          "brief": "pantry snack \u2014 no seasonal pitch",
           "components": [
             "castelvetrano olives",
             "citrus peel",
@@ -7515,6 +7517,7 @@ const DATA = {
         {
           "name": "Marcona Almonds",
           "description": "",
+          "brief": "pantry snack \u2014 no seasonal pitch",
           "components": [
             "marcona almonds",
             "Maldon sea salt",
@@ -7526,6 +7529,7 @@ const DATA = {
         {
           "name": "Farinata",
           "description": "",
+          "brief": "savory chickpea crepe; topping layer (currently onion jam + cagliatta) is the seasonal canvas; stays earthy, Italian, composed",
           "components": [
             "chickpea flour",
             "rosemary olive oil",
@@ -7538,6 +7542,7 @@ const DATA = {
         {
           "name": "House Caesar",
           "description": "",
+          "brief": "classic plated salad; dressing, crouton, and anchovy are fixed; seasonal move is a green swap or herb finish \u2014 it stays a Caesar",
           "components": [
             "romaine lettuce",
             "caesar dressing",
@@ -7552,6 +7557,7 @@ const DATA = {
         {
           "name": "Endive Salad",
           "description": "",
+          "brief": "bitter greens salad with no fixed anchor \u2014 the entire dish can shift to a different salad format if the season calls for it",
           "components": [
             "endive",
             "frisee",
@@ -7567,6 +7573,7 @@ const DATA = {
         {
           "name": "Burrata",
           "description": "",
+          "brief": "composed cheese plate; the fruit/veg/herb accompaniment changes weekly and is the dish's identity \u2014 wide latitude in direction",
           "components": [
             "burrata",
             "english peas",
@@ -7585,6 +7592,7 @@ const DATA = {
         {
           "name": "Bruschetta",
           "description": "",
+          "brief": "3 long grilled bread pieces, 4-5 bites each; bread is the only anchor; dish can become any antipasto entirely \u2014 no fixed ingredients",
           "components": [
             "grilled bread",
             "ricotta",
@@ -7606,6 +7614,7 @@ const DATA = {
         {
           "name": "Saffron Spaghetti Bolognese",
           "description": "",
+          "brief": "this dish never changes \u2014 no pitch",
           "components": [
             "saffron spaghetti",
             "pork and veal bolognese ragu",
@@ -7617,6 +7626,7 @@ const DATA = {
         {
           "name": "Agnolotti del Plin",
           "description": "",
+          "brief": "stuffed pasta format is the only anchor; filling, sauce, and garnish can all shift; 2 of 3 elements should be seasonal",
           "components": [
             "egg pasta dough",
             "lemon ricotta filling",
@@ -7630,6 +7640,7 @@ const DATA = {
         {
           "name": "Mafaldine Aglio e Olio",
           "description": "",
+          "brief": "extruded pasta is the anchor \u2014 mafaldine, paccheri, bucatini, spaghetti, conchiglioni, or creste de gallo; not limited to vegetarian; 1-2 seasonal ingredients should shine; anything goes in the composition",
           "components": [
             "mafaldine pasta",
             "olive oil",
@@ -7643,6 +7654,7 @@ const DATA = {
         {
           "name": "Paccheri all'Amatriciana",
           "description": "",
+          "brief": "Roman pasta technique is the anchor \u2014 carbonara, amatriciana, alla gricia, or cacio e pepe all work; slight seasonal upgrades acceptable but the Roman style is fixed",
           "components": [
             "paccheri pasta",
             "guanciale",
@@ -7656,6 +7668,7 @@ const DATA = {
         {
           "name": "Risotto Funghi",
           "description": "",
+          "brief": "gluten-free is the only anchor; everything else can swing freely; should be modifiable to vegetarian but doesn't have to start there",
           "components": [
             "par-cooked risotto base",
             "roasted cultivated mushrooms",
@@ -7671,6 +7684,7 @@ const DATA = {
         {
           "name": "Sea Scallops",
           "description": "",
+          "brief": "seafood is the anchor and the specific seafood rotates seasonally; at least one ingredient in the set should shine; complete flexibility in composition and style; when the dish changes the protein changes",
           "components": [
             "sea scallops",
             "asparagus",
@@ -7685,6 +7699,7 @@ const DATA = {
         {
           "name": "Filet Mignon",
           "description": "",
+          "brief": "non-seafood protein is the anchor and the specific protein can rotate; at least one ingredient in the set should shine; complete flexibility in composition and style; when the dish changes the protein changes",
           "components": [
             "beef tenderloin",
             "polenta",
@@ -8262,18 +8277,21 @@ function openDishDetail(dishName){
 // Add/extend as the menu evolves — keys = dish name.toLowerCase().
 var DISH_AFFINITIES = {
   'agnolotti del plin':           ['nettle','pea','fava','herb','sorrel','spinach','fiddlehead','fern','lemon','greens','shoots'],
-  'mafaldine aglio e olio':       ['asparagus','ramp','fiddlehead','nettle','pea','shoots','green','leek','mushroom','herb','allium','spring'],
+  'mafaldine aglio e olio':       [],  // extruded pasta anchor only — anything goes, pass all signals
   "paccheri all'amatriciana":    ['tomato','pepper','fennel','guanciale','pork','chili'],
   'saffron spaghetti bolognese':  ['tomato','fennel','pork','veal','mushroom','herb','rosemary','morel','wine cap'],
-  'risotto funghi':               ['mushroom','maitake','morel','chanterelle','wine cap','truffle','porcini','leek','marjoram','herb','wild'],
+  'risotto funghi':               [],  // GF is the only anchor — everything else can swing, pass all signals
   'sea scallops':                 ['scallop','crab','shrimp','prawn','salmon','halibut','cod','rockfish','lingcod','oyster','clam','dungeness','lobster','tomato','corn','basil','pea','herb'],
-  'filet mignon':                 ['mushroom','potato','fingerling','ramp','truffle','asparagus','herb','leek','allium','morel'],
-  'grilled bavette':              ['mushroom','potato','fingerling','ramp','herb','allium','leek'],
+  // Fully flexible — no affinity filter, pass all signals through so the Worker
+  // can use the brief to decide what's interesting (protein can rotate, dish can
+  // become something else, etc.)
+  'filet mignon':                 [],
+  'grilled bavette':              [],
   'farinata':                     ['herb','nettle','pea','sorrel','greens','mushroom','squash','flower','ramp'],
   'house caesar':                 ['anchovy','fish','salmon','herb','greens','lettuce','ramp','allium'],
-  'endive salad':                 ['trout','salmon','fish','smoked','greens','herb','frisee','watercress'],
-  'burrata':                      ['herb','mint','strawberry','pea','fava','pepper','tomato','squash','flower','apricot','peach','fruit'],
-  'bruschetta':                   ['pear','fruit','berry','walnut','greens','herb','fig','mushroom','prosciutto'],
+  'endive salad':                 [],
+  'burrata':                      [],
+  'bruschetta':                   [],
   'castelvetrano olives':         [],
   'marcona almonds':              [],
   'sea wolf bakery baguette':     [],
@@ -8389,6 +8407,7 @@ function fetchPitch(){
     body: JSON.stringify({
       dishName: dish.name,
       description: dish.description||'',
+      brief: dish.brief||'',
       components: components,
       signals: {
         peaking: peaking.slice(0,8),
