@@ -524,6 +524,14 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
   border-radius:var(--r);height:480px;overflow:hidden;margin-bottom:16px}
 @media (min-width:768px){.dish-graph-wrap{height:540px}}
 #dish-graph{width:100%;height:100%}
+.graph-zoom{position:absolute;top:10px;right:10px;display:flex;align-items:center;gap:8px;
+  background:rgba(5,9,24,0.85);border:1px solid var(--ink-12);
+  padding:6px 10px;border-radius:var(--r);font-family:var(--fb);font-size:11px;color:var(--ink-60)}
+.graph-zoom button{background:var(--bg-card-h);border:1px solid var(--ink-12);color:var(--ink);
+  width:24px;height:24px;border-radius:var(--r);cursor:pointer;font-size:14px;line-height:1;padding:0}
+.graph-zoom button:hover{border-color:var(--olive)}
+.graph-zoom input[type=range]{width:80px;accent-color:var(--olive)}
+@media (max-width:520px){.graph-zoom input[type=range]{width:50px}}
 .dish-graph-legend{position:absolute;bottom:8px;left:10px;right:10px;
   display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:flex-start;
   background:rgba(5,9,24,0.85);padding:6px 9px;border-radius:var(--r);
@@ -566,6 +574,17 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 .side-classify-btn:active{background:rgba(168,185,126,0.28)}
 .side-vendor-tag{display:inline-block;margin-top:4px;font-family:var(--fb);font-size:11px;
   color:var(--ink-60);padding:2px 8px;border:1px solid var(--ink-12);border-radius:11px}
+.side-canon-hint{margin-top:10px;padding:8px 11px;background:rgba(168,185,126,0.08);
+  border:1px solid rgba(168,185,126,0.3);border-radius:var(--r);
+  font-size:12px;color:var(--ink-60);line-height:1.5}
+.side-canon-hint b{color:var(--olive)}
+.side-canon-hint a{color:var(--olive);text-decoration:none;font-weight:500;
+  border-bottom:1px dotted var(--olive)}
+.side-canon-hint a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.side-hide-btn{margin-left:8px;background:transparent;color:var(--ink-60);border-color:var(--ink-12)}
+.side-hide-btn:active{background:var(--ink-6)}
+.show-hidden-btn{margin-left:auto}
+.show-hidden-btn.active{background:var(--olive)!important;color:var(--bg)!important;border-color:var(--olive)!important}
 
 /* ── CLASSIFIER MODAL (4-button picker + vendor pills + sub-recipe input) ── */
 .clsf-backdrop{position:fixed;inset:0;background:rgba(2,4,13,0.78);
@@ -843,9 +862,15 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
     <button class="pill" data-bw="flagged" onclick="setBrainWebFilter('flagged')">Flagged only</button>
     <button class="pill" data-bw="shared" onclick="setBrainWebFilter('shared')">Shared ingredients</button>
     <button class="pill" data-bw="vendor" onclick="setBrainWebFilter('vendor')">Vendor concentration</button>
+    <button class="pill show-hidden-btn" id="show-hidden-btn" onclick="toggleShowHidden()">Show hidden</button>
   </div>
   <div class="brainweb-wrap"><div id="brainweb-graph"></div>
     <div class="brainweb-stats" id="brainweb-stats"></div>
+    <div class="graph-zoom">
+      <button onclick="zoomBrainWeb(-0.15)" title="Zoom out">−</button>
+      <input type="range" id="bw-zoom-slider" min="0.2" max="2.5" step="0.05" value="1" oninput="setBrainWebZoom(this.value)">
+      <button onclick="zoomBrainWeb(0.15)" title="Zoom in">+</button>
+    </div>
   </div>
   <div class="brainweb-side" id="brainweb-side">Tap a node for detail.</div>
 </div>
@@ -12954,6 +12979,11 @@ function openDishDetail(dishName){
     mainHtml+='<div class="dish-brief">'+_escHtml(dish.brief)+'</div>';
   }
   mainHtml+='<div class="dish-graph-wrap"><div id="dish-graph"></div>'+
+    '<div class="graph-zoom">'+
+      '<button onclick="zoomDishGraph(-0.15)" title="Zoom out">−</button>'+
+      '<input type="range" id="dish-zoom-slider" min="0.3" max="2.5" step="0.05" value="1" oninput="setDishGraphZoom(this.value)">'+
+      '<button onclick="zoomDishGraph(0.15)" title="Zoom in">+</button>'+
+    '</div>'+
     '<div class="dish-graph-legend">'+
       '<span><i style="background:#a8b56b"></i>peaking</span>'+
       '<span><i style="background:#5a6788"></i>available</span>'+
@@ -13012,6 +13042,26 @@ function _displayName(key){
 }
 function _classification(key){ return _links[key]||null; }
 function _isClassified(key){ var e=_links[key]; return !!(e&&e.kind); }
+function _isHidden(key){ var e=_links[key]; return !!(e && e.hidden===true); }
+
+// Toggle hidden flag on a component (and persist via Worker). When showing hidden,
+// also useful in side-panel detail view for un-hiding individual components.
+function _toggleHidden(componentKey, displayName){
+  var current=_classification(componentKey);
+  if(!current){ _clsfToast('Classify before hiding'); return; }
+  var next=Object.assign({}, current);
+  if(next.hidden) delete next.hidden; else next.hidden=true;
+  _saveClassification(componentKey, next, displayName);
+}
+// "Show hidden" toggle state — when true, hidden nodes still render (visually faded).
+var _showHidden=false;
+function toggleShowHidden(){
+  _showHidden=!_showHidden;
+  var b=document.getElementById('show-hidden-btn');
+  if(b) b.classList.toggle('active', _showHidden);
+  if(_currentDish) buildDishGraph(_currentDish);
+  if(_bwNetwork) buildBrainWeb();
+}
 
 // ===== KV BACKEND (fetch state from Worker; fallback to embedded INITIAL_LINKS) =====
 function getLinksUrl(){ return getWorkerUrl()+'/links'; }
@@ -13042,7 +13092,56 @@ var STATUS_COLOR={peaking:'#a8b56b',available:'#5a6788',arriving:'#6e8f4e',endin
 var STATUS_LABEL={peaking:'peaking',available:'available',arriving:'arriving',ending:'ending',out:'out of season'};
 
 function _flagFor(key){
-  return (DATA.component_flags||{})[key] || null;
+  // Returns the server-baked flag entry only if it still matches the current
+  // classification's kind. KV updates at runtime can put _links ahead of the
+  // embedded DATA.component_flags; in that case we return null so callers fall
+  // through to client-side compute and get a fresh answer.
+  var cached=(DATA.component_flags||{})[key];
+  if(!cached) return null;
+  var cls=_links[key];
+  if(cls && cached.kind !== cls.kind) return null;
+  return cached;
+}
+
+// Returns {level, reason} or null. Reads fresh from current classification, falling
+// back to cached only when client-compute can't infer (e.g., no canonical match).
+function _flagReason(key){
+  var cls=_classification(key);
+  if(cls && cls.kind==='canonical' && cls.matches){
+    var primary=cls.matches[0]||key;
+    var st=_statusForCanonical(primary);
+    if(st.cls==='out') return {level:'out',reason:'Out of season — '+primary};
+    if(st.cls==='ending') return {level:'ending',reason:primary+' ending soon'};
+    var tr=_trendFor(primary);
+    if(tr && Math.abs(tr.trend_30d_pct||0)>=10){
+      var dir=tr.trend_30d_pct>0?'up':'down';
+      return {level:'price',reason:primary+' price '+dir+' '+Math.abs(tr.trend_30d_pct).toFixed(0)+'% 30d'};
+    }
+  }
+  if(cls && cls.kind==='sub_recipe' && cls.ingredients){
+    for(var i=0;i<cls.ingredients.length;i++){
+      var child=_flagReason(_normKey(cls.ingredients[i]));
+      if(child) return {level:child.level, reason:child.reason+' (in '+_displayName(key)+')'};
+    }
+  }
+  var f=_flagFor(key);
+  if(f && f.flag_level) return {level:f.flag_level, reason:f.flag_reason||''};
+  return null;
+}
+
+// All flag reasons across a dish's components (for surfacing WHY a dish is flagged in brain web).
+function _dishFlagReasons(dishName){
+  var reasons=[];
+  (DATA.menu||[]).forEach(function(sec){
+    (sec.dishes||[]).forEach(function(d){
+      if(d.name!==dishName) return;
+      (d.components||[]).forEach(function(c){
+        var r=_flagReason(_normKey(c));
+        if(r) reasons.push(r);
+      });
+    });
+  });
+  return reasons;
 }
 
 function _statusForCanonical(canonicalName){
@@ -13125,6 +13224,9 @@ function buildDishGraph(dish){
     var display=comp;
     var nodeId='c_'+key.replace(/[^a-z0-9]+/g,'_');
     var cls=_classification(key);
+
+    // Skip hidden components unless "Show hidden" toggle is on (chef explicitly hid these)
+    if(_isHidden(key) && !_showHidden) return;
 
     if(!cls){
       // unclassified
@@ -13231,7 +13333,7 @@ function buildDishGraph(dish){
   if(_dishNetwork) _dishNetwork.destroy();
   _dishNetwork=new vis.Network(container,{nodes:nodes,edges:edges},{
     physics:{stabilization:{iterations:220},barnesHut:{gravitationalConstant:-3200,springLength:110,springConstant:0.045}},
-    interaction:{hover:true,dragView:true,zoomView:true,tooltipDelay:200},
+    interaction:{hover:true,dragView:true,zoomView:false,tooltipDelay:200},
     nodes:{borderWidthSelected:3},
     edges:{smooth:{type:'continuous'}},
     layout:{improvedLayout:true}
@@ -13304,23 +13406,34 @@ function _renderSide(node){
       html+='<div class="side-trend">'+pieces.join(' ')+'</div>';
     }
     if(st.ing && st.ing.notes) html+='<div class="side-notes">'+_escHtml(st.ing.notes.slice(0,180))+'</div>';
-    html+='<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+    html+='<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>'+
+      ' <button class="side-classify-btn side-hide-btn" onclick="_toggleHidden(\''+key.replace(/\'/g,"\\'")+'\',\''+display.replace(/\'/g,"\\'")+'\')">'+(_isHidden(key)?'Show in graph':'Hide from graph')+'</button>';
   } else if(cls.kind==='sourced'){
     html='<div class="side-title">'+_escHtml(display)+
       '<span class="side-pill sourced">sourced</span></div>'+
       '<div class="side-vendor">from <b>'+_escHtml(cls.vendor||'?')+'</b></div>'+
-      '<div class="side-notes">Vendor-attributed but not in seasonal tracking. Pricing tracked via invoice history.</div>'+
-      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+      '<div class="side-notes">Vendor-attributed but not in seasonal tracking. Pricing tracked via invoice history.</div>';
+    // Suggest a canonical match if seasonal-data has one with a similar name
+    var canonHint=_findCanonicalCandidate(display, cls.vendor);
+    if(canonHint){
+      html+='<div class="side-canon-hint">Possible canonical match: <b>'+_escHtml(canonHint.name)+'</b>'+
+        (canonHint.vendorMatch?' (same vendor)':'')+
+        '. <a href="#" onclick="event.preventDefault();_reclassifyAsCanonical(\''+key.replace(/\'/g,"\\'")+'\',\''+canonHint.name.replace(/\'/g,"\\'")+'\',\''+display.replace(/\'/g,"\\'")+'\')">Reclassify →</a></div>';
+    }
+    html+='<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>'+
+      ' <button class="side-classify-btn side-hide-btn" onclick="_toggleHidden(\''+key.replace(/\'/g,"\\'")+'\',\''+display.replace(/\'/g,"\\'")+'\')">'+(_isHidden(key)?'Show in graph':'Hide from graph')+'</button>';
   } else if(cls.kind==='sub_recipe'){
     html='<div class="side-title">'+_escHtml(display)+
       '<span class="side-pill sub_recipe">sub-recipe</span></div>'+
       '<div class="side-vendor">Decomposes into: <b>'+_escHtml((cls.ingredients||[]).slice(0,6).join(', ')+((cls.ingredients||[]).length>6?'…':''))+'</b></div>'+
-      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>'+
+      ' <button class="side-classify-btn side-hide-btn" onclick="_toggleHidden(\''+key.replace(/\'/g,"\\'")+'\',\''+display.replace(/\'/g,"\\'")+'\')">'+(_isHidden(key)?'Show in graph':'Hide from graph')+'</button>';
   } else {
     html='<div class="side-title">'+_escHtml(display)+
       '<span class="side-pill pantry">pantry</span></div>'+
       '<div class="side-vendor">Not seasonally tracked, no vendor attribution.</div>'+
-      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>'+
+      ' <button class="side-classify-btn side-hide-btn" onclick="_toggleHidden(\''+key.replace(/\'/g,"\\'")+'\',\''+display.replace(/\'/g,"\\'")+'\')">'+(_isHidden(key)?'Show in graph':'Hide from graph')+'</button>';
   }
   side.innerHTML=html;
 }
@@ -13463,6 +13576,61 @@ function openClassifier(componentKey){
   };
 }
 
+// ===== SOURCED → CANONICAL SUGGESTION =====
+// When a sourced component has a strong name (or name+vendor) match against a
+// canonical ingredient in seasonal-data.json, surface the suggestion. Strong
+// match wins are: exact normalized name OR substring match with same vendor.
+function _findCanonicalCandidate(displayName, sourcedVendor){
+  var target=_normKey(displayName);
+  if(!target) return null;
+  var ingredients=DATA.ingredients||[];
+  // Pass 1: exact normalized name match
+  for(var i=0;i<ingredients.length;i++){
+    var ing=ingredients[i];
+    var n=_normKey(ing.name);
+    if(n===target) return {name:ing.name, vendorMatch:(ing.vendor||'')===sourcedVendor};
+  }
+  // Pass 2: substring with same vendor (strong signal — chef sources X from same place seasonal-data tracks)
+  if(sourcedVendor){
+    for(var j=0;j<ingredients.length;j++){
+      var ing2=ingredients[j];
+      var n2=_normKey(ing2.name);
+      if((ing2.vendor||'')!==sourcedVendor) continue;
+      if(n2.indexOf(target)>=0 || target.indexOf(n2)>=0){
+        return {name:ing2.name, vendorMatch:true};
+      }
+    }
+  }
+  return null;
+}
+function _reclassifyAsCanonical(componentKey, canonicalName, displayName){
+  _saveClassification(componentKey, {kind:'canonical', matches:[canonicalName]}, displayName);
+}
+
+// ===== ZOOM CONTROLS (decouples graph zoom from page scroll) =====
+function setDishGraphZoom(val){
+  if(!_dishNetwork) return;
+  _dishNetwork.moveTo({scale: parseFloat(val)});
+}
+function zoomDishGraph(delta){
+  if(!_dishNetwork) return;
+  var cur=_dishNetwork.getScale()||1;
+  var next=Math.max(0.3, Math.min(2.5, cur+delta));
+  _dishNetwork.moveTo({scale: next});
+  var s=document.getElementById('dish-zoom-slider'); if(s) s.value=next;
+}
+function setBrainWebZoom(val){
+  if(!_bwNetwork) return;
+  _bwNetwork.moveTo({scale: parseFloat(val)});
+}
+function zoomBrainWeb(delta){
+  if(!_bwNetwork) return;
+  var cur=_bwNetwork.getScale()||1;
+  var next=Math.max(0.2, Math.min(2.5, cur+delta));
+  _bwNetwork.moveTo({scale: next});
+  var s=document.getElementById('bw-zoom-slider'); if(s) s.value=next;
+}
+
 // ===== BRAIN WEB (full-menu mega-graph) =====
 var _bwNetwork=null;
 var _bwFilter='all';
@@ -13548,6 +13716,8 @@ function buildBrainWeb(){
       (d.components||[]).forEach(function(comp){
         var k=_normKey(comp);
         var cls=_classification(k);
+        // Skip hidden components unless "Show hidden" toggle is on
+        if(_isHidden(k) && !_showHidden) return;
         var shared = componentDishes[k] && componentDishes[k].length>1;
         if(_bwFilter==='shared' && !shared) return;
         if(_bwFilter==='flagged' && !compHasFlag(k)){
@@ -13608,7 +13778,7 @@ function buildBrainWeb(){
   _bwNetwork=new vis.Network(container,{nodes:nodes,edges:edges},{
     physics:{stabilization:{iterations:300},
       barnesHut:{gravitationalConstant:-2800,springLength:90,springConstant:0.04,avoidOverlap:0.2}},
-    interaction:{hover:true,dragView:true,zoomView:true,tooltipDelay:200},
+    interaction:{hover:true,dragView:true,zoomView:false,tooltipDelay:200},
     nodes:{borderWidthSelected:3},
     edges:{smooth:{type:'continuous'}},
     layout:{improvedLayout:true}
@@ -13643,9 +13813,22 @@ function _renderBrainWebSide(node){
   }
   side.classList.add('has-node');
   if(node._kind==='dish'){
-    side.innerHTML='<div class="side-title">'+_escHtml(node._dish)+'</div>'+
-      '<button class="side-classify-btn" onclick="goTo(\'menuitem\');setTimeout(function(){openDishDetail(\''+
+    var reasons=_dishFlagReasons(node._dish);
+    var html='<div class="side-title">'+_escHtml(node._dish)+
+      (reasons.length?'<span class="side-pill ending">'+reasons.length+' flag'+(reasons.length>1?'s':'')+'</span>':'')+
+      '</div>';
+    if(reasons.length){
+      html+='<div class="side-vendor">Flagged because:</div>';
+      html+='<ul style="margin:6px 0 0 16px;padding:0;font-size:12.5px;color:var(--ink-60);line-height:1.5">';
+      reasons.forEach(function(r){
+        var col=r.level==='out'?'var(--terra)':(r.level==='ending'?'var(--gold)':(r.level==='price'?'var(--terra)':'var(--ink-60)'));
+        html+='<li style="color:'+col+'">'+_escHtml(r.reason)+'</li>';
+      });
+      html+='</ul>';
+    }
+    html+='<button class="side-classify-btn" onclick="goTo(\'menuitem\');setTimeout(function(){openDishDetail(\''+
       node._dish.replace(/'/g,"\\'")+'\');},100)">Open dish detail →</button>';
+    side.innerHTML=html;
     return;
   }
   if(node._kind==='vendor'){
