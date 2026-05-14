@@ -515,7 +515,152 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
   .sidebar-dish-btn.active{background:var(--ink-6);color:var(--ink);
     border-left:2px solid var(--olive);padding-left:8px}
 }
+
+/* ── DISH GRAPH VIEW (per-dish vis.js, replaces cards-based pitch zone) ── */
+.dish-brief{background:var(--bg-card);border-left:3px solid var(--olive);
+  padding:12px 16px;font-family:var(--fd);font-size:15px;font-style:italic;
+  color:var(--ink-60);border-radius:0 var(--r) var(--r) 0;margin:14px 0 12px;line-height:1.5}
+.dish-graph-wrap{position:relative;background:var(--bg-card);border:1px solid var(--ink-12);
+  border-radius:var(--r);height:480px;overflow:hidden;margin-bottom:16px}
+@media (min-width:768px){.dish-graph-wrap{height:540px}}
+#dish-graph{width:100%;height:100%}
+.dish-graph-legend{position:absolute;bottom:8px;left:10px;right:10px;
+  display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:flex-start;
+  background:rgba(5,9,24,0.85);padding:6px 9px;border-radius:var(--r);
+  font-family:var(--fb);font-size:10px;color:var(--ink-60);
+  border:1px solid var(--ink-12)}
+.dish-graph-legend span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.dish-graph-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dish-graph-legend i.qm{background:transparent;border:1.5px dashed var(--ink-30)}
+
+#dish-detail-side{min-height:64px;padding:14px 16px;background:var(--bg-card);
+  border:1px solid var(--ink-12);border-radius:var(--r);
+  font-family:var(--fb);font-size:13px;color:var(--ink-60);
+  text-align:center;font-style:italic}
+#dish-detail-side.has-node{text-align:left;font-style:normal}
+.side-title{font-family:var(--fd);font-size:22px;color:var(--ink);font-style:normal;
+  margin-bottom:4px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.side-pill{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.06em;
+  text-transform:uppercase;padding:3px 8px;border-radius:11px;white-space:nowrap}
+.side-pill.peaking{background:rgba(168,185,126,0.18);color:var(--olive)}
+.side-pill.available{background:rgba(123,155,209,0.18);color:var(--navy)}
+.side-pill.arriving{background:rgba(168,185,126,0.12);color:var(--olive);border:1px solid rgba(168,185,126,0.4)}
+.side-pill.ending{background:rgba(226,185,94,0.18);color:var(--gold)}
+.side-pill.out{background:rgba(224,135,99,0.18);color:var(--terra)}
+.side-pill.sourced{background:rgba(141,122,90,0.22);color:#c4b88d;border:1px solid rgba(168,150,104,0.4)}
+.side-pill.sub_recipe{background:rgba(168,185,126,0.08);color:var(--olive);border:1px solid rgba(168,185,126,0.4)}
+.side-pill.pantry{background:transparent;color:var(--ink-30);border:1px dashed var(--ink-12)}
+.side-pill.unclassified{background:transparent;color:var(--ink-30);border:1.5px dashed var(--ink-30)}
+.side-vendor{font-family:var(--fb);font-size:12px;color:var(--ink-60);margin-bottom:6px}
+.side-vendor b{color:var(--ink)}
+.side-trend{font-family:var(--fb);font-size:13px;color:var(--ink);margin-bottom:6px}
+.side-trend .delta{font-size:11px;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:600}
+.side-trend .delta.up{background:rgba(224,135,99,0.18);color:var(--terra)}
+.side-trend .delta.down{background:rgba(168,185,126,0.18);color:var(--olive)}
+.side-trend .delta.flat{color:var(--ink-30)}
+.side-notes{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);font-style:italic;margin-top:6px;line-height:1.5}
+.side-classify-btn{display:inline-block;margin-top:8px;padding:8px 14px;
+  background:var(--olive-bg);color:var(--olive);border:1px solid var(--olive);
+  font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:0.05em;
+  text-transform:uppercase;border-radius:var(--r);cursor:pointer}
+.side-classify-btn:active{background:rgba(168,185,126,0.28)}
+.side-vendor-tag{display:inline-block;margin-top:4px;font-family:var(--fb);font-size:11px;
+  color:var(--ink-60);padding:2px 8px;border:1px solid var(--ink-12);border-radius:11px}
+
+/* ── CLASSIFIER MODAL (4-button picker + vendor pills + sub-recipe input) ── */
+.clsf-backdrop{position:fixed;inset:0;background:rgba(2,4,13,0.78);
+  display:none;align-items:flex-end;justify-content:center;z-index:600;
+  backdrop-filter:blur(2px)}
+.clsf-backdrop.open{display:flex}
+.clsf-modal{background:var(--bg-card);border:1px solid var(--ink-12);
+  border-radius:var(--r) var(--r) 0 0;width:100%;max-width:560px;
+  padding:22px 22px 28px;max-height:86vh;overflow-y:auto}
+@media (min-width:768px){.clsf-backdrop{align-items:center}
+  .clsf-modal{border-radius:var(--r);max-width:520px}}
+.clsf-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:4px}
+.clsf-title{font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);line-height:1.2}
+.clsf-sub{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);margin-bottom:18px}
+.clsf-close{background:transparent;border:none;color:var(--ink-60);font-size:24px;
+  cursor:pointer;padding:0 4px;line-height:1}
+.clsf-kinds{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+@media (min-width:540px){.clsf-kinds{grid-template-columns:1fr 1fr 1fr 1fr}}
+.clsf-kind{background:var(--bg-card-h);border:1px solid var(--ink-12);
+  border-radius:var(--r);padding:11px 12px;text-align:left;cursor:pointer;
+  color:var(--ink);font-family:var(--fb)}
+.clsf-kind:hover{border-color:var(--olive)}
+.clsf-kind.active{background:var(--olive-bg);border-color:var(--olive)}
+.clsf-kind .k-t{display:block;font-weight:500;color:var(--olive);font-size:13px;margin-bottom:2px}
+.clsf-kind .k-d{display:block;color:var(--ink-60);font-size:11px;line-height:1.4}
+.clsf-pane{display:none;padding-top:2px}
+.clsf-pane.shown{display:block}
+.clsf-input{width:100%;background:var(--bg-deep);border:1px solid var(--ink-12);
+  color:var(--ink);padding:10px 12px;border-radius:var(--r);font-size:14px;
+  font-family:var(--fb)}
+.clsf-input:focus{outline:none;border-color:var(--olive)}
+.clsf-suggestions{max-height:200px;overflow-y:auto;margin-top:6px;border:1px solid var(--ink-12);
+  border-radius:var(--r);background:var(--bg-deep);display:none}
+.clsf-suggestions.shown{display:block}
+.clsf-sug-row{padding:8px 12px;cursor:pointer;color:var(--ink);font-size:13px;
+  border-bottom:1px solid var(--ink-12);display:flex;justify-content:space-between;gap:8px}
+.clsf-sug-row:last-child{border-bottom:none}
+.clsf-sug-row:hover{background:var(--bg-card-h)}
+.clsf-sug-row .sug-v{color:var(--ink-30);font-size:11px}
+.clsf-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;min-height:24px}
+.clsf-chip{background:var(--olive-bg);border:1px solid var(--olive);color:var(--olive);
+  padding:3px 8px 3px 10px;border-radius:14px;font-size:12px;display:inline-flex;
+  align-items:center;gap:6px}
+.clsf-chip button{background:transparent;border:none;color:var(--olive);cursor:pointer;
+  font-size:14px;padding:0;line-height:1}
+.clsf-help{color:var(--ink-60);font-size:11.5px;margin-bottom:8px}
+.clsf-textarea{width:100%;min-height:80px;resize:vertical;background:var(--bg-deep);
+  border:1px solid var(--ink-12);color:var(--ink);padding:10px 12px;
+  border-radius:var(--r);font-size:14px;font-family:var(--fb)}
+.clsf-textarea:focus{outline:none;border-color:var(--olive)}
+.clsf-sub-preview{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.clsf-sub-chip{background:var(--bg-deep);border:1px solid var(--ink-12);
+  color:var(--ink-60);padding:3px 8px;border-radius:10px;font-size:11px}
+.clsf-vendors{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.clsf-vendor{background:var(--bg-card-h);border:1px solid var(--ink-12);
+  color:var(--ink-60);padding:6px 11px;border-radius:14px;font-size:12px;
+  cursor:pointer;font-family:var(--fb)}
+.clsf-vendor:hover{border-color:var(--olive);color:var(--ink)}
+.clsf-vendor.selected{background:var(--olive);color:var(--bg);border-color:var(--olive);font-weight:600}
+.clsf-vendor-current{margin-top:8px;padding:7px 11px;background:var(--olive-bg);
+  border:1px solid var(--olive);border-radius:var(--r);color:var(--ink);
+  font-size:13px;display:none}
+.clsf-vendor-current.shown{display:block}
+.clsf-vendor-current b{color:var(--olive)}
+.clsf-pantry-help{color:var(--ink-60);font-size:13px;line-height:1.5}
+.clsf-footer{display:flex;justify-content:space-between;gap:10px;margin-top:18px;
+  padding-top:14px;border-top:1px solid var(--ink-12)}
+.clsf-btn{padding:9px 14px;border-radius:var(--r);font-size:13px;cursor:pointer;
+  font-family:var(--fb);border:1px solid var(--ink-12);background:var(--bg-card-h);color:var(--ink)}
+.clsf-btn.primary{background:var(--olive);color:var(--bg);border-color:var(--olive);font-weight:600}
+.clsf-btn.danger{color:var(--terra);border-color:rgba(224,135,99,0.4);background:transparent}
+.clsf-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  background:var(--bg-card-h);border:1px solid var(--olive);color:var(--ink);
+  padding:9px 16px;border-radius:var(--r);font-size:13px;z-index:700;
+  opacity:0;transition:opacity 0.2s ease;pointer-events:none}
+.clsf-toast.show{opacity:1}
+
+/* ── BRAIN WEB (full-menu mega-graph mode) ── */
+.brainweb-wrap{position:relative;flex:1;background:var(--bg-card);
+  border:1px solid var(--ink-12);border-radius:var(--r);margin:0 16px;
+  min-height:380px;overflow:hidden}
+#brainweb-graph{width:100%;height:100%;min-height:380px}
+.brainweb-stats{position:absolute;top:8px;right:10px;
+  background:rgba(5,9,24,0.85);border:1px solid var(--ink-12);
+  padding:6px 10px;border-radius:var(--r);
+  font-family:var(--fb);font-size:11px;color:var(--ink-60);pointer-events:none}
+.brainweb-side{margin:12px 16px 16px;padding:12px 14px;
+  background:var(--bg-card);border:1px solid var(--ink-12);
+  border-radius:var(--r);font-family:var(--fb);font-size:13px;color:var(--ink-60);
+  font-style:italic;text-align:center;min-height:48px}
+.brainweb-side.has-node{text-align:left;font-style:normal;color:var(--ink)}
+#screen-brainweb .filter-strip{padding:0 16px 8px;display:flex;gap:6px;flex-wrap:wrap}
+#screen-brainweb{display:flex;flex-direction:column}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.6/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
 
@@ -686,6 +831,25 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
   <div id="outreach-inner" style="flex:1;display:flex;flex-direction:column;overflow:hidden"></div>
 </div>
 
+<!-- SCREEN: BRAIN WEB (full-menu graph view) -->
+<div class="ss" id="screen-brainweb">
+  <div class="sh">
+    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
+    <span class="sh-title">Menu Brain Web</span>
+  </div>
+  <div class="sh-rule"></div>
+  <div class="filter-strip" id="bw-filters">
+    <button class="pill active" data-bw="all" onclick="setBrainWebFilter('all')">All</button>
+    <button class="pill" data-bw="flagged" onclick="setBrainWebFilter('flagged')">Flagged only</button>
+    <button class="pill" data-bw="shared" onclick="setBrainWebFilter('shared')">Shared ingredients</button>
+    <button class="pill" data-bw="vendor" onclick="setBrainWebFilter('vendor')">Vendor concentration</button>
+  </div>
+  <div class="brainweb-wrap"><div id="brainweb-graph"></div>
+    <div class="brainweb-stats" id="brainweb-stats"></div>
+  </div>
+  <div class="brainweb-side" id="brainweb-side">Tap a node for detail.</div>
+</div>
+
 </div><!-- /app -->
 
 <!-- FULL VIEW -->
@@ -723,7 +887,7 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 
 <script>
 const DATA = {
-  "generated": "2026-05-13",
+  "generated": "2026-05-14",
   "ingredients": [
     {
       "name": "Beets",
@@ -7722,7 +7886,7 @@ const DATA = {
             "rosemary olive oil",
             "housemade cagliatta",
             "rhubarb caramelized onion jam",
-            "thyme leaves"
+            "thyme"
           ],
           "slot": ""
         },
@@ -7832,7 +7996,7 @@ const DATA = {
             "mafaldine pasta",
             "olive oil",
             "garlic",
-            "seasonal vegetable",
+            "artichoke",
             "parmigiano reggiano",
             "parsley"
           ],
@@ -7898,6 +8062,1275 @@ const DATA = {
       ]
     }
   ],
+  "component_links": {
+    "beef tenderloin": {
+      "kind": "canonical",
+      "matches": [
+        "Beef Tenderloin"
+      ]
+    },
+    "horseradish gremolata": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "parsley",
+        "horseradish",
+        "lemon",
+        "olive oil"
+      ]
+    },
+    "creamed spinach": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "spinach",
+        "cream"
+      ]
+    },
+    "polenta": {
+      "kind": "pantry"
+    },
+    "olive oil": {
+      "kind": "pantry"
+    },
+    "asparagus": {
+      "kind": "canonical",
+      "matches": [
+        "Asparagus"
+      ]
+    },
+    "balsamic vinegar": {
+      "kind": "pantry"
+    },
+    "black pepper": {
+      "kind": "pantry"
+    },
+    "boquerones anchovies": {
+      "kind": "pantry"
+    },
+    "lemon ricotta filling": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "ricotta",
+        "tarragon",
+        "lemon"
+      ]
+    },
+    "pistachios": {
+      "kind": "pantry"
+    },
+    "basil": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "butter": {
+      "kind": "pantry"
+    },
+    "butter lemon braising stock": {
+      "kind": "pantry"
+    },
+    "caesar dressing": {
+      "kind": "pantry"
+    },
+    "castelvetrano olives": {
+      "kind": "pantry"
+    },
+    "chickpea flour": {
+      "kind": "pantry"
+    },
+    "chili flake": {
+      "kind": "pantry"
+    },
+    "chives": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "citrus peel": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "cream": {
+      "kind": "pantry"
+    },
+    "crostini": {
+      "kind": "pantry"
+    },
+    "dill": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "egg pasta dough": {
+      "kind": "pantry"
+    },
+    "endive": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "english pea puree": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "peas",
+        "olive oil"
+      ]
+    },
+    "english peas": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "fennel pollen": {
+      "kind": "pantry"
+    },
+    "fingerling potatoes": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "fresno chili": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "fried leeks": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "leeks",
+        "canola fry oil"
+      ]
+    },
+    "canola fry oil": {
+      "kind": "pantry"
+    },
+    "fried rosemary": {
+      "kind": "pantry"
+    },
+    "frisee": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "garlic": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "grilled bread": {
+      "kind": "pantry"
+    },
+    "horseradish": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "housemade cagliatta": {
+      "kind": "pantry"
+    },
+    "leeks": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "lemon": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "mafaldine pasta": {
+      "kind": "pantry"
+    },
+    "maldon sea salt": {
+      "kind": "pantry"
+    },
+    "marcona almonds": {
+      "kind": "pantry"
+    },
+    "marinara sauce": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "canned tomato",
+        "onion",
+        "garlic",
+        "basil"
+      ]
+    },
+    "marinated maitake mushrooms": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "garlic",
+        "thyme",
+        "maitake mushroom"
+      ]
+    },
+    "maitake mushroom": {
+      "kind": "sourced",
+      "vendor": "Foraged & Found Edibles"
+    },
+    "marjoram": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "mint": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "nettle pesto": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "nettles",
+        "chili flake",
+        "sunflower seed",
+        "parmigiano reggiano"
+      ]
+    },
+    "nettles": {
+      "kind": "canonical",
+      "matches": [
+        "Nettle"
+      ]
+    },
+    "onion": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "oregano": {
+      "kind": "canonical",
+      "matches": [
+        "Oregano"
+      ]
+    },
+    "oregano vinaigrette": {
+      "kind": "pantry"
+    },
+    "paccheri pasta": {
+      "kind": "pantry"
+    },
+    "par-cooked risotto base": {
+      "kind": "pantry"
+    },
+    "parsley": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "peas": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "peruvian pickled peppers": {
+      "kind": "pantry"
+    },
+    "pork and veal bolognese ragu": {
+      "kind": "pantry"
+    },
+    "preserved lemon peel": {
+      "kind": "pantry"
+    },
+    "ramps": {
+      "kind": "canonical",
+      "matches": [
+        "Ramps (Wild)"
+      ]
+    },
+    "red onions": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "red wine croutons": {
+      "kind": "pantry"
+    },
+    "rhubarb caramelized onion jam": {
+      "kind": "sub_recipe",
+      "ingredients": [
+        "rhubarb",
+        "onion",
+        "vinegar"
+      ]
+    },
+    "rhubarb": {
+      "kind": "canonical",
+      "matches": [
+        "Rhubarb (Farm)"
+      ]
+    },
+    "roasted cultivated mushrooms": {
+      "kind": "sourced",
+      "vendor": "Foraged & Found Edibles"
+    },
+    "roasted red peppers": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "romaine lettuce": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "rosemary frying oil": {
+      "kind": "pantry"
+    },
+    "rosemary olive oil": {
+      "kind": "pantry"
+    },
+    "saffron spaghetti": {
+      "kind": "pantry"
+    },
+    "sea scallops": {
+      "kind": "canonical",
+      "matches": [
+        "Sea Scallops"
+      ]
+    },
+    "sea wolf baguette": {
+      "kind": "pantry"
+    },
+    "smoked trout": {
+      "kind": "canonical",
+      "matches": [
+        "Smoked Trout"
+      ]
+    },
+    "snap peas": {
+      "kind": "canonical",
+      "matches": [
+        "Sugar Snap Peas"
+      ]
+    },
+    "spinach": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "sunflower seed": {
+      "kind": "pantry"
+    },
+    "tarragon": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "thyme": {
+      "kind": "sourced",
+      "vendor": "Franks Quality Produce"
+    },
+    "vinegar": {
+      "kind": "pantry"
+    },
+    "artichoke": {
+      "kind": "canonical",
+      "matches": [
+        "Baby Artichokes"
+      ]
+    },
+    "parmigiano reggiano": {
+      "kind": "sourced",
+      "vendor": "Chef's Warehouse"
+    },
+    "burrata": {
+      "kind": "sourced",
+      "vendor": "Chef's Warehouse"
+    },
+    "guanciale": {
+      "kind": "sourced",
+      "vendor": "PFI"
+    },
+    "bresaola": {
+      "kind": "sourced",
+      "vendor": "PFI"
+    },
+    "canned tomato": {
+      "kind": "sourced",
+      "vendor": "Merlino"
+    },
+    "les pres sales butter": {
+      "kind": "sourced",
+      "vendor": "PFI"
+    },
+    "pecorino romano": {
+      "kind": "sourced",
+      "vendor": "PFI"
+    },
+    "goat cheese": {
+      "kind": "sourced",
+      "vendor": "Merlino"
+    },
+    "ricotta": {
+      "kind": "sourced",
+      "vendor": "Merlino"
+    }
+  },
+  "component_flags": {
+    "beef tenderloin": {
+      "kind": "canonical",
+      "status": "available",
+      "status_label": "available",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Swan House Farms",
+      "in_season": true,
+      "matches": [
+        "Beef Tenderloin"
+      ]
+    },
+    "horseradish gremolata": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "parsley",
+        "horseradish",
+        "lemon",
+        "olive oil"
+      ]
+    },
+    "creamed spinach": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "spinach",
+        "cream"
+      ]
+    },
+    "polenta": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "olive oil": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "asparagus": {
+      "kind": "canonical",
+      "status": "peaking",
+      "status_label": "peaking",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true,
+      "matches": [
+        "Asparagus"
+      ]
+    },
+    "balsamic vinegar": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "black pepper": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "boquerones anchovies": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "lemon ricotta filling": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "ricotta",
+        "tarragon",
+        "lemon"
+      ]
+    },
+    "pistachios": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "basil": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "butter": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "butter lemon braising stock": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "caesar dressing": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "castelvetrano olives": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "chickpea flour": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "chili flake": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "chives": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "citrus peel": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "cream": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "crostini": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "dill": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "egg pasta dough": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "endive": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "english pea puree": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "peas",
+        "olive oil"
+      ]
+    },
+    "english peas": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "fennel pollen": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "fingerling potatoes": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "fresno chili": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "fried leeks": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "leeks",
+        "canola fry oil"
+      ]
+    },
+    "canola fry oil": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "fried rosemary": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "frisee": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "garlic": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "grilled bread": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "horseradish": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "housemade cagliatta": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "leeks": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "lemon": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "mafaldine pasta": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "maldon sea salt": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "marcona almonds": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "marinara sauce": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "canned tomato",
+        "onion",
+        "garlic",
+        "basil"
+      ]
+    },
+    "marinated maitake mushrooms": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "garlic",
+        "thyme",
+        "maitake mushroom"
+      ]
+    },
+    "maitake mushroom": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Foraged & Found Edibles",
+      "in_season": true
+    },
+    "marjoram": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "mint": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "nettle pesto": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": "out",
+      "flag_reason": "Contains out-of-season ingredient (nettles). Substitute or rotate.",
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "nettles",
+        "chili flake",
+        "sunflower seed",
+        "parmigiano reggiano"
+      ]
+    },
+    "nettles": {
+      "kind": "canonical",
+      "status": "out",
+      "status_label": "out",
+      "flag_level": "out",
+      "flag_reason": "Current vendor has this out of season. Find alt or rotate the dish.",
+      "vendor": "Swan House Farms",
+      "in_season": false,
+      "matches": [
+        "Nettle"
+      ]
+    },
+    "onion": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "oregano": {
+      "kind": "canonical",
+      "status": "available",
+      "status_label": "available",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Swan House Farms",
+      "in_season": true,
+      "matches": [
+        "Oregano"
+      ]
+    },
+    "oregano vinaigrette": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "paccheri pasta": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "par-cooked risotto base": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "parsley": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "peas": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "peruvian pickled peppers": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "pork and veal bolognese ragu": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "preserved lemon peel": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "ramps": {
+      "kind": "canonical",
+      "status": "peaking",
+      "status_label": "peaking",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Foraged & Found Edibles",
+      "in_season": true,
+      "matches": [
+        "Ramps (Wild)"
+      ]
+    },
+    "red onions": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "red wine croutons": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "rhubarb caramelized onion jam": {
+      "kind": "sub_recipe",
+      "status": "sub_recipe",
+      "status_label": "sub-recipe",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true,
+      "ingredients": [
+        "rhubarb",
+        "onion",
+        "vinegar"
+      ]
+    },
+    "rhubarb": {
+      "kind": "canonical",
+      "status": "peaking",
+      "status_label": "peaking",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Swan House Farms",
+      "in_season": true,
+      "matches": [
+        "Rhubarb (Farm)"
+      ]
+    },
+    "roasted cultivated mushrooms": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Foraged & Found Edibles",
+      "in_season": true
+    },
+    "roasted red peppers": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "romaine lettuce": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "rosemary frying oil": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "rosemary olive oil": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "saffron spaghetti": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "sea scallops": {
+      "kind": "canonical",
+      "status": "available",
+      "status_label": "available",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Key City Fish",
+      "in_season": true,
+      "matches": [
+        "Sea Scallops"
+      ]
+    },
+    "sea wolf baguette": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "smoked trout": {
+      "kind": "canonical",
+      "status": "available",
+      "status_label": "available",
+      "flag_level": "price",
+      "flag_reason": "Price up +19% on 30d. Watch margin.",
+      "vendor": "Key City Fish",
+      "in_season": true,
+      "matches": [
+        "Smoked Trout"
+      ]
+    },
+    "snap peas": {
+      "kind": "canonical",
+      "status": "peaking",
+      "status_label": "peaking",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true,
+      "matches": [
+        "Sugar Snap Peas"
+      ]
+    },
+    "spinach": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "sunflower seed": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "tarragon": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "thyme": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true
+    },
+    "vinegar": {
+      "kind": "pantry",
+      "status": "pantry",
+      "status_label": "pantry",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "",
+      "in_season": true
+    },
+    "artichoke": {
+      "kind": "canonical",
+      "status": "peaking",
+      "status_label": "peaking",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Franks Quality Produce",
+      "in_season": true,
+      "matches": [
+        "Baby Artichokes"
+      ]
+    },
+    "parmigiano reggiano": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Chef's Warehouse",
+      "in_season": true
+    },
+    "burrata": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Chef's Warehouse",
+      "in_season": true
+    },
+    "guanciale": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "PFI",
+      "in_season": true
+    },
+    "bresaola": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "PFI",
+      "in_season": true
+    },
+    "canned tomato": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Merlino",
+      "in_season": true
+    },
+    "les pres sales butter": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "PFI",
+      "in_season": true
+    },
+    "pecorino romano": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "PFI",
+      "in_season": true
+    },
+    "goat cheese": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Merlino",
+      "in_season": true
+    },
+    "ricotta": {
+      "kind": "sourced",
+      "status": "sourced",
+      "status_label": "sourced",
+      "flag_level": null,
+      "flag_reason": null,
+      "vendor": "Merlino",
+      "in_season": true
+    }
+  },
   "weather": {
     "vendor_alerts": {
       "Farmstand Local Foods": {
@@ -10936,7 +12369,9 @@ const DATA = {
     "total_ingredients": 243,
     "menu_dishes": 15,
     "commodity_items": 145,
-    "discovery_items": 120
+    "discovery_items": 120,
+    "component_links_count": 90,
+    "component_links_version": "1.1"
   }
 };
 
@@ -11497,7 +12932,6 @@ function openDishDetail(dishName){
     sec.dishes.forEach(function(d){ if(d.name===dishName) dish=d; });
   });
   if(!dish){ buildSwapDishList(); return; }
-  _pitchDish = dish;
 
   // Sidebar (visible on desktop only via CSS): all dishes grouped by section,
   // active dish highlighted. Clicking re-renders the detail in place.
@@ -11516,197 +12950,805 @@ function openDishDetail(dishName){
   var mainHtml='<button class="dish-back-btn menuitem-mobile-only" onclick="buildSwapDishList()">&#8592; All dishes</button>'+
     '<div class="dish-detail-name">'+_escHtml(dish.name)+'</div>';
   if(dish.description) mainHtml+='<div class="dish-detail-desc">'+_escHtml(dish.description)+'</div>';
-  if(dish.components && dish.components.length){
-    mainHtml+='<div class="dish-detail-hd">Components</div>';
-    mainHtml+='<ul class="dish-comp-list">';
-    dish.components.forEach(function(c){
-      var nm=(typeof c==='string')?c:(c.name||'');
-      if(nm) mainHtml+='<li>'+_escHtml(nm)+'</li>';
-    });
-    mainHtml+='</ul>';
+  if(dish.brief){
+    mainHtml+='<div class="dish-brief">'+_escHtml(dish.brief)+'</div>';
   }
-  mainHtml+='<button class="pitch-cta-btn" onclick="fetchPitch()">&#10022; Get Remy\'s Take</button>';
-  mainHtml+='<div id="pitch-zone"></div>';
+  mainHtml+='<div class="dish-graph-wrap"><div id="dish-graph"></div>'+
+    '<div class="dish-graph-legend">'+
+      '<span><i style="background:#a8b56b"></i>peaking</span>'+
+      '<span><i style="background:#5a6788"></i>available</span>'+
+      '<span><i style="background:#6e8f4e"></i>arriving</span>'+
+      '<span><i style="background:#d39140"></i>ending</span>'+
+      '<span><i style="background:#c75a3c"></i>out</span>'+
+      '<span><i style="background:#8d7a5a"></i>sourced</span>'+
+      '<span><i style="background:rgba(168,181,107,0.2);border:1.5px solid #a8b56b"></i>sub-recipe</span>'+
+      '<span><i style="background:#6b6555"></i>pantry</span>'+
+      '<span><i class="qm"></i>unclassified</span>'+
+    '</div></div>';
+  mainHtml+='<div id="dish-detail-side"></div>';
 
   el.innerHTML='<div class="menuitem-layout">'+
     '<div class="menuitem-sidebar">'+sidebarHtml+'</div>'+
     '<div class="menuitem-main">'+mainHtml+'</div>'+
   '</div>';
+
+  buildDishGraph(dish);
 }
 
-// ── CREATIVE PITCH ──────────────────────────────────────────────────────────
-
-// ── DISH AFFINITIES ──────────────────────────────────────────────────────────
-// Maps lowercase dish names to ingredient keywords that boost signal relevance.
-// Keywords match case-insensitively against ingredient.name (substring).
-// Add/extend as the menu evolves — keys = dish name.toLowerCase().
-var DISH_AFFINITIES = {
-  'agnolotti del plin':           ['nettle','pea','fava','herb','sorrel','spinach','fiddlehead','fern','lemon','greens','shoots'],
-  'mafaldine aglio e olio':       [],  // extruded pasta anchor only — anything goes, pass all signals
-  "paccheri all'amatriciana":    ['tomato','pepper','fennel','guanciale','pork','chili'],
-  'saffron spaghetti bolognese':  ['tomato','fennel','pork','veal','mushroom','herb','rosemary','morel','wine cap'],
-  'risotto funghi':               [],  // GF is the only anchor — everything else can swing, pass all signals
-  'sea scallops':                 ['scallop','crab','shrimp','prawn','salmon','halibut','cod','rockfish','lingcod','oyster','clam','dungeness','lobster','tomato','corn','basil','pea','herb'],
-  // Fully flexible — no affinity filter, pass all signals through so the Worker
-  // can use the brief to decide what's interesting (protein can rotate, dish can
-  // become something else, etc.)
-  'filet mignon':                 [],
-  'grilled bavette':              [],
-  'farinata':                     ['herb','nettle','pea','sorrel','greens','mushroom','squash','flower','ramp'],
-  'house caesar':                 ['anchovy','fish','salmon','herb','greens','lettuce','ramp','allium'],
-  'endive salad':                 [],
-  'burrata':                      [],
-  'bruschetta':                   [],
-  'castelvetrano olives':         [],
-  'marcona almonds':              [],
-  'sea wolf bakery baguette':     [],
-};
-
-function _affinityScore(ingredientName, keys){
-  if(!keys || !keys.length) return 0;
-  var n = (ingredientName||'').toLowerCase();
-  var s = 0;
-  for(var i=0;i<keys.length;i++){ if(n.indexOf(keys[i])>=0) s++; }
-  return s;
-}
-
-function _sortByAffinity(signals, keys){
-  if(!keys || !keys.length) return signals;
-  return signals.slice().sort(function(a,b){
-    return _affinityScore(b.ingredient,keys) - _affinityScore(a.ingredient,keys);
-  });
-}
-
-// Filter a signal list to only items with affinity > 0 for this dish.
-// When keys are defined but nothing matches, returns empty array (honest "(none)")
-// rather than passing irrelevant signals that confuse the pitch.
-// When no keys are defined (garnish dishes), passes everything through.
-function _filterByAffinity(signals, keys){
-  if(!keys || !keys.length) return signals;
-  return signals.filter(function(s){ return _affinityScore(s.ingredient, keys) > 0; });
-}
-
-
-var _pitchDish = null;
+// ── GRAPH VIEW / CLASSIFIER (Creative Pitch retired 2026-05-14) ─────────────
 
 function _escHtml(s){
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function fetchPitch(){
-  var dish = _pitchDish;
-  if(!dish) return;
-  var zone = document.getElementById('pitch-zone');
-  if(!zone) return;
-  zone.innerHTML = '<div class="pitch-loading">Remy is reading the signals…</div>';
+// ===== COMPONENT LINKS STATE (server-baked from DATA.component_links, runtime KV fetch overrides) =====
+var _links = JSON.parse(JSON.stringify(DATA.component_links||{}));
+var _linksLoaded = false;
 
-  var peaking=[], arriving=[], fading=[], price_moves=[];
-  var _inSeasonNames = {};
-  (DATA.ingredients||[]).forEach(function(i){
-    var inSeason = sc(i,curM)>0 && sc(i,curM)!==4;
-    if(!inSeason) return;
-    _inSeasonNames[i.name] = true;
-    var sig = {ingredient:i.name, vendor:i.vendor||'', notes:(i.notes||'').slice(0,100)};
-    if(isPeak(i) && isEnding(i)){
-      peaking.push(Object.assign({},sig,{action_hint:'peak ending soon'}));
-    } else if(isArriving(i)){
-      arriving.push(Object.assign({},sig,{score_label:isPeak(i)?'peak':'available'}));
-    } else if(isEnding(i)){
-      fading.push(Object.assign({},sig,{action_hint:'window closing'}));
-    }
-  });
-  (DATA.price_trends||[]).forEach(function(t){
-    if(Math.abs(t.trend_30d_pct||0)>=5){
-      price_moves.push({ingredient:t.ingredient, vendor:t.vendor||'',
-        notes:'$'+t.latest_price+'/'+(t.unit||'lb')+' ('+(t.trend_30d_pct>0?'+':'')+parseFloat(t.trend_30d_pct).toFixed(1)+'%)'});
-    }
-  });
-
-  // Affinity filter: sort by dish relevance then drop items with score 0.
-  // Irrelevant items in peaking/arriving/fading were confusing the Worker —
-  // even after sorting, score-0 items (Fiddleheads, Braising Mix, etc.) were
-  // sent as the first items when no dish-relevant ingredient ranked higher.
-  // Now each bucket only contains ingredients that actually match this dish.
-  // Empty bucket → honest "(none)" signal. Available pool covers the rest.
-  var _afKeys = DISH_AFFINITIES[(dish.name||'').toLowerCase()] || [];
-  peaking  = _filterByAffinity(_sortByAffinity(peaking,  _afKeys), _afKeys);
-  arriving = _filterByAffinity(_sortByAffinity(arriving, _afKeys), _afKeys);
-  fading   = _filterByAffinity(_sortByAffinity(fading,   _afKeys), _afKeys);
-
-  // Available pool: in-season items not captured by peaking/arriving/fading.
-  // Mid-season plateau items (available last month, this month, next month) fall
-  // through the strict gates above — this catches them and surfaces the ones most
-  // relevant to the selected dish via affinity sort.
-  var _bucketed = {};
-  peaking.forEach(function(s){_bucketed[s.ingredient]=true;});
-  arriving.forEach(function(s){_bucketed[s.ingredient]=true;});
-  fading.forEach(function(s){_bucketed[s.ingredient]=true;});
-  var available = [];
-  (DATA.ingredients||[]).forEach(function(i){
-    if(_bucketed[i.name]) return;
-    if(!_inSeasonNames[i.name]) return;
-    available.push({ingredient:i.name, vendor:i.vendor||'', notes:(i.notes||'').slice(0,100)});
-  });
-  available = _sortByAffinity(available, _afKeys);
-
-  var components = (dish.components||[]).map(function(c){ return typeof c==='string'?{name:c}:c; });
-  fetch(getWorkerUrl()+'/pitch', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({
-      dishName: dish.name,
-      description: dish.description||'',
-      brief: dish.brief||'',
-      components: components,
-      signals: {
-        peaking: peaking.slice(0,8),
-        arriving: arriving.slice(0,8),
-        fading: fading.slice(0,6),
-        available: available.slice(0,8),
-        price_moves: price_moves.slice(0,4)
+function _normKey(s){ return String(s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+function _displayName(key){
+  // search top-level menu components first
+  if(DATA.menu){
+    for(var s=0;s<DATA.menu.length;s++){
+      var dishes=DATA.menu[s].dishes||[];
+      for(var d=0;d<dishes.length;d++){
+        var comps=dishes[d].components||[];
+        for(var c=0;c<comps.length;c++){
+          if(_normKey(comps[c])===key) return comps[c];
+        }
       }
+    }
+  }
+  // then sub-recipe ingredients
+  for(var k in _links){
+    var e=_links[k];
+    if(e&&e.kind==='sub_recipe'&&e.ingredients){
+      for(var i=0;i<e.ingredients.length;i++){
+        if(_normKey(e.ingredients[i])===key) return e.ingredients[i];
+      }
+    }
+  }
+  return key;
+}
+function _classification(key){ return _links[key]||null; }
+function _isClassified(key){ var e=_links[key]; return !!(e&&e.kind); }
+
+// ===== KV BACKEND (fetch state from Worker; fallback to embedded INITIAL_LINKS) =====
+function getLinksUrl(){ return getWorkerUrl()+'/links'; }
+function getClassifyUrl(){ return getWorkerUrl()+'/classify'; }
+
+function _fetchLinksFromKV(){
+  // Pull latest from Worker; merge into _links. Quiet failures — UI keeps working with embedded state.
+  fetch(getLinksUrl(), {method:'GET'})
+    .then(function(r){ return r.ok? r.json() : null; })
+    .then(function(data){
+      if(!data || !data.components) return;
+      _links = data.components;
+      _linksLoaded = true;
+      // re-render current dish detail if open
+      var wrap=document.getElementById('menuitem-wrap');
+      if(wrap && wrap.querySelector('#dish-graph') && _currentDish) buildDishGraph(_currentDish);
     })
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(data){
-    if(!data || data.error){
-      zone.innerHTML='<div class="pitch-loading">Remy hit a snag. Try again.</div>';
+    .catch(function(){ /* silent */ });
+}
+// kick off fetch on page load (after DATA is available)
+setTimeout(_fetchLinksFromKV, 50);
+
+// ===== STATUS COMPUTATION =====
+// Pre-computed flags live in DATA.component_flags (built by inject_mobile_data.py).
+// _flagFor(key) returns the server-computed flag/status entry; _statusForCanonical is a
+// fallback for items not yet in component_flags (covers KV-only state changes since last build).
+var STATUS_COLOR={peaking:'#a8b56b',available:'#5a6788',arriving:'#6e8f4e',ending:'#d39140',out:'#c75a3c'};
+var STATUS_LABEL={peaking:'peaking',available:'available',arriving:'arriving',ending:'ending',out:'out of season'};
+
+function _flagFor(key){
+  return (DATA.component_flags||{})[key] || null;
+}
+
+function _statusForCanonical(canonicalName){
+  var ing=null;
+  for(var i=0;i<(DATA.ingredients||[]).length;i++){
+    if(DATA.ingredients[i].name===canonicalName){ ing=DATA.ingredients[i]; break; }
+  }
+  if(!ing) return {cls:'available',vendor:'',ing:null};
+  var months=ing.months||[];
+  if(months.length!==12) return {cls:'available',vendor:ing.vendor||'',ing:ing};
+  var cur=months[curM];
+  var nxt=months[(curM+1)%12];
+  if(cur===0) return {cls:'out',vendor:ing.vendor||'',ing:ing};
+  if(cur===3) return {cls:'ending',vendor:ing.vendor||'',ing:ing};
+  if(cur===2) return {cls:'peaking',vendor:ing.vendor||'',ing:ing};
+  if(cur===4) return {cls:'arriving',vendor:ing.vendor||'',ing:ing};
+  var prev=months[(curM+11)%12];
+  if(prev===0||prev===4) return {cls:'arriving',vendor:ing.vendor||'',ing:ing};
+  if(nxt===0||nxt===4) return {cls:'ending',vendor:ing.vendor||'',ing:ing};
+  return {cls:'available',vendor:ing.vendor||'',ing:ing};
+}
+
+function _trendFor(canonicalName){
+  for(var i=0;i<(DATA.price_trends||[]).length;i++){
+    if(DATA.price_trends[i].ingredient===canonicalName) return DATA.price_trends[i];
+  }
+  return null;
+}
+
+// ===== GRAPH BUILDER =====
+var _dishNetwork=null;
+var _currentDish=null;
+var _nodesArr=[];
+
+function buildDishGraph(dish){
+  _currentDish=dish;
+  var container=document.getElementById('dish-graph');
+  if(!container || typeof vis==='undefined') return;
+
+  var nodes=[{id:'dish',label:dish.name,shape:'dot',size:30,
+    color:{background:'#1d2546',border:'#a8b97e'},borderWidth:2,
+    font:{size:18,color:'#f5e8c8',face:'Cormorant Garamond'}}];
+  var edges=[];
+  var vendorIds={};
+  var addVendor=function(vname,fromId){
+    if(!vname) return;
+    var vId='v_'+vname.replace(/[^a-z0-9]+/gi,'_');
+    if(!vendorIds[vId]){
+      vendorIds[vId]=true;
+      nodes.push({id:vId,label:vname,shape:'box',
+        color:{background:'#1d2546',border:'#3a4470'},
+        font:{size:11,color:'#c9bfae'},margin:7,
+        _kind:'vendor',_vendor:vname});
+    }
+    edges.push({from:fromId,to:vId,color:{color:'rgba(245,232,200,0.10)'},dashes:true,width:1});
+  };
+
+  (dish.components||[]).forEach(function(comp){
+    var key=_normKey(comp);
+    var display=comp;
+    var nodeId='c_'+key.replace(/[^a-z0-9]+/g,'_');
+    var cls=_classification(key);
+
+    if(!cls){
+      // unclassified
+      nodes.push({id:nodeId,label:'? '+display,shape:'dot',size:16,
+        color:{background:'rgba(245,232,200,0.05)',border:'#a89c80'},
+        borderWidth:1.5,borderWidthSelected:3,
+        font:{size:13,color:'#c9bfae'},
+        shapeProperties:{borderDashes:[4,3]},
+        _key:key,_kind:null});
+      edges.push({from:'dish',to:nodeId,color:{color:'rgba(245,232,200,0.18)'},dashes:true,width:1});
       return;
     }
-    var html='<div class="pitch-result">';
-    html+='<div class="pitch-text">'+_escHtml(data.pitch)+'</div>';
-    var ings = Array.isArray(data.ingredients)?data.ingredients:[];
-    if(ings.length){
-      html+='<div class="pitch-ing-hd">In the pitch</div>';
-      html+='<ul class="pitch-ing-list">';
-      var BADGE={peaking:'Peak now',arriving:'Arriving',fading:'Fading',price_move:'Price move'};
-      ings.forEach(function(ing){
-        var badge=BADGE[ing.status]||(ing.status||'');
-        var meta=[badge,_escHtml(ing.vendor||''),_escHtml(ing.note||'')].filter(Boolean).join(' · ');
-        html+='<li class="pitch-ing-item">'+
-          '<span class="pitch-ing-name">'+_escHtml(ing.name)+'</span>'+
-          '<span class="pitch-ing-meta">'+meta+'</span>'+
-        '</li>';
+    if(cls.kind==='canonical'){
+      var primary=(cls.matches||[])[0]||display;
+      var st=_statusForCanonical(primary);
+      var color=STATUS_COLOR[st.cls]||STATUS_COLOR.available;
+      var size=(st.cls==='out'||st.cls==='ending')?22:18;
+      var bw=(st.cls==='out'||st.cls==='ending')?3:1;
+      nodes.push({id:nodeId,label:display,shape:'dot',size:size,borderWidth:bw,
+        color:{background:color,border:color},
+        font:{size:14,color:'#f5e8c8'},
+        _key:key,_kind:'canonical'});
+      edges.push({from:'dish',to:nodeId,color:{color:'rgba(245,232,200,0.25)'},width:1.5});
+      (cls.matches||[]).forEach(function(m){
+        var st2=_statusForCanonical(m);
+        if(st2.vendor) addVendor(st2.vendor,nodeId);
       });
-      html+='</ul>';
+    } else if(cls.kind==='sourced'){
+      nodes.push({id:nodeId,label:display,shape:'dot',size:18,
+        color:{background:'#8d7a5a',border:'#a89668'},borderWidth:1,
+        font:{size:14,color:'#f5e8c8'},
+        _key:key,_kind:'sourced'});
+      edges.push({from:'dish',to:nodeId,color:{color:'rgba(245,232,200,0.25)'},width:1.5});
+      if(cls.vendor) addVendor(cls.vendor,nodeId);
+    } else if(cls.kind==='sub_recipe'){
+      nodes.push({id:nodeId,label:'∗ '+display,shape:'dot',size:18,
+        color:{background:'rgba(168,185,126,0.08)',border:'#a8b97e'},
+        borderWidth:2,borderWidthSelected:3,
+        font:{size:13,color:'#f5e8c8'},
+        _key:key,_kind:'sub_recipe'});
+      edges.push({from:'dish',to:nodeId,color:{color:'rgba(168,185,126,0.3)'},width:1.5});
+      (cls.ingredients||[]).forEach(function(ing){
+        var ingKey=_normKey(ing);
+        var ingId='i_'+nodeId+'_'+ingKey.replace(/[^a-z0-9]+/g,'_');
+        var ingCls=_classification(ingKey);
+        var bg='#3a4470',bd='#3a4470';
+        var dashed=false;
+        if(!ingCls){bg='rgba(245,232,200,0.05)';bd='#a89c80';dashed=true;}
+        else if(ingCls.kind==='pantry'){bg='#6b6555';bd='#6b6555';}
+        else if(ingCls.kind==='sourced'){bg='#8d7a5a';bd='#a89668';}
+        else if(ingCls.kind==='canonical'){
+          var st=_statusForCanonical((ingCls.matches||[])[0]||ing);
+          bg=STATUS_COLOR[st.cls]||STATUS_COLOR.available; bd=bg;
+        }
+        var nd={id:ingId,label:(ingCls?'':'? ')+ing,shape:'dot',size:10,
+          color:{background:bg,border:bd},borderWidth:1,
+          font:{size:10,color:'#c9bfae'},
+          _key:ingKey,_kind:ingCls?ingCls.kind:null};
+        if(dashed) nd.shapeProperties={borderDashes:[3,2]};
+        nodes.push(nd);
+        edges.push({from:nodeId,to:ingId,color:{color:'rgba(168,185,126,0.18)'},width:1});
+        if(ingCls && ingCls.kind==='sourced' && ingCls.vendor) addVendor(ingCls.vendor,ingId);
+        if(ingCls && ingCls.kind==='canonical'){
+          var stc=_statusForCanonical((ingCls.matches||[])[0]||ing);
+          if(stc.vendor) addVendor(stc.vendor,ingId);
+        }
+      });
+    } else {
+      // pantry
+      nodes.push({id:nodeId,label:display,shape:'dot',size:14,
+        color:{background:'#6b6555',border:'#6b6555'},borderWidth:1,
+        font:{size:12,color:'#c9bfae'},
+        _key:key,_kind:'pantry'});
+      edges.push({from:'dish',to:nodeId,color:{color:'rgba(245,232,200,0.12)'},dashes:true,width:1});
     }
-    var vendors=[];
-    ings.forEach(function(i){ if(i.vendor&&vendors.indexOf(i.vendor)<0) vendors.push(i.vendor); });
-    if(vendors.length){
-      html+='<button class="pitch-outreach-btn" onclick="_pitchOutreach('+
-        JSON.stringify(JSON.stringify(vendors))+')">Draft outreach for this dish →</button>';
+  });
+
+  _nodesArr=nodes;
+  if(_dishNetwork) _dishNetwork.destroy();
+  _dishNetwork=new vis.Network(container,{nodes:nodes,edges:edges},{
+    physics:{stabilization:{iterations:220},barnesHut:{gravitationalConstant:-3200,springLength:110,springConstant:0.045}},
+    interaction:{hover:true,dragView:true,zoomView:true,tooltipDelay:200},
+    nodes:{borderWidthSelected:3},
+    edges:{smooth:{type:'continuous'}},
+    layout:{improvedLayout:true}
+  });
+  _dishNetwork.on('selectNode',function(e){
+    var id=e.nodes[0];
+    if(!id || id==='dish'){ _renderSide(null); return; }
+    var node=_nodesArr.find(function(n){return n.id===id;});
+    if(!node) return;
+    _renderSide(node);
+  });
+  _dishNetwork.on('deselectNode',function(){ _renderSide(null); });
+  _renderSide(null);
+}
+
+function _renderSide(node){
+  var side=document.getElementById('dish-detail-side');
+  if(!side) return;
+  if(!node){
+    side.classList.remove('has-node');
+    side.innerHTML='Tap any node in the graph for detail.';
+    return;
+  }
+  side.classList.add('has-node');
+  if(node._kind==='vendor'){
+    var used=[];
+    _nodesArr.forEach(function(n){
+      if(n._kind==='canonical'||n._kind==='sourced'){
+        // check edges in current arr — simpler: just show the vendor name
+      }
+    });
+    side.innerHTML='<div class="side-title">'+_escHtml(node._vendor)+
+      '<span class="side-pill sourced">vendor</span></div>'+
+      '<div class="side-vendor">Sourcing partner for this dish.</div>';
+    return;
+  }
+  var key=node._key;
+  var display=_displayName(key);
+  var cls=_classification(key);
+
+  if(!cls){
+    side.innerHTML='<div class="side-title">'+_escHtml(display)+
+      '<span class="side-pill unclassified">unclassified</span></div>'+
+      '<div class="side-vendor">No classification yet. Tap to classify.</div>'+
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Classify component</button>';
+    return;
+  }
+  var html='';
+  if(cls.kind==='canonical'){
+    var primary=(cls.matches||[])[0]||display;
+    var st=_statusForCanonical(primary);
+    html='<div class="side-title">'+_escHtml(display)+
+      '<span class="side-pill '+st.cls+'">'+STATUS_LABEL[st.cls]+'</span></div>';
+    if(st.vendor) html+='<div class="side-vendor">from <b>'+_escHtml(st.vendor)+'</b></div>';
+    var tr=_trendFor(primary);
+    if(tr){
+      var pieces=['$'+tr.latest_price.toFixed(2)+'/'+(tr.unit||'lb')];
+      var p30=tr.trend_30d_pct;
+      if(p30!==null && p30!==undefined){
+        var cl=p30>0?'up':(p30<0?'down':'flat');
+        var ar=p30>0?'▲':(p30<0?'▼':'→');
+        pieces.push('<span class="delta '+cl+'">'+ar+' '+(p30>=0?'+':'')+p30.toFixed(0)+'% 30d</span>');
+      }
+      var py=tr.trend_yoy_pct;
+      if(py!==null && py!==undefined){
+        var clY=py>0?'up':(py<0?'down':'flat');
+        var arY=py>0?'▲':(py<0?'▼':'→');
+        pieces.push('<span class="delta '+clY+'">'+arY+' '+(py>=0?'+':'')+py.toFixed(0)+'% YoY</span>');
+      }
+      html+='<div class="side-trend">'+pieces.join(' ')+'</div>';
     }
-    html+='</div>';
-    zone.innerHTML=html;
+    if(st.ing && st.ing.notes) html+='<div class="side-notes">'+_escHtml(st.ing.notes.slice(0,180))+'</div>';
+    html+='<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+  } else if(cls.kind==='sourced'){
+    html='<div class="side-title">'+_escHtml(display)+
+      '<span class="side-pill sourced">sourced</span></div>'+
+      '<div class="side-vendor">from <b>'+_escHtml(cls.vendor||'?')+'</b></div>'+
+      '<div class="side-notes">Vendor-attributed but not in seasonal tracking. Pricing tracked via invoice history.</div>'+
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+  } else if(cls.kind==='sub_recipe'){
+    html='<div class="side-title">'+_escHtml(display)+
+      '<span class="side-pill sub_recipe">sub-recipe</span></div>'+
+      '<div class="side-vendor">Decomposes into: <b>'+_escHtml((cls.ingredients||[]).slice(0,6).join(', ')+((cls.ingredients||[]).length>6?'…':''))+'</b></div>'+
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+  } else {
+    html='<div class="side-title">'+_escHtml(display)+
+      '<span class="side-pill pantry">pantry</span></div>'+
+      '<div class="side-vendor">Not seasonally tracked, no vendor attribution.</div>'+
+      '<button class="side-classify-btn" onclick="openClassifier(\''+key.replace(/\'/g,"\\'")+'\')">Edit classification</button>';
+  }
+  side.innerHTML=html;
+}
+
+// ===== CLASSIFIER MODAL =====
+function openClassifier(componentKey){
+  var b=document.getElementById('clsf-backdrop');
+  if(!b){ _buildClassifierModal(); b=document.getElementById('clsf-backdrop'); }
+  b.classList.add('open');
+  var display=_displayName(componentKey);
+  document.getElementById('clsf-title').textContent=display;
+  var existing=_classification(componentKey);
+  var ck=existing?existing.kind:null;
+  var cm=(existing&&existing.matches)?existing.matches.slice():[];
+  var ci=(existing&&existing.ingredients)?existing.ingredients.slice():[];
+  var cv=(existing&&existing.vendor)?existing.vendor:'';
+  document.querySelectorAll('.clsf-kind').forEach(function(btn){
+    btn.classList.toggle('active', btn.getAttribute('data-kind')===ck);
+  });
+  _showClsfPane(ck);
+
+  // canonical pane
+  var search=document.getElementById('clsf-search');
+  var sList=document.getElementById('clsf-suggestions');
+  var chipsEl=document.getElementById('clsf-chips');
+  function renderChips(){
+    chipsEl.innerHTML='';
+    cm.forEach(function(m,i){
+      var c=document.createElement('span');
+      c.className='clsf-chip';
+      c.innerHTML=_escHtml(m)+' <button>×</button>';
+      c.querySelector('button').onclick=function(){ cm.splice(i,1); renderChips(); };
+      chipsEl.appendChild(c);
+    });
+  }
+  function renderSuggestions(){
+    var q=(search.value||'').trim().toLowerCase();
+    sList.innerHTML='';
+    if(!q){ sList.classList.remove('shown'); return; }
+    var matches=(DATA.ingredients||[]).filter(function(ing){
+      return ing.name.toLowerCase().indexOf(q)>=0 && cm.indexOf(ing.name)<0;
+    }).slice(0,12);
+    if(!matches.length){ sList.classList.remove('shown'); return; }
+    sList.classList.add('shown');
+    matches.forEach(function(ing){
+      var r=document.createElement('div');
+      r.className='clsf-sug-row';
+      r.innerHTML='<span>'+_escHtml(ing.name)+'</span><span class="sug-v">'+_escHtml(ing.vendor||'')+'</span>';
+      r.onclick=function(){ cm.push(ing.name); search.value=''; renderChips(); renderSuggestions(); search.focus(); };
+      sList.appendChild(r);
+    });
+  }
+  search.value=''; search.oninput=renderSuggestions;
+  search.onkeydown=function(e){
+    if(e.key==='Enter'){ e.preventDefault();
+      var q=(search.value||'').trim().toLowerCase();
+      var first=(DATA.ingredients||[]).find(function(ing){
+        return ing.name.toLowerCase().indexOf(q)>=0 && cm.indexOf(ing.name)<0;
+      });
+      if(first){ cm.push(first.name); search.value=''; renderChips(); renderSuggestions(); }
+    }
+  };
+  renderChips(); renderSuggestions();
+
+  // sub-recipe pane
+  var subInput=document.getElementById('clsf-sub-input');
+  var subPreview=document.getElementById('clsf-sub-preview');
+  function parseSub(){ return (subInput.value||'').split(',').map(function(s){return s.trim();}).filter(Boolean); }
+  function renderSubPreview(){
+    var ings=ck==='sub_recipe'?parseSub():ci;
+    subPreview.innerHTML='';
+    ings.forEach(function(i){
+      var c=document.createElement('span');
+      c.className='clsf-sub-chip';
+      c.textContent=i;
+      subPreview.appendChild(c);
+    });
+  }
+  subInput.value=ci.join(', ');
+  subInput.oninput=renderSubPreview;
+  renderSubPreview();
+
+  // sourced pane
+  var vPills=document.getElementById('clsf-vendor-pills');
+  var vCustom=document.getElementById('clsf-vendor-custom');
+  var vCurrent=document.getElementById('clsf-vendor-current');
+  function renderVendorPills(){
+    vPills.innerHTML='';
+    _vendorList().forEach(function(v){
+      var p=document.createElement('button');
+      p.className='clsf-vendor'+(v===cv?' selected':'');
+      p.textContent=v;
+      p.onclick=function(){ cv=v; vCustom.value=''; renderVendorPills(); renderVendorCurrent(); };
+      vPills.appendChild(p);
+    });
+  }
+  function renderVendorCurrent(){
+    if(cv){ vCurrent.classList.add('shown'); vCurrent.innerHTML='Vendor: <b>'+_escHtml(cv)+'</b>'; }
+    else { vCurrent.classList.remove('shown'); vCurrent.innerHTML=''; }
+  }
+  vCustom.value='';
+  vCustom.oninput=function(){
+    cv=(vCustom.value||'').trim();
+    document.querySelectorAll('.clsf-vendor').forEach(function(p){ p.classList.remove('selected'); });
+    renderVendorCurrent();
+  };
+  renderVendorPills(); renderVendorCurrent();
+
+  // kind buttons
+  document.querySelectorAll('.clsf-kind').forEach(function(btn){
+    btn.onclick=function(){
+      ck=btn.getAttribute('data-kind');
+      document.querySelectorAll('.clsf-kind').forEach(function(x){ x.classList.toggle('active', x.getAttribute('data-kind')===ck); });
+      _showClsfPane(ck);
+    };
+  });
+
+  // save
+  document.getElementById('clsf-save').onclick=function(){
+    if(!ck){ _clsfToast('Pick a classification first'); return; }
+    var entry=null;
+    if(ck==='canonical'){
+      if(!cm.length){ _clsfToast('Add at least one canonical match'); return; }
+      entry={kind:'canonical',matches:cm.slice()};
+    } else if(ck==='sub_recipe'){
+      var ings=parseSub();
+      if(!ings.length){ _clsfToast('List at least one ingredient'); return; }
+      entry={kind:'sub_recipe',ingredients:ings};
+    } else if(ck==='sourced'){
+      if(!cv){ _clsfToast('Pick or type a vendor'); return; }
+      entry={kind:'sourced',vendor:cv};
+    } else {
+      entry={kind:'pantry'};
+    }
+    _saveClassification(componentKey, entry, display);
+  };
+  document.getElementById('clsf-delete').onclick=function(){
+    if(_links[componentKey]) delete _links[componentKey];
+    _persistClassification(componentKey, null, display);
+  };
+}
+
+// ===== BRAIN WEB (full-menu mega-graph) =====
+var _bwNetwork=null;
+var _bwFilter='all';
+var _bwNodes=[];
+
+function setBrainWebFilter(f){
+  _bwFilter=f;
+  document.querySelectorAll('#bw-filters .pill').forEach(function(p){
+    p.classList.toggle('active', p.getAttribute('data-bw')===f);
+  });
+  buildBrainWeb();
+}
+
+function buildBrainWeb(){
+  var container=document.getElementById('brainweb-graph');
+  if(!container || typeof vis==='undefined') return;
+  var nodes=[];
+  var edges=[];
+  var seenComponent={};
+  var seenVendor={};
+  var componentDishes={}; // key -> [dishName]
+  var vendorEdges={}; // vendorId -> Set(componentId)
+
+  // First pass: walk all dishes and tally which components show up in which dishes
+  (DATA.menu||[]).forEach(function(sec){
+    (sec.dishes||[]).forEach(function(d){
+      (d.components||[]).forEach(function(comp){
+        var k=_normKey(comp);
+        if(!componentDishes[k]) componentDishes[k]=[];
+        componentDishes[k].push(d.name);
+      });
+    });
+  });
+
+  function compHasFlag(key){
+    // Prefer pre-computed flag from DATA.component_flags (single source of truth, built server-side).
+    var f=_flagFor(key);
+    if(f) return !!f.flag_level;
+    // Fallback: client-compute if pre-computed flag is missing (e.g., very recent KV update).
+    var cls=_classification(key);
+    if(!cls) return false;
+    if(cls.kind==='canonical'){
+      var primary=(cls.matches||[])[0]||key;
+      var st=_statusForCanonical(primary);
+      if(st.cls==='out'||st.cls==='ending') return true;
+      var tr=_trendFor(primary);
+      if(tr && Math.abs(tr.trend_30d_pct||0)>=10) return true;
+    }
+    return false;
+  }
+
+  function dishHasFlag(dishName){
+    var hit=false;
+    (DATA.menu||[]).forEach(function(sec){
+      (sec.dishes||[]).forEach(function(d){
+        if(d.name!==dishName) return;
+        (d.components||[]).forEach(function(c){
+          if(compHasFlag(_normKey(c))) hit=true;
+        });
+      });
+    });
+    return hit;
+  }
+
+  // Build dish nodes
+  (DATA.menu||[]).forEach(function(sec){
+    (sec.dishes||[]).forEach(function(d){
+      if(_bwFilter==='flagged' && !dishHasFlag(d.name)) return;
+      nodes.push({id:'d_'+d.name.replace(/[^a-z0-9]+/gi,'_'),
+        label:d.name,shape:'dot',size:24,
+        color:{background:'#1d2546',border:'#a8b97e'},
+        borderWidth:2,
+        font:{size:14,color:'#f5e8c8',face:'Cormorant Garamond'},
+        _kind:'dish',_dish:d.name});
+    });
+  });
+
+  // Build component nodes + dish edges
+  (DATA.menu||[]).forEach(function(sec){
+    (sec.dishes||[]).forEach(function(d){
+      if(_bwFilter==='flagged' && !dishHasFlag(d.name)) return;
+      var dishId='d_'+d.name.replace(/[^a-z0-9]+/gi,'_');
+      (d.components||[]).forEach(function(comp){
+        var k=_normKey(comp);
+        var cls=_classification(k);
+        var shared = componentDishes[k] && componentDishes[k].length>1;
+        if(_bwFilter==='shared' && !shared) return;
+        if(_bwFilter==='flagged' && !compHasFlag(k)){
+          // include only if part of flagged dish; otherwise hide low-priority
+          // actually we keep all components of flagged dishes — caller already filtered dishes
+        }
+        var cId='c_'+k.replace(/[^a-z0-9]+/g,'_');
+        if(!seenComponent[cId]){
+          seenComponent[cId]=true;
+          var bg='#3a4470',bd='#3a4470',sz=11;
+          var dashed=false;
+          if(!cls){bg='rgba(245,232,200,0.05)';bd='#a89c80';dashed=true;}
+          else if(cls.kind==='pantry'){bg='#6b6555';bd='#6b6555';}
+          else if(cls.kind==='sourced'){bg='#8d7a5a';bd='#a89668';}
+          else if(cls.kind==='canonical'){
+            var stt=_statusForCanonical((cls.matches||[])[0]||comp);
+            bg=STATUS_COLOR[stt.cls]||STATUS_COLOR.available; bd=bg;
+            if(stt.cls==='out'||stt.cls==='ending'){ sz=15; }
+          }
+          else if(cls.kind==='sub_recipe'){bg='rgba(168,185,126,0.15)';bd='#a8b97e';}
+          if(shared) sz=Math.max(sz,14); // boost shared components
+          var nd={id:cId,label:comp,shape:'dot',size:sz,
+            color:{background:bg,border:bd},
+            borderWidth: (cls && cls.kind==='sub_recipe')?2:1,
+            font:{size:10,color:'#c9bfae'},
+            _kind:'component',_key:k};
+          if(dashed) nd.shapeProperties={borderDashes:[3,2]};
+          nodes.push(nd);
+        }
+        edges.push({from:dishId,to:cId,color:{color:'rgba(245,232,200,0.12)'},width:1});
+
+        // vendor mode: pull vendor from classification
+        if(_bwFilter==='vendor'){
+          var v=null;
+          if(cls && cls.kind==='sourced') v=cls.vendor;
+          else if(cls && cls.kind==='canonical'){
+            var sst=_statusForCanonical((cls.matches||[])[0]||comp);
+            v=sst.vendor;
+          }
+          if(v){
+            var vId='v_'+v.replace(/[^a-z0-9]+/gi,'_');
+            if(!seenVendor[vId]){
+              seenVendor[vId]=true;
+              nodes.push({id:vId,label:v,shape:'box',
+                color:{background:'#1d2546',border:'#3a4470'},
+                font:{size:11,color:'#c9bfae'},margin:6,
+                _kind:'vendor',_vendor:v});
+            }
+            edges.push({from:cId,to:vId,color:{color:'rgba(141,122,90,0.25)'},dashes:true,width:1});
+          }
+        }
+      });
+    });
+  });
+
+  _bwNodes=nodes;
+  if(_bwNetwork) _bwNetwork.destroy();
+  _bwNetwork=new vis.Network(container,{nodes:nodes,edges:edges},{
+    physics:{stabilization:{iterations:300},
+      barnesHut:{gravitationalConstant:-2800,springLength:90,springConstant:0.04,avoidOverlap:0.2}},
+    interaction:{hover:true,dragView:true,zoomView:true,tooltipDelay:200},
+    nodes:{borderWidthSelected:3},
+    edges:{smooth:{type:'continuous'}},
+    layout:{improvedLayout:true}
+  });
+  _bwNetwork.on('selectNode',function(e){
+    var id=e.nodes[0];
+    var n=_bwNodes.find(function(x){return x.id===id;});
+    _renderBrainWebSide(n);
+  });
+  _bwNetwork.on('deselectNode',function(){ _renderBrainWebSide(null); });
+
+  // stats badge
+  var dishCount=nodes.filter(function(n){return n._kind==='dish';}).length;
+  var compCount=nodes.filter(function(n){return n._kind==='component';}).length;
+  var venCount=nodes.filter(function(n){return n._kind==='vendor';}).length;
+  var s=document.getElementById('brainweb-stats');
+  if(s){
+    var parts=[dishCount+' dish'+(dishCount!==1?'es':''), compCount+' component'+(compCount!==1?'s':'')];
+    if(venCount) parts.push(venCount+' vendor'+(venCount!==1?'s':''));
+    s.textContent=parts.join(' · ');
+  }
+  _renderBrainWebSide(null);
+}
+
+function _renderBrainWebSide(node){
+  var side=document.getElementById('brainweb-side');
+  if(!side) return;
+  if(!node){
+    side.classList.remove('has-node');
+    side.textContent='Tap a node for detail.';
+    return;
+  }
+  side.classList.add('has-node');
+  if(node._kind==='dish'){
+    side.innerHTML='<div class="side-title">'+_escHtml(node._dish)+'</div>'+
+      '<button class="side-classify-btn" onclick="goTo(\'menuitem\');setTimeout(function(){openDishDetail(\''+
+      node._dish.replace(/'/g,"\\'")+'\');},100)">Open dish detail →</button>';
+    return;
+  }
+  if(node._kind==='vendor'){
+    // count components attributed to this vendor
+    var n=0;
+    _bwNodes.forEach(function(x){ if(x._kind==='component'){
+      var cls=_classification(x._key);
+      var v=null;
+      if(cls){
+        if(cls.kind==='sourced') v=cls.vendor;
+        else if(cls.kind==='canonical'){
+          var st=_statusForCanonical((cls.matches||[])[0]||x._key);
+          v=st.vendor;
+        }
+      }
+      if(v===node._vendor) n++;
+    }});
+    side.innerHTML='<div class="side-title">'+_escHtml(node._vendor)+
+      '<span class="side-pill sourced">vendor</span></div>'+
+      '<div class="side-vendor">'+n+' component'+(n!==1?'s':'')+' across the menu sourced through this vendor.</div>';
+    return;
+  }
+  // component node — defer to existing _renderSide treatment
+  var fake={_key:node._key,_kind:node._kind};
+  // borrow logic from _renderSide by faking the side container
+  // Simpler: inline a brief detail card
+  var cls=_classification(node._key);
+  var display=_displayName(node._key);
+  var dishesUsing=[];
+  (DATA.menu||[]).forEach(function(sec){(sec.dishes||[]).forEach(function(d){
+    (d.components||[]).forEach(function(c){ if(_normKey(c)===node._key) dishesUsing.push(d.name); });
+  });});
+  var html='<div class="side-title">'+_escHtml(display)+
+    '<span class="side-pill '+(cls?cls.kind:'unclassified')+'">'+(cls?cls.kind.replace('_',' '):'unclassified')+'</span></div>';
+  if(dishesUsing.length){
+    html+='<div class="side-vendor">in <b>'+_escHtml(dishesUsing.join(', '))+'</b></div>';
+  }
+  if(cls && cls.kind==='sourced'){
+    html+='<div class="side-vendor">from <b>'+_escHtml(cls.vendor||'?')+'</b></div>';
+  }
+  if(cls && cls.kind==='canonical'){
+    var prim=(cls.matches||[])[0]||display;
+    var st=_statusForCanonical(prim);
+    html+='<div class="side-vendor">'+STATUS_LABEL[st.cls]+(st.vendor?' · from <b>'+_escHtml(st.vendor)+'</b>':'')+'</div>';
+  }
+  side.innerHTML=html;
+}
+
+function _showClsfPane(kind){
+  document.getElementById('clsf-pane-canonical').classList.toggle('shown', kind==='canonical');
+  document.getElementById('clsf-pane-sub').classList.toggle('shown', kind==='sub_recipe');
+  document.getElementById('clsf-pane-sourced').classList.toggle('shown', kind==='sourced');
+  document.getElementById('clsf-pane-pantry').classList.toggle('shown', kind==='pantry');
+}
+function closeClassifier(){ document.getElementById('clsf-backdrop').classList.remove('open'); }
+
+function _saveClassification(key, entry, displayName){
+  _links[key]=entry;
+  _persistClassification(key, entry, displayName);
+}
+
+function _persistClassification(key, entry, displayName){
+  // POST to Worker /classify (backed by KV); fall back to local-only if it fails
+  fetch(getClassifyUrl(),{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({key:key, entry:entry})
+  })
+  .then(function(r){ return r.ok? r.json() : null; })
+  .then(function(){
+    closeClassifier();
+    _clsfToast(entry?'Classified: '+displayName:'Cleared: '+displayName);
+    if(_currentDish) buildDishGraph(_currentDish);
   })
   .catch(function(){
-    zone.innerHTML='<div class="pitch-loading">Couldn\'t reach Remy. Check your connection.</div>';
+    closeClassifier();
+    _clsfToast('Saved locally (Worker offline)');
+    if(_currentDish) buildDishGraph(_currentDish);
   });
 }
 
-function _pitchOutreach(vendorsJson){
-  var vendors=JSON.parse(vendorsJson);
-  if(vendors.length) draftOutreach(vendors[0]);
+function _vendorList(){
+  // Pull vendor names from seasonal-data ingredients (deduped), plus any sourced vendor names already in _links
+  var set={};
+  (DATA.ingredients||[]).forEach(function(i){ if(i.vendor) set[i.vendor]=true; });
+  for(var k in _links){
+    var e=_links[k];
+    if(e && e.kind==='sourced' && e.vendor) set[e.vendor]=true;
+  }
+  return Object.keys(set).sort();
+}
+
+var _clsfToastTimer=null;
+function _clsfToast(msg){
+  var t=document.getElementById('clsf-toast');
+  if(!t){
+    t=document.createElement('div');
+    t.id='clsf-toast'; t.className='clsf-toast';
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(_clsfToastTimer);
+  _clsfToastTimer=setTimeout(function(){ t.classList.remove('show'); }, 1800);
+}
+
+function _buildClassifierModal(){
+  if(document.getElementById('clsf-backdrop')) return;
+  var html='<div class="clsf-backdrop" id="clsf-backdrop" onclick="if(event.target.id===\'clsf-backdrop\')closeClassifier()">'+
+    '<div class="clsf-modal" onclick="event.stopPropagation()">'+
+      '<div class="clsf-head">'+
+        '<div><div class="clsf-title" id="clsf-title">Component</div><div class="clsf-sub" id="clsf-sub"></div></div>'+
+        '<button class="clsf-close" onclick="closeClassifier()">×</button>'+
+      '</div>'+
+      '<div class="clsf-kinds">'+
+        '<button class="clsf-kind" data-kind="canonical"><span class="k-t">Ingredient</span><span class="k-d">In seasonal-data</span></button>'+
+        '<button class="clsf-kind" data-kind="sub_recipe"><span class="k-t">Sub-recipe</span><span class="k-d">Decomposes</span></button>'+
+        '<button class="clsf-kind" data-kind="sourced"><span class="k-t">Sourced</span><span class="k-d">Vendor-attributed</span></button>'+
+        '<button class="clsf-kind" data-kind="pantry"><span class="k-t">Pantry</span><span class="k-d">Untracked</span></button>'+
+      '</div>'+
+      '<div class="clsf-pane" id="clsf-pane-canonical">'+
+        '<input type="text" class="clsf-input" id="clsf-search" placeholder="Search canonical ingredients (243 known)…">'+
+        '<div class="clsf-suggestions" id="clsf-suggestions"></div>'+
+        '<div class="clsf-chips" id="clsf-chips"></div>'+
+      '</div>'+
+      '<div class="clsf-pane" id="clsf-pane-sub">'+
+        '<div class="clsf-help">List ingredients comma-separated. Each becomes its own classifiable component.</div>'+
+        '<textarea class="clsf-textarea" id="clsf-sub-input" placeholder="anchovy, egg yolk, garlic, lemon, olive oil"></textarea>'+
+        '<div class="clsf-sub-preview" id="clsf-sub-preview"></div>'+
+      '</div>'+
+      '<div class="clsf-pane" id="clsf-pane-sourced">'+
+        '<div class="clsf-help">Pick the vendor you source this from, or type a custom name.</div>'+
+        '<div class="clsf-vendors" id="clsf-vendor-pills"></div>'+
+        '<input type="text" class="clsf-input" id="clsf-vendor-custom" placeholder="Or type a custom vendor…">'+
+        '<div class="clsf-vendor-current" id="clsf-vendor-current"></div>'+
+      '</div>'+
+      '<div class="clsf-pane" id="clsf-pane-pantry">'+
+        '<div class="clsf-pantry-help">Mark as pantry: staple with no vendor attribution. Examples: salt, water, sugar, generic vinegar. If bought from a specific vendor, use Sourced instead.</div>'+
+      '</div>'+
+      '<div class="clsf-footer">'+
+        '<button class="clsf-btn danger" id="clsf-delete">Clear</button>'+
+        '<button class="clsf-btn primary" id="clsf-save">Save</button>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+  var div=document.createElement('div');
+  div.innerHTML=html;
+  document.body.appendChild(div.firstChild);
 }
 
 function selectDate(containerId, mode, val){
@@ -12009,6 +14051,7 @@ var MODE_DEFS=[
   {id:'event',    label:'Event Coming Up',     desc:'Pick a date — see what will be at peak when you need it.',       action:function(){ goTo('event');    buildFlow('event-flow','event'); }},
   {id:'planning', label:'Planning a Menu Change',desc:'Big seasonal shift. Spring, summer, fall, winter.',             action:function(){ goTo('planning'); buildFlow('planning-flow','planning'); }},
   {id:'menuitem', label:"How's the Menu?",         desc:'Pick from your current menu. See what to swap with what\'s in season.', action:function(){ goTo('menuitem'); buildSwapDishList(); }},
+  {id:'brainweb', label:'Menu Brain Web',      desc:'Whole menu as one graph. Vendor concentration, shared ingredients, flag clusters.', action:function(){ goTo('brainweb'); buildBrainWeb(); }},
   {id:'market',   label:'How\'s the Market?',  desc:'Cost creep and value plays this week.',                          action:function(){ goTo('market'); }},
   {id:'browse',   label:'Just Browsing',       desc:'Arriving, peaking, ending, and price moves.',                    action:function(){ goTo('browse'); }},
 ];
