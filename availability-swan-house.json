@@ -1,7 +1,8 @@
 {
- "generated": "2026-06-12T11:02:21-07:00",
+ "generated": "2026-06-12T13:36:59-07:00",
  "month": "June",
- "source": "seasonal-data.json (Kelly's sheet via Monday reconcile + voice notes)",
+ "source": "Swan_House_2026_Weekly_Availability (live sheet, current-year tabs only; Archive excluded)",
+ "sheet_modified": "2026-06-12T18:01:25.449Z",
  "kelly_last_touch": "2026-06-10",
  "all_units": [
   "cup",
@@ -25,32 +26,15 @@
  ],
  "items": [
   {
-   "name": "Chamomile",
-   "display": "Chamomile",
-   "category": "flower",
-   "score": 2,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "bunch",
-    "stems",
-    "each",
-    "cup",
-    "pint",
-    "pack"
-   ]
-  },
-  {
    "name": "Chive Blossoms",
    "display": "Chive Blossoms",
    "category": "flower",
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-05-26",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "bunch",
     "stems",
@@ -67,8 +51,9 @@
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
+   "kelly_note": "20+#",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -81,33 +66,15 @@
    ]
   },
   {
-   "name": "Kohlrabi",
-   "display": "Kohlrabi",
-   "category": "produce",
-   "score": 2,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
    "name": "Lettuce (Farm)",
    "display": "Lettuce",
    "category": "green",
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
+   "kelly_note": "30-40#",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -126,28 +93,9 @@
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Marjoram (Farm)",
-   "display": "Marjoram",
-   "category": "green",
-   "score": 2,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
+   "kelly_note": "30+#",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -166,8 +114,9 @@
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-05-20",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -186,28 +135,9 @@
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Sweet Cicely",
-   "display": "Sweet Cicely",
-   "category": "green",
-   "score": 2,
-   "coming": false,
-   "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -226,8 +156,9 @@
    "score": 2,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
+   "kelly_note": "10#",
+   "last_touch": "2026-06-10",
+   "status": "Peak",
    "units": [
     "lb",
     "1/2 lb",
@@ -240,24 +171,6 @@
    ]
   },
   {
-   "name": "Violas",
-   "display": "Violas",
-   "category": "flower",
-   "score": 2,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "bunch",
-    "stems",
-    "each",
-    "cup",
-    "pint",
-    "pack"
-   ]
-  },
-  {
    "name": "Beef Shanks",
    "display": "Beef Shanks",
    "category": "protein",
@@ -265,7 +178,8 @@
    "coming": false,
    "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
+   "last_touch": "2026-04-24",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -282,7 +196,8 @@
    "coming": false,
    "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
+   "last_touch": "2026-04-24",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -292,33 +207,15 @@
    ]
   },
   {
-   "name": "Beets (Farm)",
-   "display": "Beets",
-   "category": "produce",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
    "name": "Bronze Fennel",
    "display": "Bronze Fennel",
    "category": "green",
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "3 gallon bags",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -337,8 +234,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "40+ # presto",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "case",
@@ -350,26 +248,6 @@
    ]
   },
   {
-   "name": "Chard",
-   "display": "Chard",
-   "category": "green",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
    "name": "Chicken Eggs",
    "display": "Chicken Eggs",
    "category": "protein",
@@ -378,6 +256,7 @@
    "ntm": false,
    "kelly_note": "",
    "last_touch": "",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -393,8 +272,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "10#",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -407,32 +287,15 @@
    ]
   },
   {
-   "name": "Cut Flowers (Farm)",
-   "display": "Cut Flowers",
-   "category": "flower",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "bunch",
-    "stems",
-    "each",
-    "cup",
-    "pint",
-    "pack"
-   ]
-  },
-  {
    "name": "Dill (Farm)",
    "display": "Dill",
    "category": "green",
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -453,6 +316,7 @@
    "ntm": false,
    "kelly_note": "",
    "last_touch": "",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -468,8 +332,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "bunch",
     "stems",
@@ -480,34 +345,15 @@
    ]
   },
   {
-   "name": "Endive (Farm)",
-   "display": "Endive",
-   "category": "green",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "Kelly voice 5/27: sprouting, with lettuce",
-   "last_touch": "2026-05-27",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
    "name": "Fennel Fronds",
    "display": "Fennel Fronds",
    "category": "green",
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "2-3 gallon bags",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -526,8 +372,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Trickling",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Trickling",
    "units": [
     "lb",
     "case",
@@ -545,8 +392,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "5#",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -565,8 +413,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
+   "kelly_note": "425lbs",
+   "last_touch": "2026-04-24",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -582,8 +431,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "1 gallon bag",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "bunch",
     "stems",
@@ -601,24 +451,8 @@
    "coming": false,
    "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Lamb-Pork Sausage",
-   "display": "Lamb-Pork Sausage",
-   "category": "protein",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
+   "last_touch": "2026-04-24",
+   "status": "Available",
    "units": [
     "lb",
     "each",
@@ -634,8 +468,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "bunch",
     "stems",
@@ -652,48 +487,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Mache",
-   "display": "Mache",
-   "category": "green",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Mustard Greens",
-   "display": "Mustard Greens",
-   "category": "green",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
+   "kelly_note": "10#",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -712,8 +508,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "bunch",
     "stems",
@@ -724,33 +521,15 @@
    ]
   },
   {
-   "name": "Onion Tops",
-   "display": "Onion Tops",
-   "category": "produce",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
    "name": "Oregano",
    "display": "Oregano",
    "category": "green",
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "10#",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -760,96 +539,6 @@
     "head",
     "case",
     "cup"
-   ]
-  },
-  {
-   "name": "Pea Shoots",
-   "display": "Pea Shoots",
-   "category": "green",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Pork Belly",
-   "display": "Pork Belly",
-   "category": "protein",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Pork Chops",
-   "display": "Pork Chops",
-   "category": "protein",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Pork Shanks",
-   "display": "Pork Shanks",
-   "category": "protein",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Potatoes (Farm)",
-   "display": "Potatoes",
-   "category": "produce",
-   "score": 1,
-   "coming": false,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
    ]
   },
   {
@@ -859,8 +548,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "bunch",
     "stems",
@@ -877,8 +567,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "5#",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -891,14 +582,15 @@
    ]
   },
   {
-   "name": "Snap/Snow Peas",
-   "display": "Snap/Snow Peas",
+   "name": "Snap Peas",
+   "display": "Snap Peas",
    "category": "produce",
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "case",
@@ -916,8 +608,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "case",
@@ -935,8 +628,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "5#",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -955,8 +649,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Available",
    "units": [
     "lb",
     "1/2 lb",
@@ -975,8 +670,9 @@
    "score": 1,
    "coming": false,
    "ntm": false,
-   "kelly_note": "Trickling",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Trickling",
    "units": [
     "lb",
     "case",
@@ -988,127 +684,15 @@
    ]
   },
   {
-   "name": "Angelica",
-   "display": "Angelica",
+   "name": "Borage",
+   "display": "Borage",
    "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Basil (Farm)",
-   "display": "Basil",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Beef Primals",
-   "display": "Beef Primals",
-   "category": "protein",
    "score": 0,
    "coming": true,
    "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Calendula",
-   "display": "Calendula",
-   "category": "flower",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-06-03",
-   "units": [
-    "bunch",
-    "stems",
-    "each",
-    "cup",
-    "pint",
-    "pack"
-   ]
-  },
-  {
-   "name": "Carrots (Farm)",
-   "display": "Carrots",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Cherry Tomatoes (Farm)",
-   "display": "Cherry Tomatoes",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Cilantro (Farm)",
-   "display": "Cilantro",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
+   "last_touch": "2026-06-10",
+   "status": "Coming Soon",
    "units": [
     "lb",
     "1/2 lb",
@@ -1121,33 +705,15 @@
    ]
   },
   {
-   "name": "Cucumber (Farm)",
-   "display": "Cucumber",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Currants",
-   "display": "Currants",
+   "name": "Loganberries",
+   "display": "Loganberries",
    "category": "berry",
    "score": 0,
    "coming": true,
    "ntm": false,
    "kelly_note": "",
-   "last_touch": "",
+   "last_touch": "2026-06-10",
+   "status": "Coming Soon",
    "units": [
     "pint",
     "quart",
@@ -1155,80 +721,6 @@
     "half-flat",
     "lb",
     "cup"
-   ]
-  },
-  {
-   "name": "Green Garlic",
-   "display": "Green Garlic",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Done",
-   "last_touch": "2026-06-10",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Guanciale (House-Cured)",
-   "display": "Guanciale (House-Cured)",
-   "category": "protein",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "each",
-    "dozen",
-    "pack",
-    "case"
-   ]
-  },
-  {
-   "name": "Lemon Verbena",
-   "display": "Lemon Verbena",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Marigolds",
-   "display": "Marigolds",
-   "category": "flower",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "bunch",
-    "stems",
-    "each",
-    "cup",
-    "pint",
-    "pack"
    ]
   },
   {
@@ -1238,8 +730,9 @@
    "score": 0,
    "coming": true,
    "ntm": false,
-   "kelly_note": "Coming Soon",
+   "kelly_note": "",
    "last_touch": "2026-06-10",
+   "status": "Coming Soon",
    "units": [
     "pint",
     "quart",
@@ -1247,44 +740,6 @@
     "half-flat",
     "lb",
     "cup"
-   ]
-  },
-  {
-   "name": "Padron/Shishito (Farm)",
-   "display": "Padron/Shishito",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "",
-   "last_touch": "",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Radish",
-   "display": "Radish",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Done",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
    ]
   },
   {
@@ -1294,8 +749,9 @@
    "score": 0,
    "coming": true,
    "ntm": false,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
+   "kelly_note": "",
+   "last_touch": "2026-06-10",
+   "status": "Coming Soon",
    "units": [
     "pint",
     "quart",
@@ -1303,103 +759,6 @@
     "half-flat",
     "lb",
     "cup"
-   ]
-  },
-  {
-   "name": "Savory",
-   "display": "Savory",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Squash (Farm)",
-   "display": "Squash",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Tarragon (Farm)",
-   "display": "Tarragon",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-06-03",
-   "units": [
-    "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
-    "case",
-    "cup"
-   ]
-  },
-  {
-   "name": "Walla Walla Onions",
-   "display": "Walla Walla Onions",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
-   ]
-  },
-  {
-   "name": "Zucchini (Farm)",
-   "display": "Zucchini",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "ntm": false,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
-   "units": [
-    "lb",
-    "case",
-    "each",
-    "head",
-    "flat",
-    "medium cooler",
-    "large cooler"
    ]
   }
  ]
