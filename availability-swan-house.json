@@ -1,8 +1,8 @@
 {
- "generated": "2026-06-11T18:12:26-07:00",
+ "generated": "2026-06-12T08:39:36-07:00",
  "month": "June",
  "source": "seasonal-data.json (Kelly's sheet via Monday reconcile + voice notes)",
- "kelly_last_touch": "2026-06-03",
+ "kelly_last_touch": "2026-06-10",
  "all_units": [
   "#",
   "gal bag",
@@ -43,21 +43,6 @@
     "#",
     "stems",
     "gal bag"
-   ]
-  },
-  {
-   "name": "Chives",
-   "display": "Chives",
-   "category": "green",
-   "score": 2,
-   "coming": false,
-   "kelly_note": "Peak",
-   "last_touch": "2026-06-03",
-   "units": [
-    "#",
-    "gal bag",
-    "bunch",
-    "case"
    ]
   },
   {
@@ -271,6 +256,21 @@
    ]
   },
   {
+   "name": "Cabbage (Farm)",
+   "display": "Cabbage",
+   "category": "produce",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "case",
+    "each",
+    "bunch"
+   ]
+  },
+  {
    "name": "Chard",
    "display": "Chard",
    "category": "green",
@@ -301,6 +301,21 @@
    ]
   },
   {
+   "name": "Chives",
+   "display": "Chives",
+   "category": "green",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "gal bag",
+    "bunch",
+    "case"
+   ]
+  },
+  {
    "name": "Cut Flowers (Farm)",
    "display": "Cut Flowers",
    "category": "flower",
@@ -313,6 +328,21 @@
     "#",
     "stems",
     "gal bag"
+   ]
+  },
+  {
+   "name": "Dill (Farm)",
+   "display": "Dill",
+   "category": "green",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "gal bag",
+    "bunch",
+    "case"
    ]
   },
   {
@@ -376,6 +406,21 @@
    ]
   },
   {
+   "name": "Garlic Scapes",
+   "display": "Garlic Scapes",
+   "category": "produce",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Trickling",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "case",
+    "each",
+    "bunch"
+   ]
+  },
+  {
    "name": "Grape Leaves",
    "display": "Grape Leaves",
    "category": "green",
@@ -388,21 +433,6 @@
     "gal bag",
     "bunch",
     "case"
-   ]
-  },
-  {
-   "name": "Green Garlic",
-   "display": "Green Garlic",
-   "category": "produce",
-   "score": 1,
-   "coming": false,
-   "kelly_note": "Available",
-   "last_touch": "2026-06-03",
-   "units": [
-    "#",
-    "case",
-    "each",
-    "bunch"
    ]
   },
   {
@@ -466,6 +496,21 @@
    ]
   },
   {
+   "name": "Lavender",
+   "display": "Lavender",
+   "category": "flower",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "bunch",
+    "#",
+    "stems",
+    "gal bag"
+   ]
+  },
+  {
    "name": "Lemon Balm (Farm)",
    "display": "Lemon Balm",
    "category": "green",
@@ -508,6 +553,21 @@
     "gal bag",
     "bunch",
     "case"
+   ]
+  },
+  {
+   "name": "Nasturtium",
+   "display": "Nasturtium",
+   "category": "flower",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "bunch",
+    "#",
+    "stems",
+    "gal bag"
    ]
   },
   {
@@ -646,6 +706,21 @@
    ]
   },
   {
+   "name": "Snap/Snow Peas",
+   "display": "Snap/Snow Peas",
+   "category": "produce",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Available",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "case",
+    "each",
+    "bunch"
+   ]
+  },
+  {
    "name": "Snow Peas",
    "display": "Snow Peas",
    "category": "produce",
@@ -691,6 +766,21 @@
    ]
   },
   {
+   "name": "Turnips",
+   "display": "Turnips",
+   "category": "produce",
+   "score": 1,
+   "coming": false,
+   "kelly_note": "Trickling",
+   "last_touch": "2026-06-10",
+   "units": [
+    "#",
+    "case",
+    "each",
+    "bunch"
+   ]
+  },
+  {
    "name": "Angelica",
    "display": "Angelica",
    "category": "green",
@@ -733,21 +823,6 @@
     "gal bag",
     "bunch",
     "case"
-   ]
-  },
-  {
-   "name": "Cabbage (Farm)",
-   "display": "Cabbage",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
-   "units": [
-    "#",
-    "case",
-    "each",
-    "bunch"
    ]
   },
   {
@@ -840,28 +915,13 @@
    ]
   },
   {
-   "name": "Dill (Farm)",
-   "display": "Dill",
-   "category": "green",
-   "score": 0,
-   "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
-   "units": [
-    "#",
-    "gal bag",
-    "bunch",
-    "case"
-   ]
-  },
-  {
-   "name": "Garlic Scapes",
-   "display": "Garlic Scapes",
+   "name": "Green Garlic",
+   "display": "Green Garlic",
    "category": "produce",
    "score": 0,
    "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
+   "kelly_note": "Done",
+   "last_touch": "2026-06-10",
    "units": [
     "#",
     "case",
@@ -882,21 +942,6 @@
     "gal bag",
     "bunch",
     "case"
-   ]
-  },
-  {
-   "name": "Lavender",
-   "display": "Lavender",
-   "category": "flower",
-   "score": 0,
-   "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
-   "units": [
-    "bunch",
-    "#",
-    "stems",
-    "gal bag"
    ]
   },
   {
@@ -935,27 +980,12 @@
    "category": "berry",
    "score": 0,
    "coming": true,
-   "kelly_note": "Not Yet",
-   "last_touch": "2026-05-20",
+   "kelly_note": "Coming Soon",
+   "last_touch": "2026-06-10",
    "units": [
     "#",
     "flat",
     "pint"
-   ]
-  },
-  {
-   "name": "Nasturtium",
-   "display": "Nasturtium",
-   "category": "flower",
-   "score": 0,
-   "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
-   "units": [
-    "bunch",
-    "#",
-    "stems",
-    "gal bag"
    ]
   },
   {
@@ -1015,21 +1045,6 @@
     "gal bag",
     "bunch",
     "case"
-   ]
-  },
-  {
-   "name": "Snap/Snow Peas",
-   "display": "Snap/Snow Peas",
-   "category": "produce",
-   "score": 0,
-   "coming": true,
-   "kelly_note": "Coming Soon",
-   "last_touch": "2026-06-03",
-   "units": [
-    "#",
-    "case",
-    "each",
-    "bunch"
    ]
   },
   {
