@@ -382,9 +382,7 @@
    "date": "2026-04-30",
    "freshness": "AGING",
    "source": "invoice",
-   "needs_check": true,
-   "swan_per_lb": 0.694,
-   "per_lb_basis": "estimate"
+   "needs_check": false
   },
   "Snow Peas": {
    "swan_price": 5.46,
@@ -394,9 +392,7 @@
    "date": "2026-06-04",
    "freshness": "FRESH",
    "source": "invoice",
-   "needs_check": true,
-   "swan_per_lb": 0.546,
-   "per_lb_basis": "estimate"
+   "needs_check": false
   },
   "Sorrel (French)": {
    "swan_price": 9.6,
