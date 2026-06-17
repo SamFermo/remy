@@ -1,5 +1,5 @@
 {
- "generated": "2026-06-16",
+ "generated": "2026-06-17",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -118,6 +118,17 @@
    "source": "catalogue",
    "needs_check": false
   },
+  "Chive Blossoms": {
+   "swan_price": 20,
+   "market": 20,
+   "unit": "bunch",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-06-10",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Swan House invoice 1120, 2026-06-10)",
+   "needs_check": false,
+   "farm_set": true
+  },
   "Chives": {
    "swan_price": 7.2,
    "market": 6.0,
@@ -176,6 +187,17 @@
    "source": "research (low) — ThePricer / Foraged, 2026",
    "needs_check": true
   },
+  "Edible Flowers": {
+   "swan_price": 15,
+   "market": 15,
+   "unit": "bunch",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-05-26",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Swan House invoice 1118, 2026-05-26)",
+   "needs_check": false,
+   "farm_set": true
+  },
   "Fennel Fronds": {
    "swan_price": 3.42,
    "market": 2.85,
@@ -224,6 +246,17 @@
    "swan_per_lb": 6.24,
    "per_lb_basis": "exact"
   },
+  "Honeysuckle": {
+   "swan_price": 12,
+   "market": 12,
+   "unit": "bunch",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-06-04",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Swan House invoice 1119, 2026-06-04)",
+   "needs_check": false,
+   "farm_set": true
+  },
   "Kale": {
    "swan_price": 57.6,
    "market": 48.0,
@@ -259,6 +292,17 @@
    "needs_check": false,
    "swan_per_lb": 14.4,
    "per_lb_basis": "exact"
+  },
+  "Lilacs": {
+   "swan_price": 20,
+   "market": 20,
+   "unit": "bunch",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-05-14",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Swan House invoice 1116, 2026-05-14)",
+   "needs_check": false,
+   "farm_set": true
   },
   "Lovage": {
    "swan_price": 29.4,
@@ -367,6 +411,17 @@
    "needs_check": false,
    "swan_per_lb": 4.79,
    "per_lb_basis": "exact"
+  },
+  "Rose Petals For Plating": {
+   "swan_price": 12,
+   "market": 12,
+   "unit": "bunch",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-06-04",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Swan House invoice 1119, 2026-06-04)",
+   "needs_check": false,
+   "farm_set": true
   },
   "Rosemary": {
    "swan_price": 15.0,
