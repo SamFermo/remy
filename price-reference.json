@@ -11,6 +11,7 @@
    "freshness": "STALE",
    "source": "invoice",
    "needs_check": true,
+   "climb": 0.0,
    "swan_per_lb": 2.7,
    "per_lb_basis": "exact"
   },
@@ -23,6 +24,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": -39.7,
    "swan_per_lb": 13.2,
    "per_lb_basis": "exact"
   },
@@ -35,6 +37,7 @@
    "freshness": "FRESH",
    "source": "catalogue",
    "needs_check": false,
+   "climb": -21.1,
    "swan_per_lb": 22.79,
    "per_lb_basis": "exact"
   },
@@ -93,6 +96,7 @@
    "freshness": "STALE",
    "source": "invoice",
    "needs_check": true,
+   "climb": 30.4,
    "swan_per_lb": 1.8,
    "per_lb_basis": "exact"
   },
@@ -105,6 +109,7 @@
    "freshness": "STALE",
    "source": "invoice",
    "needs_check": true,
+   "climb": 0.0,
    "swan_per_lb": 4.3,
    "per_lb_basis": "estimate"
   },
@@ -138,6 +143,7 @@
    "freshness": "AGING",
    "source": "invoice",
    "needs_check": false,
+   "climb": -41.9,
    "swan_per_lb": 28.8,
    "per_lb_basis": "exact"
   },
@@ -162,6 +168,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
+   "climb": -40.0,
    "swan_per_lb": 3.6,
    "per_lb_basis": "estimate"
   },
@@ -174,6 +181,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 6.0,
    "per_lb_basis": "exact"
   },
@@ -207,6 +215,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
+   "climb": -4.7,
    "swan_per_lb": 4.8857,
    "per_lb_basis": "estimate"
   },
@@ -243,6 +252,7 @@
    "freshness": "STALE",
    "source": "invoice",
    "needs_check": true,
+   "climb": 0.0,
    "swan_per_lb": 6.24,
    "per_lb_basis": "exact"
   },
@@ -325,6 +335,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 18.0,
    "per_lb_basis": "exact"
   },
@@ -349,6 +360,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": -5.9,
    "swan_per_lb": 19.16,
    "per_lb_basis": "exact"
   },
@@ -361,6 +373,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 4.76,
    "per_lb_basis": "exact"
   },
@@ -432,6 +445,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 15.0,
    "per_lb_basis": "exact"
   },
@@ -488,6 +502,7 @@
    "freshness": "AGING",
    "source": "commodity",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 40.8,
    "per_lb_basis": "exact"
   },
@@ -500,6 +515,7 @@
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
+   "climb": 0.0,
    "swan_per_lb": 23.4,
    "per_lb_basis": "exact"
   },
