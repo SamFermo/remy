@@ -749,6 +749,266 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 
 <!-- APP -->
 <div id="app">
+<style>
+
+/* ── DUAL-DOOR ENTRY (split worlds) — integrated 2026-06-21 ── */
+#doors,#farm{position:absolute;inset:0;z-index:60;display:flex;flex-direction:column;
+  background:radial-gradient(ellipse at 50% 24%,#0c1535 0%,#050918 56%,#02040d 100%);
+  transition:opacity .55s var(--ease)}
+#doors.gone,#farm.gone{opacity:0;pointer-events:none}
+.de-head{display:flex;align-items:baseline;gap:7px;padding:52px 20px 0;flex-shrink:0}
+.de-remy{font-family:var(--fd);font-size:16px;font-weight:500;letter-spacing:0.22em;color:var(--ink)}
+.de-brand{font-family:var(--fd);font-size:13px;font-style:italic;color:var(--ink-60)}
+.de-note{position:absolute;top:54px;right:20px;font-family:var(--fb);font-size:10px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink-30)}
+.doors-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:20px 20px 26px;min-height:0}
+.door{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:26px 26px 30px;border:1px solid var(--ink-12);border-radius:8px;cursor:pointer;
+  text-decoration:none;color:var(--ink);overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .5s var(--ease),border-color .4s var(--ease)}
+.door--kitchen{background:linear-gradient(180deg,#16122a 0%,#0a0a1f 100%)}
+.door--farm{background:linear-gradient(180deg,#101a26 0%,#0a1410 100%)}
+.door:hover,.door:focus-visible{transform:translateY(-3px);outline:none}
+.door--kitchen:hover,.door--kitchen:focus-visible{border-color:rgba(226,185,94,0.5);
+  box-shadow:0 16px 50px -20px rgba(224,135,99,0.5),0 0 60px -12px rgba(226,185,94,0.28)}
+.door--farm:hover,.door--farm:focus-visible{border-color:rgba(168,185,126,0.5);
+  box-shadow:0 16px 50px -20px rgba(168,185,126,0.42),0 0 60px -12px rgba(168,185,126,0.26)}
+.door-eyebrow{font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.20em;text-transform:uppercase}
+.door--kitchen .door-eyebrow{color:var(--terra)}
+.door--farm .door-eyebrow{color:var(--olive)}
+.door-title{font-family:var(--fd);font-size:42px;font-weight:500;line-height:1;margin-top:8px}
+.door-sub{font-family:var(--fd);font-style:italic;font-size:16px;color:var(--ink-60);margin-top:9px;max-width:22ch}
+.door-enter{margin-top:16px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.16em;
+  text-transform:uppercase;opacity:0;transform:translateX(-5px);
+  transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.door:hover .door-enter,.door:focus-visible .door-enter{opacity:1;transform:translateX(0)}
+/* farm shell: scrollable wrapper hosting the fresh-sheet .phone */
+.farm-shell{flex:1;display:flex;justify-content:center;align-items:flex-start;
+  padding:22px 14px 40px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.farm-shell .phone{width:100%;max-width:430px;display:flex;flex-direction:column;position:relative;z-index:2}
+@media(max-width:720px){
+  .doors-grid{grid-template-columns:1fr;overflow-y:auto}
+  .door{min-height:200px}
+  .door-title{font-size:34px}
+}
+
+/* fresh-sheet component CSS (globals/:root stripped) */
+
+
+
+
+
+.phone{width:100%;max-width:430px;display:flex;flex-direction:column;position:relative;z-index:2}
+.fh{display:flex;align-items:center;gap:12px;padding:8px 4px 0}
+.fh-back{background:none;border:none;color:var(--ink-60);font-family:var(--fb);font-size:11px;letter-spacing:0.06em;cursor:pointer;padding:0}
+.fh-back:hover{color:var(--ink)}
+.fh-title{flex:1;text-align:right}
+.fh-title b{display:block;font-family:var(--fd);font-size:24px;font-weight:500;line-height:1}
+.fh-title span{font-family:var(--fd);font-style:italic;font-size:13px;color:var(--ink-60)}
+.seg{display:flex;gap:4px;background:var(--ink-6);border:1px solid var(--ink-12);border-radius:40px;padding:4px;margin:18px 0 6px}
+.seg button{flex:1;font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:0.04em;color:var(--ink-60);background:none;border:none;border-radius:30px;padding:9px 0;cursor:pointer;transition:all .26s var(--ease)}
+.seg button.on{color:#0a1028;background:var(--ink)}
+.guided-link{display:block;width:100%;text-align:center;background:none;border:none;cursor:pointer;font-family:var(--fd);font-style:italic;font-size:13px;color:var(--olive);padding:6px 0 2px;letter-spacing:0.02em}
+.guided-link:hover{color:var(--ink)}
+.view{display:none;animation:fade .35s var(--ease)}
+.view.live{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.vh{font-family:var(--fd);font-size:26px;font-weight:500;margin:16px 0 2px;line-height:1.05}
+.vh-sub{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink-60);margin-bottom:14px}
+.pcard{position:relative;background:var(--bg-card);border:1px solid var(--ink-12);border-radius:8px;padding:14px 15px;margin-bottom:10px}
+.pcard.markdown{border-color:rgba(226,185,94,0.45)}
+.pc-top{display:flex;align-items:baseline;gap:8px}
+.pc-name{font-family:var(--fd);font-size:21px;font-weight:500;line-height:1}
+.pc-qty{font-family:var(--fb);font-size:11px;color:var(--olive);letter-spacing:0.04em;border:1px solid rgba(168,185,126,0.3);border-radius:20px;padding:2px 9px}
+.pc-x{position:absolute;top:10px;right:11px;background:none;border:none;color:var(--ink-30);font-size:18px;cursor:pointer;line-height:1;padding:2px}
+.pc-x:hover{color:var(--ink)}
+.pc-market{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);margin-top:7px;letter-spacing:0.02em}
+.pc-market b{color:var(--ink);font-weight:500}
+.pc-nocomp{color:var(--ink-30);font-style:italic;font-family:var(--fd);font-size:13px}
+.pc-actions{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
+.chip-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.03em;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:6px 11px;cursor:pointer;transition:all .2s var(--ease)}
+.chip-btn:hover{color:var(--ink);border-color:var(--ink-30)}
+.chip-btn.on{color:var(--gold);border-color:rgba(226,185,94,0.5);background:rgba(226,185,94,0.1)}
+.chip-btn .ic{width:13px;height:13px;display:inline-block;stroke:currentColor;stroke-width:1.6;fill:none}
+.chip-btn.soon{opacity:0.55;cursor:default}
+.md-tag{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:9px;display:none}
+.pcard.markdown .md-tag{display:block}
+.add-btn{width:100%;font-family:var(--fb);font-size:13px;font-weight:500;letter-spacing:0.04em;color:var(--olive);background:rgba(168,185,126,0.08);border:1px dashed rgba(168,185,126,0.4);border-radius:8px;padding:14px;cursor:pointer;margin-top:4px;transition:all .2s var(--ease)}
+.add-btn:hover{background:rgba(168,185,126,0.14)}
+.empty-push{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-30);text-align:center;padding:10px 0 4px}
+.loop-note{font-family:var(--fd);font-style:italic;font-size:13px;color:var(--ink-30);text-align:center;margin-top:18px;line-height:1.4}
+.picker{display:none;margin-top:10px;background:var(--bg-card);border:1px solid var(--ink-12);border-radius:8px;padding:12px}
+.picker.open{display:block;animation:fade .25s var(--ease)}
+.picker-hd{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-60);margin-bottom:9px}
+.pick-grid{display:flex;flex-wrap:wrap;gap:7px}
+.pick{font-family:var(--fd);font-size:15px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:7px 13px;cursor:pointer;transition:all .2s var(--ease)}
+.pick:hover{border-color:var(--olive);color:var(--olive)}
+.list-intro{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink-60);margin:16px 0 12px}
+.lrow{display:flex;align-items:center;gap:9px;padding:12px 4px;border-bottom:1px solid var(--ink-6)}
+.lr-main{flex:1;min-width:0}
+.lr-name{font-family:var(--fd);font-size:19px;color:var(--ink)}
+.lr-qty{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);letter-spacing:0.03em;margin-top:1px}
+.status{font-family:var(--fb);font-size:10.5px;font-weight:500;letter-spacing:0.05em;border-radius:20px;padding:4px 10px;cursor:pointer;border:1px solid;white-space:nowrap;min-width:96px;text-align:center}
+.st-peak{color:var(--terra);border-color:rgba(224,135,99,0.45);background:rgba(224,135,99,0.1)}
+.st-avail{color:var(--olive);border-color:rgba(168,185,126,0.45);background:rgba(168,185,126,0.1)}
+.st-coming{color:var(--navy);border-color:rgba(123,155,209,0.45);background:rgba(123,155,209,0.1)}
+.st-done{color:var(--ink-30);border-color:var(--ink-12);background:transparent}
+.star{background:none;border:none;cursor:pointer;font-size:19px;line-height:1;color:var(--ink-12);padding:2px}
+.star.on{color:var(--gold)}
+.gcard{background:var(--bg-card);border:1px solid var(--ink-12);border-radius:10px;padding:24px 20px;margin-top:18px}
+.g-dots{display:flex;gap:6px;justify-content:center;margin-bottom:20px}
+.g-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-12)}
+.g-dot.on{background:var(--olive)}
+.g-q{font-family:var(--fd);font-size:24px;font-weight:500;text-align:center;line-height:1.15;min-height:56px}
+.g-opts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.g-opt{font-family:var(--fd);font-size:17px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:24px;padding:10px 20px;cursor:pointer;transition:all .2s var(--ease)}
+.g-opt:hover{border-color:var(--olive);color:var(--olive)}
+.g-mic{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-family:var(--fb);font-size:12px;color:var(--ink-30);letter-spacing:0.04em}
+.g-mic .ic{width:14px;height:14px;stroke:var(--ink-30);stroke-width:1.6;fill:none}
+.g-summary{text-align:center}
+.g-summary .gs-h{font-family:var(--fd);font-size:26px;font-weight:500}
+.g-summary .gs-d{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-60);margin-top:8px}
+.g-back{display:block;margin:18px auto 0;background:none;border:none;color:var(--ink-60);font-family:var(--fb);font-size:12px;letter-spacing:0.04em;cursor:pointer}
+.g-back:hover{color:var(--ink)}
+.meta{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);text-align:center;margin-top:24px;letter-spacing:0.03em;line-height:1.6}
+.meta .dot{color:var(--olive)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* prep-pricing tool CSS */
+
+#priceTool{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;background:rgba(2,4,13,0.74);padding:26px 14px;overflow-y:auto}
+#priceTool.open{display:flex}
+.pt-card{width:100%;max-width:420px;background:#0d1535;border:1px solid rgba(245,232,200,0.13);border-radius:12px;padding:20px 18px 18px;margin:auto}
+.pt-head{display:flex;align-items:center;margin-bottom:14px}
+.pt-title{flex:1;font-family:var(--fd);font-size:23px;font-weight:500;color:var(--ink)}
+.pt-x{background:none;border:none;color:var(--ink-30);font-size:22px;cursor:pointer;line-height:1}
+.pt-x:hover{color:var(--ink)}
+.pt-yield{display:flex;align-items:center;gap:8px;font-family:var(--fb);font-size:13px;color:var(--ink-60)}
+.pt-sec{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-60);margin:16px 0 8px}
+#priceTool input{background:var(--ink-6);border:1px solid var(--ink-12);border-radius:6px;color:var(--ink);font-family:var(--fb);font-size:14px;padding:7px 9px}
+#priceTool input:focus{outline:none;border-color:var(--olive)}
+.pt-num{width:62px;text-align:right}
+.pt-unitin{width:88px}
+.pt-in{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.pt-name{flex:1;min-width:0}
+.pt-in .pt-tms{color:var(--ink-30);font-family:var(--fb);font-size:13px}
+.pt-lt{font-family:var(--fb);font-size:12px;color:var(--ink);min-width:52px;text-align:right}
+.pt-del{background:none;border:none;color:var(--ink-30);font-size:17px;cursor:pointer;line-height:1}
+.pt-del:hover{color:var(--terra)}
+.pt-add-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pt-quick{font-family:var(--fb);font-size:11px;color:var(--olive);background:rgba(168,185,126,0.08);border:1px solid rgba(168,185,126,0.3);border-radius:16px;padding:5px 10px;cursor:pointer}
+.pt-quick:hover{background:rgba(168,185,126,0.16)}
+.pt-labor{margin-top:12px}
+.pt-link{background:none;border:none;color:var(--ink-60);font-family:var(--fd);font-style:italic;font-size:13px;cursor:pointer;padding:0}
+.pt-link:hover{color:var(--ink)}
+#pt-labor-row{margin-top:8px;font-family:var(--fb);font-size:13px;color:var(--ink-60);display:flex;align-items:center;gap:6px}
+.pt-cost{margin-top:16px;padding:12px 14px;background:var(--ink-6);border-radius:8px;font-family:var(--fb);font-size:14px;color:var(--ink-60)}
+.pt-cost b{color:var(--ink);font-weight:500}
+.pt-per{font-size:12px;margin-top:3px}
+.pt-mult{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pt-m{font-family:var(--fb);font-size:13px;font-weight:500;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:18px;padding:7px 15px;cursor:pointer}
+.pt-m.on{color:#0a1028;background:var(--olive);border-color:var(--olive)}
+.pt-custom{font-family:var(--fb);font-size:12px;color:var(--ink-30)}
+.pt-custom input{width:54px}
+.pt-price{margin-top:14px;text-align:center}
+.pt-ask{font-family:var(--fd);font-size:34px;font-weight:500;color:var(--ink);line-height:1}
+.pt-ask span{font-family:var(--fb);font-size:13px;color:var(--ink-60)}
+.pt-margin{font-family:var(--fb);font-size:12px;color:var(--olive);margin-top:5px;letter-spacing:0.02em}
+.pt-use{width:100%;margin-top:18px;font-family:var(--fb);font-size:14px;font-weight:500;letter-spacing:0.04em;color:#0a1028;background:var(--olive);border:none;border-radius:8px;padding:13px;cursor:pointer}
+.pt-use:hover{background:#b6c690}
+
+</style>
+
+<!-- DOORS (split-worlds entry) -->
+<div id="doors">
+  <div class="de-head"><span class="de-remy">Remy</span><span class="de-brand">&middot; San Fermo</span></div>
+  <div class="de-note">Choose your side</div>
+  <div class="doors-grid">
+    <a class="door door--kitchen" id="door-kitchen" href="#" role="button" tabindex="0">
+      <span class="door-eyebrow">For the restaurant</span>
+      <span class="door-title">The Kitchen</span>
+      <span class="door-sub">price trends, seasonal shifts, menu development</span>
+      <span class="door-enter">Enter &rarr;</span>
+    </a>
+    <a class="door door--farm" id="door-farm" href="#" role="button" tabindex="0">
+      <span class="door-eyebrow">For the grower</span>
+      <span class="door-title">The Farm</span>
+      <span class="door-sub">weather anomalies, what&rsquo;s peaking, surplus to move</span>
+      <span class="door-enter">Enter &rarr;</span>
+    </a>
+  </div>
+</div>
+
+<!-- FARM (real fresh-sheet, ported from remy-farm-freshsheet-real.html) -->
+<div id="farm" class="gone">
+  <div class="farm-shell">
+<p class="sr-only">Remy farm fresh-sheet on real Swan House data: a push board, the full grow list, and a guided weekly review.</p>
+<div class="phone">
+  <div class="fh">
+    <button class="fh-back">&#8592; Doors</button>
+    <div class="fh-title"><b>The Farm</b><span id="fh-week">Swan House</span></div>
+  </div>
+  <div class="seg">
+    <button class="on" data-view="push">Pushing</button>
+    <button data-view="list">Full list</button>
+  </div>
+  <button class="guided-link" data-view="guided">New farm? Let Remy walk you through it &rarr;</button>
+
+  <div class="view live" id="view-push">
+    <div class="vh">What you&rsquo;re pushing</div>
+    <div class="vh-sub">These ride to the top of San Fermo&rsquo;s order screen, flagged as farm surplus.</div>
+    <div id="push-list"></div>
+    <button class="add-btn" id="add-toggle">+ Add something to push</button>
+    <div class="picker" id="picker">
+      <div class="picker-hd">In season now &middot; tap to push</div>
+      <div class="pick-grid" id="pick-grid"></div>
+    </div>
+    <div class="loop-note">Marking something down to move tells the kitchen it&rsquo;s a deal this week.</div>
+  </div>
+
+  <div class="view" id="view-list">
+    <div class="list-intro">Everything you&rsquo;re growing. Tap a status to change it, star what to push.</div>
+    <div id="list-rows"></div>
+  </div>
+
+  <div class="view" id="view-guided">
+    <div class="gcard" id="gcard"></div>
+    <button class="g-back" id="g-back">&larr; Back to the board</button>
+  </div>
+
+  <div class="meta" id="meta"></div>
+  <div id="saved" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:rgba(168,185,126,0.16);border:1px solid rgba(168,185,126,0.5);color:#a8b97e;font-family:var(--fb);font-size:11px;letter-spacing:0.08em;padding:7px 15px;border-radius:20px;opacity:0;transition:opacity .3s ease;pointer-events:none">Saved</div>
+  <div id="priceTool">
+  <div class="pt-card">
+    <div class="pt-head"><span class="pt-title" id="pt-title">Price this</span><button class="pt-x" id="pt-close" aria-label="Close">&times;</button></div>
+    <div class="pt-yield"><span>Makes</span><input id="pt-yield" type="number" min="1" value="6"><input id="pt-unit" type="text" value="quarts" class="pt-unitin"></div>
+    <div class="pt-sec">What went in</div>
+    <div id="pt-inputs"></div>
+    <div class="pt-add-row">
+      <button class="pt-quick" data-add="Strawberries|26|flat">+ Strawberries $26</button>
+      <button class="pt-quick" data-add="Sugar|0.70|lb">+ Sugar</button>
+      <button class="pt-quick" data-add="Pectin|5|box">+ Pectin</button>
+      <button class="pt-quick" data-add="Jars + lids|1.20|each">+ Jars</button>
+      <button class="pt-quick" data-add="||">+ Something else</button>
+    </div>
+    <div class="pt-labor"><button class="pt-link" id="pt-labor-toggle">+ Add my time</button>
+      <div id="pt-labor-row" style="display:none"><input id="pt-hours" type="number" min="0" value="0" class="pt-num"><span>hrs &times;</span><input id="pt-rate" type="number" min="0" value="20" class="pt-num"><span>/hr</span></div>
+    </div>
+    <div class="pt-cost"><div>Cost in <b id="pt-total">$0</b></div><div class="pt-per">that&rsquo;s <b id="pt-per">$0</b> per <span id="pt-perunit">unit</span></div></div>
+    <div class="pt-sec">Your price</div>
+    <div class="pt-mult">
+      <button class="pt-m" data-m="2">2&times;</button>
+      <button class="pt-m on" data-m="2.5">2.5&times;</button>
+      <button class="pt-m" data-m="3">3&times;</button>
+      <span class="pt-custom">or <input id="pt-mcustom" type="number" step="0.1" min="1"> &times;</span>
+    </div>
+    <div class="pt-price"><div class="pt-ask" id="pt-ask">$0 <span id="pt-askunit"></span></div><div class="pt-margin" id="pt-margin"></div></div>
+    <button class="pt-use" id="pt-use">Use this price</button>
+  </div>
+</div>
+</div>
+  </div>
+</div>
 
 <!-- PORTAL -->
 <div id="portal">
@@ -21000,6 +21260,230 @@ function runIntroMorph(){
     });
   });
 }
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ── DUAL-DOOR wiring ── */
+(function(){
+  var doors=document.getElementById('doors'),farm=document.getElementById('farm');
+  if(!doors) return;
+  function hide(el){if(el)el.classList.add('gone');}
+  function show(el){if(el)el.classList.remove('gone');}
+  var k=document.getElementById('door-kitchen'),
+      f=document.getElementById('door-farm'),
+      fb=farm?farm.querySelector('.fh-back'):null;
+  if(k)k.addEventListener('click',function(e){e.preventDefault();hide(doors);});
+  if(f)f.addEventListener('click',function(e){e.preventDefault();hide(doors);show(farm);});
+  if(fb)fb.addEventListener('click',function(){hide(farm);show(doors);});
+  document.querySelectorAll('#portal .ph-wordmark').forEach(function(pw){
+    pw.style.cursor='pointer';pw.title='Back to doors';
+    pw.addEventListener('click',function(){show(doors);});
+  });
+})();
+</script>
+<script>
+(function(){
+var ROOT=document.getElementById('farm');
+
+var DATA = /*__DATA__*/ {"week": "week of June 22", "kelly_last_touch": "6/10", "market_count": 39, "growList": [{"name": "Chive Blossoms", "category": "flower", "status": "Peak", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET"}}, {"name": "Kale (Farm)", "category": "green", "status": "Peak", "qty": "20+#", "push": false, "market": {"price": 48.0, "unit": "CS", "freshness": "FRESH"}}, {"name": "Lettuce (Farm)", "category": "green", "status": "Peak", "qty": "30-40#", "push": false, "market": {"price": 24.0, "unit": "CS", "freshness": "FRESH"}}, {"name": "Lovage", "category": "green", "status": "Peak", "qty": "30+#", "push": false, "market": {"price": 24.5, "unit": "#", "freshness": "FRESH"}}, {"name": "Mint", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 3.75, "unit": "1/4#", "freshness": "FRESH"}}, {"name": "Parsley (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH"}}, {"name": "Tomato Leaf", "category": "green", "status": "Peak", "qty": "10#", "push": false, "market": null}, {"name": "Beef Shanks", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 15.0, "unit": "lb", "freshness": "AGING"}}, {"name": "Beef Tenderloin", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 33.0, "unit": "lb", "freshness": "PRIOR-YEAR"}}, {"name": "Bronze Fennel", "category": "green", "status": "Available", "qty": "3 gallon bags", "push": false, "market": {"price": 45.0, "unit": "24CT CS", "freshness": "AGING"}}, {"name": "Cabbage (Farm)", "category": "produce", "status": "Available", "qty": "40+ # presto", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE"}}, {"name": "Chicken Eggs", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 8.5, "unit": "dozen", "freshness": "AGING"}}, {"name": "Chives", "category": "green", "status": "Available", "qty": "10#", "push": false, "market": {"price": 6.0, "unit": "1/4#", "freshness": "AGING"}}, {"name": "Dill (Farm)", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 1.25, "unit": "bn", "freshness": "FRESH"}}, {"name": "Duck Eggs", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 1.0, "unit": "each", "freshness": "AGING"}}, {"name": "Edible Flowers", "category": "flower", "status": "Available", "qty": "", "push": false, "market": {"price": 15, "unit": "bunch", "freshness": "FARM-SET"}}, {"name": "Fennel Fronds", "category": "green", "status": "Available", "qty": "2-3 gallon bags", "push": false, "market": {"price": 2.85, "unit": "each", "freshness": "FRESH"}}, {"name": "Grape Leaves", "category": "green", "status": "Available", "qty": "5#", "push": false, "market": null}, {"name": "Ground Beef / Bolo Meat", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 13.2, "unit": "lb", "freshness": "FRESH"}}, {"name": "Honeysuckle", "category": "flower", "status": "Available", "qty": "1 gallon bag", "push": false, "market": {"price": 12, "unit": "bunch", "freshness": "FARM-SET"}}, {"name": "Lamb Loin Chops", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 21.95, "unit": "lb", "freshness": "FRESH"}}, {"name": "Lavender", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Lemon Balm (Farm)", "category": "green", "status": "Available", "qty": "10#", "push": false, "market": null}, {"name": "Nasturtium", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Oregano", "category": "green", "status": "Available", "qty": "10#", "push": false, "market": {"price": 3.99, "unit": "1/4#", "freshness": "FRESH"}}, {"name": "Rose Petals", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Rosemary", "category": "green", "status": "Available", "qty": "5#", "push": false, "market": {"price": 12.5, "unit": "#", "freshness": "FRESH"}}, {"name": "Snap Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 5.78, "unit": "cs", "freshness": "AGING"}}, {"name": "Snow Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 4.55, "unit": "cs", "freshness": "FRESH"}}, {"name": "Sorrel (French)", "category": "green", "status": "Available", "qty": "5#", "push": false, "market": {"price": 8.0, "unit": "lb", "freshness": "RESEARCH"}}, {"name": "Thyme", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 9.75, "unit": "1/2#", "freshness": "FRESH"}}, {"name": "Garlic Scapes", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 6.0, "unit": "lb", "freshness": "RESEARCH"}}, {"name": "Turnips", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 2.75, "unit": "bn", "freshness": "PRIOR-YEAR"}}, {"name": "Borage", "category": "green", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Loganberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Mixed Berries (Farm)", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Raspberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Angelica", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Apples (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.25, "unit": "lb", "freshness": "STALE"}}, {"name": "Basil (Farm)", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 5.5, "unit": "1/2#", "freshness": "FRESH"}}, {"name": "Calendula", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Candy Roaster Squash", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Cherry Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE"}}, {"name": "Cilantro (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH"}}, {"name": "Cucumber (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Heirloom Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 52.0, "unit": "CS", "freshness": "STALE"}}, {"name": "Lemon Verbena", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Onions", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Peppers (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.5, "unit": "lb", "freshness": "FRESH"}}, {"name": "Savory", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Squash (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE"}}, {"name": "Tarragon (Farm)", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 8.5, "unit": "1/4#", "freshness": "AGING"}}, {"name": "Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE"}}, {"name": "Zucchini (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 36.5, "unit": "CS", "freshness": "STALE"}}, {"name": "Flowering Branches", "category": "Edible Flower", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Green Garlic", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Lilacs", "category": "Edible Flower", "status": "Done", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET"}}, {"name": "Nettle", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Radish", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Rhubarb (Farm)", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": {"price": 3.99, "unit": "lb", "freshness": "FRESH"}}]} /*__END__*/;
+
+var MIC='<svg class="ic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+var CAM='<svg class="ic" viewBox="0 0 24 24"><path d="M3 8h4l2-2h6l2 2h4v12H3z"/><circle cx="12" cy="13" r="3.2"/></svg>';
+var TAG='<svg class="ic" viewBox="0 0 24 24"><path d="M3 3h8l10 10-8 8L3 11z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>';
+
+var STATUS_ORDER=['Peak','Available','Trickling','Coming Soon','Not Yet','Done'];
+var STATUS_CLASS={'Peak':'st-peak','Available':'st-avail','Trickling':'st-avail','Coming Soon':'st-coming','Not Yet':'st-done','Done':'st-done'};
+var IN_SEASON={'Peak':1,'Available':1,'Trickling':1};
+
+var grow=DATA.growList;
+var byName={}; grow.forEach(function(g){byName[g.name]=g;});
+if(!byName['Strawberry Jam']){var _jam={name:'Strawberry Jam',category:'prepped',status:'Available',qty:'6 quarts',push:false,market:null,prepped:true};grow.unshift(_jam);byName['Strawberry Jam']=_jam;}
+var pushed=new Set(grow.filter(function(g){return g.push;}).map(function(g){return g.name;}));
+var markdown=new Set();
+/* persistence: localStorage now; mirrors to Firestore farmAvailability once rules allow */
+var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={};
+function snapshot(){return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,updated_at:Date.now()};}
+function applyState(x){if(!x)return;if(x.pushed)pushed=new Set(x.pushed);if(x.markdown)markdown=new Set(x.markdown);if(x.status){statusEdits=x.status;grow.forEach(function(g){if(statusEdits[g.name])g.status=statusEdits[g.name];});}}
+function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}catch(e){}}
+function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
+var FB={ready:false,db:null};
+function persist(){lsSave();flagSaved();if(FB.ready)fbSave();}
+function fbSave(){try{var x=snapshot();x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});}catch(e){}}
+function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();}}).catch(function(){});}catch(e){}}
+function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();}).catch(function(){});}catch(e){}}
+function flagSaved(){var m=document.getElementById('saved');if(!m)return;m.style.opacity='1';clearTimeout(window._svt);window._svt=setTimeout(function(){m.style.opacity='0';},1100);}
+
+var PRICEIC='<svg class="ic" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>';
+var PT={item:null,inputs:[],mult:2.5,_ask:0,_unit:'unit'};
+function ptSingular(u){u=(u||'unit').trim();return (u.length>3&&u.slice(-1)==='s')?u.slice(0,-1):u;}
+function ptLine(i){var it=PT.inputs[i];return it.qty*it.cost;}
+function ptOpen(name){
+  var g=byName[name]||{name:name,qty:''};
+  PT.item=name;PT.inputs=[];
+  document.getElementById('pt-title').textContent='Price '+g.name;
+  var m=(g.qty||'').match(/(\d+(?:\.\d+)?)\s*([A-Za-z]+)?/);
+  document.getElementById('pt-yield').value=m?m[1]:6;
+  document.getElementById('pt-unit').value=(m&&m[2])?m[2]:'quarts';
+  document.getElementById('pt-labor-row').style.display='none';
+  document.getElementById('pt-labor-toggle').textContent='+ Add my time';
+  document.getElementById('pt-mcustom').value='';
+  setMult(2.5);ptRenderInputs();ptRecalc();
+  document.getElementById('priceTool').classList.add('open');
+}
+function ptClose(){document.getElementById('priceTool').classList.remove('open');}
+function ptAdd(name,cost,unit){PT.inputs.push({name:name||'',qty:1,cost:Number(cost)||0,unit:unit||''});ptRenderInputs();ptRecalc();}
+function ptRenderInputs(){
+  var el=document.getElementById('pt-inputs');el.innerHTML='';
+  PT.inputs.forEach(function(it,i){
+    var r=document.createElement('div');r.className='pt-in';
+    r.innerHTML='<input class="pt-name" data-i="'+i+'" value="'+(it.name||'').replace(/"/g,'&quot;')+'" placeholder="input">'+
+      '<input class="pt-qty pt-num" data-i="'+i+'" type="number" min="0" value="'+it.qty+'">'+
+      '<span class="pt-tms">&times;</span>'+
+      '<input class="pt-uc pt-num" data-i="'+i+'" type="number" min="0" step="0.01" value="'+it.cost+'">'+
+      '<span class="pt-lt" data-i="'+i+'">$'+ptLine(i).toFixed(2)+'</span>'+
+      '<button class="pt-del" data-i="'+i+'" aria-label="Remove">&times;</button>';
+    el.appendChild(r);
+  });
+  el.querySelectorAll('.pt-name').forEach(function(x){x.oninput=function(){PT.inputs[+x.dataset.i].name=x.value;};});
+  el.querySelectorAll('.pt-qty').forEach(function(x){x.oninput=function(){var i=+x.dataset.i;PT.inputs[i].qty=Number(x.value)||0;el.querySelector('.pt-lt[data-i="'+i+'"]').textContent='$'+ptLine(i).toFixed(2);ptRecalc();};});
+  el.querySelectorAll('.pt-uc').forEach(function(x){x.oninput=function(){var i=+x.dataset.i;PT.inputs[i].cost=Number(x.value)||0;el.querySelector('.pt-lt[data-i="'+i+'"]').textContent='$'+ptLine(i).toFixed(2);ptRecalc();};});
+  el.querySelectorAll('.pt-del').forEach(function(x){x.onclick=function(){PT.inputs.splice(+x.dataset.i,1);ptRenderInputs();ptRecalc();};});
+}
+function setMult(m){PT.mult=Number(m)||1;ROOT.querySelectorAll('.pt-m').forEach(function(b){b.classList.toggle('on',Number(b.dataset.m)===PT.mult);});ptRecalc();}
+function ptRecalc(){
+  var y=Number(document.getElementById('pt-yield').value)||1;
+  var unit=ptSingular(document.getElementById('pt-unit').value);
+  var cost=PT.inputs.reduce(function(a,it){return a+it.qty*it.cost;},0);
+  if(document.getElementById('pt-labor-row').style.display!=='none'){
+    var h=Number(document.getElementById('pt-hours').value)||0,rt=Number(document.getElementById('pt-rate').value)||0;cost+=h*rt;
+  }
+  var per=cost/y, ask=per*PT.mult;
+  document.getElementById('pt-total').textContent='$'+cost.toFixed(2);
+  document.getElementById('pt-per').textContent='$'+per.toFixed(2);
+  document.getElementById('pt-perunit').textContent=unit;
+  document.getElementById('pt-ask').firstChild.textContent='$'+ask.toFixed(2)+' ';
+  document.getElementById('pt-askunit').textContent='per '+unit;
+  var margin=ask>0?Math.round((1-per/ask)*100):0;
+  document.getElementById('pt-margin').textContent=margin+'% margin · '+PT.mult+'× cost';
+  PT._ask=ask;PT._unit=unit;
+}
+function ptUse(){var g=byName[PT.item];if(g){g.ask=PT._ask;g.askUnit=PT._unit;}pushed.add(PT.item);ptClose();renderPush();renderPick();renderList();}
+(function ptBind(){
+  document.getElementById('pt-close').onclick=ptClose;
+  document.getElementById('priceTool').addEventListener('click',function(e){if(e.target.id==='priceTool')ptClose();});
+  ROOT.querySelectorAll('.pt-quick').forEach(function(b){b.onclick=function(){var p=b.dataset.add.split('|');ptAdd(p[0],p[1],p[2]);};});
+  ROOT.querySelectorAll('.pt-m').forEach(function(b){b.onclick=function(){document.getElementById('pt-mcustom').value='';setMult(b.dataset.m);};});
+  document.getElementById('pt-mcustom').oninput=function(){if(this.value)setMult(this.value);};
+  document.getElementById('pt-labor-toggle').onclick=function(){var r=document.getElementById('pt-labor-row');var on=r.style.display==='none';r.style.display=on?'flex':'none';this.textContent=on?'– Remove my time':'+ Add my time';ptRecalc();};
+  document.getElementById('pt-hours').oninput=ptRecalc;
+  document.getElementById('pt-rate').oninput=ptRecalc;
+  document.getElementById('pt-yield').oninput=ptRecalc;
+  document.getElementById('pt-unit').oninput=ptRecalc;
+  document.getElementById('pt-use').onclick=ptUse;
+})();
+
+function mkt(g){
+  if(g.ask){
+    return 'your ask <b>$'+Number(g.ask).toFixed(2)+(g.askUnit?(' per '+g.askUnit):'')+'</b> &middot; priced from cost';
+  }
+  if(g.market){
+    var f=g.market.freshness?(' · '+g.market.freshness.toLowerCase()):'';
+    return 'market <b>$'+Number(g.market.price).toFixed(2)+'/'+g.market.unit+'</b>'+f+' &middot; your ask is yours to set';
+  }
+  return '<span class="pc-nocomp">no market comp yet &middot; set your own price</span>';
+}
+
+function renderPush(){
+  var el=document.getElementById('push-list');el.innerHTML='';
+  var names=Array.from(pushed);
+  if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
+  names.forEach(function(n){
+    var g=byName[n]||{name:n,qty:''};
+    var md=markdown.has(n);
+    var c=document.createElement('div');c.className='pcard'+(md?' markdown':'');
+    c.innerHTML=
+      '<button class="pc-x" data-n="'+n+'" aria-label="Remove">&times;</button>'+
+      '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
+      '<div class="pc-market">'+mkt(g)+'</div>'+
+      '<div class="md-tag">&#9662; Marked down to move</div>'+
+      '<div class="pc-actions">'+
+        (!g.market?'<button class="chip-btn price-btn" data-n="'+n+'">'+PRICEIC+'Price this</button>':'')+
+        '<button class="chip-btn md-btn'+(md?' on':'')+'" data-n="'+n+'">'+TAG+'Mark down</button>'+
+        '<button class="chip-btn">'+MIC+'Voice note</button>'+
+        '<button class="chip-btn">'+CAM+'Photo</button>'+
+      '</div>';
+    el.appendChild(c);
+  });
+  el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);renderPush();renderPick();renderList();};});
+  el.querySelectorAll('.md-btn').forEach(function(b){b.onclick=function(){var n=b.dataset.n;markdown.has(n)?markdown.delete(n):markdown.add(n);renderPush();};});
+  el.querySelectorAll('.price-btn').forEach(function(b){b.onclick=function(){ptOpen(b.dataset.n);};});
+  persist();
+}
+function renderPick(){
+  var g=document.getElementById('pick-grid');g.innerHTML='';
+  var pool=grow.filter(function(x){return IN_SEASON[x.status]&&!pushed.has(x.name);});
+  if(!pool.length){g.innerHTML='<div class="empty-push" style="padding:2px">Everything in season is already on the board.</div>';return;}
+  pool.forEach(function(x){
+    var b=document.createElement('button');b.className='pick';b.textContent=x.name;
+    b.onclick=function(){pushed.add(x.name);renderPush();renderPick();renderList();document.getElementById('picker').classList.remove('open');};
+    g.appendChild(b);
+  });
+}
+document.getElementById('add-toggle').onclick=function(){document.getElementById('picker').classList.toggle('open');};
+
+function renderList(){
+  var el=document.getElementById('list-rows');el.innerHTML='';
+  grow.forEach(function(g){
+    var cls=STATUS_CLASS[g.status]||'st-done';
+    var r=document.createElement('div');r.className='lrow';
+    r.innerHTML=
+      '<div class="lr-main"><div class="lr-name">'+g.name+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
+      '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
+      '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
+    el.appendChild(r);
+  });
+  el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;renderList();renderPick();};});
+  el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);renderList();renderPush();renderPick();};});
+  persist();
+}
+
+var peakName=(grow.find(function(g){return g.status==='Peak';})||{name:'your crops'}).name;
+var steps=[
+  {q:'Still cutting <i>'+peakName.toLowerCase()+'</i>?',opts:['Yes, going strong','Slowing down','Done for now']},
+  {q:'How much this week?',opts:['A little','Steady','A lot &mdash; surplus']},
+  {q:'Anything new coming on?',opts:['Yes, add it','Nothing yet']},
+  {q:'Anything you need to move?',opts:['Yes, flag it','Not this week']}
+];
+var gi=0;
+function renderGuided(){
+  var c=document.getElementById('gcard');
+  if(gi>=steps.length){c.innerHTML='<div class="g-summary"><div class="gs-h">That&rsquo;s your week</div><div class="gs-d">Remy updated your fresh sheet and posted what you&rsquo;re moving to San Fermo.</div></div>';return;}
+  var dots='';for(var d=0;d<steps.length;d++)dots+='<span class="g-dot'+(d<=gi?' on':'')+'"></span>';
+  var opts=steps[gi].opts.map(function(o){return '<button class="g-opt">'+o+'</button>';}).join('');
+  c.innerHTML='<div class="g-dots">'+dots+'</div><div class="g-q">'+steps[gi].q+'</div><div class="g-opts">'+opts+'</div><div class="g-mic">'+MIC+'or just talk to it</div>';
+  c.querySelectorAll('.g-opt').forEach(function(b){b.onclick=function(){gi++;renderGuided();};});
+}
+
+function setView(v){
+  ROOT.querySelectorAll('.view').forEach(function(x){x.classList.remove('live');});
+  document.getElementById('view-'+v).classList.add('live');
+  ROOT.querySelectorAll('.seg button').forEach(function(b){b.classList.toggle('on',b.dataset.view===v);});
+  if(v==='guided'){gi=0;renderGuided();}
+}
+ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setView(b.dataset.view);};});
+ROOT.querySelector('.guided-link').onclick=function(){setView('guided');};
+document.getElementById('g-back').onclick=function(){setView('push');};
+
+document.getElementById('fh-week').textContent='Swan House '+(DATA.week?('· '+DATA.week):'');
+document.getElementById('meta').innerHTML='Live from your Swan House sheet <span class="dot">&middot;</span> last touched '+(DATA.kelly_last_touch||'?')+' <span class="dot">&middot;</span> '+grow.length+' crops, '+DATA.market_count+' with a market comp';
+
+applyState(lsLoad());
+renderPush();renderPick();renderList();
+fbInit();
+
+})();
 </script>
 </body>
 </html>
