@@ -270,6 +270,38 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 .mark-icon{width:12px;height:12px;stroke:var(--ink-30);stroke-width:2;fill:none;
   transition:stroke var(--d)}
 .mark-btn.marked .mark-icon{stroke:#fff}
+/* outreach add icon: ⊕ when not in cart, ✓ when added */
+.mark-btn.out .mark-icon.chk{display:none}
+.mark-btn.out .mark-icon.plus{display:block;stroke:var(--ink-60)}
+.mark-btn.out.marked .mark-icon.plus{display:none}
+.mark-btn.out.marked .mark-icon.chk{display:block}
+.vrow .mark-btn{width:26px;height:26px;margin-left:2px}
+/* outreach ask picker (slides up from bottom) */
+#outreach-pick{position:fixed;inset:0;z-index:650;pointer-events:none}
+#outreach-pick.open{pointer-events:all}
+.op-backdrop{position:absolute;inset:0;background:rgba(6,10,28,0.55);opacity:0;
+  transition:opacity var(--d)}
+#outreach-pick.open .op-backdrop{opacity:1}
+.op-panel{position:absolute;bottom:0;left:0;right:0;background:var(--bg-card);
+  border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.2,.7,.2,1);
+  box-shadow:0 -8px 40px rgba(6,10,28,0.25)}
+#outreach-pick.open .op-panel{transform:translateY(0)}
+.op-item{font-family:var(--fd);font-size:19px;color:var(--ink);font-weight:500;margin-bottom:2px}
+.op-q{font-family:var(--fb);font-size:12px;color:var(--ink-60);margin-bottom:14px}
+.op-btns{display:flex;flex-direction:column;gap:10px}
+.op-btn{width:100%;padding:15px;border:1.5px solid var(--ink-12);border-radius:12px;background:none;
+  font-family:var(--fd);font-size:17px;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.op-btn:active{background:var(--ink-6)}
+.op-btn.both{background:var(--terra);border-color:var(--terra);color:#fff}
+.op-cancel{width:100%;padding:12px;margin-top:12px;background:none;border:none;cursor:pointer;
+  font-family:var(--fb);font-size:13px;color:var(--ink-60)}
+.cart-hint{padding:12px 20px 0;font-family:var(--fb);font-size:11.5px;color:var(--ink-60);line-height:1.4}
+.vhint-out{margin:8px 0 4px;line-height:1.4}
+.tm-addfld{display:flex;gap:8px;align-items:center}
+.tm-addfld .tm-inp{flex:1}
+.tm-addcancel{flex-shrink:0;background:none;border:none;cursor:pointer;font-family:var(--fb);
+  font-size:12px;color:var(--ink-60);padding:6px 4px;-webkit-tap-highlight-color:transparent}
 .empty-msg{padding:52px 20px;text-align:center;font-family:var(--fd);font-size:18px;
   font-style:italic;color:var(--ink-30)}
 
@@ -1191,9 +1223,6 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
         <svg class="ph-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         <span class="cart-badge" id="portal-badge"></span>
       </button>
-      <button class="ph-icon-btn" onclick="openSettings()" aria-label="Settings">
-        <svg class="ph-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-      </button>
     </div>
   </div>
   <div class="portal-scroll">
@@ -1346,6 +1375,21 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
   </div>
 </div>
 
+<!-- OUTREACH ASK PICKER (slides up from bottom) -->
+<div id="outreach-pick">
+  <div class="op-backdrop" onclick="closeOutreachPick()"></div>
+  <div class="op-panel">
+    <div class="op-item" id="op-item"></div>
+    <div class="op-q">What do you want to ask?</div>
+    <div class="op-btns">
+      <button class="op-btn" onclick="addOutreach('price')">Ask about price</button>
+      <button class="op-btn" onclick="addOutreach('timeline')">Ask about timeline</button>
+      <button class="op-btn both" onclick="addOutreach('both')">Both</button>
+    </div>
+    <button class="op-cancel" onclick="closeOutreachPick()">Cancel</button>
+  </div>
+</div>
+
 <!-- SCREEN: OUTREACH -->
 <div class="ss" id="screen-outreach">
   <div class="sh">
@@ -1409,25 +1453,6 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
     </div>
     <div class="fv-months" id="fv-months"></div>
     <div class="fv-rows" id="fv-rows"></div>
-  </div>
-</div>
-
-<!-- SETTINGS -->
-<div id="settings-sheet">
-  <div class="ss-backdrop" onclick="closeSettings()"></div>
-  <div class="ss-panel">
-    <div class="ss-handle"></div>
-    <div class="ss-head">
-      <div class="ss-head-title">Settings</div>
-      <button class="ss-close" onclick="closeSettings()">Done</button>
-    </div>
-    <div class="ss-body">
-      <div class="ss-label">Worker URL</div>
-      <input class="ss-input" id="ss-worker-url" type="url" placeholder="https://remy-outreach.…workers.dev">
-      <div class="ss-label">Voice rules</div>
-      <textarea class="ss-textarea" id="ss-voice-rules" rows="8"></textarea>
-      <button class="ss-save" onclick="saveSettings()">Save</button>
-    </div>
   </div>
 </div>
 
@@ -11641,6 +11666,492 @@ const DATA = {
         "date": "2026-06-21",
         "channel": "sheet",
         "note": "Need to Move (surplus) \u2014 new item"
+      }
+    },
+    {
+      "name": "Yellow Onion",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$0.95/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "White Onion",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$0.99/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Italian Red Onion",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$1.35/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Peeled Shallots",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$26.50/5# jar",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Cipollini Onion (peeled)",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$34.25/5# jar",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Peeled Garlic",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$26.25/5# jar",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Lemon",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$47.00/115ct cs",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Lemon Juice",
+      "category": "pantry",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$17.85/gal",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Lime",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$2.50/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Lime Juice",
+      "category": "pantry",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$10.25/half-gal",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Celery",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$2.25/ea",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Celery Root",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$2.25/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Jumbo Carrot",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$1.50/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Leek",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$2.99/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Ginger",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$4.35/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Fingerling Potato",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$2.50/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Yukon Gold Potato",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$1.15/#",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
+      }
+    },
+    {
+      "name": "Russet Potato",
+      "category": "produce",
+      "vendor": "Franks Quality Produce",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "commodity": true,
+      "price_range": "$28.95/50# cs",
+      "notes": "Franks commodity staple (year-round). Latest invoice price as of 2026-06.",
+      "last_source": {
+        "date": "2026-06-22",
+        "channel": "invoice",
+        "note": "Franks commodity layer, OCR-variant canonicalized from invoice-data-all.json"
       }
     }
   ],
@@ -23284,13 +23795,6 @@ const DATA = {
         "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 3"
       },
       {
-        "name": "PCP - Pork Spicy Breakfast Sausage, Bulk, 5 lb",
-        "price": "$24.95 \u00a0 $4.99/pound",
-        "unit": "Each",
-        "sku": "PCP00902",
-        "supplier_meta": "Pure Country Pork - Moses Lake, WA | Avg Weight: 5"
-      },
-      {
         "name": "PCB - Ribeye, Boneless",
         "price": "$449.82 \u00a0 $24.99/pound",
         "unit": "Each",
@@ -24321,6 +24825,13 @@ const DATA = {
         "unit": "Each",
         "sku": "SCF00110",
         "supplier_meta": "Salmon Creek Farms - Twin Falls, ID"
+      },
+      {
+        "name": "PCP - Pork Spicy Breakfast Sausage, Bulk, 5 lb",
+        "price": "$24.95 \u00a0 $4.99/pound",
+        "unit": "Each",
+        "sku": "PCP00902",
+        "supplier_meta": "Pure Country Pork - Moses Lake, WA | Avg Weight: 5"
       }
     ],
     "Wagyu": [
@@ -25054,6 +25565,78 @@ const DATA = {
         "price": 11.99,
         "unit": "each",
         "date": "2025-12-17"
+      }
+    ],
+    "EC Wilson": [
+      {
+        "name": "Beef Tenderloin, ABF, Oregon Country Natural",
+        "price": 29.98,
+        "unit": "each",
+        "group": "Beef",
+        "date": "2025-08-20"
+      },
+      {
+        "name": "Chicken Backs and Necks",
+        "price": 1.19,
+        "unit": "lb",
+        "group": "Chicken",
+        "date": "2026-06-10"
+      },
+      {
+        "name": "Chicken Feet",
+        "price": 2.59,
+        "unit": "lb",
+        "group": "Chicken",
+        "date": "2026-06-10"
+      },
+      {
+        "name": "Duck Breast, Culver Pekin",
+        "price": 12.59,
+        "unit": "each",
+        "group": "Duck",
+        "date": "2025-01-17"
+      },
+      {
+        "name": "Duck Fat Tub",
+        "price": 62.23,
+        "unit": "each",
+        "group": "Duck",
+        "date": "2026-03-30"
+      },
+      {
+        "name": "Ground Pork, Duroc, Crate-Free, 5 lb",
+        "price": 3.99,
+        "unit": "lb",
+        "group": "Pork",
+        "date": "2026-06-13"
+      },
+      {
+        "name": "Pork Neck Bones",
+        "price": 1.55,
+        "unit": "lb",
+        "group": "Pork",
+        "date": "2026-05-06"
+      },
+      {
+        "name": "Snake River Farms Kurobuta Pork Belly",
+        "price": 4.79,
+        "unit": "lb",
+        "group": "Pork",
+        "date": "2026-05-06"
+      },
+      {
+        "name": "Ground Veal, 5 lb",
+        "price": 8.49,
+        "unit": "lb",
+        "group": "Veal",
+        "date": "2026-06-13"
+      },
+      {
+        "name": "Veal Leg Bones",
+        "price": 2.49,
+        "unit": "lb",
+        "group": "Veal",
+        "date": "2025-09-16"
       }
     ]
   },
@@ -28141,7 +28724,7 @@ const DATA = {
         "last_seen": "2026-04-18"
       },
       "Franks Quality Produce": {
-        "count": 61,
+        "count": 79,
         "last_seen": "2026-04-20"
       },
       "Local Roots Farm": {
@@ -28161,7 +28744,7 @@ const DATA = {
         "last_seen": ""
       }
     },
-    "total_ingredients": 359,
+    "total_ingredients": 377,
     "menu_dishes": 15,
     "commodity_items": 145,
     "discovery_items": 130,
@@ -28233,7 +28816,6 @@ var KEYWORD_MAP={
   'lamb':{cat:'protein',sub:'lamb'},'mutton':{cat:'protein',sub:'lamb'},
 };
 
-var DEFAULT_VOICE_RULES='You are drafting a vendor outreach email on behalf of Samuel West, Executive Chef & GM at San Fermo Seattle.\n\nVoice rules:\n- Open with "Hey [vendor first name or team]," — comma after the greeting, never an em dash or colon\n- No em dashes anywhere in the email — use commas or short sentences instead\n- Concrete and specific: name exact items and any quantities provided\n- If seasonal context or notes are provided for an item, weave one relevant detail in naturally\n- Warm but efficient — short paragraphs, no filler phrases\n- One clear ask at the end: confirm availability and delivery window\n- Close simply: "Thanks" or "Let me know"\n- Signature block:\n  Samuel West\n  San Fermo - Swan House Farm\n  206-851-3137\n  sam@sanfermoseattle.com\n\nOutput only the email body — no subject line, no markdown.';
 
 // ── DATE ───────────────────────────────────────────────────────────
 var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -28335,20 +28917,48 @@ function updateBadges(){
   });
 }
 
-// ── SETTINGS ────────────────────────────────────────────────────────
-function getWorkerUrl(){ return localStorage.getItem('remy_worker_url')||'https://remy-outreach.sam-d1f.workers.dev'; }
-function getVoiceRules(){ return localStorage.getItem('remy_voice_rules')||DEFAULT_VOICE_RULES; }
-function openSettings(){
-  document.getElementById('ss-worker-url').value=getWorkerUrl();
-  document.getElementById('ss-voice-rules').value=getVoiceRules();
-  document.getElementById('settings-sheet').classList.add('open');
+// ── OUTREACH SELECTION (price / timeline / both) ─────────────────────
+// Shared by Plan Ahead (ingRow) and My Vendors. Tap an item's ⊕ icon: if it's already in the
+// cart, remove it; otherwise slide up the ask sheet. Picking an ask adds it to the cart tagged
+// with that intent; the per-vendor "Draft outreach" then composes the right email.
+var _outreachPending=null;
+function outreachTap(name, vendor){
+  if(isInCart(name)){ removeFromCart(name); return; }
+  _outreachPending={name:name, vendor:vendor||''};
+  var sheet=document.getElementById('outreach-pick');
+  var lbl=document.getElementById('op-item');
+  if(lbl) lbl.textContent=name+(vendor?(' · '+vendor):'');
+  if(sheet) sheet.classList.add('open');
 }
-function closeSettings(){ document.getElementById('settings-sheet').classList.remove('open'); }
-function saveSettings(){
-  localStorage.setItem('remy_worker_url',document.getElementById('ss-worker-url').value.trim());
-  localStorage.setItem('remy_voice_rules',document.getElementById('ss-voice-rules').value.trim());
-  closeSettings();
+function closeOutreachPick(){ var s=document.getElementById('outreach-pick'); if(s) s.classList.remove('open'); _outreachPending=null; }
+function addOutreach(ask){
+  if(!_outreachPending){ closeOutreachPick(); return; }
+  var name=_outreachPending.name, vendor=_outreachPending.vendor;
+  var ing=(DATA.ingredients||[]).find(function(i){ return i.name===name; });
+  if(isInCart(name)){ cart=cart.filter(function(i){ return i.name!==name; }); }
+  cart.push({
+    name:name, vendor:vendor||(ing?ing.vendor:'')||'Other', category:(ing?ing.category:'')||'',
+    notes:(ing?ing.notes:'')||'', months:(ing?ing.months:[])||[], quantity:'', ask:ask
+  });
+  saveCart();
+  document.querySelectorAll('[data-mark="'+name.replace(/"/g,'')+'"]').forEach(function(b){ b.classList.add('marked'); });
+  closeOutreachPick();
 }
+function outreachIcon(name, vendor){
+  var marked=isInCart(name);
+  var nm=String(name).replace(/'/g,"\\'"), vn=String(vendor||'').replace(/'/g,"\\'");
+  return '<button class="mark-btn out'+(marked?' marked':'')+'" data-mark="'+esc28(name)+'" onclick="outreachTap(\''+nm+'\',\''+vn+'\')" aria-label="Add to outreach">'+
+    '<svg class="mark-icon plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>'+
+    '<svg class="mark-icon chk" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+
+    '</button>';
+}
+function esc28(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ── OUTREACH CONFIG ─────────────────────────────────────────────────
+// Worker URL is a fixed constant (no user-facing editor). The AI voice rules live
+// server-side in the Worker (DEFAULT_VOICE_RULES there); the client no longer sends
+// or exposes them, so kitchen staff can't open or edit the outreach prompt.
+function getWorkerUrl(){ return 'https://remy-outreach.sam-d1f.workers.dev'; }
 
 // ── MULTI-VENDOR OFFERS (expandable per-ingredient comparison) ──────
 function ingOffers(ing){
@@ -28396,9 +29006,7 @@ function ingRow(ing, dotColor){
       ingOffers(ing)+
     '</div>'+
     '<div class="ing-aside">'+badge+
-      '<button class="mark-btn'+(marked?' marked':'')+'" data-mark="'+ing.name+'" onclick="toggleCartByName(\''+ing.name.replace(/'/g,"\\'")+'\')">'+
-        '<svg class="mark-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'+
-      '</button>'+
+      outreachIcon(ing.name, ing.vendor)+
     '</div>'+
   '</div>';
 }
@@ -30275,14 +30883,16 @@ function renderCart(){
     if(!vendors[v]) vendors[v]=[];
     vendors[v].push(item);
   });
-  var html='<div class="cart-scroll">';
+  var askLbl={price:'Ask: price',timeline:'Ask: timeline',both:'Ask: price + timeline'};
+  var html='<div class="cart-hint">Each item is tagged with what to ask. Draft one email per vendor below.</div><div class="cart-scroll">';
   Object.keys(vendors).sort().forEach(function(v){
     html+='<div class="cart-vendor-group"><div class="cart-vendor-name">'+v+'</div>';
     vendors[v].forEach(function(item){
+      var meta=[(item.category||''),(item.ask?askLbl[item.ask]:'')].filter(Boolean).join(' · ');
       html+='<div class="cart-item">'+
         '<div class="cart-item-body">'+
           '<div class="cart-item-name">'+item.name+'</div>'+
-          '<div class="cart-item-meta">'+(item.category||'')+'</div>'+
+          '<div class="cart-item-meta">'+meta+'</div>'+
         '</div>'+
         '<input class="qty-input" type="text" placeholder="qty" value="'+item.quantity+'" oninput="updateQty(\''+item.name.replace(/'/g,"\\'")+'\',this.value)">'+
         '<button class="remove-btn" onclick="removeFromCart(\''+item.name.replace(/'/g,"\\'")+'\')">&#215;</button>'+
@@ -30322,18 +30932,16 @@ function draftOutreach(vendor){
 function _fetchOutreach(vendor){
   var workerUrl=getWorkerUrl();
   var inner=document.getElementById('outreach-inner');
-  if(!workerUrl){
-    inner.innerHTML='<div class="outreach-error"><div class="outreach-error-text">Worker URL not configured.</div><button class="retry-btn" onclick="openSettings()">Open Settings</button></div>';
-    return;
-  }
   inner.innerHTML='<div class="outreach-loading"><div style="text-align:center"><div class="outreach-spinner"></div><div class="outreach-loading-text">Drafting your outreach&hellip;</div></div></div>';
   var items=cart.filter(function(i){ return i.vendor===vendor; });
+  // Fold each item's ask intent (price / timeline / both) into the note the Worker forwards,
+  // ask-phrase first so it survives the Worker's 100-char note truncation.
+  function askPhrase(a){return a==='price'?'Asking about current pricing.':a==='timeline'?'Asking when this will be available.':a==='both'?'Asking about pricing and availability timing.':'';}
   var body=JSON.stringify({
-    items:items.map(function(i){ return {name:i.name,quantity:i.quantity,notes:i.notes}; }),
+    items:items.map(function(i){ var ap=askPhrase(i.ask); var nt=ap?(ap+(i.notes?' '+i.notes:'')):(i.notes||''); return {name:i.name,quantity:i.quantity,notes:nt}; }),
     vendorName:vendor,
     vendorGreeting:VENDOR_GREET[vendor]||vendor.split(' ')[0],
     vendorContact:VENDOR_CONTACT[vendor]||'',
-    voiceRules:getVoiceRules(),
   });
   fetch(workerUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:body})
     .then(function(r){ return r.json(); })
@@ -30937,12 +31545,23 @@ fbInit();
   }
   window.trToggle=function(id){var el=document.getElementById(id);if(el)el.classList.toggle('open');};
 
+  var _pushSort='peaking';
+  window.setPushSort=function(s){_pushSort=s;if(window.renderTrending)renderTrending();};
+  function pushHasItems(){return !!(window._browse&&((_browse.arriving&&_browse.arriving.length)||(_browse.peak&&_browse.peak.length)));}
+  function pushSortBar(){
+    return '<div class="vsort-bar" style="margin-top:6px">'+[['peaking','Peaking'],['arriving','Arriving'],['vendor','Vendor A–Z']].map(function(s){
+      return '<button class="vpill sm'+(_pushSort===s[0]?' active':'')+'" onclick="setPushSort(\''+s[0]+'\')">'+s[1]+'</button>';
+    }).join('')+'</div>';
+  }
   function pushingList(){
     var arr=(window._browse&&_browse.arriving)?_browse.arriving.slice(0,12):[];
     var pk =(window._browse&&_browse.peak)?_browse.peak.slice(0,12):[];
-    var items=arr.map(function(i){return {i:i,tag:'arr',lbl:'Arriving'};})
-              .concat(pk.map(function(i){return {i:i,tag:'peak',lbl:'Peaking'};}));
+    var items=pk.map(function(i){return {i:i,tag:'peak',lbl:'Peaking',rank:0};})
+              .concat(arr.map(function(i){return {i:i,tag:'arr',lbl:'Arriving',rank:1};}));
     if(!items.length)return '<div class="tr-none">No fresh-sheet highlights right now.</div>';
+    if(_pushSort==='vendor')items.sort(function(a,b){return (a.i.vendor||'').localeCompare(b.i.vendor||'')||(a.i.name||'').localeCompare(b.i.name||'');});
+    else if(_pushSort==='arriving')items.sort(function(a,b){return (b.rank-a.rank)||(a.i.name||'').localeCompare(b.i.name||'');});
+    else items.sort(function(a,b){return (a.rank-b.rank)||(a.i.name||'').localeCompare(b.i.name||'');}); // peaking first
     return items.map(function(o){
       return '<div class="tr-push"><span class="pn">'+esc(o.i.name)+'</span>'+
         '<span class="ptag '+o.tag+'">'+o.lbl+'</span>'+
@@ -30961,7 +31580,16 @@ fbInit();
     if(al.length){
       al.forEach(function(w,i){h+=card(w,'wv'+i,(w.pct_30d!=null&&w.pct_30d<0)?'down':'up');});
     }else{h+='<div class="tr-none">Nothing moved more than '+(b.threshold_pct||10)+'% (up or down) this week.</div>';}
-    h+='<div class="tr-sec-hd">Vendors are pushing</div>'+pushingList();
+    h+='<div class="tr-sec-hd">Vendors are pushing</div>';
+    if(pushHasItems())h+=pushSortBar();
+    h+=pushingList();
+    // commodity staples reference (Franks year-round) — collapsed, not a seasonal signal
+    var com=(DATA.ingredients||[]).filter(function(i){return i.commodity===true;});
+    if(com.length){
+      com.sort(function(a,b){return (a.name||'').localeCompare(b.name||'');});
+      var crows=com.map(function(i){return '<div class="tr-push"><span class="pn">'+esc(i.name)+'</span><span class="pv">'+esc(i.price_range||'')+'</span></div>';}).join('');
+      h+='<div class="pmgroup" style="margin-top:16px"><button class="pmhdr" onclick="pmTog(\'tr-commodity\',this)"><span class="pmcaret">&#9656;</span><span>Commodity staples</span><span class="pmn">'+com.length+'</span></button><div class="pmitems" id="tr-commodity" style="display:none">'+crows+'</div></div>';
+    }
     host.innerHTML=h;
   };
 
@@ -31026,15 +31654,21 @@ fbInit();
 
   function vendorList(vk){
     var ings=vIngs(vk);
+    // commodity staples (year-round, non-seasonal) live ONLY under the Staples tab; the seasonal
+    // sorts exclude them so they never read as "peaking/available/off".
+    if(_vSort==='staples'){ings=ings.filter(function(i){return i.commodity===true;});}
+    else{
+    ings=ings.filter(function(i){return i.commodity!==true;});
     // coming-soon items belong only in the Coming Soon view — never mixed into Peak/Available
     if(_vSort==='peaking')ings=ings.filter(function(i){return statusOf(i)==='peak'&&!isComing(i);});
     else if(_vSort==='available')ings=ings.filter(function(i){var s=statusOf(i);return (s==='peak'||s==='avail')&&!isComing(i);});
     else if(_vSort==='coming')ings=ings.filter(isComing);
     else if(_vSort==='costly')ings=ings.filter(isCreeping);  // flagged cost creep only, not the whole list
+    }
     if(_vSort==='costly'){ings.sort(function(a,b){var ta=trMap()[a.name],tb=trMap()[b.name];var pa=(ta&&ta.trend_30d_pct!=null)?ta.trend_30d_pct:-999;var pb=(tb&&tb.trend_30d_pct!=null)?tb.trend_30d_pct:-999;return pb-pa;});}
     else ings.sort(function(a,b){return (a.name||'').localeCompare(b.name||'');});
     if(!ings.length)return '<div class="vempty">Nothing in this view right now.</div>';
-    return ings.map(function(it){var pr=priceHtml(it)||'<span class="vpr awaiting">Awaiting price lock</span>';return '<div class="vrow"><span class="vn">'+esc(it.name)+'</span>'+tagHtml(it)+climbHtml(it.name)+pr+'</div>';}).join('');
+    return ings.map(function(it){var pr=priceHtml(it)||'<span class="vpr awaiting">Awaiting price lock</span>';return '<div class="vrow"><span class="vn">'+esc(it.name)+'</span>'+tagHtml(it)+climbHtml(it.name)+pr+outreachIcon(it.name,vk)+'</div>';}).join('');
   }
 
   // Preserve Meat: group by supplier, strip code prefix + low-stock suffix, badge low stock, guard Goose
@@ -31078,7 +31712,7 @@ fbInit();
     prods.forEach(function(p){var k=pmGroup(p);if(!groups[k]){groups[k]=[];order.push(k);}groups[k].push(p);});
     order.sort(function(a,b){return groups[b].length-groups[a].length;});
     var body=order.map(function(k,gi){
-      var items=groups[k].map(function(p){return '<div class="vrow"><span class="vn">'+esc(cleanPMName(p))+(pmLow(p)?' <span class="vtag off">low</span>':'')+'</span>'+(p.price?('<span class="vpr">'+esc(p.price)+(p.unit&&p.unit!=='Each'?(' <span class="vu">/'+esc(p.unit)+'</span>'):'')+'</span>'):'')+'</div>';}).join('');
+      var items=groups[k].map(function(p){var nm=cleanPMName(p);return '<div class="vrow"><span class="vn">'+esc(nm)+(pmLow(p)?' <span class="vtag off">low</span>':'')+'</span>'+(p.price?('<span class="vpr">'+esc(p.price)+(p.unit&&p.unit!=='Each'?(' <span class="vu">/'+esc(p.unit)+'</span>'):'')+'</span>'):'')+outreachIcon(nm,'Preserve Meat')+'</div>';}).join('');
       var gid='pmg-'+gi;
       return '<div class="pmgroup"><button class="pmhdr" onclick="pmTog(\''+gid+'\',this)"><span class="pmcaret">&#9656;</span><span>'+esc(k)+'</span><span class="pmn">'+groups[k].length+'</span></button><div class="pmitems" id="'+gid+'" style="display:none">'+items+'</div></div>';
     }).join('');
@@ -31100,13 +31734,13 @@ fbInit();
     if(!items.length){body='<div class="vempty">Nothing in this category right now.</div>';}
     else if(_psfhMode==='ingredients'){
       var sorted=items.slice().sort(function(a,b){return (a.name||'').localeCompare(b.name||'');});
-      body='<div class="vlist">'+sorted.map(function(p){return '<div class="vrow"><span class="vn">'+esc(p.name)+'<div class="vhint" style="margin:2px 0 0">'+esc(p.producer)+'</div></span>'+psfhPrice(p)+'</div>';}).join('')+'</div>';
+      body='<div class="vlist">'+sorted.map(function(p){return '<div class="vrow"><span class="vn">'+esc(p.name)+'<div class="vhint" style="margin:2px 0 0">'+esc(p.producer)+'</div></span>'+psfhPrice(p)+outreachIcon(p.name,p.producer?(p.producer+' via PSFH'):'Puget Sound Food Hub')+'</div>';}).join('')+'</div>';
     }else{
       var byFarm={},order=[];
       items.forEach(function(p){var f=p.producer||'Unknown';if(!byFarm[f]){byFarm[f]=[];order.push(f);}byFarm[f].push(p);});
       order.sort(function(a,b){return a.localeCompare(b);});
       body=order.map(function(f,gi){
-        var rows=byFarm[f].slice().sort(function(a,b){return (a.name||'').localeCompare(b.name||'');}).map(function(p){return '<div class="vrow"><span class="vn">'+esc(p.name)+'</span>'+psfhPrice(p)+'</div>';}).join('');
+        var rows=byFarm[f].slice().sort(function(a,b){return (a.name||'').localeCompare(b.name||'');}).map(function(p){return '<div class="vrow"><span class="vn">'+esc(p.name)+'</span>'+psfhPrice(p)+outreachIcon(p.name,(p.producer||f)+' via PSFH')+'</div>';}).join('');
         var gid='psfh-'+gi;
         return '<div class="pmgroup"><button class="pmhdr" onclick="pmTog(\''+gid+'\',this)"><span class="pmcaret">&#9656;</span><span>'+esc(f)+'</span><span class="pmn">'+byFarm[f].length+'</span></button><div class="pmitems" id="'+gid+'" style="display:none">'+rows+'</div></div>';
       }).join('');
@@ -31119,6 +31753,61 @@ fbInit();
     var rows=vp.map(function(p){return '<div class="vrow"><span class="vn">'+esc(p.name)+'</span><span class="vpr">$'+Number(p.price).toFixed(2)+(p.unit&&p.unit!=='each'?(' <span class="vu">/'+esc(p.unit)+'</span>'):'')+'</span></div>';}).join('');
     return '<div class="vhint">'+vp.length+' items &middot; latest invoice price</div><div class="vlist">'+rows+'</div>';
   }
+  // Key City: group the OCR-noisy invoice items under collapsible species headers (same collapse
+  // pattern as Preserve Meat / PSFH), clean the display name to the relevant part. Full OCR
+  // variant-dedup is the deferred canonicalization pass; this is the scannable display layer.
+  var KC_GROUPS=[['Halibut',/halibut/i],['Salmon',/salmon/i],['Black Cod',/black ?cod|sablefish/i],
+    ['Crab',/crab|dungeness/i],['Scallops',/scallop/i],['Tuna',/tuna|albacore|tombo/i],
+    ['Trout',/trout/i],['Ling Cod',/ling ?cod/i],['Squid',/squid|calamari/i],
+    ['Shrimp & Prawns',/shrimp|prawn/i],['Shellfish',/oyster|clam|mussel|geoduck|abalone/i],['Cod',/\bcod\b/i]];
+  function kcGroup(n){for(var i=0;i<KC_GROUPS.length;i++){if(KC_GROUPS[i][1].test(n))return KC_GROUPS[i][0];}return 'Other';}
+  function kcClean(n){
+    var s=String(n||'');
+    s=s.replace(/^Fresh\s+/i,'').replace(/^Frozen\s+/i,'Frozen ');
+    s=s.replace(/,\s*(Wild|farmed)\b.*$/i,'');            // drop origin tail ", Wild, BC, Canada"
+    s=s.replace(/Wh[eé]le/ig,'Whole').replace(/Tro!l/ig,'Troll').replace(/\bIb\b/g,'lb');
+    s=s.replace(/\s+\d[\d .]*$/,'');                       // trailing OCR digit noise "1 1. 9"
+    s=s.replace(/\s{2,}/g,' ').replace(/[;,\-]\s*$/,'').trim();
+    return s||String(n||'');
+  }
+  function keyCityView(vk){
+    var vp=(DATA.vendor_prices||{})[vk]||[];
+    if(!vp.length)return '<div class="vempty">No invoice pricing yet.</div>';
+    var groups={},order=KC_GROUPS.map(function(g){return g[0];}).concat(['Other']),seen={};
+    vp.forEach(function(p){
+      if(!(p.price>0)||p.price>250)return;               // drop absurd OCR price rows (e.g. $329 black cod)
+      var nm=kcClean(p.name); if(!nm)return;
+      var g=kcGroup(p.name||nm);
+      var dk=g+'|'+nm.toLowerCase();
+      if(seen[dk]){ if((p.date||'')>(seen[dk].date||'')){seen[dk].price=p.price;seen[dk].unit=p.unit;seen[dk].date=p.date;} return; } // dedup exact cleaned name, keep latest
+      var row={name:nm,price:p.price,unit:p.unit,date:p.date||''};
+      seen[dk]=row; (groups[g]=groups[g]||[]).push(row);
+    });
+    var total=0;Object.keys(groups).forEach(function(g){total+=groups[g].length;});
+    var body=order.filter(function(g){return groups[g];}).map(function(g,gi){
+      var rows=groups[g].slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(r){
+        return '<div class="vrow"><span class="vn">'+esc(r.name)+'</span><span class="vpr">$'+Number(r.price).toFixed(2)+(r.unit&&r.unit!=='each'&&r.unit!=='ea'?(' <span class="vu">/'+esc(r.unit)+'</span>'):'')+'</span>'+outreachIcon(r.name,'Key City Fish')+'</div>';
+      }).join('');
+      var gid='kc-'+gi;
+      return '<div class="pmgroup"><button class="pmhdr" onclick="pmTog(\''+gid+'\',this)"><span class="pmcaret">&#9656;</span><span>'+esc(g)+'</span><span class="pmn">'+groups[g].length+'</span></button><div class="pmitems" id="'+gid+'" style="display:none">'+rows+'</div></div>';
+    }).join('');
+    return '<div class="vhint">'+total+' items &middot; latest invoice price &middot; tap a group to expand</div>'+body;
+  }
+  function ecWilsonView(){
+    var vp=(DATA.vendor_prices||{})['EC Wilson']||[];
+    if(!vp.length)return '<div class="vhint">EC Wilson&rsquo;s invoice catalog needs OCR cleanup before it can show here &mdash; logged as a follow-on.</div>';
+    var groups={},order=[];
+    vp.forEach(function(p){var g=p.group||'Other';if(!groups[g]){groups[g]=[];order.push(g);}groups[g].push(p);});
+    order.sort(function(a,b){return a.localeCompare(b);});
+    var body=order.map(function(g,gi){
+      var rows=groups[g].slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(r){
+        return '<div class="vrow"><span class="vn">'+esc(r.name)+'</span><span class="vpr">$'+Number(r.price).toFixed(2)+(r.unit&&r.unit!=='each'?(' <span class="vu">/'+esc(r.unit)+'</span>'):'')+'</span>'+outreachIcon(r.name,'EC Wilson')+'</div>';
+      }).join('');
+      var gid='ecw-'+gi;
+      return '<div class="pmgroup"><button class="pmhdr" onclick="pmTog(\''+gid+'\',this)"><span class="pmcaret">&#9656;</span><span>'+esc(g)+'</span><span class="pmn">'+groups[g].length+'</span></button><div class="pmitems" id="'+gid+'" style="display:none">'+rows+'</div></div>';
+    }).join('');
+    return '<div class="vhint">'+vp.length+' items &middot; latest invoice price &middot; OCR-canonicalized &middot; tap a group to expand</div>'+body;
+  }
   window.renderVendors=function(){
     var h=host();if(!h)return;
     // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
@@ -31130,19 +31819,22 @@ fbInit();
     }).join('');
     var v=VENDORS[_vSel];
     var out='<div class="vp-bar">'+vp+'</div>';
+    out+='<div class="vhint vhint-out">Tap &#8853; on an item to add it to outreach, then draft a price or timeline email per vendor from the cart (&#128722; top right).</div>';
     if(v[0]==='Preserve Meat'){out+=pmView();}
-    else if(v[0]==='Key City Fish'){out+=invoiceView(v[0]);}
-    else if(v[0]==='EC Wilson'){out+='<div class="vhint">EC Wilson&rsquo;s invoice catalog needs OCR cleanup before it can show here &mdash; logged as a follow-on.</div>';}
+    else if(v[0]==='Key City Fish'){out+=keyCityView(v[0]);}
+    else if(v[0]==='EC Wilson'){out+=ecWilsonView();}
     else if(v[0]==='Puget Sound Food Hub'){out+=psfhView();}
     else{
       // sort pills computed per vendor: Costly and Coming Soon only appear when the vendor
       // actually has flagged-creep / next-month-arriving items (hide-if-empty).
       var vil=vIngs(v[0]);
       var hasCostly=vil.some(isCreeping), hasComing=vil.some(isComing);
+      var hasStaples=vil.some(function(i){return i.commodity===true;});
       var peakLbl=(v[0]==='Swan House Farms')?'Peak':'Peaking';
       var sorts=[['peaking',peakLbl],['available','Available']];
       if(hasComing)sorts.push(['coming','Coming Soon']);
       if(hasCostly)sorts.push(['costly','Costly']);
+      if(hasStaples)sorts.push(['staples','Staples']);
       if(v[0]!=='Swan House Farms')sorts.push(['alpha','A–Z']);
       var valid=sorts.map(function(s){return s[0];});
       if(valid.indexOf(_vSort)<0)_vSort='peaking';
@@ -31237,10 +31929,15 @@ fbInit();
   }
   // On base/added comps (not chef-authored): catch missed sub-recipes, and push the tracked
   // candidate's vendor + latest price into place so the chef starts from a real number.
+  // base-name index: "Zucchini (Farm)" -> base "zucchini" so a maps_to of "Zucchini" resolves
+  // its vendor. Without this the trend price filled (price-trends keys on the clean name) but the
+  // vendor stayed blank, so a 2/4-mapped dish showed price+unit and no vendor.
+  function tmIngByBase(){if(TM._ingBase)return TM._ingBase;var m={};(DATA.ingredients||[]).forEach(function(g){if(g.name){var b=tmBase(g.name);if(!m[b])m[b]=g;}});TM._ingBase=m;return m;}
   function tmApplyAuto(c){
     if(c.kind!=='sub_recipe'&&(c.kind==='pantry'||c.kind==='untracked'||c.kind==='sourced')&&tmLooksLikeSub(c.raw))c.kind='sub_recipe';
     if(c.maps_to){
       var key=String(c.maps_to).toLowerCase(),t=tmTrendBy()[key],g=tmIngBy()[key];
+      if(!g)g=tmIngByBase()[tmBase(c.maps_to)];
       if(!c.vendor&&g&&g.vendor)c.vendor=tmVendorCanon(g.vendor);
       if((c.price.amount===''||c.price.amount==null)&&t&&t.amount!=null){c.price.amount=t.amount;c.price.unit=tmUnitNorm(t.unit);}
     }
@@ -31268,8 +31965,9 @@ fbInit();
       TMFB.db.collection('menu-map').get().then(function(snap){
         snap.forEach(function(doc){
           var d=doc.data()||{},key=doc.id;
-          if(TM.state[key]){if(Array.isArray(d.components))TM.state[key].components=d.components.map(tmNormComp);}
-          else TM.state[key]={name:d.name||key,section:d.section||'',desc:d.desc||'',price:d.price||'',hero:d.hero||null,components:(d.components||[]).map(tmNormComp),_open:false,_subopen:false};
+          var ovl=function(c){return tmApplyAuto(tmNormComp(c));}; // fill vendor/price for maps_to items the finalized doc left blank (never overrides a set value)
+          if(TM.state[key]){if(Array.isArray(d.components))TM.state[key].components=d.components.map(ovl);}
+          else TM.state[key]={name:d.name||key,section:d.section||'',desc:d.desc||'',price:d.price||'',hero:d.hero||null,components:(d.components||[]).map(ovl),_open:false,_subopen:false};
         });
         done&&done();
       }).catch(function(){done&&done();});
@@ -31306,18 +32004,28 @@ fbInit();
     if(d._open)h+='<div class="tm-body">'+tmBody(k)+'</div>';
     return h+'</div>';
   }
+  // Order is FROZEN while a dish stays open: we sort mapped-first only when the order is
+  // (re)built (dish opened, or an ingredient added/removed). Assigning a vendor mid-edit must
+  // NOT reshuffle the cards — that caused price edits to land on the wrong row. Indices stay
+  // valid because we only cache while the component count is unchanged; add/remove resets it.
   function tmMainIdx(d){
-    var idx=[];d.components.forEach(function(c,i){if(!tmIsSub(c))idx.push(i);});
-    idx.sort(function(a,b){var ma=tmIsMapped(d.components[a])?0:1,mb=tmIsMapped(d.components[b])?0:1;return ma-mb||a-b;});
-    return idx;
+    var main=[];d.components.forEach(function(c,i){if(!tmIsSub(c))main.push(i);});
+    if(!d._order){
+      d._order=main.slice().sort(function(a,b){var ma=tmIsMapped(d.components[a])?0:1,mb=tmIsMapped(d.components[b])?0:1;return ma-mb||a-b;});
+    }else{
+      d._order=d._order.filter(function(i){return main.indexOf(i)>=0;});
+      main.forEach(function(i){if(d._order.indexOf(i)<0)d._order.push(i);});
+    }
+    return d._order;
   }
   function tmSubIdx(d){var idx=[];d.components.forEach(function(c,i){if(tmIsSub(c))idx.push(i);});return idx;}
   function tmBody(k){
     var d=TM.state[k],h='';
     tmMainIdx(d).forEach(function(i){h+=tmIngRow(k,i);});
     h+='<div class="tm-add"><button class="tm-addbtn" data-act="addopen" data-k="'+esc(k)+'">+ Add ingredient</button>'
-      +'<div class="tm-fld" data-addfld="'+esc(k)+'" style="display:none;margin-top:8px">'
-      +'<input class="tm-inp" data-act="addsearch" data-k="'+esc(k)+'" placeholder="Search ingredients… or type a new one" autocomplete="off"></div></div>';
+      +'<div class="tm-fld tm-addfld" data-addfld="'+esc(k)+'" style="display:none;margin-top:8px">'
+      +'<input class="tm-inp" data-act="addsearch" data-k="'+esc(k)+'" placeholder="Search ingredients & vendor catalogs… or type a new one" autocomplete="off">'
+      +'<button class="tm-addcancel" data-act="addcancel" data-k="'+esc(k)+'" aria-label="Cancel">Cancel</button></div></div>';
     var subs=tmSubIdx(d);
     if(subs.length){
       h+='<div class="tm-sub'+(d._subopen?' open':'')+'"><button class="tm-subhd" data-act="subtoggle" data-k="'+esc(k)+'">'
@@ -31357,6 +32065,10 @@ fbInit();
         extra=' data-price="'+(it.offer.price==null?'':it.offer.price)+'" data-unit="'+esc(it.offer.unit||'')+'" data-offer="1"';
         return '<div class="tm-aci" data-act="acpick" data-v="'+esc(it.value)+'"'+extra+'>'+esc(it.label)+'<span class="tm-amini">'+pr+'</span></div>';
       }
+      if(it.cat){
+        var cpr=(it.cat.price!=null&&it.cat.price!=='')?('$'+it.cat.price+(it.cat.unit?('/'+esc(it.cat.unit)):'')):'';
+        return '<div class="tm-aci" data-act="acpick" data-v="'+esc(it.value)+'" data-catvendor="'+esc(it.cat.vendor)+'" data-catprice="'+(it.cat.price==null?'':esc(it.cat.price))+'" data-catunit="'+esc(it.cat.unit||'')+'">'+esc(it.label)+'<span class="tm-amini">'+esc(it.cat.vendor)+(cpr?(' · '+cpr):'')+'</span></div>';
+      }
       return '<div class="tm-aci" data-act="acpick" data-v="'+esc(it.value)+'">'+esc(it.label)
         +(it.badge?'<span class="tm-amini">'+esc(it.badge)+'</span>':'')
         +(it.isNew?'<span class="tm-anew">add new</span>':'')+'</div>';
@@ -31375,11 +32087,36 @@ fbInit();
       return (v.aliases||[]).some(function(a){return a.toLowerCase().indexOf(q)>=0;});
     }).slice(0,8).map(function(v){return {value:v.display,label:v.display,badge:v.tier==='family'?'family':''};});
   }
+  // vendor-catalog search: typing "pork" must surface Preserve Meat cuts (and Key City / PSFH
+  // items), not just seasonal-data ingredients. Catalog hits prefill vendor + price on pick.
+  function tmCatPrice(s){var m=String(s||'').match(/\$([\d.]+)\s*\/\s*(?:pound|lb)\b/i);if(m)return {price:parseFloat(m[1]),unit:'lb'};m=String(s||'').match(/\$([\d.]+)/);return m?{price:parseFloat(m[1]),unit:''}:{price:'',unit:''};}
+  function tmCatClean(n){return String(n||'').replace(/\s*low stock\s*/ig,' ').replace(/^[A-Za-z]{2,6}(\/[A-Za-z]{2,6})?\s*-\s*/,'').replace(/\s{2,}/g,' ').trim();}
+  function tmCatMatches(q){
+    var out=[];
+    var pm=DATA.preserve_meat_catalog||{};
+    Object.keys(pm).forEach(function(cat){(pm[cat]||[]).forEach(function(p){
+      var nm=tmCatClean(p.name);if(!nm||/^low stock$/i.test(nm)||/please contact/i.test(nm))return;
+      if(nm.toLowerCase().indexOf(q)<0)return;
+      var pr=tmCatPrice(p.price);
+      out.push({value:nm,label:nm,cat:{vendor:'Preserve Meat',price:pr.price,unit:pr.unit||tmUnitNorm(p.unit)}});
+    });});
+    (((DATA.vendor_prices||{})['Key City Fish'])||[]).forEach(function(p){
+      var nm=String(p.name||'').replace(/^Fresh\s+/i,'').trim();if(!nm||nm.toLowerCase().indexOf(q)<0)return;
+      out.push({value:nm,label:nm,cat:{vendor:'Key City Fish',price:p.price,unit:tmUnitNorm(p.unit)}});
+    });
+    (DATA.psfh_catalog||[]).forEach(function(p){
+      if(!p.name||p.name.toLowerCase().indexOf(q)<0)return;
+      var pr=tmCatPrice(p.price);
+      out.push({value:p.name,label:p.name,cat:{vendor:p.producer?(p.producer+' via PSFH'):'Puget Sound Food Hub',price:pr.price,unit:pr.unit||tmUnitNorm(p.unit)}});
+    });
+    return out.slice(0,8);
+  }
   function tmIngMatches(q){
     q=(q||'').toLowerCase().trim();if(!q)return [];
     var tr=tmTracked();
     var out=(DATA.ingredients||[]).filter(function(g){return g.name&&g.name.toLowerCase().indexOf(q)>=0;})
-      .slice(0,8).map(function(g){return {value:g.name,label:g.name,badge:tr[g.name.toLowerCase()]?'tracked':''};});
+      .slice(0,6).map(function(g){return {value:g.name,label:g.name,badge:tr[g.name.toLowerCase()]?'tracked':''};});
+    out=out.concat(tmCatMatches(q));
     var exact=(DATA.ingredients||[]).some(function(g){return g.name&&g.name.toLowerCase()===q;});
     if(!exact)out.push({value:q,label:'“'+q+'”',isNew:true});
     return out;
@@ -31393,11 +32130,17 @@ fbInit();
       tmCloseAC();tmRerenderDish(ctx.k);
     }
     else if(ctx.type==='add'){
+      var cv=item.getAttribute('data-catvendor');
+      if(cv){
+        var cp=item.getAttribute('data-catprice'),cu=item.getAttribute('data-catunit')||'';
+        var ccomp=tmApplyAuto({raw:val,kind:'sourced',maps_to:null,vendor:cv,price:{amount:(cp===''||cp==null)?'':Number(cp),unit:cu},confidence:'chef'});
+        TM.state[ctx.k].components.push(ccomp);TM.state[ctx.k]._order=null;tmCloseAC();tmRerenderDish(ctx.k);return;
+      }
       var ing=(DATA.ingredients||[]).find(function(g){return g.name&&g.name.toLowerCase()===val.toLowerCase();});
       var tr=tmTracked();
       var comp=tmApplyAuto({raw:ing?ing.name:val,kind:ing?(tr[ing.name.toLowerCase()]?'tracked':'untracked'):'untracked',
         maps_to:ing?ing.name:null,vendor:'',price:{amount:'',unit:''},confidence:'chef'});
-      TM.state[ctx.k].components.push(comp);tmCloseAC();tmRerenderDish(ctx.k);
+      TM.state[ctx.k].components.push(comp);TM.state[ctx.k]._order=null;tmCloseAC();tmRerenderDish(ctx.k);
     }
   }
   function tmFinalize(k){
@@ -31420,10 +32163,11 @@ fbInit();
       var t=e.target&&e.target.closest?e.target.closest('[data-act]'):null;
       if(!t){tmCloseAC();return;}
       var act=t.getAttribute('data-act'),k=t.getAttribute('data-k'),i=t.getAttribute('data-i');
-      if(act==='toggle'){TM.state[k]._open=!TM.state[k]._open;tmCloseAC();tmRerenderDish(k);}
+      if(act==='toggle'){TM.state[k]._open=!TM.state[k]._open;TM.state[k]._order=null;tmCloseAC();tmRerenderDish(k);}
       else if(act==='subtoggle'){TM.state[k]._subopen=!TM.state[k]._subopen;tmCloseAC();tmRerenderDish(k);}
-      else if(act==='rming'){TM.state[k].components.splice(+i,1);tmRerenderDish(k);}
+      else if(act==='rming'){TM.state[k].components.splice(+i,1);TM.state[k]._order=null;tmRerenderDish(k);}
       else if(act==='addopen'){var fld=document.querySelector('.tm-fld[data-addfld="'+k+'"]');if(fld){fld.style.display='block';var inp=fld.querySelector('input');if(inp)inp.focus();}t.style.display='none';}
+      else if(act==='addcancel'){tmCloseAC();var afld=document.querySelector('.tm-fld[data-addfld="'+k+'"]');if(afld){var ai=afld.querySelector('input[data-act="addsearch"]');if(ai)ai.value='';afld.style.display='none';}var ab=document.querySelector('.tm-addbtn[data-k="'+k+'"]');if(ab)ab.style.display='';}
       else if(act==='acpick'){tmPick(t);}
       else if(act==='finalize'){tmFinalize(k);}
     });
