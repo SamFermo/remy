@@ -523,22 +523,26 @@
   "Snap Peas": {
    "swan_price": 6.94,
    "market": 5.78,
-   "unit": "cs",
+   "unit": "lb",
    "vendor": "Franks",
    "date": "2026-04-30",
    "freshness": "AGING",
    "source": "invoice",
-   "needs_check": false
+   "needs_check": false,
+   "swan_per_lb": 6.94,
+   "per_lb_basis": "exact"
   },
   "Snow Peas": {
    "swan_price": 5.04,
    "market": 4.2,
-   "unit": "cs",
+   "unit": "lb",
    "vendor": "Franks",
    "date": "2026-06-15",
    "freshness": "FRESH",
    "source": "invoice",
-   "needs_check": false
+   "needs_check": false,
+   "swan_per_lb": 5.04,
+   "per_lb_basis": "exact"
   },
   "Sorrel (French)": {
    "swan_price": 9.6,
