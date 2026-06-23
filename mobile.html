@@ -1060,7 +1060,7 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 @keyframes moonPick{0%{transform:scale(1)}30%{transform:scale(1.055)}70%{transform:scale(0.99)}100%{transform:scale(0.985)}}
 /* farm shell: scrollable wrapper hosting the fresh-sheet .phone */
 .farm-shell{flex:1;display:flex;justify-content:center;align-items:flex-start;
-  padding:22px 14px 40px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  padding:8px 14px 40px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .farm-shell .phone{width:100%;max-width:430px;display:flex;flex-direction:column;position:relative;z-index:2}
 @media(max-height:680px){
   .moon-stage{width:min(58vh,300px);height:min(58vh,300px)}
@@ -1346,7 +1346,7 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 <!-- DOORS (split-worlds entry) -->
 <div id="doors">
   <svg class="sky" id="door-sky" viewBox="0 0 1000 1800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
-  <div class="de-head"><span class="de-back-ghost doorback" aria-hidden="true">&#8592; Doors</span><span class="de-remy">Remy</span><span class="de-brand">&middot; San Fermo</span></div>
+  <div class="de-head"><span class="de-back-ghost doorback" aria-hidden="true">&#8592; Doors</span><span class="de-remy">Remy</span><span class="de-brand" id="de-date">&middot; San Fermo</span></div>
   <div class="de-note">Choose your side</div>
   <div class="moon-wrap">
     <div class="moon-stage">
@@ -1367,13 +1367,12 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 
 <!-- FARM (real fresh-sheet, ported from remy-farm-freshsheet-real.html) -->
 <div id="farm" class="gone">
+  <!-- full-width header matches .de-head so Remy persists in the SAME spot as the doors/kitchen -->
+  <div class="de-head"><button class="fh-back doorback" aria-label="Back to the doors">&#8592; Doors</button><span class="de-remy">Remy</span><span class="de-brand">&middot; Swan House Farm</span></div>
+  <div class="de-note" id="fh-week"></div>
   <div class="farm-shell">
 <p class="sr-only">Remy farm fresh-sheet on real Swan House data: a push board, the full grow list, and a guided weekly review.</p>
 <div class="phone">
-  <div class="fh">
-    <button class="fh-back">&#8592; Doors</button>
-    <div class="fh-title"><b>The Farm</b><span id="fh-week">Swan House</span></div>
-  </div>
   <div id="offline-banner" style="display:none">You&rsquo;re offline &mdash; everything saves here and syncs when you&rsquo;re back online.</div>
   <div class="seg">
     <button class="on" data-view="push">Pushing</button>
@@ -32938,6 +32937,10 @@ function runIntroMorph(){
   }
   seedStars(document.getElementById('stars'),96);
   seedStars(document.getElementById('door-sky'),76);
+
+  // moon landing wordmark: "Remy · <today>" (kitchen swaps to · San Fermo, farm to · Swan House Farm)
+  var _dd=document.getElementById('de-date');
+  if(_dd)_dd.textContent='· '+new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
 })();
 </script>
 <script>
@@ -33553,7 +33556,8 @@ ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){se
 ROOT.querySelector('.guided-link').onclick=function(){setView('guided');};
 document.getElementById('g-back').onclick=function(){setView('push');};
 
-document.getElementById('fh-week').textContent='Swan House '+(DATA.week?('· '+DATA.week):'');
+/* "Swan House Farm" is now the header brand next to Remy; this top-right note carries the week */
+document.getElementById('fh-week').textContent=(DATA.week||'');
 document.getElementById('meta').innerHTML='Live from your Swan House sheet <span class="dot">&middot;</span> last touched '+(DATA.kelly_last_touch||'?')+' <span class="dot">&middot;</span> '+grow.length+' crops, '+DATA.market_count+' with a market comp';
 
 applyState(lsLoad());
