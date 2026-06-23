@@ -1210,6 +1210,8 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .pc-photo{display:block;width:100%;max-height:170px;object-fit:cover;border-radius:8px;border:1px solid var(--ink-12)}
 .pc-photo-up{position:absolute;top:8px;left:8px;background:rgba(2,4,13,0.72);color:var(--ink);font-family:var(--fb);font-size:11px;letter-spacing:0.04em;padding:4px 9px;border-radius:14px}
 .pc-photo-err{margin-top:8px;font-family:var(--fb);font-size:11px;color:var(--terra);letter-spacing:0.02em}
+.pc-photo-up.pend{background:rgba(226,185,94,0.85);color:#2a2310}
+#offline-banner{font-family:var(--fb);font-size:11.5px;color:var(--gold);background:rgba(226,185,94,0.1);border:1px solid rgba(226,185,94,0.35);border-radius:8px;padding:9px 12px;margin:10px 0 0;letter-spacing:0.02em;text-align:center}
 .pc-photo{cursor:pointer}
 .list-head{display:flex;align-items:flex-start;gap:10px;margin:16px 0 12px}
 .list-head .list-intro{margin:0;flex:1}
@@ -1334,6 +1336,7 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
     <button class="fh-back">&#8592; Doors</button>
     <div class="fh-title"><b>The Farm</b><span id="fh-week">Swan House</span></div>
   </div>
+  <div id="offline-banner" style="display:none">You&rsquo;re offline &mdash; everything saves here and syncs when you&rsquo;re back online.</div>
   <div class="seg">
     <button class="on" data-view="push">Pushing</button>
     <button data-view="list">Full list</button>
@@ -32912,7 +32915,11 @@ function fbSave(){try{var x=snapshot();
   x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});}catch(e){}}
 function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();_cfNotify();}}).catch(function(){});}catch(e){}}
 var _cfListeners=[];function _cfNotify(){try{(_cfListeners||[]).forEach(function(f){try{f();}catch(e){}});}catch(e){}}
-function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();try{FB.storage=firebase.storage();}catch(e){}firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();}).catch(function(){});}catch(e){}}
+function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();
+  // offline persistence: prices/status/markdown/transcripts queue locally + auto-sync on reconnect
+  try{FB.db.enablePersistence({synchronizeTabs:true}).catch(function(){});}catch(e){}
+  try{FB.storage=firebase.storage();}catch(e){}
+  firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();flushQueue();}).catch(function(){});}catch(e){}}
 function flagSaved(){var m=document.getElementById('saved');if(!m)return;m.style.opacity='1';clearTimeout(window._svt);window._svt=setTimeout(function(){m.style.opacity='0';},1100);}
 
 /* ── PHOTO per listing: one tap → camera → resize → Storage → URL on the listing ── */
@@ -32945,26 +32952,57 @@ function resizeImage(file,maxDim,quality,cb){
     img.src=url;
   }catch(e){cb(null,null);}
 }
-function reRender(){try{renderPush();renderList();}catch(e){}}
+function reRender(){try{renderPush();renderList();if(window.RemyFarm)_cfNotify();}catch(e){}}
+
+/* ── OFFLINE-FIRST media: captured photo/audio is saved on-device as a data URL (survives
+   reload + offline), then flushed to Storage whenever we're online. The pending state IS the
+   data URL in the persisted record; fbSave already strips non-http media from Firestore. ── */
+function isLocalMedia(u){return !!(u&&u.indexOf('data:')===0);}
+function isOffline(){return (typeof navigator!=='undefined'&&navigator.onLine===false);}
+function dataUrlToBlob(d){
+  try{
+    if(!d||d.indexOf('data:')!==0)return null;
+    var c=d.indexOf(','),meta=d.slice(5,c),b64=d.slice(c+1);
+    var ct=(meta.split(';')[0])||'application/octet-stream';
+    var bin=atob(b64),arr=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);
+    return new Blob([arr],{type:ct});
+  }catch(e){return null;}
+}
+function flushQueue(){
+  if(isOffline()||!(FB.ready&&FB.storage))return;
+  grow.forEach(function(g){
+    ['photo','voice'].forEach(function(kind){
+      var u=g[kind];if(!isLocalMedia(u)||g['_up_'+kind])return;
+      var blob=dataUrlToBlob(u);if(!blob)return;
+      g['_up_'+kind]=true;reRender();
+      var ct=blob.type||(kind==='photo'?'image/jpeg':'audio/webm');
+      var ext=kind==='photo'?'.jpg':(ct.indexOf('mp4')>=0?'.mp4':(ct.indexOf('ogg')>=0?'.ogg':'.webm'));
+      uploadMedia(kind,g.name,blob,ct,ext,function(url){
+        g['_up_'+kind]=false;
+        if(url){g[kind]=url;persist();}   // swap data URL → Storage URL; Firestore now syncs it
+        reRender();
+      });
+    });
+  });
+}
+function updateOfflineBanner(){
+  var b=document.getElementById('offline-banner');if(!b)return;
+  b.style.display=isOffline()?'block':'none';
+}
+if(typeof window!=='undefined'){
+  window.addEventListener('online',function(){updateOfflineBanner();flushQueue();});
+  window.addEventListener('offline',function(){updateOfflineBanner();});
+}
 function clearUploading(g){if(g&&g._photoUp){g._photoUp=false;reRender();}}
 function handlePhoto(name,file){
   var g=byName[name];if(!g)return;
   resizeImage(file,1024,0.7,function(blob,dataUrl){
     if(!dataUrl){g._photoErr='Could not read that image';reRender();return;}
-    g.photo=dataUrl;g._photoErr='';g._photoUp=true;   // optimistic local preview (dataUrl)
-    pushed.add(name);renderPush();renderPick();renderList();
-    var done=false;
-    function finish(url,err){
-      if(done)return;done=true;g._photoUp=false;
-      if(url){g.photo=url;persist();}                 // real Storage URL → Firestore
-      else if(err&&err!=='offline'){g._photoErr='Upload failed — tap the photo to retry';lsSave();}
-      else{lsSave();}                                  // offline: keep local preview, no error noise
-      reRender();
-    }
-    // clear the "Uploading…" badge the moment the bytes land — don't block on getDownloadURL
-    uploadMedia('photo',name,blob||file,'image/jpeg','.jpg',finish,function(){clearUploading(g);});
-    // safety net: never let the badge stick if the network stalls
-    setTimeout(function(){clearUploading(g);},20000);
+    // save the photo on-device first (survives reload/offline); flush uploads when online
+    g.photo=dataUrl;g._photoErr='';
+    pushed.add(name);persist();renderPush();renderPick();renderList();
+    flushQueue();
   });
 }
 function uploadMedia(kind,name,blob,contentType,ext,cb,onPut){
@@ -33034,7 +33072,8 @@ function vtStartRec(){
     VT.mr.onstop=function(){
       var type=VT.mr.mimeType||'audio/webm';VT.blob=new Blob(VT.chunks,{type:type});
       try{VT.localUrl=URL.createObjectURL(VT.blob);}catch(e){}
-      VT.phase='review';vtRender();vtUpload();
+      VT.dataUrl='';try{var fr=new FileReader();fr.onload=function(){VT.dataUrl=fr.result;};fr.readAsDataURL(VT.blob);}catch(e){}
+      VT.phase='review';vtRender();
     };
     VT.mr.start();vtStartSpeech();VT.timer=setInterval(vtTick,250);vtRender();
   }).catch(function(e){VT.err='Could not access the microphone. Check permissions and try again.';VT.phase='error';vtRender();});
@@ -33059,16 +33098,6 @@ function vtStop(){
   try{if(VT.sr)VT.sr.stop();}catch(e){}
   try{if(VT.mr&&VT.mr.state!=='inactive')VT.mr.stop();else{VT.phase='review';vtRender();}}catch(e){VT.phase='review';vtRender();}
   vtFinishStreams();
-}
-function vtUpload(){
-  var name=VT.item,g=byName[name];if(!g||!VT.blob)return;
-  g._voiceUp=true;
-  var ty=VT.blob.type||'audio/webm';var ext=ty.indexOf('mp4')>=0?'.mp4':(ty.indexOf('ogg')>=0?'.ogg':'.webm');
-  uploadMedia('voice',name,VT.blob,ty,ext,function(url,err){
-    g._voiceUp=false;
-    if(url){g.voice=url;VT.localUrl=url;persist();}else{lsSave();}
-    reRender();
-  });
 }
 function vtRender(){
   var stage=document.getElementById('vt-stage'),act=document.getElementById('vt-actions');
@@ -33099,10 +33128,11 @@ function vtRender(){
 function vtSave(){
   var g=byName[VT.item];if(!g)return;
   var ta=document.getElementById('vt-text');var text=ta?ta.value.trim():(VT.finalText||'').trim();
-  if(!text&&!VT.localUrl){vtClose();return;}
+  if(!text&&!VT.dataUrl&&!(g.voice&&/^https?:/.test(g.voice))){vtClose();return;}
   g.voiceText=text;
-  if(VT.localUrl&&/^https?:/.test(VT.localUrl))g.voice=VT.localUrl;
-  pushed.add(VT.item);persist();vtClose();renderPush();renderList();
+  // save the audio on-device as a data URL (survives reload/offline); flush uploads when online
+  if(VT.dataUrl)g.voice=VT.dataUrl; else if(VT.localUrl&&/^https?:/.test(VT.localUrl))g.voice=VT.localUrl;
+  pushed.add(VT.item);persist();vtClose();renderPush();renderList();flushQueue();
 }
 function vtRemoveNote(name){var g=byName[name];if(!g)return;g.voiceText='';g.voice='';persist();renderPush();renderList();}
 function vtClose(){
@@ -33347,14 +33377,14 @@ function renderPush(){
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
-      (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+(g._photoUp?'<span class="pc-photo-up">Uploading&hellip;</span>':'')+'</div>'):'')+
+      (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+(g._up_photo?'<span class="pc-photo-up">Uploading&hellip;</span>':(isLocalMedia(g.photo)?'<span class="pc-photo-up pend">Will upload when online</span>':''))+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
-      (g.voiceText?('<div class="pc-voice"><div class="pc-voice-q">&ldquo;'+vEsc(g.voiceText)+'&rdquo;</div>'+(g._voiceUp?'<div class="pc-voice-pending">saving audio&hellip;</div>':'')+((g.voice&&/^https?:/.test(g.voice))?('<audio controls src="'+g.voice+'"></audio>'):'')+'</div>'):'')+
+      ((g.voiceText||g.voice)?('<div class="pc-voice">'+(g.voiceText?('<div class="pc-voice-q">&ldquo;'+vEsc(g.voiceText)+'&rdquo;</div>'):'')+(g.voice?('<audio controls src="'+g.voice+'"></audio>'):'')+(g._up_voice?'<div class="pc-voice-pending">uploading audio&hellip;</div>':(isLocalMedia(g.voice)?'<div class="pc-voice-pending">audio saved &middot; uploads when online</div>':''))+'</div>'):'')+
       '<div class="pc-actions">'+
         (g.prepped?('<button class="chip-btn price-btn" data-n="'+n+'">'+PRICEIC+'Price this</button>')
                   :('<button class="chip-btn ask-btn" data-n="'+n+'">'+TAG+(g.ask?'Edit price':'Set price')+'</button>'))+
         '<button class="chip-btn voice-btn'+(g.voiceText?' on':'')+'" data-n="'+n+'">'+MIC+(g.voiceText?'Edit note':'Voice note')+'</button>'+
-        '<button class="chip-btn photo-btn'+(g.photo?' on':'')+'" data-n="'+n+'">'+CAM+(g._photoUp?'Uploading&hellip;':(g.photo?'Edit photo':'Photo'))+'</button>'+
+        '<button class="chip-btn photo-btn'+(g.photo?' on':'')+'" data-n="'+n+'">'+CAM+(g._up_photo?'Uploading&hellip;':(g.photo?'Edit photo':'Photo'))+'</button>'+
       '</div>';
     el.appendChild(c);
   });
@@ -33430,7 +33460,9 @@ document.getElementById('meta').innerHTML='Live from your Swan House sheet <span
 
 applyState(lsLoad());
 renderPush();renderPick();renderList();
+updateOfflineBanner();
 fbInit();
+flushQueue();
 
 /* expose the live farmer state for the restaurant-side Connected Farms mirror (read-only) */
 window.RemyFarm={
