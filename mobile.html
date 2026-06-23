@@ -1263,6 +1263,44 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .pc-voice-q{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink);line-height:1.45}
 .pc-voice-pending{font-family:var(--fb);font-size:11px;color:var(--gold);letter-spacing:0.02em}
 .pc-voice audio{width:100%;margin-top:7px;height:32px}
+/* Connected Farms (restaurant-side mirror) */
+.cf-head{margin:4px 0 12px}
+.cf-title{font-family:var(--fd);font-size:24px;font-weight:500;display:block;line-height:1.05}
+.cf-sub{font-family:var(--fb);font-size:11px;color:var(--ink-30);letter-spacing:0.02em}
+.cf-seg{display:flex;gap:4px;background:var(--ink-6);border:1px solid var(--ink-12);border-radius:30px;padding:4px;margin-bottom:14px}
+.cf-segb{flex:1;font-family:var(--fb);font-size:12px;font-weight:500;color:var(--ink-60);background:none;border:none;border-radius:24px;padding:9px 0;cursor:pointer}
+.cf-segb.on{color:#0a1028;background:var(--ink)}
+.cf-empty{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-30);text-align:center;padding:18px 0}
+.cf-card{background:var(--bg-card);border:1px solid var(--ink-12);border-radius:8px;padding:13px 14px;margin-bottom:10px}
+.cf-card.md{border-color:rgba(226,185,94,0.45)}
+.cf-c-top{display:flex;align-items:baseline;gap:8px}
+.cf-c-name{font-family:var(--fd);font-size:20px;font-weight:500}
+.cf-c-qty{font-family:var(--fb);font-size:11px;color:var(--olive);border:1px solid rgba(168,185,126,0.3);border-radius:20px;padding:2px 9px}
+.cf-c-price{font-family:var(--fb);font-size:14px;color:var(--ink);margin-top:6px;font-weight:600}
+.cf-c-meta{font-weight:400;color:var(--ink-60);font-size:12px}
+.cf-noprice{color:var(--ink-30);font-style:italic;font-weight:400}
+.cf-md-tag{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-top:7px}
+.cf-photo{display:block;width:100%;max-height:170px;object-fit:cover;border-radius:8px;border:1px solid var(--ink-12);margin-top:10px;cursor:pointer}
+.cf-voice{margin-top:10px;background:var(--ink-6);border-left:2px solid var(--olive);border-radius:0 6px 6px 0;padding:9px 12px;font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink);line-height:1.45}
+.cf-voice audio{width:100%;margin-top:7px;height:32px}
+.cf-bar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.cf-search{flex:1;min-width:140px;background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;color:var(--ink);font-family:var(--fb);font-size:13px;padding:9px 11px}
+.cf-search:focus{outline:none;border-color:var(--olive)}
+.cf-sort{display:flex;gap:4px}
+.cf-sortb{font-family:var(--fb);font-size:11px;font-weight:500;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:18px;padding:7px 11px;cursor:pointer}
+.cf-sortb.on{color:#0a1028;background:var(--olive);border-color:var(--olive)}
+.cf-row{display:flex;align-items:center;gap:9px;padding:11px 2px;border-bottom:1px solid var(--ink-6)}
+.cf-star{background:none;border:none;font-size:16px;color:var(--ink-12);padding:0;cursor:default}
+.cf-star.on{color:var(--gold)}
+.cf-r-main{flex:1;min-width:0}
+.cf-r-name{font-family:var(--fd);font-size:17px;color:var(--ink)}
+.cf-r-cam{font-size:11px;color:var(--olive)}
+.cf-r-qty{font-family:var(--fb);font-size:10.5px;color:var(--ink-30)}
+.cf-r-price{font-family:var(--fb);font-size:13px;color:var(--ink);white-space:nowrap}
+#cfPhoto{position:fixed;inset:0;z-index:220;display:none;align-items:center;justify-content:center;background:rgba(2,4,13,0.9);padding:20px}
+#cfPhoto.open{display:flex}
+#cfPhoto img{max-width:100%;max-height:84vh;object-fit:contain;border-radius:10px}
+#cfPhotoX{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--ink);font-size:30px;cursor:pointer}
 
 </style>
 
@@ -32864,7 +32902,7 @@ function applyState(x){
 function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}catch(e){}}
 function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
 var FB={ready:false,db:null,storage:null};
-function persist(){lsSave();flagSaved();if(FB.ready)fbSave();}
+function persist(){lsSave();flagSaved();if(FB.ready)fbSave();_cfNotify();}
 function fbSave(){try{var x=snapshot();
   // never write base64 (optimistic preview) to Firestore — only uploaded Storage URLs. The
   // dataUrl preview lives in localStorage; Firestore carries the small http URL once uploaded.
@@ -32872,7 +32910,8 @@ function fbSave(){try{var x=snapshot();
     if(it.photo&&!/^https?:/.test(it.photo))it.photo='';
     if(it.voice&&!/^https?:/.test(it.voice))it.voice='';});}
   x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});}catch(e){}}
-function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();}}).catch(function(){});}catch(e){}}
+function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();_cfNotify();}}).catch(function(){});}catch(e){}}
+var _cfListeners=[];function _cfNotify(){try{(_cfListeners||[]).forEach(function(f){try{f();}catch(e){}});}catch(e){}}
 function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();try{FB.storage=firebase.storage();}catch(e){}firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();}).catch(function(){});}catch(e){}}
 function flagSaved(){var m=document.getElementById('saved');if(!m)return;m.style.opacity='1';clearTimeout(window._svt);window._svt=setTimeout(function(){m.style.opacity='0';},1100);}
 
@@ -33393,6 +33432,19 @@ applyState(lsLoad());
 renderPush();renderPick();renderList();
 fbInit();
 
+/* expose the live farmer state for the restaurant-side Connected Farms mirror (read-only) */
+window.RemyFarm={
+  week:DATA.week, lastTouch:DATA.kelly_last_touch, marketCount:DATA.market_count,
+  list:function(){return grow.map(function(g){return {
+    name:g.name, category:g.category, status:g.status, qty:g.qty, prepped:!!g.prepped,
+    market:g.market||null, ask:(g.ask==null?null:g.ask), askUnit:g.askUnit||'', askMode:g.askMode||'',
+    askPct:g.askPct, askVendor:g.askVendor||'', photo:g.photo||'', voice:g.voice||'',
+    voiceText:g.voiceText||'', pushed:pushed.has(g.name), markdown:markdown.has(g.name)
+  };});},
+  askLabel:function(g){return g&&g.askMode?askModeLabel(g):'';},
+  onChange:function(fn){if(typeof fn==='function')_cfListeners.push(fn);}
+};
+
 })();
 </script>
 <script>
@@ -33497,7 +33549,8 @@ fbInit();
   function buildKitchenPills(){
     var bar=document.getElementById('kitchen-pills');if(!bar)return;
     var P=[['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
-           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
+           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead'],
+           ['farms','Connected Farms','showConnectedFarms']];
     bar.innerHTML=P.map(function(p,i){
       return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
     }).join('');
@@ -33506,6 +33559,90 @@ fbInit();
   function start(){ buildKitchenPills(); renderTrending(); }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);
   else start();
+})();
+</script>
+<script>
+/* ── KITCHEN · Connected Farms — read-only mirror of the farmer's live push board + grow list ── */
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function host(){return document.getElementById('trending-home');}
+  function setActive(k){var b=document.getElementById('kitchen-pills');if(b)b.querySelectorAll('.kpill').forEach(function(p){p.classList.toggle('active',p.dataset.k===k);});}
+  var ST={view:'pushing',sort:'smart',q:''};
+  var STATUS_RANK={'Peak':0,'Available':1,'Trickling':2,'Coming Soon':3,'Not Yet':4,'Done':5};
+  function farmList(){return (window.RemyFarm&&window.RemyFarm.list)?window.RemyFarm.list():[];}
+  function priceStr(g){
+    if(g.ask!=null)return '$'+Number(g.ask).toFixed(2)+(g.askUnit?('/'+g.askUnit):'');
+    if(g.market&&g.market.per_lb!=null)return '~$'+Number(g.market.per_lb).toFixed(2)+'/lb';
+    if(g.market&&g.market.price!=null)return '$'+Number(g.market.price).toFixed(2)+(g.market.unit?('/'+g.market.unit):'');
+    return '';
+  }
+  function askMeta(g){if(g.ask==null)return '';var l=(window.RemyFarm&&window.RemyFarm.askLabel)?window.RemyFarm.askLabel(g):'';return l?(' · '+l):'';}
+
+  window.showConnectedFarms=function(){
+    document.querySelectorAll('.ss').forEach(function(s){s.classList.remove('active');});
+    if(typeof screenHistory!=='undefined')screenHistory.length=0;
+    setActive('farms');render();
+  };
+  window._cfSetView=function(v){ST.view=v;render();};
+  window._cfSetSort=function(s){ST.sort=s;render();};
+
+  function render(){
+    var h=host();if(!h)return;var rf=window.RemyFarm;
+    var head='<div class="cf-head"><span class="cf-title">Connected Farms</span>'+
+      '<span class="cf-sub">Swan House'+(rf&&rf.week?(' &middot; '+esc(rf.week)):'')+(rf&&rf.lastTouch?(' &middot; updated '+esc(rf.lastTouch)):'')+'</span></div>';
+    var seg='<div class="cf-seg"><button class="cf-segb'+(ST.view==='pushing'?' on':'')+'" onclick="_cfSetView(\'pushing\')">Pushing</button>'+
+      '<button class="cf-segb'+(ST.view==='list'?' on':'')+'" onclick="_cfSetView(\'list\')">Full list</button></div>';
+    h.innerHTML=head+seg+(ST.view==='pushing'?pushingHtml():listHtml());
+    bind();
+  }
+  function pushingHtml(){
+    var items=farmList().filter(function(g){return g.pushed;});
+    if(!items.length)return '<div class="cf-empty">Swan House hasn&rsquo;t flagged anything to push yet.</div>';
+    items.sort(function(a,b){return (b.markdown-a.markdown)||((STATUS_RANK[a.status]||9)-(STATUS_RANK[b.status]||9))||a.name.localeCompare(b.name);});
+    return items.map(function(g){
+      var photo=g.photo?('<img class="cf-photo" data-photo="'+esc(g.photo)+'" src="'+esc(g.photo)+'" alt="'+esc(g.name)+'">'):'';
+      var voice=g.voiceText?('<div class="cf-voice">&ldquo;'+esc(g.voiceText)+'&rdquo;'+((g.voice&&/^https?:/.test(g.voice))?('<audio controls src="'+esc(g.voice)+'"></audio>'):'')+'</div>'):'';
+      var price=priceStr(g);
+      return '<div class="cf-card'+(g.markdown?' md':'')+'">'+
+        '<div class="cf-c-top"><span class="cf-c-name">'+esc(g.name)+'</span>'+(g.qty?'<span class="cf-c-qty">'+esc(g.qty)+'</span>':'')+'</div>'+
+        (price?('<div class="cf-c-price">'+esc(price)+'<span class="cf-c-meta">'+esc(askMeta(g))+'</span></div>'):'<div class="cf-c-price cf-noprice">price not set</div>')+
+        (g.markdown?'<div class="cf-md-tag">&#9662; Marked down to move</div>':'')+photo+voice+'</div>';
+    }).join('');
+  }
+  function listHtml(){
+    var items=farmList();var q=ST.q.trim().toLowerCase();
+    if(q)items=items.filter(function(g){return g.name.toLowerCase().indexOf(q)>=0;});
+    if(ST.sort==='az')items.sort(function(a,b){return a.name.localeCompare(b.name);});
+    else items.sort(function(a,b){return ((b.pushed?1:0)-(a.pushed?1:0))||((STATUS_RANK[a.status]||9)-(STATUS_RANK[b.status]||9))||a.name.localeCompare(b.name);});
+    var bar='<div class="cf-bar"><input class="cf-search" id="cf-search" type="text" placeholder="Search crops" value="'+esc(ST.q)+'">'+
+      '<div class="cf-sort"><button class="cf-sortb'+(ST.sort==='smart'?' on':'')+'" onclick="_cfSetSort(\'smart\')">Pushing first</button>'+
+      '<button class="cf-sortb'+(ST.sort==='az'?' on':'')+'" onclick="_cfSetSort(\'az\')">A&ndash;Z</button></div></div>';
+    if(!items.length)return bar+'<div class="cf-empty">No crops match.</div>';
+    var rows=items.map(function(g){
+      var cls=({'Peak':'st-peak','Available':'st-avail','Trickling':'st-avail','Coming Soon':'st-coming'})[g.status]||'st-done';
+      return '<div class="cf-row">'+
+        '<button class="cf-star'+(g.pushed?' on':'')+'" disabled>&#9733;</button>'+
+        '<div class="cf-r-main"><div class="cf-r-name">'+esc(g.name)+(g.photo?' <span class="cf-r-cam">&#9673;</span>':'')+(g.voiceText?' <span class="cf-r-cam">&#9834;</span>':'')+'</div>'+(g.qty?'<div class="cf-r-qty">'+esc(g.qty)+'</div>':'')+'</div>'+
+        '<span class="cf-r-price">'+esc(priceStr(g))+'</span>'+
+        '<span class="status '+cls+'">'+esc(g.status)+'</span>'+'</div>';
+    }).join('');
+    return bar+'<div class="cf-rows">'+rows+'</div>';
+  }
+  function bind(){
+    var h=host();if(!h)return;
+    var s=document.getElementById('cf-search');
+    if(s)s.oninput=function(){var pos=s.selectionStart;ST.q=s.value;render();var s2=document.getElementById('cf-search');if(s2){s2.focus();try{s2.setSelectionRange(pos,pos);}catch(e){}}};
+    h.querySelectorAll('[data-photo]').forEach(function(im){im.onclick=function(){openCfPhoto(im.getAttribute('data-photo'));};});
+  }
+  function openCfPhoto(url){
+    var o=document.getElementById('cfPhoto');
+    if(!o){o=document.createElement('div');o.id='cfPhoto';o.innerHTML='<img id="cfPhotoImg" src="" alt=""><button id="cfPhotoX" aria-label="Close">&times;</button>';document.body.appendChild(o);
+      o.addEventListener('click',function(e){if(e.target.id==='cfPhoto'||e.target.id==='cfPhotoX')o.classList.remove('open');});}
+    document.getElementById('cfPhotoImg').src=url;o.classList.add('open');
+  }
+  if(window.RemyFarm&&window.RemyFarm.onChange)window.RemyFarm.onChange(function(){
+    var a=document.querySelector('#kitchen-pills .kpill[data-k="farms"].active');if(a)render();
+  });
 })();
 </script>
 <script>
