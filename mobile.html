@@ -1203,6 +1203,13 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .lr-price{background:none;border:none;color:var(--ink-30);cursor:pointer;padding:3px 6px;font-family:var(--fb);font-size:14px;line-height:1}
 .lr-price:hover{color:var(--olive)}
 .lr-price.set{color:var(--olive)}
+.lr-photo{background:none;border:none;color:var(--ink-12);cursor:pointer;padding:3px 5px;font-size:15px;line-height:1}
+.lr-photo:hover{color:var(--olive)}
+.lr-photo.set{color:var(--gold)}
+.pc-photo-wrap{position:relative;margin-top:11px}
+.pc-photo{display:block;width:100%;max-height:170px;object-fit:cover;border-radius:8px;border:1px solid var(--ink-12)}
+.pc-photo-up{position:absolute;top:8px;left:8px;background:rgba(2,4,13,0.72);color:var(--ink);font-family:var(--fb);font-size:11px;letter-spacing:0.04em;padding:4px 9px;border-radius:14px}
+.pc-photo-err{margin-top:8px;font-family:var(--fb);font-size:11px;color:var(--terra);letter-spacing:0.02em}
 
 </style>
 
@@ -32706,6 +32713,7 @@ function runIntroMorph(){
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 <script>
 /* ── DUAL-DOOR wiring ── */
 (function(){
@@ -32759,16 +32767,94 @@ var pushed=new Set(grow.filter(function(g){return g.push;}).map(function(g){retu
 var markdown=new Set();
 /* persistence: localStorage now; mirrors to Firestore farmAvailability once rules allow */
 var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={};
-function snapshot(){return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,updated_at:Date.now()};}
-function applyState(x){if(!x)return;if(x.pushed)pushed=new Set(x.pushed);if(x.markdown)markdown=new Set(x.markdown);if(x.status){statusEdits=x.status;grow.forEach(function(g){if(statusEdits[g.name])g.status=statusEdits[g.name];});}}
+/* per-crop record persisted to farmAvailability.items[name] — the price/photo/voice the
+   restaurant side (sf-portal picker + Remy kitchen) reads back. Keyed by farm crop name;
+   the price-back consumer maps to canonical via swan-name-map. */
+function snapshot(){
+  var items={};
+  grow.forEach(function(g){
+    if(g.ask!=null||g.photo||g.voice||g.voiceText){
+      items[g.name]={ask:(g.ask==null?null:g.ask),askUnit:g.askUnit||'',askMode:g.askMode||'',askPct:(g.askPct==null?null:g.askPct),askVendor:g.askVendor||'',photo:g.photo||'',voice:g.voice||'',voiceText:g.voiceText||''};
+    }
+  });
+  return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,items:items,updated_at:Date.now()};
+}
+function applyState(x){
+  if(!x)return;
+  if(x.pushed)pushed=new Set(x.pushed);
+  if(x.markdown)markdown=new Set(x.markdown);
+  if(x.status){statusEdits=x.status;grow.forEach(function(g){if(statusEdits[g.name])g.status=statusEdits[g.name];});}
+  if(x.items){Object.keys(x.items).forEach(function(n){var g=byName[n];if(!g)return;var it=x.items[n];
+    if(it.ask!=null){g.ask=it.ask;g.askUnit=it.askUnit;g.askMode=it.askMode;g.askPct=it.askPct;g.askVendor=it.askVendor;}
+    if(it.photo)g.photo=it.photo;if(it.voice)g.voice=it.voice;if(it.voiceText)g.voiceText=it.voiceText;});}
+}
 function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}catch(e){}}
 function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
-var FB={ready:false,db:null};
+var FB={ready:false,db:null,storage:null};
 function persist(){lsSave();flagSaved();if(FB.ready)fbSave();}
-function fbSave(){try{var x=snapshot();x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});}catch(e){}}
+function fbSave(){try{var x=snapshot();
+  // never write base64 (optimistic preview) to Firestore — only uploaded Storage URLs. The
+  // dataUrl preview lives in localStorage; Firestore carries the small http URL once uploaded.
+  if(x.items){Object.keys(x.items).forEach(function(n){var it=x.items[n];
+    if(it.photo&&!/^https?:/.test(it.photo))it.photo='';
+    if(it.voice&&!/^https?:/.test(it.voice))it.voice='';});}
+  x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});}catch(e){}}
 function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();}}).catch(function(){});}catch(e){}}
-function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();}).catch(function(){});}catch(e){}}
+function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:"AIzaSyCYx8NdTrmmH73J8DYsd94LvXKyOOiFyeU",authDomain:"remy-orders.firebaseapp.com",projectId:"remy-orders",storageBucket:"remy-orders.firebasestorage.app",messagingSenderId:"8525936717",appId:"1:8525936717:web:99fa76a1171b6f53cb4404"});FB.db=firebase.firestore();try{FB.storage=firebase.storage();}catch(e){}firebase.auth().signInAnonymously().then(function(){FB.ready=true;fbLoad();}).catch(function(){});}catch(e){}}
 function flagSaved(){var m=document.getElementById('saved');if(!m)return;m.style.opacity='1';clearTimeout(window._svt);window._svt=setTimeout(function(){m.style.opacity='0';},1100);}
+
+/* ── PHOTO per listing: one tap → camera → resize → Storage → URL on the listing ── */
+function slugName(s){return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'item';}
+var _photoInput=null;
+function pickPhoto(name){
+  if(!_photoInput){
+    _photoInput=document.createElement('input');
+    _photoInput.type='file';_photoInput.accept='image/*';_photoInput.setAttribute('capture','environment');
+    _photoInput.style.display='none';document.body.appendChild(_photoInput);
+  }
+  _photoInput.value='';
+  _photoInput.onchange=function(){var f=_photoInput.files&&_photoInput.files[0];if(f)handlePhoto(name,f);};
+  _photoInput.click();
+}
+function resizeImage(file,maxDim,quality,cb){
+  try{
+    var img=new Image();var url=URL.createObjectURL(file);
+    img.onload=function(){
+      var w=img.width||maxDim,h=img.height||maxDim,s=Math.min(1,maxDim/Math.max(w,h));
+      var cw=Math.max(1,Math.round(w*s)),ch=Math.max(1,Math.round(h*s));
+      var cv=document.createElement('canvas');cv.width=cw;cv.height=ch;
+      cv.getContext('2d').drawImage(img,0,0,cw,ch);
+      try{URL.revokeObjectURL(url);}catch(e){}
+      var dataUrl=cv.toDataURL('image/jpeg',quality);
+      if(cv.toBlob)cv.toBlob(function(blob){cb(blob,dataUrl);},'image/jpeg',quality);
+      else cb(null,dataUrl);
+    };
+    img.onerror=function(){try{URL.revokeObjectURL(url);}catch(e){}cb(null,null);};
+    img.src=url;
+  }catch(e){cb(null,null);}
+}
+function handlePhoto(name,file){
+  var g=byName[name];if(!g)return;
+  resizeImage(file,1024,0.7,function(blob,dataUrl){
+    if(!dataUrl){g._photoErr='Could not read that image';renderPush();renderList();return;}
+    g.photo=dataUrl;g._photoErr='';g._photoUp=true;   // optimistic local preview
+    pushed.add(name);renderPush();renderPick();renderList();
+    uploadMedia('photo',name,blob||file,'image/jpeg','.jpg',function(url,err){
+      g._photoUp=false;
+      if(url){g.photo=url;persist();}
+      else{g._photoErr=(err==='offline'?'Saved on this device — will sync when online':'Upload failed — tap to retry');lsSave();}
+      renderPush();renderList();
+    });
+  });
+}
+function uploadMedia(kind,name,blob,contentType,ext,cb){
+  if(!(FB.ready&&FB.storage)){cb(null,'offline');return;}
+  try{
+    var ref=FB.storage.ref('farmMedia/'+BUYER+'/'+kind+'/'+slugName(name)+ext);
+    ref.put(blob,{contentType:contentType}).then(function(){return ref.getDownloadURL();})
+      .then(function(url){cb(url);}).catch(function(e){cb(null,(e&&e.code)||'err');});
+  }catch(e){cb(null,'err');}
+}
 
 var PRICEIC='<svg class="ic" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>';
 var PT={item:null,inputs:[],mult:2.5,_ask:0,_unit:'unit'};
@@ -33000,17 +33086,20 @@ function renderPush(){
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
+      (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" src="'+g.photo+'" alt="'+g.name+'">'+(g._photoUp?'<span class="pc-photo-up">Uploading&hellip;</span>':'')+'</div>'):'')+
+      (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
       '<div class="pc-actions">'+
         (g.prepped?('<button class="chip-btn price-btn" data-n="'+n+'">'+PRICEIC+'Price this</button>')
                   :('<button class="chip-btn ask-btn" data-n="'+n+'">'+TAG+(g.ask?'Edit price':'Set price')+'</button>'))+
         '<button class="chip-btn">'+MIC+'Voice note</button>'+
-        '<button class="chip-btn">'+CAM+'Photo</button>'+
+        '<button class="chip-btn photo-btn'+(g.photo?' on':'')+'" data-n="'+n+'">'+CAM+(g._photoUp?'Uploading&hellip;':(g.photo?'Replace':'Photo'))+'</button>'+
       '</div>';
     el.appendChild(c);
   });
   el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);renderPush();renderPick();renderList();};});
   el.querySelectorAll('.ask-btn').forEach(function(b){b.onclick=function(){atOpen(b.dataset.n);};});
   el.querySelectorAll('.price-btn').forEach(function(b){b.onclick=function(){ptOpen(b.dataset.n);};});
+  el.querySelectorAll('.photo-btn').forEach(function(b){b.onclick=function(){pickPhoto(b.dataset.n);};});
   persist();
 }
 function renderPick(){
@@ -33033,12 +33122,14 @@ function renderList(){
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
       '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
+      (g.prepped?'':'<button class="lr-photo'+(g.photo?' set':'')+'" data-n="'+g.name+'" aria-label="Photo">'+(g.photo?'&#9728;':'&#9711;')+'</button>')+
       '<button class="lr-price'+(g.ask?' set':'')+'" data-n="'+g.name+'" aria-label="Price">'+(g.ask?('$'+Number(g.ask).toFixed(2)):'$')+'</button>'+
       '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
     el.appendChild(r);
   });
   el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;renderList();renderPick();};});
   el.querySelectorAll('.lr-price').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.prepped)ptOpen(b.dataset.n);else atOpen(b.dataset.n);};});
+  el.querySelectorAll('.lr-photo').forEach(function(b){b.onclick=function(){pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);renderList();renderPush();renderPick();};});
   persist();
 }
