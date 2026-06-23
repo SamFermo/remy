@@ -1229,6 +1229,40 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .pv-btn:hover{border-color:var(--ink-30)}
 .pv-btn.danger{color:var(--terra);border-color:rgba(224,135,99,0.4)}
 .pv-btn.danger:hover{background:rgba(224,135,99,0.1)}
+/* voice note recorder */
+#voiceTool{position:fixed;inset:0;z-index:210;display:none;align-items:flex-start;justify-content:center;background:rgba(2,4,13,0.78);padding:30px 16px;overflow-y:auto}
+#voiceTool.open{display:flex}
+.vt-card{width:100%;max-width:420px;background:#0d1535;border:1px solid rgba(245,232,200,0.13);border-radius:12px;padding:20px 18px 18px;margin:auto}
+.vt-head{display:flex;align-items:center;margin-bottom:6px}
+.vt-title{flex:1;font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink)}
+.vt-x{background:none;border:none;color:var(--ink-30);font-size:22px;cursor:pointer;line-height:1}
+.vt-x:hover{color:var(--ink)}
+.vt-stage{min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px 0}
+.vt-mic{width:74px;height:74px;border-radius:50%;background:rgba(224,135,99,0.14);border:1px solid rgba(224,135,99,0.4);display:flex;align-items:center;justify-content:center}
+.vt-mic .ic{width:32px;height:32px;stroke:var(--terra);stroke-width:1.7;fill:none}
+.vt-mic.rec{animation:vtpulse 1.4s ease-in-out infinite}
+@keyframes vtpulse{0%,100%{box-shadow:0 0 0 0 rgba(224,135,99,0.4)}50%{box-shadow:0 0 0 12px rgba(224,135,99,0)}}
+.vt-timer{font-family:var(--fb);font-size:15px;color:var(--ink);letter-spacing:0.06em}
+.vt-hint{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink-60);text-align:center}
+.vt-live{font-family:var(--fd);font-size:15px;color:var(--ink-60);text-align:center;line-height:1.4;min-height:20px}
+.vt-text{width:100%;min-height:88px;background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;color:var(--ink);font-family:var(--fb);font-size:14px;line-height:1.5;padding:11px 12px;resize:vertical}
+.vt-text:focus{outline:none;border-color:var(--olive)}
+.vt-pending{font-family:var(--fb);font-size:11px;color:var(--gold);letter-spacing:0.02em;margin-top:7px}
+.vt-audio{width:100%;margin-top:10px}
+.vt-err{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--terra);text-align:center}
+.vt-actions{display:flex;gap:10px;margin-top:6px}
+.vt-btn{flex:1;font-family:var(--fb);font-size:14px;font-weight:500;letter-spacing:0.04em;border-radius:8px;padding:13px;cursor:pointer;border:1px solid var(--ink-12)}
+.vt-btn.primary{color:#0a1028;background:var(--olive);border-color:var(--olive)}
+.vt-btn.primary:hover{background:#b6c690}
+.vt-btn.ghost{color:var(--ink-60);background:var(--ink-6)}
+.vt-btn.ghost:hover{color:var(--ink)}
+.vt-btn.stop{color:#0a1028;background:var(--terra);border-color:var(--terra)}
+.vt-btn.danger{color:var(--terra);background:none;border-color:rgba(224,135,99,0.4)}
+/* voice note on the listing card */
+.pc-voice{margin-top:11px;background:var(--ink-6);border-left:2px solid var(--olive);border-radius:0 6px 6px 0;padding:9px 12px}
+.pc-voice-q{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--ink);line-height:1.45}
+.pc-voice-pending{font-family:var(--fb);font-size:11px;color:var(--gold);letter-spacing:0.02em}
+.pc-voice audio{width:100%;margin-top:7px;height:32px}
 
 </style>
 
@@ -1303,6 +1337,13 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
         <button class="pv-btn" id="pv-replace">Replace</button>
         <button class="pv-btn danger" id="pv-remove">Remove</button>
       </div>
+    </div>
+  </div>
+  <div id="voiceTool">
+    <div class="vt-card">
+      <div class="vt-head"><span class="vt-title" id="vt-title">Voice note</span><button class="vt-x" id="vt-close" aria-label="Close">&times;</button></div>
+      <div class="vt-stage" id="vt-stage"></div>
+      <div class="vt-actions" id="vt-actions"></div>
     </div>
   </div>
   <div id="priceTool">
@@ -32930,6 +32971,113 @@ function removePhoto(name){
   var t=document.getElementById('photo-mode-toggle');if(t)t.onclick=function(){setPhotoMode(!photoMode);};
 })();
 
+/* ── VOICE NOTE: record audio (every device) + live transcription where supported,
+   upload audio to Storage, attach the transcript text to the listing ── */
+function vEsc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function vtSupport(){return !!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);}
+function vtHasSpeech(){return !!(window.SpeechRecognition||window.webkitSpeechRecognition);}
+var VT={item:null,phase:'idle',mr:null,stream:null,chunks:[],sr:null,finalText:'',blob:null,localUrl:'',startT:0,timer:null,err:''};
+function vtOpen(name){
+  var g=byName[name]||{name:name};VT.item=name;VT.err='';VT.blob=null;VT.localUrl='';VT.finalText='';
+  document.getElementById('vt-title').textContent='Voice note · '+g.name;
+  document.getElementById('voiceTool').classList.add('open');
+  if(g.voiceText){VT.finalText=g.voiceText;VT.localUrl=(g.voice&&/^https?:/.test(g.voice))?g.voice:'';VT.phase='review';vtRender();}
+  else if(vtSupport()){vtStartRec();}
+  else{VT.phase='unsupported';vtRender();}
+}
+function vtStartRec(){
+  VT.phase='recording';VT.chunks=[];VT.finalText='';VT.startT=Date.now();vtRender();
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+    VT.stream=stream;
+    try{VT.mr=(window.MediaRecorder&&MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported('audio/webm'))?new MediaRecorder(stream,{mimeType:'audio/webm'}):new MediaRecorder(stream);}
+    catch(e){VT.mr=new MediaRecorder(stream);}
+    VT.mr.ondataavailable=function(e){if(e.data&&e.data.size)VT.chunks.push(e.data);};
+    VT.mr.onstop=function(){
+      var type=VT.mr.mimeType||'audio/webm';VT.blob=new Blob(VT.chunks,{type:type});
+      try{VT.localUrl=URL.createObjectURL(VT.blob);}catch(e){}
+      VT.phase='review';vtRender();vtUpload();
+    };
+    VT.mr.start();vtStartSpeech();VT.timer=setInterval(vtTick,250);vtRender();
+  }).catch(function(e){VT.err='Could not access the microphone. Check permissions and try again.';VT.phase='error';vtRender();});
+}
+function vtStartSpeech(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;
+  try{
+    VT.sr=new SR();VT.sr.continuous=true;VT.sr.interimResults=true;VT.sr.lang='en-US';
+    VT.sr.onresult=function(e){
+      var fin='',interim='';
+      for(var i=e.resultIndex;i<e.results.length;i++){var r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else interim+=r[0].transcript;}
+      if(fin)VT.finalText=(VT.finalText+' '+fin).trim();
+      var live=document.getElementById('vt-live');if(live)live.textContent=(VT.finalText+' '+interim).trim();
+    };
+    VT.sr.onerror=function(){};VT.sr.start();
+  }catch(e){}
+}
+function vtTick(){var el=document.getElementById('vt-timer');if(el){var s=Math.floor((Date.now()-VT.startT)/1000);el.textContent=Math.floor(s/60)+':'+('0'+(s%60)).slice(-2);}}
+function vtFinishStreams(){try{if(VT.stream)VT.stream.getTracks().forEach(function(t){t.stop();});}catch(e){}VT.stream=null;}
+function vtStop(){
+  if(VT.timer){clearInterval(VT.timer);VT.timer=null;}
+  try{if(VT.sr)VT.sr.stop();}catch(e){}
+  try{if(VT.mr&&VT.mr.state!=='inactive')VT.mr.stop();else{VT.phase='review';vtRender();}}catch(e){VT.phase='review';vtRender();}
+  vtFinishStreams();
+}
+function vtUpload(){
+  var name=VT.item,g=byName[name];if(!g||!VT.blob)return;
+  g._voiceUp=true;
+  var ty=VT.blob.type||'audio/webm';var ext=ty.indexOf('mp4')>=0?'.mp4':(ty.indexOf('ogg')>=0?'.ogg':'.webm');
+  uploadMedia('voice',name,VT.blob,ty,ext,function(url,err){
+    g._voiceUp=false;
+    if(url){g.voice=url;VT.localUrl=url;persist();}else{lsSave();}
+    reRender();
+  });
+}
+function vtRender(){
+  var stage=document.getElementById('vt-stage'),act=document.getElementById('vt-actions');
+  if(VT.phase==='recording'){
+    stage.innerHTML='<div class="vt-mic rec">'+MIC+'</div><div class="vt-timer" id="vt-timer">0:00</div>'+
+      '<div class="vt-hint">Talk about this lot &mdash; flavor, size, how it&rsquo;s eating.</div><div class="vt-live" id="vt-live"></div>';
+    act.innerHTML='<button class="vt-btn stop" id="vt-stop">Stop</button>';
+    document.getElementById('vt-stop').onclick=vtStop;
+  }else if(VT.phase==='review'){
+    var pend=(!vtHasSpeech()&&!VT.finalText)?'<div class="vt-pending">No live transcript on this device &mdash; the audio is saved; type the note or we&rsquo;ll transcribe it shortly.</div>':'';
+    stage.innerHTML='<textarea class="vt-text" id="vt-text" placeholder="Your note (edit if needed)">'+vEsc(VT.finalText||'')+'</textarea>'+pend+
+      (VT.localUrl?('<audio class="vt-audio" id="vt-audio-el" controls src="'+VT.localUrl+'"></audio>'):'');
+    act.innerHTML='<button class="vt-btn ghost" id="vt-redo">Re-record</button><button class="vt-btn primary" id="vt-save">Save note</button>';
+    var rd=document.getElementById('vt-redo');if(rd)rd.onclick=function(){if(vtSupport())vtStartRec();else{VT.phase='unsupported';vtRender();}};
+    document.getElementById('vt-save').onclick=vtSave;
+  }else if(VT.phase==='error'){
+    stage.innerHTML='<div class="vt-err">'+VT.err+'</div>';
+    act.innerHTML='<button class="vt-btn ghost" id="vt-cancel">Close</button><button class="vt-btn primary" id="vt-type">Type instead</button>';
+    document.getElementById('vt-cancel').onclick=vtClose;
+    document.getElementById('vt-type').onclick=function(){VT.phase='review';VT.finalText='';vtRender();};
+  }else{ // unsupported
+    stage.innerHTML='<div class="vt-hint">Recording isn&rsquo;t supported here. Type the note instead.</div><textarea class="vt-text" id="vt-text" placeholder="Your note">'+vEsc(VT.finalText||'')+'</textarea>';
+    act.innerHTML='<button class="vt-btn ghost" id="vt-cancel">Cancel</button><button class="vt-btn primary" id="vt-save">Save note</button>';
+    document.getElementById('vt-cancel').onclick=vtClose;
+    document.getElementById('vt-save').onclick=vtSave;
+  }
+}
+function vtSave(){
+  var g=byName[VT.item];if(!g)return;
+  var ta=document.getElementById('vt-text');var text=ta?ta.value.trim():(VT.finalText||'').trim();
+  if(!text&&!VT.localUrl){vtClose();return;}
+  g.voiceText=text;
+  if(VT.localUrl&&/^https?:/.test(VT.localUrl))g.voice=VT.localUrl;
+  pushed.add(VT.item);persist();vtClose();renderPush();renderList();
+}
+function vtRemoveNote(name){var g=byName[name];if(!g)return;g.voiceText='';g.voice='';persist();renderPush();renderList();}
+function vtClose(){
+  if(VT.timer){clearInterval(VT.timer);VT.timer=null;}
+  try{if(VT.sr)VT.sr.stop();}catch(e){}
+  try{if(VT.mr&&VT.mr.state!=='inactive')VT.mr.stop();}catch(e){}
+  vtFinishStreams();
+  document.getElementById('voiceTool').classList.remove('open');
+}
+(function vtBind(){
+  var x=document.getElementById('vt-close');if(x)x.onclick=vtClose;
+  var vt=document.getElementById('voiceTool');if(vt)vt.addEventListener('click',function(e){if(e.target.id==='voiceTool')vtClose();});
+})();
+
 var PRICEIC='<svg class="ic" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>';
 var PT={item:null,inputs:[],mult:2.5,_ask:0,_unit:'unit'};
 function ptSingular(u){u=(u||'unit').trim();return (u.length>3&&u.slice(-1)==='s')?u.slice(0,-1):u;}
@@ -33162,10 +33310,11 @@ function renderPush(){
       '<div class="md-tag">&#9662; Marked down to move</div>'+
       (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+(g._photoUp?'<span class="pc-photo-up">Uploading&hellip;</span>':'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
+      (g.voiceText?('<div class="pc-voice"><div class="pc-voice-q">&ldquo;'+vEsc(g.voiceText)+'&rdquo;</div>'+(g._voiceUp?'<div class="pc-voice-pending">saving audio&hellip;</div>':'')+((g.voice&&/^https?:/.test(g.voice))?('<audio controls src="'+g.voice+'"></audio>'):'')+'</div>'):'')+
       '<div class="pc-actions">'+
         (g.prepped?('<button class="chip-btn price-btn" data-n="'+n+'">'+PRICEIC+'Price this</button>')
                   :('<button class="chip-btn ask-btn" data-n="'+n+'">'+TAG+(g.ask?'Edit price':'Set price')+'</button>'))+
-        '<button class="chip-btn">'+MIC+'Voice note</button>'+
+        '<button class="chip-btn voice-btn'+(g.voiceText?' on':'')+'" data-n="'+n+'">'+MIC+(g.voiceText?'Edit note':'Voice note')+'</button>'+
         '<button class="chip-btn photo-btn'+(g.photo?' on':'')+'" data-n="'+n+'">'+CAM+(g._photoUp?'Uploading&hellip;':(g.photo?'Edit photo':'Photo'))+'</button>'+
       '</div>';
     el.appendChild(c);
@@ -33173,6 +33322,7 @@ function renderPush(){
   el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);renderPush();renderPick();renderList();};});
   el.querySelectorAll('.ask-btn').forEach(function(b){b.onclick=function(){atOpen(b.dataset.n);};});
   el.querySelectorAll('.price-btn').forEach(function(b){b.onclick=function(){ptOpen(b.dataset.n);};});
+  el.querySelectorAll('.voice-btn').forEach(function(b){b.onclick=function(){vtOpen(b.dataset.n);};});
   el.querySelectorAll('.photo-btn').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.pc-photo').forEach(function(b){b.onclick=function(){openPhotoView(b.dataset.n);};});
   persist();
@@ -33197,7 +33347,7 @@ function renderList(){
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
       '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
-      ((photoMode&&!g.prepped)?'<button class="lr-photo'+(g.photo?' set':'')+'" data-n="'+g.name+'" aria-label="Photo">'+(g.photo?'&#9728;':'&#9711;')+'</button>':'')+
+      (photoMode?'<button class="lr-photo'+(g.photo?' set':'')+'" data-n="'+g.name+'" aria-label="Photo">'+(g.photo?'&#9728;':'&#9711;')+'</button>':'')+
       '<button class="lr-price'+(g.ask?' set':'')+'" data-n="'+g.name+'" aria-label="Price">'+(g.ask?('$'+Number(g.ask).toFixed(2)):'$')+'</button>'+
       '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
     el.appendChild(r);
