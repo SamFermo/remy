@@ -772,12 +772,11 @@ html,body{height:100%;overflow:hidden;color:var(--ink);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.6/standalone/umd/vis-network.min.js"></script>
 <style>
 /* ── KITCHEN pill-slider + Trending Prices (2026-06-21) ── */
-.kpill-bar{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;
-  padding:4px 2px 12px;margin:0 0 6px;scrollbar-width:none}
-.kpill-bar::-webkit-scrollbar{display:none}
-.kpill{flex:0 0 auto;font-family:var(--fb);font-size:13px;font-weight:500;letter-spacing:0.02em;
-  color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:30px;
-  padding:9px 16px;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease)}
+.kpill-bar{display:flex;flex-wrap:wrap;gap:7px;
+  padding:4px 0 12px;margin:0 0 6px}
+.kpill{flex:1 1 auto;text-align:center;font-family:var(--fb);font-size:12.5px;font-weight:500;letter-spacing:0.02em;
+  color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:24px;
+  padding:9px 13px;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease)}
 .kpill:hover{color:var(--ink);border-color:var(--ink-30)}
 .kpill.active{color:#0a1028;background:var(--ink);border-color:var(--ink)}
 .tr-head{display:flex;align-items:baseline;gap:10px;margin:4px 0 6px}
@@ -1266,9 +1265,11 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .pc-voice-pending{font-family:var(--fb);font-size:11px;color:var(--gold);letter-spacing:0.02em}
 .pc-voice audio{width:100%;margin-top:7px;height:32px}
 /* Connected Farms (restaurant-side mirror) */
-.cf-head{margin:4px 0 12px}
-.cf-title{font-family:var(--fd);font-size:24px;font-weight:500;display:block;line-height:1.05}
-.cf-sub{font-family:var(--fb);font-size:11px;color:var(--ink-30);letter-spacing:0.02em}
+.cf-head{margin:4px 0 14px;padding-bottom:12px;border-bottom:1px solid var(--ink-12)}
+.cf-eyebrow{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-30)}
+.cf-farm{font-family:var(--fd);font-size:27px;font-weight:500;line-height:1.05;margin-top:3px;display:flex;align-items:center;gap:9px}
+.cf-dot{width:9px;height:9px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 3px rgba(168,185,126,0.18);flex:0 0 auto}
+.cf-sub{font-family:var(--fb);font-size:11px;color:var(--ink-30);letter-spacing:0.02em;margin-top:4px}
 .cf-seg{display:flex;gap:4px;background:var(--ink-6);border:1px solid var(--ink-12);border-radius:30px;padding:4px;margin-bottom:14px}
 .cf-segb{flex:1;font-family:var(--fb);font-size:12px;font-weight:500;color:var(--ink-60);background:none;border:none;border-radius:24px;padding:9px 0;cursor:pointer}
 .cf-segb.on{color:#0a1028;background:var(--ink)}
@@ -32975,14 +32976,16 @@ function flushQueue(){
     ['photo','voice'].forEach(function(kind){
       var u=g[kind];if(!isLocalMedia(u)||g['_up_'+kind])return;
       var blob=dataUrlToBlob(u);if(!blob)return;
-      g['_up_'+kind]=true;reRender();
+      var fkey='_up_'+kind;
+      g[fkey]=true;reRender();
       var ct=blob.type||(kind==='photo'?'image/jpeg':'audio/webm');
       var ext=kind==='photo'?'.jpg':(ct.indexOf('mp4')>=0?'.mp4':(ct.indexOf('ogg')>=0?'.ogg':'.webm'));
       uploadMedia(kind,g.name,blob,ct,ext,function(url){
-        g['_up_'+kind]=false;
+        g[fkey]=false;
         if(url){g[kind]=url;persist();}   // swap data URL → Storage URL; Firestore now syncs it
         reRender();
-      });
+      },function(){ if(g[fkey]){g[fkey]=false;reRender();} });   // bytes landed → clear badge, don't wait on getDownloadURL
+      setTimeout(function(){ if(g[fkey]){g[fkey]=false;reRender();} },20000);   // safety net
     });
   });
 }
@@ -33377,9 +33380,9 @@ function renderPush(){
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
-      (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+(g._up_photo?'<span class="pc-photo-up">Uploading&hellip;</span>':(isLocalMedia(g.photo)?'<span class="pc-photo-up pend">Will upload when online</span>':''))+'</div>'):'')+
+      (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+((g._up_photo||isLocalMedia(g.photo))?('<span class="pc-photo-up'+(isOffline()?' pend':'')+'">'+(isOffline()?'Will upload when online':(g._up_photo?'Uploading&hellip;':'Syncing&hellip;'))+'</span>'):'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
-      ((g.voiceText||g.voice)?('<div class="pc-voice">'+(g.voiceText?('<div class="pc-voice-q">&ldquo;'+vEsc(g.voiceText)+'&rdquo;</div>'):'')+(g.voice?('<audio controls src="'+g.voice+'"></audio>'):'')+(g._up_voice?'<div class="pc-voice-pending">uploading audio&hellip;</div>':(isLocalMedia(g.voice)?'<div class="pc-voice-pending">audio saved &middot; uploads when online</div>':''))+'</div>'):'')+
+      ((g.voiceText||g.voice)?('<div class="pc-voice">'+(g.voiceText?('<div class="pc-voice-q">&ldquo;'+vEsc(g.voiceText)+'&rdquo;</div>'):'')+(g.voice?('<audio controls src="'+g.voice+'"></audio>'):'')+((g._up_voice||isLocalMedia(g.voice))?('<div class="pc-voice-pending">'+(isOffline()?'audio saved &middot; uploads when online':(g._up_voice?'uploading audio&hellip;':'audio saved &middot; syncing&hellip;'))+'</div>'):'')+'</div>'):'')+
       '<div class="pc-actions">'+
         (g.prepped?('<button class="chip-btn price-btn" data-n="'+n+'">'+PRICEIC+'Price this</button>')
                   :('<button class="chip-btn ask-btn" data-n="'+n+'">'+TAG+(g.ask?'Edit price':'Set price')+'</button>'))+
@@ -33580,9 +33583,9 @@ window.RemyFarm={
   };
   function buildKitchenPills(){
     var bar=document.getElementById('kitchen-pills');if(!bar)return;
-    var P=[['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
-           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead'],
-           ['farms','Connected Farms','showConnectedFarms']];
+    var P=[['farms','Connected Farms','showConnectedFarms'],
+           ['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
+           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
     bar.innerHTML=P.map(function(p,i){
       return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
     }).join('');
@@ -33620,8 +33623,9 @@ window.RemyFarm={
 
   function render(){
     var h=host();if(!h)return;var rf=window.RemyFarm;
-    var head='<div class="cf-head"><span class="cf-title">Connected Farms</span>'+
-      '<span class="cf-sub">Swan House'+(rf&&rf.week?(' &middot; '+esc(rf.week)):'')+(rf&&rf.lastTouch?(' &middot; updated '+esc(rf.lastTouch)):'')+'</span></div>';
+    var head='<div class="cf-head"><div class="cf-eyebrow">Connected Farms</div>'+
+      '<div class="cf-farm"><span class="cf-dot"></span>Swan House Farm</div>'+
+      '<div class="cf-sub">'+(rf&&rf.week?esc(rf.week):'this week')+(rf&&rf.lastTouch?(' &middot; updated '+esc(rf.lastTouch)):'')+'</div></div>';
     var seg='<div class="cf-seg"><button class="cf-segb'+(ST.view==='pushing'?' on':'')+'" onclick="_cfSetView(\'pushing\')">Pushing</button>'+
       '<button class="cf-segb'+(ST.view==='list'?' on':'')+'" onclick="_cfSetView(\'list\')">Full list</button></div>';
     h.innerHTML=head+seg+(ST.view==='pushing'?pushingHtml():listHtml());
@@ -33675,6 +33679,12 @@ window.RemyFarm={
   if(window.RemyFarm&&window.RemyFarm.onChange)window.RemyFarm.onChange(function(){
     var a=document.querySelector('#kitchen-pills .kpill[data-k="farms"].active');if(a)render();
   });
+  // Connected Farms is the restaurant-side landing tab — render it once the pills are built
+  (function cfDefault(){
+    var bar=document.getElementById('kitchen-pills');
+    if(bar&&bar.querySelector('.kpill[data-k="farms"]')){showConnectedFarms();return;}
+    setTimeout(cfDefault,40);
+  })();
 })();
 </script>
 <script>
