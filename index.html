@@ -33058,7 +33058,7 @@ function vtSupport(){return !!(navigator.mediaDevices&&navigator.mediaDevices.ge
 function vtHasSpeech(){return !!(window.SpeechRecognition||window.webkitSpeechRecognition);}
 var VT={item:null,phase:'idle',mr:null,stream:null,chunks:[],sr:null,finalText:'',blob:null,localUrl:'',startT:0,timer:null,err:''};
 function vtOpen(name){
-  var g=byName[name]||{name:name};VT.item=name;VT.err='';VT.blob=null;VT.localUrl='';VT.finalText='';
+  var g=byName[name]||{name:name};VT.item=name;VT.err='';VT.blob=null;VT.localUrl='';VT.finalText='';VT.interim='';VT._auto=false;VT.dataUrl='';
   document.getElementById('vt-title').textContent='Voice note · '+g.name;
   document.getElementById('voiceTool').classList.add('open');
   if(g.voiceText){VT.finalText=g.voiceText;VT.localUrl=(g.voice&&/^https?:/.test(g.voice))?g.voice:'';VT.phase='review';vtRender();}
@@ -33066,7 +33066,7 @@ function vtOpen(name){
   else{VT.phase='unsupported';vtRender();}
 }
 function vtStartRec(){
-  VT.phase='recording';VT.chunks=[];VT.finalText='';VT.startT=Date.now();vtRender();
+  VT.phase='recording';VT.chunks=[];VT.finalText='';VT.interim='';VT._auto=false;VT.startT=Date.now();vtRender();
   navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
     VT.stream=stream;
     try{VT.mr=(window.MediaRecorder&&MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported('audio/webm'))?new MediaRecorder(stream,{mimeType:'audio/webm'}):new MediaRecorder(stream);}
@@ -33085,11 +33085,19 @@ function vtStartSpeech(){
   var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;
   try{
     VT.sr=new SR();VT.sr.continuous=true;VT.sr.interimResults=true;VT.sr.lang='en-US';
+    VT.interim='';
     VT.sr.onresult=function(e){
       var fin='',interim='';
       for(var i=e.resultIndex;i<e.results.length;i++){var r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else interim+=r[0].transcript;}
       if(fin)VT.finalText=(VT.finalText+' '+fin).trim();
-      var live=document.getElementById('vt-live');if(live)live.textContent=(VT.finalText+' '+interim).trim();
+      VT.interim=interim;
+      var live=document.getElementById('vt-live');if(live)live.textContent=(VT.finalText+(interim?(' '+interim):'')).trim();
+    };
+    // fold any trailing (not-yet-finalized) speech into the transcript when recognition ends,
+    // and drop it into the editor if it's still showing the auto-filled text
+    VT.sr.onend=function(){
+      if(VT.interim){VT.finalText=(VT.finalText+' '+VT.interim).trim();VT.interim='';}
+      var ta=document.getElementById('vt-text');if(ta&&VT._auto&&VT.finalText)ta.value=VT.finalText;
     };
     VT.sr.onerror=function(){};VT.sr.start();
   }catch(e){}
@@ -33110,11 +33118,18 @@ function vtRender(){
     act.innerHTML='<button class="vt-btn stop" id="vt-stop">Stop</button>';
     document.getElementById('vt-stop').onclick=vtStop;
   }else if(VT.phase==='review'){
-    var pend=(!vtHasSpeech()&&!VT.finalText)?'<div class="vt-pending">No live transcript on this device &mdash; the audio is saved; type the note or we&rsquo;ll transcribe it shortly.</div>':'';
-    stage.innerHTML='<textarea class="vt-text" id="vt-text" placeholder="Your note (edit if needed)">'+vEsc(VT.finalText||'')+'</textarea>'+pend+
+    var initText=((VT.finalText||'')+(VT.interim?(' '+VT.interim):'')).trim();
+    var pend=(!vtHasSpeech()&&!initText)?'<div class="vt-pending">No live transcript on this device &mdash; the audio is saved; type the note or we&rsquo;ll transcribe it shortly.</div>':'';
+    stage.innerHTML='<textarea class="vt-text" id="vt-text" placeholder="Your note (edit if needed)">'+vEsc(initText)+'</textarea>'+pend+
       (VT.localUrl?('<audio class="vt-audio" id="vt-audio-el" controls src="'+VT.localUrl+'"></audio>'):'');
-    act.innerHTML='<button class="vt-btn ghost" id="vt-redo">Re-record</button><button class="vt-btn primary" id="vt-save">Save note</button>';
+    VT._auto=true;
+    var ta=document.getElementById('vt-text');if(ta)ta.oninput=function(){VT._auto=false;};
+    var g=byName[VT.item]||{};var hasSaved=!!(g.voiceText||g.voice);
+    act.innerHTML='<button class="vt-btn ghost" id="vt-redo">Re-record</button>'+
+      (hasSaved?'<button class="vt-btn danger" id="vt-del">Delete</button>':'')+
+      '<button class="vt-btn primary" id="vt-save">Save note</button>';
     var rd=document.getElementById('vt-redo');if(rd)rd.onclick=function(){if(vtSupport())vtStartRec();else{VT.phase='unsupported';vtRender();}};
+    var dl=document.getElementById('vt-del');if(dl)dl.onclick=function(){vtRemoveNote(VT.item);vtClose();};
     document.getElementById('vt-save').onclick=vtSave;
   }else if(VT.phase==='error'){
     stage.innerHTML='<div class="vt-err">'+VT.err+'</div>';
