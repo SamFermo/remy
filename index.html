@@ -1393,6 +1393,35 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .inv-savetoggle input{width:17px;height:17px;accent-color:var(--olive);flex:0 0 auto}
 .inv-finalize{width:100%;padding:14px;border-radius:12px;border:none;background:var(--olive);color:#0a1028;font-family:var(--fb);font-size:15px;font-weight:600;cursor:pointer}
 .inv-finalize:disabled{background:var(--ink-12);color:var(--ink-30);cursor:default}
+.inv-btnrow{display:flex;gap:8px}
+.inv-btnrow .inv-finalize{flex:1;width:auto}
+.inv-harvest{flex:0 0 auto;padding:14px 16px;border-radius:12px;background:transparent;border:1px solid var(--ink-12);color:var(--ink);font-family:var(--fb);font-size:14px;font-weight:500;cursor:pointer}
+.io-invrow{display:flex;gap:8px;margin-top:8px}
+.io-invrow .io-btn-inv{flex:1;margin-top:0}
+.io-btn-pdf{flex:0 0 auto;margin-top:0;background:var(--olive-bg);color:var(--olive);border:1px solid rgba(168,185,126,0.5)}
+.inv-done{text-align:center;padding:18px 0 22px}
+.inv-done-amt{font-family:var(--fd);font-size:42px;font-weight:500;color:var(--ink);line-height:1}
+.inv-done-sub{font-family:var(--fb);font-size:12px;color:var(--olive);margin-top:8px;letter-spacing:0.04em}
+.inv-donebtn{width:100%;margin-top:10px;padding:12px;border-radius:12px;background:transparent;border:1px solid var(--ink-12);color:var(--ink-60);font-family:var(--fb);font-size:14px;cursor:pointer}
+/* printable invoice → window.print() (Save as PDF). Hidden on screen; shown alone in print. */
+#invPrint{display:none}
+@media print{
+  body.inv-printing > *{display:none !important}
+  body.inv-printing #invPrint{display:block !important;position:static}
+  #invPrint .ip-doc{color:#1a1a1a;font-family:Georgia,'Times New Roman',serif;padding:10px 6px;max-width:640px;margin:0 auto}
+  #invPrint .ip-farm{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;text-align:center;color:#666}
+  #invPrint .ip-title{font-size:30px;text-align:center;margin:4px 0 16px;font-weight:600}
+  #invPrint .ip-meta{font-size:12px;color:#444;line-height:1.55;margin-bottom:16px}
+  #invPrint .ip-table{width:100%;border-collapse:collapse;font-size:13px}
+  #invPrint .ip-table th{text-align:left;border-bottom:2px solid #333;padding:7px 8px;font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:#333}
+  #invPrint .ip-table td{padding:7px 8px;border-bottom:1px solid #ccc;vertical-align:top}
+  #invPrint .ip-table th:nth-child(n+2),#invPrint .ip-table td:nth-child(n+2){text-align:right;white-space:nowrap}
+  #invPrint .ip-total td{font-weight:700;border-top:2px solid #333;border-bottom:none;font-size:15px;padding-top:10px}
+  #invPrint .ip-flag{color:#a04000;font-size:11px}
+  #invPrint .ip-box{text-align:center;font-size:17px;color:#333}
+  #invPrint .ip-foot{margin-top:22px;font-size:11px;color:#999;text-align:center}
+}
+.inv-finalize:disabled{background:var(--ink-12);color:var(--ink-30);cursor:default}
 .cf-c-top{display:flex;align-items:baseline;gap:8px}
 .cf-c-name{font-family:var(--fd);font-size:20px;font-weight:500}
 .cf-c-qty{font-family:var(--fb);font-size:11px;color:var(--olive);border:1px solid rgba(168,185,126,0.3);border-radius:20px;padding:2px 9px}
@@ -33754,7 +33783,7 @@ function orderCard(o){
         (st==='placed'?('<button class="io-btn io-btn-ack" data-ack="'+oesc(o.order_id)+'">Got it 👍</button>'):'')+
         (st!=='delivered'&&st!=='cancelled'?('<button class="io-btn io-btn-deliv" data-deliv="'+oesc(o.order_id)+'">Mark delivered</button>'):'')+
       '</div>'+
-      (st!=='cancelled'?('<button class="io-btn io-btn-inv" data-inv="'+oesc(o.order_id)+'">'+((o.invoice&&o.invoice.drafted)?('Invoice $'+(o.invoice.total!=null?Number(o.invoice.total).toFixed(2):'?')+' · re-finalize'):'Build invoice')+'</button>'):'')+
+      (st!=='cancelled'?('<button class="io-btn io-btn-inv" data-inv="'+oesc(o.order_id)+'">Finalize invoice</button>'):'')+
     '</div>'):'')+
   '</div>';
 }
@@ -33766,6 +33795,7 @@ function wireOrders(c){
   c.querySelectorAll('[data-ack]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();ordersUpdate(el.getAttribute('data-ack'),{status:'acked',farm_ack:{by:'farm',at:new Date().toISOString()}});});});
   c.querySelectorAll('[data-deliv]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var id=el.getAttribute('data-deliv');var o=ordersData.find(function(x){return x.order_id===id;});ordersUpdate(id,{status:'delivered',delivered:{at:new Date().toISOString()},confirmed_date:(o&&o.confirmed_date)||new Date().toISOString().slice(0,10)});});});
   c.querySelectorAll('[data-inv]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();invOpen(el.getAttribute('data-inv'));});});
+  c.querySelectorAll('[data-pdf]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var o=ordersData.find(function(x){return x.order_id===el.getAttribute('data-pdf');});if(o)invPdf(o);});});
 }
 
 /* ── INVOICE / FINALIZE (farm side, in Remy) — ports the check-in invoice flow + adds the
@@ -33839,18 +33869,27 @@ function invUnitOptions(cur){
 function invModal(){
   var m=document.getElementById('invTool');
   if(!m){m=document.createElement('div');m.id='invTool';
-    m.innerHTML='<div class="inv-card"><div class="inv-head"><span class="inv-title" id="inv-title">Invoice</span><button class="inv-x" id="inv-close" aria-label="Close">&times;</button></div><div class="inv-meta" id="inv-meta"></div><div class="inv-rows" id="inv-rows"></div><div class="inv-total" id="inv-total"></div><div class="inv-foot" id="inv-foot"></div><label class="inv-savetoggle"><input type="checkbox" id="inv-saveprices"><span>Save these prices to my Remy prices</span></label><button class="inv-finalize" id="inv-finalize">Finalize invoice</button></div>';
     document.body.appendChild(m);
-    m.addEventListener('click',function(e){if(e.target.id==='invTool'||e.target.id==='inv-close')m.classList.remove('open');});
-    m.querySelector('#inv-finalize').addEventListener('click',invFinalize);
-    m.querySelector('#inv-saveprices').addEventListener('change',function(){INV.savePrices=this.checked;});
+    m.addEventListener('click',function(e){if(e.target.id==='invTool')m.classList.remove('open');});
   }
+  return m;
+}
+// (Re)build the standard editing card. Called fresh each open so the post-finalize "done" view
+// (which replaces the card) never leaves a stale structure behind.
+function invBuildCard(){
+  var m=invModal();
+  m.innerHTML='<div class="inv-card"><div class="inv-head"><span class="inv-title" id="inv-title">Invoice</span><button class="inv-x" id="inv-close" aria-label="Close">&times;</button></div><div class="inv-meta" id="inv-meta"></div><div class="inv-rows" id="inv-rows"></div><div class="inv-total" id="inv-total"></div><div class="inv-foot" id="inv-foot"></div><label class="inv-savetoggle"><input type="checkbox" id="inv-saveprices"><span>Save these prices to my Remy prices</span></label><div class="inv-btnrow"><button class="inv-finalize" id="inv-finalize">Finalize &amp; PDF</button><button class="inv-harvest" id="inv-harvest">Harvest list</button></div></div>';
+  m.querySelector('#inv-close').addEventListener('click',function(){m.classList.remove('open');});
+  m.querySelector('#inv-finalize').addEventListener('click',invFinalize);
+  m.querySelector('#inv-harvest').addEventListener('click',function(){if(INV.order)invHarvest(INV.order);});
+  m.querySelector('#inv-saveprices').addEventListener('change',function(){INV.savePrices=this.checked;});
   return m;
 }
 function invOpen(id){
   var o=ordersData.find(function(x){return x.order_id===id;});if(!o)return;
   invFetchFeed(function(){
     INV.order=o;
+    invBuildCard();
     INV.savePrices=false;   // price write-back is opt-in per finalize; unit type always feeds back
     var existing=(o.invoice&&o.invoice.lines)||[];
     var exByItem={};existing.forEach(function(x){exByItem[x.item]=x;});
@@ -33941,11 +33980,57 @@ function invFinalize(){
   var inv={drafted:true, finalized_at:new Date().toISOString(),
            premium_pct:(INV.feed&&INV.feed.premium_pct!=null)?INV.feed.premium_pct:((o.invoice&&o.invoice.premium_pct)||20),
            total:+tot.toFixed(2), lines:lines};
-  o.invoice=inv;                          // optimistic local update so the card label refreshes
-  invModal().classList.remove('open');
+  o.invoice=inv;                          // optimistic local update so the card refreshes
   renderOrders();
   ordersUpdate(o.order_id,{invoice:inv});
+  invModal().classList.remove('open');
+  invPdf(o);                               // finalize goes straight to the invoice PDF
 }
+// ---- PDFs: a clean print doc → window.print() (iOS: Share → Save to Files / "Save as PDF") ----
+function invPrintDoc(htmlStr){
+  var host=document.getElementById('invPrint');
+  if(!host){host=document.createElement('div');host.id='invPrint';document.body.appendChild(host);}
+  host.innerHTML=htmlStr;
+  document.body.classList.add('inv-printing');
+  var done=function(){document.body.classList.remove('inv-printing');try{window.removeEventListener('afterprint',done);}catch(e){}};
+  try{window.addEventListener('afterprint',done);}catch(e){}
+  setTimeout(function(){try{window.print();}catch(e){done();}},80);
+}
+function invDocHead(o,title){
+  var dd=o.confirmed_date||o.requested_date||'';
+  return '<div class="ip-farm">Swan House Farm</div><div class="ip-title">'+title+'</div>'+
+    '<div class="ip-meta">For San Fermo &middot; ordered by '+oesc(o.placed_by||'')+'<br>Order '+oesc(o.order_id||'')+(dd?('<br>Delivery '+oesc(dd)):'')+'</div>';
+}
+// INVOICE pdf — priced, from the finalized invoice.
+function invPrintHtml(o){
+  var inv=o.invoice||{};var lines=inv.lines||[];
+  var rows=lines.map(function(l){
+    var note=l.farm_status?(' <span class="ip-flag">('+oesc(l.farm_status)+(l.farm_note?': '+oesc(l.farm_note):'')+')</span>'):'';
+    return '<tr><td>'+oesc(l.item)+note+'</td><td>'+oesc(String(l.qty))+' '+oesc(l.unit||'')+'</td><td>'+(l.price!=null?'$'+Number(l.price).toFixed(2):'')+'</td><td>'+(l.amount!=null?'$'+Number(l.amount).toFixed(2):'')+'</td></tr>';
+  }).join('');
+  var fin=(inv.finalized_at||'').slice(0,10);
+  return '<div class="ip-doc">'+invDocHead(o,'Invoice')+(fin?'<div class="ip-meta" style="margin-top:-10px">Finalized '+oesc(fin)+'</div>':'')+
+    '<table class="ip-table"><thead><tr><th>Item</th><th>Qty</th><th>$/unit</th><th>Amount</th></tr></thead>'+
+    '<tbody>'+rows+'<tr class="ip-total"><td colspan="3">Total</td><td>$'+Number(inv.total||0).toFixed(2)+'</td></tr></tbody></table>'+
+    '<div class="ip-foot">Finalized via Remy &middot; Swan House Farm</div></div>';
+}
+function invPdf(o){ if(o&&o.invoice)invPrintDoc(invPrintHtml(o)); }
+// HARVEST LIST pdf — purely what to pick/pack, NO pricing. Uses the live editor rows (short-corrected
+// quantities) when open, else the order lines. Blank "Packed" column to tick while packing.
+function invHarvestRows(o){
+  if(INV.order===o&&INV.rows&&INV.rows.length)return INV.rows.map(function(r){return {item:r.item,qty:r.qty,unit:r.unit,farm_status:r.farm_status,farm_note:r.farm_note};});
+  return (o.lines||[]).map(function(l){return {item:l.item,qty:l.qty,unit:l.unit,farm_status:l.farm_status,farm_note:l.farm_note};});
+}
+function invHarvestHtml(o){
+  var rows=invHarvestRows(o).map(function(r){
+    var note=(r.farm_status||r.farm_note)?(' <span class="ip-flag">('+(r.farm_status?oesc(r.farm_status):'note')+(r.farm_note?': '+oesc(r.farm_note):'')+')</span>'):'';
+    return '<tr><td>'+oesc(r.item)+note+'</td><td>'+oesc(String(r.qty))+' '+oesc(r.unit||'')+'</td><td class="ip-box">&#9744;</td></tr>';
+  }).join('');
+  return '<div class="ip-doc">'+invDocHead(o,'Harvest list')+
+    '<table class="ip-table"><thead><tr><th>Item</th><th>Qty</th><th>Packed</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+    '<div class="ip-foot">Harvest / packing list &middot; no pricing &middot; Swan House Farm</div></div>';
+}
+function invHarvest(o){ if(o)invPrintDoc(invHarvestHtml(o)); }
 
 /* expose the live farmer state for the restaurant-side Connected Farms mirror (read-only) */
 window.RemyFarm={
