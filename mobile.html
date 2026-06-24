@@ -1370,12 +1370,16 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
 .inv-r-note{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-60);margin:3px 0 0 22px}
 .inv-defnote{display:block;font-family:var(--fb);font-size:11px;color:var(--olive);margin:4px 0 0 22px}
 .inv-flagnote{display:block;font-family:var(--fb);font-size:11px;font-weight:500;color:var(--terra);margin:4px 0 0 22px}
-.inv-r-grid{display:grid;grid-template-columns:auto 64px auto 1fr 70px;align-items:center;gap:6px;margin:8px 0 0 22px}
-.inv-lbl{font-family:var(--fb);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-30)}
-.inv-qty,.inv-price{font-family:var(--fb);font-size:14px;padding:5px 7px;border:1px solid var(--ink-12);border-radius:6px;background:var(--bg-card);color:var(--ink);text-align:right;width:100%}
-.inv-unit{font-family:var(--fb);font-size:12px;color:var(--ink-60)}
-.inv-amt{font-family:var(--fb);font-size:14px;font-weight:500;color:var(--ink);text-align:right}
-.inv-ref{font-family:var(--fb);font-size:11px;color:var(--ink-30);margin:6px 0 0 22px}
+.inv-calc{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:9px 0 0 22px}
+.inv-qty{font-family:var(--fb);font-size:15px;padding:6px 7px;border:1px solid var(--ink-12);border-radius:6px;background:var(--bg-card);color:var(--ink);text-align:right;width:52px}
+.inv-unit-sel{font-family:var(--fb);font-size:13px;padding:6px 6px;border:1px solid var(--ink-12);border-radius:6px;background:var(--bg-card);color:var(--ink);max-width:118px}
+.inv-op{font-family:var(--fb);font-size:14px;color:var(--ink-30);padding:0 1px}
+.inv-money{display:inline-flex;align-items:center;border:1px solid var(--ink-12);border-radius:6px;background:var(--bg-card);padding-left:7px}
+.inv-cur{font-family:var(--fb);font-size:14px;color:var(--ink-60)}
+.inv-price{font-family:var(--fb);font-size:15px;color:var(--ink);text-align:right;border:none;background:transparent;width:64px;padding:6px 7px 6px 2px}
+.inv-amt{font-family:var(--fb);font-size:15px;font-weight:600;color:var(--ink);margin-left:auto;min-width:62px;text-align:right}
+.inv-perunit{font-family:var(--fb);font-size:11px;color:var(--ink-30);margin:5px 0 0 22px}
+.inv-ref{font-family:var(--fb);font-size:11px;color:var(--ink-60);margin:3px 0 0 22px}
 .inv-total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--fb);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);border-top:1px solid var(--ink-12);margin-top:8px;padding-top:12px}
 .inv-total b{font-family:var(--fd);font-size:26px;letter-spacing:0;text-transform:none;color:var(--ink)}
 .inv-foot{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);line-height:1.45;margin:10px 0 14px}
@@ -33803,31 +33807,22 @@ function invCrop(item){
 }
 // Kelly's current ask for this line — the price she has set inside Remy (pricing calculator).
 function invKellyAsk(line){var g=invCrop(line.item);if(g&&g.ask!=null)return {price:g.ask, unit:g.askUnit||'', vendor:g.askVendor||''};return null;}
-function invPrefillPrice(line, existingInvLine){
-  // PRIMARY: the price Kelly set in Remy, when her sell-by unit matches the order-line unit
-  // (no risky auto-conversion across units — show it as a reference instead, below).
-  var k=invKellyAsk(line);
-  if(k&&invNormUnit(k.unit)===invNormUnit(line.unit))return {price:k.price, ref:invRefStr(line)};
-  // re-finalize: fall back to the price already on the filed invoice (Tim's prior number)
-  if(existingInvLine&&existingInvLine.price!=null)return {price:existingInvLine.price, ref:invRefStr(line)};
-  // then the market spine, exact unit match only
-  var fe=invFeedItem(line.item);
-  if(fe&&fe.swan_price!=null&&invNormUnit(fe.unit)===invNormUnit(line.unit))return {price:fe.swan_price, ref:invRefStr(line)};
-  return {price:null, ref:invRefStr(line)};
-}
 function invFeedItem(item){var it=(INV.feed&&INV.feed.items)||{};return it[item]||null;}
-function invRefStr(line){
-  var parts=[];
+// Defaults for a line: Kelly's saved price + unit travel together (her price is already in her
+// unit); else the prior filed line (re-finalize); else the market spine on an exact unit match;
+// else blank. The unit is a LABEL Kelly controls — changing it never converts qty or price.
+function invLineDefaults(line, ex){
   var k=invKellyAsk(line);
-  if(k)parts.push('Kelly asks <b>$'+Number(k.price).toFixed(2)+'/'+oesc(k.unit||'?')+'</b>');
+  if(k)return {unit:(k.unit||line.unit||''), price:k.price, saved:true};
+  if(ex&&ex.price!=null)return {unit:(ex.unit||line.unit||''), price:ex.price, saved:false};
   var fe=invFeedItem(line.item);
-  if(fe){
-    if(fe.swan_price!=null)parts.push('spine $'+Number(fe.swan_price).toFixed(2)+'/'+oesc(fe.unit||'?'));
-    if(fe.swan_per_lb!=null)parts.push('$'+Number(fe.swan_per_lb).toFixed(2)+'/lb');
-    var mr=fe.market_ref;if(mr&&mr.price!=null)parts.push('mkt $'+Number(mr.price).toFixed(2)+'/'+oesc(mr.unit||'?')+(mr.vendor?(' '+oesc(mr.vendor)):''));
-  }
-  if(!parts.length)return 'no price set in Remy';
-  return parts.join(' · ');
+  if(fe&&fe.swan_price!=null&&invNormUnit(fe.unit)===invNormUnit(line.unit))return {unit:line.unit||'', price:fe.swan_price, saved:false};
+  return {unit:line.unit||'', price:null, saved:false};
+}
+var INV_UNITS=['lb','1/4 lb','1/2 lb','oz','each','dozen','bunch','pint','quart','gallon','gallon bag','case','flat','bag'];
+function invUnitOptions(cur){
+  var set=INV_UNITS.slice(); if(cur&&set.indexOf(cur)<0)set.unshift(cur);
+  return set.map(function(u){return '<option'+(u===cur?' selected':'')+'>'+oesc(u)+'</option>';}).join('');
 }
 function invModal(){
   var m=document.getElementById('invTool');
@@ -33848,10 +33843,10 @@ function invOpen(id){
     INV.rows=(o.lines||[]).map(function(l){
       var ex=exByItem[l.item];
       var qd=invQtyDefault(l,ex);
-      var pf=invPrefillPrice(l,ex);
-      return {item:l.item, unit:l.unit, ordered:l.qty, qty:qd.qty, flagged:qd.flagged, defaulted:qd.defaulted,
+      var df=invLineDefaults(l,ex);
+      return {item:l.item, unit:df.unit, ordered:l.qty, qty:qd.qty, flagged:qd.flagged, defaulted:qd.defaulted,
               farm_status:l.farm_status||null, farm_note:l.farm_note||'',
-              price:(pf.price==null?'':String(pf.price)), ref:pf.ref, incl:true};
+              price:(df.price==null?'':String(df.price)), saved:df.saved, incl:true};
     });
     invRender();
     invModal().classList.add('open');
@@ -33870,17 +33865,23 @@ function invRender(){
       '<div class="inv-r-top"><label class="inv-incl"><input type="checkbox" data-inci="'+i+'"'+(r.incl?' checked':'')+'> <b>'+oesc(r.item)+'</b>'+flagHtml+'</label></div>'+
       (r.farm_note?('<div class="inv-r-note">&ldquo;'+oesc(r.farm_note)+'&rdquo;</div>'):'')+
       shortInfo+
-      '<div class="inv-r-grid">'+
-        '<span class="inv-lbl">Qty</span><input class="inv-qty" data-qi="'+i+'" inputmode="decimal" value="'+oesc(String(r.qty))+'"><span class="inv-unit">'+oesc(r.unit||'')+'</span>'+
-        '<span class="inv-lbl">$/unit</span><input class="inv-price" data-pi="'+i+'" inputmode="decimal" value="'+oesc(r.price)+'" placeholder="set">'+
+      '<div class="inv-calc">'+
+        '<input class="inv-qty" data-qi="'+i+'" inputmode="decimal" value="'+oesc(String(r.qty))+'" aria-label="quantity">'+
+        '<select class="inv-unit-sel" data-ui="'+i+'" aria-label="unit">'+invUnitOptions(r.unit)+'</select>'+
+        '<span class="inv-op">&times;</span>'+
+        '<span class="inv-money"><span class="inv-cur">$</span><input class="inv-price" data-pi="'+i+'" inputmode="decimal" value="'+oesc(r.price)+'" placeholder="0.00" aria-label="price per unit"></span>'+
+        '<span class="inv-op">=</span>'+
         '<span class="inv-amt" id="inv-amt-'+i+'"></span>'+
       '</div>'+
-      '<div class="inv-ref">'+r.ref+'</div>'+
+      '<div class="inv-perunit" id="inv-per-'+i+'"></div>'+
+      '<div class="inv-ref">'+(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices')+'</div>'+
     '</div>';
   }).join('');
   document.getElementById('inv-rows').innerHTML=rows;
   m.querySelectorAll('.inv-qty').forEach(function(el){el.addEventListener('input',function(){INV.rows[+el.getAttribute('data-qi')].qty=el.value;invRecalc();});});
   m.querySelectorAll('.inv-price').forEach(function(el){el.addEventListener('input',function(){INV.rows[+el.getAttribute('data-pi')].price=el.value;invRecalc();});});
+  // unit is a label Kelly controls — change it freely; qty and price never recompute (no conversion)
+  m.querySelectorAll('.inv-unit-sel').forEach(function(el){el.addEventListener('change',function(){INV.rows[+el.getAttribute('data-ui')].unit=el.value;invRecalc();});});
   m.querySelectorAll('[data-inci]').forEach(function(el){el.addEventListener('change',function(){var r=INV.rows[+el.getAttribute('data-inci')];r.incl=el.checked;el.closest('.inv-row').classList.toggle('off',!r.incl);invRecalc();});});
   invRecalc();
 }
@@ -33889,27 +33890,33 @@ function invRecalc(){
   var tot=0,any=false,flagged=false;
   INV.rows.forEach(function(r,i){
     var amt=r.incl?invLineAmt(r):null;
-    var cell=document.getElementById('inv-amt-'+i);if(cell)cell.textContent=(amt!=null)?('$'+amt.toFixed(2)):(r.incl?'—':'off');
+    var cell=document.getElementById('inv-amt-'+i);if(cell)cell.textContent=(amt!=null)?('$'+amt.toFixed(2)):(r.incl?'—':'');
+    var per=document.getElementById('inv-per-'+i);
+    if(per){var p=parseFloat(r.price);per.textContent=isNaN(p)?'set a price':('$'+p.toFixed(2)+' per '+(r.unit||'unit'));}
     if(r.incl&&amt!=null){tot+=amt;any=true;}
     if(r.incl&&r.flagged)flagged=true;
   });
   document.getElementById('inv-total').innerHTML='TOTAL <b>'+(any?('$'+tot.toFixed(2)):'—')+'</b>';
   var foot=document.getElementById('inv-foot');
   foot.innerHTML=flagged?'<span class="inv-warn">Confirm the flagged quantities before finalizing.</span>'
-    :'Shorted lines default to the packed amount. Edit any qty/price, then finalize. Re-finalizing overwrites the filed invoice.';
+    :'Shorted lines default to the packed amount. Change a unit and it saves to your prices in Remy. Re-finalizing overwrites the filed invoice.';
   var btn=document.getElementById('inv-finalize');if(btn)btn.disabled=!any;
 }
 function invFinalize(){
   var o=INV.order;if(!o)return;
   var fitems=(INV.feed&&INV.feed.items)||{};
+  var wroteBack=false;
   var lines=INV.rows.filter(function(r){return r.incl;}).map(function(r){
     var q=parseFloat(r.qty),p=parseFloat(r.price);
     var has=!isNaN(p),amt=(!isNaN(q)&&has)?+(q*p).toFixed(2):null;
     var fe=fitems[r.item];
+    // save the price + unit back to Kelly's crop so it applies to how she prices throughout Remy
+    if(has){var g=invCrop(r.item);if(g){g.ask=+p.toFixed(2);g.askUnit=r.unit||g.askUnit||'';if(!g.askMode)g.askMode='manual';wroteBack=true;}}
     return {item:r.item, unit:r.unit, qty:(isNaN(q)?r.qty:q), price:has?+p.toFixed(2):null, amount:amt,
             farm_status:r.farm_status||null, farm_note:r.farm_note||'',
             source:(fe&&fe.source)||'manual', farm_set:!!(fe&&fe.farm_set)||!fe};
   });
+  if(wroteBack&&typeof persist==='function')persist();   // writes farmAvailability (ask/askUnit) + refreshes Connected Farms
   var tot=lines.reduce(function(s,x){return s+(x.amount||0);},0);
   var inv={drafted:true, finalized_at:new Date().toISOString(),
            premium_pct:(INV.feed&&INV.feed.premium_pct!=null)?INV.feed.premium_pct:((o.invoice&&o.invoice.premium_pct)||20),
