@@ -33790,23 +33790,44 @@ function invQtyDefault(line, existingInvLine){
   if(m){return {qty:parseFloat(m[1]), flagged:false, defaulted:true};}
   return {qty:line.qty, flagged:true, defaulted:false};
 }
+// resolve an order item to Kelly's crop record. Order lines use clean names ("Kale"); the
+// grow list stores some "(Farm)"-suffixed ("Kale (Farm)"), so try exact, then +" (Farm)",
+// then a base-name match (strip the suffix both sides).
+function invCrop(item){
+  if(typeof byName==='undefined'||!item)return null;
+  if(byName[item])return byName[item];
+  if(byName[item+' (Farm)'])return byName[item+' (Farm)'];
+  var base=item.replace(/\s*\(farm\)\s*$/i,'').toLowerCase();
+  for(var k in byName){if(k.replace(/\s*\(farm\)\s*$/i,'').toLowerCase()===base)return byName[k];}
+  return null;
+}
+// Kelly's current ask for this line — the price she has set inside Remy (pricing calculator).
+function invKellyAsk(line){var g=invCrop(line.item);if(g&&g.ask!=null)return {price:g.ask, unit:g.askUnit||'', vendor:g.askVendor||''};return null;}
 function invPrefillPrice(line, existingInvLine){
-  // re-finalize: prefer the price already on the filed invoice (what Tim charged before)
+  // PRIMARY: the price Kelly set in Remy, when her sell-by unit matches the order-line unit
+  // (no risky auto-conversion across units — show it as a reference instead, below).
+  var k=invKellyAsk(line);
+  if(k&&invNormUnit(k.unit)===invNormUnit(line.unit))return {price:k.price, ref:invRefStr(line)};
+  // re-finalize: fall back to the price already on the filed invoice (Tim's prior number)
   if(existingInvLine&&existingInvLine.price!=null)return {price:existingInvLine.price, ref:invRefStr(line)};
+  // then the market spine, exact unit match only
   var fe=invFeedItem(line.item);
-  // prefill ONLY on an exact unit match (no risky auto-conversion); else blank + show the comp
   if(fe&&fe.swan_price!=null&&invNormUnit(fe.unit)===invNormUnit(line.unit))return {price:fe.swan_price, ref:invRefStr(line)};
   return {price:null, ref:invRefStr(line)};
 }
 function invFeedItem(item){var it=(INV.feed&&INV.feed.items)||{};return it[item]||null;}
 function invRefStr(line){
-  var fe=invFeedItem(line.item);if(!fe)return 'no comp on file';
   var parts=[];
-  if(fe.swan_price!=null)parts.push('Swan $'+Number(fe.swan_price).toFixed(2)+'/'+oesc(fe.unit||'?'));
-  if(fe.swan_per_lb!=null)parts.push('$'+Number(fe.swan_per_lb).toFixed(2)+'/lb');
-  var mr=fe.market_ref;if(mr&&mr.price!=null)parts.push('mkt $'+Number(mr.price).toFixed(2)+'/'+oesc(mr.unit||'?')+(mr.vendor?(' '+oesc(mr.vendor)):''));
-  else if(fe.market!=null&&fe.vendor)parts.push(oesc(fe.vendor));
-  return parts.join(' · ')||'on file';
+  var k=invKellyAsk(line);
+  if(k)parts.push('Kelly asks <b>$'+Number(k.price).toFixed(2)+'/'+oesc(k.unit||'?')+'</b>');
+  var fe=invFeedItem(line.item);
+  if(fe){
+    if(fe.swan_price!=null)parts.push('spine $'+Number(fe.swan_price).toFixed(2)+'/'+oesc(fe.unit||'?'));
+    if(fe.swan_per_lb!=null)parts.push('$'+Number(fe.swan_per_lb).toFixed(2)+'/lb');
+    var mr=fe.market_ref;if(mr&&mr.price!=null)parts.push('mkt $'+Number(mr.price).toFixed(2)+'/'+oesc(mr.unit||'?')+(mr.vendor?(' '+oesc(mr.vendor)):''));
+  }
+  if(!parts.length)return 'no price set in Remy';
+  return parts.join(' · ');
 }
 function invModal(){
   var m=document.getElementById('invTool');
