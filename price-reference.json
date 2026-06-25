@@ -1,5 +1,5 @@
 {
- "generated": "2026-06-24",
+ "generated": "2026-06-25",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -230,13 +230,13 @@
    "note": "billed per each — confirm unit with the farm"
   },
   "Edible Flowers": {
-   "swan_price": 15,
-   "market": 15,
-   "unit": "bunch",
+   "swan_price": 16,
+   "market": 16,
+   "unit": "quart",
    "vendor": "Swan House (farm-set)",
-   "date": "2026-05-26",
+   "date": "2026-06-25",
    "freshness": "FARM-SET",
-   "source": "farm-set (Swan House invoice 1118, 2026-05-26)",
+   "source": "farm-set (Chris Hoey, 2026-06-25)",
    "needs_check": false,
    "farm_set": true
   },
@@ -303,13 +303,13 @@
    "per_lb_basis": "exact"
   },
   "Honeysuckle": {
-   "swan_price": 12,
-   "market": 12,
-   "unit": "bunch",
+   "swan_price": 16,
+   "market": 16,
+   "unit": "quart",
    "vendor": "Swan House (farm-set)",
-   "date": "2026-06-04",
+   "date": "2026-06-25",
    "freshness": "FARM-SET",
-   "source": "farm-set (Swan House invoice 1119, 2026-06-04)",
+   "source": "farm-set (Chris Hoey, 2026-06-25)",
    "needs_check": false,
    "farm_set": true
   },
@@ -496,6 +496,17 @@
    "swan_per_lb": 4.79,
    "per_lb_basis": "exact"
   },
+  "Rose Petals": {
+   "swan_price": 16,
+   "market": 16,
+   "unit": "quart",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-06-25",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Chris Hoey, 2026-06-25)",
+   "needs_check": false,
+   "farm_set": true
+  },
   "Rose Petals For Plating": {
    "swan_price": 12,
    "market": 12,
@@ -593,6 +604,17 @@
    "climb": 0.0,
    "swan_per_lb": 23.4,
    "per_lb_basis": "exact"
+  },
+  "Tomato Leaf": {
+   "swan_price": 30,
+   "market": 30,
+   "unit": "lb",
+   "vendor": "Swan House (farm-set)",
+   "date": "2026-06-25",
+   "freshness": "FARM-SET",
+   "source": "farm-set (Chris Hoey, 2026-06-25)",
+   "needs_check": false,
+   "farm_set": true
   },
   "Tomatoes": {
    "swan_price": 38.7,
