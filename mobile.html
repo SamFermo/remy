@@ -33302,8 +33302,8 @@ var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={};
 function snapshot(){
   var items={};
   grow.forEach(function(g){
-    if(g.ask!=null||g.askUnit||g.photo||g.voice||g.voiceText){
-      items[g.name]={ask:(g.ask==null?null:g.ask),askUnit:g.askUnit||'',askMode:g.askMode||'',askPct:(g.askPct==null?null:g.askPct),askVendor:g.askVendor||'',photo:g.photo||'',voice:g.voice||'',voiceText:g.voiceText||''};
+    if(g.ask!=null||g.askUnit||g.photo||g.voice||g.voiceText||(g.grow_method&&g.grow_method.length)){
+      items[g.name]={ask:(g.ask==null?null:g.ask),askUnit:g.askUnit||'',askMode:g.askMode||'',askPct:(g.askPct==null?null:g.askPct),askVendor:g.askVendor||'',photo:g.photo||'',voice:g.voice||'',voiceText:g.voiceText||'',grow_method:(g.grow_method||[])};
     }
   });
   // farmer-added crops: persist their membership + defining fields so they survive reload and
@@ -33327,7 +33327,7 @@ function applyState(x){
   if(x.items){Object.keys(x.items).forEach(function(n){var g=byName[n];if(!g)return;var it=x.items[n];
     if(it.ask!=null){g.ask=it.ask;g.askUnit=it.askUnit;g.askMode=it.askMode;g.askPct=it.askPct;g.askVendor=it.askVendor;}
     if(it.askUnit)g.askUnit=it.askUnit;   // a saved sell-unit persists even if she hasn't priced the crop
-    if(it.photo)g.photo=it.photo;if(it.voice)g.voice=it.voice;if(it.voiceText)g.voiceText=it.voiceText;});}
+    if(it.photo)g.photo=it.photo;if(it.voice)g.voice=it.voice;if(it.voiceText)g.voiceText=it.voiceText;if(it.grow_method)g.grow_method=it.grow_method;});}
 }
 function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}catch(e){}}
 function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
@@ -33885,6 +33885,7 @@ function renderPush(){
                   :('<button class="chip-btn ask-btn" data-n="'+n+'">'+TAG+(g.ask?'Edit price':'Set price')+'</button>'))+
         '<button class="chip-btn voice-btn'+(g.voiceText?' on':'')+'" data-n="'+n+'">'+MIC+(g.voiceText?'Edit note':'Voice note')+'</button>'+
         '<button class="chip-btn photo-btn'+(g.photo?' on':'')+'" data-n="'+n+'">'+CAM+(g._up_photo?'Uploading&hellip;':(g.photo?'Edit photo':'Photo'))+'</button>'+
+        '<button class="chip-btn method-btn'+((g.grow_method&&g.grow_method.length)?' on':'')+'" data-n="'+n+'">&#127793; '+((g.grow_method&&g.grow_method.length)?('Method ('+g.grow_method.length+')'):'Method')+'</button>'+
       '</div>';
     el.appendChild(c);
   });
@@ -33894,7 +33895,31 @@ function renderPush(){
   el.querySelectorAll('.voice-btn').forEach(function(b){b.onclick=function(){vtOpen(b.dataset.n);};});
   el.querySelectorAll('.photo-btn').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.pc-photo').forEach(function(b){b.onclick=function(){openPhotoView(b.dataset.n);};});
+  el.querySelectorAll('.method-btn').forEach(function(b){b.onclick=function(){methodOpen(b.dataset.n);};});
   persist();
+}
+/* Growing-method capture (Kelly wishlist, pilot 2026-06-26). Per-listing tags persisted on
+   g.grow_method -> farmAvailability.items[name].grow_method -> RemyFarm.list -> Connected Farms.
+   Bottom sheet, toggle chips, targeted-prompt pattern (minimal input). */
+var GROW_METHODS=['Spray-free','No-till','Organic','Biodynamic'];
+function methodOpen(name){
+  var g=byName[name];if(!g)return;
+  var cur=new Set(g.grow_method||[]);
+  var o=document.getElementById('methodSheet');
+  if(!o){o=document.createElement('div');o.id='methodSheet';
+    o.style.cssText='position:fixed;left:0;right:0;bottom:0;z-index:90;background:#0b1020;border-top:1px solid rgba(255,255,255,.12);border-radius:18px 18px 0 0;padding:18px 18px 26px;transform:translateY(110%);transition:transform .25s ease;box-shadow:0 -12px 44px rgba(0,0,0,.55)';
+    document.body.appendChild(o);}
+  function draw(){
+    o.innerHTML='<div style="font-family:var(--fd,serif);font-size:21px;color:var(--ink,#eaf0ff);margin-bottom:4px">Growing method</div>'+
+      '<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-60,#9aa6c0);margin-bottom:15px">How was <b>'+name+'</b> grown? Tap any that apply.</div>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px">'+
+      GROW_METHODS.map(function(m){var on=cur.has(m);return '<button class="ms-chip" data-m="'+m+'" style="font-family:var(--fb,sans-serif);font-size:14px;padding:10px 16px;border-radius:20px;cursor:pointer;border:1px solid '+(on?'rgba(120,200,140,.75)':'rgba(255,255,255,.18)')+';background:'+(on?'rgba(120,200,140,.18)':'transparent')+';color:'+(on?'#bfe6c7':'var(--ink-80,#c4cde2)')+'">'+m+'</button>';}).join('')+'</div>'+
+      '<button id="ms-done" style="width:100%;font-family:var(--fb,sans-serif);font-size:15px;padding:13px;border-radius:12px;cursor:pointer;border:none;background:var(--ink,#eaf0ff);color:#06101f;font-weight:600">Done</button>';
+    o.querySelectorAll('.ms-chip').forEach(function(b){b.onclick=function(){var m=b.dataset.m;if(cur.has(m))cur.delete(m);else cur.add(m);draw();};});
+    o.querySelector('#ms-done').onclick=function(){g.grow_method=Array.from(cur);persist();renderPush();renderList();o.style.transform='translateY(110%)';};
+  }
+  draw();
+  if(window.requestAnimationFrame)requestAnimationFrame(function(){o.style.transform='translateY(0)';});else o.style.transform='translateY(0)';
 }
 function renderPick(){
   var g=document.getElementById('pick-grid');g.innerHTML='';
@@ -34308,7 +34333,7 @@ window.RemyFarm={
     name:g.name, category:g.category, status:g.status, qty:g.qty, prepped:!!g.prepped,
     market:g.market||null, ask:(g.ask==null?null:g.ask), askUnit:g.askUnit||'', askMode:g.askMode||'',
     askPct:g.askPct, askVendor:g.askVendor||'', photo:g.photo||'', voice:g.voice||'',
-    voiceText:g.voiceText||'', pushed:pushed.has(g.name), markdown:markdown.has(g.name)
+    voiceText:g.voiceText||'', grow_method:(g.grow_method||[]), pushed:pushed.has(g.name), markdown:markdown.has(g.name)
   };});},
   askLabel:function(g){return g&&g.askMode?askModeLabel(g):'';},
   onChange:function(fn){if(typeof fn==='function')_cfListeners.push(fn);}
@@ -34476,10 +34501,11 @@ window.RemyFarm={
       var photo=g.photo?('<img class="cf-photo" data-photo="'+esc(g.photo)+'" src="'+esc(g.photo)+'" alt="'+esc(g.name)+'">'):'';
       var voice=g.voiceText?('<div class="cf-voice">&ldquo;'+esc(g.voiceText)+'&rdquo;'+((g.voice&&/^https?:/.test(g.voice))?('<audio controls src="'+esc(g.voice)+'"></audio>'):'')+'</div>'):'';
       var price=priceStr(g);
+      var methodTags=(g.grow_method&&g.grow_method.length)?('<div class="cf-c-methods" style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px">'+g.grow_method.map(function(m){return '<span style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.02em;padding:3px 9px;border-radius:11px;background:rgba(120,200,140,.16);border:1px solid rgba(120,200,140,.4);color:#bfe6c7">'+esc(m)+'</span>';}).join('')+'</div>'):'';
       return '<div class="cf-card'+(g.markdown?' md':'')+'">'+
         '<div class="cf-c-top"><span class="cf-c-name">'+esc(g.name)+'</span>'+(g.qty?'<span class="cf-c-qty">'+esc(g.qty)+'</span>':'')+'</div>'+
         (price?('<div class="cf-c-price">'+esc(price)+'</div>'):'<div class="cf-c-price cf-noprice">price not set</div>')+
-        (g.markdown?'<div class="cf-md-tag">&#9662; Marked down to move</div>':'')+photo+voice+'</div>';
+        (g.markdown?'<div class="cf-md-tag">&#9662; Marked down to move</div>':'')+methodTags+photo+voice+'</div>';
     }).join('');
   }
   function listHtml(){
@@ -34495,7 +34521,7 @@ window.RemyFarm={
       var cls=({'Peak':'st-peak','Available':'st-avail','Trickling':'st-avail','Coming Soon':'st-coming'})[g.status]||'st-done';
       return '<div class="cf-row">'+
         '<button class="cf-star'+(g.pushed?' on':'')+'" disabled>&#9733;</button>'+
-        '<div class="cf-r-main"><div class="cf-r-name">'+esc(g.name)+(g.photo?' <span class="cf-r-cam">&#9673;</span>':'')+(g.voiceText?' <span class="cf-r-cam">&#9834;</span>':'')+'</div>'+(g.qty?'<div class="cf-r-qty">'+esc(g.qty)+'</div>':'')+'</div>'+
+        '<div class="cf-r-main"><div class="cf-r-name">'+esc(g.name)+(g.photo?' <span class="cf-r-cam">&#9673;</span>':'')+(g.voiceText?' <span class="cf-r-cam">&#9834;</span>':'')+((g.grow_method&&g.grow_method.length)?' <span class="cf-r-cam" title="'+esc(g.grow_method.join(', '))+'">&#127793;</span>':'')+'</div>'+(g.qty?'<div class="cf-r-qty">'+esc(g.qty)+'</div>':'')+'</div>'+
         '<span class="cf-r-price">'+esc(priceStr(g))+'</span>'+
         '<span class="status '+cls+'">'+esc(g.status)+'</span>'+'</div>';
     }).join('');
