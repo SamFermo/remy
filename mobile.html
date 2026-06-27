@@ -1510,7 +1510,7 @@ select.tm-inp{cursor:pointer;-webkit-appearance:none;appearance:none}
     <button data-view="list">Full list</button>
     <button data-view="orders" id="seg-orders">Orders</button>
   </div>
-  <button class="guided-link" data-view="guided">New farm? Let Remy walk you through it &rarr;</button>
+  <button class="guided-link" data-view="guided">Set up your farm profile &rarr;</button>
 
   <div class="view live" id="view-push">
     <div class="vh">What you&rsquo;re pushing</div>
@@ -33295,7 +33295,7 @@ if(!byName['Strawberry Jam']){var _jam={name:'Strawberry Jam',category:'prepped'
 var pushed=new Set(grow.filter(function(g){return g.push;}).map(function(g){return g.name;}));
 var markdown=new Set();
 /* persistence: localStorage now; mirrors to Firestore farmAvailability once rules allow */
-var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={};
+var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={}, farmProfile={};
 /* per-crop record persisted to farmAvailability.items[name] — the price/photo/voice the
    restaurant side (sf-portal picker + Remy kitchen) reads back. Keyed by farm crop name;
    the price-back consumer maps to canonical via swan-name-map. */
@@ -33312,10 +33312,11 @@ function snapshot(){
   // status_edits is a non-colliding mirror of statusEdits: fbSave overwrites the doc's `status`
   // field with the 'live' doc-type marker, which would otherwise drop status changes on the
   // Firestore round-trip. status_edits rides alongside so won't-have / status edits sync too.
-  return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,status_edits:statusEdits,added:added,items:items,updated_at:Date.now()};
+  return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,status_edits:statusEdits,added:added,items:items,farm_profile:farmProfile,updated_at:Date.now()};
 }
 function applyState(x){
   if(!x)return;
+  if(x.farm_profile&&typeof x.farm_profile==='object')farmProfile=x.farm_profile;
   // recreate farmer-added crops FIRST so the status/items passes below can find them in byName
   if(x.added&&x.added.length){x.added.forEach(function(a){if(!a||!a.name)return;
     if(!byName[a.name]){var g={name:a.name,category:a.category||'',status:a.status||'Available',qty:a.qty||'',push:false,market:null,_added:true};grow.push(g);byName[a.name]=g;}
@@ -33938,6 +33939,50 @@ function methodOpen(name){
   draw();
   if(window.requestAnimationFrame)requestAnimationFrame(function(){o.style.transform='translateY(0)';});else o.style.transform='translateY(0)';
 }
+/* Farm-profile setup interview (Sam's direction 2026-06-26). Farm-LEVEL facts set ONCE
+   (story, grow methods, certifications, season) -> farmProfile -> RemyFarm.profile() ->
+   Connected Farms banner, inherited by all crops. Reworks the "walk you through it" entry.
+   Per-crop methodOpen stays for crop-specific exceptions. */
+var FP_METHODS=['Spray-free','No-till','Organic','Biodynamic','Regenerative'];
+function fpSetupOpen(){
+  var draft={story:(farmProfile.story||''),grow_methods:(farmProfile.grow_methods||[]).slice(),certifications:(farmProfile.certifications||''),region_season:(farmProfile.region_season||'')};
+  var step=0; var STEPS=['story','methods','certs','season','done'];
+  var o=document.getElementById('fpSetup');
+  if(!o){o=document.createElement('div');o.id='fpSetup';
+    o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:120;background:radial-gradient(circle at 50% 0%,#0c1326,#02040d);background-color:#02040d;display:flex;flex-direction:column';
+    document.body.appendChild(o);}
+  function close(){o.style.display='none';}
+  function save(){farmProfile={story:(draft.story||'').trim(),grow_methods:draft.grow_methods,certifications:(draft.certifications||'').trim(),region_season:(draft.region_season||'').trim(),completed_at:Date.now()};persist();renderPush();renderList();}
+  function dots(){var s='';for(var i=0;i<4;i++)s+='<span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 4px;background:'+(i<=step?'var(--olive,#9bb06a)':'rgba(255,255,255,.2)')+'"></span>';return s;}
+  function chip(text,on){return '<button class="fp-chip" data-m="'+text+'" style="font-family:var(--fb,sans-serif);font-size:15px;padding:11px 18px;border-radius:22px;cursor:pointer;margin:5px;border:1px solid '+(on?'rgba(155,176,106,.85)':'rgba(255,255,255,.2)')+';background:'+(on?'rgba(155,176,106,.2)':'transparent')+';color:'+(on?'#cfe0a8':'var(--ink-80,#c4cde2)')+'">'+text+'</button>';}
+  function txt(id,val,ph){return '<input id="'+id+'" type="text" value="'+String(val||'').replace(/"/g,'&quot;')+'" placeholder="'+ph+'" style="width:100%;box-sizing:border-box;font-family:var(--fb,sans-serif);font-size:17px;padding:14px 15px;border-radius:13px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:var(--ink,#eaf0ff)">';}
+  function grab(){var s=o.querySelector('#fp-story');if(s)draft.story=s.value;var c=o.querySelector('#fp-certs');if(c)draft.certifications=c.value;var se=o.querySelector('#fp-season');if(se)draft.region_season=se.value;}
+  function draw(){
+    var body='',title='',sub='',isDone=STEPS[step]==='done';
+    if(STEPS[step]==='story'){title='Tell chefs about your farm';sub='One line they’ll see at the top of your listings.';body=txt('fp-story',draft.story,'e.g. Two-acre no-till market garden in the Skagit Valley');}
+    else if(STEPS[step]==='methods'){title='How do you grow?';sub='Pick any that describe your whole farm. Chefs see these on every crop.';body='<div style="display:flex;flex-wrap:wrap;justify-content:center">'+FP_METHODS.map(function(m){return chip(m,draft.grow_methods.indexOf(m)>=0);}).join('')+'</div>';}
+    else if(STEPS[step]==='certs'){title='Any certifications?';sub='Optional. Separate with commas.';body=txt('fp-certs',draft.certifications,'e.g. Certified Organic, Salmon-Safe');}
+    else if(STEPS[step]==='season'){title='Your season & region';sub='A rough line is fine — Remy tracks each crop’s timing on its own.';body=txt('fp-season',draft.region_season,'e.g. Skagit Valley · May–October');}
+    else {title='You’re all set';sub='Remy shows this across every crop. Fine-tune any single crop with its Details button.';}
+    o.innerHTML='<div style="flex:0 0 auto;padding:26px 22px 4px;text-align:center"><div style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-30,#6b7591)">Set up your farm</div></div>'+
+      '<div style="flex:1 1 auto;overflow:auto;padding:18px 22px;display:flex;flex-direction:column;justify-content:center;max-width:520px;margin:0 auto;width:100%;box-sizing:border-box">'+
+      '<div style="font-family:var(--fd,serif);font-size:27px;color:var(--ink,#eaf0ff);margin-bottom:6px;text-align:center">'+title+'</div>'+
+      '<div style="font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-60,#9aa6c0);margin-bottom:22px;text-align:center;line-height:1.4">'+sub+'</div>'+
+      body+'</div>'+
+      '<div style="flex:0 0 auto;padding:14px 22px 30px;max-width:520px;margin:0 auto;width:100%;box-sizing:border-box">'+
+      '<div style="text-align:center;margin-bottom:16px">'+dots()+'</div>'+
+      '<div style="display:flex;gap:10px">'+
+      (step>0&&!isDone?'<button id="fp-back" style="flex:0 0 auto;font-family:var(--fb,sans-serif);font-size:15px;padding:14px 20px;border-radius:13px;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--ink-80,#c4cde2)">Back</button>':'')+
+      '<button id="fp-next" style="flex:1 1 auto;font-family:var(--fb,sans-serif);font-size:16px;padding:14px;border-radius:13px;cursor:pointer;border:none;background:var(--ink,#eaf0ff);color:#06101f;font-weight:600">'+(isDone?'Done':(step===0?'Start':'Next'))+'</button>'+
+      (!isDone?'<button id="fp-skip" style="flex:0 0 auto;font-family:var(--fb,sans-serif);font-size:14px;padding:14px 16px;border-radius:13px;cursor:pointer;border:none;background:transparent;color:var(--ink-60,#9aa6c0)">Skip</button>':'')+
+      '</div></div>';
+    o.querySelectorAll('.fp-chip').forEach(function(b){b.onclick=function(){var m=b.dataset.m;var i=draft.grow_methods.indexOf(m);if(i>=0)draft.grow_methods.splice(i,1);else draft.grow_methods.push(m);draw();};});
+    var nx=o.querySelector('#fp-next');if(nx)nx.onclick=function(){grab();if(isDone){save();close();}else{step++;draw();}};
+    var bk=o.querySelector('#fp-back');if(bk)bk.onclick=function(){grab();step--;draw();};
+    var sk=o.querySelector('#fp-skip');if(sk)sk.onclick=function(){grab();step++;draw();};
+  }
+  o.style.display='flex';draw();
+}
 function renderPick(){
   var g=document.getElementById('pick-grid');g.innerHTML='';
   var pool=grow.filter(function(x){return IN_SEASON[x.status]&&!pushed.has(x.name);});
@@ -34006,7 +34051,7 @@ function setView(v){
   if(v==='orders'){startOrdersSync();renderOrders();}
 }
 ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setView(b.dataset.view);};});
-ROOT.querySelector('.guided-link').onclick=function(){setView('guided');};
+ROOT.querySelector('.guided-link').onclick=function(){fpSetupOpen();};
 document.getElementById('g-back').onclick=function(){setView('push');};
 
 /* "Swan House Farm" is now the header brand next to Remy; this top-right note carries the week */
@@ -34353,6 +34398,7 @@ window.RemyFarm={
     voiceText:g.voiceText||'', grow_method:(g.grow_method||[]), harvest_mode:g.harvest_mode||'', variety:g.variety||'', teaser:g.teaser||'', pushed:pushed.has(g.name), markdown:markdown.has(g.name)
   };});},
   askLabel:function(g){return g&&g.askMode?askModeLabel(g):'';},
+  profile:function(){return farmProfile||{};},
   onChange:function(fn){if(typeof fn==='function')_cfListeners.push(fn);}
 };
 
@@ -34502,9 +34548,18 @@ window.RemyFarm={
 
   function render(){
     var h=host();if(!h)return;var rf=window.RemyFarm;
+    var prof=(rf&&rf.profile)?rf.profile():{};
+    var pmeth=(prof.grow_methods||[]);
+    var pcerts=(prof.certifications||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
+    var pchips=pmeth.concat(pcerts);
+    var profHtml=(prof.story||pchips.length||prof.region_season)?('<div style="margin-top:11px;padding:11px 13px;border:1px solid rgba(155,176,106,.32);border-radius:12px;background:rgba(155,176,106,.07)">'+
+      (prof.story?('<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-80,#c4cde2);line-height:1.45">'+esc(prof.story)+'</div>'):'')+
+      (pchips.length?('<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:'+(prof.story?'9px':'0')+'">'+pchips.map(function(m){return '<span style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.02em;padding:3px 9px;border-radius:11px;color:#cfe0a8;background:rgba(155,176,106,.16);border:1px solid rgba(155,176,106,.4)">'+esc(m)+'</span>';}).join('')+'</div>'):'')+
+      (prof.region_season?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:'+((prof.story||pchips.length)?'9px':'0')+'">'+esc(prof.region_season)+'</div>'):'')+
+      '</div>'):'';
     var head='<div class="cf-head"><div class="cf-eyebrow">Connected Farms</div>'+
       '<div class="cf-farm"><span class="cf-dot"></span>Swan House Farm</div>'+
-      '<div class="cf-sub">'+(rf&&rf.week?esc(rf.week):'this week')+(rf&&rf.lastTouch?(' &middot; updated '+esc(rf.lastTouch)):'')+'</div></div>';
+      '<div class="cf-sub">'+(rf&&rf.week?esc(rf.week):'this week')+(rf&&rf.lastTouch?(' &middot; updated '+esc(rf.lastTouch)):'')+'</div>'+profHtml+'</div>';
     var seg='<div class="cf-seg"><button class="cf-segb'+(ST.view==='pushing'?' on':'')+'" onclick="_cfSetView(\'pushing\')">Pushing</button>'+
       '<button class="cf-segb'+(ST.view==='list'?' on':'')+'" onclick="_cfSetView(\'list\')">Full list</button></div>';
     h.innerHTML=head+seg+(ST.view==='pushing'?pushingHtml():listHtml());
@@ -34518,7 +34573,8 @@ window.RemyFarm={
       var photo=g.photo?('<img class="cf-photo" data-photo="'+esc(g.photo)+'" src="'+esc(g.photo)+'" alt="'+esc(g.name)+'">'):'';
       var voice=g.voiceText?('<div class="cf-voice">&ldquo;'+esc(g.voiceText)+'&rdquo;'+((g.voice&&/^https?:/.test(g.voice))?('<audio controls src="'+esc(g.voice)+'"></audio>'):'')+'</div>'):'';
       var price=priceStr(g);
-      var tagArr=(g.grow_method||[]).map(function(m){return {c:'#bfe6c7',bg:'rgba(120,200,140,.16)',bd:'rgba(120,200,140,.4)',t:m};});
+      var _farmMethods=(window.RemyFarm&&window.RemyFarm.profile)?(window.RemyFarm.profile().grow_methods||[]):[];
+      var tagArr=(g.grow_method||[]).filter(function(m){return _farmMethods.indexOf(m)<0;}).map(function(m){return {c:'#bfe6c7',bg:'rgba(120,200,140,.16)',bd:'rgba(120,200,140,.4)',t:m};});
       if(g.harvest_mode)tagArr.push({c:'#e7d3a6',bg:'rgba(210,180,120,.16)',bd:'rgba(210,180,120,.4)',t:(g.harvest_mode==='cut'?'Cut to order':'Pre-harvested')});
       var tagHtml=tagArr.length?('<div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px">'+tagArr.map(function(t){return '<span style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.02em;padding:3px 9px;border-radius:11px;color:'+t.c+';background:'+t.bg+';border:1px solid '+t.bd+'">'+esc(t.t)+'</span>';}).join('')+'</div>'):'';
       return '<div class="cf-card'+(g.markdown?' md':'')+'">'+
