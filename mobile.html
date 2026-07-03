@@ -37179,7 +37179,7 @@ window.RemyFarm={
     var keys=tmNameKeys(name),rows=window.RemyFarm.list()||[],i,j;
     for(i=0;i<rows.length;i++){var g=rows[i];if(g.ask==null)continue;
       var gk=tmNameKeys(g.name);
-      for(j=0;j<keys.length;j++)if(gk.indexOf(keys[j])>=0)return {amount:g.ask,unit:tmUnitNorm(g.askUnit||'lb'),source:'farm ask'};}
+      for(j=0;j<keys.length;j++)if(gk.indexOf(keys[j])>=0)return {amount:g.ask,unit:tmUnitNorm(g.askUnit||'lb'),vendor:'Swan House Farms',source:'farm ask'};}
     return null;
   }
   function tmSwanBaseline(name){
@@ -37188,7 +37188,7 @@ window.RemyFarm={
       // baseline names can be slash-aliases: "Ground Beef / Bolo Meat" matches "bolo meat"
       var parts=String(bn).toLowerCase().split('/').map(function(s){return s.trim();});
       parts.push(String(bn).toLowerCase().trim());
-      for(var j=0;j<keys.length;j++)if(parts.indexOf(keys[j])>=0)return {amount:B[bn].price,unit:tmUnitNorm(B[bn].unit||'lb'),source:'Swan baseline'};}
+      for(var j=0;j<keys.length;j++)if(parts.indexOf(keys[j])>=0)return {amount:B[bn].price,unit:tmUnitNorm(B[bn].unit||'lb'),vendor:'Swan House Farms',source:'Swan baseline'};}
     return null;
   }
   /* Auto-fill matching is STRICT (tightened 2026-07-03 after the batch-reapply dry run):
@@ -37247,7 +37247,7 @@ window.RemyFarm={
     else if(vf)out=tmCatFind(name,vf);
     else{
       var key=String(name).toLowerCase(),t=tmTrendBy()[key];
-      if(t&&t.amount!=null)out={amount:t.amount,unit:tmUnitNorm(t.unit),source:'trend'};
+      if(t&&t.amount!=null)out={amount:t.amount,unit:tmUnitNorm(t.unit),vendor:(t.vendor?tmVendorCanon(t.vendor):''),source:'trend'};
       else if(tmSwanish(c.vendor))out=tmSwanAsk(name)||tmSwanBaseline(name)||null;
       else out=tmCatFind(name,'');
     }
