@@ -37488,12 +37488,44 @@ window.RemyFarm={
     if(tmSwanish(c.vendor))return tmSwanAsk(name)||tmSwanBaseline(name)||null;
     return tmCatFind(name,'');
   }
+  // Scan ALL catalog candidates for one whose (pack-normalized) price matches a stored
+  // amount — the source of an orphaned price isn't always the best-ranked match.
+  function tmCatFindByPrice(name,amount){
+    var keys=tmNameKeys(name),hit=null,target=Number(amount);
+    if(isNaN(target))return null;
+    function wordHit(k,nml){return new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(nml);}
+    function consider(vend,nm,price,unit){
+      if(hit||price==null||price==='')return;
+      var nml=String(nm||'').toLowerCase(),matched=false;
+      for(var j=0;j<keys.length;j++){if(nml===keys[j]||wordHit(keys[j],nml)){matched=true;break;}}
+      if(!matched)return;
+      var pn=tmPackNorm(price,unit);
+      var amt=pn?pn.amount:Number(price);
+      if(Math.abs(amt-target)<0.011)hit={vendor:vend};
+    }
+    var pm=DATA.preserve_meat_catalog||{};
+    Object.keys(pm).forEach(function(cat){(pm[cat]||[]).forEach(function(p){
+      var nm=tmCatClean(p.name);if(!nm)return;var pr=tmCatPrice(p.price);consider('Preserve Meat',nm,pr.price,pr.unit||p.unit);});});
+    var vp=DATA.vendor_prices||{};
+    Object.keys(vp).forEach(function(v){(vp[v]||[]).forEach(function(p){consider(v,p.name,p.price,p.unit);});});
+    return hit;
+  }
   function tmApplyAuto(c){
-    if(c.kind!=='sub_recipe'&&(c.kind==='pantry'||c.kind==='untracked'||c.kind==='sourced')&&tmLooksLikeSub(c.raw))c.kind='sub_recipe';
+    // a component with a VENDOR is a purchased product, not a house prep — "Crushed
+    // Tomatoes In Puree" must not be reclassified sub_recipe by its name (2026-07-03)
+    if(c.kind!=='sub_recipe'&&(c.kind==='pantry'||c.kind==='untracked'||c.kind==='sourced')&&!(c.vendor&&String(c.vendor).trim())&&tmLooksLikeSub(c.raw))c.kind='sub_recipe';
     if(c.maps_to){
       var key=String(c.maps_to).toLowerCase(),g=tmIngBy()[key];
       if(!g)g=tmIngByBase()[tmBase(c.maps_to)];
       if(!c.vendor&&g&&g.vendor)c.vendor=tmVendorCanon(g.vendor);
+    }
+    // STORED-PACK NORMALIZATION (2026-07-03): components finalized before the pack converter
+    // existed carry raw pack units ("1/7.05 OZ" @ $45, "1/2#" @ $9.25). Same price, expressed
+    // in the unit a chef portions in ($6.38/oz, $18.50/lb). Only fires when the unit string
+    // actually decomposes — plain lb/oz/each pass through untouched.
+    if(c.price.amount!==''&&c.price.amount!=null&&c.price.unit){
+      var spn=tmPackNorm(c.price.amount,c.price.unit);
+      if(spn&&spn.amount!=null){c.price.amount=spn.amount;c.price.unit=spn.unit;}
     }
     // Price fill runs for TYPED components too (2026-07-03: the maps_to gate left the chef's
     // own "anchovy @ Merlino's" rows permanently priceless). Never a sub_recipe, never
@@ -37509,11 +37541,9 @@ window.RemyFarm={
     }
     else if(c.kind!=='sub_recipe'&&(c.maps_to||c.raw)&&!(c.vendor&&String(c.vendor).trim())&&c.price.amount!==''&&c.price.amount!=null){
       // VENDOR REPAIR for docs finalized during the orphan-price window (2026-07-03):
-      // Firestore-authored components can carry a filled price with an empty vendor, and
-      // the overlay wins over the repaired baked map. If an unfiltered resolve lands within
-      // a cent of the stored price, that's the source — reunite them. Next Finalize persists.
-      var r2=tmResolvePrice({maps_to:c.maps_to,raw:c.raw,vendor:'',price:{amount:'',unit:''}},null);
-      if(r2&&r2.amount!=null&&r2.vendor&&Math.abs(Number(r2.amount)-Number(c.price.amount))<0.011)c.vendor=tmVendorCanon(r2.vendor);
+      // scan every candidate for the one whose normalized price matches the stored amount.
+      var r2=tmCatFindByPrice(c.maps_to||c.raw,c.price.amount);
+      if(r2&&r2.vendor)c.vendor=tmVendorCanon(r2.vendor);
     }
     return c;
   }
