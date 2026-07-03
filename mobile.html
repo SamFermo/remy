@@ -987,6 +987,13 @@ body.remy-embed .ng-card,body.remy-embed .pt-card,body.remy-embed .pv-card,body.
 .tm-fld{position:relative;flex:1 1 46%;min-width:120px}
 .tm-fld.price{flex:1 1 26%;min-width:78px}
 .tm-fld.unit{flex:0 0 86px}
+.tm-fld.portion{flex:1 1 34%;min-width:120px;display:flex;align-items:center;gap:6px}
+.tm-fld.portion .tm-inp{flex:1 1 auto;min-width:64px}
+.tm-punit{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);white-space:nowrap}
+.tm-cost{margin-top:12px;padding:10px 12px;border:1px solid var(--ink-12);border-radius:9px;background:rgba(245,232,200,0.03)}
+.tm-costline{font-family:var(--fb);font-size:12.5px;color:var(--ink);padding:2px 0}
+.tm-costline .muted,.tm-costline.muted{color:var(--ink-30)}
+.tm-tgt{display:inline-block;width:58px;padding:3px 6px;margin:0 2px}
 .tm-inp{width:100%;font-family:var(--fb);font-size:12.5px;color:var(--ink);background:rgba(245,232,200,0.04);
   border:1px solid var(--ink-12);border-radius:6px;padding:7px 9px;outline:none;box-sizing:border-box}
 .tm-inp:focus{border-color:var(--olive)}
@@ -27258,6 +27265,36 @@ const DATA = {
       }
     ]
   },
+  "swan_protein_baseline": {
+    "Ground Beef / Bolo Meat": {
+      "price": 13.2,
+      "unit": "lb"
+    },
+    "Beef Tenderloin": {
+      "price": 33.0,
+      "unit": "lb"
+    },
+    "Beef Shanks": {
+      "price": 15.0,
+      "unit": "lb"
+    },
+    "Pork Belly": {
+      "price": 12.0,
+      "unit": "lb"
+    },
+    "Pork Chops": {
+      "price": 15.75,
+      "unit": "lb"
+    },
+    "Chicken Eggs": {
+      "price": 8.5,
+      "unit": "dozen"
+    },
+    "Duck Eggs": {
+      "price": 1.0,
+      "unit": "each"
+    }
+  },
   "merlino_meta": {
     "sheet_date": "2026-06-22",
     "item_count": 118
@@ -35489,13 +35526,75 @@ window.RemyFarm={
   // its vendor. Without this the trend price filled (price-trends keys on the clean name) but the
   // vendor stayed blank, so a 2/4-mapped dish showed price+unit and no vendor.
   function tmIngByBase(){if(TM._ingBase)return TM._ingBase;var m={};(DATA.ingredients||[]).forEach(function(g){if(g.name){var b=tmBase(g.name);if(!m[b])m[b]=g;}});TM._ingBase=m;return m;}
+  /* ── Price resolution chain (2026-07-02): trends only knew commodity prices, so Swan-mapped
+     items (family-tier, excluded from trends BY DESIGN) resolved a vendor but never a price.
+     Chain: price-trends → Kelly's live ask (RemyFarm) → Swan protein baseline → vendor catalogs.
+     Used by tmApplyAuto AND by vendor picks, so choosing a vendor visibly fills price+unit. ── */
+  function tmSwanish(v){return /swan/i.test(String(v||''));}
+  function tmNameKeys(name){
+    var out=[],n=String(name||'').toLowerCase().trim();if(!n)return out;
+    out.push(n);var b=tmBase(name);if(b&&out.indexOf(b)<0)out.push(b);
+    return out;
+  }
+  function tmSwanAsk(name){
+    if(!(window.RemyFarm&&window.RemyFarm.list))return null;
+    var keys=tmNameKeys(name),rows=window.RemyFarm.list()||[],i,j;
+    for(i=0;i<rows.length;i++){var g=rows[i];if(g.ask==null)continue;
+      var gk=tmNameKeys(g.name);
+      for(j=0;j<keys.length;j++)if(gk.indexOf(keys[j])>=0)return {amount:g.ask,unit:tmUnitNorm(g.askUnit||'lb'),source:'farm ask'};}
+    return null;
+  }
+  function tmSwanBaseline(name){
+    var B=DATA.swan_protein_baseline||{},keys=tmNameKeys(name),bn;
+    for(bn in B){if(!B.hasOwnProperty(bn))continue;
+      // baseline names can be slash-aliases: "Ground Beef / Bolo Meat" matches "bolo meat"
+      var parts=String(bn).toLowerCase().split('/').map(function(s){return s.trim();});
+      parts.push(String(bn).toLowerCase().trim());
+      for(var j=0;j<keys.length;j++)if(parts.indexOf(keys[j])>=0)return {amount:B[bn].price,unit:tmUnitNorm(B[bn].unit||'lb'),source:'Swan baseline'};}
+    return null;
+  }
+  function tmCatFind(name,vendor){
+    var keys=tmNameKeys(name),best=null,vq=String(vendor||'').toLowerCase();
+    function consider(vend,nm,price,unit){
+      if(price==null||price==='')return;
+      if(vq&&String(vend).toLowerCase().indexOf(vq)<0&&vq.indexOf(String(vend).toLowerCase())<0)return;
+      var nml=String(nm||'').toLowerCase();
+      var rank=null;
+      for(var j=0;j<keys.length;j++){
+        if(nml===keys[j]){rank=0;break;}
+        if(nml.indexOf(keys[j])>=0||keys[j].indexOf(nml)>=0){rank=1+nml.length/500;}
+      }
+      if(rank==null)return;
+      if(!best||rank<best.rank)best={rank:rank,amount:Number(price),unit:tmUnitNorm(unit||''),vendor:vend,source:'catalog'};
+    }
+    var pm=DATA.preserve_meat_catalog||{};
+    Object.keys(pm).forEach(function(cat){(pm[cat]||[]).forEach(function(p){
+      var nm=tmCatClean(p.name);if(!nm||/^low stock$/i.test(nm))return;
+      var pr=tmCatPrice(p.price);consider('Preserve Meat',nm,pr.price,pr.unit||p.unit);});});
+    var vp=DATA.vendor_prices||{};
+    Object.keys(vp).forEach(function(v){(vp[v]||[]).forEach(function(p){consider(v,p.name,p.price,p.unit);});});
+    return best;
+  }
+  function tmResolvePrice(c,vendorFilter){
+    var name=c.maps_to||c.raw;if(!name)return null;
+    var vf=vendorFilter!=null?vendorFilter:(c.vendor||'');
+    if(vf&&tmSwanish(vf))return tmSwanAsk(name)||tmSwanBaseline(name)||null;
+    if(vf)return tmCatFind(name,vf);
+    var key=String(name).toLowerCase(),t=tmTrendBy()[key];
+    if(t&&t.amount!=null)return {amount:t.amount,unit:tmUnitNorm(t.unit),source:'trend'};
+    if(tmSwanish(c.vendor))return tmSwanAsk(name)||tmSwanBaseline(name)||null;
+    return tmCatFind(name,'');
+  }
   function tmApplyAuto(c){
     if(c.kind!=='sub_recipe'&&(c.kind==='pantry'||c.kind==='untracked'||c.kind==='sourced')&&tmLooksLikeSub(c.raw))c.kind='sub_recipe';
     if(c.maps_to){
-      var key=String(c.maps_to).toLowerCase(),t=tmTrendBy()[key],g=tmIngBy()[key];
+      var key=String(c.maps_to).toLowerCase(),g=tmIngBy()[key];
       if(!g)g=tmIngByBase()[tmBase(c.maps_to)];
       if(!c.vendor&&g&&g.vendor)c.vendor=tmVendorCanon(g.vendor);
-      if((c.price.amount===''||c.price.amount==null)&&t&&t.amount!=null){c.price.amount=t.amount;c.price.unit=tmUnitNorm(t.unit);}
+      if(c.price.amount===''||c.price.amount==null){
+        var r=tmResolvePrice(c,null);
+        if(r&&r.amount!=null){c.price.amount=r.amount;c.price.unit=r.unit||c.price.unit;}
+      }
     }
     return c;
   }
@@ -35503,6 +35602,7 @@ window.RemyFarm={
   function tmNormComp(c){
     return {raw:c.raw,kind:c.kind||'untracked',maps_to:c.maps_to||null,vendor:c.vendor||'',
       price:(c.price&&typeof c.price==='object')?{amount:(c.price.amount==null?'':c.price.amount),unit:c.price.unit||''}:{amount:'',unit:''},
+      portion:(c.portion&&typeof c.portion==='object')?{qty:(c.portion.qty==null?'':c.portion.qty)}:{qty:''},
       confidence:c.confidence||''};
   }
   function tmInitState(){
@@ -35511,6 +35611,7 @@ window.RemyFarm={
     src.forEach(function(d){
       var key=tmSlug(d.name);
       TM.state[key]={name:d.name,section:d.section||'',desc:d.desc||d.description||'',price:d.price||'',
+        target_pct:(d.target_pct!=null?d.target_pct:25),
         hero:d.hero||null,components:(d.components||[]).map(function(c){return tmApplyAuto(tmNormComp(c));}),_open:false,_subopen:false};
     });
   }
@@ -35522,8 +35623,8 @@ window.RemyFarm={
         snap.forEach(function(doc){
           var d=doc.data()||{},key=doc.id;
           var ovl=function(c){return tmApplyAuto(tmNormComp(c));}; // fill vendor/price for maps_to items the finalized doc left blank (never overrides a set value)
-          if(TM.state[key]){if(Array.isArray(d.components))TM.state[key].components=d.components.map(ovl);}
-          else TM.state[key]={name:d.name||key,section:d.section||'',desc:d.desc||'',price:d.price||'',hero:d.hero||null,components:(d.components||[]).map(ovl),_open:false,_subopen:false};
+          if(TM.state[key]){if(Array.isArray(d.components))TM.state[key].components=d.components.map(ovl);if(d.target_pct!=null)TM.state[key].target_pct=d.target_pct;}
+          else TM.state[key]={name:d.name||key,section:d.section||'',desc:d.desc||'',price:d.price||'',target_pct:(d.target_pct!=null?d.target_pct:25),hero:d.hero||null,components:(d.components||[]).map(ovl),_open:false,_subopen:false};
         });
         done&&done();
       }).catch(function(){done&&done();});
@@ -35590,6 +35691,7 @@ window.RemyFarm={
       subs.forEach(function(i){h+=tmIngRow(k,i);});
       h+='</div></div>';
     }
+    h+=tmCostPanelHtml(k);
     h+='<div class="tm-fin"><button class="tm-finbtn" data-act="finalize" data-k="'+esc(k)+'">Finalize ingredient list</button>'
       +'<span class="tm-stamp" data-stamp="'+esc(k)+'"></span></div>';
     return h;
@@ -35604,9 +35706,45 @@ window.RemyFarm={
       h+='<div class="tm-fld"><input class="tm-inp" data-act="vendor" data-k="'+esc(k)+'" data-i="'+i+'" value="'+esc(c.vendor)+'" placeholder="Vendor…" autocomplete="off"></div>';
       h+='<div class="tm-fld price"><input class="tm-inp" type="number" min="0" step="0.01" inputmode="decimal" data-act="price" data-k="'+esc(k)+'" data-i="'+i+'" value="'+esc(c.price.amount)+'" placeholder="Price"></div>';
       h+='<div class="tm-fld unit"><select class="tm-inp" data-act="unit" data-k="'+esc(k)+'" data-i="'+i+'">'+tmUnitOpts(c.price.unit)+'</select></div>';
+      // Portion for dish costing: qty in the SAME unit the price is in (0.375 lb, 2 each). No unit
+      // conversion in v1 — the label makes the contract visible.
+      h+='<div class="tm-fld portion"><input class="tm-inp" type="number" min="0" step="0.001" inputmode="decimal" data-act="portion" data-k="'+esc(k)+'" data-i="'+i+'" value="'+esc(c.portion&&c.portion.qty!=null?c.portion.qty:'')+'" placeholder="Portion">'
+        +'<span class="tm-punit">'+esc(tmUnitNorm(c.price.unit)||'unit')+'/serving</span></div>';
     }
     return h+'</div>';
   }
+  // ---- dish costing (2026-07-02, 25% house default) ----
+  function tmMenuPrice(d){var n=parseFloat(String(d.price==null?'':d.price).replace(/[^0-9.]/g,''));return isNaN(n)?null:n;}
+  function tmDishCost(d){
+    var cost=0,costed=0,eligible=0;
+    (d.components||[]).forEach(function(c){
+      if(!tmCountable(c))return;
+      eligible++;
+      var p=(c.price&&c.price.amount!==''&&c.price.amount!=null)?Number(c.price.amount):null;
+      var q=(c.portion&&c.portion.qty!==''&&c.portion.qty!=null)?Number(c.portion.qty):null;
+      if(p!=null&&q!=null&&!isNaN(p)&&!isNaN(q)){cost+=p*q;costed++;}
+    });
+    return {cost:cost,costed:costed,eligible:eligible};
+  }
+  function tmCostPanelHtml(k){
+    var d=TM.state[k],r=tmDishCost(d),mp=tmMenuPrice(d);
+    var t=(d.target_pct!=null&&d.target_pct!=='')?Number(d.target_pct):25;if(isNaN(t)||t<=0)t=25;
+    var h='<div class="tm-cost" data-costpanel="'+esc(k)+'">';
+    if(!r.costed){
+      h+='<div class="tm-costline muted">Dish costing: add portions next to priced ingredients and this fills in.</div>';
+      return h+'</div>';
+    }
+    var partial=r.costed<r.eligible?' <span class="muted">('+r.costed+' of '+r.eligible+' costed)</span>':'';
+    h+='<div class="tm-costline"><b>Ingredient cost $'+r.cost.toFixed(2)+'</b>'+partial+'</div>';
+    if(mp!=null&&mp>0){
+      var pct=r.cost/mp*100;
+      h+='<div class="tm-costline">At the $'+mp.toFixed(2)+' menu price → <b>'+pct.toFixed(1)+'% food cost</b></div>';
+    }
+    var sugg=r.cost/(t/100);
+    h+='<div class="tm-costline">Target <input class="tm-inp tm-tgt" type="number" min="1" max="99" step="0.5" inputmode="decimal" data-act="target" data-k="'+esc(k)+'" value="'+esc(t)+'">% → <b>suggested $'+sugg.toFixed(2)+'</b>'+(r.costed<r.eligible?' <span class="muted">(floor — uncosted ingredients not included)</span>':'')+'</div>';
+    return h+'</div>';
+  }
+  function tmCostRefresh(k){var el=document.querySelector('[data-costpanel="'+k+'"]');if(el){var w=document.createElement('div');w.innerHTML=tmCostPanelHtml(k);el.parentNode.replaceChild(w.firstChild,el);}}
   function tmRerenderDish(k){var el=document.querySelector('.tm-dish[data-k="'+k+'"]');if(!el){tmRender();return;}var w=document.createElement('div');w.innerHTML=tmDishRow(k);el.parentNode.replaceChild(w.firstChild,el);}
 
   // ---- autocomplete ----
@@ -35694,6 +35832,12 @@ window.RemyFarm={
     if(ctx.type==='vendor'){
       var comp=TM.state[ctx.k].components[ctx.i];comp.vendor=val;
       if(item.getAttribute('data-offer')){var p=item.getAttribute('data-price');comp.price.amount=(p===''?'':Number(p));comp.price.unit=item.getAttribute('data-unit')||'';}
+      else if(comp.price.amount===''||comp.price.amount==null){
+        // plain vendor pick: resolve a price for this ingredient AT this vendor (Swan → Kelly's
+        // ask/baseline; catalog vendors → their sheets). Never clobbers a chef-typed price.
+        var r=tmResolvePrice(comp,val);
+        if(r&&r.amount!=null){comp.price.amount=r.amount;comp.price.unit=r.unit||comp.price.unit;}
+      }
       tmCloseAC();tmRerenderDish(ctx.k);
     }
     else if(ctx.type==='add'){
@@ -35714,8 +35858,11 @@ window.RemyFarm={
     var d=TM.state[k],stamp=document.querySelector('[data-stamp="'+k+'"]');
     function show(msg,err){if(!stamp)return;stamp.textContent=msg;stamp.className='tm-stamp show'+(err?' err':'');setTimeout(function(){stamp.className='tm-stamp';},2800);}
     var doc={name:d.name,section:d.section,desc:d.desc,price:d.price,hero:d.hero||null,
+      target_pct:(d.target_pct===''||d.target_pct==null||isNaN(Number(d.target_pct)))?25:Number(d.target_pct),
       components:d.components.map(function(c){return {raw:c.raw,kind:c.kind,maps_to:c.maps_to||null,vendor:c.vendor||'',
-        price:{amount:(c.price.amount===''||c.price.amount==null)?null:Number(c.price.amount),unit:c.price.unit||''},confidence:c.confidence||''};}),
+        price:{amount:(c.price.amount===''||c.price.amount==null)?null:Number(c.price.amount),unit:c.price.unit||''},
+        portion:{qty:(c.portion&&c.portion.qty!==''&&c.portion.qty!=null&&!isNaN(Number(c.portion.qty)))?Number(c.portion.qty):null},
+        confidence:c.confidence||''};}),
       updated_at:new Date().toISOString(),updated_by:'remy-portal'};
     tmFbInit(function(){
       if(!TMFB.ready||!TMFB.db){show('Saved locally (offline)');return;}
@@ -35742,7 +35889,9 @@ window.RemyFarm={
       var t=e.target,act=t.getAttribute&&t.getAttribute('data-act');if(!act)return;
       var k=t.getAttribute('data-k'),i=t.getAttribute('data-i');
       if(act==='vendor'){var cc=TM.state[k].components[+i];cc.vendor=t.value;var row=t.closest('.tm-ing');if(row)row.classList.toggle('mapped',tmIsMapped(cc));var offs=tmOfferMatches(cc,t.value);tmShowAC(t.parentNode,offs.length?offs:tmVendorMatches(t.value));TM.acCtx={type:'vendor',k:k,i:+i};}
-      else if(act==='price'){TM.state[k].components[+i].price.amount=t.value;}
+      else if(act==='price'){TM.state[k].components[+i].price.amount=t.value;tmCostRefresh(k);}
+      else if(act==='portion'){var pc=TM.state[k].components[+i];if(!pc.portion)pc.portion={qty:''};pc.portion.qty=t.value;tmCostRefresh(k);}
+      else if(act==='target'){TM.state[k].target_pct=t.value;var tp=document.querySelector('[data-costpanel="'+k+'"]');if(tp){/* live-update only the suggested figure without stealing focus */var d2=TM.state[k],r2=tmDishCost(d2),tv=Number(t.value);if(!isNaN(tv)&&tv>0&&r2.costed){var bs=tp.querySelectorAll('.tm-costline b');var last=bs[bs.length-1];if(last)last.textContent='suggested $'+(r2.cost/(tv/100)).toFixed(2);}}}
       else if(act==='addsearch'){tmShowAC(t.parentNode,tmIngMatches(t.value));TM.acCtx={type:'add',k:k};}
     });
     // clicking/focusing a mapped ingredient's vendor field surfaces its alternate vendors (offers)
@@ -35753,7 +35902,7 @@ window.RemyFarm={
       if(offs.length){tmShowAC(t.parentNode,offs);TM.acCtx={type:'vendor',k:k,i:i};}
     });
     h.addEventListener('change',function(e){
-      var t=e.target;if(t.getAttribute&&t.getAttribute('data-act')==='unit'){TM.state[t.getAttribute('data-k')].components[+t.getAttribute('data-i')].price.unit=t.value;}
+      var t=e.target;if(t.getAttribute&&t.getAttribute('data-act')==='unit'){var uk=t.getAttribute('data-k');TM.state[uk].components[+t.getAttribute('data-i')].price.unit=t.value;tmRerenderDish(uk);/* portion label reads the price unit */}
     });
     document.addEventListener('mousedown',function(e){
       if(!TM.ac)return;
