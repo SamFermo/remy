@@ -21007,8 +21007,8 @@ const DATA = {
             "confidence": "exact",
             "vendor": "Merlino's",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 8.0,
+              "unit": "each"
             },
             "portion": {
               "qty": null
@@ -21049,8 +21049,8 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Quality Produce",
             "price": {
-              "amount": null,
-              "unit": "case"
+              "amount": 1.19,
+              "unit": "each"
             },
             "portion": {
               "qty": null
@@ -21307,7 +21307,11 @@ const DATA = {
             "raw": "parmigiano reggiano",
             "kind": "sourced",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "price": {
+              "amount": 11.15,
+              "unit": "lb"
+            }
           }
         ]
       },
@@ -21322,7 +21326,11 @@ const DATA = {
             "raw": "Italian pork sausage",
             "kind": "sourced",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "price": {
+              "amount": 6.99,
+              "unit": "each"
+            }
           },
           {
             "raw": "morel mushroom",
@@ -21361,7 +21369,11 @@ const DATA = {
             "raw": "parmigiano reggiano",
             "kind": "sourced",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "price": {
+              "amount": 11.15,
+              "unit": "lb"
+            }
           }
         ]
       },
@@ -21394,7 +21406,11 @@ const DATA = {
             "raw": "pecorino romano",
             "kind": "sourced",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "price": {
+              "amount": 9.95,
+              "unit": "lb"
+            }
           }
         ]
       },
@@ -27898,7 +27914,7 @@ const DATA = {
         "broken": true
       },
       {
-        "name": "Matiz Boquerones White Anch In Vinegar",
+        "name": "Matiz Boquerones White Anchovy In Vinegar",
         "price": 124.64,
         "unit": "4/20 OZ",
         "brand": "Matiz",
@@ -27907,7 +27923,7 @@ const DATA = {
         "note": "ETA end of july"
       },
       {
-        "name": "Matiz Boquerones White Anch In Vinegar",
+        "name": "Matiz Boquerones White Anchovy In Vinegar",
         "price": 31.96,
         "unit": "1/20 OZ",
         "brand": "Matiz",
@@ -28814,7 +28830,7 @@ const DATA = {
         "date": "2026-04-03"
       }
     ],
-    "DIM Pacific Food Importers": [
+    "PFI": [
       {
         "name": "Romano Pecorino",
         "price": 9.95,
@@ -28848,13 +28864,13 @@ const DATA = {
         "date": "2026-04-02"
       },
       {
-        "name": "Chs Burrata Italy Frzn",
+        "name": "Cheese Burrata Italy Frzn",
         "price": 32.75,
         "unit": "CS",
         "date": "2026-06-29"
       },
       {
-        "name": "Chs Parm Roundbale Whl",
+        "name": "Cheese Parmigiano Roundbale Whole",
         "price": 11.15,
         "unit": "LB",
         "date": "2026-06-08"
@@ -37365,7 +37381,26 @@ window.RemyFarm={
   function tmNameKeys(name){
     var out=[],n=String(name||'').toLowerCase().trim();if(!n)return out;
     out.push(n);var b=tmBase(name);if(b&&out.indexOf(b)<0)out.push(b);
+    // head word of a multiword name ("parmigiano reggiano" → "parmigiano"); ≥6 chars so
+    // short heads ("corn ...") can't hijack unrelated products
+    var head=(n.indexOf(' ')>0)?n.split(' ')[0]:'';
+    if(head.length>=6&&out.indexOf(head)<0)out.push(head);
     return out;
+  }
+  // Vendor-name variants must match ("Merlino's" ~ "Merlino Foods", "Franks Quality
+  // Produce" ~ "Franks Produce", "PFI" ~ "PFI") without cross-matching distinct vendors
+  // (Preserve Meat ≠ Preservation Meat Collective). Token sets minus generic words.
+  var TM_VEND_GENERIC=['foods','food','produce','quality','provisions','importers','imports','company','co','inc','llc','farm','farms','fish','and','sons','&'];
+  function tmVendSame(a,b){
+    function toks(s){var t=String(s||'').toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/)
+      .map(function(w){return w.replace(/'?s$/,'').replace(/s$/,'');})
+      .filter(function(w){return w;});
+      var core=t.filter(function(w){return TM_VEND_GENERIC.indexOf(w)<0;});
+      return core.length?core:t;}
+    var ta=toks(a),tb=toks(b);
+    if(!ta.length||!tb.length)return false;
+    var sub=function(x,y){return x.every(function(w){return y.indexOf(w)>=0;});};
+    return sub(ta,tb)||sub(tb,ta);
   }
   function tmSwanAsk(name){
     if(!(window.RemyFarm&&window.RemyFarm.list))return null;
@@ -37389,7 +37424,7 @@ window.RemyFarm={
      pickled onion"), a form-word guard (juice/oil/dried/... in the catalog name but not the
      component = different product), and case-priced rows without pack info are skipped
      rather than filled raw. The SEARCH dropdown (tmCatMatches) stays loose — a human picks. */
-  var TM_FORM_WORDS=['juice','oil','sauce','powder','dried','paste','syrup','jam','canned','frozen','puree','concentrate','extract','vinegar','salt','pickled','smoked','cured','ground'];
+  var TM_FORM_WORDS=['juice','oil','sauce','powder','dried','paste','syrup','jam','canned','frozen','puree','concentrate','extract','salt','pickled','smoked','cured','ground'];   /* 'vinegar' dropped 2026-07-03: "in vinegar" is a preparation of the product (Matiz anchovies) */
   var TM_CHEF_UNITS=['lb','oz','each','quart','pint','bunch','dozen','head'];
   function tmCatFind(name,vendor){
     var keys=tmNameKeys(name),best=null,vq=String(vendor||'').toLowerCase();
@@ -37397,12 +37432,22 @@ window.RemyFarm={
     function wordHit(k,nml){return new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(nml);}
     function consider(vend,nm,price,unit){
       if(price==null||price==='')return;
-      if(vq&&String(vend).toLowerCase().indexOf(vq)<0&&vq.indexOf(String(vend).toLowerCase())<0)return;
+      if(vq&&!tmVendSame(vq,vend))return;
       var nml=String(nm||'').toLowerCase();
       var rank=null;
       for(var j=0;j<keys.length;j++){
         if(nml===keys[j]){rank=0;break;}
-        if(wordHit(keys[j],nml)){rank=1+nml.length/500;}
+        if(wordHit(keys[j],nml)){
+          // head-word keys ("fennel" for "fennel pollen") only count when the catalog name
+          // carries another REAL word beyond the head — ".5 Fennel" / "Fennel Ea" are still
+          // just the bulb
+          if(keys[j]!==keys[0]&&keys[j].indexOf(' ')<0){
+            var rest=nml.replace(new RegExp('\\b'+keys[j].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','g'),'')
+                        .replace(/\b(ea|each|ct|cs|bulk|lb|oz)\b/g,'');
+            if(!/[a-z]{3,}/.test(rest))continue;
+          }
+          rank=1+nml.length/500;
+        }
       }
       if(rank==null)return;
       for(var f=0;f<TM_FORM_WORDS.length;f++){var w=TM_FORM_WORDS[f];
@@ -37438,10 +37483,13 @@ window.RemyFarm={
       var key=String(c.maps_to).toLowerCase(),g=tmIngBy()[key];
       if(!g)g=tmIngByBase()[tmBase(c.maps_to)];
       if(!c.vendor&&g&&g.vendor)c.vendor=tmVendorCanon(g.vendor);
-      if(c.price.amount===''||c.price.amount==null){
-        var r=tmResolvePrice(c,null);
-        if(r&&r.amount!=null){c.price.amount=r.amount;c.price.unit=r.unit||c.price.unit;}
-      }
+    }
+    // Price fill runs for TYPED components too (2026-07-03: the maps_to gate left the chef's
+    // own "anchovy @ Merlino's" rows permanently priceless). Never a sub_recipe, never
+    // overwrites a chef-typed amount.
+    if(c.kind!=='sub_recipe'&&(c.maps_to||c.raw)&&(c.price.amount===''||c.price.amount==null)){
+      var r=tmResolvePrice(c,null);
+      if(r&&r.amount!=null){c.price.amount=r.amount;c.price.unit=r.unit||c.price.unit;}
     }
     return c;
   }
