@@ -21212,7 +21212,8 @@ const DATA = {
             "price": {
               "amount": 5.38,
               "unit": "quart"
-            }
+            },
+            "vendor": "Franks Produce"
           },
           {
             "raw": "cucumber",
@@ -21284,7 +21285,8 @@ const DATA = {
             "price": {
               "amount": 5.38,
               "unit": "quart"
-            }
+            },
+            "vendor": "Franks Produce"
           },
           {
             "raw": "fennel",
@@ -21294,7 +21296,8 @@ const DATA = {
             "price": {
               "amount": 2.08,
               "unit": "each"
-            }
+            },
+            "vendor": "Franks Produce"
           },
           {
             "raw": "rosemary",
@@ -21311,7 +21314,8 @@ const DATA = {
             "price": {
               "amount": 11.15,
               "unit": "lb"
-            }
+            },
+            "vendor": "Chefs' Warehouse"
           }
         ]
       },
@@ -21330,7 +21334,8 @@ const DATA = {
             "price": {
               "amount": 6.99,
               "unit": "each"
-            }
+            },
+            "vendor": "Preservation Meat Collective"
           },
           {
             "raw": "morel mushroom",
@@ -21363,7 +21368,8 @@ const DATA = {
             "price": {
               "amount": 3.0,
               "unit": "each"
-            }
+            },
+            "vendor": "Franks Produce"
           },
           {
             "raw": "parmigiano reggiano",
@@ -21373,7 +21379,8 @@ const DATA = {
             "price": {
               "amount": 11.15,
               "unit": "lb"
-            }
+            },
+            "vendor": "Chefs' Warehouse"
           }
         ]
       },
@@ -21410,7 +21417,8 @@ const DATA = {
             "price": {
               "amount": 9.95,
               "unit": "lb"
-            }
+            },
+            "vendor": "PFI"
           }
         ]
       },
@@ -21442,7 +21450,8 @@ const DATA = {
             "price": {
               "amount": 3.0,
               "unit": "each"
-            }
+            },
+            "vendor": "Franks Produce"
           },
           {
             "raw": "basil",
@@ -21513,7 +21522,8 @@ const DATA = {
             "price": {
               "amount": 3.0,
               "unit": "each"
-            }
+            },
+            "vendor": "Franks Produce"
           }
         ]
       },
@@ -21569,7 +21579,8 @@ const DATA = {
             "price": {
               "amount": 4.77,
               "unit": "lb"
-            }
+            },
+            "vendor": "Merlino Foods"
           },
           {
             "raw": "ladyfingers",
@@ -37489,7 +37500,12 @@ window.RemyFarm={
     // overwrites a chef-typed amount.
     if(c.kind!=='sub_recipe'&&(c.maps_to||c.raw)&&(c.price.amount===''||c.price.amount==null)){
       var r=tmResolvePrice(c,null);
-      if(r&&r.amount!=null){c.price.amount=r.amount;c.price.unit=r.unit||c.price.unit;}
+      if(r&&r.amount!=null){
+        c.price.amount=r.amount;c.price.unit=r.unit||c.price.unit;
+        // a price is only trustworthy WITH its source: catalog fills carry their vendor
+        // (2026-07-03 — orphaned prices looked broken and didn't count as mapped)
+        if(!c.vendor&&r.vendor)c.vendor=tmVendorCanon(r.vendor);
+      }
     }
     return c;
   }
