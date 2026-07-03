@@ -37507,6 +37507,14 @@ window.RemyFarm={
         if(!c.vendor&&r.vendor)c.vendor=tmVendorCanon(r.vendor);
       }
     }
+    else if(c.kind!=='sub_recipe'&&(c.maps_to||c.raw)&&!(c.vendor&&String(c.vendor).trim())&&c.price.amount!==''&&c.price.amount!=null){
+      // VENDOR REPAIR for docs finalized during the orphan-price window (2026-07-03):
+      // Firestore-authored components can carry a filled price with an empty vendor, and
+      // the overlay wins over the repaired baked map. If an unfiltered resolve lands within
+      // a cent of the stored price, that's the source — reunite them. Next Finalize persists.
+      var r2=tmResolvePrice({maps_to:c.maps_to,raw:c.raw,vendor:'',price:{amount:'',unit:''}},null);
+      if(r2&&r2.amount!=null&&r2.vendor&&Math.abs(Number(r2.amount)-Number(c.price.amount))<0.011)c.vendor=tmVendorCanon(r2.vendor);
+    }
     return c;
   }
 
