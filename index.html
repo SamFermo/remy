@@ -21641,6 +21641,16 @@ const DATA = {
       "aliases": []
     },
     {
+      "key": "fooder",
+      "display": "Fooder LLC",
+      "tier": "",
+      "aliases": [
+        "fooder",
+        "fooder llc",
+        "marco@fooder.biz's company"
+      ]
+    },
+    {
       "key": "foraged_found",
       "display": "Foraged & Found Edibles",
       "tier": "",
@@ -21661,6 +21671,17 @@ const DATA = {
         "frank's quality produce",
         "franks quality produce",
         "franks_produce"
+      ]
+    },
+    {
+      "key": "greco_sons",
+      "display": "Greco and Sons",
+      "tier": "",
+      "aliases": [
+        "greco and sons",
+        "greco & sons",
+        "greco",
+        "greco and sons seattle"
       ]
     },
     {
@@ -34650,6 +34671,7 @@ window.RemyFarm={
   };});},
   askLabel:function(g){return g&&g.askMode?askModeLabel(g):'';},
   profile:function(){return farmProfile||{};},
+  invoicePdf:function(o){invPdf(o);},   // kitchen-side read-only invoice view (Sent column)
   onChange:function(fn){if(typeof fn==='function')_cfListeners.push(fn);}
 };
 
@@ -34845,6 +34867,13 @@ window.RemyFarm={
   };
   window._cfOrdReviewClose=function(){var o=document.getElementById('cfOrdReview');if(o)o.remove();};
   window._cfSentToggle=function(id){cfSentOpen[id]=!cfSentOpen[id];render();};
+  // Kitchen-side read-only view of Kelly's finalized invoice: find the live order doc, hand it to
+  // the farm module's print-doc renderer (exposed on RemyFarm.invoicePdf — same doc Kelly gets).
+  window._cfInvPdf=function(id){
+    var raw=(window.RemyOrders&&window.RemyOrders.orders)?window.RemyOrders.orders():[];
+    var o=(raw||[]).filter(function(x){return x.order_id===id;})[0];
+    if(o&&o.invoice&&window.RemyFarm&&window.RemyFarm.invoicePdf)window.RemyFarm.invoicePdf(o);
+  };
   window._cfOrdConfirmSend=function(){
     var _rv=document.getElementById('cfOrdReview');if(_rv)_rv.remove();   // close the review modal
     var names=Object.keys(cfOrder.items);if(!names.length)return;
@@ -35005,14 +35034,31 @@ window.RemyFarm={
     var out='';
     mine.forEach(function(o){
       var st=o.status||'placed';var lines=o.lines||[];
+      var inv=(o.invoice&&o.invoice.finalized_at)?o.invoice:null;   // Kelly finalized → the billed invoice rides on the order doc
       var flags=lines.filter(function(l){return l.farm_status==='short'||l.farm_status==='sub';}).length;
       var when=cfWhen(o.placed_at);var needed=o.requested_date?cfWhen(o.requested_date):'no date';
       var open=!!cfSentOpen[o.order_id];
-      var badge='<span style="font-family:var(--fb,sans-serif);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:9px;border:1px solid '+(CLR[st]||'var(--ink-30)')+';color:'+(CLR[st]||'var(--ink-30)')+'">'+(LBL[st]||esc(st))+'</span>';
-      var detail=open?('<div style="margin-top:10px;border-top:1px solid var(--ink-12);padding-top:9px">'+lines.map(function(l){
+      var badge=inv
+        ?'<span style="font-family:var(--fb,sans-serif);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:9px;border:1px solid var(--gold);color:var(--gold)">Invoiced $'+Number(inv.total||0).toFixed(2)+'</span>'
+        :'<span style="font-family:var(--fb,sans-serif);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:9px;border:1px solid '+(CLR[st]||'var(--ink-30)')+';color:'+(CLR[st]||'var(--ink-30)')+'">'+(LBL[st]||esc(st))+'</span>';
+      // Expanded detail: once finalized, show the BILLED invoice lines (qty × $/unit = amount);
+      // before that, the ordered lines with Kelly's asks as reference.
+      var detail='';
+      if(open&&inv){
+        var invLines=(inv.lines||[]).map(function(l){
+          var fs=l.farm_status?' <span style="color:#c4633f;font-size:11px;font-weight:600">'+esc(l.farm_status)+(l.farm_note?': '+esc(l.farm_note):'')+'</span>':'';
+          return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+'</span><span style="color:var(--ink-60);white-space:nowrap">'+(l.price!=null?'$'+Number(l.price).toFixed(2)+' · ':'')+(l.amount!=null?'<b style="color:var(--ink)">$'+Number(l.amount).toFixed(2)+'</b>':'')+'</span></div>';
+        }).join('');
+        detail='<div style="margin-top:10px;border-top:1px solid var(--ink-12);padding-top:9px">'+invLines+
+          '<div style="display:flex;justify-content:space-between;padding:7px 0 0;font-family:var(--fb,sans-serif);font-size:13.5px;font-weight:700;color:var(--ink);border-top:1px solid var(--ink-12);margin-top:5px"><span>Total · finalized '+esc((inv.finalized_at||'').slice(0,10))+'</span><span>$'+Number(inv.total||0).toFixed(2)+'</span></div>'+
+          '<button onclick="event.stopPropagation();_cfInvPdf(\''+cfJss(o.order_id)+'\')" style="margin-top:9px;font-family:var(--fb,sans-serif);font-size:12px;font-weight:600;letter-spacing:.03em;padding:7px 12px;border-radius:9px;border:1px solid var(--gold);color:var(--gold);background:transparent;cursor:pointer">View / save invoice PDF</button>'+
+          (o.order_note?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60);font-style:italic;margin-top:6px">“'+esc(o.order_note)+'”</div>'):'')+'</div>';
+      }else if(open){
+        detail='<div style="margin-top:10px;border-top:1px solid var(--ink-12);padding-top:9px">'+lines.map(function(l){
         var fs=l.farm_status==='short'?' <span style="color:#c4633f;font-size:11px;font-weight:600">short</span>':(l.farm_status==='sub'?(' <span style="color:#c4633f;font-size:11px;font-weight:600">sub'+(l.farm_note?': '+esc(l.farm_note):'')+'</span>'):'');
         return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+(l.packed?'✓ ':'')+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+'</span>'+(l.ask!=null?'<span style="color:var(--ink-60);white-space:nowrap">$'+Number(l.ask).toFixed(2)+'</span>':'')+'</div>';
-      }).join('')+(o.order_note?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60);font-style:italic;margin-top:6px">“'+esc(o.order_note)+'”</div>'):'')+'</div>'):'';
+      }).join('')+(o.order_note?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60);font-style:italic;margin-top:6px">“'+esc(o.order_note)+'”</div>'):'')+'</div>';
+      }
       out+='<div class="cf-ord-card" onclick="_cfSentToggle(\''+cfJss(o.order_id)+'\')" style="border:1px solid var(--ink-12);border-radius:11px;padding:12px 13px;margin-bottom:8px;cursor:pointer;background:var(--bg-card)">'+
         '<div style="display:flex;align-items:center;gap:10px"><span style="flex:1;font-family:var(--fd,serif);font-size:16px;color:var(--ink)">'+esc(when||'—')+' · '+esc(o.placed_by||'')+'</span>'+badge+'</div>'+
         '<div style="font-family:var(--fb,sans-serif);font-size:12.5px;color:var(--ink-60);margin-top:4px">'+lines.length+' item'+(lines.length!==1?'s':'')+' · needed '+esc(needed)+(flags?(' · <span style="color:#c4633f">'+flags+' short/sub</span>'):'')+'</div>'+
