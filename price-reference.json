@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-03",
+ "generated": "2026-07-05",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -18,14 +18,14 @@
   "Basil": {
    "swan_price": 11.1,
    "market": 9.25,
-   "unit": "1/2#",
+   "unit": "lb",
    "vendor": "Franks",
-   "date": "2026-06-25",
+   "date": "2026-07-02",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
-   "climb": 28.3,
-   "swan_per_lb": 22.2,
+   "climb": 32.9,
+   "swan_per_lb": 11.1,
    "per_lb_basis": "exact"
   },
   "Beef Primals": {
@@ -168,11 +168,10 @@
    "market": 6.0,
    "unit": "1/4#",
    "vendor": "Franks",
-   "date": "2026-04-20",
-   "freshness": "AGING",
+   "date": "2026-07-02",
+   "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
-   "climb": -41.9,
    "swan_per_lb": 28.8,
    "per_lb_basis": "exact"
   },
@@ -189,16 +188,16 @@
    "per_lb_basis": "estimate"
   },
   "Cucumbers": {
-   "swan_price": 1.8,
-   "market": 1.5,
+   "swan_price": 2.4,
+   "market": 2.0,
    "unit": "each",
    "vendor": "Franks",
-   "date": "2026-06-25",
+   "date": "2026-07-02",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
-   "climb": -40.0,
-   "swan_per_lb": 3.6,
+   "climb": -11.1,
+   "swan_per_lb": 4.8,
    "per_lb_basis": "estimate"
   },
   "Dill": {
@@ -245,7 +244,7 @@
    "market": 2.99,
    "unit": "each",
    "vendor": "Franks",
-   "date": "2026-06-22",
+   "date": "2026-06-29",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
@@ -342,7 +341,7 @@
    "market": 24.25,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-06-25",
+   "date": "2026-07-01",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
@@ -400,16 +399,16 @@
    "per_lb_basis": "exact"
   },
   "Oregano": {
-   "swan_price": 9.0,
-   "market": 7.5,
+   "swan_price": 4.79,
+   "market": 3.99,
    "unit": "1/4#",
    "vendor": "Franks",
-   "date": "2026-06-17",
+   "date": "2026-07-01",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
-   "climb": 67.0,
-   "swan_per_lb": 36.0,
+   "climb": -9.9,
+   "swan_per_lb": 19.16,
    "per_lb_basis": "exact"
   },
   "Parsley": {

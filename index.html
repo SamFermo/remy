@@ -1946,7 +1946,7 @@ if(/[?&]embed=/.test(location.search||'')){
 
 <script>
 const DATA = {
-  "generated": "2026-07-04",
+  "generated": "2026-07-05",
   "ingredients": [
     {
       "name": "Black Cod",
@@ -18979,13 +18979,13 @@ const DATA = {
     },
     {
       "ingredient": "Halibut (New Season)",
-      "latest_price": 16.95,
-      "latest_date": "2026-07-01",
-      "prev_30d_price": 15.43,
-      "trend_30d_pct": 9.9,
+      "latest_price": 14.99,
+      "latest_date": "2026-07-03",
+      "prev_30d_price": 15.61,
+      "trend_30d_pct": -4.0,
       "trend_yoy_pct": null,
       "trend_season_pct": null,
-      "entry_count": 30,
+      "entry_count": 31,
       "vendor": "key_city_fish",
       "unit": "lb",
       "price_range": {
@@ -18993,10 +18993,6 @@ const DATA = {
         "max": 16.95
       },
       "history": [
-        {
-          "date": "2026-06-15",
-          "price": 16.25
-        },
         {
           "date": "2026-06-19",
           "price": 16.95
@@ -19024,6 +19020,10 @@ const DATA = {
         {
           "date": "2026-07-01",
           "price": 16.95
+        },
+        {
+          "date": "2026-07-03",
+          "price": 14.99
         }
       ]
     },
@@ -20854,7 +20854,7 @@ const DATA = {
       "last_digest": "2026-07-04",
       "reapplied": "2026-07-03",
       "reconciled_against": "2026-06-18",
-      "reconciled_at": "2026-07-04"
+      "reconciled_at": "2026-07-05"
     },
     "kinds": {
       "tracked": "maps to a price-tracked ingredient; can fire a creep warning",
@@ -24162,33 +24162,13 @@ const DATA = {
     }
   },
   "menu_price_board": {
-    "generated": "2026-07-04",
+    "generated": "2026-07-05",
     "source": "sf-staff-portal live menu",
     "menu_date": "2026-06-18",
     "menu_captured": "2026-06-22",
     "threshold_pct": 10.0,
     "warnings": [],
     "in_use": [
-      {
-        "ingredient": "Halibut (New Season)",
-        "dishes": [
-          "Pan Roasted Halibut"
-        ],
-        "pct_30d": 9.9,
-        "latest_price": 16.95,
-        "unit": "lb",
-        "prev_30d_price": 15.43,
-        "vendors": [
-          {
-            "vendor": "Key City Fish Co",
-            "price": 16.95,
-            "unit": "lb",
-            "source": "trend",
-            "primary": true
-          }
-        ],
-        "no_trend": false
-      },
       {
         "ingredient": "English Peas",
         "dishes": [
@@ -24320,6 +24300,26 @@ const DATA = {
             "vendor": "Franks Quality Produce",
             "price": 0.99,
             "unit": "bn",
+            "source": "trend",
+            "primary": true
+          }
+        ],
+        "no_trend": false
+      },
+      {
+        "ingredient": "Halibut (New Season)",
+        "dishes": [
+          "Pan Roasted Halibut"
+        ],
+        "pct_30d": -4.0,
+        "latest_price": 14.99,
+        "unit": "lb",
+        "prev_30d_price": 15.61,
+        "vendors": [
+          {
+            "vendor": "Key City Fish Co",
+            "price": 14.99,
+            "unit": "lb",
             "source": "trend",
             "primary": true
           }
@@ -26411,38 +26411,6 @@ const DATA = {
     ]
   },
   "vendor_prices": {
-    "Foraged and Found": [
-      {
-        "name": "06/25/2025 Spring King Bolete/Porcini #3",
-        "price": 12.5,
-        "unit": "lb",
-        "date": "2025-06-27"
-      },
-      {
-        "name": "09/07/2025 Golden Chanterelle, (Cantharellus = Golden Chanterelle, (Cantharellus",
-        "price": 15.5,
-        "unit": "lb",
-        "date": "2025-09-09"
-      },
-      {
-        "name": "09/15/2025 Lobster Mushrooms (Hypomyces \u2014 Lobster Mushrooms (Hypomyces",
-        "price": 12.0,
-        "unit": "lb",
-        "date": "2025-09-17"
-      },
-      {
-        "name": "09/24/2025 Golden Chanterelle, (Cantharellus Golden Chanterelle, (Cantharellus",
-        "price": 13.5,
-        "unit": "lb",
-        "date": "2025-09-26"
-      },
-      {
-        "name": "11/04/2025 Golden Chanterelle, (Cantharellus Golden Chanterelle, (Cantharellus",
-        "price": 12.75,
-        "unit": "lb",
-        "date": "2025-11-06"
-      }
-    ],
     "Franks Produce": [
       {
         "name": ".25 Cabbage, Green",
@@ -27825,32 +27793,6 @@ const DATA = {
         "date": "2026-06-01"
       }
     ],
-    "Preserve Meat & Provisions": [
-      {
-        "name": "Palouse Pastured Chicken Eggs",
-        "price": 99.99,
-        "unit": "case",
-        "date": "2025-07-21"
-      },
-      {
-        "name": "Pure Country Beef Chuck",
-        "price": 14.99,
-        "unit": "lb",
-        "date": "2025-06-27"
-      },
-      {
-        "name": "Pure Country Beef Short Ribs",
-        "price": 14.99,
-        "unit": "lb",
-        "date": "2025-07-07"
-      },
-      {
-        "name": "Unknown PM Item",
-        "price": 14.99,
-        "unit": "lb",
-        "date": "2025-07-14"
-      }
-    ],
     "Key City Fish": [
       {
         "name": "Butterflied Rainbow Trout, farmed, ID, USA",
@@ -27875,6 +27817,12 @@ const DATA = {
         "price": 14.99,
         "unit": "#",
         "date": "2026-06-29"
+      },
+      {
+        "name": "Fresh 10-20 Halibut Whole, Wild, WA/BC, USA/Canada",
+        "price": 14.99,
+        "unit": "#",
+        "date": "2026-07-03"
       },
       {
         "name": "Fresh 20-40 Halibut Whole, Wild, AK, USA",
@@ -28037,6 +27985,26 @@ const DATA = {
         "price": 11.99,
         "unit": "each",
         "date": "2025-12-17"
+      }
+    ],
+    "Preserve Meat & Provisions": [
+      {
+        "name": "Palouse Pastured Chicken Eggs",
+        "price": 99.99,
+        "unit": "case",
+        "date": "2025-07-21"
+      },
+      {
+        "name": "Pure Country Beef Short Ribs",
+        "price": 14.99,
+        "unit": "lb",
+        "date": "2025-07-07"
+      },
+      {
+        "name": "Unknown PM Item",
+        "price": 14.99,
+        "unit": "lb",
+        "date": "2025-07-14"
       }
     ],
     "Merlino Foods": [
@@ -28987,6 +28955,32 @@ const DATA = {
         "broken": true
       }
     ],
+    "Foraged and Found": [
+      {
+        "name": "09/07/2025 Golden Chanterelle, (Cantharellus = Golden Chanterelle, (Cantharellus",
+        "price": 15.5,
+        "unit": "lb",
+        "date": "2025-09-09"
+      },
+      {
+        "name": "09/15/2025 Lobster Mushrooms (Hypomyces \u2014 Lobster Mushrooms (Hypomyces",
+        "price": 12.0,
+        "unit": "lb",
+        "date": "2025-09-17"
+      },
+      {
+        "name": "09/24/2025 Golden Chanterelle, (Cantharellus Golden Chanterelle, (Cantharellus",
+        "price": 13.5,
+        "unit": "lb",
+        "date": "2025-09-26"
+      },
+      {
+        "name": "11/04/2025 Golden Chanterelle, (Cantharellus Golden Chanterelle, (Cantharellus",
+        "price": 12.75,
+        "unit": "lb",
+        "date": "2025-11-06"
+      }
+    ],
     "Preservation Meat Collective": [
       {
         "name": "JMM - Hot Italian Sausage, Links",
@@ -29670,7 +29664,7 @@ const DATA = {
   },
   "weather": {
     "vendor_alerts": {},
-    "last_fetched": "2026-07-02T11:27:00.663974"
+    "last_fetched": "2026-07-05T09:55:32.746538"
   },
   "commodity": [
     {
