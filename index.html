@@ -20845,13 +20845,13 @@ const DATA = {
   "menu_map": {
     "schema_version": "1.0",
     "description": "Curated in-use ingredient map from the live SF staff-portal menu. Decision schema: tracked/sourced/sub_recipe/pantry/untracked/prose. The price board reads this.",
-    "generated": "2026-07-04",
+    "generated": "2026-07-05",
     "source": {
       "file": "Codename: Riker/staff-portal/data/menu.json",
       "menuDate": "2026-06-18",
       "captured": "2026-06-22",
       "authored": true,
-      "last_digest": "2026-07-04",
+      "last_digest": "2026-07-05",
       "reapplied": "2026-07-03",
       "reconciled_against": "2026-06-18",
       "reconciled_at": "2026-07-05"
@@ -21163,9 +21163,9 @@ const DATA = {
         "desc": "strawberries, chamomile gelee, strawberry buttermilk poppy seed vinaigrette, crostini",
         "price": "18",
         "hero": {
+          "price_tracked": false,
           "kind": "sourced",
-          "maps_to": null,
-          "price_tracked": false
+          "maps_to": null
         },
         "target_pct": 25,
         "components": [
@@ -21389,9 +21389,9 @@ const DATA = {
         "desc": "saffron spaghetti, swan house beef & pork, tomato, fennel, rosemary, parmigiano reggiano",
         "price": "32",
         "hero": {
+          "price_tracked": false,
           "maps_to": null,
-          "kind": "sourced",
-          "price_tracked": false
+          "kind": "sourced"
         },
         "target_pct": 25,
         "components": [
@@ -21628,9 +21628,9 @@ const DATA = {
         "desc": "green pea hummus, grilled asparagus, sea bean, shallot, parsley, lemon",
         "price": "38",
         "hero": {
-          "price_tracked": true,
+          "kind": "tracked",
           "maps_to": "Halibut (New Season)",
-          "kind": "tracked"
+          "price_tracked": true
         },
         "target_pct": 25,
         "components": [
@@ -21743,9 +21743,9 @@ const DATA = {
         "desc": "polenta, charred spring onion, apricot mostarda, demi glace",
         "price": "42",
         "hero": {
+          "price_tracked": true,
           "kind": "tracked",
-          "maps_to": "Pure Country GL Pork Rack",
-          "price_tracked": true
+          "maps_to": "Pure Country GL Pork Rack"
         },
         "target_pct": 25,
         "components": [
@@ -21951,6 +21951,117 @@ const DATA = {
             "confidence": "exact"
           }
         ]
+      },
+      {
+        "name": "Beef Rag\u00f9",
+        "section": "Primi & Secondi",
+        "desc": "fresh egg pappardelle, ground beef, tomato, garlic, onion, basil, parmigiano reggiano",
+        "price": "32",
+        "hero": null,
+        "target_pct": 25,
+        "components": [
+          {
+            "raw": "fresh egg pappardelle",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "tomato",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": 2.5,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "garlic",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": 10.4,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "onion",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": 0.99,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "basil",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": 9.25,
+              "unit": "1/2#"
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "parmigiano reggiano",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "authored",
+            "vendor": "",
+            "price": {
+              "amount": 11.15,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": null
+            }
+          },
+          {
+            "raw": "Ground Beef, 1 lb",
+            "kind": "sourced",
+            "maps_to": null,
+            "confidence": "chef",
+            "vendor": "Preserve Meat",
+            "price": {
+              "amount": 7.5,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": null
+            }
+          }
+        ],
+        "authored": true,
+        "authored_at": "2026-07-03T08:04:38.397Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "Beef Rag\u00f9",
@@ -31677,6 +31788,116 @@ const DATA = {
       "last_updated": "2026-04-20",
       "trend": "flat",
       "notes": "Brand: Red Star. 10-week order count: 5"
+    },
+    {
+      "id": "greco-tom-filets-74-40",
+      "name": "Tomato Filets 74/40",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 35.75,
+      "unit": "6/10# CS",
+      "last_updated": "2026-07-02",
+      "trend": "down",
+      "notes": "Greco #621605, canned San Marzano-style filets. $36.84 mid-2025 to $35.75 by Jul 2026."
+    },
+    {
+      "id": "greco-mascarpone",
+      "name": "Mascarpone",
+      "category": "dairy",
+      "vendor": "greco",
+      "price": 4.55,
+      "unit": "# (2/5# case)",
+      "last_updated": "2026-07-02",
+      "trend": "flat",
+      "notes": "Greco #18270 Bellissimo 2/5#, per lb. Held ~$4.55-4.65; a Jan 2026 Belgioioso 4/5# sub ran $4.12."
+    },
+    {
+      "id": "greco-ricotta",
+      "name": "Ricotta",
+      "category": "dairy",
+      "vendor": "greco",
+      "price": 3.0,
+      "unit": "# (2/3# case)",
+      "last_updated": "2026-05-04",
+      "trend": "up",
+      "notes": "Greco #19137 Sopraffina Grande, per lb. $2.70 in 2025 to $3.00 by May 2026."
+    },
+    {
+      "id": "greco-ladyfingers",
+      "name": "Ladyfingers (Savoiardi)",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 48.35,
+      "unit": "10/500GR CS",
+      "last_updated": "2026-05-04",
+      "trend": "up",
+      "notes": "Greco #51057 Bellissimo, tiramisu. Climbed $41.30 to $48.35 over 2025-26."
+    },
+    {
+      "id": "greco-olive-oil-blend-7525",
+      "name": "Olive Oil Blend 75/25",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 97.62,
+      "unit": "6/1GAL CS",
+      "last_updated": "2026-02-02",
+      "trend": "flat",
+      "notes": "Greco #37023/#281284 Oliva blend. Steady at $97.62/case."
+    },
+    {
+      "id": "greco-olive-oil-ev-partanna",
+      "name": "Olive Oil EV (Partanna)",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 193.4,
+      "unit": "4/3LT CS",
+      "last_updated": "2025-08-28",
+      "trend": "flat",
+      "notes": "Greco #451974 Partanna extra virgin. Single data point Aug 2025; reconfirm."
+    },
+    {
+      "id": "greco-olive-oil-unfiltered-sogno",
+      "name": "Olive Oil Unfiltered 1923 (Sogno)",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 169.0,
+      "unit": "4/3LT CS",
+      "last_updated": "2026-02-02",
+      "trend": "flat",
+      "notes": "Greco #281281 Sogno unfiltered. $169.00/case Jan-Feb 2026."
+    },
+    {
+      "id": "greco-canola-oil",
+      "name": "Canola Salad Oil",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 43.95,
+      "unit": "35# pail",
+      "last_updated": "2026-05-04",
+      "trend": "down",
+      "notes": "Greco #470052 Sogno pail. $54.80 Feb 2026 to $43.95 by May."
+    },
+    {
+      "id": "greco-arborio-rice",
+      "name": "Arborio Rice",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 85.65,
+      "unit": "CS",
+      "last_updated": "2026-07-02",
+      "trend": "flat",
+      "notes": "Greco #900026 Sogno, risotto. Single data point Jul 2026."
+    },
+    {
+      "id": "greco-maldon-salt",
+      "name": "Maldon Sea Salt",
+      "category": "pantry",
+      "vendor": "greco",
+      "price": 50.95,
+      "unit": "1.45KG CS",
+      "last_updated": "2026-07-02",
+      "trend": "flat",
+      "notes": "Greco #507717, finishing salt. Single data point Jul 2026."
     }
   ],
   "discovery": [
@@ -32768,7 +32989,7 @@ const DATA = {
     },
     "total_ingredients": 385,
     "menu_dishes": 15,
-    "commodity_items": 145,
+    "commodity_items": 155,
     "discovery_items": 130,
     "component_links_count": 90,
     "component_links_version": "1.1"
