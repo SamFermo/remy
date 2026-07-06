@@ -38203,7 +38203,9 @@ window.RemyFarm={
           var d=doc.data()||{},key=doc.id;
           var ovl=function(c){return tmApplyAuto(tmNormComp(c));}; // fill vendor/price for maps_to items the finalized doc left blank (never overrides a set value)
           if(TM.state[key]){if(Array.isArray(d.components))TM.state[key].components=d.components.map(ovl);if(d.target_pct!=null)TM.state[key].target_pct=d.target_pct;}
-          else TM.state[key]={name:d.name||key,section:d.section||'',desc:d.desc||'',price:d.price||'',target_pct:(d.target_pct!=null?d.target_pct:25),hero:d.hero||null,components:(d.components||[]).map(ovl),_open:false,_subopen:false};
+          // else: a finalized doc with no matching LIVE-menu dish is a retired dish (e.g. Paccheri,
+          // replaced by Rigatoni). Do NOT resurrect it — the live menu (DATA.menu_map, Fresh Talk
+          // reconciled) is the source of truth for which dishes exist; only overlay onto those.
         });
         done&&done();
       }).catch(function(){done&&done();});
