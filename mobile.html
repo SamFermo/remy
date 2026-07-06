@@ -859,6 +859,8 @@ body.remy-embed .ng-card,body.remy-embed .pt-card,body.remy-embed .pv-card,body.
 .tr-sec-hd{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
   color:var(--ink-60);margin:24px 0 10px}
 .tr-none{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-30);padding:2px 0 4px}
+.tr-lane-hd{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--ink-60);margin:12px 0 6px}
+.tr-cap{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);margin:8px 0 2px}
 .tr-card{background:var(--bg-card);border:1px solid var(--ink-12);border-radius:9px;padding:13px 15px;margin-bottom:9px}
 .tr-card.warn{border-color:rgba(224,135,99,0.42)}
 .tr-card.good{border-color:rgba(168,185,126,0.42)}
@@ -24689,6 +24691,13 @@ const DATA = {
   "preserve_meat_catalog": {
     "Beef": [
       {
+        "name": "CNB - Bavette",
+        "price": "$359.80 \u00a0 $17.99/pound",
+        "unit": "Each",
+        "sku": "CNB00005",
+        "supplier_meta": "Country Natural Beef, Oregon | Avg Weight: 20"
+      },
+      {
         "name": "CNB - Brisket",
         "price": "$7.99",
         "unit": "Each",
@@ -24707,6 +24716,20 @@ const DATA = {
         "price": "$6.25",
         "unit": "Each",
         "sku": "CNB00018",
+        "supplier_meta": "Country Natural Beef, Oregon"
+      },
+      {
+        "name": "CNB - Flank Steak",
+        "price": "$15.99",
+        "unit": "Each",
+        "sku": "CNB00020",
+        "supplier_meta": "Country Natural Beef, Oregon"
+      },
+      {
+        "name": "CNB - Hanging Tenders",
+        "price": "$12.99",
+        "unit": "Each",
+        "sku": "CNB00021",
         "supplier_meta": "Country Natural Beef, Oregon"
       },
       {
@@ -24830,10 +24853,10 @@ const DATA = {
       },
       {
         "name": "JMM - Pepper Crusted Pastrami",
-        "price": "$16.80",
+        "price": "$840.00 \u00a0 $16.80/pound",
         "unit": "Each",
         "sku": "JMM50611",
-        "supplier_meta": "Jack Mountain Meats - Burlington, WA"
+        "supplier_meta": "Jack Mountain Meats - Burlington, WA | Avg Weight: 50"
       },
       {
         "name": "JMM - Uncured Beef Hot Dogs (8-1, 15 lb case)",
@@ -25256,32 +25279,32 @@ const DATA = {
         "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 5"
       },
       {
-        "name": "PCB - Striploin",
-        "price": "$265.86 \u00a0 $18.99/pound",
-        "unit": "Each",
-        "sku": "PCB13000",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 14"
-      },
-      {
-        "name": "PCB - Suet/Kidney Fat",
-        "price": "$14.95 \u00a0 $2.99/pound",
-        "unit": "Each",
-        "sku": "PCB00022",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 5"
-      },
-      {
-        "name": "PCB - Tenderloin",
-        "price": "$155.94 \u00a0 $25.99/pound",
-        "unit": "Each",
-        "sku": "PCB00023",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 6"
-      },
-      {
         "name": "PCB - Short Ribs, Boneless 123D",
         "price": "$21.99 \u00a0 $21.99/pound",
         "unit": "Each",
         "sku": "PCB10001",
         "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 1 | Lead Time: 7 days"
+      },
+      {
+        "name": "PCB - Top Round, Cap On",
+        "price": "$157.80 \u00a0 $7.89/pound",
+        "unit": "Each",
+        "sku": "PCB15001",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 20 | Lead Time: 7 days"
+      },
+      {
+        "name": "PCB - Top Sirloin, Cap Off",
+        "price": "$103.92 \u00a0 $12.99/pound",
+        "unit": "Each",
+        "sku": "PCB16000",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 8"
+      },
+      {
+        "name": "PCB - Toro",
+        "price": "$28.48 \u00a0 $18.99/pound",
+        "unit": "Each",
+        "sku": "PCB40005",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 1.5"
       },
       {
         "name": "PCB - Short Ribs, Flanken Cut",
@@ -25303,6 +25326,27 @@ const DATA = {
         "unit": "Each",
         "sku": "PCB20001",
         "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 2"
+      },
+      {
+        "name": "PCB - Striploin",
+        "price": "$265.86 \u00a0 $18.99/pound",
+        "unit": "Each",
+        "sku": "PCB13000",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 14"
+      },
+      {
+        "name": "PCB - Suet/Kidney Fat",
+        "price": "$14.95 \u00a0 $2.99/pound",
+        "unit": "Each",
+        "sku": "PCB00022",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 5"
+      },
+      {
+        "name": "PCB - Tenderloin",
+        "price": "$155.94 \u00a0 $25.99/pound",
+        "unit": "Each",
+        "sku": "PCB00023",
+        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 6"
       },
       {
         "name": "PCB - Tendon",
@@ -25338,27 +25382,6 @@ const DATA = {
         "unit": "Each",
         "sku": "PCB15000",
         "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 8"
-      },
-      {
-        "name": "PCB - Top Round, Cap On",
-        "price": "$157.80 \u00a0 $7.89/pound",
-        "unit": "Each",
-        "sku": "PCB15001",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 20 | Lead Time: 7 days"
-      },
-      {
-        "name": "PCB - Top Sirloin, Cap Off",
-        "price": "$103.92 \u00a0 $12.99/pound",
-        "unit": "Each",
-        "sku": "PCB16000",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 8"
-      },
-      {
-        "name": "PCB - Toro",
-        "price": "$28.48 \u00a0 $18.99/pound",
-        "unit": "Each",
-        "sku": "PCB40005",
-        "supplier_meta": "21 day dry aged Pure Country Beef | Moses Lake, WA | Avg Weight: 1.5"
       },
       {
         "name": "PCB - Tri-Tip, Fat On",
@@ -26155,7 +26178,7 @@ const DATA = {
       },
       {
         "name": "PCP - Pork GL Rack, Half Rib",
-        "price": "$67.90 \u00a0 $6.79/pound",
+        "price": "$65.00 \u00a0 $6.50/pound",
         "unit": "Each",
         "sku": "PCP00700",
         "supplier_meta": "Pure Country Pork - Moses Lake, WA | Avg Weight: 10"
@@ -29297,10 +29320,40 @@ const DATA = {
     ],
     "PFI": [
       {
-        "name": "Romano Pecorino",
-        "price": 9.95,
+        "name": "Guanciale W/Pepper",
+        "price": 12.19,
         "unit": "lb",
-        "date": "2026-04-10"
+        "date": "2026-06-30"
+      },
+      {
+        "name": "Mineral Wtr Spk Clr 7Loc 12 X",
+        "price": 24.0,
+        "unit": "CS",
+        "date": "2026-06-29"
+      },
+      {
+        "name": "Olives Castelvetrano Whole",
+        "price": 57.241,
+        "unit": "BK",
+        "date": "2026-06-29"
+      },
+      {
+        "name": "Parmesan Reggiano 1/4",
+        "price": 12.99,
+        "unit": "lb",
+        "date": "2026-06-22"
+      },
+      {
+        "name": "Parmesan Reggiano 1/8",
+        "price": 12.99,
+        "unit": "lb",
+        "date": "2026-06-29"
+      },
+      {
+        "name": "Romano Pecorino",
+        "price": 9.75,
+        "unit": "lb",
+        "date": "2026-06-29"
       }
     ],
     "Chefs' Warehouse": [
@@ -32077,6 +32130,315 @@ const DATA = {
       "notes": "Greco #507717, finishing salt. Single data point Jul 2026."
     }
   ],
+  "price_drift": {
+    "generated": "2026-07-06",
+    "threshold_pct": 5.0,
+    "summary": {
+      "tracked_items": 251,
+      "with_history": 166,
+      "flagged": 27,
+      "franks_commodity": 183
+    },
+    "flagged": [
+      {
+        "name": "Olives Castelvetrano Whole",
+        "vendor": "PFI",
+        "lane": "specialty",
+        "unit": "BK",
+        "prev_price": 53.272,
+        "latest_price": 57.241,
+        "change_pct": 7.45,
+        "direction": "up",
+        "latest_date": "2026-06-29"
+      },
+      {
+        "name": "Herbs, Basil",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "1/2 #",
+        "prev_price": 6.5,
+        "latest_price": 9.0,
+        "change_pct": 38.46,
+        "direction": "up",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Celery Ea",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "each",
+        "prev_price": 2.99,
+        "latest_price": 1.99,
+        "change_pct": -33.44,
+        "direction": "down",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Cucumber, English Ea",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "EA",
+        "prev_price": 1.5,
+        "latest_price": 2.0,
+        "change_pct": 33.33,
+        "direction": "up",
+        "latest_date": "2026-07-02"
+      },
+      {
+        "name": "Herbs, Tarragon",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "1/2 #",
+        "prev_price": 16.5,
+        "latest_price": 12.0,
+        "change_pct": -27.27,
+        "direction": "down",
+        "latest_date": "2025-12-15"
+      },
+      {
+        "name": "Peppers, Fresno",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 11.0,
+        "latest_price": 13.99,
+        "change_pct": 27.18,
+        "direction": "up",
+        "latest_date": "2026-06-12"
+      },
+      {
+        "name": "Onion, Shallots, Peeled 5#/Jar",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "",
+        "prev_price": 26.5,
+        "latest_price": 32.5,
+        "change_pct": 22.64,
+        "direction": "up",
+        "latest_date": "2026-04-28"
+      },
+      {
+        "name": "Peppers, Fresno",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 8.0,
+        "latest_price": 9.75,
+        "change_pct": 21.88,
+        "direction": "up",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Lemon, Choice, 115Ct Cs",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "",
+        "prev_price": 48.75,
+        "latest_price": 38.75,
+        "change_pct": -20.51,
+        "direction": "down",
+        "latest_date": "2026-04-29"
+      },
+      {
+        "name": "Leek, Organic",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "20#",
+        "prev_price": 48.0,
+        "latest_price": 38.35,
+        "change_pct": -20.1,
+        "direction": "down",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Carrot, Jumbo, Loose",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 1.25,
+        "latest_price": 1.5,
+        "change_pct": 20.0,
+        "direction": "up",
+        "latest_date": "2026-04-01"
+      },
+      {
+        "name": "Peppers, Fresno",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "10#",
+        "prev_price": 58.0,
+        "latest_price": 69.0,
+        "change_pct": 18.97,
+        "direction": "up",
+        "latest_date": "2026-03-13"
+      },
+      {
+        "name": "Lemon, Choice, 115Ct Cs",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "each",
+        "prev_price": 39.5,
+        "latest_price": 32.85,
+        "change_pct": -16.84,
+        "direction": "down",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Peppers, Bell, Red",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 2.99,
+        "latest_price": 2.5,
+        "change_pct": -16.39,
+        "direction": "down",
+        "latest_date": "2026-06-26"
+      },
+      {
+        "name": "Peppers, Bell, Red",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "#",
+        "prev_price": 2.99,
+        "latest_price": 2.5,
+        "change_pct": -16.39,
+        "direction": "down",
+        "latest_date": "2026-06-03"
+      },
+      {
+        "name": "Dairy, Heavy Cream",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "1/2 GAL",
+        "prev_price": 13.5,
+        "latest_price": 11.5,
+        "change_pct": -14.81,
+        "direction": "down",
+        "latest_date": "2025-11-20"
+      },
+      {
+        "name": "Leek, Organic",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "20#/cs",
+        "prev_price": 45.5,
+        "latest_price": 38.85,
+        "change_pct": -14.62,
+        "direction": "down",
+        "latest_date": "2026-05-21"
+      },
+      {
+        "name": "Herbs, Basil",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "#",
+        "prev_price": 10.5,
+        "latest_price": 9.25,
+        "change_pct": -11.9,
+        "direction": "down",
+        "latest_date": "2026-05-11"
+      },
+      {
+        "name": "Lemon, Choice",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "115ct cs",
+        "prev_price": 42.0,
+        "latest_price": 47.0,
+        "change_pct": 11.9,
+        "direction": "up",
+        "latest_date": "2026-05-27"
+      },
+      {
+        "name": "Celery Ea",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "ea",
+        "prev_price": 2.25,
+        "latest_price": 2.0,
+        "change_pct": -11.11,
+        "direction": "down",
+        "latest_date": "2026-06-29"
+      },
+      {
+        "name": "Carrot, Jumbo, Loose 25#/Sk",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "SK",
+        "prev_price": 27.5,
+        "latest_price": 24.5,
+        "change_pct": -10.91,
+        "direction": "down",
+        "latest_date": "2026-06-22"
+      },
+      {
+        "name": "Leek, Organic",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "20#",
+        "prev_price": 47.25,
+        "latest_price": 42.25,
+        "change_pct": -10.58,
+        "direction": "down",
+        "latest_date": "2026-06-13"
+      },
+      {
+        "name": "Peppers, Bell, Red",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 2.75,
+        "latest_price": 2.99,
+        "change_pct": 8.73,
+        "direction": "up",
+        "latest_date": "2026-04-01"
+      },
+      {
+        "name": "DAIRY, HEAVY CREAM 6 x",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "1/2 GAL",
+        "prev_price": 49.75,
+        "latest_price": 54.0,
+        "change_pct": 8.54,
+        "direction": "up",
+        "latest_date": "2026-04-01"
+      },
+      {
+        "name": "Fennel Ea",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "each",
+        "prev_price": 2.99,
+        "latest_price": 2.75,
+        "change_pct": -8.03,
+        "direction": "down",
+        "latest_date": "2026-03-30"
+      },
+      {
+        "name": "Potato, Yukon Gold, A Size",
+        "vendor": "Franks Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 1.25,
+        "latest_price": 1.15,
+        "change_pct": -8.0,
+        "direction": "down",
+        "latest_date": "2026-04-01"
+      },
+      {
+        "name": "Lettuce, Romaine Heart",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "48CT",
+        "prev_price": 64.0,
+        "latest_price": 68.0,
+        "change_pct": 6.25,
+        "direction": "up",
+        "latest_date": "2026-07-02"
+      }
+    ]
+  },
   "discovery": [
     {
       "title": "21 Acres Farm",
@@ -37142,6 +37504,45 @@ window.RemyFarm={
   }
   window.trToggle=function(id){var el=document.getElementById(id);if(el)el.classList.toggle('open');};
 
+  // ── Cost drift: non-seasonal per-item price movement (calc_commodity_drift.py → DATA.price_drift).
+  // Distributor/specialty vendors (PFI/Merlino/Greco/CW) + carved-in Franks commodity staples,
+  // shown in two lanes so a specialty move never gets drowned by produce. Latest vs prior buy.
+  function driftRow(i){
+    var up=i.direction==='up';
+    var cls=up?'up':(i.direction==='down'?'dn':'flat');
+    var arrow=up?'▲':(i.direction==='down'?'▼':'→');
+    var sign=(i.change_pct>0)?'+':'';
+    var prev=(i.prev_price!=null)?('$'+Number(i.prev_price).toFixed(2)):'';
+    var latest=(i.latest_price!=null)?('$'+Number(i.latest_price).toFixed(2)):'';
+    var u=i.unit?(' <span class="vp">/'+esc(i.unit)+'</span>'):'';
+    return '<div class="tr-card'+(up?' warn':(i.direction==='down'?' good':''))+'">'+
+      '<div class="tr-row"><span class="tr-name">'+esc(i.name)+'</span>'+
+        '<span class="tr-pct '+cls+'">'+arrow+' '+sign+i.change_pct+'%</span></div>'+
+      '<div class="tr-meta">'+prev+' → <b>'+latest+'</b>'+u+
+        ' <span class="vp">&middot; '+esc(i.vendor)+(i.latest_date?(' &middot; '+esc(i.latest_date)):'')+'</span></div>'+
+    '</div>';
+  }
+  function driftSection(){
+    var pd=DATA.price_drift;if(!pd)return '';
+    var fl=(pd.flagged||[]);
+    var thr=(pd.threshold_pct!=null)?pd.threshold_pct:5;
+    var h='<div class="tr-sec-hd">Cost drift <span class="tr-sub" style="font-weight:400">specialty &amp; commodity · non-seasonal</span></div>';
+    if(!fl.length){return h+'<div class="tr-none">Nothing moved more than '+thr+'% since the prior buy.</div>';}
+    var spec=fl.filter(function(i){return i.lane!=='franks_commodity';});
+    var comm=fl.filter(function(i){return i.lane==='franks_commodity';});
+    if(spec.length){h+='<div class="tr-lane-hd">Specialty vendors</div>'+spec.map(driftRow).join('');}
+    if(comm.length){
+      var top=comm.slice(0,6),rest=comm.slice(6);
+      h+='<div class="tr-lane-hd">Franks commodity staples</div>'+top.map(driftRow).join('');
+      if(rest.length){
+        h+='<div class="pmgroup"><button class="pmhdr" onclick="pmTog(\'drift-comm-more\',this)"><span class="pmcaret">&#9656;</span><span>'+rest.length+' more commodity moves</span></button><div class="pmitems" id="drift-comm-more" style="display:none">'+rest.map(driftRow).join('')+'</div></div>';
+      }
+    }
+    var s=pd.summary||{};
+    h+='<div class="tr-cap">Tracked '+(s.tracked_items||0)+' items · '+(s.flagged||0)+' moving · as of '+esc(pd.generated||'?')+'</div>';
+    return h;
+  }
+
   var _pushSort='peaking';
   window.setPushSort=function(s){_pushSort=s;if(window.renderTrending)renderTrending();};
   function pushHasItems(){return !!(window._browse&&((_browse.arriving&&_browse.arriving.length)||(_browse.peak&&_browse.peak.length)));}
@@ -37187,6 +37588,7 @@ window.RemyFarm={
       var crows=com.map(function(i){return '<div class="tr-push"><span class="pn">'+esc(i.name)+'</span><span class="pv">'+esc(i.price_range||'')+'</span></div>';}).join('');
       h+='<div class="pmgroup" style="margin-top:16px"><button class="pmhdr" onclick="pmTog(\'tr-commodity\',this)"><span class="pmcaret">&#9656;</span><span>Commodity staples</span><span class="pmn">'+com.length+'</span></button><div class="pmitems" id="tr-commodity" style="display:none">'+crows+'</div></div>';
     }
+    h+=driftSection();
     host.innerHTML=h;
   };
 
