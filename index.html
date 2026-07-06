@@ -21477,16 +21477,16 @@ const DATA = {
         "components": [
           {
             "raw": "saffron spaghetti",
-            "kind": "pantry",
+            "kind": "untracked",
             "maps_to": null,
             "confidence": "exact",
-            "vendor": "",
+            "vendor": "House-made",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 1.3,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
+              "qty": 1
             }
           },
           {
@@ -21497,24 +21497,24 @@ const DATA = {
             "vendor": "Chefs' Warehouse",
             "price": {
               "amount": 11.15,
-              "unit": "LB"
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.03
             }
           },
           {
             "raw": "Bianco Di Napoli Crushed Tomatoes In Puree Retail BLUE",
-            "kind": "sub_recipe",
+            "kind": "untracked",
             "maps_to": null,
             "confidence": "chef",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 0.124,
-              "unit": "oz"
+              "amount": 2.5,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.19
             }
           },
           {
@@ -21524,11 +21524,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Swan House Farms",
             "price": {
-              "amount": 15,
+              "amount": 15.0,
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.3
             }
           },
           {
@@ -21542,7 +21542,7 @@ const DATA = {
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.005
             }
           },
           {
@@ -21552,11 +21552,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 2.85,
-              "unit": "EA"
+              "amount": 2.5,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.06
             }
           }
         ],
@@ -21567,84 +21567,86 @@ const DATA = {
       {
         "name": "Rigatoni",
         "section": "Primi & Secondi",
-        "desc": "roasted broccoli, onion, bread-crumble cream, garlic, shallot, chili flake, lemon, pecorino romano, pine nuts",
         "price": "29",
+        "target_pct": 25,
         "hero": null,
+        "desc": "roasted broccoli, onion, bread-crumble cream, garlic, shallot, chili flake, lemon, pecorino romano, pine nuts",
         "components": [
           {
             "raw": "roasted broccoli",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Franks Produce",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 2.0,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.25
+            }
           },
           {
             "raw": "onion",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Franks Produce",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.99,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.1
+            }
           },
           {
             "raw": "bread-crumble cream",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "House-made",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.6,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 1
+            }
           },
           {
             "raw": "garlic",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Franks Produce",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 5.25,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.02
+            }
           },
           {
             "raw": "shallot",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Franks Produce",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 6.5,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.03
+            }
           },
           {
             "raw": "chili flake",
-            "kind": "untracked",
+            "kind": "pantry",
             "maps_to": null,
+            "confidence": "inferred",
             "vendor": "",
             "price": {
               "amount": null,
@@ -21652,53 +21654,51 @@ const DATA = {
             },
             "portion": {
               "qty": null
-            },
-            "confidence": ""
+            }
           },
           {
             "raw": "lemon",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Franks Produce",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.45,
+              "unit": "each"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.15
+            }
           },
           {
             "raw": "pecorino romano",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "PFI",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 9.75,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.03
+            }
           },
           {
             "raw": "pine nuts",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "inferred",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 16.0,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.02
+            }
           }
-        ],
-        "seeded_from": "fresh-talk"
+        ]
       },
       {
         "name": "Beef Rag\u00f9",
@@ -21797,9 +21797,9 @@ const DATA = {
             "kind": "sourced",
             "maps_to": null,
             "confidence": "chef",
-            "vendor": "Preserve Meat",
+            "vendor": "Swan House Farms",
             "price": {
-              "amount": 7.5,
+              "amount": 15.0,
               "unit": "lb"
             },
             "portion": {
@@ -21821,16 +21821,16 @@ const DATA = {
         "components": [
           {
             "raw": "black pepper",
-            "kind": "pantry",
+            "kind": "untracked",
             "maps_to": null,
             "confidence": "exact",
-            "vendor": "",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 9.46,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.003
             }
           },
           {
@@ -21838,13 +21838,13 @@ const DATA = {
             "kind": "sourced",
             "maps_to": null,
             "confidence": "exact",
-            "vendor": "",
+            "vendor": "Swan House Farms",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.71,
+              "unit": "each"
             },
             "portion": {
-              "qty": null
+              "qty": 1.5
             }
           },
           {
@@ -21854,11 +21854,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "PFI",
             "price": {
-              "amount": 9.95,
+              "amount": 9.75,
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.04
             }
           },
           {
@@ -21868,11 +21868,25 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Swan House Farms",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 12.0,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.15
+            }
+          },
+          {
+            "raw": "mafaldine pasta",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "inferred",
+            "vendor": "Merlino Foods",
+            "price": {
+              "amount": 3.5,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": 0.125
             }
           }
         ],
@@ -21899,7 +21913,7 @@ const DATA = {
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.3
             }
           },
           {
@@ -21909,11 +21923,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 20.5,
-              "unit": "BOX"
+              "amount": 72.0,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.005
             }
           },
           {
@@ -21924,10 +21938,10 @@ const DATA = {
             "vendor": "Chefs' Warehouse",
             "price": {
               "amount": 11.15,
-              "unit": "LB"
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.05
             }
           },
           {
@@ -21937,11 +21951,25 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 1.65,
-              "unit": ""
+              "amount": 0.45,
+              "unit": "each"
             },
             "portion": {
-              "qty": null
+              "qty": 0.15
+            }
+          },
+          {
+            "raw": "arborio rice",
+            "kind": "untracked",
+            "maps_to": null,
+            "confidence": "inferred",
+            "vendor": "Merlino Foods",
+            "price": {
+              "amount": 2.0,
+              "unit": "lb"
+            },
+            "portion": {
+              "qty": 0.1
             }
           }
         ],
@@ -22078,16 +22106,16 @@ const DATA = {
         "components": [
           {
             "raw": "polenta",
-            "kind": "pantry",
+            "kind": "untracked",
             "maps_to": null,
             "confidence": "exact",
-            "vendor": "",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.3,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
+              "qty": 1
             }
           },
           {
@@ -22106,16 +22134,16 @@ const DATA = {
           },
           {
             "raw": "demi glace",
-            "kind": "sub_recipe",
+            "kind": "untracked",
             "maps_to": null,
             "confidence": "exact",
-            "vendor": "",
+            "vendor": "House-made",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.6,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
+              "qty": 1
             }
           },
           {
@@ -22129,7 +22157,7 @@ const DATA = {
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.7
             }
           },
           {
@@ -22139,11 +22167,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 1.99,
-              "unit": "BN"
+              "amount": 0.99,
+              "unit": "each"
             },
             "portion": {
-              "qty": null
+              "qty": 0.5
             }
           },
           {
@@ -22153,11 +22181,11 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 2.75,
+              "amount": 3.5,
               "unit": "lb"
             },
             "portion": {
-              "qty": null
+              "qty": 0.1
             }
           }
         ],
