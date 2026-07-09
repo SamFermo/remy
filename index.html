@@ -1948,7 +1948,7 @@ if(/[?&]embed=/.test(location.search||'')){
 
 <script>
 const DATA = {
-  "generated": "2026-07-08",
+  "generated": "2026-07-09",
   "ingredients": [
     {
       "name": "Black Cod",
@@ -9750,19 +9750,19 @@ const DATA = {
         0,
         0,
         2,
-        2,
+        3,
         1,
         0,
         0,
         0,
         0
       ],
-      "notes": "Farmstand 6/17: Rainiers + reds continuing. Farmstand 6/10: Dime Acres (Wenatchee + Bridgeport) Rainier + Red cherries in \u2014 their orchards fared better than most through the April frost; OPMA + Collins Rainiers also flowing. Farmstand 6/3: FIRST OF SEASON from Okanogan Producers Marketing Association, certified organic. SUPPLY WARNING: warm early spring then 20s during bloom killed many flowers; OPMA says the season is \"looking rough,\" growers seeking disaster relief. Expect tight supply and firm pricing all season.",
+      "notes": "Farmstand 7/8: nearing the end of cherry season (Collins Family Orchards, Selah). Farmstand 6/17: Rainiers + reds continuing. Farmstand 6/10: Dime Acres (Wenatchee + Bridgeport) Rainier + Red cherries in \u2014 their orchards fared better than most through the April frost; OPMA + Collins Rainiers also flowing. Farmstand 6/3: FIRST OF SEASON from Okanogan Producers Marketing Association, certified organic. SUPPLY WARNING: warm early spring then 20s during bloom killed many flowers; OPMA says the season is \"looking rough,\" growers seeking disaster relief. Expect tight supply and firm pricing all season.",
       "price_range": "Check Farmstand shop",
       "last_source": {
-        "date": "2026-06-17",
-        "channel": "email",
-        "note": "Farmstand 6/17 fresh sheet \u2014 cherries continuing"
+        "date": "2026-07-08",
+        "channel": "fresh_sheet",
+        "note": "Farmstand 7/8 July Jewels: cherries ending"
       }
     },
     {
@@ -12957,6 +12957,32 @@ const DATA = {
         "date": "2026-07-06",
         "channel": "remy_new_growth",
         "note": "Farmer added 'Ground pork'"
+      }
+    },
+    {
+      "name": "Jaune Flamme Tomatoes (Farmstand)",
+      "category": "produce",
+      "vendor": "Farmstand Local Foods",
+      "months": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "notes": "Farmstand 7/8: first of the Washington tomatoes (Sunnyside Organic Farm, Lake Stevens). Backups Riverland Farms (S) + BC OriginO.",
+      "price_range": "Check Farmstand shop",
+      "last_source": {
+        "date": "2026-07-08",
+        "channel": "fresh_sheet",
+        "note": "Farmstand 7/8 July Jewels: first WA tomatoes"
       }
     }
   ],
@@ -20935,16 +20961,16 @@ const DATA = {
   "menu_map": {
     "schema_version": "1.0",
     "description": "Curated in-use ingredient map from the live SF staff-portal menu. Decision schema: tracked/sourced/sub_recipe/pantry/untracked/prose. The price board reads this.",
-    "generated": "2026-07-06",
+    "generated": "2026-07-09",
     "source": {
       "file": "Codename: Riker/staff-portal/data/menu.json",
       "menuDate": "2026-06-18",
       "captured": "2026-06-22",
       "authored": true,
-      "last_digest": "2026-07-06",
+      "last_digest": "2026-07-09",
       "reapplied": "2026-07-03",
       "reconciled_against": "2026-06-18",
-      "reconciled_at": "2026-07-08"
+      "reconciled_at": "2026-07-09"
     },
     "kinds": {
       "tracked": "maps to a price-tracked ingredient; can fire a creep warning",
@@ -20967,6 +20993,7 @@ const DATA = {
         "desc": "les pres sales butter, sea salt",
         "price": "8",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "les pres sales butter",
@@ -20975,7 +21002,7 @@ const DATA = {
             "confidence": "exact",
             "vendor": "Chefs' Warehouse",
             "price": {
-              "amount": 12.0,
+              "amount": 12,
               "unit": "lb"
             },
             "portion": {
@@ -20986,7 +21013,15 @@ const DATA = {
             "raw": "sea salt",
             "kind": "pantry",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
           },
           {
             "raw": "Sea Wolf baguette",
@@ -20995,14 +21030,17 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Sea Wolf Bakery",
             "price": {
-              "amount": 4.0,
+              "amount": 4,
               "unit": "each"
             },
             "portion": {
               "qty": 0.5
             }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856220Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "Castelvetrano Olives",
@@ -21033,7 +21071,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 102.0,
+              "amount": 102,
               "unit": "lb"
             },
             "portion": {
@@ -21056,7 +21094,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T06:38:32.323Z",
+        "authored_at": "2026-07-09T13:13:03.856170Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21069,6 +21107,7 @@ const DATA = {
           "maps_to": null,
           "price_tracked": false
         },
+        "target_pct": 25,
         "components": [
           {
             "raw": "rosemary olive oil",
@@ -21102,7 +21141,15 @@ const DATA = {
             "raw": "maldon sea salt",
             "kind": "pantry",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
           },
           {
             "raw": "Marcona almonds",
@@ -21111,14 +21158,17 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 14.0,
+              "amount": 14,
               "unit": "lb"
             },
             "portion": {
               "qty": 0.15
             }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856197Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "Farinata",
@@ -21126,6 +21176,7 @@ const DATA = {
         "desc": "chickpea flatbread, house cagliata, seasonal preserve, fresh thyme, sea salt",
         "price": "13",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "chickpea flatbread",
@@ -21148,7 +21199,7 @@ const DATA = {
             "confidence": "exact",
             "vendor": "House-made",
             "price": {
-              "amount": 1.0,
+              "amount": 1,
               "unit": "portion"
             },
             "portion": {
@@ -21159,7 +21210,15 @@ const DATA = {
             "raw": "seasonal preserve",
             "kind": "prose",
             "maps_to": null,
-            "confidence": "needs_confirm"
+            "confidence": "needs_confirm",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
           },
           {
             "raw": "fresh thyme",
@@ -21179,9 +21238,20 @@ const DATA = {
             "raw": "sea salt",
             "kind": "pantry",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856184Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "House Caesar",
@@ -21240,7 +21310,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 18.0,
+              "amount": 18,
               "unit": "lb"
             },
             "portion": {
@@ -21249,7 +21319,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T07:31:05.701Z",
+        "authored_at": "2026-07-09T13:13:03.856190Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21323,7 +21393,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Swan House Farms",
             "price": {
-              "amount": 16.0,
+              "amount": 16,
               "unit": "lb"
             },
             "portion": {
@@ -21337,7 +21407,7 @@ const DATA = {
             "confidence": "inferred",
             "vendor": "House-made",
             "price": {
-              "amount": 14.0,
+              "amount": 14,
               "unit": "lb"
             },
             "portion": {
@@ -21346,7 +21416,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-06-25T04:44:30.214Z",
+        "authored_at": "2026-07-09T13:13:03.856187Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21356,8 +21426,8 @@ const DATA = {
         "price": "18",
         "hero": {
           "kind": "sourced",
-          "maps_to": null,
-          "price_tracked": false
+          "price_tracked": false,
+          "maps_to": null
         },
         "target_pct": 25,
         "components": [
@@ -21368,7 +21438,7 @@ const DATA = {
             "confidence": "exact",
             "vendor": "Franks Quality Produce",
             "price": {
-              "amount": 4.0,
+              "amount": 4,
               "unit": "lb"
             },
             "portion": {
@@ -21429,8 +21499,7 @@ const DATA = {
             },
             "portion": {
               "qty": 1
-            },
-            "note": "CW Chs Burrata Italy Frzn $32.75/case \u00f7 8 balls = $4.09/ball (Sam, 8-ball case)"
+            }
           },
           {
             "raw": "Mighty Leaf L/S Chamomile Citrus Loose Leaf Tea",
@@ -21448,7 +21517,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T07:51:11.719Z",
+        "authored_at": "2026-07-09T13:13:03.856167Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21522,7 +21591,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 2.0,
+              "amount": 2,
               "unit": "lb"
             },
             "portion": {
@@ -21536,7 +21605,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 5.0,
+              "amount": 5,
               "unit": "lb"
             },
             "portion": {
@@ -21573,7 +21642,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T07:53:08.339Z",
+        "authored_at": "2026-07-09T13:13:03.856176Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21583,8 +21652,8 @@ const DATA = {
         "price": "32",
         "hero": {
           "price_tracked": false,
-          "kind": "sourced",
-          "maps_to": null
+          "maps_to": null,
+          "kind": "sourced"
         },
         "target_pct": 25,
         "components": [
@@ -21637,7 +21706,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Swan House Farms",
             "price": {
-              "amount": 15.0,
+              "amount": 15,
               "unit": "lb"
             },
             "portion": {
@@ -21674,16 +21743,16 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T07:56:44.905Z",
+        "authored_at": "2026-07-09T13:13:03.856225Z",
         "authored_by": "remy-portal"
       },
       {
         "name": "Rigatoni",
         "section": "Primi & Secondi",
-        "price": "29",
-        "target_pct": 25,
-        "hero": null,
         "desc": "roasted broccoli, onion, bread-crumble cream, garlic, shallot, chili flake, lemon, pecorino romano, pine nuts",
+        "price": "29",
+        "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "roasted broccoli",
@@ -21692,7 +21761,7 @@ const DATA = {
             "confidence": "inferred",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 2.0,
+              "amount": 2,
               "unit": "lb"
             },
             "portion": {
@@ -21804,14 +21873,17 @@ const DATA = {
             "confidence": "inferred",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 16.0,
+              "amount": 16,
               "unit": "lb"
             },
             "portion": {
               "qty": 0.02
             }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856215Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "Beef Rag\u00f9",
@@ -21981,7 +22053,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Swan House Farms",
             "price": {
-              "amount": 12.0,
+              "amount": 12,
               "unit": "lb"
             },
             "portion": {
@@ -22004,7 +22076,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T07:59:08.650Z",
+        "authored_at": "2026-07-09T13:13:03.856194Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22036,7 +22108,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Franks Produce",
             "price": {
-              "amount": 72.0,
+              "amount": 72,
               "unit": "lb"
             },
             "portion": {
@@ -22078,7 +22150,7 @@ const DATA = {
             "confidence": "inferred",
             "vendor": "Merlino Foods",
             "price": {
-              "amount": 2.0,
+              "amount": 2,
               "unit": "lb"
             },
             "portion": {
@@ -22087,7 +22159,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T08:01:23.289Z",
+        "authored_at": "2026-07-09T13:13:03.856218Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22096,9 +22168,9 @@ const DATA = {
         "desc": "green pea hummus, grilled asparagus, sea bean, shallot, parsley, lemon",
         "price": "38",
         "hero": {
+          "maps_to": "Halibut (New Season)",
           "price_tracked": true,
-          "kind": "tracked",
-          "maps_to": "Halibut (New Season)"
+          "kind": "tracked"
         },
         "target_pct": 25,
         "components": [
@@ -22193,7 +22265,7 @@ const DATA = {
             "confidence": "chef",
             "vendor": "Foraged & Found Edibles",
             "price": {
-              "amount": 18.0,
+              "amount": 18,
               "unit": "lb"
             },
             "portion": {
@@ -22202,7 +22274,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T08:02:06.179Z",
+        "authored_at": "2026-07-09T13:13:03.856203Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22211,9 +22283,9 @@ const DATA = {
         "desc": "polenta, charred spring onion, apricot mostarda, demi glace",
         "price": "42",
         "hero": {
-          "maps_to": "Pure Country GL Pork Rack",
           "kind": "tracked",
-          "price_tracked": true
+          "price_tracked": true,
+          "maps_to": "Pure Country GL Pork Rack"
         },
         "target_pct": 25,
         "components": [
@@ -22303,7 +22375,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-03T08:04:00.240Z",
+        "authored_at": "2026-07-09T13:13:03.856209Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22312,17 +22384,18 @@ const DATA = {
         "desc": "mascarpone, ladyfingers, miro tea, planteray dark rum, bergamot agrumato",
         "price": "15",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "mascarpone",
             "kind": "sourced",
             "maps_to": null,
             "confidence": "exact",
+            "vendor": "Merlino Foods",
             "price": {
               "amount": 4.77,
               "unit": "lb"
             },
-            "vendor": "Merlino Foods",
             "portion": {
               "qty": 0.25
             }
@@ -22383,7 +22456,10 @@ const DATA = {
               "qty": 1
             }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856180Z",
+        "authored_by": "remy-portal"
       },
       {
         "name": "Pavlova",
@@ -22428,7 +22504,7 @@ const DATA = {
             "confidence": "exact",
             "vendor": "Franks Quality Produce",
             "price": {
-              "amount": 4.0,
+              "amount": 4,
               "unit": "lb"
             },
             "portion": {
@@ -22437,7 +22513,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-06-22T09:38:14.885Z",
+        "authored_at": "2026-07-09T13:13:03.856205Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22446,12 +22522,21 @@ const DATA = {
         "desc": "ask the kitchen for tonight's flavor",
         "price": "8",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "ask the kitchen for tonight's flavor",
             "kind": "prose",
             "maps_to": null,
-            "confidence": "exact"
+            "confidence": "exact",
+            "vendor": "",
+            "price": {
+              "amount": null,
+              "unit": ""
+            },
+            "portion": {
+              "qty": null
+            }
           },
           {
             "raw": "gelato base",
@@ -22467,7 +22552,10 @@ const DATA = {
               "qty": 1
             }
           }
-        ]
+        ],
+        "authored": true,
+        "authored_at": "2026-07-09T13:13:03.856222Z",
+        "authored_by": "remy-portal"
       }
     ],
     "candidates": [
@@ -24321,7 +24409,7 @@ const DATA = {
     }
   },
   "menu_price_board": {
-    "generated": "2026-07-08",
+    "generated": "2026-07-09",
     "source": "sf-staff-portal live menu",
     "menu_date": "2026-06-18",
     "menu_captured": "2026-06-22",
@@ -27747,12 +27835,6 @@ const DATA = {
         "price": 24.5,
         "unit": "12CT",
         "date": "2026-03-13"
-      },
-      {
-        "name": "Radicchio, Castel-Franco/Lusia",
-        "price": 34.5,
-        "unit": "12CT",
-        "date": "2025-07-01"
       },
       {
         "name": "Radicchio, Treviso",
@@ -31974,11 +32056,11 @@ const DATA = {
     }
   ],
   "price_drift": {
-    "generated": "2026-07-06",
+    "generated": "2026-07-08",
     "threshold_pct": 5.0,
     "summary": {
-      "tracked_items": 251,
-      "with_history": 166,
+      "tracked_items": 264,
+      "with_history": 171,
       "flagged": 27,
       "franks_commodity": 183
     },
@@ -33341,7 +33423,7 @@ const DATA = {
         "last_seen": "2026-03-11"
       },
       "Farmstand Local Foods": {
-        "count": 49,
+        "count": 50,
         "last_seen": "2026-04-21"
       },
       "Foraged & Found Edibles": {
@@ -33369,7 +33451,7 @@ const DATA = {
         "last_seen": ""
       }
     },
-    "total_ingredients": 388,
+    "total_ingredients": 389,
     "menu_dishes": 15,
     "commodity_items": 155,
     "discovery_items": 130,
