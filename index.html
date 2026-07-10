@@ -950,7 +950,7 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .pk-add{margin-left:8px;flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;font-family:var(--fb)}
 .pk-add:hover{border-color:var(--olive);color:var(--olive)}
 .pk-add.added{background:var(--olive);color:#0a1028;border-color:var(--olive)}
-.pk-basket-bar{position:sticky;bottom:6px;z-index:5}
+.pk-basket-bar{position:sticky;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;padding-bottom:4px}
 .pk-bar{width:100%;font-family:var(--fb);font-size:13px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:24px;padding:12px 16px;cursor:pointer;margin:6px 0;display:flex;justify-content:center;gap:10px;align-items:center;box-shadow:0 4px 18px -6px rgba(0,0,0,.5)}
 .pk-bar-go{font-weight:400;opacity:.85}
 .pk-basket-ov{position:fixed;inset:0;z-index:95;background:rgba(2,4,13,.6);display:flex;align-items:flex-end;justify-content:center}
@@ -976,6 +976,38 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .pk-send-row{display:flex;gap:10px;align-items:center;margin-bottom:4px}
 .pk-send-row .pk-bk-close{margin-top:0}
 .pk-send-a{flex:1;text-align:center;font-family:var(--fb);font-size:14px;font-weight:600;color:#0a1028;background:var(--olive);border-radius:11px;padding:12px;text-decoration:none}
+/* Order-tab: pack/case display + basket order-function controls (2026-07-10) */
+.pk-caseline{display:block;margin-top:2px}
+.pk-case{font-family:var(--fb);font-size:10.5px;color:var(--ink-45);letter-spacing:.01em}
+.pk-case.pk-packraw{color:var(--ink-30);font-style:italic}
+.pk-case.tbd{color:var(--terra)}
+.pk-bk-unit{margin-top:3px;font-family:var(--fb);font-size:11px;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;padding:3px 6px}
+.pk-bk-unit-1{display:block;margin-top:2px;font-family:var(--fb);font-size:11px;color:var(--ink-30)}
+.pk-bk-qin{width:44px;text-align:center;font-family:var(--fb);font-size:14px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;padding:4px 2px;-moz-appearance:textfield}
+.pk-bk-qin::-webkit-outer-spin-button,.pk-bk-qin::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.pk-bk-q button.q5{width:auto;padding:0 8px;font-size:11px;font-weight:600;border-radius:13px;color:var(--ink-60)}
+.pk-bk-sub{display:flex;justify-content:space-between;font-family:var(--fb);font-size:11.5px;color:var(--ink-45);padding:6px 2px 2px}
+.pk-bk-sub span{color:var(--ink-60)}
+.pk-bk-grand{display:flex;justify-content:space-between;font-family:var(--fb);font-size:14px;font-weight:600;color:var(--ink);border-top:1px solid var(--ink-12);margin-top:14px;padding-top:12px}
+.pk-bk-grand span{color:var(--olive)}
+.pk-bk-foot{display:flex;gap:10px}
+.pk-bk-foot .pk-bk-close{margin-top:18px}
+.pk-bk-clear{flex:0 0 auto;margin-top:18px;font-family:var(--fb);font-size:13px;color:var(--terra);background:transparent;border:1px solid var(--ink-12);border-radius:11px;padding:12px 14px;cursor:pointer}
+.pk-bk-clear:hover{border-color:var(--terra)}
+/* Order-tab filter strip */
+.ord-strip{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 8px}
+.ord-chip{font-family:var(--fb);font-size:12px;font-weight:500;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:7px 12px;cursor:pointer;white-space:nowrap;transition:all .18s var(--ease)}
+.ord-chip:hover{color:var(--ink);border-color:var(--ink-30)}
+.ord-chip.on{color:#0a1028;background:var(--olive);border-color:var(--olive)}
+.ord-sub{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.ord-sub .ord-chip{font-size:11px;padding:5px 10px}
+.ord-sub .ord-chip.on{background:var(--ink);border-color:var(--ink)}
+.ord-gaprow{display:flex;align-items:center;gap:8px;padding:10px 4px;border-bottom:1px solid var(--ink-6);font-family:var(--fd);font-size:15px;color:var(--ink)}
+.ord-gaprow small{font-family:var(--fb);font-size:11px;color:var(--terra)}
+.kpill-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.kpill-row.kpill-second{margin-top:7px}
+.kpill-second .kpill{font-size:11.5px;padding:7px 12px;color:var(--ink-45)}
+#kitchen-pills.kpill-bar{flex-direction:column;align-items:stretch}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -37645,12 +37677,25 @@ window.RemyFarm={
   };
   function buildKitchenPills(){
     var bar=document.getElementById('kitchen-pills');if(!bar)return;
-    var P=[['farms','Connected Farms','showConnectedFarms'],
-           ['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
-           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
-    bar.innerHTML=P.map(function(p,i){
-      return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
-    }).join('');
+    if(window._REMY_EMBED){
+      // Embed (sf-portal Farm Order): pills + landing UNCHANGED — Chris/Jose/Katie's known flow.
+      var PE=[['farms','Connected Farms','showConnectedFarms'],
+             ['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
+             ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
+      bar.innerHTML=PE.map(function(p,i){
+        return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
+      }).join('');
+      return;
+    }
+    // Standalone Remy: Order + The Menu primary; Trending Prices + Plan Ahead below.
+    // Connected Farms folds into Order; My Vendors survives as Order's "By vendor" filter.
+    function _rowHtml(list,firstActive){return list.map(function(p,i){
+      return '<button class="kpill'+((firstActive&&i===0)?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
+    }).join('');}
+    var PRIMARY=[['order','Order','showOrder'],['menu','The Menu','openTheMenu']];
+    var SECOND =[['trending','Trending Prices','showTrending'],['plan','Plan Ahead','openPlanAhead']];
+    bar.innerHTML='<div class="kpill-row kpill-primary">'+_rowHtml(PRIMARY,true)+'</div>'+
+                  '<div class="kpill-row kpill-second">'+_rowHtml(SECOND,false)+'</div>';
   }
 
   function start(){ buildKitchenPills(); renderTrending(); }
@@ -37956,7 +38001,11 @@ window.RemyFarm={
   // Connected Farms is the restaurant-side landing tab — render it once the pills are built
   (function cfDefault(){
     var bar=document.getElementById('kitchen-pills');
-    if(bar&&bar.querySelector('.kpill[data-k="farms"]')){showConnectedFarms();return;}
+    if(window._REMY_EMBED){
+      if(bar&&bar.querySelector('.kpill[data-k="farms"]')){showConnectedFarms();return;}
+    }else{
+      if(bar&&bar.querySelector('.kpill[data-k="order"]')){ if(window.showOrder)window.showOrder(); return; }
+    }
     setTimeout(cfDefault,40);
   })();
 })();
@@ -37990,9 +38039,11 @@ window.RemyFarm={
     ['Preserve Meat','Preserve Meat'],['Alluvial Farms','Alluvial'],['Merlino Foods','Merlino'],['Puget Sound Food Hub','Puget Sound Food Hub']];
   var _vSel=0,_vSort='peaking',_pmCat=null;
   function vIngs(vk){return (DATA.ingredients||[]).filter(function(it){var v=it.vendor||'';return v===vk||v.indexOf(vk)===0;});}
-  window.selVendor=function(i){_vSel=i;_pmCat=null;_vSort='peaking';renderVendors();};
-  window.setVSort=function(s){_vSort=s;renderVendors();};
-  window.setPmCat=function(c){_pmCat=c;renderVendors();};
+  var _vHost='vendors';   // which screen owns the vendor browse: 'vendors' (My Vendors) | 'order' (Order → By vendor)
+  function _reVendor(){ if(_vHost==='order'&&typeof renderOrderInner==='function'){renderOrderInner();} else {renderVendors();} }
+  window.selVendor=function(i){_vSel=i;_pmCat=null;_vSort='peaking';_reVendor();};
+  window.setVSort=function(s){_vSort=s;_reVendor();};
+  window.setPmCat=function(c){_pmCat=c;_reVendor();};
   function isComing(it){return (typeof isArriving==='function')&&isArriving(it);}
   function isCreeping(it){var t=trMap()[it.name];return !!(t&&t.trend_30d_pct!=null&&t.trend_30d_pct>=10);}
 
@@ -38277,8 +38328,10 @@ window.RemyFarm={
   var _basket=[];
   function pkAdd(d){
     var name=d.ing, vendor=d.vendor, punit=d.punit||'', pack=d.pack||'', per=(d.per===''||d.per==null)?null:Number(d.per);
+    var caseP=(d.caseprice===''||d.caseprice==null)?null:Number(d.caseprice);
+    var pq=(d.packqty===''||d.packqty==null)?null:Number(d.packqty), pu=d.packunit||'';
     var ex=_basket.filter(function(x){return x.name===name&&x.vendor===vendor&&x.per_unit===punit;})[0];
-    if(ex){ex.qty++;} else {_basket.push({name:name,vendor:vendor,per:per,per_unit:punit,pack:pack,qty:1});}
+    if(ex){ex.qty++;} else {_basket.push({name:name,vendor:vendor,per:per,per_unit:punit,pack:pack,qty:1,unit:(punit||'each'),case_price:caseP,pack_qty:pq,pack_unit:pu});}
     renderBasketBar();
   }
   function pkBasketVendors(){var s={};_basket.forEach(function(x){s[x.vendor]=1;});return Object.keys(s);}
@@ -38294,8 +38347,15 @@ window.RemyFarm={
       ov.addEventListener('click',function(e){if(e.target===ov)ov.remove();});}
     renderBasketPanel();
   };
-  function pkQty(i,dq){ if(_basket[i]){_basket[i].qty=Math.max(1,_basket[i].qty+dq); renderBasketBar(); renderBasketPanel();} }
+  function pkQty(i,dq){ if(_basket[i]){_basket[i].qty=Math.max(1,Math.round((_basket[i].qty+dq)*100)/100); renderBasketBar(); renderBasketPanel();} }
   function pkRemoveIdx(i){ _basket.splice(i,1); renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel(); }
+  window.pkSetQtyInput=function(i,v){ if(_basket[i]){var n=parseFloat(v); _basket[i].qty=(isNaN(n)||n<=0)?1:Math.round(n*100)/100; renderBasketBar(); renderBasketPanel();} };
+  window.pkSetUnit=function(i,u){ if(_basket[i]){_basket[i].unit=u; renderBasketBar(); renderBasketPanel();} };
+  window.pkClearOrder=function(){ if(!_basket.length)return; if(!confirm('Clear the whole order?'))return; _basket=[]; renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(o)o.remove(); };
+  // Estimated line total: qty x (per-unit price, or case price when ordering by case).
+  function pkLineTotal(x){ if(x.unit==='case'){ return (x.case_price!=null)? x.qty*x.case_price : null; } return (x.per!=null)? x.qty*x.per : null; }
+  function pkOrderUnits(x){ var opts=[]; opts.push(x.per_unit||'each'); if(x.case_price!=null && opts.indexOf('case')<0)opts.push('case'); return opts; }
+  function pkMoney(n){ return (n==null)?'—':('$'+Number(n).toFixed(2)); }
   // ── Layer 3 Slice B: forward. Swan=live loop; email lanes=staged order email a manager sends;
   // hub lanes=copy-ready list + their portal. Remy never sends on its own. ──
   var _needBy='';
@@ -38317,9 +38377,10 @@ window.RemyFarm={
     var label=(lane==='swan')?'Send to Swan House':(lane==='hub')?('Order list for '+esc(v)):'Draft order email';
     return '<button class="pk-send" data-v="'+esc(v)+'">'+label+' &rarr;</button>';
   }
+  function pkUnitLabel(x){ var u=x.unit||x.per_unit||''; if(u==='case')return (x.qty===1?'case':'cases'); return u; }
   function pkOrderText(v){
     var cfg=pkLane(v), items=pkVendorItems(v);
-    var lines=items.map(function(x){return '- '+x.qty+'x '+x.name+(x.pack?(' ('+x.pack+')'):'');}).join('\n');
+    var lines=items.map(function(x){var u=pkUnitLabel(x);return '- '+x.qty+(u?(' '+u):'x')+' '+x.name+((x.unit==='case'&&x.pack)?(' ('+x.pack+')'):'');}).join('\n');
     if(cfg.lane==='hub'){ return 'San Fermo order'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines; }
     var greet=cfg.greet||String(v).split(' ')[0];
     return 'Hey '+greet+',\n\nOrder for San Fermo'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines+'\n\nThanks,\nSan Fermo\nsam@sanfermoseattle.com';
@@ -38347,7 +38408,7 @@ window.RemyFarm={
     if(!confirm('Send this Swan House order ('+items.length+' item'+(items.length>1?'s':'')+')?'))return;
     var who='San Fermo';
     try{ if(window.parent&&window.parent!==window&&window.parent.__remyPortalUser){who=String(window.parent.__remyPortalUser)||who;} }catch(e){}
-    var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:'Swan House Farms'}, qty:x.qty, unit:x.per_unit||'', free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:null};});
+    var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:'Swan House Farms'}, qty:x.qty, unit:(x.unit||x.per_unit||''), free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:null};});
     var id='remyrtr-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
     var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:'', channel:'remy-router-v1', synced:false, lines:lines};
     window.RemyOrders.place(order).then(function(){
@@ -38357,38 +38418,71 @@ window.RemyFarm={
     }).catch(function(){ alert('Order didn’t send — check your connection and try again.'); });
   }
 
+  function pkUnitSel(i,x){
+    var opts=pkOrderUnits(x);
+    if(opts.length<2) return '<span class="pk-bk-unit-1">/'+esc(opts[0]||'')+'</span>';
+    return '<select class="pk-bk-unit" data-u="'+i+'">'+opts.map(function(u){
+      return '<option value="'+esc(u)+'"'+(x.unit===u?' selected':'')+'>'+(u==='case'?'by case':('by '+esc(u)))+'</option>';
+    }).join('')+'</select>';
+  }
   function renderBasketPanel(){
     var ov=document.getElementById('pkBasketOv'); if(!ov) return;
     if(!_basket.length){ov.remove();return;}
     var byV={},order=[];
     _basket.forEach(function(x,i){ if(!byV[x.vendor]){byV[x.vendor]=[];order.push(x.vendor);} byV[x.vendor].push({_i:i,d:x}); });
+    var grand=0, anyPriced=false;
     var body=order.map(function(v){
+      var vsub=0, vpriced=false;
       var rows=byV[v].map(function(w){ var x=w.d;
-        return '<div class="pk-bk-row"><span class="pk-bk-nm">'+esc(x.name)+(x.per!=null?'<small>$'+Number(x.per).toFixed(2)+'/'+esc(x.per_unit||'')+(x.pack?(' &middot; '+esc(x.pack)):'')+'</small>':'')+'</span>'+
-          '<span class="pk-bk-q"><button data-i="'+w._i+'" data-d="-1">&minus;</button><span>'+x.qty+'</span><button data-i="'+w._i+'" data-d="1">+</button></span>'+
+        var unitPrice=(x.unit==='case')?x.case_price:x.per;
+        var lt=pkLineTotal(x); if(lt!=null){vsub+=lt;grand+=lt;vpriced=true;anyPriced=true;}
+        var priceMeta=(unitPrice!=null)?('$'+Number(unitPrice).toFixed(2)+'/'+((x.unit==='case')?'case':esc(x.unit||x.per_unit||''))):'';
+        return '<div class="pk-bk-row"><span class="pk-bk-nm">'+esc(x.name)+
+            (priceMeta?('<small>'+priceMeta+(lt!=null?(' &middot; est '+pkMoney(lt)):'')+'</small>'):'')+
+            pkUnitSel(w._i,x)+'</span>'+
+          '<span class="pk-bk-q"><button class="q5" data-i="'+w._i+'" data-d="-5">−5</button><button data-i="'+w._i+'" data-d="-1">&minus;</button>'+
+            '<input class="pk-bk-qin" type="number" inputmode="decimal" min="1" step="1" value="'+x.qty+'" data-qin="'+w._i+'">'+
+            '<button data-i="'+w._i+'" data-d="1">+</button><button class="q5" data-i="'+w._i+'" data-d="5">+5</button></span>'+
           '<button class="pk-bk-rm" data-rm="'+w._i+'" aria-label="Remove">&times;</button></div>';
       }).join('');
-      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows+pkSendBtn(v);
+      var subLine=vpriced?('<div class="pk-bk-sub">'+esc(v)+' subtotal <span>est '+pkMoney(vsub)+'</span></div>'):'';
+      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows+subLine+pkSendBtn(v);
     }).join('');
+    var grandLine=anyPriced?('<div class="pk-bk-grand">Order total <span>est '+pkMoney(grand)+'</span></div>'):'';
     ov.innerHTML='<div class="pk-basket"><h3>Your order</h3>'+
       '<div class="pk-need"><label>Needed by</label><input type="date" id="pk-needby" value="'+esc(_needBy)+'"></div>'+
-      body+
-      '<div class="pk-bk-note">Swan sends through the live farm loop. Franks and direct farms get a drafted order email you review and send. Hubs get a copy-ready list for their portal.</div>'+
-      '<button class="pk-bk-close" id="pk-bk-close">Close</button></div>';
-    ov.querySelectorAll('.pk-bk-q button').forEach(function(b){b.onclick=function(){pkQty(+b.dataset.i,+b.dataset.d);};});
+      body+ grandLine+
+      '<div class="pk-bk-note">Totals are estimates from the latest known price, not a quote. Swan sends through the live farm loop; Franks and direct farms get a drafted order email you review and send; hubs get a copy-ready list.</div>'+
+      '<div class="pk-bk-foot"><button class="pk-bk-clear" id="pk-bk-clear">Clear order</button>'+
+      '<button class="pk-bk-close" id="pk-bk-close">Close</button></div></div>';
+    ov.querySelectorAll('.pk-bk-q button').forEach(function(b){b.onclick=function(){var d=+b.dataset.d; (Math.abs(d)===5?pkQty:pkQty)(+b.dataset.i,d);};});
+    ov.querySelectorAll('.pk-bk-qin').forEach(function(inp){inp.onchange=function(){pkSetQtyInput(+inp.dataset.qin,inp.value);};});
+    ov.querySelectorAll('.pk-bk-unit').forEach(function(s){s.onchange=function(){pkSetUnit(+s.dataset.u,s.value);};});
     ov.querySelectorAll('.pk-bk-rm').forEach(function(b){b.onclick=function(){pkRemoveIdx(+b.dataset.rm);};});
     ov.querySelectorAll('.pk-send').forEach(function(b){b.onclick=function(){pkSendV(b.dataset.v);};});
     var nb=document.getElementById('pk-needby'); if(nb)nb.onchange=function(){pkSetNeedBy(this.value);};
+    var cl=document.getElementById('pk-bk-clear'); if(cl)cl.onclick=function(){pkClearOrder();};
     var c=document.getElementById('pk-bk-close'); if(c)c.onclick=function(){ov.remove();};
   }
 
+  function pkNum(n){ if(n==null)return ''; n=Number(n); return (n%1===0)?String(n):String(Math.round(n*100)/100); }
+  // Case-size line from the normalized pack fields (fold_offers.normalize_pack).
+  function pkCaseStr(o){
+    if(o.per==null) return '';
+    if(o.pack_known===false) return '<span class="pk-case tbd">case size TBD &middot; confirm w/ vendor</span>';
+    if(o.case_price!=null && o.pack_qty && Number(o.pack_qty)!==1){
+      return '<span class="pk-case">'+(o.pack_approx?'~':'')+pkNum(o.pack_qty)+' '+esc(o.pack_unit||'')+'/case = $'+Number(o.case_price).toFixed(2)+'</span>';
+    }
+    if(o.pack) return '<span class="pk-case pk-packraw">'+esc(o.pack)+'</span>';
+    return '';
+  }
   function pkOfferRow(o, cu, ing){
     var pr=(o.per!=null)?('$'+Number(o.per).toFixed(2)+' <span class="pk-u">/'+esc(o.per_unit||'')+'</span>'):'—';
     var off=(cu&&o.per_unit!==cu)?' pk-otherlane':'';
-    var pack=o.pack?('<span class="pk-pack">'+esc(o.pack)+'</span>'):'';
-    var add='<button class="pk-add" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" aria-label="Add to order">+</button>';
+    var caseStr=pkCaseStr(o);
+    var add='<button class="pk-add" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" data-caseprice="'+(o.case_price==null?'':o.case_price)+'" data-packqty="'+(o.pack_qty==null?'':o.pack_qty)+'" data-packunit="'+esc(o.pack_unit||'')+'" data-packknown="'+(o.pack_known===false?'0':'1')+'" aria-label="Add to order">+</button>';
     return '<div class="pk-off'+off+'">'+pkFreshDot(o.freshness)+
-      '<span class="pk-vn">'+esc(o.vendor||'')+pack+'</span>'+
+      '<span class="pk-vn">'+esc(o.vendor||'')+(caseStr?('<span class="pk-caseline">'+caseStr+'</span>'):'')+'</span>'+
       '<span class="pk-pr">'+pr+'</span>'+add+'</div>';
   }
   function pkCard(rec){
@@ -38430,19 +38524,15 @@ window.RemyFarm={
       '<div class="pk-basket-bar" id="pk-basket-bar"></div>';
   }
 
-  window.renderVendors=function(){
-    var h=host();if(!h)return;
-    // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
-    var scrolls=[].map.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e){return e.scrollLeft;});
-    var modeBar='<div class="vsort-bar pk-modebar">'+[['vendor','By vendor'],['ingredient','By ingredient']].map(function(m){return '<button class="vpill'+(_vMode===m[0]?' active':'')+'" onclick="setVMode(\''+m[0]+'\')">'+m[1]+'</button>';}).join('')+'</div>';
-    if(_vMode==='ingredient'){ h.innerHTML=modeBar+pickerPane(); return; }
+  // Vendor-first browse body (no modeBar) — shared by My Vendors (embed) and Order → By vendor.
+  function vendorBrowseHTML(){
     var vp=VENDORS.map(function(v,i){
       var psfh=(v[0]==='Puget Sound Food Hub');
       var lbl=psfh?'Puget Sound<br>Food Hub':esc(v[1]);
       return '<button class="vpill'+(psfh?' wrap':'')+(i===_vSel?' active':'')+'" onclick="selVendor('+i+')">'+lbl+'</button>';
     }).join('');
     var v=VENDORS[_vSel];
-    var out=modeBar+'<div class="vp-bar">'+vp+'</div>';
+    var out='<div class="vp-bar">'+vp+'</div>';
     out+='<div class="vhint vhint-out">Tap &#8853; on an item to add it to outreach, then draft a price or timeline email per vendor from the cart (&#128722; top right).</div>';
     if(v[0]==='Preserve Meat'){out+=pmView();}
     else if(v[0]==='Key City Fish'){out+=keyCityView(v[0]);}
@@ -38467,7 +38557,16 @@ window.RemyFarm={
       out+='<div class="vsort-bar">'+sorts.map(function(s){return '<button class="vpill sm'+(_vSort===s[0]?' active':'')+'" onclick="setVSort(\''+s[0]+'\')">'+s[1]+'</button>';}).join('')+'</div>';
       out+='<div class="vlist">'+vendorList(v[0])+'</div>';
     }
-    h.innerHTML=out;
+    return out;
+  }
+  window.renderVendors=function(){
+    _vHost='vendors';
+    var h=host();if(!h)return;
+    // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
+    var scrolls=[].map.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e){return e.scrollLeft;});
+    var modeBar='<div class="vsort-bar pk-modebar">'+[['vendor','By vendor'],['ingredient','By ingredient']].map(function(m){return '<button class="vpill'+(_vMode===m[0]?' active':'')+'" onclick="setVMode(\''+m[0]+'\')">'+m[1]+'</button>';}).join('')+'</div>';
+    if(_vMode==='ingredient'){ h.innerHTML=modeBar+pickerPane(); return; }
+    h.innerHTML=modeBar+vendorBrowseHTML();
     [].forEach.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e,i){if(scrolls[i]!=null)e.scrollLeft=scrolls[i];});
   };
   window.showVendors=function(){clearScreens();renderVendors();setActive('vendors');};
@@ -39095,6 +39194,96 @@ window.RemyFarm={
     });
   }
   window.openTheMenu=function(){clearScreens();renderTheMenuInline();setActive('menu');};
+
+  /* ── ORDER TAB (standalone Remy, 2026-07-10) ───────────────────────────────────
+     The new primary Kitchen surface. Ingredient-first picker (reuses pkCard/basket) with
+     a filter strip: Mapped to menu (default) + In season / Movers / Fresh / Gaps / All,
+     and By vendor (the old My Vendors browse, folded in). Embed is untouched (gated in
+     buildKitchenPills/cfDefault on window._REMY_EMBED). ─────────────────────────── */
+  var _ordF='mapped';        // active primary filter
+  var _ordType=null;         // category sub-filter (null = all types)
+  var _ordQ='';              // search text (lowercased)
+  var _menuTok=null,_seasonTok=null,_moverTok=null;
+  var _ORD_STOP={red:1,green:1,white:1,yellow:1,gold:1,golden:1,baby:1,wild:1,fresh:1,mixed:1,farm:1,house:1,local:1,dried:1,whole:1,ground:1,sea:1,salt:1,oil:1,olive:1,black:1,sweet:1,hot:1,mini:1,large:1,small:1,the:1,and:1,with:1,for:1,new:1,young:1};
+  function ordCanon(n){ return String(n==null?'':n).toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9, ]+/g,' ').replace(/\s+/g,' ').replace(/^,|,$/g,'').trim(); }
+  function ordSing(w){ w=w||''; return (w.length>3 && w.charAt(w.length-1)==='s' && w.slice(-2)!=='ss')? w.slice(0,-1):w; }
+  function ordToks(nm){ return ordCanon(nm).replace(/,/g,' ').split(' ').map(ordSing).filter(function(t){return t.length>=3 && !_ORD_STOP[t];}); }
+  function ordKeyToks(rec){ return ordToks(rec.display||''); }
+  function ordAnyTok(toks,set){ for(var i=0;i<toks.length;i++){ if(set[toks[i]])return true; } return false; }
+  function ordMenuTok(){ if(_menuTok)return _menuTok; var s={};
+    var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[];
+    dishes.forEach(function(d){ (d.components||[]).forEach(function(c){
+      if(c&&c.kind==='pantry')return; ordToks((c&&(c.maps_to||c.raw))||'').forEach(function(t){s[t]=1;}); }); });
+    _menuTok=s; return s; }
+  function ordSeasonTok(){ if(_seasonTok)return _seasonTok; var s={};
+    (DATA.ingredients||[]).forEach(function(it){ var st='off'; try{st=statusOf(it);}catch(e){}
+      if(st==='peak'||st==='avail'){ ordToks(it.name).forEach(function(t){s[t]=1;}); } });
+    _seasonTok=s; return s; }
+  function ordMoverTok(){ if(_moverTok)return _moverTok; var s={};
+    (DATA.price_trends||[]).forEach(function(t){ if(t&&t.trend_30d_pct!=null&&Math.abs(t.trend_30d_pct)>=10) ordToks(t.ingredient).forEach(function(x){s[x]=1;}); });
+    var pd=DATA.price_drift||{};
+    Object.keys(pd).forEach(function(k){ var arr=pd[k]; if(Array.isArray(arr))arr.forEach(function(r){ if(r&&(r.name||r.item)) ordToks(r.name||r.item).forEach(function(x){s[x]=1;}); }); });
+    _moverTok=s; return s; }
+  function ordPassesPrimary(k){ var rec=_pkOffers[k];
+    if(_ordF==='mapped')return ordAnyTok(ordKeyToks(rec),ordMenuTok());
+    if(_ordF==='season')return ordAnyTok(ordKeyToks(rec),ordSeasonTok());
+    if(_ordF==='movers')return ordAnyTok(ordKeyToks(rec),ordMoverTok());
+    if(_ordF==='fresh')return (rec.offers||[]).some(function(o){return String(o.freshness||'').indexOf('LIVE')===0;});
+    return true; }
+  function ordVisibleKeys(){ var keys=Object.keys(_pkOffers).filter(ordPassesPrimary);
+    if(_ordType)keys=keys.filter(function(k){return (_pkOffers[k].category||'')===_ordType;});
+    if(_ordQ)keys=keys.filter(function(k){return (_pkOffers[k].display||'').toLowerCase().indexOf(_ordQ)>=0;});
+    keys.sort(function(a,b){return (_pkOffers[a].display||'').localeCompare(_pkOffers[b].display||'');});
+    return keys; }
+  function ordCatLabel(c){ return String(c||'').replace(/_/g,' ').replace(/\b\w/g,function(m){return m.toUpperCase();}); }
+  function ordTypeChips(primaryKeys){ var cats={};
+    primaryKeys.forEach(function(k){var c=_pkOffers[k].category; if(c&&c!=='uncategorized')cats[c]=(cats[c]||0)+1;});
+    var list=Object.keys(cats).sort(); if(list.length<2)return '';
+    return '<div class="ord-sub"><button class="ord-chip'+(_ordType==null?' on':'')+'" data-ot="">All types</button>'+
+      list.map(function(c){return '<button class="ord-chip'+(_ordType===c?' on':'')+'" data-ot="'+esc(c)+'">'+esc(ordCatLabel(c))+'</button>';}).join('')+'</div>'; }
+  function ordChip(id,label){ return '<button class="ord-chip'+(_ordF===id?' on':'')+'" data-of="'+id+'">'+label+'</button>'; }
+  function ordHint(){ return ({mapped:'Ingredients on your menu, cheapest per unit first. Franks always shown.',season:'What’s in season now.',movers:'Prices on the move (up or down).',fresh:'Live-priced offers only.',all:'Every produce ingredient with a current offer.'})[_ordF]||''; }
+  function ordEmpty(){ return ({mapped:'No menu-mapped ingredients matched. Try All.',season:'Nothing flagged in season right now.',movers:'No price movers right now.',fresh:'No live-priced offers right now.'})[_ordF]||'No matches — try another filter.'; }
+  function ordGaps(){ var ms={}; var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[];
+    dishes.forEach(function(d){(d.components||[]).forEach(function(c){ if(!c||c.kind==='pantry'||c.kind==='sub_recipe'||c.kind==='prose')return;
+      var ven=(c.vendor||''); if(/house|in-house|made/i.test(ven))return;   // house-made isn't a sourcing gap
+      var nm=((c.maps_to||c.raw)||'').trim(); if(!nm)return; var toks=ordToks(nm); if(!toks.length)return;
+      ms[nm.toLowerCase()]={name:nm,vendor:ven,toks:toks}; });});
+    var covered={}; Object.keys(_pkOffers).forEach(function(k){ ordKeyToks(_pkOffers[k]).forEach(function(t){covered[t]=1;}); });
+    var gaps=[]; Object.keys(ms).forEach(function(nm){ var e=ms[nm]; if(!e.toks.some(function(t){return covered[t];}))gaps.push(e); });
+    gaps.sort(function(a,b){return a.name.localeCompare(b.name);}); return gaps; }
+  function ordStripHTML(){ return '<div class="ord-strip">'+
+      ordChip('mapped','Mapped to menu')+ordChip('season','In season')+ordChip('movers','Movers')+
+      ordChip('fresh','Fresh only')+ordChip('gaps','Gaps')+ordChip('all','All')+
+      '<button class="ord-chip'+(_ordF==='byvendor'?' on':'')+'" data-of="byvendor">By vendor</button></div>'; }
+  function ordBindStrip(){ var h=host(); if(!h)return;
+    h.querySelectorAll('.ord-strip .ord-chip').forEach(function(b){b.onclick=function(){_ordF=b.dataset.of;_ordType=null;renderOrderInner();};});
+    h.querySelectorAll('.ord-sub .ord-chip').forEach(function(b){b.onclick=function(){_ordType=(b.dataset.ot||'')||null;renderOrderInner();};}); }
+  window.ordSetQ=function(v){ _ordQ=(v||'').toLowerCase(); renderOrderInner();
+    var inp=host()&&host().querySelector('.pk-search'); if(inp){try{inp.focus();inp.setSelectionRange(inp.value.length,inp.value.length);}catch(e){}} };
+  function renderOrderInner(){ var h=host(); if(!h)return;
+    var strip=ordStripHTML();
+    if(_ordF==='byvendor'){ _vHost='order'; h.innerHTML=strip+vendorBrowseHTML(); ordBindStrip(); return; }
+    _vHost='order';
+    if(_ordF==='gaps'){ var gaps=ordGaps();
+      var gh=gaps.length? gaps.map(function(g){return '<div class="ord-gaprow">'+esc(g.name)+(g.vendor?(' <small>'+esc(g.vendor)+'</small>'):' <small>need to source</small>')+'</div>';}).join('')
+                        : '<div class="vempty">Every mapped menu ingredient has at least one current offer.</div>';
+      h.innerHTML=strip+'<div class="vhint">Menu ingredients with no current vendor offer — the gaps to source.</div>'+gh; ordBindStrip(); return; }
+    if(_pkErr){ h.innerHTML=strip+'<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>'; ordBindStrip(); return; }
+    if(!_pkOffers){ h.innerHTML=strip+'<div class="vempty">Loading offers…</div>'; ordBindStrip(); return; }
+    var keys=ordVisibleKeys();
+    var primaryKeys=Object.keys(_pkOffers).filter(ordPassesPrimary);
+    var typeChips=ordTypeChips(primaryKeys);
+    var searchBar='<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="ordSetQ(this.value)" value="'+esc(_ordQ)+'"></div>';
+    var hint='<div class="vhint">'+ordHint()+' '+keys.length+' ingredient'+(keys.length===1?'':'s')+'.</div>';
+    var cards=keys.length? keys.map(function(k){return pkCard(_pkOffers[k]);}).join('') : '<div class="vempty">'+ordEmpty()+'</div>';
+    h.innerHTML=strip+typeChips+searchBar+hint+'<div class="vlist">'+cards+'</div><div class="pk-basket-bar" id="pk-basket-bar"></div>';
+    h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+    ordBindStrip(); renderBasketBar(); }
+  window.showOrder=function(){ clearScreens(); setActive('order'); _vHost='order';
+    if(_pkOffers!==null || _pkErr){ renderOrderInner(); return; }
+    renderOrderInner();   // paints the strip + "Loading…" immediately
+    pkFetchFeed(function(feed){ if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;} renderOrderInner(); }); };
 })();
 </script>
 </body>
