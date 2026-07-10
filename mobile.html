@@ -1287,6 +1287,12 @@ if(/[?&]embed=/.test(location.search||'')){
 .pc-drift .dr-fix:hover{filter:brightness(1.08)}
 .pc-drift.stale{color:var(--ink-30);font-style:italic}
 .pc-drift .dr-note{color:var(--ink-30);font-style:italic}
+/* stock-ticker prominence + full-list placement (2026-07-10) */
+.pc-drift .dr-mkt{font-weight:600;font-size:12.5px;letter-spacing:.01em}
+.pc-drift .dr-read{font-size:11px}
+.lrow-wrap{margin:0}
+.lrow-drift{padding:0 6px 9px;margin-top:-2px}
+.lrow-drift .pc-drift{margin-top:3px}
 .pc-actions{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
 .chip-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.03em;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:6px 11px;cursor:pointer;transition:all .2s var(--ease)}
 .chip-btn:hover{color:var(--ink);border-color:var(--ink-30)}
@@ -1712,6 +1718,7 @@ if(/[?&]embed=/.test(location.search||'')){
       <button class="pmode-toggle" id="edit-mode-toggle" aria-pressed="false">Edit</button>
       <button class="pmode-toggle" id="photo-mode-toggle" aria-pressed="false">Photo mode</button>
       <button class="pmode-toggle" id="bytype-toggle" aria-pressed="false">By type</button>
+      <button class="pmode-toggle on" id="ticker-toggle" aria-pressed="true">Market &#10003;</button>
     </div>
     <button class="ng-add-btn" id="ng-toggle">+ New Growth</button>
     <div id="list-rows"></div>
@@ -36436,6 +36443,11 @@ function setEditMode(on){
 }
 /* Farm-side "By type" view — group the full crop list into collapsible category sections (Sam, 2026-06-27). */
 var listByType=false, listTypeOpen={};
+// Market drift ticker visibility (Sam, 2026-07-10). Default ON; the preference persists locally.
+var _showTicker=(function(){try{return localStorage.getItem('remy.farm.showTicker')!=='0';}catch(e){return true;}})();
+function setShowTicker(on){_showTicker=on;try{localStorage.setItem('remy.farm.showTicker',on?'1':'0');}catch(e){}
+  var b=document.getElementById('ticker-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'Market ✓':'Market';}
+  if(typeof renderPush==='function')renderPush(); if(typeof renderList==='function')renderList();}
 var LCAT={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other'};
 function lcatLabel(c){return LCAT[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
 function setListByType(on){listByType=on;var b=document.getElementById('bytype-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}renderList();}
@@ -36477,6 +36489,8 @@ function ngSave(){
   var nm=document.getElementById('ng-name');if(nm)nm.addEventListener('keydown',function(e){if(e.key==='Enter')ngSave();});
   var e=document.getElementById('edit-mode-toggle');if(e)e.onclick=function(){setEditMode(!editMode);};
   var bt=document.getElementById('bytype-toggle');if(bt)bt.onclick=function(){setListByType(!listByType);};
+  var tk=document.getElementById('ticker-toggle');if(tk){tk.onclick=function(){setShowTicker(!_showTicker);};
+    tk.classList.toggle('on',_showTicker);tk.setAttribute('aria-pressed',_showTicker?'true':'false');tk.innerHTML=_showTicker?'Market &#10003;':'Market';}
 })();
 
 /* ── VOICE NOTE: record audio (every device) + live transcription where supported,
@@ -36869,7 +36883,7 @@ function renderPush(){
       '<button class="pc-x" data-n="'+n+'" aria-label="Remove">&times;</button>'+
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
-      (g.ask?driftTicker(g):'')+
+      ((g.ask&&_showTicker)?driftTicker(g):'')+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
       (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+((g._up_photo||isLocalMedia(g.photo))?('<span class="pc-photo-up'+(isOffline()?' pend':'')+'">'+(isOffline()?'Will upload when online':(g._up_photo?'Uploading&hellip;':'Syncing&hellip;'))+'</span>'):'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
@@ -37006,6 +37020,13 @@ function lrowNode(g){
       '<button class="lr-price'+(g.ask?' set':'')+'" data-n="'+g.name+'" aria-label="Price">'+(g.ask?('$'+Number(g.ask).toFixed(2)):'$')+'</button>'+
       '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
   }
+  // Market drift ticker on the FULL list too (Sam, 2026-07-10) — a second line under the row,
+  // gated on the show/hide preference. Same driftTicker the push board uses.
+  if(!editMode && _showTicker && g.ask){
+    var tick=driftTicker(g);
+    if(tick){ var wrap=document.createElement('div'); wrap.className='lrow-wrap'; wrap.appendChild(r);
+      var dd=document.createElement('div'); dd.className='lrow-drift'; dd.innerHTML=tick; wrap.appendChild(dd); return wrap; }
+  }
   return r;
 }
 function renderList(){
@@ -37025,6 +37046,7 @@ function renderList(){
   } else {
     grow.forEach(function(g){el.appendChild(lrowNode(g));});
   }
+  el.querySelectorAll('.dr-fix').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
   el.querySelectorAll('.lr-typehdr').forEach(function(h){h.onclick=function(){var c=h.getAttribute('data-cat');listTypeOpen[c]=!listTypeOpen[c];renderList();};});
   el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;renderList();renderPick();};});
   el.querySelectorAll('.lr-price').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.prepped)ptOpen(b.dataset.n);else atOpen(b.dataset.n);};});
