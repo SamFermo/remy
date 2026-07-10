@@ -947,6 +947,26 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .pk-dot.dated{background:#e2b95e}
 .pk-dot.stale{background:var(--terra)}
 .pk-lane-note{font-family:var(--fd);font-style:italic;font-size:11px;color:var(--ink-30);padding:6px 4px 2px}
+.pk-add{margin-left:8px;flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;font-family:var(--fb)}
+.pk-add:hover{border-color:var(--olive);color:var(--olive)}
+.pk-add.added{background:var(--olive);color:#0a1028;border-color:var(--olive)}
+.pk-basket-bar{position:sticky;bottom:6px;z-index:5}
+.pk-bar{width:100%;font-family:var(--fb);font-size:13px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:24px;padding:12px 16px;cursor:pointer;margin:6px 0;display:flex;justify-content:center;gap:10px;align-items:center;box-shadow:0 4px 18px -6px rgba(0,0,0,.5)}
+.pk-bar-go{font-weight:400;opacity:.85}
+.pk-basket-ov{position:fixed;inset:0;z-index:95;background:rgba(2,4,13,.6);display:flex;align-items:flex-end;justify-content:center}
+.pk-basket{width:100%;max-width:520px;max-height:86vh;overflow:auto;background:var(--bg);border-top:1px solid var(--ink-12);border-radius:16px 16px 0 0;padding:18px 18px 28px}
+.pk-basket h3{font-family:var(--fd);font-weight:500;font-size:23px;margin:0 0 3px;color:var(--ink)}
+.pk-bk-vhd{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--olive);margin:16px 0 4px}
+.pk-bk-row{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--ink-6)}
+.pk-bk-nm{flex:1;font-family:var(--fd);font-size:16px;color:var(--ink);line-height:1.15}
+.pk-bk-nm small{display:block;font-family:var(--fb);font-size:11px;color:var(--ink-30)}
+.pk-bk-q{display:flex;align-items:center;gap:8px}
+.pk-bk-q button{width:26px;height:26px;border-radius:50%;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink);cursor:pointer;font-size:15px;line-height:1}
+.pk-bk-q span{min-width:20px;text-align:center;font-family:var(--fb);font-size:14px;color:var(--ink)}
+.pk-bk-rm{background:none;border:none;color:var(--ink-30);cursor:pointer;font-size:17px;line-height:1}
+.pk-bk-rm:hover{color:var(--terra)}
+.pk-bk-close{width:100%;margin-top:18px;font-family:var(--fb);font-size:14px;color:var(--ink);background:transparent;border:1px solid var(--ink-12);border-radius:11px;padding:12px;cursor:pointer}
+.pk-bk-note{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-30);margin-top:12px;text-align:center;line-height:1.4}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -38243,13 +38263,59 @@ window.RemyFarm={
       return ap-bp;
     });
   }
-  function pkOfferRow(o, cu){
+  // ── Layer 3 Slice A: order basket. Add offers across vendors, grouped-by-vendor review.
+  // No send here — Slice B wires Swan (live loop) + Franks/direct (drafted order email). ──
+  var _basket=[];
+  function pkAdd(d){
+    var name=d.ing, vendor=d.vendor, punit=d.punit||'', pack=d.pack||'', per=(d.per===''||d.per==null)?null:Number(d.per);
+    var ex=_basket.filter(function(x){return x.name===name&&x.vendor===vendor&&x.per_unit===punit;})[0];
+    if(ex){ex.qty++;} else {_basket.push({name:name,vendor:vendor,per:per,per_unit:punit,pack:pack,qty:1});}
+    renderBasketBar();
+  }
+  function pkBasketVendors(){var s={};_basket.forEach(function(x){s[x.vendor]=1;});return Object.keys(s);}
+  function renderBasketBar(){
+    var el=document.getElementById('pk-basket-bar'); if(!el)return;
+    if(!_basket.length){el.innerHTML='';return;}
+    var items=_basket.reduce(function(a,x){return a+x.qty;},0), vend=pkBasketVendors().length;
+    el.innerHTML='<button class="pk-bar" onclick="openBasket()">&#129530; Order: '+items+' item'+(items>1?'s':'')+' &middot; '+vend+' vendor'+(vend>1?'s':'')+' <span class="pk-bar-go">Review &rarr;</span></button>';
+  }
+  window.openBasket=function(){
+    var ov=document.getElementById('pkBasketOv');
+    if(!ov){ov=document.createElement('div');ov.id='pkBasketOv';ov.className='pk-basket-ov';document.body.appendChild(ov);
+      ov.addEventListener('click',function(e){if(e.target===ov)ov.remove();});}
+    renderBasketPanel();
+  };
+  function pkQty(i,dq){ if(_basket[i]){_basket[i].qty=Math.max(1,_basket[i].qty+dq); renderBasketBar(); renderBasketPanel();} }
+  function pkRemoveIdx(i){ _basket.splice(i,1); renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel(); }
+  function renderBasketPanel(){
+    var ov=document.getElementById('pkBasketOv'); if(!ov) return;
+    if(!_basket.length){ov.remove();return;}
+    var byV={},order=[];
+    _basket.forEach(function(x,i){ if(!byV[x.vendor]){byV[x.vendor]=[];order.push(x.vendor);} byV[x.vendor].push({_i:i,d:x}); });
+    var body=order.map(function(v){
+      var rows=byV[v].map(function(w){ var x=w.d;
+        return '<div class="pk-bk-row"><span class="pk-bk-nm">'+esc(x.name)+(x.per!=null?'<small>$'+Number(x.per).toFixed(2)+'/'+esc(x.per_unit||'')+(x.pack?(' &middot; '+esc(x.pack)):'')+'</small>':'')+'</span>'+
+          '<span class="pk-bk-q"><button data-i="'+w._i+'" data-d="-1">&minus;</button><span>'+x.qty+'</span><button data-i="'+w._i+'" data-d="1">+</button></span>'+
+          '<button class="pk-bk-rm" data-rm="'+w._i+'" aria-label="Remove">&times;</button></div>';
+      }).join('');
+      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows;
+    }).join('');
+    ov.innerHTML='<div class="pk-basket"><h3>Your order</h3><div class="vhint">Grouped by vendor. This builds the order — sending is the next step.</div>'+body+
+      '<div class="pk-bk-note">Swan sends through the live farm loop; Franks &amp; direct farms get a drafted order email you send.</div>'+
+      '<button class="pk-bk-close" id="pk-bk-close">Close</button></div>';
+    ov.querySelectorAll('.pk-bk-q button').forEach(function(b){b.onclick=function(){pkQty(+b.dataset.i,+b.dataset.d);};});
+    ov.querySelectorAll('.pk-bk-rm').forEach(function(b){b.onclick=function(){pkRemoveIdx(+b.dataset.rm);};});
+    var c=document.getElementById('pk-bk-close'); if(c)c.onclick=function(){ov.remove();};
+  }
+
+  function pkOfferRow(o, cu, ing){
     var pr=(o.per!=null)?('$'+Number(o.per).toFixed(2)+' <span class="pk-u">/'+esc(o.per_unit||'')+'</span>'):'—';
     var off=(cu&&o.per_unit!==cu)?' pk-otherlane':'';
     var pack=o.pack?('<span class="pk-pack">'+esc(o.pack)+'</span>'):'';
+    var add='<button class="pk-add" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" aria-label="Add to order">+</button>';
     return '<div class="pk-off'+off+'">'+pkFreshDot(o.freshness)+
       '<span class="pk-vn">'+esc(o.vendor||'')+pack+'</span>'+
-      '<span class="pk-pr">'+pr+'</span></div>';
+      '<span class="pk-pr">'+pr+'</span>'+add+'</div>';
   }
   function pkCard(rec){
     var cu=rec.canonical_unit, offers=pkSortOffers(rec.offers, cu);
@@ -38261,7 +38327,7 @@ window.RemyFarm={
     var note=offlane?'<div class="pk-lane-note">Dimmed offers are priced per a different unit — not directly comparable.</div>':'';
     var cat=(rec.category && rec.category!=='uncategorized')?('<span class="pk-cat">'+esc(rec.category)+'</span>'):'';
     var cnt=offers.length+' offer'+(offers.length===1?'':'s')+range;
-    var rows=offers.map(function(o){return pkOfferRow(o, cu);}).join('');
+    var rows=offers.map(function(o){return pkOfferRow(o, cu, rec.display);}).join('');
     return '<details class="pk-card"><summary class="pk-sum"><span class="pk-nm">'+esc(rec.display)+'</span>'+cat+
       '<span class="pk-cnt">'+cnt+'</span></summary><div class="pk-list">'+note+rows+'</div></details>';
   }
@@ -38273,6 +38339,8 @@ window.RemyFarm={
     if(_pkQuery)keys=keys.filter(function(k){return _pkOffers[k].display.toLowerCase().indexOf(_pkQuery)>=0;});
     if(!keys.length){el.innerHTML='<div class="vempty">No produce matches that search.</div>';return;}
     el.innerHTML=keys.map(function(k){return pkCard(_pkOffers[k]);}).join('');
+    el.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+    renderBasketBar();
   };
   function pickerPane(){
     if(_pkOffers===null && !_pkErr){
@@ -38284,7 +38352,8 @@ window.RemyFarm={
     var cnt=_pkOffers?Object.keys(_pkOffers).length:0;
     return '<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="setPkQuery(this.value)" value="'+esc(_pkQuery)+'"></div>'+
       '<div class="vhint">Every vendor\'s offer for an ingredient, cheapest per unit first. Tap to compare.'+(cnt?(' '+cnt+' ingredients'):'')+'</div>'+
-      '<div id="pk-list-host" class="vlist"></div>';
+      '<div id="pk-list-host" class="vlist"></div>'+
+      '<div class="pk-basket-bar" id="pk-basket-bar"></div>';
   }
 
   window.renderVendors=function(){
