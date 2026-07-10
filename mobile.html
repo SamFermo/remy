@@ -1209,6 +1209,16 @@ if(/[?&]embed=/.test(location.search||'')){
 .pc-market{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);margin-top:7px;letter-spacing:0.02em}
 .pc-market b{color:var(--ink);font-weight:500}
 .pc-nocomp{color:var(--ink-30);font-style:italic;font-family:var(--fd);font-size:13px}
+.pc-drift{font-family:var(--fb);font-size:11px;color:var(--ink-60);margin-top:6px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;line-height:1.3}
+.pc-drift .dr-mkt{font-weight:500}
+.pc-drift .dr-mkt.up{color:var(--olive)}
+.pc-drift .dr-mkt.down{color:var(--terra)}
+.pc-drift .dr-read{color:var(--ink-30)}
+.pc-drift.alert{color:var(--ink)}
+.pc-drift .dr-fix{font-family:var(--fb);font-size:11px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:20px;padding:4px 11px;cursor:pointer;letter-spacing:.02em}
+.pc-drift .dr-fix:hover{filter:brightness(1.08)}
+.pc-drift.stale{color:var(--ink-30);font-style:italic}
+.pc-drift .dr-note{color:var(--ink-30);font-style:italic}
 .pc-actions{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
 .chip-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.03em;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:6px 11px;cursor:pointer;transition:all .2s var(--ease)}
 .chip-btn:hover{color:var(--ink);border-color:var(--ink-30)}
@@ -36733,8 +36743,54 @@ function mkt(g){
   return '<span class="pc-nocomp">no market comp yet &middot; set your own price</span>';
 }
 
+/* ── Layer 5: market drift ticker (Kelly). Her FIXED ask vs the LIVE spine market; when the
+   effective premium drifts past her target by > threshold, flag + one-tap restore to her target.
+   Reads price-reference.json live (self-contained fetch — this IIFE can't see invFetchFeed).
+   Unit bridge = the crop's own sell_units (so bunch/each convert on her basis), else weight
+   defaults; skip when not convertible. Compare-only+suggest in v1; auto-track is the next step. */
+var _fmFeed=null,_fmTried=false,_fmMap=null,_fmPrem=20,_FM_THRESH=15;
+function fmFetch(cb){ if(_fmTried){cb(_fmFeed);return;} _fmTried=true;
+  try{ fetch('price-reference.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+    .then(function(j){_fmFeed=j;cb(j);}).catch(function(){cb(null);}); }catch(e){cb(null);} }
+function fmCanon(n){ n=(n||'').replace(/\([^)]*\)/g,'').toLowerCase(); return n.replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
+function fmBuild(feed){ var m={}; if(feed){ _fmPrem=feed.premium_pct||20; var items=feed.items||{};
+  Object.keys(items).forEach(function(k){ var it=items[k];
+    if(it.swan_per_lb!=null && it.market!=null && it.swan_price){ var mpl=it.swan_per_lb*(it.market/it.swan_price);
+      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||''}; } } }); }
+  return m; }
+var _FM_WT={'lb':1,'#':1,'lbs':1,'1/2 lb':0.5,'1/2#':0.5,'1/4 lb':0.25,'1/4#':0.25,'oz':1/16};
+function fmFactor(g){ var u=(g.askUnit||'').toLowerCase().trim();
+  var su=(g.market&&g.market.sell_units)||[];
+  for(var i=0;i<su.length;i++){ if((su[i].unit||'').toLowerCase().trim()===u && su[i].per>0) return {f:su[i].per, est:su[i].basis==='estimate'}; }
+  if(_FM_WT[u]!=null) return {f:_FM_WT[u], est:false};
+  return null; }
+function farmDrift(g){
+  if(!_fmMap||!g||g.ask==null||g.ask===''||!g.askMode||g.askMode==='manual') return null;
+  var fac=fmFactor(g); if(!fac) return null;
+  var rec=_fmMap[fmCanon(g.name)]; if(!rec||!(rec.perlb>0)) return null;
+  var mkl=rec.perlb, askPerLb=Number(g.ask)/fac.f;
+  var eff=(askPerLb-mkl)/mkl*100;
+  var target=g.askMode==='premium'?(Number(g.askPct)||0):(g.askMode==='markdown'?-(Number(g.askPct)||0):0);
+  var drift=eff-target, stale=/STALE|PRIOR/.test(rec.freshness||'');
+  var recPerLb=mkl*(1+target/100);
+  return {mkl:mkl,eff:eff,target:target,drift:drift,stale:stale,recAsk:recPerLb*fac.f,dir:drift<0?'up':'down',est:fac.est}; }
+function driftTicker(g){
+  var d=farmDrift(g); if(!d) return '';
+  if(d.stale) return '<div class="pc-drift stale">market $'+d.mkl.toFixed(2)+'/lb &middot; stale <span class="dr-note">&mdash; holding; refresh the comp before adjusting</span></div>';
+  var alert=Math.abs(d.drift)>_FM_THRESH, arrow=d.dir==='up'?'&#9650;':'&#9660;';
+  var eff=(d.eff>=0?'+':'')+Math.round(d.eff)+'%', tgt=(d.target>=0?'+':'')+Math.round(d.target)+'%';
+  var h='<span class="dr-mkt '+d.dir+'">'+arrow+' market $'+d.mkl.toFixed(2)+'/lb</span>'+
+        '<span class="dr-read">now '+eff+' &middot; target '+tgt+(d.est?' &middot; est':'')+'</span>';
+  if(alert){ var ra='$'+d.recAsk.toFixed(2)+(g.askUnit?('/'+g.askUnit):'')+' ('+tgt+')';
+    h+='<button class="dr-fix" data-dn="'+String(g.name).replace(/"/g,'&quot;')+'">&rarr; '+ra+'</button>'; }
+  return '<div class="pc-drift'+(alert?' alert':'')+'">'+h+'</div>'; }
+window.driftApply=function(name){ var g=byName[name]; if(!g) return; var d=farmDrift(g); if(!d) return;
+  g.ask=Number(d.recAsk.toFixed(2)); persist(); renderPush();
+  if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList(); };
+
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
+  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPush(); }); }
   var names=Array.from(pushed);
   if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
   names.forEach(function(n){
@@ -36745,6 +36801,7 @@ function renderPush(){
       '<button class="pc-x" data-n="'+n+'" aria-label="Remove">&times;</button>'+
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
+      (g.ask?driftTicker(g):'')+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
       (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+((g._up_photo||isLocalMedia(g.photo))?('<span class="pc-photo-up'+(isOffline()?' pend':'')+'">'+(isOffline()?'Will upload when online':(g._up_photo?'Uploading&hellip;':'Syncing&hellip;'))+'</span>'):'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
@@ -36765,6 +36822,7 @@ function renderPush(){
   el.querySelectorAll('.photo-btn').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.pc-photo').forEach(function(b){b.onclick=function(){openPhotoView(b.dataset.n);};});
   el.querySelectorAll('.method-btn').forEach(function(b){b.onclick=function(){methodOpen(b.dataset.n);};});
+  el.querySelectorAll('.dr-fix').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
   persist();
 }
 /* Per-listing details capture (Kelly wishlist, 2026-06-26). Growing method (tags), how-harvested
