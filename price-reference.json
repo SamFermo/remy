@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-09",
+ "generated": "2026-07-10",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -194,7 +194,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 58.56,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -203,7 +207,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 30.0,
+     "pack_unit": "ct",
+     "case_price": 50.1,
+     "pack_known": true
     }
    ],
    "display": "Cilantro",
@@ -243,7 +251,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -252,7 +264,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 14.52,
+     "pack_known": true
     }
    ],
    "display": "Dill",
@@ -402,7 +418,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 55.68,
+     "pack_known": true
     }
    ],
    "display": "Lettuce",
@@ -453,7 +473,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 12.99,
+     "pack_known": true
     }
    ],
    "display": "Mint",
@@ -492,7 +516,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 30.0,
+     "pack_known": true
     }
    ],
    "display": "Oregano",
@@ -591,7 +619,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 20.95,
+     "pack_known": true
     }
    ],
    "display": "Rhubarb",
@@ -640,7 +672,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 35.16,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -649,7 +685,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 30.0,
+     "pack_known": true
     }
    ],
    "display": "Rosemary",
@@ -699,7 +739,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 0.5,
+     "pack_unit": "lb",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ],
    "display": "Sorrel (French)",
@@ -802,7 +846,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 13.86,
+     "pack_known": true
     }
    ]
   },
@@ -819,7 +867,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -836,7 +888,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 16.95,
+     "pack_known": true
     }
    ]
   },
@@ -853,7 +909,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 12.95,
+     "pack_known": true
     }
    ]
   },
@@ -870,7 +930,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 17.5,
+     "pack_known": true
     }
    ]
   },
@@ -887,7 +951,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 12.95,
+     "pack_known": true
     }
    ]
   },
@@ -904,7 +972,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 100.0,
+     "pack_known": true
     }
    ]
   },
@@ -921,7 +993,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -938,7 +1014,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "ct",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -955,7 +1035,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "ct",
+     "case_price": 9.24,
+     "pack_known": true
     }
    ]
   },
@@ -972,7 +1056,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "ct",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -989,7 +1077,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -1006,7 +1098,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 14.95,
+     "pack_known": true
     }
    ]
   },
@@ -1023,7 +1119,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "bu",
+     "case_price": 36.4,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1032,7 +1132,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 50.15,
+     "pack_known": true
     }
    ]
   },
@@ -1049,7 +1153,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "oz",
+     "case_price": 7.8,
+     "pack_known": true
     }
    ]
   },
@@ -1066,7 +1174,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -1083,7 +1195,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1092,7 +1208,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 66.0,
+     "pack_known": true
     }
    ]
   },
@@ -1109,7 +1229,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 50.16,
+     "pack_known": true
     }
    ]
   },
@@ -1126,7 +1250,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 29.04,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1135,7 +1263,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 29.04,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1144,7 +1276,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 39.5,
+     "pack_known": true
     }
    ]
   },
@@ -1161,7 +1297,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 38.88,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1170,7 +1310,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1179,7 +1323,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 37.0,
+     "pack_known": true
     }
    ]
   },
@@ -1196,7 +1344,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 12.95,
+     "pack_known": true
     }
    ]
   },
@@ -1213,7 +1365,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1230,7 +1386,11 @@
      "per_unit": "flat",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1247,7 +1407,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1264,7 +1428,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1273,7 +1441,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -1282,7 +1454,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 59.0,
+     "pack_known": true
     }
    ]
   },
@@ -1299,7 +1475,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 61.75,
+     "pack_known": true
     }
    ]
   },
@@ -1316,7 +1496,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1325,7 +1509,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -1334,7 +1522,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 30.0,
+     "pack_unit": "lb",
+     "case_price": 165.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1343,7 +1535,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.65,
+     "pack_known": true
     }
    ]
   },
@@ -1360,7 +1556,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "clamshell",
+     "case_price": 37.71,
+     "pack_known": true
     }
    ]
   },
@@ -1377,7 +1577,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 16.95,
+     "pack_known": true
     }
    ]
   },
@@ -1394,7 +1598,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1403,7 +1611,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1420,7 +1632,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "lb",
+     "case_price": 45.51,
+     "pack_known": true
     }
    ]
   },
@@ -1437,7 +1653,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 18.0,
+     "pack_unit": "bu",
+     "case_price": 36.36,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1446,7 +1666,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 18.0,
+     "pack_unit": "ct",
+     "case_price": 36.9,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -1455,7 +1679,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 15.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1464,7 +1692,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 30.0,
+     "pack_unit": "lb",
+     "case_price": 79.2,
+     "pack_known": true
     }
    ]
   },
@@ -1481,7 +1713,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 23.4,
+     "pack_known": true
     }
    ]
   },
@@ -1498,7 +1734,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 18.0,
+     "pack_unit": "bu",
+     "case_price": 36.36,
+     "pack_known": true
     }
    ]
   },
@@ -1515,7 +1755,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 18.0,
+     "pack_unit": "ct",
+     "case_price": 36.9,
+     "pack_known": true
     }
    ]
   },
@@ -1532,7 +1776,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 25.08,
+     "pack_known": true
     }
    ]
   },
@@ -1549,7 +1797,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -1566,7 +1818,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 18.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1575,7 +1831,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 45.0,
+     "pack_unit": "lb",
+     "case_price": 36.9,
+     "pack_known": true
     }
    ]
   },
@@ -1592,7 +1852,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 32.5,
+     "pack_known": true
     }
    ]
   },
@@ -1609,7 +1873,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 40.0,
+     "pack_unit": "lb",
+     "case_price": 59.2,
+     "pack_known": true
     }
    ]
   },
@@ -1626,7 +1894,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 55.44,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1635,7 +1907,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 45.0,
+     "pack_known": true
     }
    ]
   },
@@ -1652,7 +1928,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 21.96,
+     "pack_known": true
     }
    ]
   },
@@ -1669,7 +1949,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -1686,7 +1970,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 34.92,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1695,7 +1983,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 61.92,
+     "pack_known": true
     }
    ]
   },
@@ -1712,7 +2004,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "ct",
+     "case_price": 13.95,
+     "pack_known": true
     }
    ]
   },
@@ -1729,7 +2025,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 54.6,
+     "pack_known": true
     }
    ]
   },
@@ -1746,7 +2046,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 15.96,
+     "pack_known": true
     }
    ]
   },
@@ -1763,7 +2067,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 35.04,
+     "pack_known": true
     }
    ]
   },
@@ -1780,7 +2088,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 35.04,
+     "pack_known": true
     }
    ]
   },
@@ -1797,7 +2109,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 35.04,
+     "pack_known": true
     }
    ]
   },
@@ -1814,7 +2130,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 27.0,
+     "pack_unit": "lb",
+     "case_price": 78.84,
+     "pack_known": true
     }
    ]
   },
@@ -1831,7 +2151,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 52.0,
+     "pack_known": true
     }
    ]
   },
@@ -1848,7 +2172,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 13.95,
+     "pack_known": true
     }
    ]
   },
@@ -1865,7 +2193,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 9.96,
+     "pack_known": true
     }
    ]
   },
@@ -1882,7 +2214,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 30.0,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -1891,7 +2227,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "oz",
+     "case_price": 12.74,
+     "pack_known": true
     }
    ]
   },
@@ -1908,7 +2248,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 0.5,
+     "pack_unit": "lb",
+     "case_price": 1.62,
+     "pack_known": true
     }
    ]
   },
@@ -1925,7 +2269,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -1942,7 +2290,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -1959,7 +2311,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 28.56,
+     "pack_known": true
     }
    ]
   },
@@ -1976,7 +2332,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "ct",
+     "case_price": 10.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -1985,7 +2345,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 50.1,
+     "pack_known": true
     }
    ]
   },
@@ -2002,7 +2366,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 49.4,
+     "pack_known": true
     }
    ]
   },
@@ -2019,7 +2387,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 50.1,
+     "pack_known": true
     }
    ]
   },
@@ -2036,7 +2408,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 9.0,
+     "pack_unit": "ct",
+     "case_price": 13.95,
+     "pack_known": true
     }
    ]
   },
@@ -2053,7 +2429,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 27.24,
+     "pack_known": true
     }
    ]
   },
@@ -2070,7 +2450,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 27.24,
+     "pack_known": true
     }
    ]
   },
@@ -2087,7 +2471,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 20.52,
+     "pack_known": true
     }
    ]
   },
@@ -2104,7 +2492,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 26.4,
+     "pack_known": true
     }
    ]
   },
@@ -2121,7 +2513,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "oz",
+     "case_price": 19.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2130,7 +2526,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "oz",
+     "case_price": 7.26,
+     "pack_known": true
     }
    ]
   },
@@ -2147,7 +2547,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 21.96,
+     "pack_known": true
     }
    ]
   },
@@ -2164,7 +2568,11 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1,
+     "pack_unit": "each",
+     "case_price": 2.98,
+     "pack_known": true
     }
    ]
   },
@@ -2181,7 +2589,11 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "case",
+     "case_price": null,
+     "pack_known": false
     },
     {
      "vendor": "Farmstand",
@@ -2190,7 +2602,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2199,7 +2615,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -2216,7 +2636,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "oz",
+     "case_price": 9.1,
+     "pack_known": true
     }
    ]
   },
@@ -2233,7 +2657,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "oz",
+     "case_price": 13.95,
+     "pack_known": true
     }
    ]
   },
@@ -2250,7 +2678,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2259,7 +2691,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -2276,7 +2712,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 21.96,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -2285,7 +2725,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 18.55,
+     "pack_known": true
     }
    ]
   },
@@ -2302,7 +2746,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -2319,7 +2767,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "ct",
+     "case_price": 0.0,
+     "pack_known": true
     }
    ]
   },
@@ -2336,7 +2788,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "stem",
+     "case_price": 23.6,
+     "pack_known": true
     }
    ]
   },
@@ -2353,7 +2809,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 16.9,
+     "pack_known": true
     }
    ]
   },
@@ -2370,7 +2830,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 62.4,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2379,7 +2843,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 59.52,
+     "pack_known": true
     }
    ]
   },
@@ -2396,7 +2864,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 91.0,
+     "pack_known": true
     }
    ]
   },
@@ -2413,7 +2885,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -2430,7 +2906,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 18.51,
+     "pack_known": true
     }
    ]
   },
@@ -2447,7 +2927,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.5,
+     "pack_unit": "lb",
+     "case_price": 7.95,
+     "pack_known": true
     }
    ]
   },
@@ -2464,7 +2948,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.5,
+     "pack_unit": "lb",
+     "case_price": 8.5,
+     "pack_known": true
     }
    ]
   },
@@ -2481,7 +2969,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.5,
+     "pack_unit": "lb",
+     "case_price": 8.5,
+     "pack_known": true
     }
    ]
   },
@@ -2498,7 +2990,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 11.5,
+     "pack_known": true
     }
    ]
   },
@@ -2515,7 +3011,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 39.0,
+     "pack_known": true
     }
    ]
   },
@@ -2532,7 +3032,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 41.0,
+     "pack_known": true
     }
    ]
   },
@@ -2549,7 +3053,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 54.0,
+     "pack_known": true
     }
    ]
   },
@@ -2566,7 +3074,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 23.76,
+     "pack_known": true
     }
    ]
   },
@@ -2583,7 +3095,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -2600,7 +3116,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 38.88,
+     "pack_known": true
     }
    ]
   },
@@ -2617,7 +3137,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 32.52,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2626,7 +3150,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -2643,7 +3171,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 38.88,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2652,7 +3184,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -2669,7 +3205,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 39.0,
+     "pack_known": true
     }
    ]
   },
@@ -2686,7 +3226,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 43.68,
+     "pack_known": true
     }
    ]
   },
@@ -2703,7 +3247,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 62.4,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2712,7 +3260,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -2729,7 +3281,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 29.76,
+     "pack_known": true
     }
    ]
   },
@@ -2746,7 +3302,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 49.44,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2755,7 +3315,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 29.76,
+     "pack_known": true
     }
    ]
   },
@@ -2772,7 +3336,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 17.94,
+     "pack_known": true
     }
    ]
   },
@@ -2789,7 +3357,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -2806,7 +3378,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 4.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -2823,7 +3399,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 15.5,
+     "pack_known": true
     }
    ]
   },
@@ -2840,7 +3420,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 16.95,
+     "pack_known": true
     }
    ]
   },
@@ -2857,7 +3441,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -2874,7 +3462,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "ct",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -2891,7 +3483,11 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1,
+     "pack_unit": "lb",
+     "case_price": 4.11,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -2900,7 +3496,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 6.95,
+     "pack_known": true
     }
    ]
   },
@@ -2917,7 +3517,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 12.99,
+     "pack_known": true
     }
    ]
   },
@@ -2934,7 +3538,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 34.56,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2943,7 +3551,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -2960,7 +3572,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 38.88,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2969,7 +3585,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 36.96,
+     "pack_known": true
     }
    ]
   },
@@ -2986,7 +3606,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 26.04,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -2995,7 +3619,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 55.68,
+     "pack_known": true
     }
    ]
   },
@@ -3012,7 +3640,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 21.0,
+     "pack_known": true
     }
    ]
   },
@@ -3029,7 +3661,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 38.88,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3038,7 +3674,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 36.96,
+     "pack_known": true
     }
    ]
   },
@@ -3055,7 +3695,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 45.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3064,7 +3708,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -3081,7 +3729,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3090,7 +3742,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3107,7 +3763,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 59.0,
+     "pack_known": true
     }
    ]
   },
@@ -3124,7 +3784,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 16.5,
+     "pack_known": true
     }
    ]
   },
@@ -3141,7 +3805,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "clamshell",
+     "case_price": 36.96,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3150,7 +3818,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "pkg",
+     "case_price": 22.44,
+     "pack_known": true
     }
    ]
   },
@@ -3167,7 +3839,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 15.84,
+     "pack_known": true
     }
    ]
   },
@@ -3184,7 +3860,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 15.84,
+     "pack_known": true
     }
    ]
   },
@@ -3201,7 +3881,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 27.72,
+     "pack_known": true
     }
    ]
   },
@@ -3218,7 +3902,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 32.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3227,7 +3915,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -3244,7 +3936,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 12.25,
+     "pack_known": true
     }
    ]
   },
@@ -3261,7 +3957,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 11.18,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3270,7 +3970,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -3287,7 +3991,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 63.05,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3296,7 +4004,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 43.55,
+     "pack_known": true
     }
    ]
   },
@@ -3313,7 +4025,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "pkg",
+     "case_price": 53.87,
+     "pack_known": true
     }
    ]
   },
@@ -3330,7 +4046,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 13.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3339,7 +4059,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 46.2,
+     "pack_known": true
     }
    ]
   },
@@ -3356,7 +4080,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 6.95,
+     "pack_known": true
     }
    ]
   },
@@ -3373,7 +4101,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "pkg",
+     "case_price": 66.0,
+     "pack_known": true
     }
    ]
   },
@@ -3390,7 +4122,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 46.2,
+     "pack_known": true
     }
    ]
   },
@@ -3407,7 +4143,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -3424,7 +4164,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 64.95,
+     "pack_known": true
     }
    ]
   },
@@ -3441,7 +4185,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "pkg",
+     "case_price": 53.87,
+     "pack_known": true
     }
    ]
   },
@@ -3458,7 +4206,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -3475,7 +4227,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 11.7,
+     "pack_known": true
     }
    ]
   },
@@ -3492,7 +4248,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 12.25,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3501,7 +4261,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 43.55,
+     "pack_known": true
     }
    ]
   },
@@ -3518,7 +4282,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 49.95,
+     "pack_known": true
     }
    ]
   },
@@ -3535,7 +4303,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 71.28,
+     "pack_known": true
     }
    ]
   },
@@ -3552,7 +4324,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 19.5,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -3561,7 +4337,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -3578,7 +4358,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 3.9,
+     "pack_known": true
     }
    ]
   },
@@ -3595,7 +4379,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 8.95,
+     "pack_known": true
     }
    ]
   },
@@ -3612,7 +4400,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 8.95,
+     "pack_known": true
     }
    ]
   },
@@ -3629,7 +4421,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "bu",
+     "case_price": 29.2,
+     "pack_known": true
     }
    ]
   },
@@ -3646,7 +4442,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "lb",
+     "case_price": 7.5,
+     "pack_known": true
     }
    ]
   },
@@ -3663,7 +4463,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -3672,7 +4476,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -3689,7 +4497,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 30.0,
+     "pack_unit": "bu",
+     "case_price": 41.7,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3698,7 +4510,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 22.44,
+     "pack_known": true
     }
    ]
   },
@@ -3715,7 +4531,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 9.84,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3724,7 +4544,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 30.0,
+     "pack_unit": "ct",
+     "case_price": 36.9,
+     "pack_known": true
     }
    ]
   },
@@ -3741,7 +4565,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "pkg",
+     "case_price": 22.44,
+     "pack_known": true
     }
    ]
   },
@@ -3758,7 +4586,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 18.2,
+     "pack_known": true
     }
    ]
   },
@@ -3775,7 +4607,11 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1,
+     "pack_unit": "lb",
+     "case_price": 5.78,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -3784,7 +4620,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 16.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -3793,7 +4633,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 148.5,
+     "pack_known": true
     }
    ]
   },
@@ -3810,7 +4654,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "lb",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -3827,7 +4675,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 11.88,
+     "pack_known": true
     }
    ]
   },
@@ -3844,7 +4696,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 16.5,
+     "pack_known": true
     }
    ]
   },
@@ -3861,7 +4717,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 36.95,
+     "pack_known": true
     }
    ]
   },
@@ -3878,7 +4738,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 15.94,
+     "pack_known": true
     }
    ]
   },
@@ -3895,7 +4759,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 17.95,
+     "pack_known": true
     }
    ]
   },
@@ -3912,7 +4780,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.95,
+     "pack_known": true
     }
    ]
   },
@@ -3929,7 +4801,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.95,
+     "pack_known": true
     }
    ]
   },
@@ -3946,7 +4822,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.95,
+     "pack_known": true
     }
    ]
   },
@@ -3963,7 +4843,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.95,
+     "pack_known": true
     }
    ]
   },
@@ -3980,7 +4864,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 8.95,
+     "pack_known": true
     }
    ]
   },
@@ -3997,7 +4885,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 67.0,
+     "pack_known": true
     }
    ]
   },
@@ -4014,7 +4906,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 38.2,
+     "pack_known": true
     }
    ]
   },
@@ -4031,7 +4927,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 20.0,
+     "pack_unit": "lb",
+     "case_price": 58.8,
+     "pack_known": true
     }
    ]
   },
@@ -4048,7 +4948,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -4065,7 +4969,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 19.5,
+     "pack_known": true
     }
    ]
   },
@@ -4082,7 +4990,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 11.7,
+     "pack_known": true
     }
    ]
   },
@@ -4099,7 +5011,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 24.96,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4108,7 +5024,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 36.4,
+     "pack_known": true
     }
    ]
   },
@@ -4125,7 +5045,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "ct",
+     "case_price": 20.82,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4134,7 +5058,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 29.9,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4143,7 +5071,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -4160,7 +5092,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4169,7 +5105,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 41.0,
+     "pack_known": true
     }
    ]
   },
@@ -4186,7 +5126,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "bu",
+     "case_price": 32.4,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4195,7 +5139,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 33.12,
+     "pack_known": true
     }
    ]
   },
@@ -4212,7 +5160,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4221,7 +5173,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true
     }
    ]
   },
@@ -4238,7 +5194,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4255,7 +5215,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4264,7 +5228,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 30.0,
+     "pack_known": true
     }
    ]
   },
@@ -4281,7 +5249,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "oz",
+     "case_price": 8.58,
+     "pack_known": true
     }
    ]
   },
@@ -4298,7 +5270,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4307,7 +5283,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "ct",
+     "case_price": 59.4,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4316,7 +5296,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.0,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4325,7 +5309,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.6,
+     "pack_known": true
     }
    ]
   },
@@ -4342,7 +5330,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 68.25,
+     "pack_known": true
     }
    ]
   },
@@ -4359,7 +5351,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4368,7 +5364,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 16.5,
+     "pack_known": true
     }
    ]
   },
@@ -4385,7 +5385,11 @@
      "per_unit": "pint",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "pint",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -4402,7 +5406,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 4.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -4419,7 +5427,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 4.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -4436,7 +5448,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 27.0,
+     "pack_known": true
     }
    ]
   },
@@ -4453,7 +5469,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 25.08,
+     "pack_known": true
     },
     {
      "vendor": "Franks",
@@ -4462,7 +5482,11 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "case",
+     "case_price": null,
+     "pack_known": false
     },
     {
      "vendor": "Farmstand",
@@ -4471,7 +5495,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "lb",
+     "case_price": 28.95,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4480,7 +5508,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -4497,7 +5529,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 16.8,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4506,7 +5542,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 20.8,
+     "pack_known": true
     }
    ]
   },
@@ -4523,7 +5563,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "lb",
+     "case_price": 28.56,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4532,7 +5576,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 22.0,
+     "pack_unit": "lb",
+     "case_price": 47.52,
+     "pack_known": true
     }
    ]
   },
@@ -4549,7 +5597,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "lb",
+     "case_price": 23.4,
+     "pack_known": true
     }
    ]
   },
@@ -4566,7 +5618,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "lb",
+     "case_price": 23.4,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4575,7 +5631,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 22.0,
+     "pack_unit": "lb",
+     "case_price": 33.0,
+     "pack_known": true
     }
    ]
   },
@@ -4592,7 +5652,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4601,7 +5665,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     },
     {
      "vendor": "Farmstand",
@@ -4610,7 +5678,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true
     }
    ]
   },
@@ -4627,7 +5699,11 @@
      "per_unit": "flat",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": "flat",
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4644,7 +5720,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "lb",
+     "case_price": 23.4,
+     "pack_known": true
     }
    ]
   },
@@ -4661,7 +5741,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.95,
+     "pack_known": true
     }
    ]
   },
@@ -4678,7 +5762,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 35.76,
+     "pack_known": true
     }
    ]
   },
@@ -4695,7 +5783,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 54.0,
+     "pack_known": true
     }
    ]
   },
@@ -4712,7 +5804,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 36.96,
+     "pack_known": true
     }
    ]
   },
@@ -4729,7 +5825,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4738,7 +5838,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 30.0,
+     "pack_known": true
     }
    ]
   },
@@ -4755,7 +5859,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 14.94,
+     "pack_known": true
     }
    ]
   },
@@ -4772,7 +5880,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "bu",
+     "case_price": 15.6,
+     "pack_known": true
     }
    ]
   },
@@ -4789,7 +5901,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 6.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
     }
    ]
   },
@@ -4806,7 +5922,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 45.5,
+     "pack_known": true
     }
    ]
   },
@@ -4823,7 +5943,12 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 26.95,
+     "pack_known": true,
+     "pack_approx": true
     }
    ]
   },
@@ -4840,7 +5965,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 25.5,
+     "pack_known": true
     },
     {
      "vendor": "PSFH",
@@ -4849,7 +5978,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 52.6,
+     "pack_known": true
     }
    ]
   },
@@ -4866,7 +5999,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 33.7,
+     "pack_known": true
     }
    ]
   },
@@ -4883,7 +6020,12 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 19.5,
+     "pack_known": true,
+     "pack_approx": true
     }
    ]
   },
@@ -4900,7 +6042,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 72.95,
+     "pack_known": true
     }
    ]
   },
@@ -4917,7 +6063,11 @@
      "per_unit": "each",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 36.36,
+     "pack_known": true
     }
    ]
   },
@@ -4934,7 +6084,12 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 17.5,
+     "pack_unit": "lb",
+     "case_price": 25.9,
+     "pack_known": true,
+     "pack_approx": true
     }
    ]
   },
@@ -4951,7 +6106,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 27.9,
+     "pack_known": true
     }
    ]
   },
@@ -4968,7 +6127,11 @@
      "per_unit": "lb",
      "source": "hub_catalog",
      "last_seen": "2026-07-09",
-     "freshness": "LIVE"
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 25.0,
+     "pack_known": true
     }
    ]
   }
@@ -4977,7 +6140,7 @@
   "seed": "offers-seed-2026-07-09.json",
   "franks_catalog": "franks-catalog-canonical-2026-07-09.json",
   "seed_generated": "2026-07-09",
-  "computed": "2026-07-09",
+  "computed": "2026-07-10",
   "folded_onto_existing": 8,
   "new_picker_items": 209,
   "offer_records": 290,
