@@ -920,6 +920,33 @@ body.remy-embed .ng-card,body.remy-embed .pt-card,body.remy-embed .pv-card,body.
 .vclimb.dn{color:var(--olive)}
 .vempty{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-30);padding:14px 0}
 .vhint{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-30);margin:-4px 0 12px}
+/* ── INGREDIENT-FIRST PICKER (Remy Router Layer 2) ── */
+.pk-modebar{margin-bottom:10px}
+.pk-searchbar{margin:2px 0 10px}
+.pk-search{width:100%;box-sizing:border-box;font-family:var(--fb);font-size:13px;color:var(--ink);
+  background:var(--ink-6);border:1px solid var(--ink-12);border-radius:22px;padding:9px 14px;outline:none}
+.pk-search::placeholder{color:var(--ink-30)}
+.pk-card{border-bottom:1px solid var(--ink-6)}
+.pk-sum{display:flex;align-items:center;gap:9px;padding:11px 2px;cursor:pointer;list-style:none}
+.pk-sum::-webkit-details-marker{display:none}
+.pk-sum::after{content:'\203A';margin-left:2px;color:var(--ink-30);font-size:15px;transition:transform .2s var(--ease)}
+details[open]>.pk-sum::after{transform:rotate(90deg)}
+.pk-nm{font-family:var(--fd);font-size:18px;color:var(--ink);line-height:1.1}
+.pk-cat{font-family:var(--fb);font-size:9px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--ink-30);border:1px solid var(--ink-12);border-radius:10px;padding:2px 7px;white-space:nowrap}
+.pk-cnt{margin-left:auto;font-family:var(--fb);font-size:11px;color:var(--ink-30);white-space:nowrap}
+.pk-list{padding:0 4px 10px}
+.pk-off{display:flex;align-items:center;gap:9px;padding:8px 4px;border-top:1px solid var(--ink-6)}
+.pk-off.pk-otherlane{opacity:0.62}
+.pk-vn{flex:1;font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.15}
+.pk-pack{display:block;font-family:var(--fb);font-size:10.5px;color:var(--ink-30);margin-top:1px}
+.pk-pr{font-family:var(--fb);font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;text-align:right}
+.pk-pr .pk-u{color:var(--ink-30);font-weight:400;font-size:10.5px}
+.pk-dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;background:var(--ink-30)}
+.pk-dot.live{background:var(--olive)}
+.pk-dot.dated{background:#e2b95e}
+.pk-dot.stale{background:var(--terra)}
+.pk-lane-note{font-family:var(--fd);font-style:italic;font-size:11px;color:var(--ink-30);padding:6px 4px 2px}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -38115,17 +38142,97 @@ window.RemyFarm={
     var ask=meta.open_ask?('<div class="vhint" style="margin-top:8px">Jowls (guanciale ask): '+esc(meta.open_ask)+'</div>'):'';
     return '<div class="vhint">'+vp.length+' cuts &middot; wholesale $/lb'+(meta.case_note?(' &middot; '+esc(meta.case_note)):'')+(meta.sheet_date?(' ('+esc(meta.sheet_date)+')'):'')+' &middot; tap a group</div>'+body+ask;
   }
+  // ── INGREDIENT-FIRST PICKER (Remy Router Layer 2) ─────────────────────
+  // Reads the folded offers on the price spine (price-reference.json items[].offers, fetched
+  // via the shared invFetchFeed) and renders each canonical produce ingredient with its vendor
+  // offers side by side, normalized, cheapest-per-unit first, each stamped with freshness.
+  // Compare only within one per_unit lane (never lb vs each). Compare-only in v1 — basket +
+  // transmit is Layer 3.
+  var _vMode='vendor';        // 'vendor' | 'ingredient'
+  var _pkQuery='';            // search filter (lowercased)
+  var _pkOffers=null;         // {key:{display,category,canonical_unit,offers:[...]}}
+  var _pkErr=false;           // loud-failure flag if the feed fetch fails
+  window.setVMode=function(m){_vMode=m;renderVendors();};
+  window.setPkQuery=function(v){_pkQuery=(v||'').toLowerCase();renderPickerList();};
+
+  function pkFreshClass(f){f=String(f||'');if(f.indexOf('LIVE')===0)return 'live';if(f.indexOf('DATED')===0)return 'dated';return 'stale';}
+  function pkFreshDot(f){return '<span class="pk-dot '+pkFreshClass(f)+'" title="'+esc(f||'')+'"></span>';}
+
+  function pkBuildFromFeed(feed){
+    var map={}, items=(feed&&feed.items)||{};
+    Object.keys(items).forEach(function(k){
+      var it=items[k], offers=it.offers||[];
+      if(!offers.length)return;
+      map[k]={display:it.display||k, category:it.category||'', canonical_unit:it.canonical_unit||'', offers:offers};
+    });
+    return map;
+  }
+  // within the canonical_unit lane, cheapest `per` first; off-lane offers after, also cheapest first.
+  function pkSortOffers(offers, cu){
+    return offers.slice().sort(function(a,b){
+      var al=(cu&&a.per_unit!==cu)?1:0, bl=(cu&&b.per_unit!==cu)?1:0;
+      if(al!==bl)return al-bl;
+      var ap=(a.per!=null)?a.per:1e9, bp=(b.per!=null)?b.per:1e9;
+      return ap-bp;
+    });
+  }
+  function pkOfferRow(o, cu){
+    var pr=(o.per!=null)?('$'+Number(o.per).toFixed(2)+' <span class="pk-u">/'+esc(o.per_unit||'')+'</span>'):'—';
+    var off=(cu&&o.per_unit!==cu)?' pk-otherlane':'';
+    var pack=o.pack?('<span class="pk-pack">'+esc(o.pack)+'</span>'):'';
+    return '<div class="pk-off'+off+'">'+pkFreshDot(o.freshness)+
+      '<span class="pk-vn">'+esc(o.vendor||'')+pack+'</span>'+
+      '<span class="pk-pr">'+pr+'</span></div>';
+  }
+  function pkCard(rec){
+    var cu=rec.canonical_unit, offers=pkSortOffers(rec.offers, cu);
+    var lane=offers.filter(function(o){return o.per_unit===cu && o.per!=null;});
+    var range='';
+    if(lane.length>1){var lo=lane[0].per, hi=lane[lane.length-1].per;
+      if(lo!==hi)range=' &middot; $'+Number(lo).toFixed(2)+'–$'+Number(hi).toFixed(2)+'/'+esc(cu);}
+    var offlane=offers.some(function(o){return cu && o.per_unit!==cu;});
+    var note=offlane?'<div class="pk-lane-note">Dimmed offers are priced per a different unit — not directly comparable.</div>':'';
+    var cat=(rec.category && rec.category!=='uncategorized')?('<span class="pk-cat">'+esc(rec.category)+'</span>'):'';
+    var cnt=offers.length+' offer'+(offers.length===1?'':'s')+range;
+    var rows=offers.map(function(o){return pkOfferRow(o, cu);}).join('');
+    return '<details class="pk-card"><summary class="pk-sum"><span class="pk-nm">'+esc(rec.display)+'</span>'+cat+
+      '<span class="pk-cnt">'+cnt+'</span></summary><div class="pk-list">'+note+rows+'</div></details>';
+  }
+  window.renderPickerList=function(){
+    var el=document.getElementById('pk-list-host'); if(!el)return;
+    if(_pkErr){el.innerHTML='<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>';return;}
+    if(!_pkOffers){el.innerHTML='<div class="vempty">Loading offers…</div>';return;}
+    var keys=Object.keys(_pkOffers).sort(function(a,b){return _pkOffers[a].display.localeCompare(_pkOffers[b].display);});
+    if(_pkQuery)keys=keys.filter(function(k){return _pkOffers[k].display.toLowerCase().indexOf(_pkQuery)>=0;});
+    if(!keys.length){el.innerHTML='<div class="vempty">No produce matches that search.</div>';return;}
+    el.innerHTML=keys.map(function(k){return pkCard(_pkOffers[k]);}).join('');
+  };
+  function pickerPane(){
+    if(_pkOffers===null && !_pkErr){
+      invFetchFeed(function(feed){
+        if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;}
+        renderPickerList();
+      });
+    }
+    var cnt=_pkOffers?Object.keys(_pkOffers).length:0;
+    return '<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="setPkQuery(this.value)" value="'+esc(_pkQuery)+'"></div>'+
+      '<div class="vhint">Every vendor\'s offer for an ingredient, cheapest per unit first. Tap to compare.'+(cnt?(' '+cnt+' ingredients'):'')+'</div>'+
+      '<div id="pk-list-host" class="vlist"></div>';
+  }
+
   window.renderVendors=function(){
     var h=host();if(!h)return;
     // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
     var scrolls=[].map.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e){return e.scrollLeft;});
+    var modeBar='<div class="vsort-bar pk-modebar">'+[['vendor','By vendor'],['ingredient','By ingredient']].map(function(m){return '<button class="vpill'+(_vMode===m[0]?' active':'')+'" onclick="setVMode(\''+m[0]+'\')">'+m[1]+'</button>';}).join('')+'</div>';
+    if(_vMode==='ingredient'){ h.innerHTML=modeBar+pickerPane(); return; }
     var vp=VENDORS.map(function(v,i){
       var psfh=(v[0]==='Puget Sound Food Hub');
       var lbl=psfh?'Puget Sound<br>Food Hub':esc(v[1]);
       return '<button class="vpill'+(psfh?' wrap':'')+(i===_vSel?' active':'')+'" onclick="selVendor('+i+')">'+lbl+'</button>';
     }).join('');
     var v=VENDORS[_vSel];
-    var out='<div class="vp-bar">'+vp+'</div>';
+    var out=modeBar+'<div class="vp-bar">'+vp+'</div>';
     out+='<div class="vhint vhint-out">Tap &#8853; on an item to add it to outreach, then draft a price or timeline email per vendor from the cart (&#128722; top right).</div>';
     if(v[0]==='Preserve Meat'){out+=pmView();}
     else if(v[0]==='Key City Fish'){out+=keyCityView(v[0]);}
