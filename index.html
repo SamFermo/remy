@@ -38303,8 +38303,12 @@ window.RemyFarm={
   var VENDOR_LANE={
     'Swan':{lane:'swan'},
     'Farmstand':{lane:'hub', to:'info@farmstandlocalfoods.com', portal:'Farmstand online shop', note:'order by their posted cutoff'},
-    'PSFH':{lane:'hub', to:'orders@pugetsoundfoodhub.com', portal:'PSFH portal', note:'Sun 12pm cutoff for Tue/Wed, $300 combined min'},
-    'Franks':{lane:'email', to:'warehouse@franksproduce.net', greet:'Jeff'}
+    'PSFH':{lane:'email', to:'orders@pugetsoundfoodhub.com', greet:'team', note:'Sun 12pm cutoff for Tue/Wed, $300 combined min'},
+    'Franks':{lane:'email', to:'warehouse@franksproduce.net', greet:'Jeff'},
+    'Foraged and Found':{lane:'email', to:'orders@foragedandfoundedibles.com', greet:'team'},
+    'Foraged & Found':{lane:'email', to:'orders@foragedandfoundedibles.com', greet:'team'},
+    'Local Roots':{lane:'email', to:'orders@localrootsfarm.com', greet:'team'},
+    'Local Roots Farm':{lane:'email', to:'orders@localrootsfarm.com', greet:'team'}
   };
   function pkLane(v){ return VENDOR_LANE[v] || {lane:'email', to:'', greet:String(v).split(' ')[0]}; }
   function pkVendorItems(v){ return _basket.filter(function(x){return x.vendor===v;}); }
