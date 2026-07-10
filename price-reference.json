@@ -1119,7 +1119,22 @@
    "source": "invoice",
    "needs_check": true,
    "swan_per_lb": 1.8,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
   },
   "Tarragon": {
    "swan_price": 10.2,
@@ -1463,6 +1478,19 @@
      "pack_unit": "lb",
      "case_price": 100.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1525,6 +1553,19 @@
      "pack_qty": 3.0,
      "pack_unit": "ct",
      "case_price": 9.24,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2248,6 +2289,19 @@
      "pack_unit": "lb",
      "case_price": 79.2,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2268,6 +2322,19 @@
      "pack_qty": 6.0,
      "pack_unit": "bu",
      "case_price": 23.4,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2290,6 +2357,19 @@
      "pack_unit": "bu",
      "case_price": 36.36,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2310,6 +2390,19 @@
      "pack_qty": 18.0,
      "pack_unit": "ct",
      "case_price": 36.9,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -3680,6 +3773,19 @@
      "pack_unit": "lb",
      "case_price": 91.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3701,6 +3807,19 @@
      "pack_unit": "lb",
      "case_price": 15.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3721,6 +3840,19 @@
      "pack_qty": 3.0,
      "pack_unit": "bu",
      "case_price": 18.51,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4970,10 +5102,10 @@
      "vendor": "Franks",
      "pack": null,
      "per": null,
-     "per_unit": "each",
-     "source": "fresh_sheet",
+     "per_unit": "lb",
+     "source": "catalog",
      "last_seen": null,
-     "freshness": "LIVE",
+     "freshness": "",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5004,10 +5136,10 @@
      "vendor": "Franks",
      "pack": null,
      "per": null,
-     "per_unit": "each",
-     "source": "fresh_sheet",
+     "per_unit": "lb",
+     "source": "catalog",
      "last_seen": null,
-     "freshness": "LIVE",
+     "freshness": "",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5085,10 +5217,10 @@
      "vendor": "Franks",
      "pack": null,
      "per": null,
-     "per_unit": "each",
-     "source": "fresh_sheet",
+     "per_unit": "lb",
+     "source": "catalog",
      "last_seen": null,
-     "freshness": "LIVE",
+     "freshness": "",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5195,10 +5327,10 @@
      "vendor": "Franks",
      "pack": null,
      "per": null,
-     "per_unit": "each",
-     "source": "fresh_sheet",
+     "per_unit": "lb",
+     "source": "catalog",
      "last_seen": null,
-     "freshness": "LIVE",
+     "freshness": "",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5452,6 +5584,19 @@
      "pack_unit": "lb",
      "case_price": 19.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -5595,6 +5740,19 @@
      "pack_qty": 3.0,
      "pack_unit": "lb",
      "case_price": 7.5,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -5779,6 +5937,19 @@
      "pack_unit": "lb",
      "case_price": 18.2,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -5956,6 +6127,19 @@
      "pack_qty": 2.0,
      "pack_unit": "lb",
      "case_price": 15.94,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -6290,6 +6474,19 @@
      "pack_unit": "lb",
      "case_price": 33.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6324,6 +6521,19 @@
      "pack_unit": "lb",
      "case_price": 41.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6357,6 +6567,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 33.12,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -6816,6 +7039,19 @@
      "pack_unit": "lb",
      "case_price": 23.4,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6849,6 +7085,19 @@
      "pack_qty": 22.0,
      "pack_unit": "lb",
      "case_price": 33.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -7179,6 +7428,19 @@
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 45.5,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -8185,6 +8447,363 @@
     }
    ]
   },
+  "Berries, Blueberry": {
+   "display": "Berries, Blueberry",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Berries, Raspberry": {
+   "display": "Berries, Raspberry",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Berries, Strawberry": {
+   "display": "Berries, Strawberry",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Flowers, Edible Mix": {
+   "display": "Flowers, Edible Mix",
+   "category": "edible_flower",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Frisee, Blonde": {
+   "display": "Frisee, Blonde",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Ginger": {
+   "display": "Ginger",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Herbs, Mint": {
+   "display": "Herbs, Mint",
+   "category": "herb",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Herbs, Oregano": {
+   "display": "Herbs, Oregano",
+   "category": "herb",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Herbs, Rosemary": {
+   "display": "Herbs, Rosemary",
+   "category": "herb",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Herbs, Thyme": {
+   "display": "Herbs, Thyme",
+   "category": "herb",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Limes": {
+   "display": "Limes",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Melon, Honeydew": {
+   "display": "Melon, Honeydew",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Nectarines": {
+   "display": "Nectarines",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Peas, English": {
+   "display": "Peas, English",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Potato, Fingerling": {
+   "display": "Potato, Fingerling",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Shallots, Peeled": {
+   "display": "Shallots, Peeled",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Tomato, Roma": {
+   "display": "Tomato, Roma",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Salmon": {
    "display": "Salmon",
    "category": "seafood",
@@ -8794,8 +9413,8 @@
     }
    ]
   },
-  "Balacco Savoiardi Dry Lady Fingers": {
-   "display": "Balacco Savoiardi Dry Lady Fingers",
+  "Ladyfingers": {
+   "display": "Ladyfingers",
    "category": "uncategorized",
    "canonical_unit": "case",
    "farm_priced": false,
@@ -8808,6 +9427,19 @@
      "source": "invoice",
      "last_seen": "2026-07-07",
      "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "Greco",
+     "pack": "CASE",
+     "per": 48.35,
+     "per_unit": "case",
+     "source": "invoice",
+     "last_seen": "2026-05-04",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -8836,8 +9468,8 @@
     }
    ]
   },
-  "Belgioioso Mascarpone Tubs": {
-   "display": "Belgioioso Mascarpone Tubs",
+  "Mascarpone": {
+   "display": "Mascarpone",
    "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -8850,6 +9482,19 @@
      "source": "invoice",
      "last_seen": "2026-07-07",
      "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "Greco",
+     "pack": "CASE",
+     "per": 4.55,
+     "per_unit": "case",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9172,8 +9817,8 @@
     }
    ]
   },
-  "Grade A Pine Nuts PINENUT Capitol Foods": {
-   "display": "Grade A Pine Nuts PINENUT Capitol Foods",
+  "Pine Nuts": {
+   "display": "Pine Nuts",
    "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -9235,8 +9880,8 @@
     }
    ]
   },
-  "Matiz Boquerones White": {
-   "display": "Matiz Boquerones White",
+  "Boquerones": {
+   "display": "Boquerones",
    "category": "uncategorized",
    "canonical_unit": "each",
    "farm_priced": false,
@@ -9249,6 +9894,19 @@
      "source": "invoice",
      "last_seen": "2026-06-29",
      "freshness": "DATED(11)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "Chefs' Warehouse",
+     "pack": "case",
+     "per": 117.0,
+     "per_unit": "case",
+     "source": "invoice",
+     "last_seen": "2026-07-07",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9613,8 +10271,8 @@
     }
    ]
   },
-  "Toro/Spizzuli Arborio Riso RISO Margherita/Spizzuli": {
-   "display": "Toro/Spizzuli Arborio Riso RISO Margherita/Spizzuli",
+  "Arborio Rice": {
+   "display": "Arborio Rice",
    "category": "uncategorized",
    "canonical_unit": "each",
    "farm_priced": false,
@@ -9631,23 +10289,15 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
-    }
-   ]
-  },
-  "Toro/Sprizzuli Arborio Riso": {
-   "display": "Toro/Sprizzuli Arborio Riso",
-   "category": "uncategorized",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
+    },
     {
-     "vendor": "Merlino",
-     "pack": "each",
-     "per": 7.4,
-     "per_unit": "each",
+     "vendor": "Greco",
+     "pack": "CASE",
+     "per": 85.65,
+     "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-04-02",
-     "freshness": "STALE",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9676,9 +10326,9 @@
     }
    ]
   },
-  "Guanciale W/Pepper": {
-   "display": "Guanciale W/Pepper",
-   "category": "vegetable",
+  "Guanciale": {
+   "display": "Guanciale",
+   "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
@@ -9718,8 +10368,8 @@
     }
    ]
   },
-  "Olives Castelvetrano Whole": {
-   "display": "Olives Castelvetrano Whole",
+  "Castelvetrano Olives": {
+   "display": "Castelvetrano Olives",
    "category": "uncategorized",
    "canonical_unit": "each",
    "farm_priced": false,
@@ -9739,8 +10389,8 @@
     }
    ]
   },
-  "Parmesan Reggiano 1/4": {
-   "display": "Parmesan Reggiano 1/4",
+  "Parmigiano Reggiano": {
+   "display": "Parmigiano Reggiano",
    "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -9757,11 +10407,24 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Chefs' Warehouse",
+     "pack": "LB",
+     "per": 11.15,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-06-08",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
-  "Romano Pecorino": {
-   "display": "Romano Pecorino",
+  "Pecorino Romano": {
+   "display": "Pecorino Romano",
    "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -9774,48 +10437,6 @@
      "source": "invoice",
      "last_seen": "2026-06-29",
      "freshness": "DATED(11)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Ladyfingers 10/500Gr Bellissimo": {
-   "display": "Ladyfingers 10/500Gr Bellissimo",
-   "category": "uncategorized",
-   "canonical_unit": "case",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Greco",
-     "pack": "CASE",
-     "per": 48.35,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-05-04",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Mascarpone 2/5# Bellissimo": {
-   "display": "Mascarpone 2/5# Bellissimo",
-   "category": "uncategorized",
-   "canonical_unit": "case",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Greco",
-     "pack": "CASE",
-     "per": 4.55,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-07-02",
-     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9844,29 +10465,8 @@
     }
    ]
   },
-  "Rice Arborio Sogno": {
-   "display": "Rice Arborio Sogno",
-   "category": "uncategorized",
-   "canonical_unit": "case",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Greco",
-     "pack": "CASE",
-     "per": 85.65,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-07-02",
-     "freshness": "DATED(8)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Ricotta Sopraffina 2/3# Grande": {
-   "display": "Ricotta Sopraffina 2/3# Grande",
+  "Ricotta": {
+   "display": "Ricotta",
    "category": "uncategorized",
    "canonical_unit": "case",
    "farm_priced": false,
@@ -10033,8 +10633,8 @@
     }
    ]
   },
-  "Cheese Burrata Italy Frzn": {
-   "display": "Cheese Burrata Italy Frzn",
+  "Burrata": {
+   "display": "Burrata",
    "category": "uncategorized",
    "canonical_unit": "case",
    "farm_priced": false,
@@ -10047,27 +10647,6 @@
      "source": "invoice",
      "last_seen": "2026-07-09",
      "freshness": "LIVE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Cheese Parmigiano Roundbale Whole": {
-   "display": "Cheese Parmigiano Roundbale Whole",
-   "category": "uncategorized",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "LB",
-     "per": 11.15,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-06-08",
-     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10116,27 +10695,6 @@
      "pack_known": true
     }
    ]
-  },
-  "Prs Matiz Boquerones Large Anc": {
-   "display": "Prs Matiz Boquerones Large Anc",
-   "category": "uncategorized",
-   "canonical_unit": "case",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "case",
-     "per": 117.0,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-07-07",
-     "freshness": "LIVE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
   }
  },
  "offers_folded": {
@@ -10155,14 +10713,19 @@
   "commodity_appended": 16,
   "computed": "2026-07-10"
  },
+ "franks_catalog_folded": {
+  "appended": 24,
+  "new_items": 17,
+  "computed": "2026-07-10"
+ },
  "specialty_folded": {
-  "appended": 9,
+  "appended": 5,
   "new_items": 25,
   "computed": "2026-07-10"
  },
  "distributor_folded": {
-  "appended": 3,
-  "new_items": 68,
+  "appended": 8,
+  "new_items": 62,
   "computed": "2026-07-10"
  },
  "order_prev": {
