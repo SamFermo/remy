@@ -1287,12 +1287,6 @@ if(/[?&]embed=/.test(location.search||'')){
 .pc-drift .dr-fix:hover{filter:brightness(1.08)}
 .pc-drift.stale{color:var(--ink-30);font-style:italic}
 .pc-drift .dr-note{color:var(--ink-30);font-style:italic}
-/* stock-ticker prominence + full-list placement (2026-07-10) */
-.pc-drift .dr-mkt{font-weight:600;font-size:12.5px;letter-spacing:.01em}
-.pc-drift .dr-read{font-size:11px}
-.lrow-wrap{margin:0}
-.lrow-drift{padding:0 6px 9px;margin-top:-2px}
-.lrow-drift .pc-drift{margin-top:3px}
 .pc-actions{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
 .chip-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.03em;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:6px 11px;cursor:pointer;transition:all .2s var(--ease)}
 .chip-btn:hover{color:var(--ink);border-color:var(--ink-30)}
@@ -1565,6 +1559,31 @@ if(/[?&]embed=/.test(location.search||'')){
 .io-btn-deliv{background:var(--gold-bg);color:var(--gold);border-color:rgba(226,185,94,0.5)}
 .seg button.has-new{position:relative}
 .seg button.has-new::after{content:'';position:absolute;top:6px;right:10px;width:6px;height:6px;border-radius:50%;background:var(--terra)}
+/* Pricing tab (4th pill) — market-comp table + drift badge (2026-07-10) */
+.seg button.has-drift{position:relative}
+.seg button.has-drift::after{content:attr(data-badge);position:absolute;top:3px;right:6px;min-width:15px;height:15px;padding:0 3px;box-sizing:border-box;border-radius:8px;background:var(--terra);color:#fff;font-size:9px;font-weight:700;line-height:15px;text-align:center;font-family:var(--fb)}
+.pricing-wrap{padding:2px 2px 24px}
+.pricing-head{display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 1px}
+.pricing-h{font-family:var(--fd);font-size:22px;color:var(--ink);line-height:1}
+.pricing-sub{font-family:var(--fb);font-size:11.5px;color:var(--ink-30)}
+.pricing-intro{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-45);margin:3px 0 12px}
+.prow{display:grid;grid-template-columns:1.45fr 0.75fr 0.95fr 1.35fr;gap:7px;align-items:center;padding:11px 3px;border-bottom:1px solid var(--ink-6)}
+.prow.phdr{padding:0 3px 6px;border-bottom:1px solid var(--ink-12);font-family:var(--fb);font-size:10.5px;letter-spacing:.03em;color:var(--ink-30)}
+.p-item{font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.12}
+.p-item small{display:block;font-family:var(--fb);font-size:10.5px;color:var(--ink-30);margin-top:1px}
+.p-ask{font-family:var(--fb);font-size:15px;font-weight:600;color:var(--ink)}
+.p-mkt{display:flex;align-items:center;gap:4px;font-family:var(--fb);font-size:13.5px;color:var(--ink)}
+.p-ar{font-size:12px}
+.p-ar.up,.p-mch.up{color:var(--olive)} .p-ar.down,.p-mch.down{color:var(--terra)} .p-ar.flat{color:var(--ink-30)} .p-ar.stale{color:#d8a24a}
+.p-mch{font-size:10.5px}
+.p-drift{text-align:right}
+.p-now{font-family:var(--fb);font-size:10.5px;color:var(--ink-60);margin-bottom:3px;line-height:1.25}
+.p-now b{font-weight:700}
+.p-now .over{color:#d8a24a}.p-now .under{color:var(--terra)}.p-now .ok{color:var(--olive)}
+.p-sug{display:inline-block;font-family:var(--fb);font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:16px;background:var(--olive);color:#0a1028;border:none;cursor:pointer;letter-spacing:.01em}
+.p-sug:hover{filter:brightness(1.08)}
+.p-sug.warn{background:rgba(216,162,74,.15);color:#d8a24a}
+.p-sug.ok{background:none;color:var(--ink-30);padding:4px 2px;cursor:default;font-weight:500}
 .io-btn-inv{width:100%;margin-top:8px;background:transparent;color:var(--ink);border:1px dashed var(--ink-30);padding:11px;border-radius:10px;font-family:var(--fb);font-size:13.5px;font-weight:500;cursor:pointer}
 .io-btn-inv:active{background:var(--ink-6)}
 /* invoice / finalize modal */
@@ -1696,6 +1715,7 @@ if(/[?&]embed=/.test(location.search||'')){
   <div class="seg">
     <button class="on" data-view="push">Pushing</button>
     <button data-view="list">Full list</button>
+    <button data-view="pricing" id="seg-pricing">Pricing</button>
     <button data-view="orders" id="seg-orders">Orders</button>
   </div>
   <button class="guided-link" data-view="guided">Set up your farm profile &rarr;</button>
@@ -1718,10 +1738,13 @@ if(/[?&]embed=/.test(location.search||'')){
       <button class="pmode-toggle" id="edit-mode-toggle" aria-pressed="false">Edit</button>
       <button class="pmode-toggle" id="photo-mode-toggle" aria-pressed="false">Photo mode</button>
       <button class="pmode-toggle" id="bytype-toggle" aria-pressed="false">By type</button>
-      <button class="pmode-toggle on" id="ticker-toggle" aria-pressed="true">Market &#10003;</button>
     </div>
     <button class="ng-add-btn" id="ng-toggle">+ New Growth</button>
     <div id="list-rows"></div>
+  </div>
+
+  <div class="view" id="view-pricing">
+    <div id="pricing-body"></div>
   </div>
 
   <div class="view" id="view-guided">
@@ -36443,11 +36466,6 @@ function setEditMode(on){
 }
 /* Farm-side "By type" view — group the full crop list into collapsible category sections (Sam, 2026-06-27). */
 var listByType=false, listTypeOpen={};
-// Market drift ticker visibility (Sam, 2026-07-10). Default ON; the preference persists locally.
-var _showTicker=(function(){try{return localStorage.getItem('remy.farm.showTicker')!=='0';}catch(e){return true;}})();
-function setShowTicker(on){_showTicker=on;try{localStorage.setItem('remy.farm.showTicker',on?'1':'0');}catch(e){}
-  var b=document.getElementById('ticker-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'Market ✓':'Market';}
-  if(typeof renderPush==='function')renderPush(); if(typeof renderList==='function')renderList();}
 var LCAT={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other'};
 function lcatLabel(c){return LCAT[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
 function setListByType(on){listByType=on;var b=document.getElementById('bytype-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}renderList();}
@@ -36489,8 +36507,6 @@ function ngSave(){
   var nm=document.getElementById('ng-name');if(nm)nm.addEventListener('keydown',function(e){if(e.key==='Enter')ngSave();});
   var e=document.getElementById('edit-mode-toggle');if(e)e.onclick=function(){setEditMode(!editMode);};
   var bt=document.getElementById('bytype-toggle');if(bt)bt.onclick=function(){setListByType(!listByType);};
-  var tk=document.getElementById('ticker-toggle');if(tk){tk.onclick=function(){setShowTicker(!_showTicker);};
-    tk.classList.toggle('on',_showTicker);tk.setAttribute('aria-pressed',_showTicker?'true':'false');tk.innerHTML=_showTicker?'Market &#10003;':'Market';}
 })();
 
 /* ── VOICE NOTE: record audio (every device) + live transcription where supported,
@@ -36838,7 +36854,7 @@ function fmCanon(n){ n=(n||'').replace(/\([^)]*\)/g,'').toLowerCase(); return n.
 function fmBuild(feed){ var m={}; if(feed){ _fmPrem=feed.premium_pct||20; var items=feed.items||{};
   Object.keys(items).forEach(function(k){ var it=items[k];
     if(it.swan_per_lb!=null && it.market!=null && it.swan_price){ var mpl=it.swan_per_lb*(it.market/it.swan_price);
-      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||''}; } } }); }
+      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||'',climb:(it.climb!=null?it.climb:null)}; } } }); }
   return m; }
 var _FM_WT={'lb':1,'#':1,'lbs':1,'1/2 lb':0.5,'1/2#':0.5,'1/4 lb':0.25,'1/4#':0.25,'oz':1/16};
 function fmFactor(g){ var u=(g.askUnit||'').toLowerCase().trim();
@@ -36855,7 +36871,8 @@ function farmDrift(g){
   var target=g.askMode==='premium'?(Number(g.askPct)||0):(g.askMode==='markdown'?-(Number(g.askPct)||0):0);
   var drift=eff-target, stale=/STALE|PRIOR/.test(rec.freshness||'');
   var recPerLb=mkl*(1+target/100);
-  return {mkl:mkl,eff:eff,target:target,drift:drift,stale:stale,recAsk:recPerLb*fac.f,dir:drift<0?'up':'down',est:fac.est}; }
+  return {mkl:mkl,eff:eff,target:target,drift:drift,stale:stale,recAsk:recPerLb*fac.f,dir:drift<0?'up':'down',est:fac.est,
+    marketHer:mkl*fac.f, mktTrend:(rec.climb!=null?rec.climb:null)}; }
 function driftTicker(g){
   var d=farmDrift(g); if(!d) return '';
   if(d.stale) return '<div class="pc-drift stale">market $'+d.mkl.toFixed(2)+'/lb &middot; stale <span class="dr-note">&mdash; holding; refresh the comp before adjusting</span></div>';
@@ -36868,11 +36885,62 @@ function driftTicker(g){
   return '<div class="pc-drift'+(alert?' alert':'')+'">'+h+'</div>'; }
 window.driftApply=function(name){ var g=byName[name]; if(!g) return; var d=farmDrift(g); if(!d) return;
   g.ask=Number(d.recAsk.toFixed(2)); persist(); renderPush();
-  if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList(); };
+  if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList();
+  if(typeof renderPricing==='function')renderPricing(); };
+
+/* ── Pricing tab (4th pill, Sam 2026-07-10). The mock's per-row table for market-comped crops:
+   Item · Your ask · Market(+trend) · Drift·suggestion. Badge on the pill counts items drifted
+   past the 15% band. Reuses farmDrift; tap a suggestion = driftApply (restores her set %). ── */
+function _pRows(){ var out=[]; grow.forEach(function(g){ if(!g.market)return; out.push({g:g,d:farmDrift(g)}); });
+  out.sort(function(a,b){ var ad=a.d&&!a.d.stale?Math.abs(a.d.drift):(a.d?-0.5:-1), bd=b.d&&!b.d.stale?Math.abs(b.d.drift):(b.d?-0.5:-1); return bd-ad; }); return out; }
+function pricingBadgeCount(){ var n=0; grow.forEach(function(g){ if(!g.market)return; var d=farmDrift(g); if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH)n++; }); return n; }
+function updatePricingSeg(){ var b=document.getElementById('seg-pricing'); if(!b)return; var n=pricingBadgeCount();
+  if(n>0){b.classList.add('has-drift');b.setAttribute('data-badge',String(n));} else {b.classList.remove('has-drift');b.removeAttribute('data-badge');} }
+function _pRowHTML(g,d){
+  var unit=g.askUnit||'';
+  var setTxt=(g.askMode&&g.askMode!=='manual'&&g.askPct!=null)?('set '+(g.askMode==='markdown'?'&minus;':'+')+Math.round(g.askPct)+'%'+(unit?(' &middot; '+unit):'')):(g.ask!=null&&g.ask!==''?('your price'+(unit?(' &middot; '+unit):'')):'not priced');
+  var item='<div class="p-item">'+g.name+'<small>'+setTxt+'</small></div>';
+  var ask='<div class="p-ask">'+((g.ask!=null&&g.ask!=='')?('$'+Number(g.ask).toFixed(2)):'&mdash;')+'</div>';
+  var mktHtml, driftHtml;
+  if(d){
+    var clsMkt=d.stale?'stale':(d.mktTrend>0?'up':(d.mktTrend<0?'down':'flat'));
+    var ar=d.stale?'&#9201;':(d.mktTrend>0?'&#9650;':(d.mktTrend<0?'&#9660;':'&ndash;'));
+    var mch=(!d.stale&&d.mktTrend!=null&&Math.round(d.mktTrend)!==0)?('<span class="p-mch '+clsMkt+'">'+(d.mktTrend>0?'+':'')+Math.round(d.mktTrend)+'%</span>'):'';
+    mktHtml='<div class="p-mkt"><span>$'+d.marketHer.toFixed(2)+'</span><span class="p-ar '+clsMkt+'">'+ar+'</span>'+mch+'</div>';
+    if(d.stale){ driftHtml='<div class="p-drift"><div class="p-now">market stale</div><span class="p-sug warn">Verify market</span></div>'; }
+    else {
+      var effR=(d.eff>=0?'+':'')+Math.round(d.eff)+'%', tgtR=(d.target>=0?'+':'')+Math.round(d.target)+'%';
+      var onT=Math.abs(d.drift)<=_FM_THRESH, nowCls=onT?'ok':(d.eff<0?'under':'over');
+      var nowTxt=(d.eff<0)?('now <b class="under">'+effR+'</b> &middot; under market'):('now <b class="'+nowCls+'">'+effR+'</b> vs '+tgtR);
+      var sug=onT?'<span class="p-sug ok">&#10003; On target</span>':
+        ('<button class="p-sug" data-dn="'+String(g.name).replace(/"/g,'&quot;')+'">'+(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)+'</button>');
+      driftHtml='<div class="p-drift"><div class="p-now">'+nowTxt+(d.est?' &middot; est':'')+'</div>'+sug+'</div>';
+    }
+  } else {
+    var rec=_fmMap?_fmMap[fmCanon(g.name)]:null;
+    var mp=(rec&&rec.perlb)?('$'+rec.perlb.toFixed(2)+'/lb'):((g.market&&g.market.price!=null)?('$'+Number(g.market.price).toFixed(2)+'/'+(g.market.unit||'')):'&mdash;');
+    mktHtml='<div class="p-mkt"><span>'+mp+'</span></div>';
+    driftHtml='<div class="p-drift"><button class="p-sug warn" data-price="'+String(g.name).replace(/"/g,'&quot;')+'">'+((g.ask!=null&&g.ask!=='')?'Set % vs market':'Set a price')+'</button></div>';
+  }
+  return '<div class="prow">'+item+ask+mktHtml+driftHtml+'</div>';
+}
+function renderPricing(){
+  var el=document.getElementById('pricing-body'); if(!el)return;
+  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPricing(); }); }
+  var rows=_pRows();
+  var body=rows.map(function(r){ return _pRowHTML(r.g,r.d); }).join('');
+  el.innerHTML='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Pricing</span><span class="pricing-sub">Swan House &middot; vs market</span></div>'+
+    '<div class="pricing-intro">Tap a suggestion to move your ask back to your set premium.</div>'+
+    '<div class="prow phdr"><span>Item</span><span>Your ask</span><span>Market</span><span style="text-align:right">Drift &middot; suggestion</span></div>'+
+    (body||'<div class="empty-push">No market-comped items yet. Price a crop with a market reference to see it here.</div>')+'</div>';
+  el.querySelectorAll('.p-sug[data-dn]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
+  el.querySelectorAll('.p-sug[data-price]').forEach(function(b){b.onclick=function(){ if(typeof atOpen==='function')atOpen(b.dataset.price); }});
+  updatePricingSeg();
+}
 
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
-  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPush(); }); }
+  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
   var names=Array.from(pushed);
   if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
   names.forEach(function(n){
@@ -36883,7 +36951,7 @@ function renderPush(){
       '<button class="pc-x" data-n="'+n+'" aria-label="Remove">&times;</button>'+
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
-      ((g.ask&&_showTicker)?driftTicker(g):'')+
+      (g.ask?driftTicker(g):'')+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
       (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+((g._up_photo||isLocalMedia(g.photo))?('<span class="pc-photo-up'+(isOffline()?' pend':'')+'">'+(isOffline()?'Will upload when online':(g._up_photo?'Uploading&hellip;':'Syncing&hellip;'))+'</span>'):'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
@@ -37020,13 +37088,6 @@ function lrowNode(g){
       '<button class="lr-price'+(g.ask?' set':'')+'" data-n="'+g.name+'" aria-label="Price">'+(g.ask?('$'+Number(g.ask).toFixed(2)):'$')+'</button>'+
       '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
   }
-  // Market drift ticker on the FULL list too (Sam, 2026-07-10) — a second line under the row,
-  // gated on the show/hide preference. Same driftTicker the push board uses.
-  if(!editMode && _showTicker && g.ask){
-    var tick=driftTicker(g);
-    if(tick){ var wrap=document.createElement('div'); wrap.className='lrow-wrap'; wrap.appendChild(r);
-      var dd=document.createElement('div'); dd.className='lrow-drift'; dd.innerHTML=tick; wrap.appendChild(dd); return wrap; }
-  }
   return r;
 }
 function renderList(){
@@ -37046,7 +37107,6 @@ function renderList(){
   } else {
     grow.forEach(function(g){el.appendChild(lrowNode(g));});
   }
-  el.querySelectorAll('.dr-fix').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
   el.querySelectorAll('.lr-typehdr').forEach(function(h){h.onclick=function(){var c=h.getAttribute('data-cat');listTypeOpen[c]=!listTypeOpen[c];renderList();};});
   el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;renderList();renderPick();};});
   el.querySelectorAll('.lr-price').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.prepped)ptOpen(b.dataset.n);else atOpen(b.dataset.n);};});
@@ -37082,6 +37142,7 @@ function setView(v){
   ROOT.querySelectorAll('.seg button').forEach(function(b){b.classList.toggle('on',b.dataset.view===v);});
   if(v==='guided'){gi=0;renderGuided();}
   if(v==='orders'){startOrdersSync();renderOrders();}
+  if(v==='pricing')renderPricing();
 }
 ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setView(b.dataset.view);};});
 ROOT.querySelector('.guided-link').onclick=function(){fpSetupOpen();};
