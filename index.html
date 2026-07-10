@@ -1010,8 +1010,15 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .kpill-row.kpill-second{margin-top:7px}
 .kpill-second .kpill{font-size:11.5px;padding:7px 12px}
 #kitchen-pills .kpill.active{color:#0a1028}
-.ord-dish{margin:0 0 14px}
-.ord-dish-h{font-family:var(--fd);font-size:19px;color:var(--ink);border-bottom:1px solid var(--ink-12);padding:8px 2px 5px;margin-bottom:2px}
+.ord-dish{margin:0;border-bottom:1px solid var(--ink-12)}
+summary.ord-dish-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-family:var(--fd);font-size:18px;color:var(--ink);padding:12px 2px;cursor:pointer;list-style:none}
+summary.ord-dish-h::-webkit-details-marker{display:none}
+summary.ord-dish-h::after{content:'\203A';color:var(--ink-30);font-size:16px;transition:transform .2s var(--ease)}
+details.ord-dish[open]>summary.ord-dish-h::after{transform:rotate(90deg)}
+.ord-dish-n{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);font-weight:400;white-space:nowrap}
+.ord-dish-body{padding:0 0 10px}
+.bv-subsub{margin-top:-2px}
+.bv-subsub .ord-chip{font-size:11px;padding:5px 11px}
 .ord-miss{display:flex;align-items:baseline;gap:8px;padding:9px 4px;border-bottom:1px solid var(--ink-6);font-family:var(--fd);font-size:16px;color:var(--ink-45)}
 .ord-miss small{font-family:var(--fb);font-size:11px;color:var(--ink-30)}
 #kitchen-pills.kpill-bar{flex-direction:column;align-items:stretch}
@@ -37808,7 +37815,7 @@ window.RemyFarm={
       return '<button class="kpill'+((firstActive&&i===0)?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
     }).join('');}
     var PRIMARY=[['order','Order','showOrder'],['menu','The Menu','openTheMenu']];
-    var SECOND =[['trending','Trending Prices','showTrending']];
+    var SECOND =[['vendors','By vendor','showByVendor'],['trending','Trending Prices','showTrending']];
     bar.innerHTML='<div class="kpill-row kpill-primary">'+_rowHtml(PRIMARY,true)+'</div>'+
                   '<div class="kpill-row kpill-second">'+_rowHtml(SECOND,false)+'</div>';
   }
@@ -37822,7 +37829,9 @@ window.RemyFarm={
 /* ── KITCHEN · Connected Farms — read-only mirror of the farmer's live push board + grow list ── */
 (function(){
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function host(){return document.getElementById('trending-home');}
+  // window.__cfMount lets the standalone Order tab mount this composer inside its own body (below the
+  // filter strip) instead of taking over trending-home; unset everywhere else (embed unchanged).
+  function host(){return document.getElementById(window.__cfMount||'trending-home');}
   function setActive(k){var b=document.getElementById('kitchen-pills');if(b)b.querySelectorAll('.kpill').forEach(function(p){p.classList.toggle('active',p.dataset.k===k);});}
   // Prototype (embed): land on Order, not Pushing (Pushing is redundant — peak sorts to the top of
   // Order — and a clean landing means nothing looks off on open). Standalone Remy keeps Pushing.
@@ -37851,6 +37860,8 @@ window.RemyFarm={
   };
   window._cfSetView=function(v){ST.view=v;render();};
   window._cfSetSort=function(s){ST.sort=s;render();};
+  // Render the Swan ORDER composer into the standalone Order tab's mount (Connected Farms filter).
+  window.__cfRenderOrder=function(){ ST.view='order'; render(); };
   var cfTypeOpen={};   // collapsed category sections in the "By type" view (default all collapsed)
   var CAT_LABEL={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other'};
   function cfCatLabel(c){return CAT_LABEL[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
@@ -39431,8 +39442,7 @@ window.RemyFarm={
   };
   function ordSchedLine(v){ return ORD_VENDOR_SCHED[v]||''; }
   function ordStripHTML(){ return '<div class="ord-strip">'+
-      ordChip('mapped','Mapped to menu')+ordChip('previous','Previous')+ordChip('movers','Movers')+ordChip('all','All')+
-      '<button class="ord-chip'+(_ordF==='byvendor'?' on':'')+'" data-of="byvendor">By vendor</button></div>'; }
+      ordChip('farms','Connected Farms')+ordChip('mapped','Mapped to menu')+ordChip('previous','Previous orders')+ordChip('all','All')+'</div>'; }
   function ordBindStrip(){ var h=host(); if(!h)return;
     h.querySelectorAll('.ord-strip .ord-chip').forEach(function(b){b.onclick=function(){_ordF=b.dataset.of;_ordType=null;renderOrderInner();};});
     h.querySelectorAll('.ord-sub .ord-chip[data-ot]').forEach(function(b){b.onclick=function(){_ordType=(b.dataset.ot||'')||null;renderOrderInner();};});
@@ -39440,39 +39450,27 @@ window.RemyFarm={
   window.ordSetQ=function(v){ _ordQ=(v||'').toLowerCase(); renderOrderInner();
     var inp=host()&&host().querySelector('.pk-search'); if(inp){try{inp.focus();inp.setSelectionRange(inp.value.length,inp.value.length);}catch(e){}} };
   function renderOrderInner(){ var h=host(); if(!h)return;
+    window.__cfMount=null;
     var strip=ordStripHTML();
     ordComputePrevSets();
-    if(_ordF==='byvendor'){ _vHost='order';
-      var vends=ordOfferVendors();
-      if(!_ordVendor||vends.indexOf(_ordVendor)<0)_ordVendor=vends[0]||'';
-      var pills='<div class="vp-bar ord-vp">'+vends.map(function(v){return '<button class="vpill'+(v===_ordVendor?' active':'')+'" data-ov="'+esc(v)+'">'+esc(v)+'</button>';}).join('')+'</div>';
-      var vk=Object.keys(_pkOffers).filter(function(k){return (_pkOffers[k].offers||[]).some(function(o){return o.vendor===_ordVendor;});});
-      vk.sort(function(a,b){return (_pkOffers[a].display||'').localeCompare(_pkOffers[b].display||'');});
-      var sched=ordSchedLine(_ordVendor);
-      _pkShowStar=true;
-      var cards=vk.length?vk.map(function(k){return pkCard(_pkOffers[k]);}).join(''):'<div class="vempty">No offers from this vendor yet.</div>';
-      _pkShowStar=false;
-      h.innerHTML=strip+pills+'<div class="vhint">'+esc(_ordVendor)+(sched?(' &middot; '+sched):'')+' &middot; tap a card to compare and add.</div><div class="vlist">'+cards+'</div><div class="pk-basket-bar" id="pk-basket-bar"></div>';
-      ordBindStrip();
-      h.querySelectorAll('.ord-vp .vpill').forEach(function(b){b.onclick=function(){var sc=h.querySelector('.ord-vp'); _ordVpScroll=sc?sc.scrollLeft:0; _ordVendor=b.dataset.ov; renderOrderInner();};});
-      h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
-      h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
-      var vb=h.querySelector('.ord-vp'); if(vb&&_ordVpScroll)vb.scrollLeft=_ordVpScroll;
-      renderBasketBar(); return; }
     _vHost='order';
-    if(_ordF==='gaps'){ var gaps=ordGaps();
-      var gh=gaps.length? gaps.map(function(g){return '<div class="ord-gaprow">'+esc(g.name)+(g.vendor?(' <small>'+esc(g.vendor)+'</small>'):' <small>need to source</small>')+'</div>';}).join('')
-                        : '<div class="vempty">Every mapped menu ingredient has at least one current offer.</div>';
-      h.innerHTML=strip+'<div class="vhint">Menu ingredients with no current vendor offer — the gaps to source.</div>'+gh; ordBindStrip(); return; }
+    // Connected Farms: the original Swan order composer, mounted below the filter strip.
+    if(_ordF==='farms'){ h.innerHTML=strip+'<div id="ord-cf-mount"></div>'; ordBindStrip();
+      window.__cfMount='ord-cf-mount';
+      try{ if(window.__cfRenderOrder)window.__cfRenderOrder(); else document.getElementById('ord-cf-mount').innerHTML='<div class="vempty">Farm composer unavailable.</div>'; }
+      catch(e){ var m=document.getElementById('ord-cf-mount'); if(m)m.innerHTML='<div class="vempty">Couldn\'t load the farm composer.</div>'; }
+      setActive('order'); return; }
     if(_pkErr){ h.innerHTML=strip+'<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>'; ordBindStrip(); return; }
     if(!_pkOffers){ h.innerHTML=strip+'<div class="vempty">Loading offers…</div>'; ordBindStrip(); return; }
+    // Mapped to menu — grouped by DISH, COLLAPSED by default (tap a dish to expand; auto-open on search).
     if(_ordF==='mapped'){ var q=_ordQ;
       _pkShowStar=true;
       var groups=ordDishGroups().map(function(g){
         var rws=g.rows.filter(function(r){ if(!q)return true; var nm=(r.t==='card'?(_pkOffers[r.k].display||''):r.name)||''; return nm.toLowerCase().indexOf(q)>=0; });
         if(!rws.length)return '';
         var body=rws.map(function(r){ return r.t==='card'?pkCard(_pkOffers[r.k]):('<div class="ord-miss">'+esc(r.name)+' <small>'+(r.vendor?('sourced from '+esc(r.vendor)):'no vendor offer yet')+'</small></div>'); }).join('');
-        return '<div class="ord-dish"><div class="ord-dish-h">'+esc(g.dish)+'</div><div class="ord-dish-body">'+body+'</div></div>';
+        var miss=g.rows.filter(function(r){return r.t!=='card';}).length, have=g.rows.length-miss;
+        return '<details class="ord-dish"'+(q?' open':'')+'><summary class="ord-dish-h"><span>'+esc(g.dish)+'</span><span class="ord-dish-n">'+have+' offered'+(miss?(' &middot; '+miss+' to source'):'')+'</span></summary><div class="ord-dish-body">'+body+'</div></details>';
       }).join('');
       _pkShowStar=false;
       var sb='<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="ordSetQ(this.value)" value="'+esc(_ordQ)+'"></div>';
@@ -39480,6 +39478,7 @@ window.RemyFarm={
       h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
       h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
       ordBindStrip(); renderBasketBar(); return; }
+    // Previous orders + All (flat picker list)
     var keys=ordVisibleKeys();
     var primaryKeys=Object.keys(_pkOffers).filter(ordPassesPrimary);
     var prevSub=(_ordF==='previous')?ordPrevSubHTML():'';
@@ -39497,6 +39496,49 @@ window.RemyFarm={
     if(_pkOffers!==null || _pkErr){ renderOrderInner(); return; }
     renderOrderInner();   // paints the strip + "Loading…" immediately
     pkFetchFeed(function(feed){ if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); _ordPrev=(feed&&feed.order_prev)||_ordPrev; if(!Object.keys(_pkOffers).length)_pkErr=true;} renderOrderInner(); }); };
+
+  // ── BY VENDOR (top tab): pick a vendor, then Full Catalogue (A–Z / Staples) / Order History /
+  //    Peaking / Available / Coming Soon — the sub-filters live WITHIN the selected vendor. ──
+  var _bvVendor='', _bvFilter='catalogue', _bvSub='az', _bvVpScroll=0;
+  function bvSeason(display){ var toks=ordToks(display); if(!toks.length)return 'off';
+    var ings=DATA.ingredients||[];
+    for(var i=0;i<ings.length;i++){ var it=ings[i], itk=ordToks(it.name), shared=false;
+      for(var j=0;j<toks.length;j++){ if(itk.indexOf(toks[j])>=0){shared=true;break;} }
+      if(shared){ try{ if(typeof isComing==='function'&&isComing(it))return 'coming'; return statusOf(it); }catch(e){return 'off';} } }
+    return 'off'; }
+  function bvVendorKeys(v){ return Object.keys(_pkOffers).filter(function(k){return (_pkOffers[k].offers||[]).some(function(o){return o.vendor===v;});}); }
+  function renderByVendor(){ var h=host(); if(!h)return;
+    if(_pkErr){ h.innerHTML='<div class="tr-head"><span class="tr-title">By vendor</span></div><div class="vempty">Couldn\'t load the price feed.</div>'; return; }
+    if(!_pkOffers){ h.innerHTML='<div class="tr-head"><span class="tr-title">By vendor</span></div><div class="vempty">Loading vendors…</div>'; return; }
+    var vends=ordOfferVendors(); if(!_bvVendor||vends.indexOf(_bvVendor)<0)_bvVendor=vends[0]||'';
+    var vpills='<div class="vp-bar ord-vp bv-vp">'+vends.map(function(v){return '<button class="vpill'+(v===_bvVendor?' active':'')+'" data-bv="'+esc(v)+'">'+esc(v)+'</button>';}).join('')+'</div>';
+    var vk=bvVendorKeys(_bvVendor);
+    var subs=[['catalogue','Full Catalogue'],['history','Order History'],['peaking','Peaking'],['available','Available'],['coming','Coming Soon']];
+    var subBar='<div class="ord-sub bv-sub">'+subs.map(function(s){return '<button class="ord-chip'+(_bvFilter===s[0]?' on':'')+'" data-bvf="'+s[0]+'">'+s[1]+'</button>';}).join('')+'</div>';
+    var filtered=vk.slice(), subsubBar='';
+    if(_bvFilter==='history'){ var pv=ordPrevData(); var hs=(pv.items_all||[]).map(function(s){var o={};String(s).split(' ').forEach(function(t){if(t)o[t]=1;});return o;}); filtered=vk.filter(function(k){return ordMatchList(_pkOffers[k],hs);}); }
+    else if(_bvFilter==='peaking'){ filtered=vk.filter(function(k){return bvSeason(_pkOffers[k].display)==='peak';}); }
+    else if(_bvFilter==='available'){ filtered=vk.filter(function(k){var s=bvSeason(_pkOffers[k].display);return s==='peak'||s==='avail';}); }
+    else if(_bvFilter==='coming'){ filtered=vk.filter(function(k){return bvSeason(_pkOffers[k].display)==='coming';}); }
+    else { subsubBar='<div class="ord-sub bv-subsub">'+[['az','A–Z'],['staples','Staples']].map(function(s){return '<button class="ord-chip sm'+(_bvSub===s[0]?' on':'')+'" data-bvs="'+s[0]+'">'+s[1]+'</button>';}).join('')+'</div>';
+      if(_bvSub==='staples'){ filtered=vk.filter(function(k){return (_pkOffers[k].offers||[]).some(function(o){return o.vendor==='Franks';});}); } }
+    filtered.sort(function(a,b){return (_pkOffers[a].display||'').localeCompare(_pkOffers[b].display||'');});
+    _pkShowStar=true;
+    var cards=filtered.length?filtered.map(function(k){return pkCard(_pkOffers[k]);}).join(''):'<div class="vempty">Nothing here for '+esc(_bvVendor)+'.</div>';
+    _pkShowStar=false;
+    var sched=ordSchedLine(_bvVendor);
+    h.innerHTML='<div class="tr-head"><span class="tr-title">By vendor</span></div>'+vpills+subBar+subsubBar+'<div class="vhint">'+esc(_bvVendor)+(sched?(' &middot; '+sched):'')+' &middot; '+filtered.length+' item'+(filtered.length===1?'':'s')+'</div><div class="vlist">'+cards+'</div><div class="pk-basket-bar" id="pk-basket-bar"></div>';
+    h.querySelectorAll('.bv-vp .vpill').forEach(function(b){b.onclick=function(){var sc=h.querySelector('.bv-vp'); _bvVpScroll=sc?sc.scrollLeft:0; _bvVendor=b.dataset.bv; renderByVendor();};});
+    h.querySelectorAll('[data-bvf]').forEach(function(b){b.onclick=function(){_bvFilter=b.dataset.bvf;renderByVendor();};});
+    h.querySelectorAll('[data-bvs]').forEach(function(b){b.onclick=function(){_bvSub=b.dataset.bvs;renderByVendor();};});
+    h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+    h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
+    var vb=h.querySelector('.bv-vp'); if(vb&&_bvVpScroll)vb.scrollLeft=_bvVpScroll;
+    renderBasketBar(); }
+  window.showByVendor=function(){ clearScreens(); setActive('vendors'); _vHost='order'; window.__cfMount=null;
+    if(_pkOffers!==null||_pkErr){ renderByVendor(); return; }
+    renderByVendor();
+    pkFetchFeed(function(feed){ if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); _ordPrev=(feed&&feed.order_prev)||_ordPrev; if(!Object.keys(_pkOffers).length)_pkErr=true;} renderByVendor(); }); };
 })();
 </script>
 </body>
