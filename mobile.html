@@ -920,6 +920,96 @@ body.remy-embed .ng-card,body.remy-embed .pt-card,body.remy-embed .pv-card,body.
 .vclimb.dn{color:var(--olive)}
 .vempty{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--ink-30);padding:14px 0}
 .vhint{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-30);margin:-4px 0 12px}
+/* ── INGREDIENT-FIRST PICKER (Remy Router Layer 2) ── */
+.pk-modebar{margin-bottom:10px}
+.pk-searchbar{margin:2px 0 10px}
+.pk-search{width:100%;box-sizing:border-box;font-family:var(--fb);font-size:13px;color:var(--ink);
+  background:var(--ink-6);border:1px solid var(--ink-12);border-radius:22px;padding:9px 14px;outline:none}
+.pk-search::placeholder{color:var(--ink-30)}
+.pk-card{border-bottom:1px solid var(--ink-6)}
+.pk-sum{display:flex;align-items:center;gap:9px;padding:11px 2px;cursor:pointer;list-style:none}
+.pk-sum::-webkit-details-marker{display:none}
+.pk-sum::after{content:'\203A';margin-left:2px;color:var(--ink-30);font-size:15px;transition:transform .2s var(--ease)}
+details[open]>.pk-sum::after{transform:rotate(90deg)}
+.pk-nm{font-family:var(--fd);font-size:18px;color:var(--ink);line-height:1.1}
+.pk-cat{font-family:var(--fb);font-size:9px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--ink-30);border:1px solid var(--ink-12);border-radius:10px;padding:2px 7px;white-space:nowrap}
+.pk-cnt{margin-left:auto;font-family:var(--fb);font-size:11px;color:var(--ink-30);white-space:nowrap}
+.pk-star{background:none;border:none;color:var(--ink-12);font-size:15px;line-height:1;cursor:pointer;padding:2px 5px;flex:0 0 auto}
+.pk-star.on,.pk-star:hover{color:#c9a86a}
+.pk-list{padding:0 4px 10px}
+.pk-off{display:flex;align-items:center;gap:9px;padding:8px 4px;border-top:1px solid var(--ink-6)}
+.pk-off.pk-otherlane{opacity:0.62}
+.pk-vn{flex:1;font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.15}
+.pk-pack{display:block;font-family:var(--fb);font-size:10.5px;color:var(--ink-30);margin-top:1px}
+.pk-pr{font-family:var(--fb);font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;text-align:right}
+.pk-pr .pk-u{color:var(--ink-30);font-weight:400;font-size:10.5px}
+.pk-dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;background:var(--ink-30)}
+.pk-dot.live{background:var(--olive)}
+.pk-dot.dated{background:#e2b95e}
+.pk-dot.stale{background:var(--terra)}
+.pk-lane-note{font-family:var(--fd);font-style:italic;font-size:11px;color:var(--ink-30);padding:6px 4px 2px}
+.pk-add{margin-left:8px;flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;font-family:var(--fb)}
+.pk-add:hover{border-color:var(--olive);color:var(--olive)}
+.pk-add.added{background:var(--olive);color:#0a1028;border-color:var(--olive)}
+.pk-basket-bar{position:sticky;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;padding-bottom:4px}
+.pk-bar{width:100%;font-family:var(--fb);font-size:13px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:24px;padding:12px 16px;cursor:pointer;margin:6px 0;display:flex;justify-content:center;gap:10px;align-items:center;box-shadow:0 4px 18px -6px rgba(0,0,0,.5)}
+.pk-bar-go{font-weight:400;opacity:.85}
+.pk-basket-ov{position:fixed;inset:0;z-index:95;background:rgba(2,4,13,.6);display:flex;align-items:flex-end;justify-content:center}
+.pk-basket{width:100%;max-width:520px;max-height:86vh;overflow:auto;background:var(--bg);border-top:1px solid var(--ink-12);border-radius:16px 16px 0 0;padding:18px 18px 28px}
+.pk-basket h3{font-family:var(--fd);font-weight:500;font-size:23px;margin:0 0 3px;color:var(--ink)}
+.pk-bk-vhd{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--olive);margin:16px 0 4px}
+.pk-bk-row{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--ink-6)}
+.pk-bk-nm{flex:1;font-family:var(--fd);font-size:16px;color:var(--ink);line-height:1.15}
+.pk-bk-nm small{display:block;font-family:var(--fb);font-size:11px;color:var(--ink-30)}
+.pk-bk-q{display:flex;align-items:center;gap:8px}
+.pk-bk-q button{width:26px;height:26px;border-radius:50%;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink);cursor:pointer;font-size:15px;line-height:1}
+.pk-bk-q span{min-width:20px;text-align:center;font-family:var(--fb);font-size:14px;color:var(--ink)}
+.pk-bk-rm{background:none;border:none;color:var(--ink-30);cursor:pointer;font-size:17px;line-height:1}
+.pk-bk-rm:hover{color:var(--terra)}
+.pk-bk-close{width:100%;margin-top:18px;font-family:var(--fb);font-size:14px;color:var(--ink);background:transparent;border:1px solid var(--ink-12);border-radius:11px;padding:12px;cursor:pointer}
+.pk-bk-note{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-30);margin-top:12px;text-align:center;line-height:1.4}
+.pk-need{display:flex;align-items:center;gap:10px;margin:10px 0 2px}
+.pk-need label{font-family:var(--fb);font-size:12px;color:var(--ink-60)}
+.pk-need input{font-family:var(--fb);font-size:13px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:9px;padding:8px 10px}
+.pk-send{width:100%;margin:8px 0 6px;font-family:var(--fb);font-size:13px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:11px;padding:11px;cursor:pointer}
+.pk-send:hover{filter:brightness(1.08)}
+.pk-compose{width:100%;box-sizing:border-box;min-height:210px;font-family:var(--fb);font-size:13px;line-height:1.5;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:11px;padding:12px;margin:8px 0}
+.pk-send-row{display:flex;gap:10px;align-items:center;margin-bottom:4px}
+.pk-send-row .pk-bk-close{margin-top:0}
+.pk-send-a{flex:1;text-align:center;font-family:var(--fb);font-size:14px;font-weight:600;color:#0a1028;background:var(--olive);border-radius:11px;padding:12px;text-decoration:none}
+/* Order-tab: pack/case display + basket order-function controls (2026-07-10) */
+.pk-caseline{display:block;margin-top:2px}
+.pk-case{font-family:var(--fb);font-size:10.5px;color:var(--ink-45);letter-spacing:.01em}
+.pk-case.pk-packraw{color:var(--ink-30);font-style:italic}
+.pk-case.tbd{color:var(--terra)}
+.pk-bk-unit{margin-top:3px;font-family:var(--fb);font-size:11px;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;padding:3px 6px}
+.pk-bk-unit-1{display:block;margin-top:2px;font-family:var(--fb);font-size:11px;color:var(--ink-30)}
+.pk-bk-qin{width:44px;text-align:center;font-family:var(--fb);font-size:14px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:8px;padding:4px 2px;-moz-appearance:textfield}
+.pk-bk-qin::-webkit-outer-spin-button,.pk-bk-qin::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.pk-bk-q button.q5{width:auto;padding:0 8px;font-size:11px;font-weight:600;border-radius:13px;color:var(--ink-60)}
+.pk-bk-sub{display:flex;justify-content:space-between;font-family:var(--fb);font-size:11.5px;color:var(--ink-45);padding:6px 2px 2px}
+.pk-bk-sub span{color:var(--ink-60)}
+.pk-bk-grand{display:flex;justify-content:space-between;font-family:var(--fb);font-size:14px;font-weight:600;color:var(--ink);border-top:1px solid var(--ink-12);margin-top:14px;padding-top:12px}
+.pk-bk-grand span{color:var(--olive)}
+.pk-bk-foot{display:flex;gap:10px}
+.pk-bk-foot .pk-bk-close{margin-top:18px}
+.pk-bk-clear{flex:0 0 auto;margin-top:18px;font-family:var(--fb);font-size:13px;color:var(--terra);background:transparent;border:1px solid var(--ink-12);border-radius:11px;padding:12px 14px;cursor:pointer}
+.pk-bk-clear:hover{border-color:var(--terra)}
+/* Order-tab filter strip */
+.ord-strip{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 8px}
+.ord-chip{font-family:var(--fb);font-size:12px;font-weight:500;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:7px 12px;cursor:pointer;white-space:nowrap;transition:all .18s var(--ease)}
+.ord-chip:hover{color:var(--ink);border-color:var(--ink-30)}
+.ord-chip.on{color:#0a1028;background:var(--olive);border-color:var(--olive)}
+.ord-sub{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.ord-sub .ord-chip{font-size:11px;padding:5px 10px}
+.ord-sub .ord-chip.on{background:var(--ink);border-color:var(--ink)}
+.ord-gaprow{display:flex;align-items:center;gap:8px;padding:10px 4px;border-bottom:1px solid var(--ink-6);font-family:var(--fd);font-size:15px;color:var(--ink)}
+.ord-gaprow small{font-family:var(--fb);font-size:11px;color:var(--terra)}
+.kpill-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.kpill-row.kpill-second{margin-top:7px}
+.kpill-second .kpill{font-size:11.5px;padding:7px 12px;color:var(--ink-45)}
+#kitchen-pills.kpill-bar{flex-direction:column;align-items:stretch}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -1182,6 +1272,16 @@ if(/[?&]embed=/.test(location.search||'')){
 .pc-market{font-family:var(--fb);font-size:11.5px;color:var(--ink-60);margin-top:7px;letter-spacing:0.02em}
 .pc-market b{color:var(--ink);font-weight:500}
 .pc-nocomp{color:var(--ink-30);font-style:italic;font-family:var(--fd);font-size:13px}
+.pc-drift{font-family:var(--fb);font-size:11px;color:var(--ink-60);margin-top:6px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;line-height:1.3}
+.pc-drift .dr-mkt{font-weight:500}
+.pc-drift .dr-mkt.up{color:var(--olive)}
+.pc-drift .dr-mkt.down{color:var(--terra)}
+.pc-drift .dr-read{color:var(--ink-30)}
+.pc-drift.alert{color:var(--ink)}
+.pc-drift .dr-fix{font-family:var(--fb);font-size:11px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:20px;padding:4px 11px;cursor:pointer;letter-spacing:.02em}
+.pc-drift .dr-fix:hover{filter:brightness(1.08)}
+.pc-drift.stale{color:var(--ink-30);font-style:italic}
+.pc-drift .dr-note{color:var(--ink-30);font-style:italic}
 .pc-actions{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
 .chip-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:0.03em;color:var(--ink-60);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:20px;padding:6px 11px;cursor:pointer;transition:all .2s var(--ease)}
 .chip-btn:hover{color:var(--ink);border-color:var(--ink-30)}
@@ -1948,7 +2048,7 @@ if(/[?&]embed=/.test(location.search||'')){
 
 <script>
 const DATA = {
-  "generated": "2026-07-09",
+  "generated": "2026-07-10",
   "ingredients": [
     {
       "name": "Black Cod",
@@ -2997,19 +3097,19 @@ const DATA = {
         0,
         0,
         1,
-        1,
+        2,
         1,
         2,
         2,
         1,
         3
       ],
-      "notes": "F&F 7/6: FIRST summer chanterelles ramping, cool foggy coastal weather = great summer crop; price $26.50->$23.50. F&F 6/29: FIRST summer chanterelles, very limited to start; if rainy/warm pattern persists, good summer season ahead. Key City 6/24: offering chanterelle $24.95/# cross-vendor (NW Wild Harvest) \u2014 summer flush ramping, well below F&F early-season ask. F&F 6/22: Golden Chanterelle STARTING \u2014 very small amounts now at $52.00/#; with the forecast rain F&F expects a good summer flush within a week. First chanterelle signal of the year. WA wild. Limited Jul-Aug (weather dependent), peak Sep-Oct with best prices. Buttons ideal for pickling. Season ends by late Dec.",
-      "price_range": "$23.50/# (summer crop building, was $26.50)",
+      "notes": "F&F 7/9: lots of chanterelle, volume pricing ($1.50/# off on 50#+); pure uniform buttons, fairly dry, summer crop building. F&F 7/6: FIRST summer chanterelles ramping, cool foggy coastal weather = great summer crop; price $26.50->$23.50. F&F 6/29: FIRST summer chanterelles, very limited to start; if rainy/warm pattern persists, good summer season ahead. Key City 6/24: offering chanterelle $24.95/# cross-vendor (NW Wild Harvest) \u2014 summer flush ramping, well below F&F early-season ask. F&F 6/22: Golden Chanterelle STARTING \u2014 very small amounts now at $52.00/#; with the forecast rain F&F expects a good summer flush within a week. First chanterelle signal of the year. WA wild. Limited Jul-Aug (weather dependent), peak Sep-Oct with best prices. Buttons ideal for pickling. Season ends by late Dec.",
+      "price_range": "$23.50/# ($22.00/# at 50#+)",
       "last_source": {
-        "date": "2026-07-06",
+        "date": "2026-07-09",
         "channel": "email",
-        "note": "Week of July 6th: golden chanterelle summer crop building $23.50/#"
+        "note": "lots, volume pricing, perfect buttons, building"
       }
     },
     {
@@ -3202,13 +3302,13 @@ const DATA = {
         0,
         0
       ],
-      "notes": "F&F 7/6: gray/summer morels getting going, could run into August with thunderstorms. F&F 6/29: summer morels slow to start but finally getting going; gray morels LIMITED. F&F 6/22 (Week of June 22): GAP week \u2014 black morels died off and summer grays haven't really taken off yet; only pre-orders filled this week, hoping for more later in the week. Forecast rain should help kick the summer flush. F&F 6/18: Gray Morels (WA) $23.50/# now rolling in (mid/high elevation, double-walled, larger, good for stuffing/roasting); Black Conica $19.75/# continuing ~1 more week but winding down (low rain). F&F 6/18: summer Gray Morels rolling in $23.50/#, Black/Conica $19.75/#; A-grade $175 / B-grade $135 holding. 6/14 F&F: black morels at the very end (next week heat dwindles the highest-elevation blacks); summer grays/greenies picking up. A-grade $175/#, B-grade $135/#. F&F 6/11: peak continues but next week's heat will start dwindling black morels (already harvesting at highest elevations); summer grays/greenies picking up with the warmth. Conica $19.75/# ($18.50 20#+, $17.50 30#+). F&F 6/7: morel season at PEAK, moved to higher elevations, perfect quality; summer varieties starting. Franks 6/6: Morels all done (cross-vendor). F&F 6/4: FOUR types available, all WA Cascades \u2014 Black/Conica $20.75 ($19.50 at 20#+, price down from $21.50), Greenie $22.75 and Grays both just starting (thicker summer varieties), Blondes $24.50 LAST WEEK. F&F 6/1: TRUE PEAK of morel season \u2014 best ground above 4000ft. Summer grays start next week. Long season ahead. Black/Conica WA $20.75/#, 20#+ $19.50/#. Blonde WA/OR $24.50/# limited. Key City 5/27: also carrying Wild Morels $26.99/lb (NW Wild Harvest line, cross-vendor signal alongside F&F). F&F 5/25: heart of spring mushroom season. Black Conica from WA burn areas + Blonde morels WA/OR both available. Expect through this month and July, possibly August with summer rain. Cool weather still slowing higher-elevation volume.",
+      "notes": "F&F 7/9: gray morels hanging on, $28.50/#. F&F 7/6: gray/summer morels getting going, could run into August with thunderstorms. F&F 6/29: summer morels slow to start but finally getting going; gray morels LIMITED. F&F 6/22 (Week of June 22): GAP week \u2014 black morels died off and summer grays haven't really taken off yet; only pre-orders filled this week, hoping for more later in the week. Forecast rain should help kick the summer flush. F&F 6/18: Gray Morels (WA) $23.50/# now rolling in (mid/high elevation, double-walled, larger, good for stuffing/roasting); Black Conica $19.75/# continuing ~1 more week but winding down (low rain). F&F 6/18: summer Gray Morels rolling in $23.50/#, Black/Conica $19.75/#; A-grade $175 / B-grade $135 holding. 6/14 F&F: black morels at the very end (next week heat dwindles the highest-elevation blacks); summer grays/greenies picking up. A-grade $175/#, B-grade $135/#. F&F 6/11: peak continues but next week's heat will start dwindling black morels (already harvesting at highest elevations); summer grays/greenies picking up with the warmth. Conica $19.75/# ($18.50 20#+, $17.50 30#+). F&F 6/7: morel season at PEAK, moved to higher elevations, perfect quality; summer varieties starting. Franks 6/6: Morels all done (cross-vendor). F&F 6/4: FOUR types available, all WA Cascades \u2014 Black/Conica $20.75 ($19.50 at 20#+, price down from $21.50), Greenie $22.75 and Grays both just starting (thicker summer varieties), Blondes $24.50 LAST WEEK. F&F 6/1: TRUE PEAK of morel season \u2014 best ground above 4000ft. Summer grays start next week. Long season ahead. Black/Conica WA $20.75/#, 20#+ $19.50/#. Blonde WA/OR $24.50/# limited. Key City 5/27: also carrying Wild Morels $26.99/lb (NW Wild Harvest line, cross-vendor signal alongside F&F). F&F 5/25: heart of spring mushroom season. Black Conica from WA burn areas + Blonde morels WA/OR both available. Expect through this month and July, possibly August with summer rain. Cool weather still slowing higher-elevation volume.",
       "price_range": "Gray WA/AK $28.50/#",
       "last_seen": "2026-05-11",
       "last_source": {
-        "date": "2026-07-06",
+        "date": "2026-07-09",
         "channel": "email",
-        "note": "Week of July 6th: gray morels getting going into Aug $28.50/#"
+        "note": "gray morels hanging on"
       }
     },
     {
@@ -3301,20 +3401,20 @@ const DATA = {
         0,
         2,
         2,
-        2,
+        3,
         0,
         0,
         0,
         0,
         0
       ],
-      "notes": "F&F 7/6: peak, $17.50/#. F&F 6/18: $17.50/#, sea-vegetable peak. F&F 6/1: still abundant 1 more week. $17.50/#. F&F 5/25: peak with goosetongue, seabeans, sea rocket. $17.50/#.",
+      "notes": "F&F 7/9: LAST week, $17.50/#. F&F 7/6: peak, $17.50/#. F&F 6/18: $17.50/#, sea-vegetable peak. F&F 6/1: still abundant 1 more week. $17.50/#. F&F 5/25: peak with goosetongue, seabeans, sea rocket. $17.50/#.",
       "price_range": "$17.50/#",
       "last_seen": "2026-05-11",
       "last_source": {
-        "date": "2026-07-06",
+        "date": "2026-07-09",
         "channel": "email",
-        "note": "Week of July 6th: $17.50/#"
+        "note": "last week"
       }
     },
     {
@@ -3336,13 +3436,13 @@ const DATA = {
         0,
         0
       ],
-      "notes": "F&F 7/6: ONE MORE WEEK (ending). F&F 6/29: lots of seabeans, peak. F&F 6/22: 'Lots of Seabeans' \u2014 peak continues, still the window to pickle/preserve. F&F 6/18: PEAK now, best time to pickle/preserve, just starting to flower (stems toughen soon). F&F 6/18: 'Tons of Seabeans' \u2014 sea-vegetable peak, $13.50/#. F&F 6/11: new bulk tier $11.50/# at 20#+ (peak window, ~2 wks before flowering per 6/7). F&F 6/7: at peak for next 2 weeks before flowering. F&F 6/1: still abundant 1 more week. $13.50/#. F&F 5/25: peak sea vegetable season alongside goosetongue, sea rocket, saltmarsh daisy. $13.50/#. Also referenced by Franks and Farmstand.",
+      "notes": "F&F 7/9: LAST week, $13.50/# ($11.50/# 20#+). F&F 7/6: ONE MORE WEEK (ending). F&F 6/29: lots of seabeans, peak. F&F 6/22: 'Lots of Seabeans' \u2014 peak continues, still the window to pickle/preserve. F&F 6/18: PEAK now, best time to pickle/preserve, just starting to flower (stems toughen soon). F&F 6/18: 'Tons of Seabeans' \u2014 sea-vegetable peak, $13.50/#. F&F 6/11: new bulk tier $11.50/# at 20#+ (peak window, ~2 wks before flowering per 6/7). F&F 6/7: at peak for next 2 weeks before flowering. F&F 6/1: still abundant 1 more week. $13.50/#. F&F 5/25: peak sea vegetable season alongside goosetongue, sea rocket, saltmarsh daisy. $13.50/#. Also referenced by Franks and Farmstand.",
       "price_range": "$13.50/#, $11.50/# 20#+",
       "last_seen": "2026-05-11",
       "last_source": {
-        "date": "2026-07-06",
+        "date": "2026-07-09",
         "channel": "email",
-        "note": "Week of July 6th: one more week $13.50/$11.50 20#+"
+        "note": "last week"
       }
     },
     {
@@ -10063,12 +10163,12 @@ const DATA = {
         0,
         0
       ],
-      "notes": "F&F 7/6: ONE MORE WEEK (ending). F&F 6/29: lots of green walnuts, continuing. F&F 6/22: lots on hand into early July; new bulk tier $4.00/# at 30#+ ($5.25/# under 30#). F&F 6/18: lots on hand now into early July, $5.25/#. F&F 6/11: harvest just started, available into early July. WA. Nocino/pickling window.",
+      "notes": "F&F 7/9: still here, $5.25/# ($4.00/# 30#+). F&F 7/6: ONE MORE WEEK (ending). F&F 6/29: lots of green walnuts, continuing. F&F 6/22: lots on hand into early July; new bulk tier $4.00/# at 30#+ ($5.25/# under 30#). F&F 6/18: lots on hand now into early July, $5.25/#. F&F 6/11: harvest just started, available into early July. WA. Nocino/pickling window.",
       "price_range": "$5.25/#, $4.00/# at 30#+",
       "last_source": {
-        "date": "2026-07-06",
+        "date": "2026-07-09",
         "channel": "email",
-        "note": "Week of July 6th: one more week $5.25/$4.00 30#+"
+        "note": "still available"
       }
     },
     {
@@ -20961,16 +21061,16 @@ const DATA = {
   "menu_map": {
     "schema_version": "1.0",
     "description": "Curated in-use ingredient map from the live SF staff-portal menu. Decision schema: tracked/sourced/sub_recipe/pantry/untracked/prose. The price board reads this.",
-    "generated": "2026-07-09",
+    "generated": "2026-07-10",
     "source": {
       "file": "Codename: Riker/staff-portal/data/menu.json",
       "menuDate": "2026-06-18",
       "captured": "2026-06-22",
       "authored": true,
-      "last_digest": "2026-07-09",
+      "last_digest": "2026-07-10",
       "reapplied": "2026-07-03",
       "reconciled_against": "2026-06-18",
-      "reconciled_at": "2026-07-09"
+      "reconciled_at": "2026-07-10"
     },
     "kinds": {
       "tracked": "maps to a price-tracked ingredient; can fire a creep warning",
@@ -21039,7 +21139,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856220Z",
+        "authored_at": "2026-07-10T13:15:17.978655Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21094,7 +21194,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856170Z",
+        "authored_at": "2026-07-10T13:15:17.978595Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21103,9 +21203,9 @@ const DATA = {
         "desc": "rosemary olive oil, fried rosemary, maldon sea salt",
         "price": "6",
         "hero": {
+          "price_tracked": false,
           "kind": "sourced",
-          "maps_to": null,
-          "price_tracked": false
+          "maps_to": null
         },
         "target_pct": 25,
         "components": [
@@ -21167,7 +21267,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856197Z",
+        "authored_at": "2026-07-10T13:15:17.978622Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21250,7 +21350,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856184Z",
+        "authored_at": "2026-07-10T13:15:17.978608Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21319,7 +21419,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856190Z",
+        "authored_at": "2026-07-10T13:15:17.978616Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21416,7 +21516,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856187Z",
+        "authored_at": "2026-07-10T13:15:17.978613Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21425,8 +21525,8 @@ const DATA = {
         "desc": "strawberries, chamomile gelee, strawberry buttermilk poppy seed vinaigrette, crostini",
         "price": "18",
         "hero": {
-          "kind": "sourced",
           "price_tracked": false,
+          "kind": "sourced",
           "maps_to": null
         },
         "target_pct": 25,
@@ -21517,7 +21617,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856167Z",
+        "authored_at": "2026-07-10T13:15:17.978592Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21642,7 +21742,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856176Z",
+        "authored_at": "2026-07-10T13:15:17.978601Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21651,9 +21751,9 @@ const DATA = {
         "desc": "saffron spaghetti, swan house beef & pork, tomato, fennel, rosemary, parmigiano reggiano",
         "price": "32",
         "hero": {
-          "price_tracked": false,
           "maps_to": null,
-          "kind": "sourced"
+          "kind": "sourced",
+          "price_tracked": false
         },
         "target_pct": 25,
         "components": [
@@ -21743,7 +21843,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856225Z",
+        "authored_at": "2026-07-10T13:15:17.978662Z",
         "authored_by": "remy-portal"
       },
       {
@@ -21882,7 +21982,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856215Z",
+        "authored_at": "2026-07-10T13:15:17.978646Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22076,7 +22176,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856194Z",
+        "authored_at": "2026-07-10T13:15:17.978619Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22159,7 +22259,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856218Z",
+        "authored_at": "2026-07-10T13:15:17.978651Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22274,7 +22374,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856203Z",
+        "authored_at": "2026-07-10T13:15:17.978630Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22283,8 +22383,8 @@ const DATA = {
         "desc": "polenta, charred spring onion, apricot mostarda, demi glace",
         "price": "42",
         "hero": {
-          "kind": "tracked",
           "price_tracked": true,
+          "kind": "tracked",
           "maps_to": "Pure Country GL Pork Rack"
         },
         "target_pct": 25,
@@ -22375,7 +22475,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856209Z",
+        "authored_at": "2026-07-10T13:15:17.978639Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22458,7 +22558,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856180Z",
+        "authored_at": "2026-07-10T13:15:17.978604Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22513,7 +22613,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856205Z",
+        "authored_at": "2026-07-10T13:15:17.978634Z",
         "authored_by": "remy-portal"
       },
       {
@@ -22554,7 +22654,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-07-09T13:13:03.856222Z",
+        "authored_at": "2026-07-10T13:15:17.978657Z",
         "authored_by": "remy-portal"
       }
     ],
@@ -24409,7 +24509,7 @@ const DATA = {
     }
   },
   "menu_price_board": {
-    "generated": "2026-07-09",
+    "generated": "2026-07-10",
     "source": "sf-staff-portal live menu",
     "menu_date": "2026-06-18",
     "menu_captured": "2026-06-22",
@@ -27819,12 +27919,6 @@ const DATA = {
         "date": "2026-06-15"
       },
       {
-        "name": "Potato, Wa Russet, 50Ct",
-        "price": 28.95,
-        "unit": "50#",
-        "date": "2025-07-02"
-      },
-      {
         "name": "Potato, Yukon Gold, A Size",
         "price": 1.15,
         "unit": "lb",
@@ -28029,26 +28123,6 @@ const DATA = {
         "date": "2026-06-01"
       }
     ],
-    "Preserve Meat & Provisions": [
-      {
-        "name": "Palouse Pastured Chicken Eggs",
-        "price": 99.99,
-        "unit": "case",
-        "date": "2025-07-21"
-      },
-      {
-        "name": "Pure Country Beef Short Ribs",
-        "price": 14.99,
-        "unit": "lb",
-        "date": "2025-07-07"
-      },
-      {
-        "name": "Unknown PM Item",
-        "price": 14.99,
-        "unit": "lb",
-        "date": "2025-07-14"
-      }
-    ],
     "Key City Fish": [
       {
         "name": "Butterflied Rainbow Trout, farmed, ID, USA",
@@ -28235,6 +28309,26 @@ const DATA = {
         "price": 11.99,
         "unit": "each",
         "date": "2025-12-17"
+      }
+    ],
+    "Preserve Meat & Provisions": [
+      {
+        "name": "Palouse Pastured Chicken Eggs",
+        "price": 99.99,
+        "unit": "case",
+        "date": "2025-07-21"
+      },
+      {
+        "name": "Pure Country Beef Short Ribs",
+        "price": 14.99,
+        "unit": "lb",
+        "date": "2025-07-07"
+      },
+      {
+        "name": "Unknown PM Item",
+        "price": 14.99,
+        "unit": "lb",
+        "date": "2025-07-14"
       }
     ],
     "Merlino Foods": [
@@ -29289,6 +29383,12 @@ const DATA = {
         "date": "2026-07-07"
       },
       {
+        "name": "Butter Reggiano Parmigiano",
+        "price": 65.0,
+        "unit": "10/8 OZ",
+        "date": "2026-07-09"
+      },
+      {
         "name": "Butter Unsalted 80% Print",
         "price": 2.61,
         "unit": "CS",
@@ -29303,8 +29403,8 @@ const DATA = {
       {
         "name": "Cheese Burrata Italy Frzn",
         "price": 32.75,
-        "unit": "case",
-        "date": "2026-07-07"
+        "unit": "8/125 GR",
+        "date": "2026-07-09"
       },
       {
         "name": "Cheese Parmigiano Roundbale Whole",
@@ -32056,7 +32156,7 @@ const DATA = {
     }
   ],
   "price_drift": {
-    "generated": "2026-07-08",
+    "generated": "2026-07-09",
     "threshold_pct": 5.0,
     "summary": {
       "tracked_items": 264,
@@ -36706,8 +36806,54 @@ function mkt(g){
   return '<span class="pc-nocomp">no market comp yet &middot; set your own price</span>';
 }
 
+/* ── Layer 5: market drift ticker (Kelly). Her FIXED ask vs the LIVE spine market; when the
+   effective premium drifts past her target by > threshold, flag + one-tap restore to her target.
+   Reads price-reference.json live (self-contained fetch — this IIFE can't see invFetchFeed).
+   Unit bridge = the crop's own sell_units (so bunch/each convert on her basis), else weight
+   defaults; skip when not convertible. Compare-only+suggest in v1; auto-track is the next step. */
+var _fmFeed=null,_fmTried=false,_fmMap=null,_fmPrem=20,_FM_THRESH=15;
+function fmFetch(cb){ if(_fmTried){cb(_fmFeed);return;} _fmTried=true;
+  try{ fetch('price-reference.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+    .then(function(j){_fmFeed=j;cb(j);}).catch(function(){cb(null);}); }catch(e){cb(null);} }
+function fmCanon(n){ n=(n||'').replace(/\([^)]*\)/g,'').toLowerCase(); return n.replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
+function fmBuild(feed){ var m={}; if(feed){ _fmPrem=feed.premium_pct||20; var items=feed.items||{};
+  Object.keys(items).forEach(function(k){ var it=items[k];
+    if(it.swan_per_lb!=null && it.market!=null && it.swan_price){ var mpl=it.swan_per_lb*(it.market/it.swan_price);
+      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||''}; } } }); }
+  return m; }
+var _FM_WT={'lb':1,'#':1,'lbs':1,'1/2 lb':0.5,'1/2#':0.5,'1/4 lb':0.25,'1/4#':0.25,'oz':1/16};
+function fmFactor(g){ var u=(g.askUnit||'').toLowerCase().trim();
+  var su=(g.market&&g.market.sell_units)||[];
+  for(var i=0;i<su.length;i++){ if((su[i].unit||'').toLowerCase().trim()===u && su[i].per>0) return {f:su[i].per, est:su[i].basis==='estimate'}; }
+  if(_FM_WT[u]!=null) return {f:_FM_WT[u], est:false};
+  return null; }
+function farmDrift(g){
+  if(!_fmMap||!g||g.ask==null||g.ask===''||!g.askMode||g.askMode==='manual') return null;
+  var fac=fmFactor(g); if(!fac) return null;
+  var rec=_fmMap[fmCanon(g.name)]; if(!rec||!(rec.perlb>0)) return null;
+  var mkl=rec.perlb, askPerLb=Number(g.ask)/fac.f;
+  var eff=(askPerLb-mkl)/mkl*100;
+  var target=g.askMode==='premium'?(Number(g.askPct)||0):(g.askMode==='markdown'?-(Number(g.askPct)||0):0);
+  var drift=eff-target, stale=/STALE|PRIOR/.test(rec.freshness||'');
+  var recPerLb=mkl*(1+target/100);
+  return {mkl:mkl,eff:eff,target:target,drift:drift,stale:stale,recAsk:recPerLb*fac.f,dir:drift<0?'up':'down',est:fac.est}; }
+function driftTicker(g){
+  var d=farmDrift(g); if(!d) return '';
+  if(d.stale) return '<div class="pc-drift stale">market $'+d.mkl.toFixed(2)+'/lb &middot; stale <span class="dr-note">&mdash; holding; refresh the comp before adjusting</span></div>';
+  var alert=Math.abs(d.drift)>_FM_THRESH, arrow=d.dir==='up'?'&#9650;':'&#9660;';
+  var eff=(d.eff>=0?'+':'')+Math.round(d.eff)+'%', tgt=(d.target>=0?'+':'')+Math.round(d.target)+'%';
+  var h='<span class="dr-mkt '+d.dir+'">'+arrow+' market $'+d.mkl.toFixed(2)+'/lb</span>'+
+        '<span class="dr-read">now '+eff+' &middot; target '+tgt+(d.est?' &middot; est':'')+'</span>';
+  if(alert){ var ra='$'+d.recAsk.toFixed(2)+(g.askUnit?('/'+g.askUnit):'')+' ('+tgt+')';
+    h+='<button class="dr-fix" data-dn="'+String(g.name).replace(/"/g,'&quot;')+'">&rarr; '+ra+'</button>'; }
+  return '<div class="pc-drift'+(alert?' alert':'')+'">'+h+'</div>'; }
+window.driftApply=function(name){ var g=byName[name]; if(!g) return; var d=farmDrift(g); if(!d) return;
+  g.ask=Number(d.recAsk.toFixed(2)); persist(); renderPush();
+  if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList(); };
+
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
+  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPush(); }); }
   var names=Array.from(pushed);
   if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
   names.forEach(function(n){
@@ -36718,6 +36864,7 @@ function renderPush(){
       '<button class="pc-x" data-n="'+n+'" aria-label="Remove">&times;</button>'+
       '<div class="pc-top"><span class="pc-name">'+g.name+'</span>'+(g.qty?'<span class="pc-qty">'+g.qty+'</span>':'')+'</div>'+
       '<div class="pc-market">'+mkt(g)+'</div>'+
+      (g.ask?driftTicker(g):'')+
       '<div class="md-tag">&#9662; Marked down to move</div>'+
       (g.photo?('<div class="pc-photo-wrap"><img class="pc-photo" data-n="'+n+'" src="'+g.photo+'" alt="'+g.name+'">'+((g._up_photo||isLocalMedia(g.photo))?('<span class="pc-photo-up'+(isOffline()?' pend':'')+'">'+(isOffline()?'Will upload when online':(g._up_photo?'Uploading&hellip;':'Syncing&hellip;'))+'</span>'):'')+'</div>'):'')+
       (g._photoErr?('<div class="pc-photo-err">'+g._photoErr+'</div>'):'')+
@@ -36738,6 +36885,7 @@ function renderPush(){
   el.querySelectorAll('.photo-btn').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.pc-photo').forEach(function(b){b.onclick=function(){openPhotoView(b.dataset.n);};});
   el.querySelectorAll('.method-btn').forEach(function(b){b.onclick=function(){methodOpen(b.dataset.n);};});
+  el.querySelectorAll('.dr-fix').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
   persist();
 }
 /* Per-listing details capture (Kelly wishlist, 2026-06-26). Growing method (tags), how-harvested
@@ -37531,12 +37679,25 @@ window.RemyFarm={
   };
   function buildKitchenPills(){
     var bar=document.getElementById('kitchen-pills');if(!bar)return;
-    var P=[['farms','Connected Farms','showConnectedFarms'],
-           ['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
-           ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
-    bar.innerHTML=P.map(function(p,i){
-      return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
-    }).join('');
+    if(window._REMY_EMBED){
+      // Embed (sf-portal Farm Order): pills + landing UNCHANGED — Chris/Jose/Katie's known flow.
+      var PE=[['farms','Connected Farms','showConnectedFarms'],
+             ['trending','Trending Prices','showTrending'],['vendors','My Vendors','showVendors'],
+             ['menu','The Menu','openTheMenu'],['plan','Plan Ahead','openPlanAhead']];
+      bar.innerHTML=PE.map(function(p,i){
+        return '<button class="kpill'+(i===0?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
+      }).join('');
+      return;
+    }
+    // Standalone Remy: Order + The Menu primary; Trending Prices + Plan Ahead below.
+    // Connected Farms folds into Order; My Vendors survives as Order's "By vendor" filter.
+    function _rowHtml(list,firstActive){return list.map(function(p,i){
+      return '<button class="kpill'+((firstActive&&i===0)?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
+    }).join('');}
+    var PRIMARY=[['order','Order','showOrder'],['menu','The Menu','openTheMenu']];
+    var SECOND =[['trending','Trending Prices','showTrending'],['plan','Plan Ahead','openPlanAhead']];
+    bar.innerHTML='<div class="kpill-row kpill-primary">'+_rowHtml(PRIMARY,true)+'</div>'+
+                  '<div class="kpill-row kpill-second">'+_rowHtml(SECOND,false)+'</div>';
   }
 
   function start(){ buildKitchenPills(); renderTrending(); }
@@ -37842,7 +38003,11 @@ window.RemyFarm={
   // Connected Farms is the restaurant-side landing tab — render it once the pills are built
   (function cfDefault(){
     var bar=document.getElementById('kitchen-pills');
-    if(bar&&bar.querySelector('.kpill[data-k="farms"]')){showConnectedFarms();return;}
+    if(window._REMY_EMBED){
+      if(bar&&bar.querySelector('.kpill[data-k="farms"]')){showConnectedFarms();return;}
+    }else{
+      if(bar&&bar.querySelector('.kpill[data-k="order"]')){ if(window.showOrder)window.showOrder(); return; }
+    }
     setTimeout(cfDefault,40);
   })();
 })();
@@ -37876,9 +38041,11 @@ window.RemyFarm={
     ['Preserve Meat','Preserve Meat'],['Alluvial Farms','Alluvial'],['Merlino Foods','Merlino'],['Puget Sound Food Hub','Puget Sound Food Hub']];
   var _vSel=0,_vSort='peaking',_pmCat=null;
   function vIngs(vk){return (DATA.ingredients||[]).filter(function(it){var v=it.vendor||'';return v===vk||v.indexOf(vk)===0;});}
-  window.selVendor=function(i){_vSel=i;_pmCat=null;_vSort='peaking';renderVendors();};
-  window.setVSort=function(s){_vSort=s;renderVendors();};
-  window.setPmCat=function(c){_pmCat=c;renderVendors();};
+  var _vHost='vendors';   // which screen owns the vendor browse: 'vendors' (My Vendors) | 'order' (Order → By vendor)
+  function _reVendor(){ if(_vHost==='order'&&typeof renderOrderInner==='function'){renderOrderInner();} else {renderVendors();} }
+  window.selVendor=function(i){_vSel=i;_pmCat=null;_vSort='peaking';_reVendor();};
+  window.setVSort=function(s){_vSort=s;_reVendor();};
+  window.setPmCat=function(c){_pmCat=c;_reVendor();};
   function isComing(it){return (typeof isArriving==='function')&&isArriving(it);}
   function isCreeping(it){var t=trMap()[it.name];return !!(t&&t.trend_30d_pct!=null&&t.trend_30d_pct>=10);}
 
@@ -38115,10 +38282,253 @@ window.RemyFarm={
     var ask=meta.open_ask?('<div class="vhint" style="margin-top:8px">Jowls (guanciale ask): '+esc(meta.open_ask)+'</div>'):'';
     return '<div class="vhint">'+vp.length+' cuts &middot; wholesale $/lb'+(meta.case_note?(' &middot; '+esc(meta.case_note)):'')+(meta.sheet_date?(' ('+esc(meta.sheet_date)+')'):'')+' &middot; tap a group</div>'+body+ask;
   }
-  window.renderVendors=function(){
-    var h=host();if(!h)return;
-    // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
-    var scrolls=[].map.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e){return e.scrollLeft;});
+  // ── INGREDIENT-FIRST PICKER (Remy Router Layer 2) ─────────────────────
+  // Reads the folded offers on the price spine (price-reference.json items[].offers) and renders
+  // each canonical produce ingredient with its vendor offers side by side, normalized,
+  // cheapest-per-unit first, each stamped with freshness. Compare only within one per_unit lane
+  // (never lb vs each). Compare-only in v1 — basket + transmit is Layer 3.
+  var _vMode='vendor';        // 'vendor' | 'ingredient'
+  var _pkQuery='';            // search filter (lowercased)
+  var _pkOffers=null;         // {key:{display,category,canonical_unit,offers:[...]}}
+  var _pkErr=false;           // loud-failure flag if the feed fetch fails
+  // Self-contained feed fetch (this IIFE can't see the invoice tool's invFetchFeed).
+  var _pkFeed=null, _pkFeedTried=false;
+  function pkFetchFeed(cb){
+    if(_pkFeedTried){cb(_pkFeed);return;}
+    _pkFeedTried=true;
+    try{
+      fetch('price-reference.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+        .then(function(j){_pkFeed=j;cb(j);}).catch(function(){cb(null);});
+    }catch(e){cb(null);}
+  }
+  window.setVMode=function(m){_vMode=m;renderVendors();};
+  window.setPkQuery=function(v){_pkQuery=(v||'').toLowerCase();renderPickerList();};
+
+  function pkFreshClass(f){f=String(f||'');if(f.indexOf('LIVE')===0)return 'live';if(f.indexOf('DATED')===0)return 'dated';return 'stale';}
+  function pkFreshDot(f){return '<span class="pk-dot '+pkFreshClass(f)+'" title="'+esc(f||'')+'"></span>';}
+
+  function pkBuildFromFeed(feed){
+    var map={}, items=(feed&&feed.items)||{};
+    Object.keys(items).forEach(function(k){
+      var it=items[k], offers=it.offers||[];
+      if(!offers.length)return;
+      map[k]={display:it.display||k, category:it.category||'', canonical_unit:it.canonical_unit||'', offers:offers};
+    });
+    return map;
+  }
+  // within the canonical_unit lane, cheapest `per` first; off-lane offers after, also cheapest first.
+  function pkSortOffers(offers, cu){
+    return offers.slice().sort(function(a,b){
+      var al=(cu&&a.per_unit!==cu)?1:0, bl=(cu&&b.per_unit!==cu)?1:0;
+      if(al!==bl)return al-bl;
+      var ap=(a.per!=null)?a.per:1e9, bp=(b.per!=null)?b.per:1e9;
+      return ap-bp;
+    });
+  }
+  // ── Layer 3 Slice A: order basket. Add offers across vendors, grouped-by-vendor review.
+  // No send here — Slice B wires Swan (live loop) + Franks/direct (drafted order email). ──
+  var _basket=[];
+  function pkAdd(d){
+    var name=d.ing, vendor=d.vendor, punit=d.punit||'', pack=d.pack||'', per=(d.per===''||d.per==null)?null:Number(d.per);
+    var caseP=(d.caseprice===''||d.caseprice==null)?null:Number(d.caseprice);
+    var pq=(d.packqty===''||d.packqty==null)?null:Number(d.packqty), pu=d.packunit||'';
+    var ex=_basket.filter(function(x){return x.name===name&&x.vendor===vendor&&x.per_unit===punit;})[0];
+    if(ex){ex.qty++;} else {_basket.push({name:name,vendor:vendor,per:per,per_unit:punit,pack:pack,qty:1,unit:(punit||'each'),case_price:caseP,pack_qty:pq,pack_unit:pu});}
+    renderBasketBar();
+  }
+  function pkBasketVendors(){var s={};_basket.forEach(function(x){s[x.vendor]=1;});return Object.keys(s);}
+  function renderBasketBar(){
+    var el=document.getElementById('pk-basket-bar'); if(!el)return;
+    if(!_basket.length){el.innerHTML='';return;}
+    var items=_basket.reduce(function(a,x){return a+x.qty;},0), vend=pkBasketVendors().length;
+    el.innerHTML='<button class="pk-bar" onclick="openBasket()">&#129530; Order: '+items+' item'+(items>1?'s':'')+' &middot; '+vend+' vendor'+(vend>1?'s':'')+' <span class="pk-bar-go">Review &rarr;</span></button>';
+  }
+  window.openBasket=function(){
+    var ov=document.getElementById('pkBasketOv');
+    if(!ov){ov=document.createElement('div');ov.id='pkBasketOv';ov.className='pk-basket-ov';document.body.appendChild(ov);
+      ov.addEventListener('click',function(e){if(e.target===ov)ov.remove();});}
+    renderBasketPanel();
+  };
+  function pkQty(i,dq){ if(_basket[i]){_basket[i].qty=Math.max(1,Math.round((_basket[i].qty+dq)*100)/100); renderBasketBar(); renderBasketPanel();} }
+  function pkRemoveIdx(i){ _basket.splice(i,1); renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel(); }
+  window.pkSetQtyInput=function(i,v){ if(_basket[i]){var n=parseFloat(v); _basket[i].qty=(isNaN(n)||n<=0)?1:Math.round(n*100)/100; renderBasketBar(); renderBasketPanel();} };
+  window.pkSetUnit=function(i,u){ if(_basket[i]){_basket[i].unit=u; renderBasketBar(); renderBasketPanel();} };
+  window.pkClearOrder=function(){ if(!_basket.length)return; if(!confirm('Clear the whole order?'))return; _basket=[]; renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(o)o.remove(); };
+  // Estimated line total: qty x (per-unit price, or case price when ordering by case).
+  function pkLineTotal(x){ if(x.unit==='case'){ return (x.case_price!=null)? x.qty*x.case_price : null; } return (x.per!=null)? x.qty*x.per : null; }
+  function pkOrderUnits(x){ var opts=[]; opts.push(x.per_unit||'each'); if(x.case_price!=null && opts.indexOf('case')<0)opts.push('case'); return opts; }
+  function pkMoney(n){ return (n==null)?'—':('$'+Number(n).toFixed(2)); }
+  // ── Layer 3 Slice B: forward. Swan=live loop; email lanes=staged order email a manager sends;
+  // hub lanes=copy-ready list + their portal. Remy never sends on its own. ──
+  var _needBy='';
+  window.pkSetNeedBy=function(v){_needBy=v||'';};
+  var VENDOR_LANE={
+    'Swan':{lane:'swan'},
+    'Farmstand':{lane:'hub', to:'info@farmstandlocalfoods.com', portal:'Farmstand online shop', note:'order by their posted cutoff'},
+    'PSFH':{lane:'email', to:'orders@pugetsoundfoodhub.com', greet:'team', note:'Sun 12pm cutoff for Tue/Wed, $300 combined min'},
+    'Franks':{lane:'email', to:'warehouse@franksproduce.net', greet:'Jeff'},
+    'Foraged and Found':{lane:'email', to:'orders@foragedandfoundedibles.com', greet:'team'},
+    'Foraged & Found':{lane:'email', to:'orders@foragedandfoundedibles.com', greet:'team'},
+    'Local Roots':{lane:'email', to:'orders@localrootsfarm.com', greet:'team'},
+    'Local Roots Farm':{lane:'email', to:'orders@localrootsfarm.com', greet:'team'}
+  };
+  function pkLane(v){ return VENDOR_LANE[v] || {lane:'email', to:'', greet:String(v).split(' ')[0]}; }
+  function pkVendorItems(v){ return _basket.filter(function(x){return x.vendor===v;}); }
+  function pkSendBtn(v){
+    var lane=pkLane(v).lane;
+    var label=(lane==='swan')?'Send to Swan House':(lane==='hub')?('Order list for '+esc(v)):'Draft order email';
+    return '<button class="pk-send" data-v="'+esc(v)+'">'+label+' &rarr;</button>';
+  }
+  function pkUnitLabel(x){ var u=x.unit||x.per_unit||''; if(u==='case')return (x.qty===1?'case':'cases'); return u; }
+  function pkOrderText(v){
+    var cfg=pkLane(v), items=pkVendorItems(v);
+    var lines=items.map(function(x){var u=pkUnitLabel(x);return '- '+x.qty+(u?(' '+u):'x')+' '+x.name+((x.unit==='case'&&x.pack)?(' ('+x.pack+')'):'');}).join('\n');
+    if(cfg.lane==='hub'){ return 'San Fermo order'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines; }
+    var greet=cfg.greet||String(v).split(' ')[0];
+    return 'Hey '+greet+',\n\nOrder for San Fermo'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines+'\n\nThanks,\nSan Fermo\nsam@sanfermoseattle.com';
+  }
+  window.pkCopyCompose=function(){ var t=document.getElementById('pk-compose'); if(!t)return; try{navigator.clipboard.writeText(t.value);}catch(e){t.select();document.execCommand('copy');} var b=document.getElementById('pk-copy-btn'); if(b){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1500);} };
+  window.pkSendV=function(v){
+    var cfg=pkLane(v);
+    if(cfg.lane==='swan'){ pkSwanPlace(v); return; }
+    var text=pkOrderText(v), isHub=(cfg.lane==='hub');
+    var ov=document.getElementById('pkComposeOv');
+    if(!ov){ov=document.createElement('div');ov.id='pkComposeOv';ov.className='pk-basket-ov';document.body.appendChild(ov);
+      ov.addEventListener('click',function(e){if(e.target===ov)ov.remove();});}
+    var mailto=cfg.to?('mailto:'+cfg.to+'?subject='+encodeURIComponent('San Fermo produce order'+(_needBy?(' for '+_needBy):''))+'&body='+encodeURIComponent(text)):'';
+    ov.innerHTML='<div class="pk-basket"><h3>'+(isHub?('Order list · '+esc(v)):('Order email · '+esc(v)))+'</h3>'+
+      (cfg.to?('<div class="vhint">'+(isHub?('Place in the '+esc(cfg.portal||v)+'. Contact: '):'To: ')+esc(cfg.to)+(cfg.note?(' &middot; '+esc(cfg.note)):'')+'</div>'):'<div class="vhint">Add this vendor’s order email, then send.</div>')+
+      '<textarea class="pk-compose" id="pk-compose">'+esc(text)+'</textarea>'+
+      '<div class="pk-send-row"><button class="pk-bk-close" id="pk-copy-btn" onclick="pkCopyCompose()">Copy</button>'+
+        (mailto?('<a class="pk-send-a" href="'+mailto+'">'+(isHub?'Email the hub':'Open email to send')+'</a>'):'')+'</div>'+
+      '<div class="pk-bk-note">Review and send from your mail app. Remy won’t send on its own.</div>'+
+      '<button class="pk-bk-close" onclick="document.getElementById(\'pkComposeOv\').remove()">Close</button></div>';
+  };
+  function pkSwanPlace(v){
+    var items=pkVendorItems(v); if(!items.length)return;
+    if(!(window.RemyOrders&&window.RemyOrders.ready&&window.RemyOrders.ready())){ alert('Can’t reach the order server right now — try again when you’re back online.'); return; }
+    if(!confirm('Send this Swan House order ('+items.length+' item'+(items.length>1?'s':'')+')?'))return;
+    var who='San Fermo';
+    try{ if(window.parent&&window.parent!==window&&window.parent.__remyPortalUser){who=String(window.parent.__remyPortalUser)||who;} }catch(e){}
+    var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:'Swan House Farms'}, qty:x.qty, unit:(x.unit||x.per_unit||''), free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:null};});
+    var id='remyrtr-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
+    var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:'', channel:'remy-router-v1', synced:false, lines:lines};
+    window.RemyOrders.place(order).then(function(){
+      _basket=_basket.filter(function(x){return x.vendor!==v;}); renderBasketBar();
+      var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel();
+      alert('Order sent to Swan House ✓');
+    }).catch(function(){ alert('Order didn’t send — check your connection and try again.'); });
+  }
+
+  function pkUnitSel(i,x){
+    var opts=pkOrderUnits(x);
+    if(opts.length<2) return '<span class="pk-bk-unit-1">/'+esc(opts[0]||'')+'</span>';
+    return '<select class="pk-bk-unit" data-u="'+i+'">'+opts.map(function(u){
+      return '<option value="'+esc(u)+'"'+(x.unit===u?' selected':'')+'>'+(u==='case'?'by case':('by '+esc(u)))+'</option>';
+    }).join('')+'</select>';
+  }
+  function renderBasketPanel(){
+    var ov=document.getElementById('pkBasketOv'); if(!ov) return;
+    if(!_basket.length){ov.remove();return;}
+    var byV={},order=[];
+    _basket.forEach(function(x,i){ if(!byV[x.vendor]){byV[x.vendor]=[];order.push(x.vendor);} byV[x.vendor].push({_i:i,d:x}); });
+    var grand=0, anyPriced=false;
+    var body=order.map(function(v){
+      var vsub=0, vpriced=false;
+      var rows=byV[v].map(function(w){ var x=w.d;
+        var unitPrice=(x.unit==='case')?x.case_price:x.per;
+        var lt=pkLineTotal(x); if(lt!=null){vsub+=lt;grand+=lt;vpriced=true;anyPriced=true;}
+        var priceMeta=(unitPrice!=null)?('$'+Number(unitPrice).toFixed(2)+'/'+((x.unit==='case')?'case':esc(x.unit||x.per_unit||''))):'';
+        return '<div class="pk-bk-row"><span class="pk-bk-nm">'+esc(x.name)+
+            (priceMeta?('<small>'+priceMeta+(lt!=null?(' &middot; est '+pkMoney(lt)):'')+'</small>'):'')+
+            pkUnitSel(w._i,x)+'</span>'+
+          '<span class="pk-bk-q"><button class="q5" data-i="'+w._i+'" data-d="-5">−5</button><button data-i="'+w._i+'" data-d="-1">&minus;</button>'+
+            '<input class="pk-bk-qin" type="number" inputmode="decimal" min="1" step="1" value="'+x.qty+'" data-qin="'+w._i+'">'+
+            '<button data-i="'+w._i+'" data-d="1">+</button><button class="q5" data-i="'+w._i+'" data-d="5">+5</button></span>'+
+          '<button class="pk-bk-rm" data-rm="'+w._i+'" aria-label="Remove">&times;</button></div>';
+      }).join('');
+      var subLine=vpriced?('<div class="pk-bk-sub">'+esc(v)+' subtotal <span>est '+pkMoney(vsub)+'</span></div>'):'';
+      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows+subLine+pkSendBtn(v);
+    }).join('');
+    var grandLine=anyPriced?('<div class="pk-bk-grand">Order total <span>est '+pkMoney(grand)+'</span></div>'):'';
+    ov.innerHTML='<div class="pk-basket"><h3>Your order</h3>'+
+      '<div class="pk-need"><label>Needed by</label><input type="date" id="pk-needby" value="'+esc(_needBy)+'"></div>'+
+      body+ grandLine+
+      '<div class="pk-bk-note">Totals are estimates from the latest known price, not a quote. Swan sends through the live farm loop; Franks and direct farms get a drafted order email you review and send; hubs get a copy-ready list.</div>'+
+      '<div class="pk-bk-foot"><button class="pk-bk-clear" id="pk-bk-clear">Clear order</button>'+
+      '<button class="pk-bk-close" id="pk-bk-close">Close</button></div></div>';
+    ov.querySelectorAll('.pk-bk-q button').forEach(function(b){b.onclick=function(){var d=+b.dataset.d; (Math.abs(d)===5?pkQty:pkQty)(+b.dataset.i,d);};});
+    ov.querySelectorAll('.pk-bk-qin').forEach(function(inp){inp.onchange=function(){pkSetQtyInput(+inp.dataset.qin,inp.value);};});
+    ov.querySelectorAll('.pk-bk-unit').forEach(function(s){s.onchange=function(){pkSetUnit(+s.dataset.u,s.value);};});
+    ov.querySelectorAll('.pk-bk-rm').forEach(function(b){b.onclick=function(){pkRemoveIdx(+b.dataset.rm);};});
+    ov.querySelectorAll('.pk-send').forEach(function(b){b.onclick=function(){pkSendV(b.dataset.v);};});
+    var nb=document.getElementById('pk-needby'); if(nb)nb.onchange=function(){pkSetNeedBy(this.value);};
+    var cl=document.getElementById('pk-bk-clear'); if(cl)cl.onclick=function(){pkClearOrder();};
+    var c=document.getElementById('pk-bk-close'); if(c)c.onclick=function(){ov.remove();};
+  }
+
+  function pkNum(n){ if(n==null)return ''; n=Number(n); return (n%1===0)?String(n):String(Math.round(n*100)/100); }
+  // Case-size line from the normalized pack fields (fold_offers.normalize_pack).
+  function pkCaseStr(o){
+    if(o.per==null) return '';
+    if(o.pack_known===false) return '<span class="pk-case tbd">case size TBD &middot; confirm w/ vendor</span>';
+    if(o.case_price!=null && o.pack_qty && Number(o.pack_qty)!==1){
+      return '<span class="pk-case">'+(o.pack_approx?'~':'')+pkNum(o.pack_qty)+' '+esc(o.pack_unit||'')+'/case = $'+Number(o.case_price).toFixed(2)+'</span>';
+    }
+    if(o.pack) return '<span class="pk-case pk-packraw">'+esc(o.pack)+'</span>';
+    return '';
+  }
+  function pkOfferRow(o, cu, ing){
+    var pr=(o.per!=null)?('$'+Number(o.per).toFixed(2)+' <span class="pk-u">/'+esc(o.per_unit||'')+'</span>'):'—';
+    var off=(cu&&o.per_unit!==cu)?' pk-otherlane':'';
+    var caseStr=pkCaseStr(o);
+    var add='<button class="pk-add" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" data-caseprice="'+(o.case_price==null?'':o.case_price)+'" data-packqty="'+(o.pack_qty==null?'':o.pack_qty)+'" data-packunit="'+esc(o.pack_unit||'')+'" data-packknown="'+(o.pack_known===false?'0':'1')+'" aria-label="Add to order">+</button>';
+    return '<div class="pk-off'+off+'">'+pkFreshDot(o.freshness)+
+      '<span class="pk-vn">'+esc(o.vendor||'')+(caseStr?('<span class="pk-caseline">'+caseStr+'</span>'):'')+'</span>'+
+      '<span class="pk-pr">'+pr+'</span>'+add+'</div>';
+  }
+  function pkCard(rec){
+    var cu=rec.canonical_unit, offers=pkSortOffers(rec.offers, cu);
+    var lane=offers.filter(function(o){return o.per_unit===cu && o.per!=null;});
+    var range='';
+    if(lane.length>1){var lo=lane[0].per, hi=lane[lane.length-1].per;
+      if(lo!==hi)range=' &middot; $'+Number(lo).toFixed(2)+'–$'+Number(hi).toFixed(2)+'/'+esc(cu);}
+    var offlane=offers.some(function(o){return cu && o.per_unit!==cu;});
+    var note=offlane?'<div class="pk-lane-note">Dimmed offers are priced per a different unit — not directly comparable.</div>':'';
+    var cat=(rec.category && rec.category!=='uncategorized')?('<span class="pk-cat">'+esc(rec.category)+'</span>'):'';
+    var cnt=offers.length+' offer'+(offers.length===1?'':'s')+range;
+    var rows=offers.map(function(o){return pkOfferRow(o, cu, rec.display);}).join('');
+    var star=(typeof _pkShowStar!=='undefined'&&_pkShowStar)?('<button class="pk-star'+(ordIsStanding(rec.display)?' on':'')+'" data-star="'+esc(rec.display)+'" title="Always order (par)" aria-label="Toggle par list">&#9733;</button>'):'';
+    return '<details class="pk-card"><summary class="pk-sum"><span class="pk-nm">'+esc(rec.display)+'</span>'+cat+star+
+      '<span class="pk-cnt">'+cnt+'</span></summary><div class="pk-list">'+note+rows+'</div></details>';
+  }
+  window.renderPickerList=function(){
+    var el=document.getElementById('pk-list-host'); if(!el)return;
+    if(_pkErr){el.innerHTML='<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>';return;}
+    if(!_pkOffers){el.innerHTML='<div class="vempty">Loading offers…</div>';return;}
+    var keys=Object.keys(_pkOffers).sort(function(a,b){return _pkOffers[a].display.localeCompare(_pkOffers[b].display);});
+    if(_pkQuery)keys=keys.filter(function(k){return _pkOffers[k].display.toLowerCase().indexOf(_pkQuery)>=0;});
+    if(!keys.length){el.innerHTML='<div class="vempty">No produce matches that search.</div>';return;}
+    el.innerHTML=keys.map(function(k){return pkCard(_pkOffers[k]);}).join('');
+    el.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+    renderBasketBar();
+  };
+  function pickerPane(){
+    if(_pkOffers===null && !_pkErr){
+      pkFetchFeed(function(feed){
+        if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;}
+        setTimeout(renderPickerList,0);
+      });
+    } else { setTimeout(renderPickerList,0); }  // offers cached — fill the freshly-mounted host
+    var cnt=_pkOffers?Object.keys(_pkOffers).length:0;
+    return '<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="setPkQuery(this.value)" value="'+esc(_pkQuery)+'"></div>'+
+      '<div class="vhint">Every vendor\'s offer for an ingredient, cheapest per unit first. Tap to compare.'+(cnt?(' '+cnt+' ingredients'):'')+'</div>'+
+      '<div id="pk-list-host" class="vlist"></div>'+
+      '<div class="pk-basket-bar" id="pk-basket-bar"></div>';
+  }
+
+  // Vendor-first browse body (no modeBar) — shared by My Vendors (embed) and Order → By vendor.
+  function vendorBrowseHTML(){
     var vp=VENDORS.map(function(v,i){
       var psfh=(v[0]==='Puget Sound Food Hub');
       var lbl=psfh?'Puget Sound<br>Food Hub':esc(v[1]);
@@ -38150,7 +38560,16 @@ window.RemyFarm={
       out+='<div class="vsort-bar">'+sorts.map(function(s){return '<button class="vpill sm'+(_vSort===s[0]?' active':'')+'" onclick="setVSort(\''+s[0]+'\')">'+s[1]+'</button>';}).join('')+'</div>';
       out+='<div class="vlist">'+vendorList(v[0])+'</div>';
     }
-    h.innerHTML=out;
+    return out;
+  }
+  window.renderVendors=function(){
+    _vHost='vendors';
+    var h=host();if(!h)return;
+    // preserve horizontal scroll of the filter rows so selecting a pill doesn't jump back to the left
+    var scrolls=[].map.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e){return e.scrollLeft;});
+    var modeBar='<div class="vsort-bar pk-modebar">'+[['vendor','By vendor'],['ingredient','By ingredient']].map(function(m){return '<button class="vpill'+(_vMode===m[0]?' active':'')+'" onclick="setVMode(\''+m[0]+'\')">'+m[1]+'</button>';}).join('')+'</div>';
+    if(_vMode==='ingredient'){ h.innerHTML=modeBar+pickerPane(); return; }
+    h.innerHTML=modeBar+vendorBrowseHTML();
     [].forEach.call(h.querySelectorAll('.vp-bar,.vsort-bar'),function(e,i){if(scrolls[i]!=null)e.scrollLeft=scrolls[i];});
   };
   window.showVendors=function(){clearScreens();renderVendors();setActive('vendors');};
@@ -38778,6 +39197,117 @@ window.RemyFarm={
     });
   }
   window.openTheMenu=function(){clearScreens();renderTheMenuInline();setActive('menu');};
+
+  /* ── ORDER TAB (standalone Remy, 2026-07-10) ───────────────────────────────────
+     The new primary Kitchen surface. Ingredient-first picker (reuses pkCard/basket) with
+     a filter strip: Mapped to menu (default) + In season / Movers / Fresh / Gaps / All,
+     and By vendor (the old My Vendors browse, folded in). Embed is untouched (gated in
+     buildKitchenPills/cfDefault on window._REMY_EMBED). ─────────────────────────── */
+  var _ordF='mapped';        // active primary filter
+  var _ordType=null;         // category sub-filter (null = all types)
+  var _ordQ='';              // search text (lowercased)
+  var _menuTok=null,_seasonTok=null,_moverTok=null;
+  var _ordPrev=null,_prevMode='all',_prevR={},_prevG={},_prevS={},_pkShowStar=false;
+  var _ORD_STOP={red:1,green:1,white:1,yellow:1,gold:1,golden:1,baby:1,wild:1,fresh:1,mixed:1,farm:1,house:1,local:1,dried:1,whole:1,ground:1,sea:1,salt:1,oil:1,olive:1,black:1,sweet:1,hot:1,mini:1,large:1,small:1,the:1,and:1,with:1,for:1,new:1,young:1};
+  function ordCanon(n){ return String(n==null?'':n).toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9, ]+/g,' ').replace(/\s+/g,' ').replace(/^,|,$/g,'').trim(); }
+  function ordSing(w){ w=w||''; return (w.length>3 && w.charAt(w.length-1)==='s' && w.slice(-2)!=='ss')? w.slice(0,-1):w; }
+  function ordToks(nm){ return ordCanon(nm).replace(/,/g,' ').split(' ').map(ordSing).filter(function(t){return t.length>=3 && !_ORD_STOP[t];}); }
+  function ordKeyToks(rec){ return ordToks(rec.display||''); }
+  function ordAnyTok(toks,set){ for(var i=0;i<toks.length;i++){ if(set[toks[i]])return true; } return false; }
+  function ordMenuTok(){ if(_menuTok)return _menuTok; var s={};
+    var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[];
+    dishes.forEach(function(d){ (d.components||[]).forEach(function(c){
+      if(c&&c.kind==='pantry')return; ordToks((c&&(c.maps_to||c.raw))||'').forEach(function(t){s[t]=1;}); }); });
+    _menuTok=s; return s; }
+  function ordSeasonTok(){ if(_seasonTok)return _seasonTok; var s={};
+    (DATA.ingredients||[]).forEach(function(it){ var st='off'; try{st=statusOf(it);}catch(e){}
+      if(st==='peak'||st==='avail'){ ordToks(it.name).forEach(function(t){s[t]=1;}); } });
+    _seasonTok=s; return s; }
+  function ordMoverTok(){ if(_moverTok)return _moverTok; var s={};
+    (DATA.price_trends||[]).forEach(function(t){ if(t&&t.trend_30d_pct!=null&&Math.abs(t.trend_30d_pct)>=10) ordToks(t.ingredient).forEach(function(x){s[x]=1;}); });
+    var pd=DATA.price_drift||{};
+    Object.keys(pd).forEach(function(k){ var arr=pd[k]; if(Array.isArray(arr))arr.forEach(function(r){ if(r&&(r.name||r.item)) ordToks(r.name||r.item).forEach(function(x){s[x]=1;}); }); });
+    _moverTok=s; return s; }
+  function ordStandingList(){ try{return JSON.parse(localStorage.getItem('remy.order.standing.v1')||'[]');}catch(e){return [];} }
+  function ordIsStanding(disp){ return ordStandingList().indexOf(disp)>=0; }
+  window.ordToggleStanding=function(disp){ var a=ordStandingList(),i=a.indexOf(disp); if(i>=0)a.splice(i,1); else a.push(disp); try{localStorage.setItem('remy.order.standing.v1',JSON.stringify(a));}catch(e){} renderOrderInner(); };
+  function ordPrevData(){ return _ordPrev||(typeof _pkFeed!=='undefined'&&_pkFeed&&_pkFeed.order_prev)||{}; }
+  function ordComputePrevSets(){ var pv=ordPrevData(); _prevR={};_prevG={};_prevS={};
+    (pv.recent||[]).forEach(function(t){_prevR[t]=1;}); (pv.regular||[]).forEach(function(t){_prevG[t]=1;});
+    ordStandingList().forEach(function(d){ ordToks(d).forEach(function(t){_prevS[t]=1;}); }); }
+  function ordPassesPrimary(k){ var rec=_pkOffers[k];
+    if(_ordF==='mapped')return ordAnyTok(ordKeyToks(rec),ordMenuTok());
+    if(_ordF==='season')return ordAnyTok(ordKeyToks(rec),ordSeasonTok());
+    if(_ordF==='movers')return ordAnyTok(ordKeyToks(rec),ordMoverTok());
+    if(_ordF==='fresh')return (rec.offers||[]).some(function(o){return String(o.freshness||'').indexOf('LIVE')===0;});
+    if(_ordF==='previous'){ var _tk=ordKeyToks(rec);
+      if(_prevMode==='recent')return ordAnyTok(_tk,_prevR);
+      if(_prevMode==='regular')return ordAnyTok(_tk,_prevG);
+      if(_prevMode==='standing')return ordAnyTok(_tk,_prevS);
+      return ordAnyTok(_tk,_prevR)||ordAnyTok(_tk,_prevG)||ordAnyTok(_tk,_prevS); }
+    return true; }
+  function ordVisibleKeys(){ var keys=Object.keys(_pkOffers).filter(ordPassesPrimary);
+    if(_ordType)keys=keys.filter(function(k){return (_pkOffers[k].category||'')===_ordType;});
+    if(_ordQ)keys=keys.filter(function(k){return (_pkOffers[k].display||'').toLowerCase().indexOf(_ordQ)>=0;});
+    keys.sort(function(a,b){return (_pkOffers[a].display||'').localeCompare(_pkOffers[b].display||'');});
+    return keys; }
+  function ordCatLabel(c){ return String(c||'').replace(/_/g,' ').replace(/\b\w/g,function(m){return m.toUpperCase();}); }
+  function ordTypeChips(primaryKeys){ var cats={};
+    primaryKeys.forEach(function(k){var c=_pkOffers[k].category; if(c&&c!=='uncategorized')cats[c]=(cats[c]||0)+1;});
+    var list=Object.keys(cats).sort(); if(list.length<2)return '';
+    return '<div class="ord-sub"><button class="ord-chip'+(_ordType==null?' on':'')+'" data-ot="">All types</button>'+
+      list.map(function(c){return '<button class="ord-chip'+(_ordType===c?' on':'')+'" data-ot="'+esc(c)+'">'+esc(ordCatLabel(c))+'</button>';}).join('')+'</div>'; }
+  function ordChip(id,label){ return '<button class="ord-chip'+(_ordF===id?' on':'')+'" data-of="'+id+'">'+label+'</button>'; }
+  function ordHint(){ return ({mapped:'Ingredients on your menu, cheapest per unit first. Franks always shown.',previous:'What you’ve actually been buying (from invoices). ★ marks your par list.',season:'What’s in season now.',movers:'Prices on the move (up or down).',fresh:'Live-priced offers only.',all:'Every produce ingredient with a current offer.'})[_ordF]||''; }
+  function ordEmpty(){ return ({mapped:'No menu-mapped ingredients matched. Try All.',previous:'Nothing here yet. Mark a par with the ★ on any card, or check Recent/Regular.',season:'Nothing flagged in season right now.',movers:'No price movers right now.',fresh:'No live-priced offers right now.'})[_ordF]||'No matches — try another filter.'; }
+  function ordPrevSubHTML(){ return '<div class="ord-sub">'+[['all','All'],['recent','Recent'],['regular','Regular'],['standing','Par ★']].map(function(m){
+    return '<button class="ord-chip'+(_prevMode===m[0]?' on':'')+'" data-pm="'+m[0]+'">'+m[1]+'</button>';}).join('')+'</div>'; }
+  function ordGaps(){ var ms={}; var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[];
+    dishes.forEach(function(d){(d.components||[]).forEach(function(c){ if(!c||c.kind==='pantry'||c.kind==='sub_recipe'||c.kind==='prose')return;
+      var ven=(c.vendor||''); if(/house|in-house|made/i.test(ven))return;   // house-made isn't a sourcing gap
+      var nm=((c.maps_to||c.raw)||'').trim(); if(!nm)return; var toks=ordToks(nm); if(!toks.length)return;
+      ms[nm.toLowerCase()]={name:nm,vendor:ven,toks:toks}; });});
+    var covered={}; Object.keys(_pkOffers).forEach(function(k){ ordKeyToks(_pkOffers[k]).forEach(function(t){covered[t]=1;}); });
+    var gaps=[]; Object.keys(ms).forEach(function(nm){ var e=ms[nm]; if(!e.toks.some(function(t){return covered[t];}))gaps.push(e); });
+    gaps.sort(function(a,b){return a.name.localeCompare(b.name);}); return gaps; }
+  function ordStripHTML(){ return '<div class="ord-strip">'+
+      ordChip('mapped','Mapped to menu')+ordChip('previous','Previous')+ordChip('season','In season')+ordChip('movers','Movers')+
+      ordChip('fresh','Fresh only')+ordChip('gaps','Gaps')+ordChip('all','All')+
+      '<button class="ord-chip'+(_ordF==='byvendor'?' on':'')+'" data-of="byvendor">By vendor</button></div>'; }
+  function ordBindStrip(){ var h=host(); if(!h)return;
+    h.querySelectorAll('.ord-strip .ord-chip').forEach(function(b){b.onclick=function(){_ordF=b.dataset.of;_ordType=null;renderOrderInner();};});
+    h.querySelectorAll('.ord-sub .ord-chip[data-ot]').forEach(function(b){b.onclick=function(){_ordType=(b.dataset.ot||'')||null;renderOrderInner();};});
+    h.querySelectorAll('.ord-sub .ord-chip[data-pm]').forEach(function(b){b.onclick=function(){_prevMode=b.dataset.pm;renderOrderInner();};}); }
+  window.ordSetQ=function(v){ _ordQ=(v||'').toLowerCase(); renderOrderInner();
+    var inp=host()&&host().querySelector('.pk-search'); if(inp){try{inp.focus();inp.setSelectionRange(inp.value.length,inp.value.length);}catch(e){}} };
+  function renderOrderInner(){ var h=host(); if(!h)return;
+    var strip=ordStripHTML();
+    ordComputePrevSets();
+    if(_ordF==='byvendor'){ _vHost='order'; h.innerHTML=strip+vendorBrowseHTML(); ordBindStrip(); return; }
+    _vHost='order';
+    if(_ordF==='gaps'){ var gaps=ordGaps();
+      var gh=gaps.length? gaps.map(function(g){return '<div class="ord-gaprow">'+esc(g.name)+(g.vendor?(' <small>'+esc(g.vendor)+'</small>'):' <small>need to source</small>')+'</div>';}).join('')
+                        : '<div class="vempty">Every mapped menu ingredient has at least one current offer.</div>';
+      h.innerHTML=strip+'<div class="vhint">Menu ingredients with no current vendor offer — the gaps to source.</div>'+gh; ordBindStrip(); return; }
+    if(_pkErr){ h.innerHTML=strip+'<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>'; ordBindStrip(); return; }
+    if(!_pkOffers){ h.innerHTML=strip+'<div class="vempty">Loading offers…</div>'; ordBindStrip(); return; }
+    var keys=ordVisibleKeys();
+    var primaryKeys=Object.keys(_pkOffers).filter(ordPassesPrimary);
+    var prevSub=(_ordF==='previous')?ordPrevSubHTML():'';
+    var typeChips=ordTypeChips(primaryKeys);
+    var searchBar='<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="ordSetQ(this.value)" value="'+esc(_ordQ)+'"></div>';
+    var hint='<div class="vhint">'+ordHint()+' '+keys.length+' ingredient'+(keys.length===1?'':'s')+'.</div>';
+    _pkShowStar=true;
+    var cards=keys.length? keys.map(function(k){return pkCard(_pkOffers[k]);}).join('') : '<div class="vempty">'+ordEmpty()+'</div>';
+    _pkShowStar=false;
+    h.innerHTML=strip+prevSub+typeChips+searchBar+hint+'<div class="vlist">'+cards+'</div><div class="pk-basket-bar" id="pk-basket-bar"></div>';
+    h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+    h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
+    ordBindStrip(); renderBasketBar(); }
+  window.showOrder=function(){ clearScreens(); setActive('order'); _vHost='order';
+    if(_pkOffers!==null || _pkErr){ renderOrderInner(); return; }
+    renderOrderInner();   // paints the strip + "Loading…" immediately
+    pkFetchFeed(function(feed){ if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); _ordPrev=(feed&&feed.order_prev)||_ordPrev; if(!Object.keys(_pkOffers).length)_pkErr=true;} renderOrderInner(); }); };
 })();
 </script>
 </body>
