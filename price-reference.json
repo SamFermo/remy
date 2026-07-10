@@ -28,8 +28,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Basil": {
    "swan_price": 11.1,
@@ -57,8 +56,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Beef Primals": {
    "swan_price": 22.79,
@@ -86,8 +84,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Beef Shanks": {
    "swan_price": 15.0,
@@ -142,8 +139,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Bolo Meat": {
    "swan_price": 5.99,
@@ -193,8 +189,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Cherry Tomatoes": {
    "swan_price": 38.7,
@@ -222,8 +217,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "CS"
+   ]
   },
   "Chicken Eggs": {
    "swan_price": 8.5,
@@ -257,7 +251,19 @@
    "freshness": "FARM-SET",
    "source": "farm-set (Swan House invoice 1120, 2026-06-10)",
    "needs_check": false,
-   "farm_set": true,
+   "farm_set": true
+  },
+  "Chives": {
+   "swan_price": 7.2,
+   "market": 6.0,
+   "unit": "1/4#",
+   "vendor": "Franks",
+   "date": "2026-07-02",
+   "freshness": "FRESH",
+   "source": "invoice",
+   "needs_check": false,
+   "swan_per_lb": 28.8,
+   "per_lb_basis": "exact",
    "offers": [
     {
      "vendor": "Franks",
@@ -272,20 +278,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "1/4#"
-  },
-  "Chives": {
-   "swan_price": 7.2,
-   "market": 6.0,
-   "unit": "1/4#",
-   "vendor": "Franks",
-   "date": "2026-07-02",
-   "freshness": "FRESH",
-   "source": "invoice",
-   "needs_check": false,
-   "swan_per_lb": 28.8,
-   "per_lb_basis": "exact"
+   ]
   },
   "Cilantro": {
    "swan_price": 1.19,
@@ -369,8 +362,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "each"
+   ]
   },
   "Dill": {
    "swan_price": 1.5,
@@ -481,8 +473,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "each"
+   ]
   },
   "Garlic Scapes": {
    "swan_price": 7.2,
@@ -546,8 +537,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "CS"
+   ]
   },
   "Honeysuckle": {
    "swan_price": 16,
@@ -585,8 +575,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "CS"
+   ]
   },
   "Lamb Loin Chops": {
    "swan_price": 26.34,
@@ -681,8 +670,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "#"
+   ]
   },
   "Mint": {
    "swan_price": 4.5,
@@ -810,8 +798,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "bn"
+   ]
   },
   "Peppers": {
    "swan_price": 16.79,
@@ -827,16 +814,16 @@
    "offers": [
     {
      "vendor": "Franks",
-     "pack": "#",
-     "per": 9.35,
+     "pack": "22#CS",
+     "per": 2.45,
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-04-20",
      "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": false
+     "pack_qty": 22.0,
+     "pack_unit": "lb",
+     "case_price": 53.9,
+     "pack_known": true
     }
    ]
   },
@@ -890,8 +877,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Pork Chops": {
    "swan_price": 15.75,
@@ -915,7 +901,22 @@
     "date": "2026-05-19",
     "freshness": "AGING",
     "confidence": "low"
-   }
+   },
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 9.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
   },
   "Rhubarb": {
    "swan_price": 4.79,
@@ -1076,8 +1077,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Sorrel (French)": {
    "swan_price": 9.6,
@@ -1147,8 +1147,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "lb"
+   ]
   },
   "Thyme": {
    "swan_price": 11.7,
@@ -1176,8 +1175,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "1/2#"
+   ]
   },
   "Tomato Leaf": {
    "swan_price": 30,
@@ -1225,8 +1223,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "bn"
+   ]
   },
   "Zucchini": {
    "swan_price": 37.5,
@@ -1253,8 +1250,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "canonical_unit": "CS"
+   ]
   },
   "Agretti": {
    "display": "Agretti",
@@ -1316,6 +1312,19 @@
      "pack_unit": "lb",
      "case_price": 16.95,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-24",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1336,6 +1345,19 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 12.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-24",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -1358,6 +1380,19 @@
      "pack_unit": "lb",
      "case_price": 17.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-24",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1378,6 +1413,19 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 12.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-24",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -1505,6 +1553,19 @@
      "pack_unit": "bu",
      "case_price": 19.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1525,6 +1586,19 @@
      "pack_qty": 1.0,
      "pack_unit": "lb",
      "case_price": 14.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -1560,6 +1634,19 @@
      "pack_unit": "lb",
      "case_price": 50.15,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1581,6 +1668,19 @@
      "pack_unit": "oz",
      "case_price": 7.8,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -1601,6 +1701,19 @@
      "pack_qty": 3.0,
      "pack_unit": "bu",
      "case_price": 19.5,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2259,6 +2372,19 @@
      "pack_unit": "lb",
      "case_price": 36.9,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-22",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2280,6 +2406,19 @@
      "pack_unit": "lb",
      "case_price": 32.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-22",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2300,6 +2439,19 @@
      "pack_qty": 40.0,
      "pack_unit": "lb",
      "case_price": 59.2,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-01-22",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2479,6 +2631,19 @@
      "pack_unit": "lb",
      "case_price": 54.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "12CT CS",
+     "per": 3.62,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 43.44,
+     "pack_known": true
     }
    ]
   },
@@ -2597,6 +2762,19 @@
      "pack_unit": "lb",
      "case_price": 78.84,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 32.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2025-11-28",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2617,6 +2795,19 @@
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 52.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 32.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2025-11-28",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2694,6 +2885,19 @@
      "pack_unit": "oz",
      "case_price": 12.74,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 6.0,
+     "per_unit": "1/4#",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2715,6 +2919,19 @@
      "pack_unit": "lb",
      "case_price": 1.62,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 6.0,
+     "per_unit": "1/4#",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2735,6 +2952,19 @@
      "pack_qty": 6.0,
      "pack_unit": "bu",
      "case_price": 15.6,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 0.99,
+     "per_unit": "bn",
+     "source": "invoice",
+     "last_seen": "2026-06-12",
+     "freshness": "DATED(28)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2815,15 +3045,15 @@
     },
     {
      "vendor": "Franks",
-     "pack": "ea",
-     "per": 2.5,
+     "pack": null,
+     "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-04-20",
-     "freshness": "STALE",
-     "pack_qty": 1,
-     "pack_unit": "each",
-     "case_price": 2.5,
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2846,6 +3076,19 @@
      "pack_unit": "lb",
      "case_price": 49.4,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.0,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2867,6 +3110,19 @@
      "pack_unit": "lb",
      "case_price": 50.1,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.0,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -2887,6 +3143,19 @@
      "pack_qty": 9.0,
      "pack_unit": "ct",
      "case_price": 13.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.0,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-07-02",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -2971,6 +3240,19 @@
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 26.4,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.25,
+     "per_unit": "bn",
+     "source": "invoice",
+     "last_seen": "2026-06-12",
+     "freshness": "DATED(28)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -3204,6 +3486,19 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 18.55,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "24CT CS",
+     "per": 1.88,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 24.0,
+     "pack_unit": "ct",
+     "case_price": 45.12,
      "pack_known": true
     }
    ]
@@ -3504,6 +3799,19 @@
      "pack_unit": "lb",
      "case_price": 39.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "5# jar",
+     "per": 5.25,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 26.25,
+     "pack_known": true
     }
    ]
   },
@@ -3609,6 +3917,19 @@
      "pack_unit": "bu",
      "case_price": 38.88,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3642,6 +3963,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 39.6,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -3677,6 +4011,19 @@
      "pack_unit": "ct",
      "case_price": 39.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3698,6 +4045,19 @@
      "pack_unit": "ct",
      "case_price": 39.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -3718,6 +4078,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 43.68,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -3752,6 +4125,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 39.6,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 36.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4083,6 +4469,19 @@
      "pack_unit": "ct",
      "case_price": 39.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4116,6 +4515,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 36.96,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4151,6 +4563,19 @@
      "pack_unit": "ct",
      "case_price": 55.68,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4171,6 +4596,19 @@
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 21.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4205,6 +4643,19 @@
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 36.96,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4243,15 +4694,15 @@
     },
     {
      "vendor": "Franks",
-     "pack": "48CT CS",
-     "per": 0.89,
-     "per_unit": "each",
+     "pack": null,
+     "per": 24.25,
+     "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-04-20",
-     "freshness": "STALE",
-     "pack_qty": 48.0,
-     "pack_unit": "ct",
-     "case_price": 42.72,
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4384,6 +4835,19 @@
      "pack_unit": "ct",
      "case_price": 15.84,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 3.75,
+     "per_unit": "1/4#",
+     "source": "invoice",
+     "last_seen": "2026-06-17",
+     "freshness": "DATED(23)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4404,6 +4868,19 @@
      "pack_qty": 6.0,
      "pack_unit": "ct",
      "case_price": 15.84,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 3.75,
+     "per_unit": "1/4#",
+     "source": "invoice",
+     "last_seen": "2026-06-17",
+     "freshness": "DATED(23)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4493,6 +4970,19 @@
      "pack_qty": 1.0,
      "pack_unit": "lb",
      "case_price": 12.25,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": null,
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4672,6 +5162,19 @@
      "pack_unit": "pkg",
      "case_price": 66.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": null,
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4734,19 +5237,6 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 64.95,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 14.19,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-06-19",
-     "freshness": "DATED(21)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
      "pack_known": true
     }
    ]
@@ -4955,6 +5445,19 @@
      "pack_unit": "lb",
      "case_price": 3.9,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "25#SK",
+     "per": 0.7,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 17.5,
+     "pack_known": true
     }
    ]
   },
@@ -4976,6 +5479,19 @@
      "pack_unit": "lb",
      "case_price": 8.95,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "25#SK",
+     "per": 0.7,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 17.5,
+     "pack_known": true
     }
    ]
   },
@@ -4996,6 +5512,19 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 8.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "25#SK",
+     "per": 0.7,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 17.5,
      "pack_known": true
     }
    ]
@@ -5073,6 +5602,19 @@
      "pack_unit": "oz",
      "case_price": 13.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 3.99,
+     "per_unit": "1/4#",
+     "source": "invoice",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -5106,6 +5648,19 @@
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 22.44,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 0.99,
+     "per_unit": "bn",
+     "source": "invoice",
+     "last_seen": "2026-06-15",
+     "freshness": "DATED(25)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -5144,16 +5699,16 @@
     },
     {
      "vendor": "Franks",
-     "pack": "bn",
+     "pack": null,
      "per": 0.99,
-     "per_unit": "each",
+     "per_unit": "bn",
      "source": "invoice",
-     "last_seen": "2026-04-20",
-     "freshness": "STALE",
+     "last_seen": "2026-06-15",
+     "freshness": "DATED(25)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
-     "pack_known": false
+     "pack_known": true
     }
    ]
   },
@@ -6474,6 +7029,19 @@
      "pack_unit": "ct",
      "case_price": 30.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 8.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-15",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6516,6 +7084,19 @@
      "pack_unit": "bu",
      "case_price": 15.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.75,
+     "per_unit": "1/2#",
+     "source": "invoice",
+     "last_seen": "2026-06-15",
+     "freshness": "DATED(25)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6536,6 +7117,19 @@
      "pack_qty": 6.0,
      "pack_unit": "oz",
      "case_price": 13.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 9.75,
+     "per_unit": "1/2#",
+     "source": "invoice",
+     "last_seen": "2026-06-15",
+     "freshness": "DATED(25)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -6699,6 +7293,19 @@
      "pack_unit": "ct",
      "case_price": 36.36,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.75,
+     "per_unit": "bn",
+     "source": "invoice",
+     "last_seen": "2025-04-14",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -6788,6 +7395,19 @@
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 25.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-02-11",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -7091,6 +7711,27 @@
     }
    ]
   },
+  "Maitake Mushrooms": {
+   "display": "Maitake Mushrooms",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 14.19,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-06-19",
+     "freshness": "DATED(21)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Manila Clams": {
    "display": "Manila Clams",
    "category": "uncategorized",
@@ -7104,6 +7745,27 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2025-06-19",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Meyer Lemon": {
+   "display": "Meyer Lemon",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 4.11,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-05-13",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -7433,6 +8095,27 @@
      "source": "invoice",
      "last_seen": "2026-07-01",
      "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Sugar Snap Peas": {
+   "display": "Sugar Snap Peas",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 5.78,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-30",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7998,13 +8681,13 @@
   "freshness_at_compute": "LIVE"
  },
  "franks_folded": {
-  "appended": 30,
-  "new_items": 30,
-  "commodity_appended": 13,
+  "appended": 73,
+  "new_items": 33,
+  "commodity_appended": 16,
   "computed": "2026-07-10"
  },
  "specialty_folded": {
-  "appended": 6,
+  "appended": 9,
   "new_items": 25,
   "computed": "2026-07-10"
  },
