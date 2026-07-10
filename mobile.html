@@ -967,6 +967,15 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .pk-bk-rm:hover{color:var(--terra)}
 .pk-bk-close{width:100%;margin-top:18px;font-family:var(--fb);font-size:14px;color:var(--ink);background:transparent;border:1px solid var(--ink-12);border-radius:11px;padding:12px;cursor:pointer}
 .pk-bk-note{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-30);margin-top:12px;text-align:center;line-height:1.4}
+.pk-need{display:flex;align-items:center;gap:10px;margin:10px 0 2px}
+.pk-need label{font-family:var(--fb);font-size:12px;color:var(--ink-60)}
+.pk-need input{font-family:var(--fb);font-size:13px;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:9px;padding:8px 10px}
+.pk-send{width:100%;margin:8px 0 6px;font-family:var(--fb);font-size:13px;font-weight:600;color:#0a1028;background:var(--olive);border:none;border-radius:11px;padding:11px;cursor:pointer}
+.pk-send:hover{filter:brightness(1.08)}
+.pk-compose{width:100%;box-sizing:border-box;min-height:210px;font-family:var(--fb);font-size:13px;line-height:1.5;color:var(--ink);background:var(--ink-6);border:1px solid var(--ink-12);border-radius:11px;padding:12px;margin:8px 0}
+.pk-send-row{display:flex;gap:10px;align-items:center;margin-bottom:4px}
+.pk-send-row .pk-bk-close{margin-top:0}
+.pk-send-a{flex:1;text-align:center;font-family:var(--fb);font-size:14px;font-weight:600;color:#0a1028;background:var(--olive);border-radius:11px;padding:12px;text-decoration:none}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -38287,6 +38296,63 @@ window.RemyFarm={
   };
   function pkQty(i,dq){ if(_basket[i]){_basket[i].qty=Math.max(1,_basket[i].qty+dq); renderBasketBar(); renderBasketPanel();} }
   function pkRemoveIdx(i){ _basket.splice(i,1); renderBasketBar(); var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel(); }
+  // ── Layer 3 Slice B: forward. Swan=live loop; email lanes=staged order email a manager sends;
+  // hub lanes=copy-ready list + their portal. Remy never sends on its own. ──
+  var _needBy='';
+  window.pkSetNeedBy=function(v){_needBy=v||'';};
+  var VENDOR_LANE={
+    'Swan':{lane:'swan'},
+    'Farmstand':{lane:'hub', to:'info@farmstandlocalfoods.com', portal:'Farmstand online shop', note:'order by their posted cutoff'},
+    'PSFH':{lane:'hub', to:'orders@pugetsoundfoodhub.com', portal:'PSFH portal', note:'Sun 12pm cutoff for Tue/Wed, $300 combined min'},
+    'Franks':{lane:'email', to:'warehouse@franksproduce.net', greet:'Jeff'}
+  };
+  function pkLane(v){ return VENDOR_LANE[v] || {lane:'email', to:'', greet:String(v).split(' ')[0]}; }
+  function pkVendorItems(v){ return _basket.filter(function(x){return x.vendor===v;}); }
+  function pkSendBtn(v){
+    var lane=pkLane(v).lane;
+    var label=(lane==='swan')?'Send to Swan House':(lane==='hub')?('Order list for '+esc(v)):'Draft order email';
+    return '<button class="pk-send" data-v="'+esc(v)+'">'+label+' &rarr;</button>';
+  }
+  function pkOrderText(v){
+    var cfg=pkLane(v), items=pkVendorItems(v);
+    var lines=items.map(function(x){return '- '+x.qty+'x '+x.name+(x.pack?(' ('+x.pack+')'):'');}).join('\n');
+    if(cfg.lane==='hub'){ return 'San Fermo order'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines; }
+    var greet=cfg.greet||String(v).split(' ')[0];
+    return 'Hey '+greet+',\n\nOrder for San Fermo'+(_needBy?(', needed by '+_needBy):'')+':\n'+lines+'\n\nThanks,\nSan Fermo\nsam@sanfermoseattle.com';
+  }
+  window.pkCopyCompose=function(){ var t=document.getElementById('pk-compose'); if(!t)return; try{navigator.clipboard.writeText(t.value);}catch(e){t.select();document.execCommand('copy');} var b=document.getElementById('pk-copy-btn'); if(b){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1500);} };
+  window.pkSendV=function(v){
+    var cfg=pkLane(v);
+    if(cfg.lane==='swan'){ pkSwanPlace(v); return; }
+    var text=pkOrderText(v), isHub=(cfg.lane==='hub');
+    var ov=document.getElementById('pkComposeOv');
+    if(!ov){ov=document.createElement('div');ov.id='pkComposeOv';ov.className='pk-basket-ov';document.body.appendChild(ov);
+      ov.addEventListener('click',function(e){if(e.target===ov)ov.remove();});}
+    var mailto=cfg.to?('mailto:'+cfg.to+'?subject='+encodeURIComponent('San Fermo produce order'+(_needBy?(' for '+_needBy):''))+'&body='+encodeURIComponent(text)):'';
+    ov.innerHTML='<div class="pk-basket"><h3>'+(isHub?('Order list · '+esc(v)):('Order email · '+esc(v)))+'</h3>'+
+      (cfg.to?('<div class="vhint">'+(isHub?('Place in the '+esc(cfg.portal||v)+'. Contact: '):'To: ')+esc(cfg.to)+(cfg.note?(' &middot; '+esc(cfg.note)):'')+'</div>'):'<div class="vhint">Add this vendor’s order email, then send.</div>')+
+      '<textarea class="pk-compose" id="pk-compose">'+esc(text)+'</textarea>'+
+      '<div class="pk-send-row"><button class="pk-bk-close" id="pk-copy-btn" onclick="pkCopyCompose()">Copy</button>'+
+        (mailto?('<a class="pk-send-a" href="'+mailto+'">'+(isHub?'Email the hub':'Open email to send')+'</a>'):'')+'</div>'+
+      '<div class="pk-bk-note">Review and send from your mail app. Remy won’t send on its own.</div>'+
+      '<button class="pk-bk-close" onclick="document.getElementById(\'pkComposeOv\').remove()">Close</button></div>';
+  };
+  function pkSwanPlace(v){
+    var items=pkVendorItems(v); if(!items.length)return;
+    if(!(window.RemyOrders&&window.RemyOrders.ready&&window.RemyOrders.ready())){ alert('Can’t reach the order server right now — try again when you’re back online.'); return; }
+    if(!confirm('Send this Swan House order ('+items.length+' item'+(items.length>1?'s':'')+')?'))return;
+    var who='San Fermo';
+    try{ if(window.parent&&window.parent!==window&&window.parent.__remyPortalUser){who=String(window.parent.__remyPortalUser)||who;} }catch(e){}
+    var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:'Swan House Farms'}, qty:x.qty, unit:x.per_unit||'', free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:null};});
+    var id='remyrtr-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
+    var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:'', channel:'remy-router-v1', synced:false, lines:lines};
+    window.RemyOrders.place(order).then(function(){
+      _basket=_basket.filter(function(x){return x.vendor!==v;}); renderBasketBar();
+      var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel();
+      alert('Order sent to Swan House ✓');
+    }).catch(function(){ alert('Order didn’t send — check your connection and try again.'); });
+  }
+
   function renderBasketPanel(){
     var ov=document.getElementById('pkBasketOv'); if(!ov) return;
     if(!_basket.length){ov.remove();return;}
@@ -38298,13 +38364,17 @@ window.RemyFarm={
           '<span class="pk-bk-q"><button data-i="'+w._i+'" data-d="-1">&minus;</button><span>'+x.qty+'</span><button data-i="'+w._i+'" data-d="1">+</button></span>'+
           '<button class="pk-bk-rm" data-rm="'+w._i+'" aria-label="Remove">&times;</button></div>';
       }).join('');
-      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows;
+      return '<div class="pk-bk-vhd">'+esc(v)+'</div>'+rows+pkSendBtn(v);
     }).join('');
-    ov.innerHTML='<div class="pk-basket"><h3>Your order</h3><div class="vhint">Grouped by vendor. This builds the order — sending is the next step.</div>'+body+
-      '<div class="pk-bk-note">Swan sends through the live farm loop; Franks &amp; direct farms get a drafted order email you send.</div>'+
+    ov.innerHTML='<div class="pk-basket"><h3>Your order</h3>'+
+      '<div class="pk-need"><label>Needed by</label><input type="date" id="pk-needby" value="'+esc(_needBy)+'"></div>'+
+      body+
+      '<div class="pk-bk-note">Swan sends through the live farm loop. Franks and direct farms get a drafted order email you review and send. Hubs get a copy-ready list for their portal.</div>'+
       '<button class="pk-bk-close" id="pk-bk-close">Close</button></div>';
     ov.querySelectorAll('.pk-bk-q button').forEach(function(b){b.onclick=function(){pkQty(+b.dataset.i,+b.dataset.d);};});
     ov.querySelectorAll('.pk-bk-rm').forEach(function(b){b.onclick=function(){pkRemoveIdx(+b.dataset.rm);};});
+    ov.querySelectorAll('.pk-send').forEach(function(b){b.onclick=function(){pkSendV(b.dataset.v);};});
+    var nb=document.getElementById('pk-needby'); if(nb)nb.onchange=function(){pkSetNeedBy(this.value);};
     var c=document.getElementById('pk-bk-close'); if(c)c.onclick=function(){ov.remove();};
   }
 
