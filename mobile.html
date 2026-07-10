@@ -1008,7 +1008,12 @@ details[open]>.pk-sum::after{transform:rotate(90deg)}
 .ord-gaprow small{font-family:var(--fb);font-size:11px;color:var(--terra)}
 .kpill-row{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
 .kpill-row.kpill-second{margin-top:7px}
-.kpill-second .kpill{font-size:11.5px;padding:7px 12px;color:var(--ink-45)}
+.kpill-second .kpill{font-size:11.5px;padding:7px 12px}
+#kitchen-pills .kpill.active{color:#0a1028}
+.ord-dish{margin:0 0 14px}
+.ord-dish-h{font-family:var(--fd);font-size:19px;color:var(--ink);border-bottom:1px solid var(--ink-12);padding:8px 2px 5px;margin-bottom:2px}
+.ord-miss{display:flex;align-items:baseline;gap:8px;padding:9px 4px;border-bottom:1px solid var(--ink-6);font-family:var(--fd);font-size:16px;color:var(--ink-45)}
+.ord-miss small{font-family:var(--fb);font-size:11px;color:var(--ink-30)}
 #kitchen-pills.kpill-bar{flex-direction:column;align-items:stretch}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
@@ -37695,7 +37700,7 @@ window.RemyFarm={
       return '<button class="kpill'+((firstActive&&i===0)?' active':'')+'" data-k="'+p[0]+'" onclick="'+p[2]+'()">'+p[1]+'</button>';
     }).join('');}
     var PRIMARY=[['order','Order','showOrder'],['menu','The Menu','openTheMenu']];
-    var SECOND =[['trending','Trending Prices','showTrending'],['plan','Plan Ahead','openPlanAhead']];
+    var SECOND =[['trending','Trending Prices','showTrending']];
     bar.innerHTML='<div class="kpill-row kpill-primary">'+_rowHtml(PRIMARY,true)+'</div>'+
                   '<div class="kpill-row kpill-second">'+_rowHtml(SECOND,false)+'</div>';
   }
@@ -39207,7 +39212,7 @@ window.RemyFarm={
   var _ordType=null;         // category sub-filter (null = all types)
   var _ordQ='';              // search text (lowercased)
   var _menuTok=null,_seasonTok=null,_moverTok=null;
-  var _ordPrev=null,_prevMode='all',_prevR=[],_prevG=[],_pkShowStar=false;
+  var _ordPrev=null,_prevMode='30d',_prev30=[],_prev365=[],_prevAll=[],_pkShowStar=false;
   var _ORD_STOP={red:1,green:1,white:1,yellow:1,gold:1,golden:1,baby:1,wild:1,fresh:1,mixed:1,farm:1,house:1,local:1,dried:1,whole:1,ground:1,sea:1,salt:1,oil:1,olive:1,black:1,sweet:1,hot:1,mini:1,large:1,small:1,the:1,and:1,with:1,for:1,new:1,young:1};
   function ordCanon(n){ return String(n==null?'':n).toLowerCase().replace(/\([^)]*\)/g,'').replace(/[^a-z0-9, ]+/g,' ').replace(/\s+/g,' ').replace(/^,|,$/g,'').trim(); }
   function ordSing(w){ w=w||''; return (w.length>3 && w.charAt(w.length-1)==='s' && w.slice(-2)!=='ss')? w.slice(0,-1):w; }
@@ -39255,19 +39260,14 @@ window.RemyFarm={
   function ordSetFromTokens(a){ var o={}; (a||[]).forEach(function(t){o[t]=1;}); return o; }
   function ordComputePrevSets(){ var pv=ordPrevData();
     function mk(arr){ return (arr||[]).map(function(s){ var o={}; String(s).split(' ').forEach(function(t){ if(t)o[t]=1; }); return o; }); }
-    _prevR=mk(pv.recent_items); _prevG=mk(pv.regular_items);
-    if(!_prevR.length && pv.recent)_prevR=[ordSetFromTokens(pv.recent)];   // fallback: pre-per-item feed
-    if(!_prevG.length && pv.regular)_prevG=[ordSetFromTokens(pv.regular)]; }
+    _prev30=mk(pv.items_30d||pv.recent_items); _prev365=mk(pv.items_365d); _prevAll=mk(pv.items_all); }
   function ordPassesPrimary(k){ var rec=_pkOffers[k];
     if(_ordF==='mapped')return ordMatchList(rec,ordMenuTok());
-    if(_ordF==='season')return ordMatchList(rec,ordSeasonTok());
     if(_ordF==='movers')return ordMatchList(rec,ordMoverTok());
-    if(_ordF==='fresh')return (rec.offers||[]).some(function(o){return String(o.freshness||'').indexOf('LIVE')===0;});
-    if(_ordF==='previous'){ var inStand=ordStandingList().indexOf(rec.display)>=0;
-      if(_prevMode==='standing')return inStand;
-      if(_prevMode==='recent')return ordMatchList(rec,_prevR);
-      if(_prevMode==='regular')return ordMatchList(rec,_prevG);
-      return inStand||ordMatchList(rec,_prevR)||ordMatchList(rec,_prevG); }
+    if(_ordF==='previous'){
+      if(_prevMode==='par')return ordStandingList().indexOf(rec.display)>=0;
+      var set=(_prevMode==='365d')?_prev365:(_prevMode==='all')?_prevAll:_prev30;
+      return ordMatchList(rec,set); }
     return true; }
   function ordVisibleKeys(){ var keys=Object.keys(_pkOffers).filter(ordPassesPrimary);
     if(_ordType)keys=keys.filter(function(k){return (_pkOffers[k].category||'')===_ordType;});
@@ -39281,9 +39281,9 @@ window.RemyFarm={
     return '<div class="ord-sub"><button class="ord-chip'+(_ordType==null?' on':'')+'" data-ot="">All types</button>'+
       list.map(function(c){return '<button class="ord-chip'+(_ordType===c?' on':'')+'" data-ot="'+esc(c)+'">'+esc(ordCatLabel(c))+'</button>';}).join('')+'</div>'; }
   function ordChip(id,label){ return '<button class="ord-chip'+(_ordF===id?' on':'')+'" data-of="'+id+'">'+label+'</button>'; }
-  function ordHint(){ return ({mapped:'Ingredients on your menu, cheapest per unit first. Franks always shown.',previous:'What you’ve actually been buying (from invoices). ★ marks your par list.',season:'What’s in season now.',movers:'Prices on the move (up or down).',fresh:'Live-priced offers only.',all:'Every produce ingredient with a current offer.'})[_ordF]||''; }
-  function ordEmpty(){ return ({mapped:'No menu-mapped ingredients matched. Try All.',previous:'Nothing here yet. Mark a par with the ★ on any card, or check Recent/Regular.',season:'Nothing flagged in season right now.',movers:'No price movers right now.',fresh:'No live-priced offers right now.'})[_ordF]||'No matches — try another filter.'; }
-  function ordPrevSubHTML(){ return '<div class="ord-sub">'+[['all','All'],['recent','Recent'],['regular','Regular'],['standing','Par ★']].map(function(m){
+  function ordHint(){ return ({mapped:'Your menu, by dish. Grey rows are ingredients with no vendor offer yet.',previous:'What you’ve actually been buying (from invoices). ★ marks your par list.',movers:'Prices on the move (up or down).',all:'Every produce ingredient with a current offer.'})[_ordF]||''; }
+  function ordEmpty(){ return ({mapped:'No menu dishes loaded.',previous:'Nothing in this window. Try a wider one, or ★ a par on any card.',movers:'No price movers right now.'})[_ordF]||'No matches — try another filter.'; }
+  function ordPrevSubHTML(){ return '<div class="ord-sub">'+[['30d','30 days'],['365d','Last year'],['all','All time'],['par','Par ★']].map(function(m){
     return '<button class="ord-chip'+(_prevMode===m[0]?' on':'')+'" data-pm="'+m[0]+'">'+m[1]+'</button>';}).join('')+'</div>'; }
   function ordGaps(){ var ms={}; var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[];
     dishes.forEach(function(d){(d.components||[]).forEach(function(c){ if(!c||c.kind==='pantry'||c.kind==='sub_recipe'||c.kind==='prose')return;
@@ -39293,9 +39293,20 @@ window.RemyFarm={
     var covered={}; Object.keys(_pkOffers).forEach(function(k){ ordKeyToks(_pkOffers[k]).forEach(function(t){covered[t]=1;}); });
     var gaps=[]; Object.keys(ms).forEach(function(nm){ var e=ms[nm]; if(!e.toks.some(function(t){return covered[t];}))gaps.push(e); });
     gaps.sort(function(a,b){return a.name.localeCompare(b.name);}); return gaps; }
+  // Mapped-to-menu, grouped BY DISH: each dish lists its produce components — a picker card when an
+  // offer exists, or a grey "no offer yet" row so missing ingredients are obvious at a glance.
+  function ordDishGroups(){ var dishes=(DATA.menu_map&&DATA.menu_map.dishes)||[]; var keys=Object.keys(_pkOffers); var out=[];
+    dishes.forEach(function(d){ var rows=[], seen={};
+      (d.components||[]).forEach(function(c){ if(!c||c.kind==='pantry'||c.kind==='sub_recipe'||c.kind==='prose')return;
+        var nm=((c.maps_to||c.raw)||'').trim(); if(!nm||!ordToks(nm).length)return;
+        var cset=[ordSetOf(nm)];
+        var matched=keys.filter(function(k){return ordMatchList(_pkOffers[k],cset);});
+        if(matched.length){ matched.forEach(function(k){ if(!seen[k]){seen[k]=1; rows.push({t:'card',k:k});} }); }
+        else { var ven=c.vendor||''; if(!/house|in-house|made/i.test(ven)) rows.push({t:'miss',name:nm,vendor:ven}); } });
+      if(rows.length)out.push({dish:(d.name||d.dish||'Dish'),rows:rows}); });
+    return out; }
   function ordStripHTML(){ return '<div class="ord-strip">'+
-      ordChip('mapped','Mapped to menu')+ordChip('previous','Previous')+ordChip('season','In season')+ordChip('movers','Movers')+
-      ordChip('fresh','Fresh only')+ordChip('gaps','Gaps')+ordChip('all','All')+
+      ordChip('mapped','Mapped to menu')+ordChip('previous','Previous')+ordChip('movers','Movers')+ordChip('all','All')+
       '<button class="ord-chip'+(_ordF==='byvendor'?' on':'')+'" data-of="byvendor">By vendor</button></div>'; }
   function ordBindStrip(){ var h=host(); if(!h)return;
     h.querySelectorAll('.ord-strip .ord-chip').forEach(function(b){b.onclick=function(){_ordF=b.dataset.of;_ordType=null;renderOrderInner();};});
@@ -39314,6 +39325,20 @@ window.RemyFarm={
       h.innerHTML=strip+'<div class="vhint">Menu ingredients with no current vendor offer — the gaps to source.</div>'+gh; ordBindStrip(); return; }
     if(_pkErr){ h.innerHTML=strip+'<div class="vempty">Couldn\'t load the price feed. Pull to refresh, or check price-reference.json is published.</div>'; ordBindStrip(); return; }
     if(!_pkOffers){ h.innerHTML=strip+'<div class="vempty">Loading offers…</div>'; ordBindStrip(); return; }
+    if(_ordF==='mapped'){ var q=_ordQ;
+      _pkShowStar=true;
+      var groups=ordDishGroups().map(function(g){
+        var rws=g.rows.filter(function(r){ if(!q)return true; var nm=(r.t==='card'?(_pkOffers[r.k].display||''):r.name)||''; return nm.toLowerCase().indexOf(q)>=0; });
+        if(!rws.length)return '';
+        var body=rws.map(function(r){ return r.t==='card'?pkCard(_pkOffers[r.k]):('<div class="ord-miss">'+esc(r.name)+' <small>'+(r.vendor?('sourced from '+esc(r.vendor)):'no vendor offer yet')+'</small></div>'); }).join('');
+        return '<div class="ord-dish"><div class="ord-dish-h">'+esc(g.dish)+'</div><div class="ord-dish-body">'+body+'</div></div>';
+      }).join('');
+      _pkShowStar=false;
+      var sb='<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="ordSetQ(this.value)" value="'+esc(_ordQ)+'"></div>';
+      h.innerHTML=strip+sb+'<div class="vhint">'+ordHint()+'</div>'+(groups||'<div class="vempty">'+ordEmpty()+'</div>')+'<div class="pk-basket-bar" id="pk-basket-bar"></div>';
+      h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+      h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
+      ordBindStrip(); renderBasketBar(); return; }
     var keys=ordVisibleKeys();
     var primaryKeys=Object.keys(_pkOffers).filter(ordPassesPrimary);
     var prevSub=(_ordF==='previous')?ordPrevSubHTML():'';
