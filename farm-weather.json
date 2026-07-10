@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-10T12:31:39",
+ "generated_at": "2026-07-10T12:52:34",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -128,7 +128,7 @@
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (92F high). Spring crops may bolt (go to seed early); crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
@@ -167,7 +167,7 @@
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (90F high). Spring crops may bolt (go to seed early); crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
@@ -206,7 +206,7 @@
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (91F high). Spring crops may bolt (go to seed early); crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
