@@ -38220,9 +38220,9 @@ window.RemyFarm={
     if(_pkOffers===null && !_pkErr){
       pkFetchFeed(function(feed){
         if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;}
-        renderPickerList();
+        setTimeout(renderPickerList,0);
       });
-    }
+    } else { setTimeout(renderPickerList,0); }  // offers cached — fill the freshly-mounted host
     var cnt=_pkOffers?Object.keys(_pkOffers).length:0;
     return '<div class="pk-searchbar"><input class="pk-search" type="search" placeholder="Search produce…" oninput="setPkQuery(this.value)" value="'+esc(_pkQuery)+'"></div>'+
       '<div class="vhint">Every vendor\'s offer for an ingredient, cheapest per unit first. Tap to compare.'+(cnt?(' '+cnt+' ingredients'):'')+'</div>'+
