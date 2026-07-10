@@ -188,15 +188,6 @@
    "per_lb_basis": "estimate",
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.19,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "24 bu case",
      "per": 2.44,
@@ -245,15 +236,6 @@
    "swan_per_lb": 15.9574,
    "per_lb_basis": "estimate",
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "6 bunches",
@@ -414,15 +396,6 @@
    "per_lb_basis": "exact",
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "PSFH",
      "pack": "24 ct",
      "per": 2.32,
@@ -474,15 +447,6 @@
    "per_lb_basis": "exact",
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "3 bu",
      "per": 4.33,
@@ -521,15 +485,6 @@
    "swan_per_lb": 19.16,
    "per_lb_basis": "exact",
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.79,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "PSFH",
      "pack": "12 ct",
@@ -630,15 +585,6 @@
    "per_lb_basis": "exact",
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.79,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "5 lbs",
      "per": 4.19,
@@ -687,15 +633,6 @@
    "swan_per_lb": 15.0,
    "per_lb_basis": "exact",
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 15.0,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "12 bu case",
@@ -1046,15 +983,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "3 bu",
      "per": 6.5,
@@ -1071,15 +999,6 @@
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "1 lb",
@@ -1098,29 +1017,11 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "10 bu",
      "per": 3.64,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "lb",
-     "source": "farm",
      "last_seen": "2026-07-09",
      "freshness": "LIVE"
     },
@@ -1142,15 +1043,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "3 oz",
      "per": 41.6,
@@ -1167,15 +1059,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "3 bu",
@@ -1677,15 +1560,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "15 lbs",
      "per": 1.2,
@@ -1712,15 +1586,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "10 lb",
      "per": 3.25,
@@ -1737,15 +1602,6 @@
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "PSFH",
      "pack": "40 lb Cases",
@@ -2063,15 +1919,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.19,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "6 bu",
      "per": 2.6,
@@ -2234,15 +2081,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "PSFH",
      "pack": "12 ct",
      "per": 1.71,
@@ -2259,15 +2097,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "PSFH",
      "pack": "12 bunch",
@@ -2765,15 +2594,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "24 bu case",
      "per": 1.62,
@@ -2790,15 +2610,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "12 bu",
@@ -2826,15 +2637,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "24 bu case",
      "per": 1.62,
@@ -2861,15 +2663,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 ct case",
      "per": 3.25,
@@ -2887,15 +2680,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "PSFH",
      "pack": "24 ct",
      "per": 1.82,
@@ -2912,15 +2696,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 43.8,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "24 bu case",
@@ -3153,15 +2928,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 ct",
      "per": 2.88,
@@ -3187,15 +2953,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "24 ct. case",
@@ -3223,15 +2980,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 ct case",
      "per": 2.17,
@@ -3258,15 +3006,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 ct",
      "per": 1.75,
@@ -3283,15 +3022,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "24ct case",
@@ -3318,15 +3048,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 29.1,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "24 ct. case",
@@ -3440,15 +3161,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "PSFH",
      "pack": "6 count",
      "per": 2.64,
@@ -3465,15 +3177,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.5,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "PSFH",
      "pack": "6 ct",
@@ -3954,29 +3657,11 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.79,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "6 bunches",
      "per": 2.6,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 4.79,
-     "per_unit": "lb",
-     "source": "farm",
      "last_seen": "2026-07-09",
      "freshness": "LIVE"
     },
@@ -3997,15 +3682,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.19,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "30 bu case",
@@ -4032,15 +3708,6 @@
    "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.19,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "6 bu",
@@ -4850,15 +4517,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 lbs",
      "per": 2.38,
@@ -4885,15 +4543,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "12 lbs",
      "per": 1.95,
@@ -4910,15 +4559,6 @@
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 1.8,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "12 lbs",
@@ -5083,15 +4723,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 10.2,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "6 bunches",
      "per": 2.6,
@@ -5135,15 +4766,6 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.7,
-     "per_unit": "each",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
-    {
      "vendor": "Farmstand",
      "pack": "6 bunches",
      "per": 2.6,
@@ -5160,15 +4782,6 @@
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
-    {
-     "vendor": "Swan",
-     "pack": "",
-     "per": 11.7,
-     "per_unit": "lb",
-     "source": "farm",
-     "last_seen": "2026-07-09",
-     "freshness": "LIVE"
-    },
     {
      "vendor": "Farmstand",
      "pack": "6 oz",
@@ -5367,7 +4980,7 @@
   "computed": "2026-07-09",
   "folded_onto_existing": 8,
   "new_picker_items": 209,
-  "offer_records": 333,
+  "offer_records": 290,
   "freshness_at_compute": "LIVE"
  }
 }
