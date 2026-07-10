@@ -38143,15 +38143,24 @@ window.RemyFarm={
     return '<div class="vhint">'+vp.length+' cuts &middot; wholesale $/lb'+(meta.case_note?(' &middot; '+esc(meta.case_note)):'')+(meta.sheet_date?(' ('+esc(meta.sheet_date)+')'):'')+' &middot; tap a group</div>'+body+ask;
   }
   // ── INGREDIENT-FIRST PICKER (Remy Router Layer 2) ─────────────────────
-  // Reads the folded offers on the price spine (price-reference.json items[].offers, fetched
-  // via the shared invFetchFeed) and renders each canonical produce ingredient with its vendor
-  // offers side by side, normalized, cheapest-per-unit first, each stamped with freshness.
-  // Compare only within one per_unit lane (never lb vs each). Compare-only in v1 — basket +
-  // transmit is Layer 3.
+  // Reads the folded offers on the price spine (price-reference.json items[].offers) and renders
+  // each canonical produce ingredient with its vendor offers side by side, normalized,
+  // cheapest-per-unit first, each stamped with freshness. Compare only within one per_unit lane
+  // (never lb vs each). Compare-only in v1 — basket + transmit is Layer 3.
   var _vMode='vendor';        // 'vendor' | 'ingredient'
   var _pkQuery='';            // search filter (lowercased)
   var _pkOffers=null;         // {key:{display,category,canonical_unit,offers:[...]}}
   var _pkErr=false;           // loud-failure flag if the feed fetch fails
+  // Self-contained feed fetch (this IIFE can't see the invoice tool's invFetchFeed).
+  var _pkFeed=null, _pkFeedTried=false;
+  function pkFetchFeed(cb){
+    if(_pkFeedTried){cb(_pkFeed);return;}
+    _pkFeedTried=true;
+    try{
+      fetch('price-reference.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+        .then(function(j){_pkFeed=j;cb(j);}).catch(function(){cb(null);});
+    }catch(e){cb(null);}
+  }
   window.setVMode=function(m){_vMode=m;renderVendors();};
   window.setPkQuery=function(v){_pkQuery=(v||'').toLowerCase();renderPickerList();};
 
@@ -38209,7 +38218,7 @@ window.RemyFarm={
   };
   function pickerPane(){
     if(_pkOffers===null && !_pkErr){
-      invFetchFeed(function(feed){
+      pkFetchFeed(function(feed){
         if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;}
         renderPickerList();
       });
