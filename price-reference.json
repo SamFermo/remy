@@ -71,7 +71,23 @@
    "needs_check": false,
    "climb": -21.1,
    "swan_per_lb": 22.79,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 14.99,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-07-07",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ],
+   "canonical_unit": "lb"
   },
   "Beef Shanks": {
    "swan_price": 15.0,
@@ -111,7 +127,23 @@
     "date": "2026-05-19",
     "freshness": "AGING",
     "confidence": "high"
-   }
+   },
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 21.99,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-10",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ],
+   "canonical_unit": "lb"
   },
   "Bolo Meat": {
    "swan_price": 5.99,
@@ -830,7 +862,36 @@
     "date": "2026-05-19",
     "freshness": "AGING",
     "confidence": "high"
-   }
+   },
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 4.79,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-05-10",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 9.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ],
+   "canonical_unit": "lb"
   },
   "Pork Chops": {
    "swan_price": 15.75,
@@ -4399,6 +4460,19 @@
      "pack_unit": "lb",
      "case_price": 33.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": null,
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
     }
    ]
   },
@@ -4487,6 +4561,19 @@
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 43.55,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": null,
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -6726,6 +6813,61 @@
     }
    ]
   },
+  "Black Cod": {
+   "display": "Black Cod",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 9.95,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-12-17",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 14.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Chicken Feet": {
+   "display": "Chicken Feet",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 2.59,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-06-30",
+     "freshness": "DATED(10)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Chicories (Mixed)": {
    "display": "Chicories (Mixed)",
    "category": "uncategorized",
@@ -6789,6 +6931,27 @@
     }
    ]
   },
+  "Duck Breast, Culver Pekin": {
+   "display": "Duck Breast, Culver Pekin",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 12.59,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-01-17",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "English Peas": {
    "display": "English Peas",
    "category": "vegetable",
@@ -6810,6 +6973,61 @@
     }
    ]
   },
+  "Golden Chanterelle (Wild)": {
+   "display": "Golden Chanterelle (Wild)",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 12.75,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-11-06",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Halibut (New Season)": {
+   "display": "Halibut (New Season)",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 16.95,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-06",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 26.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Heirloom Peppers": {
    "display": "Heirloom Peppers",
    "category": "vegetable",
@@ -6824,6 +7042,111 @@
      "source": "invoice",
      "last_seen": "2026-06-12",
      "freshness": "DATED(28)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Ladyfern Fiddleheads": {
+   "display": "Ladyfern Fiddleheads",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 10.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-04-29",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Lobster Mushroom": {
+   "display": "Lobster Mushroom",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 12.0,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-09-17",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Manila Clams": {
+   "display": "Manila Clams",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 4.99,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-06-19",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Morels (Wild)": {
+   "display": "Morels (Wild)",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 15.75,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-06-12",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Palouse Pastured Chicken Eggs (Large)": {
+   "display": "Palouse Pastured Chicken Eggs (Large)",
+   "category": "uncategorized",
+   "canonical_unit": "case",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 99.99,
+     "per_unit": "case",
+     "source": "invoice",
+     "last_seen": "2026-04-10",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6894,6 +7217,208 @@
     }
    ]
   },
+  "Porcini / King Bolete": {
+   "display": "Porcini / King Bolete",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 12.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-06-27",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Pure Country Beef Chuck": {
+   "display": "Pure Country Beef Chuck",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 14.99,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-06-27",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Pure Country Beef Striploin": {
+   "display": "Pure Country Beef Striploin",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 18.99,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-06-19",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Pure Country GL Pork Rack": {
+   "display": "Pure Country GL Pork Rack",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Preservation Meats",
+     "pack": null,
+     "per": 6.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-05-12",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Ramps (Wild)": {
+   "display": "Ramps (Wild)",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 14.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-05-13",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Sea Scallops": {
+   "display": "Sea Scallops",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 41.95,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-04-30",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 40.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Sitka Spruce Tips": {
+   "display": "Sitka Spruce Tips",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 16.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-05-16",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Smoked Trout": {
+   "display": "Smoked Trout",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 8.49,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-08-30",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Stinging Nettles": {
+   "display": "Stinging Nettles",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Foraged & Found",
+     "pack": null,
+     "per": 9.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2025-04-29",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Strawberries (Local)": {
    "display": "Strawberries (Local)",
    "category": "uncategorized",
@@ -6935,6 +7460,531 @@
      "pack_known": true
     }
    ]
+  },
+  "Salmon": {
+   "display": "Salmon",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 17.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Ling Cod": {
+   "display": "Ling Cod",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 11.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Sole": {
+   "display": "Sole",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 6.69,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Rockfish": {
+   "display": "Rockfish",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 6.69,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Sturgeon": {
+   "display": "Sturgeon",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 16.65,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Trout": {
+   "display": "Trout",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 7.65,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Crab": {
+   "display": "Crab",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 49.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Tuna": {
+   "display": "Tuna",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 22.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Swordfish": {
+   "display": "Swordfish",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 18.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Snapper/Bream": {
+   "display": "Snapper/Bream",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 12.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Clams": {
+   "display": "Clams",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 5.69,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Mussels": {
+   "display": "Mussels",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 5.09,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Oysters": {
+   "display": "Oysters",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "EC Wilson",
+     "pack": null,
+     "per": 10.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-06-23",
+     "freshness": "DATED(17)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Fresh Wild Northwest Sockeye Salmon": {
+   "display": "Fresh Wild Northwest Sockeye Salmon",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 14.25,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Fresh Northwest Ling Cod": {
+   "display": "Fresh Northwest Ling Cod",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 10.99,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Alaskan Frozen IQF Spot Prawns": {
+   "display": "Alaskan Frozen IQF Spot Prawns",
+   "category": "seafood",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Key City",
+     "pack": null,
+     "per": 29.95,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-07-01",
+     "freshness": "DATED(9)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Shoulder steak": {
+   "display": "Shoulder steak",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 10.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Country Style Ribs": {
+   "display": "Country Style Ribs",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 10.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Butt/Picnic roast": {
+   "display": "Butt/Picnic roast",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 10.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Chops (bone in, two per pack)": {
+   "display": "Chops (bone in, two per pack)",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 12.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Fresh belly, sliced": {
+   "display": "Fresh belly, sliced",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 12.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Italian Links or Bulk (Sweet or Hot)": {
+   "display": "Italian Links or Bulk (Sweet or Hot)",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 11.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Breakfast Links or Bulk": {
+   "display": "Breakfast Links or Bulk",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 11.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Bratwurst Links or Bulk": {
+   "display": "Bratwurst Links or Bulk",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 11.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Soup Bones": {
+   "display": "Soup Bones",
+   "category": "meat",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Alluvial",
+     "pack": null,
+     "per": 5.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
   }
  },
  "offers_folded": {
@@ -6948,9 +7998,14 @@
   "freshness_at_compute": "LIVE"
  },
  "franks_folded": {
-  "appended": 27,
-  "new_items": 11,
+  "appended": 30,
+  "new_items": 30,
   "commodity_appended": 13,
+  "computed": "2026-07-10"
+ },
+ "specialty_folded": {
+  "appended": 6,
+  "new_items": 25,
   "computed": "2026-07-10"
  },
  "order_prev": {
