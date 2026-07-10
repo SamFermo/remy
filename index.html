@@ -39388,6 +39388,23 @@ window.RemyFarm={
         else { var ven=c.vendor||''; if(!/house|in-house|made/i.test(ven)) rows.push({t:'miss',name:nm,vendor:ven}); } });
       if(rows.length)out.push({dish:(d.name||d.dish||'Dish'),rows:rows}); });
     return out; }
+  // By-vendor (Order): vendor list from the offers + the delivery-schedule key.
+  var _ordVendor='', _ordVpScroll=0;
+  function ordOfferVendors(){ var order=['Franks','Swan','Farmstand','PSFH','Foraged & Found','Key City','EC Wilson','Preservation Meats','Alluvial'],seen={};
+    Object.keys(_pkOffers).forEach(function(k){(_pkOffers[k].offers||[]).forEach(function(o){if(o.vendor)seen[o.vendor]=1;});});
+    var vends=order.filter(function(v){return seen[v];}); Object.keys(seen).sort().forEach(function(v){if(vends.indexOf(v)<0)vends.push(v);}); return vends; }
+  // Order cutoffs + delivery days. Hubs scraped from their order portals (2026-07-10); Swan/Franks
+  // from operating notes; specialty vendors TBD (they don't publish an online schedule).
+  var ORD_VENDOR_SCHED={
+    'Farmstand':'Deliv Mon/Wed/Fri · order by Fri 3pm (Mon), Sun 8pm (Wed), Wed 8pm (Fri)',
+    'PSFH':'Deliv Tue/Fri · order by Sun 12pm (Tue), Wed 12pm (Fri) · $300 min',
+    'Swan':'Weekly · orders in by Sat night',
+    'Franks':'Daily distributor · order the day before (via Choco)',
+    'Foraged & Found':'By order · confirm cutoff',
+    'Key City':'By order · confirm cutoff','EC Wilson':'By order · confirm cutoff',
+    'Preservation Meats':'By order · confirm cutoff','Alluvial':'By order · confirm cutoff'
+  };
+  function ordSchedLine(v){ return ORD_VENDOR_SCHED[v]||''; }
   function ordStripHTML(){ return '<div class="ord-strip">'+
       ordChip('mapped','Mapped to menu')+ordChip('previous','Previous')+ordChip('movers','Movers')+ordChip('all','All')+
       '<button class="ord-chip'+(_ordF==='byvendor'?' on':'')+'" data-of="byvendor">By vendor</button></div>'; }
@@ -39400,7 +39417,23 @@ window.RemyFarm={
   function renderOrderInner(){ var h=host(); if(!h)return;
     var strip=ordStripHTML();
     ordComputePrevSets();
-    if(_ordF==='byvendor'){ _vHost='order'; h.innerHTML=strip+vendorBrowseHTML(); ordBindStrip(); return; }
+    if(_ordF==='byvendor'){ _vHost='order';
+      var vends=ordOfferVendors();
+      if(!_ordVendor||vends.indexOf(_ordVendor)<0)_ordVendor=vends[0]||'';
+      var pills='<div class="vp-bar ord-vp">'+vends.map(function(v){return '<button class="vpill'+(v===_ordVendor?' active':'')+'" data-ov="'+esc(v)+'">'+esc(v)+'</button>';}).join('')+'</div>';
+      var vk=Object.keys(_pkOffers).filter(function(k){return (_pkOffers[k].offers||[]).some(function(o){return o.vendor===_ordVendor;});});
+      vk.sort(function(a,b){return (_pkOffers[a].display||'').localeCompare(_pkOffers[b].display||'');});
+      var sched=ordSchedLine(_ordVendor);
+      _pkShowStar=true;
+      var cards=vk.length?vk.map(function(k){return pkCard(_pkOffers[k]);}).join(''):'<div class="vempty">No offers from this vendor yet.</div>';
+      _pkShowStar=false;
+      h.innerHTML=strip+pills+'<div class="vhint">'+esc(_ordVendor)+(sched?(' &middot; '+sched):'')+' &middot; tap a card to compare and add.</div><div class="vlist">'+cards+'</div><div class="pk-basket-bar" id="pk-basket-bar"></div>';
+      ordBindStrip();
+      h.querySelectorAll('.ord-vp .vpill').forEach(function(b){b.onclick=function(){var sc=h.querySelector('.ord-vp'); _ordVpScroll=sc?sc.scrollLeft:0; _ordVendor=b.dataset.ov; renderOrderInner();};});
+      h.querySelectorAll('.pk-add').forEach(function(b){b.onclick=function(){pkAdd(b.dataset);};});
+      h.querySelectorAll('.pk-star').forEach(function(b){b.onclick=function(e){e.preventDefault();e.stopPropagation();ordToggleStanding(b.dataset.star);};});
+      var vb=h.querySelector('.ord-vp'); if(vb&&_ordVpScroll)vb.scrollLeft=_ordVpScroll;
+      renderBasketBar(); return; }
     _vHost='order';
     if(_ordF==='gaps'){ var gaps=ordGaps();
       var gh=gaps.length? gaps.map(function(g){return '<div class="ord-gaprow">'+esc(g.name)+(g.vendor?(' <small>'+esc(g.vendor)+'</small>'):' <small>need to source</small>')+'</div>';}).join('')
