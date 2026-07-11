@@ -1,0 +1,627 @@
+{
+ "generated_at": "2026-07-11T06:50:57",
+ "enso": {
+  "phase": "El Niño",
+  "band": "weak",
+  "status": "El Niño developing",
+  "trend": "warming",
+  "oni": 0.98,
+  "oni_season": "AMJ 2026",
+  "consec_seasons": 2,
+  "official_threshold_seasons": 5,
+  "nino34_anom": 1.5,
+  "nino34_month": "Jun 2026",
+  "history": [
+   {
+    "season": "JFM 2025",
+    "oni": -0.24
+   },
+   {
+    "season": "FMA 2025",
+    "oni": -0.06
+   },
+   {
+    "season": "MAM 2025",
+    "oni": 0.02
+   },
+   {
+    "season": "AMJ 2025",
+    "oni": -0.02
+   },
+   {
+    "season": "MJJ 2025",
+    "oni": -0.04
+   },
+   {
+    "season": "JJA 2025",
+    "oni": -0.14
+   },
+   {
+    "season": "JAS 2025",
+    "oni": -0.28
+   },
+   {
+    "season": "ASO 2025",
+    "oni": -0.4
+   },
+   {
+    "season": "SON 2025",
+    "oni": -0.51
+   },
+   {
+    "season": "OND 2025",
+    "oni": -0.55
+   },
+   {
+    "season": "NDJ 2025",
+    "oni": -0.54
+   },
+   {
+    "season": "DJF 2026",
+    "oni": -0.37
+   },
+   {
+    "season": "JFM 2026",
+    "oni": -0.14
+   },
+   {
+    "season": "FMA 2026",
+    "oni": 0.13
+   },
+   {
+    "season": "MAM 2026",
+    "oni": 0.51
+   },
+   {
+    "season": "AMJ 2026",
+    "oni": 0.98
+   }
+  ],
+  "impact": "Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.",
+  "plain": {
+   "title": "El Niño is building",
+   "define": "El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.",
+   "timing": "It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.",
+   "rate": "The ocean has swung about 1.5°C warmer over the last six months — a fast move."
+  },
+  "source": "NOAA Climate Prediction Center",
+  "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
+ },
+ "regions": [
+  {
+   "id": "skagit_valley_wa",
+   "name": "Skagit Valley, WA",
+   "category": "agricultural",
+   "group": "Home",
+   "home": true,
+   "high_f": 80,
+   "low_f": 49,
+   "avg_f": 65.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Swan House Farm",
+    "Local Roots Farm",
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "greens",
+    "brassicas",
+    "flowers",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 97,
+   "low_f": 57,
+   "avg_f": 78.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 10 at 6:37PM PDT until July 11 at 11:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 94,
+   "low_f": 55,
+   "avg_f": 76.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 10 at 6:37PM PDT until July 11 at 9:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 97,
+   "low_f": 57,
+   "avg_f": 78.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 98,
+   "low_f": 54,
+   "avg_f": 77.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (77F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 91,
+   "low_f": 57,
+   "avg_f": 75.0,
+   "forecast": "Mostly Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (75F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
+   "id": "snoqualmie_valley_wa",
+   "name": "Snoqualmie Valley, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 84,
+   "low_f": 49,
+   "avg_f": 66.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Local Roots Farm",
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "brassicas",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Spring through fall; berries in summer"
+  },
+  {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 82,
+   "low_f": 49,
+   "avg_f": 66.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 81,
+   "low_f": 53,
+   "avg_f": 67.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 77,
+   "low_f": 51,
+   "avg_f": 63.0,
+   "forecast": "Partly Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 77F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 66,
+   "low_f": 50,
+   "avg_f": 58.0,
+   "forecast": "Mostly Cloudy then Chance Light Rain",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 66F, low 50F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 77,
+   "low_f": 52,
+   "avg_f": 63.0,
+   "forecast": "Slight Chance Light Rain then Mostly Cloudy",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 77F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
+  },
+  {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 71,
+   "low_f": 45,
+   "avg_f": 58.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
+   "id": "oregon_cascades",
+   "name": "Oregon Cascades",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 75,
+   "low_f": 50,
+   "avg_f": 64.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
+  },
+  {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 68,
+   "low_f": 49,
+   "avg_f": 59.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 102,
+   "low_f": 71,
+   "avg_f": 88.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 67,
+   "low_f": 44,
+   "avg_f": 54.0,
+   "forecast": "Chance Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 87,
+   "low_f": 55,
+   "avg_f": 73.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 90,
+   "low_f": 55,
+   "avg_f": 74.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
+  }
+ ],
+ "groups": [
+  "Home",
+  "Puget & Valleys",
+  "Eastern WA",
+  "Coast & Marine",
+  "Forage Belt"
+ ],
+ "high_regions": 5
+}
