@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-11T06:50:57",
+ "generated_at": "2026-07-12T06:39:35",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -116,84 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 97,
-   "low_f": 57,
-   "avg_f": 78.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 10 at 6:37PM PDT until July 11 at 11:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 94,
-   "low_f": 55,
-   "avg_f": 76.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 10 at 6:37PM PDT until July 11 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
@@ -227,6 +149,72 @@
     "berries"
    ],
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 97,
+   "low_f": 57,
+   "avg_f": 78.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 94,
+   "low_f": 55,
+   "avg_f": 76.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "eastern_wa_rangeland",
