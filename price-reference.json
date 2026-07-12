@@ -153,16 +153,6 @@
    "swan_per_lb": 5.99,
    "per_lb_basis": "exact"
   },
-  "Bronze Fennel": {
-   "swan_price": 54.0,
-   "market": 45.0,
-   "unit": "24CT CS",
-   "vendor": "Reference list",
-   "date": "2026-04-20",
-   "freshness": "AGING",
-   "source": "commodity",
-   "needs_check": false
-  },
   "Cabbage": {
    "swan_price": 1.8,
    "market": 1.5,
@@ -1140,7 +1130,7 @@
    "swan_price": 10.2,
    "market": 8.5,
    "unit": "1/4#",
-   "vendor": "Reference list",
+   "vendor": "Franks",
    "date": "2026-04-20",
    "freshness": "AGING",
    "source": "commodity",
