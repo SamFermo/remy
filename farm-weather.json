@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-12T06:39:35",
+ "generated_at": "2026-07-13T06:39:37",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -95,9 +95,9 @@
    "group": "Home",
    "home": true,
    "high_f": 80,
-   "low_f": 49,
-   "avg_f": 65.0,
-   "forecast": "Mostly Cloudy",
+   "low_f": 52,
+   "avg_f": 68.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -121,18 +121,18 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 97,
-   "low_f": 57,
-   "avg_f": 78.0,
+   "high_f": 98,
+   "low_f": 62,
+   "avg_f": 82.0,
    "forecast": "Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (98F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -157,8 +157,8 @@
    "group": "Eastern WA",
    "home": false,
    "high_f": 97,
-   "low_f": 57,
-   "avg_f": 78.0,
+   "low_f": 62,
+   "avg_f": 82.0,
    "forecast": "Sunny",
    "signals": [
     {
@@ -167,7 +167,7 @@
     },
     {
      "level": "info",
-     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -189,18 +189,18 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 94,
-   "low_f": 55,
-   "avg_f": 76.0,
+   "high_f": 95,
+   "low_f": 60,
+   "avg_f": 80.0,
    "forecast": "Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -222,14 +222,14 @@
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 98,
-   "low_f": 54,
-   "avg_f": 77.0,
-   "forecast": "Sunny",
+   "high_f": 97,
+   "low_f": 60,
+   "avg_f": 81.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (77F avg). Monitor grass growth conditions; drought risk in summer."
+     "text": "Heat building (81F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
    "alerts": [],
@@ -251,14 +251,14 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 91,
-   "low_f": 57,
-   "avg_f": 75.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 88,
+   "low_f": 58,
+   "avg_f": 76.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (75F avg). Monitor grass growth conditions; drought risk in summer."
+     "text": "Heat building (76F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
    "alerts": [],
@@ -282,9 +282,9 @@
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 84,
-   "low_f": 49,
-   "avg_f": 66.0,
-   "forecast": "Mostly Sunny",
+   "low_f": 52,
+   "avg_f": 70.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -307,9 +307,9 @@
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 82,
-   "low_f": 49,
-   "avg_f": 66.0,
-   "forecast": "Mostly Sunny",
+   "low_f": 51,
+   "avg_f": 68.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -330,10 +330,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 81,
+   "high_f": 82,
    "low_f": 53,
-   "avg_f": 67.0,
-   "forecast": "Partly Sunny",
+   "avg_f": 66.0,
+   "forecast": "Clear",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -356,13 +356,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 77,
-   "low_f": 51,
-   "avg_f": 63.0,
-   "forecast": "Partly Sunny",
+   "low_f": 54,
+   "avg_f": 67.0,
+   "forecast": "Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 77F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 77F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -386,14 +386,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 66,
-   "low_f": 50,
-   "avg_f": 58.0,
-   "forecast": "Mostly Cloudy then Chance Light Rain",
+   "high_f": 68,
+   "low_f": 51,
+   "avg_f": 60.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 66F, low 50F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 68F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -417,13 +417,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 77,
-   "low_f": 52,
-   "avg_f": 63.0,
-   "forecast": "Slight Chance Light Rain then Mostly Cloudy",
+   "low_f": 53,
+   "avg_f": 66.0,
+   "forecast": "Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 77F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 77F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -446,10 +446,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 71,
-   "low_f": 45,
-   "avg_f": 58.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 69,
+   "low_f": 51,
+   "avg_f": 62.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -471,9 +471,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 75,
-   "low_f": 50,
+   "low_f": 52,
    "avg_f": 64.0,
-   "forecast": "Mostly Sunny",
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -494,9 +494,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 68,
-   "low_f": 49,
-   "avg_f": 59.0,
-   "forecast": "Mostly Cloudy",
+   "low_f": 47,
+   "avg_f": 58.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -516,10 +516,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 102,
-   "low_f": 71,
+   "high_f": 104,
+   "low_f": 69,
    "avg_f": 88.0,
-   "forecast": "Partly Sunny",
+   "forecast": "Chance Light Rain then Mostly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -539,10 +539,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 67,
-   "low_f": 44,
-   "avg_f": 54.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 66,
+   "low_f": 50,
+   "avg_f": 59.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -562,10 +562,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 87,
-   "low_f": 55,
+   "high_f": 85,
+   "low_f": 58,
    "avg_f": 73.0,
-   "forecast": "Sunny",
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -586,10 +586,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 90,
-   "low_f": 55,
-   "avg_f": 74.0,
-   "forecast": "Sunny",
+   "high_f": 89,
+   "low_f": 59,
+   "avg_f": 77.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
