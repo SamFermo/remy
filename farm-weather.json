@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-14T14:49:36",
+ "generated_at": "2026-07-14T15:38:48",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -246,6 +246,36 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 69,
+   "low_f": 51,
+   "avg_f": 62.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 14 at 3:29PM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
    "id": "eastern_oregon_rangeland",
    "name": "Eastern Oregon Rangeland",
    "category": "rangeland",
@@ -274,6 +304,35 @@
     "grass_fed"
    ],
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 66,
+   "low_f": 50,
+   "avg_f": 59.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 14 at 3:29PM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -441,30 +500,6 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 69,
-   "low_f": 51,
-   "avg_f": 62.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
-  },
-  {
    "id": "oregon_cascades",
    "name": "Oregon Cascades",
    "category": "foraging",
@@ -534,29 +569,6 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 66,
-   "low_f": 50,
-   "avg_f": 59.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -611,5 +623,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 5
+ "high_regions": 7
 }
