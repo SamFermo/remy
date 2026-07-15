@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-15T06:42:32",
+ "generated_at": "2026-07-15T14:37:15",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -116,6 +116,52 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 99,
+   "low_f": 60,
+   "avg_f": 82.0,
+   "forecast": "Sunny then Slight Chance Rain Showers",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 15 at 12:10PM PDT until July 16 at 10:00AM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 15 at 11:00AM PDT until July 16 at 9:00PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": true,
+   "high_count": 3,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "columbia_basin_wa",
    "name": "Columbia Basin, WA",
    "category": "agricultural",
@@ -137,13 +183,18 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 15 at 12:04PM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 15 at 12:21AM PDT until July 16 at 10:00AM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 15 at 11:46AM PDT until July 16 at 11:00AM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 2,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -176,13 +227,18 @@
    ],
    "alerts": [
     {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 15 at 12:04PM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 15 at 12:21AM PDT until July 16 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Fire Weather Watch issued July 15 at 11:46AM PDT until July 16 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 2,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -192,41 +248,6 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 99,
-   "low_f": 60,
-   "avg_f": 82.0,
-   "forecast": "Sunny then Slight Chance Rain Showers",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "eastern_wa_rangeland",
@@ -244,9 +265,15 @@
      "text": "Heat building (81F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 15 at 12:04PM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
+    }
+   ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -270,9 +297,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 15 at 2:15AM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Red Flag Warning issued July 15 at 12:14PM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": true,
@@ -330,9 +357,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 15 at 2:15AM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Red Flag Warning issued July 15 at 12:14PM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": true,
