@@ -1,0 +1,492 @@
+{
+ "generated": "2026-07-14T15:39:03",
+ "farm": "Swan House Farm",
+ "month": "July",
+ "source": "swan-house-seasonal-signals + seasonal-data months calendar",
+ "counts": {
+  "peaking": 29,
+  "just_arrived": 9,
+  "arriving": 3,
+  "fading": 3,
+  "gone": 9
+ },
+ "crops": [
+  {
+   "name": "Heirloom Tomatoes (Farm)",
+   "category": "produce",
+   "status": "arriving",
+   "status_label": "Coming soon",
+   "window": "Aug-Oct",
+   "peak": "Aug",
+   "note": "Aug-Oct. Peak late summer."
+  },
+  {
+   "name": "Loganberries",
+   "category": "berry",
+   "status": "arriving",
+   "status_label": "Coming soon",
+   "window": "Aug-Aug",
+   "peak": "Aug",
+   "note": "Aug. Invoice history 2023."
+  },
+  {
+   "name": "Tomatoes (Farm)",
+   "category": "produce",
+   "status": "arriving",
+   "status_label": "Coming soon",
+   "window": "Aug-Oct",
+   "peak": "Aug",
+   "note": "Heirloom slicers and saladettes. Cherry tomatoes (small and saladette)."
+  },
+  {
+   "name": "Radish",
+   "category": "produce",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Apr-Jul",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Done. Pearl and pink varieties. Highlighted green (abundant) on May 10 sheet. Kelly 5/12: available."
+  },
+  {
+   "name": "Onions",
+   "category": "produce",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Sep",
+   "peak": "Aug",
+   "note": "Generic onions per Sam 2026-06-12, distinct from Walla Walla Onions and Onion Tops. Typical Jun-Sep."
+  },
+  {
+   "name": "Squash (Farm)",
+   "category": "produce",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Sep",
+   "peak": "Aug",
+   "note": "Jul-Sep. Various summer varieties."
+  },
+  {
+   "name": "Beef Primals",
+   "category": "protein",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Dec",
+   "peak": "Jul",
+   "note": "Jul onward. Tim 2026 confirmed."
+  },
+  {
+   "name": "Cherry Tomatoes (Farm)",
+   "category": "produce",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Jul-Sep. Small and saladette varieties."
+  },
+  {
+   "name": "Cilantro (Farm)",
+   "category": "green",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Jul",
+   "peak": "Jul",
+   "note": "Jul. Invoice history 2024."
+  },
+  {
+   "name": "Ground pork",
+   "category": "green",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Jul",
+   "peak": "Jul",
+   "note": "Added by farmer via Remy New Growth 2026-07-06; status Available, season window TBD."
+  },
+  {
+   "name": "Guanciale (House-Cured)",
+   "category": "protein",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Aug",
+   "peak": "Jul",
+   "note": "Jul-Aug after cure. Tim 2026 confirmed."
+  },
+  {
+   "name": "Tarragon (Farm)",
+   "category": "green",
+   "status": "just_arrived",
+   "status_label": "Just started",
+   "window": "Jul-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Not Yet. Farmstand 4/29 — French Tarragon featured from The Crows Farm (Mt Vernon). Fennel-y with hints of mint, vanilla, and pepper."
+  },
+  {
+   "name": "Edible Flowers",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Sep",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Available — mostly rose petals and honeysuckle. Farm-grown edible flowers. Frank's also carries edible mix at $16.95/50CT (4/20 sheet) as backu"
+  },
+  {
+   "name": "Grape Leaves",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Sep",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Available — 5#. Appears on June 23 sheet. For wrapping and cooking. Kelly 4/26: Trickling (5#)."
+  },
+  {
+   "name": "Kale (Farm)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Nov",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Peak — 20+#. Appears on June 23 sheet. Main season summer through fall. Kelly 5/3: now listed (spring kale starting). Kelly 5/12: available."
+  },
+  {
+   "name": "Lemon Balm (Farm)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Aug",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Available — 10#. Appears on April 29 sheet onward. Highlighted green (abundant) on June sheet. Kelly 4/26: Peak (20+#)."
+  },
+  {
+   "name": "Lettuce (Farm)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Aug",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Peak — 30-40#. Red romaine and salanova green mix. Kelly 5/12: lots and lots (peak)."
+  },
+  {
+   "name": "Mint",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Sep",
+   "peak": "Apr",
+   "note": "Highlighted green (abundant) on May 10 sheet. Prolific grower. Kelly 4/26: Trickling (2#)."
+  },
+  {
+   "name": "Angelica",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Not Yet. Leaves and pods by June. Appears starting May 10 sheet."
+  },
+  {
+   "name": "Basil (Farm)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Cinnamon and Genovese varieties historically."
+  },
+  {
+   "name": "Bronze Fennel",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "May-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 3 gallon bags. Appears on June 23 sheet. Ornamental and culinary herb. Kelly 5/12: coming in (earlier than the Jun-Jul peak profile"
+  },
+  {
+   "name": "Calendula",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Not Yet. Edible flower."
+  },
+  {
+   "name": "Chives",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Peak — 10#. Garlic and regular varieties available by June. Highlighted green (abundant) on May and June sheets. Kelly 4/26: Available (10#). K"
+  },
+  {
+   "name": "Cucumber (Farm)",
+   "category": "produce",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Oct",
+   "peak": "Jul",
+   "note": "Silver slicer, Japanese, Persian (no lemon)."
+  },
+  {
+   "name": "Fennel Fronds",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "May-Jul",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 2-3 gallon bags. Swan House. Kelly 4/26: Not Yet (typical Jul). Distinct from bronze fennel — these are the leaves from bulb fennel"
+  },
+  {
+   "name": "Honeysuckle",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "May-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 1 gallon bag. Highlighted green (abundant) on June sheet. Sweet floral flavor."
+  },
+  {
+   "name": "Lemon Verbena",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Not Yet."
+  },
+  {
+   "name": "Mixed Berries (Farm)",
+   "category": "berry",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Jul-Sep. Raspberry, boysenberry, mulberry mix."
+  },
+  {
+   "name": "Nasturtium",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jun-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Coming Soon. Leaves and flowers. Peppery flavor. Appears on June 23 sheet."
+  },
+  {
+   "name": "Oregano",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 10#. Italian and golden varieties. Highlighted green (abundant) on June sheet. Kelly 4/26: Available (10#)."
+  },
+  {
+   "name": "Raspberries",
+   "category": "berry",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jun-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Coming Soon. Appears on June 23 sheet. Peak summer berry."
+  },
+  {
+   "name": "Rose Petals",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "May-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available. Highlighted green (abundant) on June sheet. Edible garnish."
+  },
+  {
+   "name": "Rosemary",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Oct",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 5#. Appears on June 23 sheet. Perennial, peak in summer. Kelly 4/26: Available (2#)."
+  },
+  {
+   "name": "Savory",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Not Yet."
+  },
+  {
+   "name": "Sorrel (French)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Aug",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available — 5#. Green French variety. Very lemony flavor. Becomes 'French sorrel' on June sheet. Kelly 4/26: Available (5#). Kelly 5/12: availa"
+  },
+  {
+   "name": "Thyme",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jun-Sep",
+   "peak": "Jul",
+   "note": "Kelly 6/3 sheet: Available. Available May through September. Perennial herb."
+  },
+  {
+   "name": "Walla Walla Onions",
+   "category": "produce",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Sep",
+   "peak": "Jul",
+   "note": "Walla Walla sweet and Cippolini varieties."
+  },
+  {
+   "name": "Zucchini (Farm)",
+   "category": "produce",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jul-Oct",
+   "peak": "Jul",
+   "note": "Summer squash."
+  },
+  {
+   "name": "Dill (Farm)",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jun-Sep",
+   "peak": "Jun",
+   "note": "Kelly 6/3 sheet: Coming Soon. Dukat variety historically."
+  },
+  {
+   "name": "Lavender",
+   "category": "flower",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Jun-Aug",
+   "peak": "Jun",
+   "note": "Kelly 6/3 sheet: Coming Soon. Appears on June 23 sheet. Culinary and garnish use."
+  },
+  {
+   "name": "Lovage",
+   "category": "green",
+   "status": "peaking",
+   "status_label": "In season now",
+   "window": "Apr-Aug",
+   "peak": "May",
+   "note": "Kelly 6/3 sheet: Peak — 30+#. Celery-like herb. Available April through summer, highlighted green (abundant) on June sheet. Kelly 4/26: Available (30+#). Kelly "
+  },
+  {
+   "name": "Cabbage (Farm)",
+   "category": "produce",
+   "status": "fading",
+   "status_label": "Winding down",
+   "window": "Jun-Nov",
+   "peak": "Jun",
+   "note": "Kelly 6/3 sheet: Coming Soon — 40+# Presto heading up now. Get ready!. Kelly 5/27 voice: Presto variety starting to head up, usable heads within 2 weeks (early-"
+  },
+  {
+   "name": "Tomato Leaf",
+   "category": "green",
+   "status": "fading",
+   "status_label": "Winding down",
+   "window": "May-Sep",
+   "peak": "Jun",
+   "note": "Kelly 6/3 sheet: Peak — 10#. Kelly 5/27 voice: pruning to tie up tomatoes, surplus tomato leaves available if Sam wants them. Jun-Sep. For infusions and garnish"
+  },
+  {
+   "name": "Parsley (Farm)",
+   "category": "green",
+   "status": "fading",
+   "status_label": "Winding down",
+   "window": "May-Aug",
+   "peak": "May",
+   "note": "Kelly 6/3 sheet: Peak. Kelly 5/27 voice: lot of parsley, sending some this week but only ~1/8 of harvestable. Big buffer if menu wants more. Jun-Aug. Invoice hi"
+  },
+  {
+   "name": "Lamb-Pork Sausage",
+   "category": "protein",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Apr-Jun",
+   "peak": "Apr",
+   "note": "May-Jun. Tim 2026 confirmed."
+  },
+  {
+   "name": "Pea Shoots",
+   "category": "green",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Apr-Jun",
+   "peak": "Apr",
+   "note": "Kelly 5/12: 'a little tough, plenty of them' — past tender stage but still in volume. Spring crop, narrow window. Added to tracker from 5/12 voice memo."
+  },
+  {
+   "name": "Pork Belly",
+   "category": "protein",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Apr-Jun",
+   "peak": "Apr",
+   "note": "May-Jun. Tim 2026 confirmed."
+  },
+  {
+   "name": "Pork Chops",
+   "category": "protein",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Apr-Jun",
+   "peak": "Apr",
+   "note": "May-Jun. Tim 2026 confirmed."
+  },
+  {
+   "name": "Turnips",
+   "category": "produce",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Apr-Nov",
+   "peak": "Apr",
+   "note": "Kelly 6/3 sheet: Coming Soon. Violetta and purple top varieties. Spring and fall crop from 2026 plan."
+  },
+  {
+   "name": "Borage",
+   "category": "green",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Jun-Aug",
+   "peak": "Jun",
+   "note": "Aug. Invoice history 2021."
+  },
+  {
+   "name": "Oyster mushrooms",
+   "category": "mushroom",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "Jun-Jun",
+   "peak": "Jun",
+   "note": "Cultivated oyster mushrooms, new to the sheet."
+  },
+  {
+   "name": "Chive Blossoms",
+   "category": "flower",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "May-Jun",
+   "peak": "May",
+   "note": "Jun. Invoice history 2023-2024. | Farmstand 5/12: Steel Wheel Farm (Fall City, WA) — striking purple, subtle garlicky-oniony flavor for savory garnish."
+  },
+  {
+   "name": "Onion Tops",
+   "category": "produce",
+   "status": "gone",
+   "status_label": "Out of season",
+   "window": "May-Jun",
+   "peak": "May",
+   "note": "Spring onion tops. First appeared on Kelly's 5/3 sheet. Brief spring window."
+  }
+ ]
+}
