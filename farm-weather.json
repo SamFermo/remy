@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-16T07:50:18",
+ "generated_at": "2026-07-17T06:37:20",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -139,21 +139,16 @@
     {
      "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 5:31AM PDT until July 16 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 17 at 6:04AM PDT until July 17 at 7:00AM PDT by NWS Spokane WA"
     },
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 16 at 5:31AM PDT until July 17 at 9:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 16 at 2:30AM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 17 at 6:04AM PDT until July 17 at 9:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 4,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -163,6 +158,41 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 101,
+   "low_f": 58,
+   "avg_f": 81.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (81F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 17 at 6:04AM PDT until July 17 at 7:00AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "yakima_valley_wa",
@@ -184,20 +214,9 @@
      "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 16 at 6:13AM PDT until July 16 at 9:00PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 4:56AM PDT until July 16 at 10:00AM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": true,
-   "high_count": 3,
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -230,20 +249,9 @@
      "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 5:31AM PDT until July 16 at 11:00AM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 16 at 2:30AM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 3,
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -253,76 +261,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 101,
-   "low_f": 58,
-   "avg_f": 81.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (81F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 5:31AM PDT until July 16 at 11:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 16 at 2:30AM PDT until July 16 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 3,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 73,
-   "low_f": 51,
-   "avg_f": 61.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 3:06AM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
   },
   {
    "id": "eastern_oregon_rangeland",
@@ -355,21 +293,21 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 71,
-   "low_f": 51,
-   "avg_f": 60.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 96,
+   "low_f": 59,
+   "avg_f": 77.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [
     {
      "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Red Flag Warning issued July 16 at 3:06AM PDT until July 16 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Red Flag Warning issued July 17 at 6:04AM PDT until July 17 at 11:00AM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -381,7 +319,7 @@
     "spring_foraged",
     "mushrooms_wild"
    ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -549,6 +487,30 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 73,
+   "low_f": 51,
+   "avg_f": 61.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
    "id": "oregon_cascades",
    "name": "Oregon Cascades",
    "category": "foraging",
@@ -618,6 +580,29 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 71,
+   "low_f": 51,
+   "avg_f": 60.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -640,29 +625,6 @@
     "spring_foraged"
    ],
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 96,
-   "low_f": 59,
-   "avg_f": 77.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   }
  ],
  "groups": [
@@ -672,5 +634,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 6
 }
