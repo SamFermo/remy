@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-19T10:18:16",
+ "generated_at": "2026-07-20T06:37:53",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -94,20 +94,29 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 85,
-   "low_f": 53,
-   "avg_f": 69.0,
-   "forecast": "Patchy Fog then Partly Sunny",
-   "signals": [],
+   "high_f": 88,
+   "low_f": 60,
+   "avg_f": 75.0,
+   "forecast": "Partly Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (88F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (75F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
    "alerts": [
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -122,163 +131,30 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 100,
-   "low_f": 59,
-   "avg_f": 81.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (81F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:05PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 4,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 101,
-   "low_f": 56,
-   "avg_f": 80.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (80F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:05PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 4,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 93,
-   "low_f": 56,
-   "avg_f": 75.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:20PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 18 at 12:05PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 3,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
-  },
-  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 90,
-   "low_f": 53,
-   "avg_f": 72.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "high_f": 94,
+   "low_f": 61,
+   "avg_f": 79.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (72F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (79F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -300,25 +176,25 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 87,
-   "low_f": 53,
-   "avg_f": 70.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 91,
+   "low_f": 60,
+   "avg_f": 76.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (87F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (70F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -334,19 +210,100 @@
    "seasonal_relevance": "Spring through fall; berries peak June-August"
   },
   {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 90,
+   "low_f": 57,
+   "avg_f": 73.0,
+   "forecast": "Partly Cloudy",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 103,
+   "low_f": 68,
+   "avg_f": 87.0,
+   "forecast": "Patchy Smoke",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (103F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (87F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Extreme Heat Watch",
+     "severity": "Severe",
+     "headline": "Extreme Heat Watch issued July 20 at 5:54AM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "eastern_oregon_rangeland",
    "name": "Eastern Oregon Rangeland",
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 91,
-   "low_f": 57,
-   "avg_f": 77.0,
-   "forecast": "Areas Of Smoke",
+   "high_f": 92,
+   "low_f": 61,
+   "avg_f": 79.0,
+   "forecast": "Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (77F avg). Monitor grass growth conditions; drought risk in summer."
+     "text": "Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
    "alerts": [
@@ -370,75 +327,71 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
    "home": false,
-   "high_f": 84,
-   "low_f": 56,
-   "avg_f": 71.0,
-   "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Above-normal temps (71F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
+   "high_f": 95,
+   "low_f": 62,
+   "avg_f": 80.0,
+   "forecast": "Haze",
+   "signals": [],
    "alerts": [
     {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 19 at 6:42PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 19 at 1:48PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
-    "Franks Produce",
-    "EC Wilson"
+    "Foraged & Found Edibles"
    ],
    "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
+    "spring_foraged",
+    "mushrooms_wild"
    ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 101,
-   "low_f": 60,
-   "avg_f": 82.0,
-   "forecast": "Sunny",
+   "high_f": 102,
+   "low_f": 65,
+   "avg_f": 86.0,
+   "forecast": "Haze then Areas Of Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (101F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (102F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (82F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (86F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
    "fire": false,
    "high_count": 1,
    "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
+    "Farmstand Local Foods"
    ],
    "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
    ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
    "id": "okanogan_highlands_wa",
@@ -446,18 +399,18 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 98,
-   "low_f": 59,
-   "avg_f": 81.0,
-   "forecast": "Sunny",
+   "high_f": 100,
+   "low_f": 67,
+   "avg_f": 85.0,
+   "forecast": "Partly Sunny then Haze",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (98F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (81F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (85F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -474,26 +427,55 @@
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 103,
+   "low_f": 64,
+   "avg_f": 85.0,
+   "forecast": "Mostly Cloudy then Haze",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (85F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
    "id": "olympic_peninsula_hood_canal",
    "name": "Olympic Peninsula / Hood Canal",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 82,
-   "low_f": 55,
-   "avg_f": 68.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "high_f": 86,
+   "low_f": 61,
+   "avg_f": 74.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 82F, low 55F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 86F, low 61F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -516,21 +498,21 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 77,
-   "low_f": 53,
-   "avg_f": 62.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 83,
+   "low_f": 56,
+   "avg_f": 71.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 77F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 83F, low 56F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 19 at 9:36AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -552,14 +534,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 70,
-   "low_f": 53,
-   "avg_f": 61.0,
-   "forecast": "Partly Sunny",
+   "high_f": 73,
+   "low_f": 56,
+   "avg_f": 65.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 70F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 73F, low 56F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -582,10 +564,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 76,
-   "low_f": 49,
-   "avg_f": 64.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 79,
+   "low_f": 64,
+   "avg_f": 72.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -606,10 +588,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 78,
-   "low_f": 51,
-   "avg_f": 68.0,
-   "forecast": "Sunny",
+   "high_f": 80,
+   "low_f": 61,
+   "avg_f": 71.0,
+   "forecast": "Areas Of Smoke",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -630,9 +612,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 71,
-   "low_f": 51,
-   "avg_f": 63.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "low_f": 52,
+   "avg_f": 62.0,
+   "forecast": "Slight Chance Rain Showers then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -652,10 +634,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 100,
-   "low_f": 69,
+   "high_f": 102,
+   "low_f": 72,
    "avg_f": 87.0,
-   "forecast": "Sunny",
+   "forecast": "Slight Chance Light Rain then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -675,10 +657,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 72,
-   "low_f": 49,
-   "avg_f": 61.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 74,
+   "low_f": 63,
+   "avg_f": 70.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -698,10 +680,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 87,
-   "low_f": 56,
-   "avg_f": 74.0,
-   "forecast": "Sunny",
+   "high_f": 89,
+   "low_f": 60,
+   "avg_f": 75.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
