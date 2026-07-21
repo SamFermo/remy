@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-20T06:37:53",
+ "generated_at": "2026-07-20T18:22:41",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -112,11 +112,21 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 4,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -129,6 +139,150 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 100,
+   "low_f": 67,
+   "avg_f": 85.0,
+   "forecast": "Partly Sunny then Haze",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (85F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:33PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:33PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:03PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 11:59AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 5,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 92,
+   "low_f": 61,
+   "avg_f": 79.0,
+   "forecast": "Patchy Smoke",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 6:03PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 3:24PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 1:46PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 1:14PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 5,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 95,
+   "low_f": 62,
+   "avg_f": 80.0,
+   "forecast": "Haze",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:33PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:33PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 10:43AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 3,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -154,7 +308,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -194,7 +348,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -233,7 +387,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -271,9 +425,9 @@
    ],
    "alerts": [
     {
-     "event": "Extreme Heat Watch",
-     "severity": "Severe",
-     "headline": "Extreme Heat Watch issued July 20 at 5:54AM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 20 at 3:16PM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
@@ -289,76 +443,6 @@
     "berries"
    ],
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 92,
-   "low_f": 61,
-   "avg_f": 79.0,
-   "forecast": "Patchy Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 17 at 12:14PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
-   ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 95,
-   "low_f": 62,
-   "avg_f": 80.0,
-   "forecast": "Haze",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 19 at 6:42PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 19 at 1:48PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "columbia_basin_wa",
@@ -380,9 +464,15 @@
      "text": "Above-normal temps (86F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 20 at 11:50AM PDT until July 22 at 9:00PM PDT by NWS Spokane WA"
+    }
+   ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -392,39 +482,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 100,
-   "low_f": 67,
-   "avg_f": 85.0,
-   "forecast": "Partly Sunny then Haze",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (85F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "eastern_wa_rangeland",
@@ -442,9 +499,15 @@
      "text": "Heat building (85F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 20 at 11:50AM PDT until July 22 at 9:00PM PDT by NWS Spokane WA"
+    }
+   ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -454,6 +517,40 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 74,
+   "low_f": 63,
+   "avg_f": 70.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -475,7 +572,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -512,7 +609,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 20 at 3:30AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 20 at 2:39PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -652,29 +749,6 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 74,
-   "low_f": 63,
-   "avg_f": 70.0,
-   "forecast": "Partly Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -706,5 +780,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 12
+ "high_regions": 13
 }
