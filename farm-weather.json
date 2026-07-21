@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-20T18:59:30",
+ "generated_at": "2026-07-20T20:14:52",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -214,6 +214,11 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 20 at 7:40PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
      "headline": "Air Quality Alert issued July 20 at 6:03PM PDT by NWS Pendleton OR"
     },
     {
@@ -225,11 +230,6 @@
      "event": "Air Quality Alert",
      "severity": "Unknown",
      "headline": "Air Quality Alert issued July 20 at 1:46PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 1:14PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
