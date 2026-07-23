@@ -1296,6 +1296,9 @@ if(/[?&]embed=/.test(location.search||'')){
 .lfilters::-webkit-scrollbar{display:none}
 .lfchip{flex:0 0 auto;font-family:var(--fb);font-size:11.5px;padding:6px 11px;border-radius:20px;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink-60);cursor:pointer;white-space:nowrap}
 .lfchip.on{background:var(--ink);color:#0a1028;border-color:var(--ink)}
+.lcchip{flex:0 0 auto;font-family:var(--fb);font-size:11.5px;padding:6px 11px;border-radius:20px;border:1px solid var(--ink-12);background:var(--ink-6);color:var(--ink-60);cursor:pointer;white-space:nowrap}
+.lcchip.on{background:rgba(231,211,166,.9);color:#0a1028;border-color:rgba(231,211,166,.9)}
+.lr-cat{flex:0 0 auto;font-family:var(--fb);font-size:12px;padding:6px 4px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink);max-width:118px}
 .seg button{flex:1 0 auto;white-space:nowrap;font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:0.04em;color:var(--ink-60);background:none;border:none;border-radius:30px;padding:9px 13px;cursor:pointer;transition:color .26s var(--ease),background .26s var(--ease)}
 .seg button.on{color:#0a1028;background:var(--ink)}
 .guided-link{display:block;width:100%;text-align:center;background:none;border:none;cursor:pointer;font-family:var(--fd);font-style:italic;font-size:13px;color:var(--olive);padding:6px 0 2px;letter-spacing:0.02em}
@@ -2411,7 +2414,7 @@ const DATA = {
     },
     {
       "name": "Apple Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -2460,7 +2463,7 @@ const DATA = {
     },
     {
       "name": "Chives (Local)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -2501,7 +2504,7 @@ const DATA = {
     },
     {
       "name": "Cultured Butter",
-      "category": "produce",
+      "category": "pantry",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -2545,7 +2548,7 @@ const DATA = {
     },
     {
       "name": "Fireweed Honey",
-      "category": "produce",
+      "category": "pantry",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -2721,7 +2724,7 @@ const DATA = {
     },
     {
       "name": "Lemon Balm",
-      "category": "green",
+      "category": "herb",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -3048,7 +3051,7 @@ const DATA = {
     },
     {
       "name": "Beach Orach",
-      "category": "sea",
+      "category": "green",
       "vendor": "Foraged & Found Edibles",
       "months": [
         0,
@@ -3075,7 +3078,7 @@ const DATA = {
     },
     {
       "name": "Bigleaf Maple Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3097,7 +3100,7 @@ const DATA = {
     },
     {
       "name": "Black Locust Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3148,7 +3151,7 @@ const DATA = {
     },
     {
       "name": "Blue Elderflowers",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "months": [
         0,
@@ -3219,7 +3222,7 @@ const DATA = {
     },
     {
       "name": "Devils Club Shoots",
-      "category": "green",
+      "category": "produce",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3263,7 +3266,7 @@ const DATA = {
     },
     {
       "name": "Flowering Red Currant Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3312,7 +3315,7 @@ const DATA = {
     },
     {
       "name": "Goosetongue",
-      "category": "sea",
+      "category": "green",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3362,7 +3365,7 @@ const DATA = {
     },
     {
       "name": "Ladyfern Fiddleheads",
-      "category": "green",
+      "category": "produce",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3390,7 +3393,7 @@ const DATA = {
     },
     {
       "name": "Licorice Fern Rhizomes",
-      "category": "green",
+      "category": "produce",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3439,7 +3442,7 @@ const DATA = {
     },
     {
       "name": "Magnolia Buds",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3539,7 +3542,7 @@ const DATA = {
     },
     {
       "name": "Ramps (Wild)",
-      "category": "green",
+      "category": "produce",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3567,7 +3570,7 @@ const DATA = {
     },
     {
       "name": "Red Elder Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3589,7 +3592,7 @@ const DATA = {
     },
     {
       "name": "Saltmarsh Daisy",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3617,7 +3620,7 @@ const DATA = {
     },
     {
       "name": "Sea Beans",
-      "category": "sea",
+      "category": "green",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3645,7 +3648,7 @@ const DATA = {
     },
     {
       "name": "Sea Rocket",
-      "category": "sea",
+      "category": "green",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3674,7 +3677,7 @@ const DATA = {
     },
     {
       "name": "Sitka Spruce Tips",
-      "category": "green",
+      "category": "herb",
       "vendor": "Foraged & Found Edibles",
       "months": [
         0,
@@ -3746,7 +3749,7 @@ const DATA = {
     },
     {
       "name": "Western Redbud Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -3839,7 +3842,7 @@ const DATA = {
     },
     {
       "name": "Wood Sorrel (Wild)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Foraged & Found Edibles",
       "source": "vendor",
       "months": [
@@ -4047,7 +4050,7 @@ const DATA = {
     },
     {
       "name": "Chicories (Mixed)",
-      "category": "produce",
+      "category": "green",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4069,7 +4072,7 @@ const DATA = {
     },
     {
       "name": "Chive Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4189,7 +4192,7 @@ const DATA = {
     },
     {
       "name": "Fiddleheads",
-      "category": "green",
+      "category": "produce",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4343,7 +4346,7 @@ const DATA = {
     },
     {
       "name": "Hydro Chervil",
-      "category": "green",
+      "category": "herb",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4490,7 +4493,7 @@ const DATA = {
     },
     {
       "name": "Nasturtium Leaf",
-      "category": "green",
+      "category": "herb",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4742,7 +4745,7 @@ const DATA = {
     },
     {
       "name": "Rainier Cherries",
-      "category": "berry",
+      "category": "produce",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4769,7 +4772,7 @@ const DATA = {
     },
     {
       "name": "Ramps",
-      "category": "green",
+      "category": "produce",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -4837,7 +4840,7 @@ const DATA = {
     },
     {
       "name": "Red Cherries",
-      "category": "berry",
+      "category": "produce",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -5140,7 +5143,7 @@ const DATA = {
     },
     {
       "name": "Treviso Radicchio",
-      "category": "produce",
+      "category": "green",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -5294,7 +5297,7 @@ const DATA = {
     },
     {
       "name": "Wood Sorrel",
-      "category": "green",
+      "category": "herb",
       "vendor": "Franks Quality Produce",
       "source": "vendor",
       "months": [
@@ -6223,7 +6226,7 @@ const DATA = {
     },
     {
       "name": "Angelica",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6279,7 +6282,7 @@ const DATA = {
     },
     {
       "name": "Basil (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6418,7 +6421,7 @@ const DATA = {
     },
     {
       "name": "Borage",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6446,7 +6449,7 @@ const DATA = {
     },
     {
       "name": "Bronze Fennel",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6503,7 +6506,7 @@ const DATA = {
     },
     {
       "name": "Calendula",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6554,7 +6557,7 @@ const DATA = {
     },
     {
       "name": "Chamomile",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6628,7 +6631,7 @@ const DATA = {
     },
     {
       "name": "Chicken Eggs",
-      "category": "protein",
+      "category": "egg",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6651,7 +6654,7 @@ const DATA = {
     },
     {
       "name": "Chive Blossoms",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6679,7 +6682,7 @@ const DATA = {
     },
     {
       "name": "Chives",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6707,7 +6710,7 @@ const DATA = {
     },
     {
       "name": "Cilantro (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6835,7 +6838,7 @@ const DATA = {
     },
     {
       "name": "Cut Flowers (Farm)",
-      "category": "flower",
+      "category": "flower_cut",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": false,
@@ -6858,7 +6861,7 @@ const DATA = {
     },
     {
       "name": "Dill (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -6927,7 +6930,7 @@ const DATA = {
     },
     {
       "name": "Dried Beans",
-      "category": "produce",
+      "category": "pantry",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": false,
@@ -6950,7 +6953,7 @@ const DATA = {
     },
     {
       "name": "Duck Eggs",
-      "category": "protein",
+      "category": "egg",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -6973,7 +6976,7 @@ const DATA = {
     },
     {
       "name": "Edible Flowers",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7047,7 +7050,7 @@ const DATA = {
     },
     {
       "name": "Fennel Fronds",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7075,7 +7078,7 @@ const DATA = {
     },
     {
       "name": "Flowering Branches",
-      "category": "flower",
+      "category": "flower_cut",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7337,7 +7340,7 @@ const DATA = {
     },
     {
       "name": "Honeysuckle",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7544,7 +7547,7 @@ const DATA = {
     },
     {
       "name": "Lavender",
-      "category": "flower",
+      "category": "flower_cut",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7572,7 +7575,7 @@ const DATA = {
     },
     {
       "name": "Lemon Balm (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7600,7 +7603,7 @@ const DATA = {
     },
     {
       "name": "Lemon Verbena",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -7786,7 +7789,7 @@ const DATA = {
     },
     {
       "name": "Lilacs",
-      "category": "flower",
+      "category": "flower_cut",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7842,7 +7845,7 @@ const DATA = {
     },
     {
       "name": "Lovage",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -7893,7 +7896,7 @@ const DATA = {
     },
     {
       "name": "Marigolds",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": false,
@@ -7916,7 +7919,7 @@ const DATA = {
     },
     {
       "name": "Marjoram (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": false,
@@ -7939,7 +7942,7 @@ const DATA = {
     },
     {
       "name": "Mint",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8018,7 +8021,7 @@ const DATA = {
     },
     {
       "name": "Nasturtium",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8095,7 +8098,7 @@ const DATA = {
     },
     {
       "name": "Oregano",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8165,7 +8168,7 @@ const DATA = {
     },
     {
       "name": "Parsley (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -8469,7 +8472,7 @@ const DATA = {
     },
     {
       "name": "Rose Petals",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8497,7 +8500,7 @@ const DATA = {
     },
     {
       "name": "Rosemary",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8544,7 +8547,7 @@ const DATA = {
     },
     {
       "name": "Savory",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -8600,7 +8603,7 @@ const DATA = {
     },
     {
       "name": "Sorrel (French)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8656,7 +8659,7 @@ const DATA = {
     },
     {
       "name": "Sweet Cicely",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8702,7 +8705,7 @@ const DATA = {
     },
     {
       "name": "Tarragon (Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -8730,7 +8733,7 @@ const DATA = {
     },
     {
       "name": "Thyme",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "months": [
@@ -8758,7 +8761,7 @@ const DATA = {
     },
     {
       "name": "Tomato Leaf",
-      "category": "green",
+      "category": "herb",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": true,
@@ -8842,7 +8845,7 @@ const DATA = {
     },
     {
       "name": "Violas",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Swan House Farms",
       "source": "farm",
       "available_2026": false,
@@ -9272,7 +9275,7 @@ const DATA = {
     },
     {
       "name": "Palouse Pastured Chicken Eggs (Case)",
-      "category": "protein",
+      "category": "egg",
       "vendor": "Preserve Meat",
       "source": "vendor",
       "months": [
@@ -9573,7 +9576,7 @@ const DATA = {
     },
     {
       "name": "Pea Vines (Local Roots)",
-      "category": "produce",
+      "category": "green",
       "vendor": "Local Roots Farm",
       "source": "vendor",
       "months": [
@@ -9600,7 +9603,7 @@ const DATA = {
     },
     {
       "name": "Salad Mix (Local Roots)",
-      "category": "produce",
+      "category": "green",
       "vendor": "Local Roots Farm",
       "source": "vendor",
       "months": [
@@ -10043,7 +10046,7 @@ const DATA = {
     },
     {
       "name": "WA Sweet Cherries (OPMA)",
-      "category": "berry",
+      "category": "produce",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -10322,7 +10325,7 @@ const DATA = {
     },
     {
       "name": "Bronze Fennel Fronds (Farmstand)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Farmstand Local Foods",
       "source": "vendor",
       "months": [
@@ -10592,7 +10595,7 @@ const DATA = {
     },
     {
       "name": "Aquaponics, Green Leaf Lettuce",
-      "category": "produce",
+      "category": "green",
       "vendor": "Puget Sound Food Hub",
       "source": "psfh-2026-06-17",
       "months": [
@@ -11782,7 +11785,7 @@ const DATA = {
     },
     {
       "name": "Chives, Garlic",
-      "category": "produce",
+      "category": "herb",
       "vendor": "Puget Sound Food Hub",
       "source": "psfh-2026-06-17",
       "months": [
@@ -12272,7 +12275,7 @@ const DATA = {
     },
     {
       "name": "Flowers, Peonies",
-      "category": "flower",
+      "category": "flower_cut",
       "vendor": "Puget Sound Food Hub",
       "source": "psfh-2026-06-17",
       "months": [
@@ -12307,7 +12310,7 @@ const DATA = {
     },
     {
       "name": "Fruit, Apple Puree",
-      "category": "produce",
+      "category": "pantry",
       "vendor": "Puget Sound Food Hub",
       "source": "psfh-2026-06-17",
       "months": [
@@ -13056,7 +13059,7 @@ const DATA = {
     },
     {
       "name": "Seasonal Flower Mix (Farmstand)",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Farmstand Local Foods",
       "months": [
         0,
@@ -13238,7 +13241,7 @@ const DATA = {
     },
     {
       "name": "Ground pork",
-      "category": "green",
+      "category": "protein",
       "vendor": "Swan House Farms",
       "months": [
         0,
@@ -13468,7 +13471,7 @@ const DATA = {
     },
     {
       "name": "Chinese Basil (Metta Farm)",
-      "category": "green",
+      "category": "herb",
       "vendor": "Farmstand Local Foods",
       "months": [
         0,
@@ -13494,7 +13497,7 @@ const DATA = {
     },
     {
       "name": "Squash Blossoms (Tualco Valley Farm)",
-      "category": "flower",
+      "category": "flower_edible",
       "vendor": "Farmstand Local Foods",
       "months": [
         0,
@@ -32655,7 +32658,7 @@ const DATA = {
     }
   ],
   "price_drift": {
-    "generated": "2026-07-21",
+    "generated": "2026-07-22",
     "threshold_pct": 5.0,
     "summary": {
       "tracked_items": 310,
@@ -34071,7 +34074,9 @@ const DATA = {
 };
 
 // ── CONSTANTS ──────────────────────────────────────────────────────
-var CAT_ORDER=['produce','forage','seafood','protein'];
+/* 2026-07-22 taxonomy: full new-slug order (fixes the "two produce sections" read — 'sea' etc. used
+   to fall into the catch-all 99 bucket after produce and read as more produce). Legacy keys kept. */
+var CAT_ORDER=['produce','green','herb','berry','flower_edible','flower_cut','mushroom','forage','sea','seafood','egg','protein','pantry'];
 
 var VENDOR_GREET={
   'Franks Quality Produce':'Jeff',
@@ -36095,7 +36100,7 @@ function _flowFilterStrip(containerId, vendors, categories, f){
     html+='<div class="flow-filter-row">'+
       categories.map(function(c){
         var safe=c.replace(/'/g,"\\'");
-        return '<button class="pill'+(c===f.category?' active':'')+'" onclick="setFlowFilter(\''+containerId+'\',\'category\',\''+safe+'\')">'+c+'</button>';
+        return '<button class="pill'+(c===f.category?' active':'')+'" onclick="setFlowFilter(\''+containerId+'\',\'category\',\''+safe+'\')">'+((window.catTypeLabel&&c!=='All')?window.catTypeLabel(c):c)+'</button>';
       }).join('')+
     '</div>';
   }
@@ -36714,7 +36719,7 @@ function runIntroMorph(){
 (function(){
 var ROOT=document.getElementById('farm');
 
-window.__REMY_WX = /*__WX__*/{"generated_at":"2026-07-22T06:37:44","enso":{"phase":"El Niño","band":"weak","status":"El Niño developing","trend":"warming","oni":0.98,"oni_season":"AMJ 2026","consec_seasons":2,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"JFM 2025","oni":-0.24},{"season":"FMA 2025","oni":-0.06},{"season":"MAM 2025","oni":0.02},{"season":"AMJ 2025","oni":-0.02},{"season":"MJJ 2025","oni":-0.04},{"season":"JJA 2025","oni":-0.14},{"season":"JAS 2025","oni":-0.28},{"season":"ASO 2025","oni":-0.4},{"season":"SON 2025","oni":-0.51},{"season":"OND 2025","oni":-0.55},{"season":"NDJ 2025","oni":-0.54},{"season":"DJF 2026","oni":-0.37},{"season":"JFM 2026","oni":-0.14},{"season":"FMA 2026","oni":0.13},{"season":"MAM 2026","oni":0.51},{"season":"AMJ 2026","oni":0.98}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 1.5°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":90,"low_f":57,"avg_f":71.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (71F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"}],"fire":false,"high_count":4,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":99,"low_f":63,"avg_f":83.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (83F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 21 at 12:16PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 12:03PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 11:59AM PDT by NWS Spokane WA"}],"fire":false,"high_count":5,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":93,"low_f":59,"avg_f":79.0,"forecast":"Patchy Smoke","signals":[{"level":"high","text":"Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 7:40PM PDT by NWS Pendleton OR"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 6:03PM PDT by NWS Pendleton OR"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 1:46PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":4,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised","grass_fed"],"seasonal_relevance":"Year-round; peak grass growth spring-fall"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":96,"low_f":58,"avg_f":74.0,"forecast":"Sunny then Patchy Smoke","signals":[{"level":"high","text":"Heat building (96F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (74F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":93,"low_f":58,"avg_f":73.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":91,"low_f":60,"avg_f":72.0,"forecast":"Mostly Clear","signals":[{"level":"high","text":"Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (72F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":102,"low_f":65,"avg_f":85.0,"forecast":"Patchy Smoke","signals":[{"level":"high","text":"Heat building (102F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (85F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 21 at 8:30PM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":100,"low_f":64,"avg_f":84.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (84F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":100,"low_f":63,"avg_f":84.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (84F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"}],"fire":false,"high_count":2,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":77,"low_f":53,"avg_f":63.0,"forecast":"Sunny","signals":[],"alerts":[{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":88,"low_f":57,"avg_f":69.0,"forecast":"Sunny","signals":[{"level":"info","text":"Marine conditions: high 88F, low 57F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":85,"low_f":54,"avg_f":66.0,"forecast":"Mostly Clear","signals":[{"level":"info","text":"Marine conditions: high 85F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":82,"low_f":54,"avg_f":64.0,"forecast":"Patchy Smoke","signals":[],"alerts":[{"event":"Red Flag Warning","severity":"Severe","headline":"Red Flag Warning issued July 22 at 3:48AM PDT until July 23 at 2:00PM PDT by NWS Seattle WA"}],"fire":true,"high_count":1,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":77,"low_f":56,"avg_f":64.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Marine conditions: high 77F, low 56F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":81,"low_f":51,"avg_f":65.0,"forecast":"Areas Of Smoke","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":69,"low_f":50,"avg_f":60.0,"forecast":"Patchy Fog then Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":98,"low_f":68,"avg_f":85.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":90,"low_f":61,"avg_f":77.0,"forecast":"Patchy Smoke","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":92,"low_f":61,"avg_f":78.0,"forecast":"Haze","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":13}/*__END_WX__*/;
+window.__REMY_WX = /*__WX__*/{"generated_at":"2026-07-22T19:50:02","enso":{"phase":"El Niño","band":"weak","status":"El Niño developing","trend":"warming","oni":0.98,"oni_season":"AMJ 2026","consec_seasons":2,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"JFM 2025","oni":-0.24},{"season":"FMA 2025","oni":-0.06},{"season":"MAM 2025","oni":0.02},{"season":"AMJ 2025","oni":-0.02},{"season":"MJJ 2025","oni":-0.04},{"season":"JJA 2025","oni":-0.14},{"season":"JAS 2025","oni":-0.28},{"season":"ASO 2025","oni":-0.4},{"season":"SON 2025","oni":-0.51},{"season":"OND 2025","oni":-0.55},{"season":"NDJ 2025","oni":-0.54},{"season":"DJF 2026","oni":-0.37},{"season":"JFM 2026","oni":-0.14},{"season":"FMA 2026","oni":0.13},{"season":"MAM 2026","oni":0.51},{"season":"AMJ 2026","oni":0.98}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 1.5°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":90,"low_f":57,"avg_f":71.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (71F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":100,"low_f":64,"avg_f":84.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (84F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"},{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 9:53AM PDT by NWS Spokane WA"}],"fire":true,"high_count":5,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":99,"low_f":63,"avg_f":83.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (83F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Red Flag Warning","severity":"Severe","headline":"Red Flag Warning issued July 22 at 2:12PM PDT until July 24 at 2:00AM PDT by NWS Spokane WA"},{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"},{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"}],"fire":true,"high_count":5,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":100,"low_f":63,"avg_f":84.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (84F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"},{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 9:53AM PDT by NWS Spokane WA"}],"fire":true,"high_count":5,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":93,"low_f":59,"avg_f":79.0,"forecast":"Patchy Smoke","signals":[{"level":"high","text":"Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 7:00PM PDT by NWS Pendleton OR"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 12:08PM PDT by NWS Pendleton OR"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 22 at 9:41AM PDT by NWS Pendleton OR"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued July 20 at 7:40PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":5,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised","grass_fed"],"seasonal_relevance":"Year-round; peak grass growth spring-fall"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":96,"low_f":58,"avg_f":74.0,"forecast":"Sunny then Patchy Smoke","signals":[{"level":"high","text":"Heat building (96F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (74F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":93,"low_f":58,"avg_f":73.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":91,"low_f":60,"avg_f":72.0,"forecast":"Mostly Clear","signals":[{"level":"high","text":"Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (72F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":2,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":102,"low_f":65,"avg_f":85.0,"forecast":"Patchy Smoke","signals":[{"level":"high","text":"Heat building (102F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (85F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 6:41AM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":88,"low_f":57,"avg_f":69.0,"forecast":"Sunny","signals":[{"level":"info","text":"Marine conditions: high 88F, low 57F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":85,"low_f":54,"avg_f":66.0,"forecast":"Mostly Clear","signals":[{"level":"info","text":"Marine conditions: high 85F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":82,"low_f":54,"avg_f":64.0,"forecast":"Patchy Smoke","signals":[],"alerts":[{"event":"Red Flag Warning","severity":"Severe","headline":"Red Flag Warning issued July 22 at 1:49PM PDT until July 23 at 10:00PM PDT by NWS Seattle WA"}],"fire":true,"high_count":1,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":92,"low_f":61,"avg_f":78.0,"forecast":"Haze","signals":[],"alerts":[{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"}],"fire":true,"high_count":1,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":77,"low_f":56,"avg_f":64.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Marine conditions: high 77F, low 56F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":81,"low_f":51,"avg_f":65.0,"forecast":"Areas Of Smoke","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":69,"low_f":50,"avg_f":60.0,"forecast":"Patchy Fog then Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":98,"low_f":68,"avg_f":85.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":77,"low_f":53,"avg_f":63.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":90,"low_f":61,"avg_f":77.0,"forecast":"Patchy Smoke","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":13}/*__END_WX__*/;
 var DATA = /*__DATA__*/ {"week": "week of June 22", "kelly_last_touch": "6/10", "market_count": 39, "growList": [{"name": "Chive Blossoms", "category": "flower", "status": "Peak", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Kale (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 48.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 57.6, "ref_measurable": true, "per_lb": 3.33, "per_lb_basis": "estimate", "per_lb_note": "24 bunch/CS x ~0.6 lb/bunch", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "greens bunch 0.75-1.5#, midpoint (UGA/UK ext.)"}]}}, {"name": "Lettuce (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 28.8, "ref_measurable": true, "per_lb": 12.0, "per_lb_basis": "exact", "per_lb_note": "2#/CS baby head mix", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lovage", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.5, "unit": "#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 29.4, "ref_measurable": true, "per_lb": 24.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Mint", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 3.75, "unit": "1/4#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 4.5, "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Parsley (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Franks", "swan_price": 1.19, "ref_measurable": true, "per_lb": 10.53, "per_lb_basis": "estimate", "per_lb_note": "1-2 oz herb bunch, ~1.5oz", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.094, "basis": "estimate", "note": "1-2 oz herb bunch, ~1.5oz"}]}}, {"name": "Tomato Leaf", "category": "green", "status": "Peak", "qty": "", "push": false, "market": null}, {"name": "Beef Shanks", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 15.0, "unit": "lb", "freshness": "AGING", "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Beef Tenderloin", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 33.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 33.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Bronze Fennel", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 45.0, "unit": "24CT CS", "freshness": "AGING", "ref_measurable": false}}, {"name": "Cabbage (Farm)", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 1.8, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Chicken Eggs", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 8.5, "unit": "dozen", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "dozen", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Chives", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 6.0, "unit": "1/4#", "freshness": "AGING", "vendor": "Franks", "swan_price": 7.2, "ref_measurable": true, "per_lb": 24.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Dill (Farm)", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 1.25, "unit": "bn", "freshness": "FRESH", "vendor": "Franks", "swan_price": 1.5, "ref_measurable": true, "per_lb": 13.3, "per_lb_basis": "estimate", "per_lb_note": "1-2 oz herb bunch, ~1.5oz", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.094, "basis": "estimate", "note": "1-2 oz herb bunch, ~1.5oz"}]}}, {"name": "Duck Eggs", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 1.0, "unit": "each", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "each", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Edible Flowers", "category": "flower", "status": "Available", "qty": "", "push": false, "market": {"price": 15, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Fennel Fronds", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 2.85, "unit": "each", "freshness": "FRESH", "vendor": "Franks", "swan_price": 3.9, "ref_measurable": true, "per_lb": 4.07, "per_lb_basis": "estimate", "per_lb_note": "per fennel bulb", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Grape Leaves", "category": "green", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Ground Beef / Bolo Meat", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 13.2, "unit": "lb", "freshness": "FRESH", "ref_measurable": true, "per_lb": 13.2, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Honeysuckle", "category": "flower", "status": "Available", "qty": "", "push": false, "market": {"price": 12, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Lamb Loin Chops", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 21.95, "unit": "lb", "freshness": "FRESH", "vendor": "Key City", "swan_price": 26.34, "ref_measurable": true, "per_lb": 21.95, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lavender", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Lemon Balm (Farm)", "category": "green", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Nasturtium", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Oregano", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 3.99, "unit": "1/4#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 9.0, "ref_measurable": true, "per_lb": 15.96, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Rose Petals", "category": "flower", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Rosemary", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 12.5, "unit": "#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 15.0, "ref_measurable": true, "per_lb": 12.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Snap Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 5.78, "unit": "lb", "freshness": "AGING", "vendor": "Franks", "swan_price": 6.94, "ref_measurable": true, "per_lb": 5.78, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Snow Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 4.55, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 5.04, "ref_measurable": true, "per_lb": 4.55, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Sorrel (French)", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 8.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Franks", "swan_price": 9.6, "ref_measurable": true, "per_lb": 8.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Thyme", "category": "green", "status": "Available", "qty": "", "push": false, "market": {"price": 9.75, "unit": "1/2#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 11.7, "ref_measurable": true, "per_lb": 19.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Garlic Scapes", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 6.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Franks", "swan_price": 7.2, "ref_measurable": true, "per_lb": 6.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Turnips", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 2.75, "unit": "bn", "freshness": "PRIOR-YEAR", "vendor": "Franks", "swan_price": 3.3, "ref_measurable": true, "per_lb": 2.75, "per_lb_basis": "estimate", "per_lb_note": "root veg, tops-on, ~1#", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "root veg, tops-on, ~1#"}]}}, {"name": "Borage", "category": "green", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Loganberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Mixed Berries (Farm)", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Raspberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Angelica", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Apples (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.25, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 2.7, "ref_measurable": true, "per_lb": 2.25, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Basil (Farm)", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 5.5, "unit": "1/2#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 11.1, "ref_measurable": true, "per_lb": 11.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Calendula", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Candy Roaster Squash", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Cherry Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 38.7, "ref_measurable": true, "per_lb": 3.58, "per_lb_basis": "estimate", "per_lb_note": "12 pint/CS x ~0.75 lb/pint", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Cilantro (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Franks", "swan_price": 1.19, "ref_measurable": true, "per_lb": 10.53, "per_lb_basis": "estimate", "per_lb_note": "1-2 oz herb bunch, ~1.5oz", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.094, "basis": "estimate", "note": "1-2 oz herb bunch, ~1.5oz"}]}}, {"name": "Cucumber (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Heirloom Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 52.0, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 62.4, "ref_measurable": true, "per_lb": 5.2, "per_lb_basis": "exact", "per_lb_note": "10#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lemon Verbena", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Onions", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Peppers (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.5, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 16.79, "ref_measurable": true, "per_lb": 2.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Savory", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Squash (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 1.8, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Tarragon (Farm)", "category": "Herb / Green", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 8.5, "unit": "1/4#", "freshness": "AGING", "ref_measurable": true, "per_lb": 34.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Tomatoes (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 38.7, "ref_measurable": false}}, {"name": "Zucchini (Farm)", "category": "Produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 36.5, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 31.5, "ref_measurable": true, "per_lb": 1.82, "per_lb_basis": "exact", "per_lb_note": "20#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Flowering Branches", "category": "Edible Flower", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Green Garlic", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Lilacs", "category": "Edible Flower", "status": "Done", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Nettle", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Radish", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Rhubarb (Farm)", "category": "Produce", "status": "Done", "qty": "", "push": false, "market": {"price": 3.99, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 4.79, "ref_measurable": true, "per_lb": 3.99, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}]} /*__END__*/;
 
 var MIC='<svg class="ic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
@@ -36732,6 +36737,24 @@ var pushed=new Set(grow.filter(function(g){return g.push;}).map(function(g){retu
 var markdown=new Set();
 /* persistence: localStorage now; mirrors to Firestore farmAvailability once rules allow */
 var BUYER='san_fermo', SKEY='remy.farm.'+BUYER+'.v1', statusEdits={}, farmProfile={};
+/* ── Category taxonomy (2026-07-22): Kelly-editable layer over the canonical categories.
+   categoryEdits = per-item reassign overrides {cropName: typeKey} — applied on top in applyState,
+   NEVER written back to canonical seasonal-data.json (data-vs-logic: canonical stays clean).
+   categoryTypes = the farm's editable type list [{k,l}] driving filter chips + group order.
+   Both persist on the farm doc and ride onto every tenant doc via _scMaterialize. */
+var DEFAULT_CATEGORY_TYPES=[
+  {k:'herb',l:'Herbs'},{k:'green',l:'Greens'},{k:'produce',l:'Produce'},{k:'berry',l:'Berries'},
+  {k:'mushroom',l:'Mushrooms'},{k:'flower_edible',l:'Edible Flowers'},{k:'flower_cut',l:'Cut Flowers'},
+  {k:'egg',l:'Eggs'},{k:'sea',l:'Seafood'},{k:'protein',l:'Proteins'},{k:'pantry',l:'Pantry'}];
+var categoryEdits={}, categoryTypes=null;
+function catTypes(){ return (categoryTypes&&categoryTypes.length)?categoryTypes:DEFAULT_CATEGORY_TYPES; }
+function catTypeLabel(k){ if(!k)return 'Other';
+  var t=catTypes().filter(function(t){return t.k===k;})[0]; if(t)return t.l;
+  if(typeof LCAT!=='undefined'&&LCAT[k])return LCAT[k];
+  return k.charAt(0).toUpperCase()+k.slice(1).replace(/_/g,' '); }
+function catTypeOrder(k){ var ts=catTypes(); for(var i=0;i<ts.length;i++)if(ts[i].k===k)return i; return 99; }
+try{window.catTypeLabel=catTypeLabel;window.catTypeOrder=catTypeOrder;}catch(e){}   // for kitchen-side blocks (flow pills)
+function applyCategoryEdits(){ try{ grow.forEach(function(g){ if(categoryEdits[g.name])g.category=categoryEdits[g.name]; }); }catch(e){} }
 // Per-tenant push overrides (Kelly's "shared base + overrides" control). Keyed by buyer_id, each:
 // { markupPct:Number, items:{ cropName:{ ask?:Number, askUnit?:String, hidden?:Bool } } }. Persisted
 // in the BASE (san_fermo) availability doc's tenant_overrides field; never rides into a tenant doc.
@@ -36779,7 +36802,7 @@ function snapshot(){
   // status_edits is a non-colliding mirror of statusEdits: fbSave overwrites the doc's `status`
   // field with the 'live' doc-type marker, which would otherwise drop status changes on the
   // Firestore round-trip. status_edits rides alongside so won't-have / status edits sync too.
-  return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,status_edits:statusEdits,added:added,items:items,farm_profile:farmProfile,tenant_overrides:tenantOverrides,connected_tenants:connectedTenants,updated_at:Date.now()};
+  return {pushed:Array.from(pushed),markdown:Array.from(markdown),status:statusEdits,status_edits:statusEdits,added:added,items:items,farm_profile:farmProfile,tenant_overrides:tenantOverrides,connected_tenants:connectedTenants,category_edits:categoryEdits,category_types:(categoryTypes||null),updated_at:Date.now()};
 }
 function applyState(x){
   if(!x)return;
@@ -36816,6 +36839,11 @@ function applyState(x){
   // per-tenant hide: prune crops the farm hid for THIS tenant. Only tenant docs carry x.hidden, so the
   // farm reading its own san_fermo doc resets all flags to false (Kelly always sees everything).
   try{ grow.forEach(function(g){g._tHidden=false;}); if(Array.isArray(x.hidden)&&x.hidden.length){var _h={};x.hidden.forEach(function(n){_h[n]=1;}); grow.forEach(function(g){if(_h[g.name])g._tHidden=true;}); } }catch(e){}
+  // category layer: the farm's editable type list + per-item reassigns, applied over canonical.
+  // Rides tenant docs too (materialized), so a Kelly reassign shows through to every buyer window.
+  try{ if(x.category_edits&&typeof x.category_edits==='object')categoryEdits=x.category_edits;
+       if(Array.isArray(x.category_types)&&x.category_types.length)categoryTypes=x.category_types;
+       applyCategoryEdits(); }catch(e){}
 }
 function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}catch(e){}}
 function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
@@ -36933,7 +36961,7 @@ function _scMaterialize(tid){
     var m=(ov.markupPct!=null?Number(ov.markupPct):25); if(isNaN(m))m=0;
     var iov=ov.items||{};
     var base=snapshot();
-    var doc={pushed:[],markdown:base.markdown,status_edits:base.status_edits,added:base.added,items:{},farm_profile:base.farm_profile,updated_at:Date.now(),buyer_id:t,farm_id:'swan_house',name:'__sheet__',status:'live'};
+    var doc={pushed:[],markdown:base.markdown,status_edits:base.status_edits,added:base.added,items:{},farm_profile:base.farm_profile,category_edits:(base.category_edits||{}),category_types:(base.category_types||null),updated_at:Date.now(),buyer_id:t,farm_id:'swan_house',name:'__sheet__',status:'live'};
     Object.keys(base.items||{}).forEach(function(n){
       var o=iov[n]||{}; if(o.hidden)return;
       var it=JSON.parse(JSON.stringify(base.items[n]));
@@ -36959,6 +36987,7 @@ function _scMaterializeAll(){ try{ (connectedTenants||[]).forEach(function(ct){ 
    each change (no Done button) and re-materializes that tenant's fenced doc immediately. */
 var _rTab={tid:null};   // null = list view; a tenant id = that restaurant's pricing panel is open
 var _rFilter='all';     // status filter inside a restaurant's pricing panel (mirrors the full list)
+var _rCatFilter='all';  // category filter inside the panel (mirrors the full list's type chips)
 function _rName(tid){ var f=(connectedTenants||[]).filter(function(c){return c&&c.id===tid;})[0]; return (f&&f.name)||tid; }
 function renderRestaurants(){
   var host=document.getElementById('restaurants-body'); if(!host)return;
@@ -36977,7 +37006,7 @@ function renderRestaurants(){
     +'<div class="vh-sub">Wholesale buyers that order from you through their own Remy window. Tap one to set its pricing.</div>'
     +(rows||'<div style="padding:16px 2px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-60,#9aa6c0)">No connected restaurants yet.</div>')
     +'<div style="margin-top:14px;font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-45,#8893ad);line-height:1.5">To connect a new restaurant, its private login is set up once on the back end, then it shows up here to price.</div>';
-  host.querySelectorAll('.cr-row').forEach(function(b){ b.onclick=function(){ _rTab.tid=b.dataset.tid; _rFilter='all'; renderRestaurants(); }; });
+  host.querySelectorAll('.cr-row').forEach(function(b){ b.onclick=function(){ _rTab.tid=b.dataset.tid; _rFilter='all'; _rCatFilter='all'; renderRestaurants(); }; });
 }
 function renderRestaurantDetail(host,tid){
   var ov=tenantOverrides[tid]||(tenantOverrides[tid]={});
@@ -36989,7 +37018,7 @@ function renderRestaurantDetail(host,tid){
     var mk=Number(ov.markupPct); if(isNaN(mk))mk=0;
     var d=(mk>0?'up':(mk<0?'down':'same')), mag=Math.abs(mk);
     function tri(k,label){ var on=(d===k); return '<button class="cr-dir" data-md="'+k+'" style="flex:1;padding:9px 4px;border-radius:9px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:12.5px;border:1px solid '+(on?'rgba(255,255,255,.5)':'rgba(255,255,255,.15)')+';background:'+(on?'rgba(255,255,255,.1)':'transparent')+';color:var(--ink'+(on?'':'-60')+',#eaf0ff)">'+label+'</button>'; }
-    var rows=grow.filter(function(g){return _rFilter==='all'||(g.status||'—')===_rFilter;}).slice().sort(_sellSort).map(function(g){
+    var rows=grow.filter(function(g){return (_rFilter==='all'||(g.status||'—')===_rFilter)&&(_rCatFilter==='all'||(g.category||'other')===_rCatFilter);}).slice().sort(_sellSort).map(function(g){
       var n=g.name; var iv=ov.items[n]||{};
       var hidden=!!iv.hidden, custom=(iv.ask!=null);
       var base=(g.ask!=null)?('$'+Number(g.ask).toFixed(2)+unit(g)):'no base price';
@@ -37009,9 +37038,11 @@ function renderRestaurantDetail(host,tid){
       +'<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-60,#9aa6c0);margin-top:3px;line-height:1.4">Their list mirrors your full grow list. Prices start from your base; mark up, mark down, or match it. Set a custom price or hide any item just for them.</div>'
       +'<div style="margin:16px 0 6px;padding:12px 13px;border-radius:12px;background:rgba(255,255,255,.05)"><div style="font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-80,#c4cde2);margin-bottom:9px">How their prices compare to your base</div><div style="display:flex;gap:6px">'+tri('up','Mark up')+tri('same','Same price')+tri('down','Mark down')+'</div>'+magRow+'</div>'
       +'<div class="lfilters" id="cr-filters">'+_filterChips(_rFilter)+'</div>'
+      +'<div class="lfilters" id="cr-cat-filters">'+_catChips(_rCatFilter)+'</div>'
       +(rows||'<div style="padding:14px 2px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-60,#9aa6c0)">No crops match this filter.</div>');
     var bk=host.querySelector('.cr-back'); if(bk)bk.onclick=function(){ commit(); _rTab.tid=null; renderRestaurants(); };
     host.querySelectorAll('#cr-filters .lfchip').forEach(function(b){b.onclick=function(){_rFilter=b.dataset.f;draw();};});
+    host.querySelectorAll('#cr-cat-filters .lcchip').forEach(function(b){b.onclick=function(){_rCatFilter=b.dataset.c;draw();};});
     host.querySelectorAll('.cr-dir').forEach(function(bt){bt.onclick=function(){var k=bt.dataset.md;var cur=Math.abs(mk)||25;ov.markupPct=(k==='up'?cur:(k==='down'?-cur:0));commit();draw();};});
     var mg=host.querySelector('.cr-mag'); if(mg){mg.oninput=function(){var v=Math.abs(parseFloat(mg.value));if(isNaN(v))v=0;ov.markupPct=(d==='down'?-v:v);host.querySelectorAll('.cr-ask').forEach(function(inp){var g=byName[inp.dataset.n];if(!g)return;var p=scPrice(g);inp.placeholder=(p!=null?p.toFixed(2):'');});};mg.onchange=function(){commit();};}
     host.querySelectorAll('.cr-clear').forEach(function(b){b.onclick=function(e){e.stopPropagation();var n=b.dataset.n;if(ov.items[n]){delete ov.items[n].ask;if(!ov.items[n].hidden)delete ov.items[n];}commit();draw();};});
@@ -37380,8 +37411,8 @@ function setEditMode(on){
 }
 /* Farm-side "By type" view — group the full crop list into collapsible category sections (Sam, 2026-06-27). */
 var listByType=false, listTypeOpen={};
-var LCAT={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other'};
-function lcatLabel(c){return LCAT[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
+var LCAT={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other',flower_edible:'Edible Flowers',flower_cut:'Cut Flowers',pantry:'Pantry'};
+function lcatLabel(c){ try{ if(typeof catTypeLabel==='function')return catTypeLabel(c); }catch(e){} return LCAT[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
 function setListByType(on){listByType=on;var b=document.getElementById('bytype-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}renderList();}
 function removeAddedCrop(name){
   var idx=-1;for(var i=0;i<grow.length;i++){if(grow[i].name===name){idx=i;break;}}
@@ -37394,7 +37425,8 @@ function ngOpen(){
   var n=document.getElementById('ng-name');if(n)n.value='';
   var q=document.getElementById('ng-qty');if(q)q.value='';
   var s=document.getElementById('ng-status');if(s)s.value='Available';
-  var c=document.getElementById('ng-cat');if(c)c.selectedIndex=0;
+  var c=document.getElementById('ng-cat');
+  if(c){ try{ c.innerHTML=catTypes().map(function(t){return '<option value="'+t.k+'">'+t.l+'</option>';}).join('')+'<option value="prepped">Prepped</option>'; }catch(e){} c.selectedIndex=0; }
   document.getElementById('ngTool').classList.add('open');
   if(n)setTimeout(function(){try{n.focus();}catch(e){}},60);
 }
@@ -38140,10 +38172,47 @@ document.getElementById('add-toggle').onclick=function(){document.getElementById
 
 var stockMode=false;
 var listFilter='all';   // status filter for the full list; the restaurant panel has its own (_rFilter)
+var listCatFilter='all';   // category filter for the full list (2026-07-22 taxonomy build)
+var typeEditOpen=false;    // inline "Edit types" panel in the By type view
 function _sellRank(g){var i=STATUS_ORDER.indexOf(g&&g.status);return i<0?99:i;}
 // sell-readiness: Peak > Available > Trickling > Coming Soon > Not Yet > Done; pushed floats up within a status; then A-Z
 function _sellSort(a,b){var ra=_sellRank(a),rb=_sellRank(b);if(ra!==rb)return ra-rb;var pa=pushed.has(a.name)?0:1,pb=pushed.has(b.name)?0:1;if(pa!==pb)return pa-pb;return a.name.localeCompare(b.name);}
 function _filterChips(active){var c={};grow.forEach(function(g){var s=g.status||'—';c[s]=(c[s]||0)+1;});var chips=['<button class="lfchip'+(active==='all'?' on':'')+'" data-f="all">All ('+grow.length+')</button>'];STATUS_ORDER.forEach(function(s){if(c[s])chips.push('<button class="lfchip'+(active===s?' on':'')+'" data-f="'+s+'">'+s+' ('+c[s]+')</button>');});return chips.join('');}
+/* category chips: rendered from the farm's editable type list, counts over the whole grow list.
+   Types with zero items only show inside the Edit-types panel (so retiring is discoverable). */
+function _catChips(active){var c={};grow.forEach(function(g){var k=g.category||'other';c[k]=(c[k]||0)+1;});
+  var chips=['<button class="lcchip'+(active==='all'?' on':'')+'" data-c="all">All types</button>'];
+  catTypes().forEach(function(t){ if(c[t.k])chips.push('<button class="lcchip'+(active===t.k?' on':'')+'" data-c="'+t.k+'">'+t.l+' ('+c[t.k]+')</button>'); });
+  Object.keys(c).sort().forEach(function(k){ if(k!=='other'&&catTypeOrder(k)===99)chips.push('<button class="lcchip'+(active===k?' on':'')+'" data-c="'+k+'">'+catTypeLabel(k)+' ('+c[k]+')</button>'); });
+  if(c.other)chips.push('<button class="lcchip'+(active==='other'?' on':'')+'" data-c="other">Other ('+c.other+')</button>');
+  return chips.join('');}
+/* Kelly reassigns a crop's category: an override on the farm doc, applied over canonical.
+   persist() -> fbSave cascades _scMaterializeAll, so every tenant window re-carries it. */
+function setCropCategory(name,k){ var g=byName[name]; if(!g||!k)return;
+  categoryEdits[name]=k; g.category=k; persist(); renderList(); if(typeof renderPricing==='function')renderPricing(); }
+function _slugifyType(label){ return String(label||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,''); }
+function addCategoryType(label){ label=String(label||'').trim(); if(!label)return;
+  var k=_slugifyType(label); if(!k)return;
+  var ts=catTypes().slice();
+  if(ts.some(function(t){return t.k===k;}))return;   // already exists
+  ts.push({k:k,l:label}); categoryTypes=ts; persist(); renderList(); }
+function removeCategoryType(k){ var inUse=grow.some(function(g){return (g.category||'other')===k;});
+  if(inUse)return;   // retire only an empty type; reassign its items first
+  categoryTypes=catTypes().filter(function(t){return t.k!==k;}); persist(); renderList(); }
+function _typeEditPanelHTML(){ if(!typeEditOpen)return '';
+  var c={};grow.forEach(function(g){var k=g.category||'other';c[k]=(c[k]||0)+1;});
+  var rows=catTypes().map(function(t){var n=c[t.k]||0;
+    return '<div style="display:flex;align-items:center;gap:8px;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,.06)">'
+      +'<span style="flex:1;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink,#eaf0ff)">'+t.l+'</span>'
+      +'<span style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-50,#8893ad)">'+n+'</span>'
+      +(n===0?'<button class="te-rm" data-k="'+t.k+'" style="font-family:var(--fb,sans-serif);font-size:11px;padding:4px 9px;border-radius:7px;cursor:pointer;border:1px solid rgba(210,120,120,.5);background:none;color:#e6b3b3">Retire</button>'
+             :'<span style="font-family:var(--fb,sans-serif);font-size:10.5px;color:var(--ink-40,#717c96)">in use</span>')
+      +'</div>';}).join('');
+  return '<div id="type-edit-panel" style="margin:8px 0 4px;padding:11px 13px;border-radius:12px;border:1px solid var(--ink-12,rgba(255,255,255,.1));background:var(--ink-6,rgba(255,255,255,.04))">'
+    +'<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-70,#aab4cc);margin-bottom:4px">Your category types. A type with items can’t be retired — move its items first (Edit list &rarr; type dropdown).</div>'
+    +rows
+    +'<div style="display:flex;gap:8px;margin-top:10px"><input id="te-new" type="text" placeholder="New type (e.g. Roots)" style="flex:1;font-family:var(--fb,sans-serif);font-size:14px;padding:8px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--ink,#eaf0ff)">'
+    +'<button id="te-add" style="font-family:var(--fb,sans-serif);font-size:13px;padding:8px 14px;border-radius:9px;cursor:pointer;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:var(--ink,#eaf0ff)">Add</button></div></div>';}
 function setStockMode(on){
   stockMode=on;
   if(on){ if(typeof setEditMode==='function')setEditMode(false); if(typeof setPhotoMode==='function')setPhotoMode(false); }
@@ -38154,10 +38223,15 @@ function lrowNode(g){
   var cls=STATUS_CLASS[g.status]||'st-done';
   var r=document.createElement('div');r.className='lrow';
   if(editMode){
+    var _ck=g.category||'other';
+    var _opts=catTypes().map(function(t){return '<option value="'+t.k+'"'+(t.k===_ck?' selected':'')+'>'+t.l+'</option>';}).join('');
+    if(catTypeOrder(_ck)===99)_opts='<option value="'+_ck+'" selected>'+catTypeLabel(_ck)+'</option>'+_opts;
+    r.style.flexWrap='wrap';   // second line carries the type dropdown; phone widths stay clean
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+(g._added?' <span class="lr-mine">added</span>':'')+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
       '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
-      '<button class="lr-rm'+(g._added?' del':'')+'" data-n="'+g.name+'">'+(g._added?'Delete':'Won&rsquo;t have it')+'</button>';
+      '<button class="lr-rm'+(g._added?' del':'')+'" data-n="'+g.name+'">'+(g._added?'Delete':'Won&rsquo;t have it')+'</button>'+
+      '<div style="flex-basis:100%;display:flex;align-items:center;gap:7px;margin-top:2px"><span style="font-family:var(--fb);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40,#717c96)">Type</span><select class="lr-cat" data-n="'+g.name+'" aria-label="Type">'+_opts+'</select></div>';
   } else if(stockMode){
     var _iv=(window.__REMY_INV&&window.__REMY_INV[g.name])||{};
     var _left=(_iv.remaining!=null)?(Math.round(_iv.remaining*100)/100):null;
@@ -38179,11 +38253,23 @@ function lrowNode(g){
 function renderList(){
   var el=document.getElementById('list-rows');el.innerHTML='';
   var fc=document.getElementById('list-filters');
-  if(fc){ fc.innerHTML=_filterChips(listFilter); fc.querySelectorAll('.lfchip').forEach(function(b){b.onclick=function(){listFilter=b.dataset.f;renderList();};}); }
-  var items=grow.filter(function(g){return listFilter==='all'||(g.status||'—')===listFilter;});
+  if(fc){ fc.style.display='block'; fc.style.overflow='visible';
+    var teBtn=listByType?('<button class="lfchip" id="type-edit-toggle" style="border-style:dashed">'+(typeEditOpen?'Done editing types':'Edit types')+'</button>'):'';
+    fc.innerHTML='<div class="lfilters" style="margin:0 0 6px">'+_filterChips(listFilter)+'</div>'
+      +'<div class="lfilters" style="margin:0">'+_catChips(listCatFilter)+teBtn+'</div>'
+      +_typeEditPanelHTML();
+    fc.querySelectorAll('.lfchip[data-f]').forEach(function(b){b.onclick=function(){listFilter=b.dataset.f;renderList();};});
+    fc.querySelectorAll('.lcchip').forEach(function(b){b.onclick=function(){listCatFilter=b.dataset.c;renderList();};});
+    var te=fc.querySelector('#type-edit-toggle'); if(te)te.onclick=function(){typeEditOpen=!typeEditOpen;renderList();};
+    fc.querySelectorAll('.te-rm').forEach(function(b){b.onclick=function(){removeCategoryType(b.dataset.k);};});
+    var ta=fc.querySelector('#te-add'), ti=fc.querySelector('#te-new');
+    if(ta&&ti){ ta.onclick=function(){addCategoryType(ti.value);};
+      ti.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();addCategoryType(ti.value);}}; }
+  }
+  var items=grow.filter(function(g){return (listFilter==='all'||(g.status||'—')===listFilter)&&(listCatFilter==='all'||(g.category||'other')===listCatFilter);});
   if(listByType){
     var groups={};items.forEach(function(g){var c=g.category||'other';(groups[c]=groups[c]||[]).push(g);});
-    var cats=Object.keys(groups).sort(function(a,b){return lcatLabel(a).localeCompare(lcatLabel(b));});
+    var cats=Object.keys(groups).sort(function(a,b){return (catTypeOrder(a)-catTypeOrder(b))||lcatLabel(a).localeCompare(lcatLabel(b));});
     cats.forEach(function(c){
       var arr=groups[c].sort(function(a,b){return a.name.localeCompare(b.name);});
       var open=!!listTypeOpen[c];
@@ -38201,6 +38287,7 @@ function renderList(){
   el.querySelectorAll('.lr-photo').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);renderList();renderPush();renderPick();};});
   el.querySelectorAll('.lr-stock').forEach(function(inp){inp.onchange=function(){_stkSetItem(inp.dataset.n,inp.value);};inp.onclick=function(e){e.stopPropagation();};});
+  el.querySelectorAll('.lr-cat').forEach(function(s){s.onchange=function(){setCropCategory(s.dataset.n,s.value);};s.onclick=function(e){e.stopPropagation();};});
   el.querySelectorAll('.lr-rm').forEach(function(b){b.onclick=function(){var n=b.dataset.n;var g=byName[n];if(!g)return;
     if(g._added){if(confirm('Delete “'+n+'” from your list? This removes it everywhere.'))removeAddedCrop(n);}
     else{g.status='Done';statusEdits[n]='Done';persist();renderList();renderPick();renderPush();_cfNotify();}
@@ -38883,6 +38970,8 @@ window.RemyFarm={
     remaining:(_ir&&_ir.remaining!=null)?Number(_ir.remaining):null, invUnit:(_ir&&_ir.unit)||'', stock:(_ir&&_ir.stock!=null)?Number(_ir.stock):null
   };});},
   askLabel:function(g){return g&&g.askMode?askModeLabel(g):'';},
+  catLabel:function(k){return catTypeLabel(k);},     // farm's editable type labels, for buyer views
+  catOrder:function(k){return catTypeOrder(k);},     // farm's type order, for buyer grouping
   profile:function(){return farmProfile||{};},
   invoicePdf:function(o){invPdf(o);},   // kitchen-side read-only invoice view (Sent column)
   onChange:function(fn){if(typeof fn==='function')_cfListeners.push(fn);}
@@ -39096,8 +39185,9 @@ window.RemyFarm={
   // Render the Swan ORDER composer into the standalone Order tab's mount (Connected Farms filter).
   window.__cfRenderOrder=function(){ ST.view='order'; render(); };
   var cfTypeOpen={};   // collapsed category sections in the "By type" view (default all collapsed)
-  var CAT_LABEL={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other'};
-  function cfCatLabel(c){return CAT_LABEL[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
+  var CAT_LABEL={sea:'Seafood',green:'Greens',produce:'Produce',berry:'Berries',mushroom:'Mushrooms',flower:'Flowers',herb:'Herbs',fruit:'Fruit',prepped:'Prepared',protein:'Proteins',meat:'Meat',egg:'Eggs',root:'Roots',allium:'Alliums',pepper:'Peppers',squash:'Squash',bean:'Beans',other:'Other',flower_edible:'Edible Flowers',flower_cut:'Cut Flowers',pantry:'Pantry'};
+  function cfCatLabel(c){ try{ if(window.RemyFarm&&RemyFarm.catLabel)return RemyFarm.catLabel(c); }catch(e){} return CAT_LABEL[c]||(c?(c.charAt(0).toUpperCase()+c.slice(1)):'Other');}
+  function cfCatOrder(c){ try{ if(window.RemyFarm&&RemyFarm.catOrder)return RemyFarm.catOrder(c); }catch(e){} return 99;}
   window._cfToggleType=function(c){cfTypeOpen[c]=!cfTypeOpen[c];render();};
   // Order composer interactions (mirror the sf-portal Farm Order composer). Send is hard-stopped.
   window._cfOrdFilter=function(c){cfOrder.filter=c;render();};
@@ -39260,7 +39350,7 @@ window.RemyFarm={
     if(!items.length)return bar+'<div class="cf-empty">No crops match.</div>';
     if(ST.sort==='type'){
       var groups={};items.forEach(function(g){var c=g.category||'other';(groups[c]=groups[c]||[]).push(g);});
-      var cats=Object.keys(groups).sort(function(a,b){return cfCatLabel(a).localeCompare(cfCatLabel(b));});
+      var cats=Object.keys(groups).sort(function(a,b){return (cfCatOrder(a)-cfCatOrder(b))||cfCatLabel(a).localeCompare(cfCatLabel(b));});
       var secs=cats.map(function(c){
         var arr=groups[c].sort(function(a,b){return a.name.localeCompare(b.name);});
         var open=q?true:!!cfTypeOpen[c];   // a search auto-expands matching groups
