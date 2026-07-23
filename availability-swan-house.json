@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-22T06:37:53-07:00",
+ "generated": "2026-07-23T06:36:49-07:00",
  "month": "July",
  "source": "Swan_House_2026_Weekly_Availability (live sheet, current-year tabs only; Archive excluded)",
  "sheet_modified": "2026-06-12T18:01:25.449Z",
@@ -28,7 +28,7 @@
   {
    "name": "Chive Blossoms",
    "display": "Chive Blossoms",
-   "category": "flower",
+   "category": "flower_edible",
    "score": 2,
    "coming": false,
    "ntm": false,
@@ -36,12 +36,10 @@
    "last_touch": "2026-06-10",
    "status": "Peak",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
@@ -89,7 +87,7 @@
   {
    "name": "Lovage",
    "display": "Lovage",
-   "category": "green",
+   "category": "herb",
    "score": 2,
    "coming": false,
    "ntm": false,
@@ -98,19 +96,15 @@
    "status": "Peak",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Mint",
    "display": "Mint",
-   "category": "green",
+   "category": "herb",
    "score": 2,
    "coming": false,
    "ntm": false,
@@ -119,19 +113,15 @@
    "status": "Peak",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Parsley (Farm)",
    "display": "Parsley",
-   "category": "green",
+   "category": "herb",
    "score": 2,
    "coming": false,
    "ntm": false,
@@ -140,19 +130,15 @@
    "status": "Peak",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Tomato Leaf",
    "display": "Tomato Leaf",
-   "category": "green",
+   "category": "herb",
    "score": 2,
    "coming": false,
    "ntm": false,
@@ -161,13 +147,9 @@
    "status": "Peak",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -209,7 +191,7 @@
   {
    "name": "Bronze Fennel",
    "display": "Bronze Fennel",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -218,13 +200,9 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -250,7 +228,7 @@
   {
    "name": "Chicken Eggs",
    "display": "Chicken Eggs",
-   "category": "protein",
+   "category": "egg",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -259,16 +237,15 @@
    "status": "Available",
    "units": [
     "lb",
+    "case",
     "each",
-    "dozen",
-    "pack",
-    "case"
+    "bunch"
    ]
   },
   {
    "name": "Chives",
    "display": "Chives",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -277,19 +254,15 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Dill (Farm)",
    "display": "Dill",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -298,19 +271,15 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Duck Eggs",
    "display": "Duck Eggs",
-   "category": "protein",
+   "category": "egg",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -319,16 +288,15 @@
    "status": "Available",
    "units": [
     "lb",
+    "case",
     "each",
-    "dozen",
-    "pack",
-    "case"
+    "bunch"
    ]
   },
   {
    "name": "Edible Flowers",
    "display": "Edible Flowers",
-   "category": "flower",
+   "category": "flower_edible",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -336,18 +304,16 @@
    "last_touch": "2026-06-10",
    "status": "Available",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
    "name": "Fennel Fronds",
    "display": "Fennel Fronds",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -356,13 +322,9 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -427,7 +389,7 @@
   {
    "name": "Honeysuckle",
    "display": "Honeysuckle",
-   "category": "flower",
+   "category": "flower_edible",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -435,12 +397,10 @@
    "last_touch": "2026-06-10",
    "status": "Available",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
@@ -464,7 +424,7 @@
   {
    "name": "Lavender",
    "display": "Lavender",
-   "category": "flower",
+   "category": "flower_cut",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -472,18 +432,16 @@
    "last_touch": "2026-06-10",
    "status": "Available",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
    "name": "Lemon Balm (Farm)",
    "display": "Lemon Balm",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -492,19 +450,15 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Nasturtium",
    "display": "Nasturtium",
-   "category": "flower",
+   "category": "flower_edible",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -512,18 +466,16 @@
    "last_touch": "2026-06-10",
    "status": "Available",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
    "name": "Oregano",
    "display": "Oregano",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -532,19 +484,15 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Rose Petals",
    "display": "Rose Petals",
-   "category": "flower",
+   "category": "flower_edible",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -552,18 +500,16 @@
    "last_touch": "2026-06-10",
    "status": "Available",
    "units": [
-    "bunch",
-    "stems",
+    "lb",
+    "case",
     "each",
-    "cup",
-    "pint",
-    "pack"
+    "bunch"
    ]
   },
   {
    "name": "Rosemary",
    "display": "Rosemary",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -572,13 +518,9 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -624,7 +566,7 @@
   {
    "name": "Sorrel (French)",
    "display": "Sorrel (French)",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -633,19 +575,15 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
    "name": "Thyme",
    "display": "Thyme",
-   "category": "green",
+   "category": "herb",
    "score": 1,
    "coming": false,
    "ntm": false,
@@ -654,13 +592,9 @@
    "status": "Available",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -686,7 +620,7 @@
   {
    "name": "Borage",
    "display": "Borage",
-   "category": "green",
+   "category": "herb",
    "score": 0,
    "coming": true,
    "ntm": false,
@@ -695,13 +629,9 @@
    "status": "Coming Soon",
    "units": [
     "lb",
-    "1/2 lb",
-    "1/4 lb",
-    "gallon bag",
-    "bunch",
-    "head",
     "case",
-    "cup"
+    "each",
+    "bunch"
    ]
   },
   {
@@ -762,5 +692,5 @@
    ]
   }
  ],
- "stale_warning": "WARN: weekly sheet last modified 2026-06-12T18:01:25.449Z (39d ago) — picker may be stale."
+ "stale_warning": "WARN: weekly sheet last modified 2026-06-12T18:01:25.449Z (40d ago) — picker may be stale."
 }
