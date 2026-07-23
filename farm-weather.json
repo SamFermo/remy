@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-22T06:37:44",
+ "generated_at": "2026-07-22T19:50:02",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -112,21 +112,11 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 4,
+   "high_count": 2,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -139,6 +129,60 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 100,
+   "low_f": 64,
+   "avg_f": 84.0,
+   "forecast": "Haze",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (84F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 9:53AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 5,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
    "id": "okanogan_highlands_wa",
@@ -162,27 +206,27 @@
    ],
    "alerts": [
     {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 22 at 2:12PM PDT until July 24 at 2:00AM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+    },
+    {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 21 at 12:16PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 12:03PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 11:59AM PDT by NWS Spokane WA"
+     "headline": "Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
     }
    ],
-   "fire": false,
+   "fire": true,
    "high_count": 5,
    "vendors": [
     "Farmstand Local Foods"
@@ -193,6 +237,56 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 100,
+   "low_f": 63,
+   "avg_f": 84.0,
+   "forecast": "Haze",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (84F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued July 22 at 11:25AM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 9:53AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 5,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "eastern_oregon_rangeland",
@@ -214,21 +308,26 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 7:00PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 12:08PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 22 at 9:41AM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
      "headline": "Air Quality Alert issued July 20 at 7:40PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 6:03PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 1:46PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
-   "high_count": 4,
+   "high_count": 5,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -264,7 +363,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -304,7 +403,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -343,7 +442,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -383,7 +482,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 21 at 8:30PM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"
+     "headline": "Heat Advisory issued July 22 at 6:41AM PDT until July 23 at 9:00PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
@@ -399,114 +498,6 @@
     "berries"
    ],
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 100,
-   "low_f": 64,
-   "avg_f": 84.0,
-   "forecast": "Haze",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (100F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (84F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 100,
-   "low_f": 63,
-   "avg_f": 84.0,
-   "forecast": "Haze",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (84F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued July 21 at 10:05PM PDT until July 23 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 77,
-   "low_f": 53,
-   "avg_f": 63.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 12:48PM PDT by NWS Seattle WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 20 at 10:23AM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -528,7 +519,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -565,7 +556,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued July 22 at 3:16AM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Heat Advisory issued July 22 at 3:12PM PDT until July 22 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -596,7 +587,7 @@
     {
      "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Red Flag Warning issued July 22 at 3:48AM PDT until July 23 at 2:00PM PDT by NWS Seattle WA"
+     "headline": "Red Flag Warning issued July 22 at 1:49PM PDT until July 23 at 10:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": true,
@@ -610,6 +601,35 @@
     "fiddleheads"
    ],
    "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 92,
+   "low_f": 61,
+   "avg_f": 78.0,
+   "forecast": "Haze",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 22 at 2:12PM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -711,6 +731,29 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 77,
+   "low_f": 53,
+   "avg_f": 63.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -733,29 +776,6 @@
     "spring_foraged"
    ],
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 92,
-   "low_f": 61,
-   "avg_f": 78.0,
-   "forecast": "Haze",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   }
  ],
  "groups": [
