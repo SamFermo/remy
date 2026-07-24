@@ -37889,9 +37889,63 @@ function mkt(g){
    Unit bridge = the crop's own sell_units (so bunch/each convert on her basis), else weight
    defaults; skip when not convertible. Compare-only+suggest in v1; auto-track is the next step. */
 var _fmFeed=null,_fmTried=false,_fmMap=null,_fmPrem=20,_FM_THRESH=10;
-function fmFetch(cb){ if(_fmTried){cb(_fmFeed);return;} _fmTried=true;
-  try{ fetch('price-reference.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
-    .then(function(j){_fmFeed=j;cb(j);}).catch(function(){cb(null);}); }catch(e){cb(null);} }
+/* ── Feed freshness (2026-07-24, from Kelly seeing "no price adjustments" for days while Sam saw 11).
+   The old code latched _fmTried=true on the first call, so ONE fetch ever happened per page instance.
+   A phone that kept this page alive for days held the market it fetched on day one — or held NULL, if
+   that single fetch happened while she was offline — and so computed zero drift forever. Zero drift is
+   indistinguishable from "you're all caught up", which is why it went unnoticed. Now: a TTL'd re-fetch,
+   a short retry backoff on failure so a render loop can't hammer the network, and _fmErr so the Pricing
+   tab can SAY the comps didn't load rather than quietly showing her nothing. ── */
+var _fmAt=0,_fmErr=false,_fmBusy=false,_FM_TTL=900000,_FM_RETRY=60000;
+function fmURL(){ try{ return new URL('price-reference.json',location.href).href+'?cb='+Date.now(); }
+  catch(e){ return 'price-reference.json?cb='+Date.now(); } }
+function fmNeed(){ if(_fmBusy)return false; if(!_fmTried)return true;
+  return (Date.now()-_fmAt) > (_fmErr?_FM_RETRY:_FM_TTL); }
+function fmFetch(cb,force){ cb=cb||function(){};
+  if(_fmBusy){cb(_fmFeed);return;}
+  if(!force && !fmNeed()){cb(_fmFeed);return;}
+  _fmBusy=true; _fmTried=true;
+  function done(j){ _fmBusy=false; _fmAt=Date.now();
+    if(j){_fmFeed=j;_fmErr=false;} else {_fmErr=true;}
+    try{cb(_fmFeed);}catch(e){} }
+  try{ fetch(fmURL(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+    .then(done).catch(function(){done(null);}); }catch(e){done(null);} }
+/* Resume = re-check the market. A long-lived tab that comes back from the app switcher after the TTL
+   re-fetches and recomputes drift, so the Pricing badge is current without her knowing to reload.
+   Never wipe a good map with a failed fetch — fmBuild(null) returns {}, which would read as
+   "no market for anything" and hide real drift. */
+var _fmSig='';
+/* Signature of the comps we actually price against. NOT feed.generated — that field is date-only, so
+   two pushes on the same day look identical and a real intraday move would be skipped, which is the
+   same class of silent staleness this whole change exists to kill. This compares the numbers. */
+function fmSig(m){ if(!m)return ''; var k=Object.keys(m).sort(), s=[];
+  for(var i=0;i<k.length;i++){ var r=m[k[i]]||{};
+    s.push(k[i]+':'+(Number(r.perlb)||0).toFixed(4)+':'+(r.freshness||'')+':'+(r.compType||'')); }
+  return s.join('|'); }
+/* Adopt a feed. Returns true if the comps actually moved. A failed fetch must never wipe a good map —
+   fmBuild(null) returns {}, which would read as "no market for anything" and hide real drift. */
+function fmApply(feed){
+  if(!feed) return false;
+  var next=fmBuild(feed), sig=fmSig(next);
+  if(_fmMap && sig===_fmSig) return false;
+  _fmMap=next; _fmSig=sig; return true;
+}
+function fmRefresh(force){
+  if(!force && !fmNeed())return;
+  fmFetch(function(feed){
+    // renderPricing rewrites the whole list, which loses her scroll position. Don't pay that on
+    // every resume — only when the spine actually moved, or when we need to show the error state.
+    var moved=fmApply(feed);
+    if(!moved && !force && !(_fmErr&&!_fmFeed))return;
+    try{ if(typeof autoTuneLocked==='function')autoTuneLocked(); }catch(e){}
+    try{ if(typeof renderPricing==='function')renderPricing(); }catch(e){}
+    try{ if(typeof renderPush==='function')renderPush(); }catch(e){}
+    try{ if(typeof updatePricingSeg==='function')updatePricingSeg(); }catch(e){}
+  },force);
+}
+try{ document.addEventListener('visibilitychange',function(){ if(!document.hidden)fmRefresh(false); }); }catch(e){}
+try{ window.addEventListener('pageshow',function(){ fmRefresh(false); }); }catch(e){}
+try{ window.addEventListener('online',function(){ fmRefresh(true); }); }catch(e){}
 function fmCanon(n){ n=(n||'').replace(/\([^)]*\)/g,'').toLowerCase(); return n.replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
 function fmBuild(feed){ var m={}; if(feed){ _fmPrem=feed.premium_pct||20; var items=feed.items||{};
   Object.keys(items).forEach(function(k){ var it=items[k];
@@ -37998,7 +38052,13 @@ var _lockPct=20, _LOCK_BAND=20, _pShowHidden=false, _pAutoOpen=false;
 (function(){ try{ var st=document.createElement('style');
   st.textContent='.pc-src{font-size:10px;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px;margin-right:4px}'+
     '.pc-src.local{background:rgba(94,168,110,.18);color:#5ea86e}'+
-    '.pc-src.comm{background:rgba(160,160,160,.16);color:#9aa0a6}';
+    '.pc-src.comm{background:rgba(160,160,160,.16);color:#9aa0a6}'+
+    '.p-feed-err{margin:10px 0 4px;padding:12px 14px;border-radius:10px;background:rgba(196,120,90,.12);border:1px solid rgba(196,120,90,.42)}'+
+    '.p-feed-err-t{font-size:13px;color:#d99172;letter-spacing:.02em;margin-bottom:4px}'+
+    '.p-feed-err-s{font-size:12px;line-height:1.5;color:#b9a396}'+
+    '.p-feed-retry{margin-top:9px;background:rgba(196,120,90,.18);border:1px solid rgba(196,120,90,.5);color:#d99172;'+
+      'font-size:12px;letter-spacing:.04em;padding:6px 13px;border-radius:7px;cursor:pointer}'+
+    '.p-feed-retry[disabled]{opacity:.55}';
   document.head.appendChild(st); }catch(e){} })();
 function _pType(g){var c=(g.category||'').toLowerCase();
   if(/protein/.test(c))return 'Protein'; if(/flower/.test(c))return 'Flower';
@@ -38124,20 +38184,25 @@ function pBunchSwitch(name){ var g=byName[name]; if(!g||(g.category||'')!=='herb
   persist(); renderPricing(); if(typeof renderPush==='function')renderPush(); if(typeof renderList==='function')renderList(); }
 function renderPricing(){
   var el=document.getElementById('pricing-body'); if(!el)return;
-  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); renderPricing(); }); }
+  if(fmNeed()){ fmFetch(function(feed){ fmApply(feed); renderPricing(); }); }
   autoTuneLocked();   // hold locked crops at their set % before the rows read the asks
   var rows=_pRows();
   var body=rows.map(function(r){ return _pRowHTML(r.g,r.d,r.st); }).join('');
   el.innerHTML='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Pricing</span><span class="pricing-sub">Swan House &middot; vs market</span></div>'+
     '<div class="pricing-intro">Tap your ask or your % to adjust any item. A suggestion restores your set premium in one tap. Band &plusmn;10%.</div>'+
     _pAutoBarHTML()+
+    ((_fmErr&&!_fmFeed)?'<div class="p-feed-err"><div class="p-feed-err-t">Market prices didn&rsquo;t load</div>'+
+      '<div class="p-feed-err-s">Nothing can be compared against the market until they do, so this list may look quieter than it should. Check your signal, then try again.</div>'+
+      '<button class="p-feed-retry" id="p-feed-retry">Try again</button></div>':'')+
     '<div class="prow phdr"><span>Item</span><span>Your ask</span><span>Market</span><span style="text-align:right">Drift &middot; adjust</span></div>'+
-    (body||'<div class="empty-push">Nothing to price yet. Add a crop with a market reference and it shows here.</div>')+_pHiddenTogHTML()+'</div>';
+    (body||((_fmErr&&!_fmFeed)?'':'<div class="empty-push">Nothing to price yet. Add a crop with a market reference and it shows here.</div>'))+_pHiddenTogHTML()+'</div>';
   el.querySelectorAll('[data-dn]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
   el.querySelectorAll('[data-follow]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.follow);};});
   el.querySelectorAll('[data-bunch]').forEach(function(b){b.onclick=function(){pBunchSwitch(b.dataset.bunch);};});
   el.querySelectorAll('[data-phide]').forEach(function(b){b.onclick=function(){pHide(b.dataset.phide);};});
   el.querySelectorAll('[data-unhide]').forEach(function(b){b.onclick=function(){pUnhide(b.dataset.unhide);};});
+  var fr=document.getElementById('p-feed-retry');
+  if(fr)fr.onclick=function(){ fr.textContent='Checking…'; fr.disabled=true; fmRefresh(true); };
   var ht=document.getElementById('p-hidtog'); if(ht)ht.onclick=function(){_pShowHidden=!_pShowHidden;renderPricing();};
   el.querySelectorAll('[data-lock]').forEach(function(b){b.onclick=function(){pLock(b.dataset.lock);};});
   el.querySelectorAll('[data-unlock]').forEach(function(b){b.onclick=function(){pUnlock(b.dataset.unlock);};});
@@ -38152,7 +38217,7 @@ function renderPricing(){
 
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
-  if(_fmMap===null && !_fmTried){ fmFetch(function(feed){ _fmMap=fmBuild(feed); if(typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
+  if(fmNeed()){ fmFetch(function(feed){ fmApply(feed); if(typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
   var names=Array.from(pushed);
   if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
   names.forEach(function(n){
@@ -41148,6 +41213,62 @@ window.RemyGate=(function(){
   return api;
 })();
 try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.readyState!=='loading')_rg(); else document.addEventListener('DOMContentLoaded',_rg); }catch(e){}
+
+/* ── Build stamp + refresh nudge (2026-07-24). Remy is one 1.5MB HTML file with no service worker
+   and, until now, no version signal of any kind — so a phone holding this page open (or restoring
+   it from the app switcher) could be running a build from days ago with nothing on screen to say
+   so. That is exactly how Kelly sat on a stale build while Sam shipped three rounds of changes.
+   build.json is written next to the HTML by scripts/stamp_build.py on every push; if the deployed
+   id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
+   NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
+   HTTP cache, a URL the browser has never seen cannot. ── */
+window.REMY_BUILD='9fb2358fcaef';
+(function(){
+  var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
+  function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
+    catch(e){ return 'build.json?cb='+Date.now(); } }
+  function bump(){
+    try{ var u=new URL(location.href); u.searchParams.set('v',String(Date.now()).slice(-8)); location.replace(u.href); }
+    catch(e){ try{location.reload();}catch(e2){} }
+  }
+  function mount(){
+    if(bar)return bar;
+    try{
+      var st=document.createElement('style');
+      st.textContent='#remy-upd{position:fixed;left:12px;right:12px;top:10px;z-index:900;display:none;'+
+        'background:rgba(168,185,126,.17);border:1px solid rgba(168,185,126,.6);color:#cfe0a6;'+
+        'font-family:var(--fb,inherit);font-size:12px;letter-spacing:.05em;padding:11px 14px;'+
+        'border-radius:10px;text-align:center;cursor:pointer;box-shadow:0 6px 22px rgba(2,4,13,.5);'+
+        '-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}'+
+        '#remy-upd.on{display:block}';
+      document.head.appendChild(st);
+    }catch(e){}
+    bar=document.createElement('div');
+    bar.id='remy-upd';
+    bar.textContent='Updated version available — tap to refresh';
+    bar.onclick=bump;
+    document.body.appendChild(bar);
+    return bar;
+  }
+  function check(force){
+    if(shown||busy)return;
+    if(!force && (Date.now()-lastAt)<TTL)return;
+    busy=true; lastAt=Date.now();
+    function done(j){ busy=false;
+      if(!j||!j.build)return;
+      if(String(j.build)===String(window.REMY_BUILD))return;
+      shown=true; try{ mount().classList.add('on'); }catch(e){}
+    }
+    try{ fetch(buildURL(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+      .then(done).catch(function(){busy=false;}); }catch(e){busy=false;}
+  }
+  window.remyCheckBuild=check;
+  try{ document.addEventListener('visibilitychange',function(){ if(!document.hidden)check(false); }); }catch(e){}
+  try{ window.addEventListener('pageshow',function(){ check(false); }); }catch(e){}
+  try{ window.addEventListener('online',function(){ check(true); }); }catch(e){}
+  try{ var _bk=function(){ setTimeout(function(){check(true);},4000); };
+    if(document.readyState!=='loading')_bk(); else document.addEventListener('DOMContentLoaded',_bk); }catch(e){}
+})();
 </script>
 
 </body>
