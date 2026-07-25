@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T06:46:14",
+ "generated_at": "2026-07-25T06:38:13",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -139,21 +139,26 @@
     {
      "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Red Flag Warning issued July 24 at 12:30AM PDT until July 24 at 11:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Fire Weather Watch",
-     "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 24 at 12:30AM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 24 at 10:45PM PDT until July 25 at 10:00PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 24 at 4:19PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 24 at 4:06PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 24 at 3:16PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 4,
+   "high_count": 5,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -163,6 +168,47 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 99,
+   "low_f": 59,
+   "avg_f": 79.0,
+   "forecast": "Patchy Smoke then Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (79F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 25 at 3:03AM PDT until July 25 at 8:00PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "columbia_basin_wa",
@@ -186,18 +232,13 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 24 at 12:30AM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 24 at 10:45PM PDT until July 25 at 10:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -226,18 +267,13 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 24 at 12:30AM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 22 at 12:55PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 24 at 10:45PM PDT until July 25 at 10:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -247,47 +283,6 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 99,
-   "low_f": 59,
-   "avg_f": 79.0,
-   "forecast": "Patchy Smoke then Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (79F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 24 at 1:30AM PDT until July 25 at 8:00PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -334,7 +329,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 23 at 3:33PM PDT by NWS Pendleton OR"
+     "headline": "Air Quality Alert issued July 24 at 11:08AM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
@@ -363,9 +358,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 24 at 12:30AM PDT until July 25 at 9:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 24 at 10:45PM PDT until July 25 at 10:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
