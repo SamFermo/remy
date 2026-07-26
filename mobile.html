@@ -106,8 +106,33 @@ html.tenant-seacreatures{
 html.tenant-seacreatures body{background:#F6F1E7!important;color:var(--ink)}
 html.tenant-seacreatures body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:url('assets/sea-creatures-hero.webp') center/cover no-repeat;opacity:.06}
 html.tenant-seacreatures #stars,html.tenant-seacreatures .sky{display:none!important}
-html.tenant-sc-early #intro,html.tenant-sc-early #doors,html.tenant-seacreatures #intro,html.tenant-seacreatures #doors{display:none!important}
-html.tenant-seacreatures .ph-remy,html.tenant-seacreatures .ph-brand{opacity:1!important}
+/* 2026-07-26: the intro now RUNS for Sea Creatures — the Remy word morphs up to the header exactly
+   as it does for San Fermo (runIntroMorph measures .ph-remy, so it needs no tenant-specific code).
+   #doors stays hidden and MUST STAY IN THE DOM: the dual-door IIFE early-returns on `if(!doors)
+   return;` before the line that sets window._REMY_SCOPED, so removing the element would silently
+   drop the whole tenant order path back to San Fermo behaviour.
+   The old `.ph-remy/.ph-brand{opacity:1!important}` is gone with it — it beat `.ph-remy.in`, so
+   the header was always visible and the morph had nothing to land into. */
+html.tenant-sc-early #doors,html.tenant-seacreatures #doors{display:none!important}
+/* the intro overlay in the tenant's own palette: cream ground, deep-teal word, soft blue glow —
+   #intro's base rule hardcodes a navy gradient and a cream text-shadow, which would otherwise
+   drop a dark panel with a blue word into the middle of a cream app. */
+html.tenant-seacreatures #intro{background:radial-gradient(ellipse at 50% 42%,#FDFBF6 0%,#F6F1E7 58%,#EFE7D8 100%)!important}
+html.tenant-seacreatures .intro-word{color:#123B50!important;
+  text-shadow:0 0 30px rgba(46,154,200,.30),0 0 64px rgba(46,154,200,.16),0 0 10px rgba(46,154,200,.34)!important}
+html.tenant-seacreatures .intro-word.morph.landed{text-shadow:0 0 6px rgba(46,154,200,.34),0 0 14px rgba(46,154,200,.18)!important}
+html.tenant-seacreatures .ph-remy{color:#123B50;text-shadow:0 0 8px rgba(46,154,200,.30),0 0 16px rgba(46,154,200,.16)}
+html.tenant-seacreatures .ph-brand{color:#5C7A88}
+/* the order view fades in as the overlay clears (2.12s is when runIntroMorph fades #intro out).
+   The animation sits on #trending-home ITSELF, never on its children — render() replaces the
+   children wholesale on every Firestore tick and would wipe it. */
+@keyframes scOrderIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+html.tenant-seacreatures #trending-home{opacity:0;animation:scOrderIn .5s var(--ease) 2.12s forwards}
+html.tenant-seacreatures.sc-warm #trending-home{opacity:1;animation:none}
+/* the identity pill is fixed at z-index 9000 and #intro is only 800, so without this it hovers
+   over the title card for the whole morph. It belongs to the app — it arrives with the app. */
+html.tenant-seacreatures #scg-switch{opacity:0;animation:scOrderIn .5s var(--ease) 2.12s forwards}
+html.tenant-seacreatures.sc-warm #scg-switch{opacity:1;animation:none}
 html.tenant-seacreatures #kitchen-pills,html.tenant-seacreatures .ph-icon-btn{display:none!important}
 html.tenant-seacreatures .cf-segb.on,html.tenant-seacreatures .kpill.active{color:var(--bg)!important}
 /* starfield sits behind everything — subtle, almost ambient */
@@ -39905,6 +39930,13 @@ window.RemyFarm={
     if(o&&o.invoice&&window.RemyFarm&&window.RemyFarm.invoicePdf)window.RemyFarm.invoicePdf(o);
   };
   window._cfOrdConfirmSend=function(){
+    /* 2026-07-26: the identity gate. A tenant order cannot go without a restaurant and an orderer
+       name — Kelly's feed has to say who to call. Checked BEFORE the review modal is dismissed, so
+       cancelling the sheet returns to the review with the basket intact rather than dumping it. */
+    if(window.RemyGate&&window.RemyGate.requireIdentity&&!window.RemyGate.hasIdentity()){
+      window.RemyGate.requireIdentity(function(){ try{window._cfOrdConfirmSend();}catch(e){} });
+      return;
+    }
     var _rv=document.getElementById('cfOrdReview');if(_rv)_rv.remove();   // close the review modal
     var names=Object.keys(cfOrder.items);if(!names.length)return;
     if(cfOrder._sending)return;   // guard against a double-tap sending twice
@@ -39915,6 +39947,10 @@ window.RemyFarm={
     // who ordered (matches the old Farm Order button). Standalone Remy falls back to "San Fermo".
     var who='San Fermo';
     try{ if(window.parent&&window.parent!==window&&window.parent.__remyPortalUser){ who=String(window.parent.__remyPortalUser)||who; } }catch(e){}
+    /* A tenant order is placed by a person at a restaurant, not by "San Fermo". RemyTenant.stamp()
+       already sets order.placed_by from this; the per-line ordered_by needs it too. */
+    try{ var _id=(window.RemyGate&&window.RemyGate.identity)?window.RemyGate.identity():null;
+         if(_id&&_id.chef)who=_id.chef+(_id.rest?(' \u00b7 '+_id.rest):''); }catch(e){}
     var lines=names.map(function(nm){
       var it=cfOrder.items[nm];var g=all.filter(function(x){return x.name===nm;})[0]||{};
       return {item:nm, seasonal_ref:{name:nm,vendor:'Swan House Farms'}, qty:it.qty, unit:it.unit,
@@ -41633,53 +41669,101 @@ window.RemyFarm={
 .scg-ok .scg-sm{color:#5C7A88;font-size:14px;margin-top:6px}
 </style>
 <script>
-/* Sea Creatures tenant login gate. Shows only for a tenant window (?tenant=sea_creatures) with no
-   device session yet. Reuses window.RemyTenant (node-tested) for the restaurant registry + code check.
-   Real restaurant list persists to tenantMembers/{tenant} once the auth swap is wired; until then it
-   degrades to an empty list (first-run = "Add your restaurant"). Hero is a hosted asset (kept out of
-   the 1.3MB bundle); gate degrades to cream if the asset isn't deployed yet. */
+/* Sea Creatures ordering identity. There is NO login gate any more and no restaurant registry —
+   the tenant link lands straight on the ordering page, and the only thing collected is who is
+   placing the order, asked once at SEND and then remembered on the device. See the rewrite note
+   inside the module for why the registry was deleted rather than repaired.
+   Hero is a hosted asset (kept out of the bundle); the sheet degrades to cream without it. */
+/* A first visit gets the full morph. A window that has already been through it once this session
+   (a re-render, a deep link, a back-navigation) should not sit through 2.5s of animation again —
+   html.sc-warm short-circuits the order-view fade. Set only after the intro has actually run. */
+try{ if(window.__REMY_TENANT){ setTimeout(function(){ try{document.documentElement.classList.add('sc-warm');}catch(e){} }, 2700); } }catch(e){}
 window.RemyGate=(function(){
+  /* 2026-07-26 REWRITE. Was: a load-time gate with a cloud restaurant registry and per-restaurant
+     PINs. That registry (`tenantMembers`) was written by a function that fired only when Firebase
+     happened to be ready, with no queue, no retry and a bare `.catch(function(){})` — and it was
+     called AT THE GATE, i.e. exactly when Firebase is not ready yet. The collection was empty in
+     production; no profile ever persisted. The picker read that empty cloud list while the session
+     lived in localStorage, which is why "Switch restaurant" always looked blank.
+     There is one delivery destination. So the registry is deleted rather than repaired, and the
+     only thing we actually need — who is ordering, for Kelly's feed — is collected at SEND. */
   var TENANTS={sea_creatures:{name:'Sea Creatures',sub:'Order from Swan House Farm'}};
-  var ov=null, members={restaurants:{}}, tenant=null, pane=null;
+  var ov=null, tenant=null, pending=null;
   var RT=window.RemyTenant;
   function param(k){try{return new URLSearchParams(location.search).get(k);}catch(e){return null;}}
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function val(id){var e=document.getElementById(id);return e?(e.value||'').trim():'';}
-  function err(m){var e=document.getElementById('scg-er');if(e)e.textContent=m;}
-  function loadMembers(cb){
-    try{ if(window.FB&&FB.ready&&FB.db){ FB.db.collection('tenantMembers').doc(tenant).get().then(function(d){ if(d&&d.exists&&d.data().restaurants)members=d.data(); cb&&cb(); }).catch(function(){cb&&cb();}); return; } }catch(e){}
-    cb&&cb();
+  function err(m){var e=document.getElementById('scg-er');if(e)e.textContent=m||'';}
+  function slug(x){return String(x||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'r';}
+  function ident(){
+    var r=(RT&&RT.restaurant&&RT.restaurant())||null, c=(RT&&RT.chef&&RT.chef())||'';
+    return {rest:(r&&r.name)?String(r.name):'', chef:String(c||'')};
   }
-  function saveMembers(){ try{ if(window.FB&&FB.ready&&FB.db){ FB.db.collection('tenantMembers').doc(tenant).set({buyer_id:tenant,restaurants:members.restaurants},{merge:true}).catch(function(){}); } }catch(e){} }
-  function list(){return Object.keys(members.restaurants).map(function(id){return {id:id,name:members.restaurants[id].name};});}
-  function setHeader(){ try{ if(!tenant||!TENANTS[tenant])return; var t=TENANTS[tenant]; var rest=(RT&&RT.restaurant&&RT.restaurant()); var label='· '+((rest&&rest.name)?rest.name:t.name); ['.ph-brand','#de-date'].forEach(function(sel){var e=document.querySelector(sel);if(e){e.textContent=label;e.style.cursor='pointer';e.title='Switch restaurant';e.onclick=function(){api.open();};}}); var sw=document.getElementById('scg-switch'); if(!sw){ sw=document.createElement('button'); sw.id='scg-switch'; sw.type='button'; sw.textContent='⇄ Switch restaurant'; sw.setAttribute('style','position:fixed;top:14px;right:16px;z-index:9000;font-family:var(--fb,sans-serif);font-size:12px;font-weight:500;color:#123B50;background:rgba(253,251,246,.94);border:1px solid #DDE8EE;border-radius:20px;padding:7px 13px;cursor:pointer;box-shadow:0 2px 8px rgba(18,59,80,.14)'); sw.onclick=function(){api.open();}; document.body.appendChild(sw); } }catch(e){} }
-  function showGate(){ var t=TENANTS[tenant]; var hasSess=!!(RT&&RT.restaurant&&RT.restaurant()); if(ov&&ov.parentNode)ov.parentNode.removeChild(ov); ov=document.createElement('div'); ov.className='scg-ov'; ov.innerHTML='<div class="scg-card">'+(hasSess?'<button type="button" onclick="RemyGate.close()" title="Keep current restaurant" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:20px;line-height:1;color:#5C7A88;cursor:pointer">✕</button>':'')+'<div class="scg-brand"><div class="scg-name">'+esc(t.name)+'</div><div class="scg-sub">'+esc(t.sub)+'</div><div class="scg-pow">Powered by Remy</div></div><div id="scg-pane"></div></div>'; document.body.appendChild(ov); pane=ov.querySelector('#scg-pane'); loadMembers(screenPick); }
-  function finish(restId,restName,chef){ if(RT){RT.setBuyer(tenant);RT.setRestaurant({id:restId,name:restName});RT.setChef(chef);} setHeader(); if(ov&&ov.parentNode)ov.parentNode.removeChild(ov); }
-  function screenPick(){
-    var rows=list().map(function(r){return '<button class="scg-rbtn" onclick="RemyGate._join(\''+r.id+'\')"><span>'+esc(r.name)+'</span><span class="scg-chev">›</span></button>';}).join('');
-    pane.innerHTML='<h2>Choose your restaurant</h2><div class="scg-list">'+rows+'<button class="scg-rbtn scg-add" onclick="RemyGate._add()">＋ Add your restaurant</button></div>';
+  function has(){var i=ident();return !!(i.rest&&i.chef);}
+  function close(){ if(ov&&ov.parentNode)ov.parentNode.removeChild(ov); ov=null; pending=null; }
+
+  /* The only surface. Opened on demand (edit) or on the way to sending (require). */
+  function sheet(sending){
+    var t=TENANTS[tenant]||{name:'Order',sub:''}, i=ident();
+    if(ov&&ov.parentNode)ov.parentNode.removeChild(ov);
+    ov=document.createElement('div'); ov.className='scg-ov';
+    ov.innerHTML='<div class="scg-card">'+
+      (has()?'<button type="button" onclick="RemyGate.close()" title="Close" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:20px;line-height:1;color:#5C7A88;cursor:pointer">&#10005;</button>':'')+
+      '<div class="scg-brand"><div class="scg-name">'+esc(t.name)+'</div><div class="scg-sub">'+esc(t.sub)+'</div><div class="scg-pow">Powered by Remy</div></div>'+
+      '<h2>'+(sending?'Who’s placing this order?':'Your details')+'</h2>'+
+      '<label>Restaurant</label><input id="scg-rn" autocomplete="organization" placeholder="e.g. Walrus and the Carpenter" value="'+esc(i.rest)+'">'+
+      '<label>Your name</label><input id="scg-nm" autocomplete="name" placeholder="e.g. Renee" value="'+esc(i.chef)+'">'+
+      '<div class="scg-err" id="scg-er"></div>'+
+      '<button class="scg-cta" onclick="RemyGate._save()">'+(sending?'Continue to send':'Save')+'</button>'+
+      '<div style="margin-top:13px;font-size:11.5px;line-height:1.5;color:#5C7A88;text-align:center">Kept on this device so you only type it once. It rides along with the order so Kelly knows who to reach.</div>'+
+      '</div>';
+    document.body.appendChild(ov);
+    try{var f=document.getElementById(i.rest?'scg-nm':'scg-rn'); if(f)f.focus();}catch(e){}
   }
-  function screenJoin(id){
-    var r=members.restaurants[id];
-    pane.innerHTML='<div class="scg-chosen">'+esc(r.name)+'</div><label>Your name</label><input id="scg-nm" placeholder="e.g. Renee"><label>Restaurant code</label><input id="scg-cd" inputmode="numeric" placeholder="••••"><div class="scg-err" id="scg-er"></div><button class="scg-cta" onclick="RemyGate._doJoin(\''+id+'\')">Continue</button><button class="scg-back" onclick="RemyGate._pick()">← back</button>';
-  }
-  function screenAdd(){
-    pane.innerHTML='<h2>Add your restaurant</h2><label>Restaurant name</label><input id="scg-rn" placeholder="e.g. Bateau"><label>Your name</label><input id="scg-nm" placeholder="e.g. Renee"><label>Set a code for your team</label><input id="scg-cd" inputmode="numeric" placeholder="choose 4+ digits"><div class="scg-err" id="scg-er"></div><button class="scg-cta" onclick="RemyGate._doAdd()">Create</button><button class="scg-back" onclick="RemyGate._pick()">← back</button>';
-  }
+
+  function setHeader(){ try{
+    if(!tenant||!TENANTS[tenant])return;
+    /* The brand stays the TENANT, not the restaurant — "Remy · Sea Creatures" is the identity of
+       the window. Who is ordering belongs on the pill, where it is editable. */
+    var b=document.querySelector('.ph-brand'); if(b)b.textContent='· '+TENANTS[tenant].name;
+    var i=ident(), label=has()?(i.rest+' · '+i.chef):'Add your details';
+    var sw=document.getElementById('scg-switch');
+    if(!sw){ sw=document.createElement('button'); sw.id='scg-switch'; sw.type='button';
+      sw.setAttribute('style','position:fixed;top:14px;right:16px;z-index:9000;font-family:var(--fb,sans-serif);font-size:12px;font-weight:500;color:#123B50;background:rgba(253,251,246,.94);border:1px solid #DDE8EE;border-radius:20px;padding:7px 13px;cursor:pointer;box-shadow:0 2px 8px rgba(18,59,80,.14);max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap');
+      sw.onclick=function(){ sheet(false); };
+      document.body.appendChild(sw); }
+    sw.textContent=(has()?'✎ ':'')+label;
+  }catch(e){} }
+
   var api={
-    _pick:screenPick,_join:screenJoin,_add:screenAdd,
-    setHeader:function(){setHeader();},open:function(){ if(!tenant)tenant=param('tenant')||param('buyer'); if(!tenant||!TENANTS[tenant])return; showGate(); },close:function(){ if(ov&&ov.parentNode)ov.parentNode.removeChild(ov); },
-    _doJoin:function(id){var nm=val('scg-nm'),cd=val('scg-cd');if(!nm)return err('Add your name.');if(!(RT&&RT.verifyCode(members,id,cd)))return err('That code doesn’t match. Try again.');finish(id,members.restaurants[id].name,nm);},
-    _doAdd:function(){var rn=val('scg-rn'),nm=val('scg-nm'),cd=val('scg-cd');if(!rn||!nm||!cd)return err('Fill in all three.');var id=RT?RT.createRestaurant(members,rn,cd):null;if(!id)return err('Could not add.');saveMembers();finish(id,rn,nm);},
+    hasIdentity:has,
+    identity:ident,
+    open:function(){ if(!tenant)tenant=param('tenant')||param('buyer'); if(!tenant||!TENANTS[tenant])return; sheet(false); },
+    close:close,
+    /* The gate. Called on the way to sending an order; runs cb only once we know who is ordering. */
+    requireIdentity:function(cb){ if(!tenant)tenant=param('tenant')||param('buyer');
+      if(!tenant||!TENANTS[tenant]){ cb&&cb(); return; }          // not a tenant window: no gate
+      if(has()){ cb&&cb(); return; }
+      pending=cb||null; sheet(true); },
+    _save:function(){
+      var rn=val('scg-rn'), nm=val('scg-nm');
+      if(!rn)return err('Add the restaurant name.');
+      if(!nm)return err('Add your name.');
+      if(RT){ try{ RT.setBuyer(tenant); }catch(e){}
+              try{ RT.setRestaurant({id:slug(rn),name:rn}); }catch(e){}
+              try{ RT.setChef(nm); }catch(e){} }
+      var cb=pending; pending=null;
+      close(); setHeader();
+      if(cb)try{cb();}catch(e){}
+    },
+    setHeader:setHeader,
     init:function(){
       tenant=param('tenant')||param('buyer');
       if(!tenant||!TENANTS[tenant])return;
-      if(RT&&RT.restaurant&&RT.restaurant())return;
-      var t=TENANTS[tenant];
-      ov=document.createElement('div');ov.className='scg-ov';
-      ov.innerHTML='<div class="scg-card"><div class="scg-brand"><div class="scg-name">'+esc(t.name)+'</div><div class="scg-sub">'+esc(t.sub)+'</div><div class="scg-pow">Powered by Remy</div></div><div id="scg-pane"></div></div>';
-      document.body.appendChild(ov);pane=ov.querySelector('#scg-pane');
-      loadMembers(screenPick);
+      /* No gate on load. The link lands straight on the ordering page — that is the whole point.
+         buyer_id is also set by _remyOnAuthReady from the token claim; this is belt and braces so
+         an order stamped before auth resolves still carries the right buyer. */
+      if(RT&&RT.setBuyer)try{RT.setBuyer(tenant);}catch(e){}
     }
   };
   return api;
@@ -41694,7 +41778,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='5faf61efef94';
+window.REMY_BUILD='dcd683edda30';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
