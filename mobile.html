@@ -38446,11 +38446,68 @@ function _pState(g,d){
   return {s:'setpct',o:3};
 }
 function _pRows(){ var out=[];
-  grow.forEach(function(g){ if(g.pHide&&!_pShowHidden)return; var priced=(g.ask!=null&&g.ask!==''); if(!_pHasMkt(g)&&!priced)return; var d=farmDrift(g); out.push({g:g,d:d,st:_pState(g,d)}); });
+  grow.forEach(function(g){
+    // 2026-07-26: EVERY crop shows. The old no-market+no-ask exclusion hid exactly the crops
+    // that most needed a first price (Fig leaves, Currants) with no way to price them here —
+    // some while being OFFERED to a tenant at no price. The 'hidden' chip inverts the pHide skip.
+    if(_pFilt==='hidden'){ if(!g.pHide)return; }
+    else if(g.pHide&&!_pShowHidden)return;
+    if(_pQ&&((String(g.name)+' '+String(g.variety||'')).toLowerCase().indexOf(_pQ)<0))return;
+    var priced=(g.ask!=null&&g.ask!=='');
+    var d=farmDrift(g); var st=_pState(g,d);
+    if(_pFilt&&_pFilt!=='hidden'){
+      if(_pFilt==='drift'){ if(st.s!=='drift')return; }
+      else if(_pFilt==='needsprice'){ if(priced)return; }
+      else if(_pFilt==='locked'){ if(!g.locked)return; }
+      else if(_pType(g)!==_pFilt)return;
+    }
+    out.push({g:g,d:d,st:st});
+  });
   out.sort(function(a,b){ if(a.st.o!==b.st.o)return a.st.o-b.st.o;
     if(a.st.s==='drift')return Math.abs(b.d.drift)-Math.abs(a.d.drift);
     return a.g.name.localeCompare(b.g.name); });
   return out; }
+function _pSearchChipsHTML(){
+  var LBL={Herb:'Herbs',Green:'Greens',Veg:'Veg',Fruit:'Fruit',Flower:'Flowers',Protein:'Protein',Other:'Other'};
+  var chips=[['','All'],['drift','Drifting'],['needsprice','Needs a price'],['locked','Locked'],['hidden','Hidden']];
+  ['Herb','Green','Veg','Fruit','Flower','Protein','Other'].forEach(function(t){ if(grow.some(function(g){return _pType(g)===t;}))chips.push([t,LBL[t]]); });
+  return '<div class="p-findwrap"><div class="p-searchwrap"><input id="p-search" class="p-search" type="search" placeholder="Find an item&hellip;" autocomplete="off"><button id="p-search-x" class="p-search-x" aria-label="Clear search">&times;</button></div>'+
+    '<div class="p-fchips">'+chips.map(function(c){ return '<button class="p-fchip'+(c[0]===_pFilt?' on':'')+'" data-pfilt="'+c[0]+'">'+c[1]+'</button>'; }).join('')+'</div></div>';
+}
+function _pEmptyHTML(){
+  if(_pQ||_pFilt)return '<div class="empty-push">Nothing matches. Clear the search or filter to see everything.</div>';
+  return (_fmErr&&!_fmFeed)?'':'<div class="empty-push">Nothing here yet. Add a crop and it shows here.</div>';
+}
+// Row-level bindings, shared by the full render and the search/filter partial refresh.
+function _pBindRowEvents(scope){
+  scope.querySelectorAll('[data-dn]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
+  scope.querySelectorAll('[data-follow]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.follow);};});
+  scope.querySelectorAll('[data-bunch]').forEach(function(b){b.onclick=function(){pBunchSwitch(b.dataset.bunch);};});
+  scope.querySelectorAll('[data-phide]').forEach(function(b){b.onclick=function(){pHide(b.dataset.phide);};});
+  scope.querySelectorAll('[data-unhide]').forEach(function(b){b.onclick=function(){pUnhide(b.dataset.unhide);};});
+  scope.querySelectorAll('[data-lock]').forEach(function(b){b.onclick=function(){pLock(b.dataset.lock);};});
+  scope.querySelectorAll('[data-unlock]').forEach(function(b){b.onclick=function(){pUnlock(b.dataset.unlock);};});
+  // data-price = open the ask modal; skip elements that are lock controls
+  scope.querySelectorAll('[data-price]').forEach(function(b){b.onclick=function(){ var g=byName[b.dataset.price]; if(g&&g.prepped&&typeof ptOpen==='function'){ptOpen(b.dataset.price);} else if(typeof atOpen==='function'){atOpen(b.dataset.price);} };});
+}
+// Search/chip refresh redraws ONLY the row host — deliberately NO autoTuneLocked() and NO
+// persist(): a keystroke must never enter the render->write chain (the 2026-07-26 (2) loop).
+function _pRefreshRows(){
+  var host=document.getElementById('p-rowhost'); if(!host)return;
+  var rows=_pRows();
+  host.innerHTML=rows.map(function(r){ return _pRowHTML(r.g,r.d,r.st); }).join('')||_pEmptyHTML();
+  _pBindRowEvents(host);
+}
+function _pWireSearch(el){
+  var si=el.querySelector('#p-search');
+  if(si){ si.value=_pQ;
+    si.oninput=function(){ _pQ=si.value.trim().toLowerCase(); _pRefreshRows(); };
+    var sx=el.querySelector('#p-search-x'); if(sx)sx.onclick=function(){ _pQ=''; si.value=''; _pRefreshRows(); si.focus(); }; }
+  el.querySelectorAll('[data-pfilt]').forEach(function(b){ b.onclick=function(){
+    var v=b.getAttribute('data-pfilt'); _pFilt=(_pFilt===v&&v!==''?'':v);
+    el.querySelectorAll('[data-pfilt]').forEach(function(x){ x.classList.toggle('on', x.getAttribute('data-pfilt')===_pFilt); });
+    _pRefreshRows(); }; });
+}
 function pricingBadgeCount(){ var n=0; grow.forEach(function(g){ if(g.pHide)return;
   if(compSrcChanged(g)){n++;return;}
   var d=farmDrift(g); if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH)n++; }); return n; }
@@ -38462,6 +38519,7 @@ function updatePricingSeg(){ var b=document.getElementById('seg-pricing'); if(!b
    comp (never chase a stale number); only rewrite when the price actually moved (no write-thrash);
    the locked state + the updated ask are the visible audit; unlock restores manual control. ── */
 var _lockPct=20, _LOCK_BAND=20, _pShowHidden=false, _pAutoOpen=false;
+var _pQ='', _pFilt='';   // Pricing search + filter chips (2026-07-26)
 (function(){ try{ var st=document.createElement('style');
   st.textContent='.pc-src{font-size:10px;letter-spacing:.04em;text-transform:uppercase;padding:1px 5px;border-radius:4px;margin-right:4px}'+
     '.pc-src.local{background:rgba(94,168,110,.18);color:#5ea86e}'+
@@ -38471,7 +38529,17 @@ var _lockPct=20, _LOCK_BAND=20, _pShowHidden=false, _pAutoOpen=false;
     '.p-feed-err-s{font-size:12px;line-height:1.5;color:#b9a396}'+
     '.p-feed-retry{margin-top:9px;background:rgba(196,120,90,.18);border:1px solid rgba(196,120,90,.5);color:#d99172;'+
       'font-size:12px;letter-spacing:.04em;padding:6px 13px;border-radius:7px;cursor:pointer}'+
-    '.p-feed-retry[disabled]{opacity:.55}';
+    '.p-feed-retry[disabled]{opacity:.55}'+
+    '.p-findwrap{margin:8px 0 2px}'+
+    '.p-searchwrap{position:relative;margin:0 0 8px}'+
+    '.p-search{width:100%;box-sizing:border-box;background:var(--bg-card,rgba(255,255,255,.05));border:1px solid var(--ink-12,rgba(255,255,255,.14));border-radius:9px;padding:9px 34px 9px 12px;font-size:14px;color:inherit;font-family:inherit}'+
+    '.p-search:focus{outline:none;border-color:var(--gold,#c9a227)}'+
+    '.p-search::-webkit-search-cancel-button{display:none}'+
+    '.p-search-x{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:none;color:inherit;opacity:.55;font-size:18px;padding:4px 8px;cursor:pointer}'+
+    '.p-fchips{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px 0 6px;scrollbar-width:none}'+
+    '.p-fchips::-webkit-scrollbar{display:none}'+
+    '.p-fchip{flex:0 0 auto;background:none;border:1px solid var(--ink-12,rgba(255,255,255,.16));border-radius:999px;padding:5px 12px;font-size:12px;letter-spacing:.03em;color:inherit;opacity:.75;cursor:pointer;font-family:inherit}'+
+    '.p-fchip.on{background:var(--gold,#c9a227);border-color:var(--gold,#c9a227);color:#0a1028;opacity:1}';
   document.head.appendChild(st); }catch(e){} })();
 function _pType(g){var c=(g.category||'').toLowerCase();
   if(/protein/.test(c))return 'Protein'; if(/flower/.test(c))return 'Flower';
@@ -38616,24 +38684,18 @@ function renderPricing(){
     ((_fmErr&&!_fmFeed)?'<div class="p-feed-err"><div class="p-feed-err-t">Market prices didn&rsquo;t load</div>'+
       '<div class="p-feed-err-s">Nothing can be compared against the market until they do, so this list may look quieter than it should. Check your signal, then try again.</div>'+
       '<button class="p-feed-retry" id="p-feed-retry">Try again</button></div>':'')+
+    _pSearchChipsHTML()+
     '<div class="prow phdr"><span>Item</span><span>Your ask</span><span>Market</span><span style="text-align:right">Drift &middot; adjust</span></div>'+
-    (body||((_fmErr&&!_fmFeed)?'':'<div class="empty-push">Nothing to price yet. Add a crop with a market reference and it shows here.</div>'))+_pHiddenTogHTML()+'</div>';
-  el.querySelectorAll('[data-dn]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
-  el.querySelectorAll('[data-follow]').forEach(function(b){b.onclick=function(){driftApply(b.dataset.follow);};});
-  el.querySelectorAll('[data-bunch]').forEach(function(b){b.onclick=function(){pBunchSwitch(b.dataset.bunch);};});
-  el.querySelectorAll('[data-phide]').forEach(function(b){b.onclick=function(){pHide(b.dataset.phide);};});
-  el.querySelectorAll('[data-unhide]').forEach(function(b){b.onclick=function(){pUnhide(b.dataset.unhide);};});
+    '<div id="p-rowhost">'+(body||_pEmptyHTML())+'</div>'+_pHiddenTogHTML()+'</div>';
+  _pBindRowEvents(el);
   var fr=document.getElementById('p-feed-retry');
   if(fr)fr.onclick=function(){ fr.textContent='Checking…'; fr.disabled=true; fmRefresh(true); };
   var ht=document.getElementById('p-hidtog'); if(ht)ht.onclick=function(){_pShowHidden=!_pShowHidden;renderPricing();};
-  el.querySelectorAll('[data-lock]').forEach(function(b){b.onclick=function(){pLock(b.dataset.lock);};});
-  el.querySelectorAll('[data-unlock]').forEach(function(b){b.onclick=function(){pUnlock(b.dataset.unlock);};});
   el.querySelectorAll('[data-lockgrp]').forEach(function(b){b.onclick=function(){pLockGroup(b.dataset.lockgrp);};});
   el.querySelectorAll('[data-step]').forEach(function(b){b.onclick=function(){_lockPct=Math.max(0,Math.min(100,_lockPct+Number(b.dataset.step)));renderPricing();};});
   var tog=document.getElementById('p-auto-toggle'); if(tog)tog.onclick=function(){_pAutoOpen=!_pAutoOpen;renderPricing();};
   var ua=document.getElementById('p-unlockall'); if(ua)ua.onclick=function(){pUnlockAll();};
-  // data-price = open the ask modal; skip elements that are lock controls
-  el.querySelectorAll('[data-price]').forEach(function(b){b.onclick=function(){ var g=byName[b.dataset.price]; if(g&&g.prepped&&typeof ptOpen==='function'){ptOpen(b.dataset.price);} else if(typeof atOpen==='function'){atOpen(b.dataset.price);} };});
+  _pWireSearch(el);
   updatePricingSeg();
 }
 
@@ -41801,7 +41863,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='9ff6b7a5f9f4';
+window.REMY_BUILD='cefaf8e8b409';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
