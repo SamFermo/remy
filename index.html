@@ -36939,7 +36939,13 @@ function applyState(x){
   if(x.tenant_overrides&&typeof x.tenant_overrides==='object')tenantOverrides=x.tenant_overrides;
   if(Array.isArray(x.connected_tenants)&&x.connected_tenants.length)connectedTenants=x.connected_tenants;
   // recreate farmer-added crops FIRST so the status/items passes below can find them in byName
-  if(x.added&&x.added.length){x.added.forEach(function(a){if(!a||!a.name)return;
+  // added_map (2026-07-26) is the keyed form: two devices adding two different crops merge instead
+  // of one whole-array write erasing the other. The legacy array is still read as a fallback.
+  var _addList=(x.added_map&&typeof x.added_map==='object')
+    ? Object.keys(x.added_map).map(function(n){var a=x.added_map[n]||{};
+        return {name:n,category:a.category||'',status:a.status||'',qty:a.qty||''};})
+    : (x.added||[]);
+  if(_addList&&_addList.length){_addList.forEach(function(a){if(!a||!a.name)return;
     if(!byName[a.name]){var g={name:a.name,category:a.category||'',status:a.status||'Available',qty:a.qty||'',push:false,market:null,_added:true};grow.push(g);byName[a.name]=g;}
     else{byName[a.name]._added=true;if(a.qty)byName[a.name].qty=a.qty;if(a.status)byName[a.name].status=a.status;}});}
   if(x.pushed)pushed=new Set(x.pushed);
@@ -36947,7 +36953,10 @@ function applyState(x){
   var se=x.status_edits||((x.status&&typeof x.status==='object')?x.status:null);
   if(se){statusEdits=se;grow.forEach(function(g){if(statusEdits[g.name])g.status=statusEdits[g.name];});}
   if(x.items){Object.keys(x.items).forEach(function(n){var g=byName[n];if(!g)return;var it=x.items[n];
-    if(it.ask!=null){g.ask=it.ask;g.askUnit=it.askUnit;g.askMode=it.askMode;g.askPct=it.askPct;g.askVendor=it.askVendor;}
+    // 'ask' is authoritative when the record carries the key: a price CLEARED on one device has to
+    // clear on the other, or the two sheets never reconverge and auto-tune writes the old one back.
+    if('ask' in it && it.ask==null){g.ask=null;g.askMode=it.askMode||'';g.askPct=(it.askPct==null?null:it.askPct);g.askVendor=it.askVendor||'';}
+    else if(it.ask!=null){g.ask=it.ask;g.askUnit=it.askUnit;g.askMode=it.askMode;g.askPct=it.askPct;g.askVendor=it.askVendor;}
     if('locked' in it)g.locked=!!it.locked;   // auto-tune: this crop's ask follows market at its set %
     if('lockMkt' in it)g.lockMkt=(it.lockMkt==null?null:it.lockMkt);
     if('compSrc' in it)g.compSrc=it.compSrc||'';   // which comp family her lock was set against   // the market/lb baseline the band measures against
@@ -36973,22 +36982,263 @@ function lsSave(){try{localStorage.setItem(SKEY,JSON.stringify(snapshot()));}cat
 function lsLoad(){try{return JSON.parse(localStorage.getItem(SKEY)||'null');}catch(e){return null;}}
 var FB={ready:false,db:null,storage:null};
 var _cloudPending=false;   // a save happened while Firebase wasn't ready -> owed to the cloud
-function persist(){lsSave();flagSaved();
-  if(FB.ready){fbSave();} else {_cloudPending=true;}   // never drop it silently; flushCloud() retries
+function persist(){lsSave();
+  /* 2026-07-26: the check mark used to fire HERE, before the write was even attempted. When the
+     price-lock rules started rejecting non-farm writes, every rejected save still showed "Saved" and
+     the edit survived only in that device's localStorage — the phantom save that split the sheet.
+     The tick now comes from the resolved write; a rejection paints a visible failure instead. */
+  // "Saved" is reserved for a write the server accepted. A save made before Firebase came up is
+  // real but not yet anywhere else, and saying so plainly is the whole point of this change.
+  /* Also gated on _cloudSettled: _remyOnAuthReady sets FB.ready=true on the same line it CALLS
+     fbLoad(), so for the duration of that read there is no baseline, and a delta computed against
+     null writes this device's whole state — including blanking `added` and `pushed` for anyone whose
+     local sheet is thinner than the server's. Queue instead; fbLoad flushes once the read resolves. */
+  if(FB.ready&&_cloudSettled){fbSave();} else {_cloudPending=true;flagQueued();}   // flushCloud() retries
   _cfNotify();}
 /* Push a save that was made before Firebase was ready. Called once auth/Firestore come up. */
 function flushCloud(){ try{ if(_cloudPending&&FB.ready&&FB.db){ _cloudPending=false; fbSave(); } }catch(e){} }
+/* ── The write model (2026-07-26). ────────────────────────────────────────────────────────────
+   _lastSent is this window's model of what the SERVER holds. It replaces _asSeenAt, which
+   compared client clocks to decide which whole document won — the mechanism that discarded
+   Kelly's offline edits. We diff against it and send only what changed, merged per field.
+   Granularity is per CROP, not per field: _delta compares whole crop records and writes all of a
+   record's fields when any one of them differs. So two devices editing two DIFFERENT crops never
+   collide — which is the case that was actually costing us — but two devices editing the SAME crop
+   still do, and the later write wins that whole record. Do not read the merge as field-level.
+   NEVER address these fields with a dotted string path: the live sheet contains
+   "Ground Beef / Bolo Meat" and Firestore's path parser rejects '/' and splits on '.'.
+   Nested object literals are walked as literal key segments and are safe for any name. */
+/* "the initial cloud read has resolved, one way or the other" — deliberately NOT
+   _REMY_CLOUD_LOADED, which stays false when that read FAILS and would queue every save forever.
+   Either we have a baseline, or we know we are not getting one and a full merge is the honest
+   fallback; both are safe to write from, and neither is true while the read is still in flight. */
+var _cloudSettled=false;
+var _lastSent=null;
+/* What the server was last CONFIRMED to hold. Deliberately separate from _lastSent, which is our
+   optimistic model for computing deltas and which fbSave overwrites with local state after every
+   save. Reaping needs a different question answered — "did the server ever have this crop?" — and
+   a value fbSave is allowed to clobber cannot answer it. Written ONLY from a snapshot with
+   hasPendingWrites === false. A crop added locally and not yet acked appears in neither, so it can
+   never be reaped: the case that motivated the old boolean is now correct by construction. */
+var _srvItems=null;      // items map from the last server-confirmed snapshot
+var _srvAdded=null;      // farmer-added membership from that same snapshot
+/* PERSISTED, because the state it describes is. The local sheet survives a reload via lsLoad(), so
+   a session-lifetime record would be null on exactly the snapshot that matters: the first one after
+   a cold start, which is where another device's overnight deletion arrives. Fixed key rather than
+   SKEY — _srvRecord only ever runs for san_fermo, and SKEY is rewritten when BUYER resolves, after
+   boot, so deriving it would read the wrong key on the very path this exists to fix. */
+var _SRVKEY='remy.farm.san_fermo.v1.srv';
+function _srvPersist(){ try{ localStorage.setItem(_SRVKEY,
+  JSON.stringify({items:_srvItems||{},added:_srvAdded||{}})); }catch(e){} }
+function _srvRestore(){ try{
+  var r=JSON.parse(localStorage.getItem(_SRVKEY)||'null');
+  if(r&&r.items&&typeof r.items==='object'){ _srvItems=r.items; _srvAdded=r.added||{}; }
+}catch(e){} }
+function _FV(){ return firebase.firestore.FieldValue; }
+/* CANONICAL serialization — recursively sorted keys. JSON.stringify is ORDER-SENSITIVE, and these
+   comparisons cross a provenance boundary: _lastSent is built locally by snapshot(), the incoming
+   document is deserialized from Firestore. Measured against the real store, Firestore returns map
+   keys in neither insertion nor sorted order — it is arbitrary:
+       wrote: ask,askUnit,askMode,askPct,locked,lockMkt,compSrc,...
+       read:  askVendor,locked,ask,askPct,compSrc,voice,pHide,...
+   A plain stringify therefore reported EVERY crop as changed, which widened every write back to the
+   whole sheet — the original bug, restored by the code meant to fix it. Never compare Firestore data
+   with JSON.stringify in this file. */
+function _canon(v){
+  if(v===null||typeof v!=='object')return JSON.stringify(v)===undefined?'null':JSON.stringify(v);
+  if(Array.isArray(v))return '['+v.map(_canon).join(',')+']';
+  var k=Object.keys(v).sort();
+  return '{'+k.map(function(n){return JSON.stringify(n)+':'+_canon(v[n]);}).join(',')+'}';
+}
+function _eq(a,b){ try{ return _canon(a)===_canon(b); }catch(e){ return false; } }
+/* content identity, ignoring the fields that change on every single write */
+function _sig(o){ try{ var c=JSON.parse(JSON.stringify(o||{}));
+  delete c.updated_at; delete c.updated_srv; delete c.buyer_id; delete c.name; delete c.status;
+  /* pushed/markdown are membership SETS that happen to serialise as arrays — Array.from(Set) locally,
+     whatever order Firestore hands back remotely. _canon is order-sensitive on arrays (correctly, for
+     real lists), so without this a benign reordering reads as a content change, echo suppression
+     fails INTERMITTENTLY, and every save costs a full re-render and a scroll jump. `added` is a list
+     of objects keyed by name, so sort it by name for the same reason. */
+  if(Array.isArray(c.pushed))c.pushed=c.pushed.slice().sort();
+  if(Array.isArray(c.markdown))c.markdown=c.markdown.slice().sort();
+  if(Array.isArray(c.added))c.added=c.added.slice().sort(function(a,b){
+    return String(a&&a.name).localeCompare(String(b&&b.name)); });
+  return _canon(c); }catch(e){ return 'sig-error-'+(new Date()).getTime(); } }
+
+/* Per-key delta for the map-shaped fields. A key present in prev and absent from cur is a real
+   deletion and must be tombstoned — under merge, omitting it would leave the old value on the
+   server forever. This is the case snapshot() creates when every field of a crop goes falsy. */
+function _delta(prev,cur){
+  var patch={}, any=false, DEL=_FV().delete();
+  function keyed(field){
+    var pv=(prev&&prev[field])||{}, cv=cur[field]||{}, m={}, hit=false;
+    Object.keys(cv).forEach(function(k){ if(!_eq(pv[k],cv[k])){ m[k]=cv[k]; hit=true; } });
+    Object.keys(pv).forEach(function(k){ if(!(k in cv)){ m[k]=DEL; hit=true; } });
+    if(hit){ patch[field]=m; any=true; }
+  }
+  ['items','status_edits','category_edits','tenant_overrides','farm_profile','added_map'].forEach(keyed);
+  // whole-value fields: per-key merge buys nothing, and `added` stays a whole array so a stale
+  // client that only reads the legacy shape keeps working exactly as it does today.
+  ['category_types','connected_tenants','added'].forEach(function(k){
+    if(!_eq(prev&&prev[k],cur[k])){ patch[k]=cur[k]; any=true; }
+  });
+  return any?patch:null;
+}
+
+/* pushed/markdown are membership SETS, so arrayUnion/arrayRemove is genuinely commutative —
+   two devices toggling two different crops both land, in either order. Firestore refuses two
+   transforms on one field in a single write, so adds and removes go as two writes. */
+function _setDeltas(prev,cur){
+  var FV=_FV(), uni={}, rem={}, hu=false, hr=false;
+  /* With NO baseline we cannot know what to remove, and emitting only unions would silently drop
+     every removal — an un-star made before the cloud loaded would be put straight back by the echo.
+     With nothing to diff against, the honest write is the whole array. */
+  if(!prev){ var whole={}, any=false;
+    ['pushed','markdown'].forEach(function(k){ whole[k]=(cur[k]||[]).slice(); any=true; });
+    return [any?whole:null, null]; }
+  ['pushed','markdown'].forEach(function(k){
+    var pv=(prev&&prev[k])||[], cv=cur[k]||[], ps={}, cs={};
+    pv.forEach(function(n){ps[n]=1;}); cv.forEach(function(n){cs[n]=1;});
+    var add=cv.filter(function(n){return !ps[n];}), del=pv.filter(function(n){return !cs[n];});
+    if(add.length){ uni[k]=FV.arrayUnion.apply(FV,add); hu=true; }
+    if(del.length){ rem[k]=FV.arrayRemove.apply(FV,del); hr=true; }
+  });
+  return [hu?uni:null, hr?rem:null];
+}
+
+/* A crop the server no longer carries must clear locally, or the device that did not do the
+   clearing shows the old price forever — and, worse under field-scoped writes, re-publishes it.
+   Runs against _srvItems (server-confirmed only), never against _lastSent, which fbSave overwrites
+   with local state. Still gated on the farm identity: a tenant doc is a FILTERED projection —
+   _scMaterialize omits hidden crops from items, which must not read as a deletion. */
+/* Record what the server was confirmed to hold. Called ONLY with a hasPendingWrites===false
+   snapshot, from both the applied and the echo-suppressed path, and never from fbSave. */
+function _srvRecord(x){ try{
+  if(!x)return;
+  if(BUYER!=='san_fermo'||window._REMY_SCOPED)return;   // a tenant doc is a filtered projection
+  _srvItems=JSON.parse(JSON.stringify(x.items||{}));
+  var am=(x.added_map&&typeof x.added_map==='object')?Object.keys(x.added_map)
+        :(x.added||[]).map(function(a){return a&&a.name;}).filter(Boolean);
+  _srvAdded={}; am.forEach(function(n){ _srvAdded[n]=1; });
+  _srvPersist();   // same lifetime as the sheet, or the reap is dead on the next cold start
+}catch(e){} }
+function _reapItems(x){ try{
+  if(!_srvItems||!x||!x.items)return;
+  if(BUYER!=='san_fermo'||window._REMY_SCOPED)return;
+  /* H2: a farmer-added crop deleted elsewhere must go completely, not just lose its price.
+     Clearing the record alone left g._added set, so snapshot() kept emitting it and the next save
+     put the whole crop back — "This removes it everywhere" was not true. Provenance rule as above:
+     only crops the server was confirmed to carry are candidates, so a crop added on THIS device
+     seconds ago is untouched. */
+  var _xa=(x.added_map&&typeof x.added_map==='object')?x.added_map
+         :((x.added||[]).reduce(function(m,a){ if(a&&a.name)m[a.name]=1; return m; },{}));
+  if(_srvAdded){ Object.keys(_srvAdded).forEach(function(n){
+    if(n in _xa)return;
+    var g=byName[n]; if(!g||!g._added)return;
+    if(isLocalMedia(g.photo)||isLocalMedia(g.voice))return;
+    var i=-1; for(var j=0;j<grow.length;j++){ if(grow[j].name===n){ i=j; break; } }
+    if(i>=0)grow.splice(i,1);
+    delete byName[n]; pushed.delete(n); markdown.delete(n); delete statusEdits[n];
+  }); }
+  Object.keys(_srvItems).forEach(function(n){
+    if(n in x.items)return;
+    var g=byName[n]; if(!g)return;
+    if(isLocalMedia(g.photo)||isLocalMedia(g.voice))return;   // a pending upload is not a deletion
+    /* Must clear EVERY field in snapshot()'s inclusion test. Clearing only some left the crop still
+       qualifying, so the next save wrote it back as an all-blank record and the tombstone undid
+       itself one round later. Keep this list in sync with the test at the top of snapshot(). */
+    g.ask=null; g.askUnit=''; g.askMode=''; g.askPct=null; g.askVendor=''; g.locked=false;
+    g.lockMkt=null; g.compSrc=''; g.pHide=false; g.photo=''; g.voice=''; g.voiceText='';
+    g.grow_method=[]; g.harvest_mode=''; g.variety=''; g.teaser='';
+  });
+}catch(e){} }
+
+/* Field-scoped writes lose the accidental self-healing of re-sending everything: if _lastSent
+   ever claims the server holds something it does not, that field would never be written again.
+   The repair is a full READ, never a full write — a full write from one device's state is the
+   original bug. Re-anchor from the server and let the next natural delta re-send what is missing. */
+function _resyncFromServer(){ try{
+  if(!(FB.ready&&FB.db)||BUYER!=='san_fermo')return;
+  FB.db.collection('farmAvailability').doc(BUYER).get({source:'server'}).then(function(d){
+    /* Hand it straight to applyRemote and let it decide. Setting _lastSent first made the two
+       signatures equal BY CONSTRUCTION, so applyRemote early-returned every time and the repair
+       half never ran — it re-anchored the model of the server and never fixed local state from it.
+       applyRemote already anchors, and unlike the pre-set it checks hasPendingWrites before doing so:
+       if our model was wrong the signatures differ and it applies; if it was right there is nothing
+       to repair and the early return is correct. */
+    if(d&&d.exists)applyRemote(d);
+  }).catch(function(){});
+}catch(e){} }
+
 function fbSave(){try{var x=snapshot();
   // never write base64 (optimistic preview) to Firestore — only uploaded Storage URLs. The
   // dataUrl preview lives in localStorage; Firestore carries the small http URL once uploaded.
   if(x.items){Object.keys(x.items).forEach(function(n){var it=x.items[n];
     if(it.photo&&!/^https?:/.test(it.photo))it.photo='';
     if(it.voice&&!/^https?:/.test(it.voice))it.voice='';});}
-  x.buyer_id=BUYER;x.name='__sheet__';x.status='live';FB.db.collection('farmAvailability').doc(BUYER).set(x).catch(function(){});
+  x.buyer_id=BUYER;x.name='__sheet__';x.status='live';
+  // A TENANT window must never write its own farmAvailability doc. That doc is MATERIALIZED by the
+  // farm (_scMaterialize) and carries a `hidden` list that snapshot() knows nothing about, so a
+  // tenant-side persist would silently strip the per-tenant hides and un-hide crops Kelly hid.
+  // Local state still saves; there is simply nothing here the tenant is the author of.
+  // "Saved" is honest here, unlike the bare flagSaved() calls removed elsewhere in this patch: no
+  // server write is EXPECTED on this path, so nothing is pending and nothing is being misreported.
+  if(BUYER!=='san_fermo'){ flagSaved(); return; }
+  // `added` is an array of MUTABLE objects, so arrayUnion cannot dedupe it — changing a qty makes a
+  // new element and the old one never leaves. Key it by name so two devices adding two different
+  // crops cannot erase each other. The legacy array is still written for any older reader.
+  var _am={}; (x.added||[]).forEach(function(a){ if(a&&a.name)
+    _am[a.name]={category:a.category||'',status:a.status||'',qty:a.qty||''}; });
+  x.added_map=_am;
+
+  var patch=_delta(_lastSent,x), sd=_setDeltas(_lastSent,x);
+  if(!patch&&!sd[0]&&!sd[1]){ flagSaved(); return; }        // nothing actually changed
+  patch=patch||{};
+  patch.buyer_id=BUYER; patch.name='__sheet__'; patch.status='live';
+  patch.updated_at=Date.now();                   // kept as a client number for external readers
+  patch.updated_srv=_FV().serverTimestamp();     // authoritative, AUDIT ONLY — nothing branches on it
+  if(sd[0])Object.keys(sd[0]).forEach(function(k){ patch[k]=sd[0][k]; });
+  var _writes=[patch]; if(sd[1])_writes.push(sd[1]);
+
+  _asDeferred=null;                                  // our write supersedes any held snapshot
+  var _ref=FB.db.collection('farmAvailability').doc(BUYER);
+  var _svTO=0;
+  try{
+    flagSaving();
+    _svTO=setTimeout(function(){_svTO=0;flagQueued();},5000);   // offline: set() neither resolves nor rejects
+    Promise.all(_writes.map(function(w){ return _ref.set(w,{merge:true}); }))
+      .then(function(){ if(_svTO)clearTimeout(_svTO); flagSaved(); })
+      .catch(function(e){ if(_svTO)clearTimeout(_svTO);
+        // a genuinely REJECTED write means _lastSent is now a lie about the server. Drop it so the
+        // next save re-diffs from scratch instead of silently skipping the fields that never landed.
+        var _c=(e&&e.code)||'';
+        if(!/unavailable|deadline|network|offline/i.test(_c))_lastSent=null;
+        flagSaveFail(e); });
+  }catch(_se){ if(_svTO)clearTimeout(_svTO); _lastSent=null; flagSaveFail(_se); }
+  // optimistic: the offline queue is durable, so assume it lands. This also suppresses the render
+  // for our own echo, which is what _asSeenAt used to do without needing a clock to do it.
+  /* NOTE: _srvItems/_srvAdded are deliberately NOT touched here. This anchor is optimistic — it is
+     what we BELIEVE the server will hold once the write lands — and overwriting the server-confirmed
+     record with it is exactly the bug that made a deleted crop come back twice. */
+  try{ _lastSent=JSON.parse(JSON.stringify(x)); }catch(_ce){ _lastSent=null; }
   // cascade: from the farm door (base = san_fermo), re-materialize each tenant's fenced doc so a base
   // change auto-carries. Only the anonymous farm side reaches here for san_fermo; tenant/kitchen skip.
-  try{ if(BUYER==='san_fermo' && !window._REMY_SCOPED)_scMaterializeAll(); }catch(e){}}catch(e){}}
-function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){if(d&&d.exists){applyState(d.data());renderPush();renderPick();renderList();_cfNotify();}}).catch(function(){});}catch(e){}}
+  try{ if(BUYER==='san_fermo' && !window._REMY_SCOPED)_scMaterializeSoon(); }catch(e){}}catch(e){}}
+/* _REMY_CLOUD_LOADED gates auto-tune's right to publish. It is set ONLY where a document really
+   landed — a failed or denied read must NOT satisfy it, because a device whose read failed is
+   precisely the device whose local sheet is most likely to be stale. */
+/* 2026-07-26 (B3): this used to call applyState() directly — a SECOND reader of the same document
+   that checked none of applyRemote's guards. Whichever of the two resolved last won, so a slow
+   cached get() could land on top of a fresher live snapshot. Combined with the new authoritative
+   `ask` clear that became data loss: a stale doc carrying ask:null wiped a price the user had just
+   set, and the next tap wrote the null back to the cloud. ONE READER, and it is applyRemote. */
+function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){
+  window._REMY_CLOUD_LOADED=true;                    // a real read landed, empty doc included
+  if(d&&d.exists)applyRemote(d);
+  _cloudSettled=true;
+  try{flushCloud();}catch(e){}      // now there is a baseline to diff a queued save against
+}).catch(function(){ _cloudSettled=true; try{flushCloud();}catch(e){} });   // failed: unscoped but not lost
+}catch(e){ _cloudSettled=true; try{flushCloud();}catch(_e){} }}
 /* ── Shared live inventory (farm-wide silo, depletes across every platform) ───────────────────
    One doc farmInventory/swan_house = { items:{ crop:{ stock, remaining, unit } } }. Kelly sets stock
    from the Stock sheet; every order on any platform atomically decrements remaining via _invDecrement,
@@ -37024,14 +37274,101 @@ function startInvSync(){ try{
       try{ window.addEventListener('online',function(){ _invAttach(); }); }catch(e){}
     }
   }catch(e){} }
-/* Live availability for TENANT windows only (Sea Creatures): a read-only consumer, so listening to its
-   own farmAvailability doc is safe and lands hides/price changes with no refresh. The farm AUTHOR keeps
-   its one-time load (a self-listen there would fight in-progress local edits). Self-heals like inventory. */
+/* Live availability for EVERY San Fermo window (Sam 2026-07-26: one source of truth).
+   The farm side used to load its doc once at sign-in and never listen again, so two farm devices
+   could hold different sheets for days and neither would ever learn about the other. Now every
+   window listens. The two things a self-listen could break are guarded in applyRemote():
+     - our own not-yet-acked write echoing back (hasPendingWrites) is ignored;
+     - a snapshot landing while a field is focused is HELD until that edit lands, so a remote
+       change can never yank a number out from under someone mid-type.
+   Self-heals on error like the inventory listener. */
+/* "Is the user in the middle of something?" A focused field is the obvious case, but the ask
+   sheet stages mode/%/manual in JS while the user taps CHIPS — activeElement is a button, so a
+   focus test alone would miss it and a snapshot could change the basis under an open sheet. */
+var _AS_SHEETS='#askTool.open,#priceTool.open,#ngTool.open,#voiceTool.open';
+function _asEditing(){ try{
+    if(document.querySelector(_AS_SHEETS))return true;
+    var a=document.activeElement; if(!a)return false;
+    if(a.isContentEditable)return true;
+    var t=(a.tagName||'').toUpperCase(); return (t==='INPUT'||t==='TEXTAREA'||t==='SELECT');
+  }catch(e){ return false; } }
+var _asDeferred=null;    // a snapshot held because the user was mid-edit
+/* _asSeenAt is GONE (2026-07-26). It held the newest updated_at this window had applied or written
+   and rejected anything not strictly newer — using Date.now() from whichever device wrote last. A
+   fast clock wrote a future stamp INTO the shared document, and since every device re-read it on
+   load the poison spread instead of healing; a slow clock, or far more commonly an offline edit
+   flushing an hour later, wrote a real authoritative document that every other window then ignored
+   as stale. It existed only to arbitrate whole-document overwrite, which no longer happens. */
+var _asApplying=false;   // inside applyRemote -> renders must not write back (see autoTuneLocked)
+function _asRender(){
+  try{if(typeof _cfNotify==='function')_cfNotify();}catch(e){}
+  try{if(window.__cfRenderOrder)window.__cfRenderOrder();}catch(e){}
+  if(window._REMY_SCOPED)return;   // tenant/embed windows render through the order view only
+  try{if(typeof renderPush==='function')renderPush();}catch(e){}
+  try{if(typeof renderPick==='function')renderPick();}catch(e){}
+  try{if(typeof renderList==='function')renderList();}catch(e){}
+  try{if(typeof renderPricing==='function')renderPricing();}catch(e){}
+  try{if(typeof updatePricingSeg==='function')updatePricingSeg();}catch(e){}
+}
+function applyRemote(d){ try{
+    if(!d||!d.exists)return;
+    var x=d.data(); if(!x)return;
+    /* No clock comparison. Writes are field-scoped now, so there is no document-level "newer" to
+       arbitrate — per-field server arrival order is the ordering, and it needs nothing from us.
+       The one thing still worth suppressing is a redundant re-render (the scroll-position cost the
+       2026-07-24 pass avoided), and that is decided on CONTENT, not on a timestamp.
+       This also replaces the old hasPendingWrites skip, which was quietly harmful: such a snapshot
+       is server state PLUS our un-acked write, so it also carries every remote change that landed —
+       skipping it meant a device with a queued write went deaf to everyone else until its own write
+       acked, which offline is never. A second stale-sheet mechanism hiding behind the first. */
+    if(_lastSent&&_sig(x)===_sig(_lastSent)){
+      /* The server agrees with our model, which IS confirmation that the model is right — so this
+         baseline is server-provenance even though fbSave set it optimistically after our own write.
+         Without this the flag stayed false forever after any local save (the echo always matches and
+         always returns here), and _reapItems was therefore disarmed on precisely the next snapshot —
+         the one carrying another device's deletion. The crop then came back on the following save.
+         Same hasPendingWrites condition as the anchor below: a snapshot still carrying our own
+         un-acked write is not yet evidence of what the server holds. */
+      /* Content-identical AND server-confirmed: this snapshot is direct evidence of what the
+         server holds, so record it even though there is nothing to re-render. */
+      if(!(d.metadata&&d.metadata.hasPendingWrites))_srvRecord(x);
+      return;
+    }
+    if(_asEditing()){ _asDeferred=d; return; }           // hold it until the edit lands
+    _asDeferred=null;
+    window._REMY_CLOUD_LOADED=true;
+    _asApplying=true;
+    try{ _reapItems(x); applyState(x); _asRender(); } finally { _asApplying=false; }
+    /* Persist what we just applied. Every other mutator of grow/byName reaches lsSave() through
+       persist(), but all 40 of those call sites are USER ACTIONS — and a remote change is not a tap.
+       Without this the sheet on disk is "the last thing this device typed" while the server-confirmed
+       record on disk is "the last thing the server said", the two restore from different points in
+       time, and a reload reverts every remote edit — resurrecting deleted crops permanently, since
+       the (correct) record no longer names them for _reapItems to act on. Outside the finally: a
+       throw here must not skip the anchor and _srvRecord below. */
+    try{ if(!window._REMY_SCOPED)lsSave(); }catch(_le){}
+    // only re-anchor from a SERVER-confirmed snapshot; one still carrying our pending write is not
+    // yet evidence of what the server holds.
+    if(!(d.metadata&&d.metadata.hasPendingWrites)){
+      try{ _lastSent=JSON.parse(JSON.stringify(x)); }catch(_ce){}
+      _srvRecord(x); }
+  }catch(e){ _asApplying=false; } }
+/* A held snapshot is only replayed if nothing local happened in the meantime. fbSave() drops it
+   outright: our own write supersedes whatever we were holding, and the server echo will arrive
+   on its own. Without that, tapping "Use this price" blurs the field and the held snapshot lands
+   300ms later on top of the price just set — the same reversion, one step removed. */
+function _asFlushDeferred(){ try{ if(!_asDeferred||_asEditing())return; var d=_asDeferred; _asDeferred=null; applyRemote(d); }catch(e){} }
+try{ document.addEventListener('focusout',function(){ setTimeout(_asFlushDeferred,300); }); }catch(e){}
+/* The sheets are routinely closed by TAPPING A BUTTON with no input ever focused — on a tablet with
+   the keyboard never raised that is the common path, and focusout alone left the held snapshot
+   waiting for an unrelated focus event, sometimes for hours. _asFlushDeferred re-checks _asEditing()
+   and no-ops when there is nothing held, so this is cheap. */
+try{ document.addEventListener('click',function(){ setTimeout(_asFlushDeferred,320); },true); }catch(e){}
 function _availAttach(){ try{
     if(!(FB.db))return;
     if(window._availUnsub){try{window._availUnsub();}catch(e){}window._availUnsub=null;}
     window._availUnsub=FB.db.collection('farmAvailability').doc(BUYER).onSnapshot(function(d){
-      try{ if(d&&d.exists){ applyState(d.data()); try{if(typeof _cfNotify==='function')_cfNotify();}catch(e){} try{if(window.__cfRenderOrder)window.__cfRenderOrder();}catch(e){} } }catch(e){}
+      applyRemote(d);
     },function(e){
       try{window.__REMY_AVAIL_ERR={code:(e&&e.code)||'',at:Date.now()};}catch(_e){}
       try{window._availUnsub=null;}catch(_e){}
@@ -37039,11 +37376,13 @@ function _availAttach(){ try{
     });
   }catch(e){} }
 function startAvailSync(){ try{
-    if(!window.__REMY_TENANT)return;   // tenant windows only
-    _availAttach();
+    _availAttach();   // 2026-07-26: every window, farm included (was: tenant windows only)
     if(!window._availLiveHooks){ window._availLiveHooks=true;
-      try{ document.addEventListener('visibilitychange',function(){ if(!document.hidden)_availAttach(); }); }catch(e){}
-      try{ window.addEventListener('online',function(){ _availAttach(); }); }catch(e){}
+      /* Re-anchor _lastSent from the server on resume. Field-scoped writes give up the accidental
+         self-healing of re-sending everything, so if _lastSent ever drifts from what the server
+         really holds, those fields would never be written again. The repair is a full READ. */
+      try{ document.addEventListener('visibilitychange',function(){ if(!document.hidden){_availAttach();_resyncFromServer();} }); }catch(e){}
+      try{ window.addEventListener('online',function(){ _availAttach(); _resyncFromServer(); }); }catch(e){}
     }
   }catch(e){} }
 function _invDecrement(order){ try{
@@ -37076,9 +37415,13 @@ function _stkSetItem(name,val){
    blocks that); instead the anonymous farm side RESOLVES the tenant's effective list and writes the
    fully-materialized farmAvailability/{tenant} doc, which the tenant then reads as its own. Runs on
    every base save so a base change auto-carries. Opt-in: nothing until Kelly sets a tenant's pricing. */
+/* The cascade recomputes each tenant doc from THIS device's local state, so a window that has not
+   yet loaded the cloud sheet would publish its stale view over every tenant — the same class of bug
+   as the base sheet, one level removed. Same gate autoTuneLocked already uses, for the same reason. */
 function _scMaterialize(tid){
   try{
     if(!(FB.ready&&FB.db))return;
+    if(!window._REMY_CLOUD_LOADED)return;
     var t=tid||'sea_creatures';
     var ov=tenantOverrides&&tenantOverrides[t];
     if(!ov)return;
@@ -37098,9 +37441,18 @@ function _scMaterialize(tid){
     // hidden list rides the tenant doc so the tenant window can PRUNE these crops from what it shows
     // (grow = embedded full list, so omitting from items alone doesn't hide them — the tenant needs the list)
     doc.hidden=Object.keys(iov).filter(function(n){return iov[n]&&iov[n].hidden;});
-    FB.db.collection('farmAvailability').doc(t).set(doc).catch(function(){});
+    FB.db.collection('farmAvailability').doc(t).set(doc).catch(function(e){
+      // this is what carries Kelly's prices to Sea Creatures; a silent failure here is how a tenant
+      // quietly goes stale, so leave a signal even though it is not the farmer's chip to read
+      try{window.__REMY_CASCADE_ERR={tenant:t,code:(e&&e.code)||'',at:Date.now()};}catch(_e){}
+      try{console.warn('[REMY cascade]',t,e&&(e.code||e.message));}catch(_e){}
+    });
   }catch(e){}
 }
+/* Debounced. The cascade is a full .set() per tenant and it used to run on EVERY save; now that the
+   base write is field-scoped it would otherwise be by far the largest write in the app. */
+function _scMaterializeSoon(){ try{ clearTimeout(window._scT);
+  window._scT=setTimeout(function(){ try{_scMaterializeAll();}catch(e){} },1500); }catch(e){ try{_scMaterializeAll();}catch(_e){} } }
 // Cascade to every connected restaurant on a base save, so one board change re-carries to all.
 function _scMaterializeAll(){ try{ (connectedTenants||[]).forEach(function(ct){ if(ct&&ct.id)_scMaterialize(ct.id); }); }catch(e){} }
 /* ── Connected Restaurants tab (farm-side wholesale relationships) ───────────────────────────
@@ -37260,11 +37612,18 @@ function stockOpen(){
 }
 try{var _stkb=document.getElementById('stock-open');if(_stkb){_stkb.onclick=stockOpen;if(!window._REMY_SCOPED)_stkb.style.display='';}}catch(e){}
 var _cfListeners=[];function _cfNotify(){try{(_cfListeners||[]).forEach(function(f){try{f();}catch(e){}});}catch(e){}}
-/* ── San Fermo auth (cutover) ─────────────────────────────────────────────────────────────────
-   San Fermo no longer signs in anonymously. It mints a role token via the App-Check'd mintToken
-   Function and signs in with it: the portal embed -> kitchen; Kelly's ?farm=<code> link -> farm.
-   A bare visitor with neither gets a closed gate (the previously-open base URL is shut). The custom
-   token session persists per device (Firebase local persistence) — a once-per-device sign-in. */
+/* ── San Fermo auth ───────────────────────────────────────────────────────────────────────────
+   CURRENT STATE (2026-07-26, Sam): every San Fermo window signs in ANONYMOUSLY. The farm role is
+   retired — ?farm=<code> is still accepted and deliberately ignored so Kelly's permanent link keeps
+   working, and a device still holding the old farm claim is signed back down on load. The tenant
+   path (?tenant=&code=) still mints a real fenced token; that fence stays.
+   The 2026-07-15 price-lock that fenced farmAvailability/priceList writes to a farm claim was rolled
+   back here: it left two identity states in the wild, every write from the wrong one was silently
+   dropped, and the farm ended up reading different numbers on different devices. The real fence is
+   the full San Fermo auth cutover — see docs/san-fermo-auth-cutover-plan.md. Until then this door is
+   open, which is a KNOWN and accepted pre-ship state, not an oversight.
+   Dead below, kept only because the cutover will need them again: SF_KITCHEN_CODE, SF_STAGE_ANON,
+   _sfIsEmbed, _sfFarmCode, and the 'farm' branch of _sfMintSignIn. */
 var SF_KITCHEN_CODE='sf-kitchen-embed-v1';   // NOT a secret — App Check is the kitchen's gate (accepted residual)
 // STAGING: while true, the STANDALONE farm door (no embed, no farm link) still signs in anonymously so
 // Kelly isn't locked out during the kitchen test. The portal embed already mints its kitchen token. Set
@@ -37309,7 +37668,12 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
     orders:function(){return (ordersData||[]).slice();},           // live restaurant+farm orders (this farm)
     onOrders:function(cb){try{if(typeof cb==='function')_ordListeners.push(cb);}catch(e){}}};}catch(e){}
   // offline persistence: prices/status/markdown/transcripts queue locally + auto-sync on reconnect
-  try{FB.db.enablePersistence({synchronizeTabs:true}).catch(function(){});}catch(e){}
+  /* If this rejects there is NO offline queue on this device, and every assumption about offline
+     saving is void for it — silently. One recorded code is the cheapest diagnostic in the file. */
+  try{FB.db.enablePersistence({synchronizeTabs:true}).catch(function(e){
+    try{window.__REMY_PERSIST_ERR={code:(e&&e.code)||'',at:Date.now()};}catch(_e){}
+    try{console.warn('[REMY persistence]',e&&(e.code||e.message));}catch(_e){}
+  });}catch(e){}
   try{FB.storage=firebase.storage();}catch(e){}
   firebase.auth().onAuthStateChanged(function(u){
     var T=window.__REMY_TENANT;
@@ -37325,20 +37689,49 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
       } else {
         // non-tenant session: if this is the farm link but the session lacks the farm claim (e.g. a
         // persisted anonymous login), sign out and re-mint farm so Kelly's device upgrades. Else load.
-        var _fcS=_sfFarmCode();
-        if(_fcS){ u.getIdTokenResult().then(function(r){ var role=(r&&r.claims&&r.claims.role)||''; if(role==='farm'){_remyOnAuthReady();} else { firebase.auth().signOut().then(function(){_sfMintSignIn('farm',_fcS);}).catch(function(){_sfMintSignIn('farm',_fcS);}); } }).catch(function(){_remyOnAuthReady();}); }
-        else { _remyOnAuthReady(); }
+        // 2026-07-26 (Sam): ONE identity. The farm role is retired. ?farm=... is still accepted and
+        // simply ignored, so Kelly's permanent link keeps working untouched; and a device still
+        // carrying the old farm claim is signed back down to anonymous, so every San Fermo window is
+        // the same identity writing the same doc. Two identity states in the wild was the splinter.
+        u.getIdTokenResult().then(function(r){
+          var role=(r&&r.claims&&r.claims.role)||'';
+          // signOut() re-fires onAuthStateChanged(null), and the null branch below already signs in
+          // anonymously — so do NOT sign in here too, or every migrating device races two sessions.
+          /* 2026-07-26 (B4): signOut() is a LOCAL operation — it succeeds with no network and
+             destroys the persisted session, while signInAnonymously() needs the network and used to
+             reject into a swallowed catch. FB.ready then never got set, onAuthStateChanged never
+             fired again, and nothing retried, so a device that migrated while offline sat with no
+             session at all, saving to localStorage behind a green "Saved". That is the phantom save
+             this whole change exists to end, on the one person who will not report it. Downgrade
+             only when we can actually complete it; otherwise keep the working session and retry. */
+          if(role==='farm'){
+            if(navigator.onLine===false){
+              try{ if(!window._remyDowngradeHook){ window._remyDowngradeHook=true;
+                window.addEventListener('online',function(){ try{ _sfDowngradeFarm(); }catch(e){} });
+              } }catch(e){}
+              _remyOnAuthReady();                    // usable now, migrates when there is a network
+            } else { _sfDowngradeFarm(); }
+          }
+          else { _remyOnAuthReady(); }
+        }).catch(function(){_remyOnAuthReady();});
       }
       return;
     }
     if(T){ _tenantEntry(); return; }
-    // SURGICAL price-lock (2026-07-15): only Kelly's farm link authenticates. Kitchen embed + bare
-    // visitors stay anonymous exactly as before (orders/inventory rules remain permissive); only
-    // farmAvailability/priceList WRITES are fenced to the farm claim, so anon can't tamper with prices.
-    var _fc=_sfFarmCode();
-    if(_fc){ _sfMintSignIn('farm', _fc); }
-    else { firebase.auth().signInAnonymously().catch(function(){}); }
+    // ROLLED BACK 2026-07-26 (Sam): the surgical price-lock (2026-07-15) fenced farmAvailability /
+    // priceList writes to a minted farm claim. It bought very little — orders, inventory and the
+    // tenant registry stayed open on the bare URL — and it cost a great deal: two identity states,
+    // silently rejected saves, and the same farm reading different numbers on different devices.
+    // Every window is anonymous San Fermo again. The real fence lands with the full auth cutover.
+    firebase.auth().signInAnonymously().catch(function(){});
   });}catch(e){}}
+/* The downgrade itself, so the online-retry hook can reach it. signOut() re-fires
+   onAuthStateChanged(null) and the null branch signs in anonymously — so do NOT sign in here
+   too, or every migrating device races two sessions. If the sign-out itself fails we keep the
+   session we have rather than leaving the window with none. */
+function _sfDowngradeFarm(){ try{
+  firebase.auth().signOut().catch(function(){ _remyOnAuthReady(); });
+}catch(e){ _remyOnAuthReady(); } }
 function _remyOnAuthReady(){
   try{
     var cu=firebase.auth().currentUser; if(!cu){return;}
@@ -37347,9 +37740,12 @@ function _remyOnAuthReady(){
       window.__REMY_BUYER=b; try{BUYER=b;SKEY='remy.farm.'+BUYER+'.v1';}catch(e){}
       try{if(window.RemyTenant&&window.RemyTenant.setBuyer)window.RemyTenant.setBuyer(b);}catch(e){}
       _remyGateHide();
-      FB.ready=true; fbLoad(); flushQueue(); flushCloud(); startOrdersSync(); startInvSync(); startAvailSync();
-    }).catch(function(){ window.__REMY_BUYER='san_fermo'; FB.ready=true; fbLoad(); flushQueue(); flushCloud(); startOrdersSync(); startInvSync(); startAvailSync(); });
-  }catch(e){ try{FB.ready=true;fbLoad();flushQueue();startOrdersSync();}catch(_e){} }
+      /* flushCloud() is NOT called here. It writes a delta, and until fbLoad() resolves there is no
+         baseline to diff against — it would publish this device's whole sheet and drop every removal.
+         fbLoad() calls it once the read has landed, on both the success and the failure path. */
+      FB.ready=true; fbLoad(); flushQueue(); startOrdersSync(); startInvSync(); startAvailSync();
+    }).catch(function(){ window.__REMY_BUYER='san_fermo'; FB.ready=true; fbLoad(); flushQueue(); startOrdersSync(); startInvSync(); startAvailSync(); });
+  }catch(e){ try{FB.ready=true;fbLoad();flushQueue();startOrdersSync();startInvSync();startAvailSync();}catch(_e){} }
 }
 function _remyGateHide(){ try{var g=document.getElementById('remy-pass-gate'); if(g&&g.parentNode)g.parentNode.removeChild(g);}catch(e){} }
 /* Seamless tenant link (Sam 2026-07-16). A tenant link carries its code in the URL
@@ -37391,7 +37787,31 @@ function _remyTenantGate(){
     setTimeout(function(){ try{document.getElementById('remy-pass-in').focus();}catch(e){} },60);
   }catch(e){}
 }
-function flagSaved(){var m=document.getElementById('saved');if(!m)return;m.style.opacity='1';clearTimeout(window._svt);window._svt=setTimeout(function(){m.style.opacity='0';},1100);}
+/* Save chip states. "Saved" is now only ever shown for a write the server actually accepted;
+   offline/queued and hard-rejected are visually distinct. Prior to 2026-07-26 every outcome,
+   including permission-denied, rendered as "Saved". */
+var _SAVED_OK='#a8b97e', _SAVED_BAD='#e0796a';
+function _savedEl(){return document.getElementById('saved');}
+/* The pill's own background/border are green in the inline style, so a failure has to repaint the
+   whole chip, not just the text — otherwise "Not saved" reads as the success chip she is trained
+   to glance past, which is the failure mode this whole change exists to end. */
+function _savedShow(txt,color,fade){var m=_savedEl();if(!m)return;clearTimeout(window._svt);
+  var bad=(color===_SAVED_BAD);
+  m.textContent=txt;m.style.color=color;
+  m.style.background=bad?'rgba(224,121,106,0.16)':'rgba(168,185,126,0.16)';
+  m.style.borderColor=bad?'rgba(224,121,106,0.6)':'rgba(168,185,126,0.5)';
+  m.style.opacity='1';
+  if(fade)window._svt=setTimeout(function(){m.style.opacity='0';},fade);}
+function flagSaving(){_savedShow('Saving\u2026',_SAVED_OK,0);}
+function flagSaved(){_savedShow('Saved',_SAVED_OK,1100);}
+function flagQueued(){_savedShow('Saved \u2014 syncing',_SAVED_OK,2200);}
+function flagSaveFail(e){var code=(e&&e.code)||'';
+  try{window.__REMY_SAVE_ERR={code:code,at:Date.now()};}catch(_e){}
+  try{console.warn('[REMY save]',code,e&&e.message);}catch(_e){}
+  // 'aborted' is Firestore's contention/failed-precondition class, NOT a network class — that write
+  // is not queued and will not retry, so painting it green was a lying chip in the honest-chip fix.
+  if(/unavailable|deadline|network|offline/i.test(code)){_savedShow('Saved \u2014 syncing',_SAVED_OK,2200);return;}
+  _savedShow('Not saved \u2014 '+(code||'error'),_SAVED_BAD,0);}
 
 /* ── PHOTO per listing: one tap → camera → resize → Storage → URL on the listing ── */
 function slugName(s){return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'item';}
@@ -38122,7 +38542,16 @@ function autoTuneOne(g){ if(!g.locked)return false;
   if(mkl!=null&&g.lockMkt==null)g.lockMkt=mkl;   // backfill baseline for crops locked before the band existed
   if(lockBandState(g))return false;              // out of band -> hold, do not follow the move
   if(g.ask==null||g.ask===''||Math.abs(r.ask-Number(g.ask))>=0.01){g.ask=r.ask;return true;} return false; }
-function autoTuneLocked(){ if(!_fmMap)return; var ch=false; grow.forEach(function(g){ if(g.locked&&autoTuneOne(g))ch=true; }); if(ch)persist(); }
+function autoTuneLocked(){ if(!_fmMap)return; var ch=false; grow.forEach(function(g){ if(g.locked&&autoTuneOne(g))ch=true; });
+  // Three conditions before auto-tune is allowed to PUBLISH (it always adjusts on screen):
+  //  1. the cloud sheet actually landed — otherwise this device is running on its own localStorage
+  //     and would publish a stale sheet over a fresher one;
+  //  2. we are not inside applyRemote — renderPricing() calls this function, so without the guard
+  //     receiving another device's sheet would immediately write a reply. Two devices whose feeds
+  //     disagree (legal for up to _FM_TTL after a feed push) would then trade writes in a tight
+  //     loop, re-materializing every tenant doc on each pass;
+  //  3. this device's own feed is real and current — never republish off a failed fetch.
+  if(ch && window._REMY_CLOUD_LOADED && !_asApplying && _fmFeed && !_fmErr)persist(); }
 function _pLockApply(g,pct){ if(!g.askUnit)g.askUnit='lb';
   if(_isHub(g)){ g.askMode='match'; g.askPct=0; }                 // hub comp -> hold AT local market
   else { g.askMode='premium'; if(pct!=null)g.askPct=pct; else if(g.askPct==null)g.askPct=_lockPct; }
@@ -38216,7 +38645,7 @@ function pBunchSwitch(name){ var g=byName[name]; if(!g||(g.category||'')!=='herb
   persist(); renderPricing(); if(typeof renderPush==='function')renderPush(); if(typeof renderList==='function')renderList(); }
 function renderPricing(){
   var el=document.getElementById('pricing-body'); if(!el)return;
-  if(fmNeed()){ fmFetch(function(feed){ fmApply(feed); renderPricing(); }); }
+  if(fmNeed()){ var _wasApplyP=_asApplying; fmFetch(function(feed){ fmApply(feed); if(_wasApplyP)_asApplying=true; try{ renderPricing(); } finally { if(_wasApplyP)_asApplying=false; } }); }
   autoTuneLocked();   // hold locked crops at their set % before the rows read the asks
   var rows=_pRows();
   var body=rows.map(function(r){ return _pRowHTML(r.g,r.d,r.st); }).join('');
@@ -38249,7 +38678,10 @@ function renderPricing(){
 
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
-  if(fmNeed()){ fmFetch(function(feed){ fmApply(feed); if(typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
+  /* fmFetch resolves on a LATER task, after applyRemote's synchronous finally has already cleared
+     _asApplying — so autoTuneLocked's anti-loop gate was false by the time this ran, and a render
+     triggered by a remote snapshot could still publish. Capture the flag at schedule time. */
+  if(fmNeed()){ var _wasApply=_asApplying; fmFetch(function(feed){ fmApply(feed); if(!_wasApply&&typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
   var names=Array.from(pushed);
   if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
   names.forEach(function(n){
@@ -38274,7 +38706,7 @@ function renderPush(){
       '</div>';
     el.appendChild(c);
   });
-  el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);renderPush();renderPick();renderList();};});
+  el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);persist();renderPush();renderPick();renderList();};});
   el.querySelectorAll('.ask-btn').forEach(function(b){b.onclick=function(){atOpen(b.dataset.n);};});
   el.querySelectorAll('.price-btn').forEach(function(b){b.onclick=function(){ptOpen(b.dataset.n);};});
   el.querySelectorAll('.voice-btn').forEach(function(b){b.onclick=function(){vtOpen(b.dataset.n);};});
@@ -38282,7 +38714,11 @@ function renderPush(){
   el.querySelectorAll('.pc-photo').forEach(function(b){b.onclick=function(){openPhotoView(b.dataset.n);};});
   el.querySelectorAll('.method-btn').forEach(function(b){b.onclick=function(){methodOpen(b.dataset.n);};});
   el.querySelectorAll('.dr-fix').forEach(function(b){b.onclick=function(){driftApply(b.dataset.dn);};});
-  persist();
+  /* 2026-07-26: a persist() used to sit here. Harmless while only tenant windows listened — but the
+     moment the farm side got a live listener it closed a loop: applyRemote -> _asRender -> renderPush
+     -> persist -> write -> the peer's listener -> its renderPush -> its write, forever, at network
+     speed, each pass also re-materializing every tenant doc. A RENDER MUST NOT WRITE. The handlers
+     that were relying on this to save their mutation now persist explicitly; see _delta's callers. */
 }
 /* Per-listing details capture (Kelly wishlist, 2026-06-26). Growing method (tags), how-harvested
    (cut/pre), variety (text), coming-soon teaser (text) -> g.* -> farmAvailability.items[name] ->
@@ -38375,7 +38811,7 @@ function renderPick(){
   if(!pool.length){g.innerHTML='<div class="empty-push" style="padding:2px">Everything in season is already on the board.</div>';return;}
   pool.forEach(function(x){
     var b=document.createElement('button');b.className='pick';b.textContent=x.name;
-    b.onclick=function(){pushed.add(x.name);renderPush();renderPick();renderList();document.getElementById('picker').classList.remove('open');};
+    b.onclick=function(){pushed.add(x.name);persist();renderPush();renderPick();renderList();document.getElementById('picker').classList.remove('open');};
     g.appendChild(b);
   });
 }
@@ -38507,9 +38943,9 @@ function renderList(){
     items.slice().sort(_sellSort).forEach(function(g){el.appendChild(lrowNode(g));});
   }
   el.querySelectorAll('.lr-typehdr').forEach(function(h){h.onclick=function(){var c=h.getAttribute('data-cat');listTypeOpen[c]=!listTypeOpen[c];renderList();};});
-  el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;renderList();renderPick();};});
+  el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;persist();renderList();renderPick();};});
   el.querySelectorAll('.lr-photo').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
-  el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);renderList();renderPush();renderPick();};});
+  el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);persist();renderList();renderPush();renderPick();};});
   el.querySelectorAll('.lr-stock').forEach(function(inp){inp.onchange=function(){_stkSetItem(inp.dataset.n,inp.value);};inp.onclick=function(e){e.stopPropagation();};});
   el.querySelectorAll('.lr-cat').forEach(function(s){s.onchange=function(){setCropCategory(s.dataset.n,s.value);};s.onclick=function(e){e.stopPropagation();};});
   el.querySelectorAll('.lr-stku').forEach(function(s){s.onchange=function(){_stkSetUnit(s.dataset.n,s.value);};s.onclick=function(e){e.stopPropagation();};});
@@ -38517,7 +38953,7 @@ function renderList(){
     if(g._added){if(confirm('Delete “'+n+'” from your list? This removes it everywhere.'))removeAddedCrop(n);}
     else{g.status='Done';statusEdits[n]='Done';persist();renderList();renderPick();renderPush();_cfNotify();}
   };});
-  persist();
+  /* 2026-07-26: persist() removed — see the note in renderPush. A render must not write. */
 }
 
 var peakName=(grow.find(function(g){return g.status==='Peak';})||{name:'your crops'}).name;
@@ -38695,6 +39131,10 @@ document.getElementById('fh-week').textContent=(DATA.week||'');
 document.getElementById('meta').innerHTML='Live from your Swan House sheet <span class="dot">&middot;</span> last touched '+(DATA.kelly_last_touch||'?')+' <span class="dot">&middot;</span> '+grow.length+' crops, '+DATA.market_count+' with a market comp';
 
 applyState(lsLoad());
+/* Restore what the server was last CONFIRMED to hold, alongside the sheet itself. Without this the
+   first snapshot of a session can never be recognised as carrying another device's deletion, and
+   the crop is republished on the next tap — the cold-start hole Bones found in round 5. */
+_srvRestore();
 renderPush();renderPick();renderList();
 updateWeatherSeg();
 updateOfflineBanner();
@@ -41254,7 +41694,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='dd5cb92dc015';
+window.REMY_BUILD='5faf61efef94';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
