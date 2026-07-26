@@ -39624,7 +39624,11 @@ function invPrintDoc(htmlStr){
   document.body.classList.add('inv-printing');
   var done=function(){document.body.classList.remove('inv-printing');try{window.removeEventListener('afterprint',done);}catch(e){}};
   try{window.addEventListener('afterprint',done);}catch(e){}
-  setTimeout(function(){try{window.print();}catch(e){done();}},80);
+  /* 2026-07-26: print SYNCHRONOUSLY inside the tap's user activation. Safari drops a
+     window.print() fired from a later task (the old 80ms timeout), which left the button dead
+     until an app switch released the queued call. A forced layout flush replaces the delay. */
+  void host.offsetHeight;
+  try{window.print();}catch(e){done();}
 }
 function invDocHead(o,title){
   var dd=o.confirmed_date||o.requested_date||'';
@@ -40023,7 +40027,9 @@ window.RemyFarm={
     var pmeth=(prof.grow_methods||[]);
     var pcerts=(prof.certifications||'').split(',').map(function(s){return s.trim();}).filter(Boolean);
     var pchips=pmeth.concat(pcerts);
-    var profHtml=(prof.story||pchips.length||prof.region_season)?('<div style="margin-top:11px;padding:11px 13px;border:1px solid rgba(155,176,106,.32);border-radius:12px;background:rgba(155,176,106,.07)">'+
+    /* 2026-07-26: tenant windows render the dedicated top banner (bioHtml below) from the same
+       farm_profile — showing this card too duplicated the story, one copy translucent. SF keeps it. */
+    var profHtml=(!window.__REMY_TENANT&&(prof.story||pchips.length||prof.region_season))?('<div style="margin-top:11px;padding:11px 13px;border:1px solid rgba(155,176,106,.32);border-radius:12px;background:rgba(155,176,106,.07)">'+
       (prof.story?('<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-80,#c4cde2);line-height:1.45">'+esc(prof.story)+'</div>'):'')+
       (pchips.length?('<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:'+(prof.story?'9px':'0')+'">'+pchips.map(function(m){return '<span style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.02em;padding:3px 9px;border-radius:11px;color:#cfe0a8;background:rgba(155,176,106,.16);border:1px solid rgba(155,176,106,.4)">'+esc(m)+'</span>';}).join('')+'</div>'):'')+
       (prof.region_season?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:'+((prof.story||pchips.length)?'9px':'0')+'">'+esc(prof.region_season)+'</div>'):'')+
@@ -41863,7 +41869,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='cefaf8e8b409';
+window.REMY_BUILD='201d71297c97';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
