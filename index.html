@@ -39378,6 +39378,12 @@ function invCrop(item){
 }
 // Kelly's current ask for this line — the price she has set inside Remy (pricing calculator).
 function invKellyAsk(line){var g=invCrop(line.item);if(g&&g.ask!=null)return {price:g.ask, unit:g.askUnit||'', vendor:g.askVendor||''};return null;}
+// Is the open invoice for a TENANT order (a connected restaurant group)? Tenant lines carry the
+// per-tenant AGREED price in line.ask (materialized from Kelly's Connected Restaurants sheet);
+// Kelly's base ask is what San Fermo pays and is NOT their price. NOTE: a combined order is
+// stamped san_fermo today (known stamp() issue), so combines fall through to family pricing —
+// unchanged here on purpose; fix travels with the stamp() round.
+function invTenantOrder(){var o=INV&&INV.order;var b=o&&o.buyer_id;return !!(b&&b!=='san_fermo'&&b!=='swan_house');}
 function invFeedItem(item){var it=(INV.feed&&INV.feed.items)||{};return it[item]||null;}
 // Defaults for a line: Kelly's saved price + unit travel together (her price is already in her
 // unit); else the prior filed line (re-finalize); else the market spine on an exact unit match;
@@ -39388,11 +39394,18 @@ function invLineDefaults(line, ex){
   var savedAsk=(g&&g.ask!=null)?g.ask:null;
   // UNIT: Kelly's saved sell-unit wins, else the prior filed unit, else the order unit.
   var unit=savedUnit||(ex&&ex.unit)||line.unit||'';
-  // PRICE: her saved ask, else the prior filed price, else the spine on an exact unit match, else blank.
-  var price=(line.price!=null&&line.price!=='')?Number(line.price):savedAsk;   // a line's own price (farm-added item) wins
+  // PRICE: a line's own price (farm-added item) always wins. TENANT orders then bill the price
+  // the buyer AGREED TO at order time (line.ask) — never re-priced from Kelly's base ask, which
+  // is what San Fermo pays (2026-07-26: her -25% Sea Creatures markdown surfaced this — the base
+  // default silently undid it at finalize). A tenant line with no order price stays BLANK so
+  // Kelly prices it consciously; tenant lines never fall to the market spine. Family orders keep
+  // the original chain: saved ask, else the prior filed price, else the spine on a unit match.
+  var tenant=invTenantOrder();
+  var price=(line.price!=null&&line.price!=='')?Number(line.price):null;
+  if(price==null){ if(tenant){ if(line.ask!=null&&line.ask!=='')price=Number(line.ask); } else { price=savedAsk; } }
   if(price==null&&ex&&ex.price!=null)price=ex.price;
-  if(price==null){var fe=invFeedItem(line.item);if(fe&&fe.swan_price!=null&&invNormUnit(fe.unit)===invNormUnit(line.unit))price=fe.swan_price;}
-  return {unit:unit, price:price, saved:(savedAsk!=null)};
+  if(price==null&&!tenant){var fe=invFeedItem(line.item);if(fe&&fe.swan_price!=null&&invNormUnit(fe.unit)===invNormUnit(line.unit))price=fe.swan_price;}
+  return {unit:unit, price:price, saved:(savedAsk!=null), tenant:tenant};
 }
 var INV_UNITS=['lb','1/4 lb','1/2 lb','oz','each','dozen','bunch','pint','quart','gallon','gallon bag','case','flat','bag'];
 function invUnitOptions(cur){
@@ -39437,7 +39450,7 @@ function invBuildRows(o){
     var df=invLineDefaults(l,ex);
     return {item:l.item, unit:df.unit, ordered:l.qty, qty:qd.qty, flagged:qd.flagged, defaulted:qd.defaulted,
             farm_status:l.farm_status||null, farm_note:l.farm_note||'',
-            price:(df.price==null?'':String(df.price)), saved:df.saved, incl:true};
+            price:(df.price==null?'':String(df.price)), saved:df.saved, tenant:!!df.tenant, incl:true};
   });
 }
 function invOpen(id){
@@ -39448,6 +39461,7 @@ function invOpen(id){
     var dr=INV.drafts[id];
     if(dr&&dr.rows&&dr.rows.length){ INV.rows=JSON.parse(JSON.stringify(dr.rows)); INV.savePrices=!!dr.savePrices; INV.fromDraft=true; }
     else { invBuildRows(o); INV.fromDraft=false; }
+    if(invTenantOrder())INV.savePrices=false;   // the price write-back targets the BASE sheet — never armed on a tenant invoice
     invRender();
     invModal().classList.add('open');
   });
@@ -39476,7 +39490,8 @@ function invRender(){
         '<span class="inv-amt" id="inv-amt-'+i+'"></span>'+
       '</div>'+
       '<div class="inv-perunit" id="inv-per-'+i+'"></div>'+
-      '<div class="inv-ref">'+(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices')+'</div>'+
+      '<div class="inv-ref">'+(r.tenant?((r.price!=null&&String(r.price)!=='')?'Price agreed at order &mdash; their sheet, not your base price':'No price on this order &mdash; set what they pay')
+                 :(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices'))+'</div>'+
     '</div>';
   }).join('');
   document.getElementById('inv-rows').innerHTML=rows;
@@ -39486,6 +39501,7 @@ function invRender(){
   m.querySelectorAll('.inv-unit-sel').forEach(function(el){el.addEventListener('change',function(){INV.rows[+el.getAttribute('data-ui')].unit=el.value;invRecalc();});});
   m.querySelectorAll('[data-inci]').forEach(function(el){el.addEventListener('change',function(){var r=INV.rows[+el.getAttribute('data-inci')];r.incl=el.checked;el.closest('.inv-row').classList.toggle('off',!r.incl);invRecalc();});});
   var sp=document.getElementById('inv-saveprices');if(sp)sp.checked=INV.savePrices;
+  var spl=m.querySelector('.inv-savetoggle');if(spl)spl.style.display=invTenantOrder()?'none':'';
   invRecalc();
 }
 function invLineAmt(r){var q=parseFloat(r.qty),p=parseFloat(r.price);if(isNaN(q)||isNaN(p))return null;return +(q*p).toFixed(2);}
@@ -39518,7 +39534,7 @@ function invFinalize(){
     var g=invCrop(r.item);
     if(g){
       if(r.unit&&g.askUnit!==r.unit){g.askUnit=r.unit;wroteBack=true;}
-      if(has&&INV.savePrices){g.ask=+p.toFixed(2);if(!g.askMode)g.askMode='manual';wroteBack=true;}
+      if(has&&INV.savePrices&&!invTenantOrder()){g.ask=+p.toFixed(2);if(!g.askMode)g.askMode='manual';wroteBack=true;}
     }
     return {item:r.item, unit:r.unit, qty:(isNaN(q)?r.qty:q), price:has?+p.toFixed(2):null, amount:amt,
             farm_status:r.farm_status||null, farm_note:r.farm_note||'',
@@ -41785,7 +41801,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='a5a5661b9873';
+window.REMY_BUILD='9ff6b7a5f9f4';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
