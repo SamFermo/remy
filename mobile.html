@@ -117,7 +117,10 @@ html.tenant-sc-early #doors,html.tenant-seacreatures #doors{display:none!importa
 /* the intro overlay in the tenant's own palette: cream ground, deep-teal word, soft blue glow —
    #intro's base rule hardcodes a navy gradient and a cream text-shadow, which would otherwise
    drop a dark panel with a blue word into the middle of a cream app. */
-html.tenant-seacreatures #intro{background:radial-gradient(ellipse at 50% 42%,#FDFBF6 0%,#F6F1E7 58%,#EFE7D8 100%)!important}
+html.tenant-seacreatures #intro{background:
+  radial-gradient(120% 90% at 50% 44%,rgba(246,241,231,.74),rgba(246,241,231,.56) 52%,rgba(246,241,231,.32) 100%),
+  url('assets/sea-creatures-hero.webp') center/cover no-repeat,
+  #F6F1E7!important}
 html.tenant-seacreatures .intro-word{color:#123B50!important;
   text-shadow:0 0 30px rgba(46,154,200,.30),0 0 64px rgba(46,154,200,.16),0 0 10px rgba(46,154,200,.34)!important}
 html.tenant-seacreatures .intro-word.morph.landed{text-shadow:0 0 6px rgba(46,154,200,.34),0 0 14px rgba(46,154,200,.18)!important}
@@ -41778,7 +41781,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='dcd683edda30';
+window.REMY_BUILD='6f6cd21df696';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
