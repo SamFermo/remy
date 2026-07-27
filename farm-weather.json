@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-26T06:40:31",
+ "generated_at": "2026-07-27T06:41:05",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -94,9 +94,9 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 80,
-   "low_f": 55,
-   "avg_f": 68.0,
+   "high_f": 77,
+   "low_f": 51,
+   "avg_f": 66.0,
    "forecast": "Patchy Fog then Mostly Sunny",
    "signals": [],
    "alerts": [],
@@ -121,25 +121,25 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 97,
-   "low_f": 57,
-   "avg_f": 77.0,
-   "forecast": "Haze then Areas Of Smoke",
+   "high_f": 91,
+   "low_f": 56,
+   "avg_f": 75.0,
+   "forecast": "Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (75F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 24 at 4:19PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 26 at 12:54PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
@@ -170,53 +170,23 @@
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
-   "id": "snoqualmie_valley_wa",
-   "name": "Snoqualmie Valley, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 86,
-   "low_f": 56,
-   "avg_f": 70.0,
-   "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (86F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Local Roots Farm",
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "brassicas",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Spring through fall; berries in summer"
-  },
-  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 99,
-   "low_f": 59,
-   "avg_f": 79.0,
-   "forecast": "Patchy Smoke then Sunny",
+   "high_f": 92,
+   "low_f": 58,
+   "avg_f": 77.0,
+   "forecast": "Sunny then Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (79F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -240,18 +210,18 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 99,
-   "low_f": 59,
-   "avg_f": 79.0,
-   "forecast": "Sunny",
+   "high_f": 92,
+   "low_f": 57,
+   "avg_f": 77.0,
+   "forecast": "Sunny then Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (99F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (79F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [],
@@ -273,14 +243,14 @@
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 101,
-   "low_f": 57,
-   "avg_f": 79.0,
-   "forecast": "Haze then Sunny",
+   "high_f": 93,
+   "low_f": 55,
+   "avg_f": 76.0,
+   "forecast": "Sunny then Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (79F avg). Monitor grass growth conditions; drought risk in summer."
+     "text": "Heat building (76F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
    "alerts": [],
@@ -302,10 +272,10 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 95,
+   "high_f": 90,
    "low_f": 55,
-   "avg_f": 75.0,
-   "forecast": "Patchy Smoke",
+   "avg_f": 74.0,
+   "forecast": "Smoke",
    "signals": [],
    "alerts": [
     {
@@ -328,14 +298,69 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 88,
+   "low_f": 56,
+   "avg_f": 73.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 26 at 8:55AM MDT by NWS Great Falls MT"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
+   "id": "snoqualmie_valley_wa",
+   "name": "Snoqualmie Valley, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 80,
+   "low_f": 51,
+   "avg_f": 68.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Local Roots Farm",
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "brassicas",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Spring through fall; berries in summer"
+  },
+  {
    "id": "snohomish_sammamish_valleys_wa",
    "name": "Snohomish/Sammamish Valleys, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 84,
-   "low_f": 55,
-   "avg_f": 69.0,
+   "high_f": 80,
+   "low_f": 51,
+   "avg_f": 67.0,
    "forecast": "Mostly Sunny",
    "signals": [],
    "alerts": [],
@@ -357,9 +382,9 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 83,
-   "low_f": 58,
-   "avg_f": 70.0,
+   "high_f": 78,
+   "low_f": 55,
+   "avg_f": 68.0,
    "forecast": "Mostly Sunny",
    "signals": [],
    "alerts": [],
@@ -382,14 +407,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 78,
-   "low_f": 54,
+   "high_f": 72,
+   "low_f": 53,
    "avg_f": 64.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 78F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 72F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -414,13 +439,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 66,
-   "low_f": 55,
-   "avg_f": 61.0,
-   "forecast": "Mostly Cloudy",
+   "low_f": 51,
+   "avg_f": 59.0,
+   "forecast": "Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 66F, low 55F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 66F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -444,13 +469,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 75,
-   "low_f": 53,
-   "avg_f": 65.0,
-   "forecast": "Mostly Sunny",
+   "low_f": 52,
+   "avg_f": 61.0,
+   "forecast": "Mostly Cloudy",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 75F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 75F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -473,9 +498,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 71,
-   "low_f": 52,
-   "avg_f": 59.0,
+   "high_f": 65,
+   "low_f": 48,
+   "avg_f": 57.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
@@ -497,10 +522,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 74,
-   "low_f": 48,
+   "high_f": 72,
+   "low_f": 49,
    "avg_f": 61.0,
-   "forecast": "Patchy Smoke then Sunny",
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -522,8 +547,8 @@
    "home": false,
    "high_f": 66,
    "low_f": 49,
-   "avg_f": 58.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "avg_f": 59.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -543,9 +568,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 99,
-   "low_f": 67,
-   "avg_f": 85.0,
+   "high_f": 102,
+   "low_f": 68,
+   "avg_f": 87.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
@@ -566,10 +591,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 66,
-   "low_f": 51,
-   "avg_f": 56.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 61,
+   "low_f": 48,
+   "avg_f": 55.0,
+   "forecast": "Partly Sunny then Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -584,39 +609,15 @@
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 90,
-   "low_f": 56,
-   "avg_f": 75.0,
-   "forecast": "Patchy Smoke",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
    "id": "northern_idaho",
    "name": "Northern Idaho",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 93,
-   "low_f": 56,
-   "avg_f": 74.0,
-   "forecast": "Haze",
+   "high_f": 86,
+   "low_f": 55,
+   "avg_f": 71.0,
+   "forecast": "Patchy Smoke",
    "signals": [],
    "alerts": [],
    "fire": false,
