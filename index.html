@@ -1073,6 +1073,9 @@ details.ord-dish[open]>summary.ord-dish-h::after{transform:rotate(90deg)}
 .ord-miss{display:flex;align-items:baseline;gap:8px;padding:9px 4px;border-bottom:1px solid var(--ink-6);font-family:var(--fd);font-size:16px;color:var(--ink-45)}
 .ord-miss small{font-family:var(--fb);font-size:11px;color:var(--ink-30)}
 #kitchen-pills.kpill-bar{flex-direction:column;align-items:stretch}
+/* ...but the embed + tenant bars render pills as DIRECT children, not as .kpill-row groups,
+   so the column rule above stacked all five one per line (Sam, 2026-07-26). */
+#kitchen-pills.kpill-bar.kpill-flat{flex-direction:row;align-items:center}
 /* plan dais — more spacing, color glow (no movement) */
 .plan-dais{display:flex;justify-content:center;padding:18px 0 10px}
 .dais{position:relative;width:340px;height:340px}
@@ -36863,7 +36866,10 @@ window.RemyTenant=(function(){
     verifyCode:function(store,id,code){var r=store&&store.restaurants&&store.restaurants[id];return !!r&&r.code===String(code);},
     /* reads through _rest/_chef, not st, so a San Fermo order can no longer be stamped with a
        tenant's restaurant or orderer. This was wrong on the live build, not just in the new code. */
-    stamp:function(order){if(!order)return order;order.buyer_id=st.buyer_id;
+    /* 2026-07-26: only DEFAULT the buyer. A caller that already knows whose order this is —
+       ordCombine, stamping on the farm side for someone else's order — must win, or the farm
+       window's own buyer_id lands on a tenant's order and hides it from that tenant. */
+    stamp:function(order){if(!order)return order;if(order.buyer_id==null)order.buyer_id=st.buyer_id;
       var _r=_rest(), _c=_chef();
       if(_r)order.restaurant={id:_r.id,name:_r.name};
       if(_c&&(_r||!order.placed_by))order.placed_by=_c;
@@ -39371,6 +39377,17 @@ function ordCombine(ids){
   if(!ids||ids.length<2)return;
   var orders=ids.map(function(id){return ordersData.find(function(x){return x.order_id===id;});}).filter(Boolean);
   if(orders.length<2)return;
+  /* One invoice = one payer. Combining across restaurants would bill one of them for the
+     other's food, so it is refused rather than silently resolved. */
+  var _bset={}; orders.forEach(function(o){_bset[o.buyer_id||'san_fermo']=1;});
+  var _bk=Object.keys(_bset);
+  if(_bk.length>1){ alert('Those orders are from different restaurants, so they can\u2019t go on one invoice. Combine each restaurant\u2019s orders separately.'); return; }
+  var _bid=_bk[0];
+  var _rs=orders.map(function(o){return o.restaurant;}).filter(Boolean);
+  var _rids={}; _rs.forEach(function(r){_rids[r.id||r.name]=1;});
+  /* One tenant can hold several restaurants (Walrus, Whale Wins). Naming just the first
+     would put one kitchen's name on the other's food, so name it only when they agree. */
+  var _brest=(Object.keys(_rids).length===1)?_rs[0]:null;
   if(!(FB&&FB.ready&&FB.db)){alert('Can’t reach the order server right now — try again when back online.');return;}
   if(!confirm('Combine '+orders.length+' orders into one? Each line stays tagged with who ordered it, and the originals move out of the way.'))return;
   function whoOf(o){return o.source==='farm_dinner'?'Swan House':(o.placed_by||'San Fermo');}
@@ -39382,10 +39399,11 @@ function ordCombine(ids){
   var dates=orders.map(function(o){return o.requested_date;}).filter(Boolean).sort();
   var isFarm=orders.every(ordIsFarmDinner);
   var newId='combined-'+Date.now();
-  var combined={order_id:newId, combined:true, combined_from:ids,
+  var combined={order_id:newId, combined:true, combined_from:ids, buyer_id:_bid,
     source:isFarm?'farm_dinner':'combined', placed_by:contributors.join(' + '),
     placed_at:new Date().toISOString(), requested_date:dates[0]||'', status:'placed',
     order_note:'Combined from '+orders.length+' orders ('+contributors.join(', ')+')', lines:lines};
+  if(_brest)combined.restaurant=_brest;   // so Kelly's card, the Sent view and the invoice all name the kitchen
   FB.db.collection('orders').doc(newId).set(window.RemyTenant?window.RemyTenant.stamp(combined):combined).catch(function(){alert('Combine didn’t save — try again.');});
   ids.forEach(function(id){var oo=ordersData.find(function(x){return x.order_id===id;});if(oo)oo.status='merged';ordersUpdate(id,{status:'merged',merged_into:newId});});
   ordersData.push(combined);
@@ -39829,6 +39847,8 @@ window.RemyFarm={
   };
   function buildKitchenPills(){
     var bar=document.getElementById('kitchen-pills');if(!bar)return;
+    // Flat pill list (embed + tenant) vs .kpill-row groups (standalone) — see .kpill-flat CSS.
+    try{ bar.classList.toggle('kpill-flat', !!(window.__REMY_TENANT||window._REMY_EMBED)); }catch(e){}
     if(window.__REMY_TENANT){ bar.innerHTML='<button class="kpill active" data-k="farms" onclick="showConnectedFarms()">Order from the farm</button>'; return; }
     if(window._REMY_EMBED){
       // Embed (sf-portal Farm Order): pills + landing UNCHANGED — Chris/Jose/Katie's known flow.
@@ -40029,7 +40049,7 @@ window.RemyFarm={
     var pchips=pmeth.concat(pcerts);
     /* 2026-07-26: tenant windows render the dedicated top banner (bioHtml below) from the same
        farm_profile — showing this card too duplicated the story, one copy translucent. SF keeps it. */
-    var profHtml=(!window.__REMY_TENANT&&(prof.story||pchips.length||prof.region_season))?('<div style="margin-top:11px;padding:11px 13px;border:1px solid rgba(155,176,106,.32);border-radius:12px;background:rgba(155,176,106,.07)">'+
+    var profHtml=(!window._REMY_SCOPED&&(prof.story||pchips.length||prof.region_season))?('<div style="margin-top:11px;padding:11px 13px;border:1px solid rgba(155,176,106,.32);border-radius:12px;background:rgba(155,176,106,.07)">'+
       (prof.story?('<div style="font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-80,#c4cde2);line-height:1.45">'+esc(prof.story)+'</div>'):'')+
       (pchips.length?('<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:'+(prof.story?'9px':'0')+'">'+pchips.map(function(m){return '<span style="font-family:var(--fb,sans-serif);font-size:11px;letter-spacing:.02em;padding:3px 9px;border-radius:11px;color:#cfe0a8;background:rgba(155,176,106,.16);border:1px solid rgba(155,176,106,.4)">'+esc(m)+'</span>';}).join('')+'</div>'):'')+
       (prof.region_season?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:'+((prof.story||pchips.length)?'9px':'0')+'">'+esc(prof.region_season)+'</div>'):'')+
@@ -41869,7 +41889,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='201d71297c97';
+window.REMY_BUILD='d44ac6fda050';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
