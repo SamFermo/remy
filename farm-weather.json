@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T06:41:05",
+ "generated_at": "2026-07-28T06:43:14",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -116,6 +116,47 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 90,
+   "low_f": 55,
+   "avg_f": 74.0,
+   "forecast": "Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 5:35PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 2:52PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 10:24AM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 3,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -139,26 +180,11 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 26 at 12:54PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 24 at 4:06PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 24 at 3:16PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 24 at 10:53AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 27 at 10:37AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
-   "high_count": 5,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -168,6 +194,41 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 88,
+   "low_f": 56,
+   "avg_f": 73.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 8:43AM MDT by NWS Great Falls MT"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 8:30AM MDT by NWS Great Falls MT"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "yakima_valley_wa",
@@ -265,67 +326,6 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 90,
-   "low_f": 55,
-   "avg_f": 74.0,
-   "forecast": "Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 24 at 11:08AM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
-   ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 88,
-   "low_f": 56,
-   "avg_f": 73.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 26 at 8:55AM MDT by NWS Great Falls MT"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "snoqualmie_valley_wa",
