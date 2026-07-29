@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-28T06:43:14",
+ "generated_at": "2026-07-29T06:39:56",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -116,6 +116,50 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 91,
+   "low_f": 56,
+   "avg_f": 75.0,
+   "forecast": "Patchy Smoke",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (75F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 28 at 11:17AM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 27 at 10:37AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 3,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
    "id": "eastern_oregon_rangeland",
    "name": "Eastern Oregon Rangeland",
    "category": "rangeland",
@@ -155,80 +199,6 @@
     "grass_fed"
    ],
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 91,
-   "low_f": 56,
-   "avg_f": 75.0,
-   "forecast": "Patchy Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (75F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 10:37AM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 88,
-   "low_f": 56,
-   "avg_f": 73.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 8:43AM MDT by NWS Great Falls MT"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 8:30AM MDT by NWS Great Falls MT"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "yakima_valley_wa",
@@ -326,6 +296,36 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 88,
+   "low_f": 56,
+   "avg_f": 73.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 28 at 8:00AM MDT by NWS Great Falls MT"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "snoqualmie_valley_wa",
