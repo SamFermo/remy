@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-29T06:39:56",
+ "generated_at": "2026-07-30T02:00:34",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -137,17 +137,17 @@
    ],
    "alerts": [
     {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 28 at 11:17AM PDT by NWS Spokane WA"
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 10:37AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 29 at 11:29AM PDT by NWS Spokane WA"
     }
    ],
-   "fire": false,
+   "fire": true,
    "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
@@ -160,45 +160,78 @@
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
    "home": false,
-   "high_f": 90,
-   "low_f": 55,
-   "avg_f": 74.0,
-   "forecast": "Smoke",
-   "signals": [],
-   "alerts": [
+   "high_f": 92,
+   "low_f": 57,
+   "avg_f": 77.0,
+   "forecast": "Sunny then Patchy Smoke",
+   "signals": [
     {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 5:35PM PDT by NWS Pendleton OR"
+     "level": "high",
+     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 2:52PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 27 at 10:24AM PDT by NWS Pendleton OR"
+     "level": "info",
+     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "fire": false,
-   "high_count": 3,
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 93,
+   "low_f": 55,
+   "avg_f": 76.0,
+   "forecast": "Sunny then Patchy Smoke",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (76F avg). Monitor grass growth conditions; drought risk in summer."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
    "key_products": [
     "lamb",
     "beef",
-    "pasture_raised",
-    "grass_fed"
+    "pasture_raised"
    ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "yakima_valley_wa",
@@ -236,68 +269,6 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 92,
-   "low_f": 57,
-   "avg_f": 77.0,
-   "forecast": "Sunny then Patchy Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 93,
-   "low_f": 55,
-   "avg_f": 76.0,
-   "forecast": "Sunny then Patchy Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (76F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -310,12 +281,12 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 28 at 8:00AM MDT by NWS Great Falls MT"
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 29 at 8:45AM MDT until August 2 at 12:00AM MDT by NWS Missoula MT"
     }
    ],
-   "fire": false,
+   "fire": true,
    "high_count": 1,
    "vendors": [
     "Foraged & Found Edibles"
@@ -326,6 +297,35 @@
     "spring_foraged"
    ],
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 86,
+   "low_f": 55,
+   "avg_f": 71.0,
+   "forecast": "Patchy Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -540,6 +540,31 @@
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 90,
+   "low_f": 55,
+   "avg_f": 74.0,
+   "forecast": "Smoke",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
    "id": "northern_ca_coast_forests",
    "name": "Northern California Coast/Forests",
    "category": "foraging",
@@ -607,29 +632,6 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 86,
-   "low_f": 55,
-   "avg_f": 71.0,
-   "forecast": "Patchy Smoke",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   }
  ],
  "groups": [
