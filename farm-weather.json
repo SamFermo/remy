@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-30T06:39:25",
+ "generated_at": "2026-07-31T06:40:36",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -139,12 +139,12 @@
     {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 29 at 11:29AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 30 at 11:57AM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -183,7 +183,7 @@
     {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -218,7 +218,7 @@
     {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -269,6 +269,37 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 94,
+   "low_f": 50,
+   "avg_f": 73.0,
+   "forecast": "Patchy Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Fire Weather Watch",
+     "severity": "Severe",
+     "headline": "Fire Weather Watch issued July 31 at 2:43AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
@@ -313,7 +344,7 @@
     {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 29 at 10:45PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -540,31 +571,6 @@
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 94,
-   "low_f": 50,
-   "avg_f": 73.0,
-   "forecast": "Patchy Smoke",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
-   ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
    "id": "northern_ca_coast_forests",
    "name": "Northern California Coast/Forests",
    "category": "foraging",
@@ -641,5 +647,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 7
 }
