@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T06:40:36",
+ "generated_at": "2026-08-01T06:47:13",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -94,10 +94,10 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 79,
-   "low_f": 52,
-   "avg_f": 65.0,
-   "forecast": "Sunny",
+   "high_f": 81,
+   "low_f": 49,
+   "avg_f": 64.0,
+   "forecast": "Showers And Thunderstorms",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -116,35 +116,81 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 91,
+   "low_f": 54,
+   "avg_f": 73.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued August 1 at 2:46AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued August 1 at 2:44AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": true,
+   "high_count": 3,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 95,
-   "low_f": 54,
-   "avg_f": 76.0,
-   "forecast": "Areas Of Smoke then Haze",
+   "high_f": 90,
+   "low_f": 51,
+   "avg_f": 72.0,
+   "forecast": "Haze then Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (90F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (72F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 30 at 11:57AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued July 31 at 12:29PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -165,25 +211,25 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 94,
+   "high_f": 91,
    "low_f": 54,
-   "avg_f": 76.0,
-   "forecast": "Sunny",
+   "avg_f": 73.0,
+   "forecast": "Sunny then Patchy Blowing Dust",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -199,95 +245,30 @@
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 95,
-   "low_f": 51,
-   "avg_f": 75.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (75F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Fire Weather Watch",
-     "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 95,
-   "low_f": 54,
-   "avg_f": 73.0,
-   "forecast": "Clear",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
    "id": "eastern_oregon_rangeland",
    "name": "Eastern Oregon Rangeland",
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 94,
-   "low_f": 50,
-   "avg_f": 73.0,
-   "forecast": "Patchy Smoke",
+   "high_f": 87,
+   "low_f": 47,
+   "avg_f": 67.0,
+   "forecast": "Areas Of Smoke",
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 31 at 2:43AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
+     "headline": "Red Flag Warning issued August 1 at 2:46AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued July 31 at 12:34PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": true,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -305,20 +286,25 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 91,
-   "low_f": 54,
-   "avg_f": 73.0,
-   "forecast": "Areas Of Smoke",
+   "high_f": 89,
+   "low_f": 46,
+   "avg_f": 64.0,
+   "forecast": "Patchy Smoke",
    "signals": [],
    "alerts": [
     {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 31 at 1:11PM MDT until August 2 at 12:00AM MDT by NWS Missoula MT"
+    },
+    {
      "event": "Fire Weather Watch",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 29 at 8:45AM MDT until August 2 at 12:00AM MDT by NWS Missoula MT"
+     "headline": "The Fire Weather Watch has been replaced. Please see the latest information from NWS Missoula MT on this developing situation."
     }
    ],
    "fire": true,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Foraged & Found Edibles"
    ],
@@ -330,21 +316,51 @@
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 91,
+   "low_f": 47,
+   "avg_f": 71.0,
+   "forecast": "Haze then Patchy Blowing Dust",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
    "id": "northern_idaho",
    "name": "Northern Idaho",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 89,
-   "low_f": 52,
-   "avg_f": 71.0,
-   "forecast": "Haze",
+   "high_f": 83,
+   "low_f": 49,
+   "avg_f": 66.0,
+   "forecast": "Haze then Sunny",
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued July 30 at 11:22PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -364,10 +380,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 83,
-   "low_f": 53,
-   "avg_f": 67.0,
-   "forecast": "Sunny",
+   "high_f": 84,
+   "low_f": 49,
+   "avg_f": 66.0,
+   "forecast": "Showers And Thunderstorms Likely",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -390,9 +406,9 @@
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 82,
-   "low_f": 53,
-   "avg_f": 66.0,
-   "forecast": "Sunny",
+   "low_f": 50,
+   "avg_f": 65.0,
+   "forecast": "Showers And Thunderstorms Likely",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -413,10 +429,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 81,
-   "low_f": 56,
-   "avg_f": 68.0,
-   "forecast": "Sunny",
+   "high_f": 74,
+   "low_f": 54,
+   "avg_f": 64.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -438,14 +454,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 76,
+   "high_f": 79,
    "low_f": 53,
    "avg_f": 64.0,
-   "forecast": "Sunny",
+   "forecast": "Chance Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 76F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 79F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -469,14 +485,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 67,
+   "high_f": 71,
    "low_f": 52,
    "avg_f": 60.0,
-   "forecast": "Partly Sunny",
+   "forecast": "Rain Likely",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 67F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 71F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -499,14 +515,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 74,
-   "low_f": 52,
+   "high_f": 76,
+   "low_f": 53,
    "avg_f": 62.0,
-   "forecast": "Sunny",
+   "forecast": "Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 74F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 76F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -529,10 +545,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 70,
-   "low_f": 45,
-   "avg_f": 56.0,
-   "forecast": "Sunny",
+   "high_f": 73,
+   "low_f": 42,
+   "avg_f": 55.0,
+   "forecast": "Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -553,8 +569,8 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 77,
-   "low_f": 45,
+   "high_f": 80,
+   "low_f": 43,
    "avg_f": 60.0,
    "forecast": "Mostly Sunny",
    "signals": [],
@@ -576,10 +592,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 69,
-   "low_f": 49,
-   "avg_f": 60.0,
-   "forecast": "Slight Chance Drizzle then Mostly Sunny",
+   "high_f": 75,
+   "low_f": 51,
+   "avg_f": 63.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -599,9 +615,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 106,
-   "low_f": 69,
-   "avg_f": 89.0,
+   "high_f": 107,
+   "low_f": 71,
+   "avg_f": 92.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
@@ -622,10 +638,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 65,
-   "low_f": 45,
+   "high_f": 69,
+   "low_f": 43,
    "avg_f": 54.0,
-   "forecast": "Sunny",
+   "forecast": "Showers And Thunderstorms",
    "signals": [],
    "alerts": [],
    "fire": false,
