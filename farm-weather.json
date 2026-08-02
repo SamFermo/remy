@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-01T06:47:13",
+ "generated_at": "2026-08-02T06:34:51",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -116,52 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 91,
-   "low_f": 54,
-   "avg_f": 73.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued August 1 at 2:46AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued August 1 at 2:44AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": true,
-   "high_count": 3,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -183,18 +137,13 @@
    ],
    "alerts": [
     {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
-    },
-    {
      "event": "Air Quality Alert",
      "severity": "Unknown",
      "headline": "Air Quality Alert issued July 31 at 12:29PM PDT by NWS Spokane WA"
     }
    ],
-   "fire": true,
-   "high_count": 3,
+   "fire": false,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -204,6 +153,77 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 87,
+   "low_f": 47,
+   "avg_f": 67.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 2 at 1:27AM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 2 at 1:23AM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 91,
+   "low_f": 54,
+   "avg_f": 73.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "columbia_basin_wa",
@@ -225,15 +245,9 @@
      "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -243,136 +257,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 87,
-   "low_f": 47,
-   "avg_f": 67.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued August 1 at 2:46AM PDT until August 1 at 11:00PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued July 31 at 12:34PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
-   ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 89,
-   "low_f": 46,
-   "avg_f": 64.0,
-   "forecast": "Patchy Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 31 at 1:11PM MDT until August 2 at 12:00AM MDT by NWS Missoula MT"
-    },
-    {
-     "event": "Fire Weather Watch",
-     "severity": "Severe",
-     "headline": "The Fire Weather Watch has been replaced. Please see the latest information from NWS Missoula MT on this developing situation."
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 91,
-   "low_f": 47,
-   "avg_f": 71.0,
-   "forecast": "Haze then Patchy Blowing Dust",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "northern_idaho",
-   "name": "Northern Idaho",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 83,
-   "low_f": 49,
-   "avg_f": 66.0,
-   "forecast": "Haze then Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued July 31 at 11:53PM PDT until August 1 at 11:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -447,6 +331,30 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 91,
+   "low_f": 47,
+   "avg_f": 71.0,
+   "forecast": "Haze then Patchy Blowing Dust",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -654,6 +562,53 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 89,
+   "low_f": 46,
+   "avg_f": 64.0,
+   "forecast": "Patchy Smoke",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
+   "id": "northern_idaho",
+   "name": "Northern Idaho",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 83,
+   "low_f": 49,
+   "avg_f": 66.0,
+   "forecast": "Haze then Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   }
  ],
  "groups": [
@@ -663,5 +618,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 4
 }
