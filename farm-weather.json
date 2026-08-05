@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-04T06:47:50",
+ "generated_at": "2026-08-05T06:38:43",
  "enso": {
   "phase": "El Niño",
   "band": "weak",
@@ -108,9 +108,20 @@
      "text": "Above-normal temps (73F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    }
+   ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 3,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -146,6 +157,16 @@
    ],
    "alerts": [
     {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    },
+    {
      "event": "Air Quality Alert",
      "severity": "Unknown",
      "headline": "Air Quality Alert issued August 3 at 1:43PM PDT by NWS Seattle WA"
@@ -157,7 +178,7 @@
     }
    ],
    "fire": false,
-   "high_count": 3,
+   "high_count": 5,
    "vendors": [
     "Local Roots Farm",
     "Farmstand Local Foods"
@@ -191,6 +212,16 @@
    ],
    "alerts": [
     {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    },
+    {
      "event": "Air Quality Alert",
      "severity": "Unknown",
      "headline": "Air Quality Alert issued August 3 at 1:43PM PDT by NWS Seattle WA"
@@ -202,7 +233,7 @@
     }
    ],
    "fire": false,
-   "high_count": 3,
+   "high_count": 5,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -235,6 +266,16 @@
    ],
    "alerts": [
     {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    },
+    {
      "event": "Air Quality Alert",
      "severity": "Unknown",
      "headline": "Air Quality Alert issued August 3 at 1:43PM PDT by NWS Seattle WA"
@@ -246,7 +287,7 @@
     }
    ],
    "fire": false,
-   "high_count": 3,
+   "high_count": 5,
    "vendors": [
     "Franks Produce",
     "EC Wilson"
@@ -282,11 +323,16 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:30AM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
      "headline": "Air Quality Alert issued August 3 at 12:05PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -298,6 +344,46 @@
     "berries"
    ],
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 78,
+   "low_f": 59,
+   "avg_f": 68.0,
+   "forecast": "Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 3 at 1:43PM PDT by NWS Seattle WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 3 at 10:38AM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 3,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
   },
   {
    "id": "columbia_basin_wa",
@@ -413,74 +499,46 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
    "home": false,
-   "high_f": 78,
-   "low_f": 59,
-   "avg_f": 68.0,
-   "forecast": "Smoke",
-   "signals": [],
+   "high_f": 84,
+   "low_f": 60,
+   "avg_f": 73.0,
+   "forecast": "Sunny then Areas Of Smoke",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 84F, low 60F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
    "alerts": [
     {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 3 at 1:43PM PDT by NWS Seattle WA"
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 3 at 10:38AM PDT by NWS Seattle WA"
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
    "high_count": 2,
    "vendors": [
-    "Foraged & Found Edibles"
+    "Key City Fish Co"
    ],
    "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
    ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 88,
-   "low_f": 49,
-   "avg_f": 70.0,
-   "forecast": "Patchy Smoke then Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 4 at 7:12AM MDT by NWS Great Falls MT"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 3 at 8:26AM MDT by NWS Great Falls MT"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "eastern_oregon_rangeland",
@@ -498,9 +556,15 @@
      "text": "Heat building (78F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:30AM PDT by NWS Pendleton OR"
+    }
+   ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -511,6 +575,71 @@
     "grass_fed"
    ],
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 80,
+   "low_f": 57,
+   "avg_f": 69.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 80F, low 57F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued August 4 at 8:48PM PDT until August 6 at 10:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
+  },
+  {
+   "id": "oregon_cascades",
+   "name": "Oregon Cascades",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 85,
+   "low_f": 59,
+   "avg_f": 73.0,
+   "forecast": "Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:53AM PDT by NWS Portland OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
    "id": "northern_ca_coast_forests",
@@ -527,7 +656,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued August 4 at 2:57AM PDT until August 6 at 11:00PM PDT by NWS Eureka CA"
+     "headline": "Heat Advisory issued August 5 at 6:12AM PDT until August 6 at 11:00PM PDT by NWS Eureka CA"
     }
    ],
    "fire": false,
@@ -540,6 +669,65 @@
     "winter_foraged"
    ],
    "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 74,
+   "low_f": 58,
+   "avg_f": 66.0,
+   "forecast": "Patchy Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 11:01AM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 88,
+   "low_f": 49,
+   "avg_f": 70.0,
+   "forecast": "Patchy Smoke then Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 4 at 7:12AM MDT by NWS Great Falls MT"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "northern_idaho",
@@ -569,37 +757,6 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 84,
-   "low_f": 60,
-   "avg_f": 73.0,
-   "forecast": "Sunny then Areas Of Smoke",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 84F, low 60F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -632,59 +789,6 @@
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 80,
-   "low_f": 57,
-   "avg_f": 69.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 80F, low 57F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
-  },
-  {
-   "id": "oregon_cascades",
-   "name": "Oregon Cascades",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 85,
-   "low_f": 59,
-   "avg_f": 73.0,
-   "forecast": "Smoke",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
-  },
-  {
    "id": "northern_ca_interior",
    "name": "Northern California Interior",
    "category": "foraging",
@@ -706,29 +810,6 @@
     "wild_edibles"
    ],
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
-  },
-  {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 74,
-   "low_f": 58,
-   "avg_f": 66.0,
-   "forecast": "Patchy Smoke",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   }
  ],
  "groups": [
@@ -738,5 +819,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 13
+ "high_regions": 17
 }
