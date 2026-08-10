@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-09T06:39:36",
+ "generated_at": "2026-08-10T06:38:08",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -190,7 +190,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 12:57PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 9 at 1:47PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -229,7 +229,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 12:57PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 9 at 1:47PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -264,7 +264,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 12:57PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 9 at 1:47PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -330,12 +330,12 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 8:02AM MDT by NWS Great Falls MT"
+     "headline": "Air Quality Alert issued August 10 at 7:30AM MDT by NWS Great Falls MT"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 7:58AM MDT by NWS Great Falls MT"
+     "headline": "Air Quality Alert issued August 9 at 8:15AM MDT by NWS Great Falls MT"
     }
    ],
    "fire": false,
@@ -349,35 +349,6 @@
     "spring_foraged"
    ],
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 107,
-   "low_f": 72,
-   "avg_f": 90.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 9 at 12:24AM PDT until August 9 at 10:00PM PDT by NWS Sacramento CA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
    "id": "northern_idaho",
@@ -394,7 +365,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 8 at 12:57PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 9 at 1:47PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -644,6 +615,29 @@
    "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 107,
+   "low_f": 72,
+   "avg_f": 90.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
@@ -674,5 +668,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 8
+ "high_regions": 7
 }
