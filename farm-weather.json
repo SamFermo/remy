@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-14T06:38:17",
+ "generated_at": "2026-08-15T06:51:22",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -103,7 +103,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 9:35AM PDT by NWS Seattle WA"
+     "headline": "Air Quality Alert issued August 14 at 9:07AM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -145,26 +145,16 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 12 at 11:56AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 14 at 11:08AM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 12 at 11:56AM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 12 at 11:56AM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 12 at 11:56AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 14 at 11:08AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
-   "high_count": 5,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -174,6 +164,47 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 93,
+   "low_f": 61,
+   "avg_f": 74.0,
+   "forecast": "Patchy Smoke",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    },
+    {
+     "level": "info",
+     "text": "Above-normal temps (74F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 14 at 11:47AM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "columbia_basin_wa",
@@ -195,25 +226,9 @@
      "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 2:45PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 2:45PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 11:49AM PDT by NWS Spokane WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 4,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -240,25 +255,9 @@
      "text": "Heat building (77F avg). Monitor grass growth conditions; drought risk in summer."
     }
    ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 2:45PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 2:45PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 11:49AM PDT by NWS Spokane WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 4,
+   "high_count": 1,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -268,47 +267,6 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 93,
-   "low_f": 61,
-   "avg_f": 74.0,
-   "forecast": "Patchy Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (74F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 4:01PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "southern_bc",
@@ -323,18 +281,13 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued August 14 at 2:25AM PDT until August 14 at 9:00PM PDT by NWS Seattle WA"
-    },
-    {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 13 at 9:35AM PDT by NWS Seattle WA"
+     "headline": "Air Quality Alert issued August 14 at 9:07AM PDT by NWS Seattle WA"
     }
    ],
-   "fire": true,
-   "high_count": 2,
+   "fire": false,
+   "high_count": 1,
    "vendors": [
     "Foraged & Found Edibles"
    ],
@@ -343,36 +296,6 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 67,
-   "low_f": 54,
-   "avg_f": 61.0,
-   "forecast": "Slight Chance Showers And Thunderstorms",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued August 14 at 2:25AM PDT until August 14 at 9:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -545,6 +468,30 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 67,
+   "low_f": 54,
+   "avg_f": 61.0,
+   "forecast": "Slight Chance Showers And Thunderstorms",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
    "id": "oregon_cascades",
    "name": "Oregon Cascades",
    "category": "foraging",
@@ -693,5 +640,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 6
 }
