@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-15T06:51:22",
+ "generated_at": "2026-08-16T06:38:14",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -94,20 +94,14 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 79,
-   "low_f": 54,
+   "high_f": 78,
+   "low_f": 55,
    "avg_f": 68.0,
-   "forecast": "Sunny",
+   "forecast": "Areas Of Fog then Partly Sunny",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 14 at 9:07AM PDT by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -127,34 +121,29 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 89,
-   "low_f": 57,
-   "avg_f": 75.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 91,
+   "low_f": 61,
+   "avg_f": 78.0,
+   "forecast": "Haze",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (89F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (91F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (75F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
    "alerts": [
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 14 at 11:08AM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 14 at 11:08AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 15 at 10:46AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -171,29 +160,23 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 93,
+   "high_f": 94,
    "low_f": 61,
-   "avg_f": 74.0,
+   "avg_f": 80.0,
    "forecast": "Patchy Smoke",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
-     "text": "Above-normal temps (74F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
     }
    ],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 14 at 11:47AM PDT by NWS Pendleton OR"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -212,14 +195,14 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 92,
+   "high_f": 93,
    "low_f": 59,
    "avg_f": 78.0,
-   "forecast": "Sunny",
+   "forecast": "Areas Of Smoke then Haze",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (92F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+     "text": "Heat building (93F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     },
     {
      "level": "info",
@@ -248,7 +231,7 @@
    "high_f": 93,
    "low_f": 56,
    "avg_f": 77.0,
-   "forecast": "Sunny",
+   "forecast": "Patchy Smoke",
    "signals": [
     {
      "level": "high",
@@ -269,50 +252,16 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 66,
-   "low_f": 54,
-   "avg_f": 61.0,
-   "forecast": "Slight Chance Showers And Thunderstorms",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 14 at 9:07AM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 84,
+   "high_f": 81,
    "low_f": 55,
-   "avg_f": 71.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Above-normal temps (71F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
+   "avg_f": 69.0,
+   "forecast": "Patchy Fog then Mostly Cloudy",
+   "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
@@ -333,10 +282,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 83,
-   "low_f": 55,
-   "avg_f": 70.0,
-   "forecast": "Sunny",
+   "high_f": 81,
+   "low_f": 56,
+   "avg_f": 69.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -357,10 +306,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 81,
+   "high_f": 79,
    "low_f": 58,
-   "avg_f": 68.0,
-   "forecast": "Partly Cloudy",
+   "avg_f": 70.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -383,13 +332,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 76,
-   "low_f": 57,
+   "low_f": 56,
    "avg_f": 67.0,
-   "forecast": "Sunny then Slight Chance Showers And Thunderstorms",
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 76F, low 57F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 76F, low 56F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -413,14 +362,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 64,
+   "high_f": 66,
    "low_f": 54,
-   "avg_f": 59.0,
-   "forecast": "Partly Sunny",
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 64F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 66F, low 54F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -445,8 +394,8 @@
    "home": false,
    "high_f": 71,
    "low_f": 53,
-   "avg_f": 63.0,
-   "forecast": "Mostly Sunny",
+   "avg_f": 62.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "info",
@@ -473,10 +422,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 67,
-   "low_f": 54,
-   "avg_f": 61.0,
-   "forecast": "Slight Chance Showers And Thunderstorms",
+   "high_f": 68,
+   "low_f": 52,
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -498,9 +447,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 72,
-   "low_f": 53,
+   "low_f": 51,
    "avg_f": 63.0,
-   "forecast": "Patchy Smoke then Slight Chance Showers And Thunderstorms",
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -522,7 +471,7 @@
    "home": false,
    "high_f": 86,
    "low_f": 56,
-   "avg_f": 72.0,
+   "avg_f": 73.0,
    "forecast": "Patchy Smoke",
    "signals": [],
    "alerts": [],
@@ -545,10 +494,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 67,
+   "high_f": 72,
    "low_f": 51,
-   "avg_f": 59.0,
-   "forecast": "Areas Of Fog then Mostly Cloudy",
+   "avg_f": 61.0,
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -568,10 +517,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 94,
-   "low_f": 62,
-   "avg_f": 80.0,
-   "forecast": "Sunny",
+   "high_f": 98,
+   "low_f": 67,
+   "avg_f": 84.0,
+   "forecast": "Mostly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -586,15 +535,38 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 65,
+   "low_f": 54,
+   "avg_f": 59.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
    "id": "western_montana",
    "name": "Western Montana",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 78,
-   "low_f": 49,
-   "avg_f": 65.0,
-   "forecast": "Patchy Smoke",
+   "high_f": 80,
+   "low_f": 53,
+   "avg_f": 68.0,
+   "forecast": "Partly Sunny then Slight Chance Showers And Thunderstorms",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -616,9 +588,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 85,
-   "low_f": 52,
-   "avg_f": 71.0,
-   "forecast": "Mostly Sunny",
+   "low_f": 55,
+   "avg_f": 72.0,
+   "forecast": "Slight Chance Rain Showers",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -640,5 +612,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 4
 }
