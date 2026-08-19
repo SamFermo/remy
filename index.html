@@ -1383,6 +1383,8 @@ if(/[?&]embed=/.test(location.search||'')){
 .lr-name{font-family:var(--fd);font-size:19px;color:var(--ink)}
 .lr-qty{font-family:var(--fb);font-size:10.5px;color:var(--ink-30);letter-spacing:0.03em;margin-top:1px}
 .status{font-family:var(--fb);font-size:10.5px;font-weight:500;letter-spacing:0.05em;border-radius:20px;padding:4px 10px;cursor:pointer;border:1px solid;white-space:nowrap;min-width:96px;text-align:center}
+.stwrap{position:relative;display:inline-block}
+.st-sel{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;font-size:16px;cursor:pointer;-webkit-appearance:none;appearance:none;border:0;margin:0;padding:0}
 .st-peak{color:var(--terra);border-color:rgba(224,135,99,0.45);background:rgba(224,135,99,0.1)}
 .st-avail{color:var(--olive);border-color:rgba(168,185,126,0.45);background:rgba(168,185,126,0.1)}
 .st-coming{color:var(--navy);border-color:rgba(123,155,209,0.45);background:rgba(123,155,209,0.1)}
@@ -46706,7 +46708,7 @@ function setEditMode(on){
   editMode=on;if(on){setPhotoMode(false);if(typeof setStockMode==='function')setStockMode(false);}
   var b=document.getElementById('edit-mode-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
   var i=document.getElementById('list-intro');
-  if(i)i.innerHTML=on?'Edit mode &mdash; &ldquo;Won&rsquo;t have it&rdquo; hides a crop for now (tap its status to bring it back). Crops you added show <b>Delete</b>.'
+  if(i)i.innerHTML=on?'Edit mode &mdash; &ldquo;Won&rsquo;t have it&rdquo; hides a crop for now (set its status to bring it back). Crops you added show <b>Delete</b>.'
                      :'Everything you&rsquo;re growing. Tap a status to change it, <b>&#9733;</b> to push. Pricing lives in the Pricing tab.';
   renderList();
 }
@@ -47694,6 +47696,23 @@ function setStockMode(on){
   var b=document.getElementById('stock-mode-toggle'); if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
   if(typeof renderList==='function')renderList();
 }
+/* 2026-08-19: the status pill is a dropdown now (was tap-to-cycle) and the flat-list order is
+   frozen per page load. Changing a status must not move the row — Kelly kept losing the item she
+   had just edited. The lock lives in _listOrderLock; a reload re-derives sell order. */
+function _statCtl(g){
+  var cls=STATUS_CLASS[g.status]||'st-done', cur=g.status||'\u2014';
+  var known=STATUS_ORDER.indexOf(cur)>=0;
+  var opts=(known?'':'<option value="" selected disabled>'+cur+'</option>')
+    +STATUS_ORDER.map(function(s){return '<option value="'+s+'"'+(s===cur?' selected':'')+'>'+s+'</option>';}).join('');
+  return '<span class="status '+cls+' stwrap" data-n="'+g.name+'"><span class="st-label">'+cur+' \u25BE</span>'
+    +'<select class="st-sel" data-n="'+g.name+'" aria-label="Status">'+opts+'</select></span>';
+}
+var _listOrderLock=null;   // name -> index, captured at the first flat render, reset only by reload
+function _lockOrder(){ if(_listOrderLock)return; _listOrderLock={};
+  grow.slice().sort(_sellSort).forEach(function(g,i){_listOrderLock[g.name]=i;}); }
+function _lockedSort(a,b){ var ia=_listOrderLock[a.name], ib=_listOrderLock[b.name];
+  if(ia!=null&&ib!=null)return ia-ib;   // explicit null checks: index 0 is a legit lock value
+  if(ia!=null)return -1; if(ib!=null)return 1; return _sellSort(a,b); }
 function lrowNode(g){
   var cls=STATUS_CLASS[g.status]||'st-done';
   var r=document.createElement('div');r.className='lrow';
@@ -47704,7 +47723,7 @@ function lrowNode(g){
     r.style.flexWrap='wrap';   // second line carries the type dropdown; phone widths stay clean
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+(g._added?' <span class="lr-mine">added</span>':'')+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
-      '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
+      _statCtl(g)+
       '<button class="lr-rm'+(g._added?' del':'')+'" data-n="'+g.name+'">'+(g._added?'Delete':'Won&rsquo;t have it')+'</button>'+
       '<div style="flex-basis:100%;display:flex;align-items:center;gap:7px;margin-top:2px"><span style="font-family:var(--fb);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40,#717c96)">Type</span><select class="lr-cat" data-n="'+g.name+'" aria-label="Type">'+_opts+'</select></div>';
   } else if(stockMode){
@@ -47717,13 +47736,13 @@ function lrowNode(g){
     if(_u&&STK_UNITS.indexOf(_u)<0)_uopts='<option value="'+_u+'" selected>'+_u+'</option>'+_uopts;
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+'</div>'+(_left!=null?('<div class="lr-qty">'+(_left<=0?'sold out':(_left+(_u?(' '+_u):'')+' left'))+'</div>'):'<div class="lr-qty" style="opacity:.5">no stock set</div>')+'</div>'+
-      '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
+      _statCtl(g)+
       '<input class="lr-stock" data-n="'+g.name+'" inputmode="decimal" placeholder="stock" value="'+(_iv.stock!=null?_iv.stock:'')+'" style="width:60px;text-align:right;font-family:inherit;font-size:14px;padding:6px 7px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink)">'+
       '<select class="lr-stku" data-n="'+g.name+'" aria-label="Sell unit" style="font-family:var(--fb);font-size:12px;padding:6px 3px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink);max-width:74px">'+_uopts+'</select>';
   } else {
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+(g._added?' <span class="lr-mine">added</span>':'')+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
-      '<span class="status '+cls+'" data-n="'+g.name+'">'+g.status+'</span>'+
+      _statCtl(g)+
       (photoMode?'<button class="lr-photo'+(g.photo?' set':'')+'" data-n="'+g.name+'" aria-label="Photo">'+(g.photo?'&#9728;':'&#9711;')+'</button>':'')+
       '<button class="star'+(pushed.has(g.name)?' on':'')+'" data-n="'+g.name+'" aria-label="Push">&#9733;</button>';
   }
@@ -47759,10 +47778,16 @@ function renderList(){
       if(open)arr.forEach(function(g){el.appendChild(lrowNode(g));});
     });
   } else {
-    items.slice().sort(_sellSort).forEach(function(g){el.appendChild(lrowNode(g));});
+    _lockOrder();items.slice().sort(_lockedSort).forEach(function(g){el.appendChild(lrowNode(g));});
   }
   el.querySelectorAll('.lr-typehdr').forEach(function(h){h.onclick=function(){var c=h.getAttribute('data-cat');listTypeOpen[c]=!listTypeOpen[c];renderList();};});
-  el.querySelectorAll('.status').forEach(function(c){c.onclick=function(){var g=byName[c.dataset.n];var i=STATUS_ORDER.indexOf(g.status);g.status=STATUS_ORDER[(i+1)%STATUS_ORDER.length];statusEdits[g.name]=g.status;persist();renderList();renderPick();};});
+  el.querySelectorAll('.st-sel').forEach(function(s){s.onclick=function(e){e.stopPropagation();};
+    s.onchange=function(){var g=byName[s.dataset.n];if(!g)return;var v=s.value;if(STATUS_ORDER.indexOf(v)<0)return;
+      g.status=v;statusEdits[g.name]=v;persist();
+      /* update the pill in place — deliberately NO renderList(): the row must not move (2026-08-19) */
+      var w=s.closest('.stwrap');if(w){w.className='status '+(STATUS_CLASS[v]||'st-done')+' stwrap';
+        var lb=w.querySelector('.st-label');if(lb)lb.textContent=v+' \u25BE';}
+      if(typeof renderPick==='function')renderPick();};});
   el.querySelectorAll('.lr-photo').forEach(function(b){b.onclick=function(){var g=byName[b.dataset.n];if(g&&g.photo)openPhotoView(b.dataset.n);else pickPhoto(b.dataset.n);};});
   el.querySelectorAll('.star').forEach(function(b){b.onclick=function(){var n=b.dataset.n;pushed.has(n)?pushed.delete(n):pushed.add(n);persist();renderList();renderPush();renderPick();};});
   el.querySelectorAll('.lr-stock').forEach(function(inp){inp.onchange=function(){_stkSetItem(inp.dataset.n,inp.value);};inp.onclick=function(e){e.stopPropagation();};});
@@ -50679,7 +50704,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='e0bd0e3c2480';
+window.REMY_BUILD='3391db735f51';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
