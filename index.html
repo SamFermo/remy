@@ -159,11 +159,11 @@ html.tenant-seacreatures .cf-segb.on,html.tenant-seacreatures .kpill.active{colo
   text-shadow:0 0 36px rgba(245,232,200,0.55),
               0 0 72px rgba(245,232,200,0.32),
               0 0 12px rgba(245,232,200,0.7);
-  animation:introFadeIn 0.55s var(--ease) 0.1s forwards;
+  animation:introFadeIn 0.4s var(--ease) 0.05s forwards;
   will-change:transform,opacity}
 .intro-word.morph{
-  transition:transform 0.95s cubic-bezier(0.55,0,0.2,1),
-             text-shadow 0.95s var(--ease)}
+  transition:transform 0.6s cubic-bezier(0.55,0,0.2,1),
+             text-shadow 0.6s var(--ease)}
 .intro-word.morph.landed{
   text-shadow:0 0 6px rgba(245,232,200,0.4),
               0 0 14px rgba(245,232,200,0.2)}
@@ -1213,6 +1213,39 @@ if(/[?&]embed=/.test(location.search||'')){
   background:radial-gradient(ellipse at 50% 24%,#0c1535 0%,#050918 56%,#02040d 100%);
   transition:opacity .55s var(--ease)}
 #doors.gone,#farm.gone{opacity:0;pointer-events:none}
+/* ── LOGIN + HOME (2026-08-19): the two-person picker supersedes the doors in the bare window.
+   body.remy-who marks that flow; #doors is display:none'd but MUST remain in the DOM. ── */
+body.remy-who #doors{display:none!important}
+body.remy-who .fh-back{display:none}
+#login{position:absolute;inset:0;z-index:62;display:flex;flex-direction:column;
+  background:radial-gradient(ellipse at 50% 42%, #0c1535 0%, #050918 62%, #02040d 100%);
+  transition:opacity .5s var(--ease)}
+#login.gone{opacity:0;pointer-events:none}
+#login-sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
+.lg-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:26px;padding:20px;position:relative;z-index:1}
+.lg-eyebrow{font-family:var(--fd);font-style:italic;font-size:19px;color:var(--ink-70);letter-spacing:.04em}
+.lg-cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.lg-card{width:min(38vw,170px);aspect-ratio:1/1.06;border-radius:24px;border:1px solid rgba(245,232,200,0.55);
+  background:var(--moon);color:#0a1028;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  box-shadow:0 0 0 1px rgba(245,232,200,0.18),0 0 34px -2px rgba(245,232,200,0.34),0 0 84px -18px rgba(245,232,200,0.28);
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+.lg-card:active,.lg-card.picking{transform:scale(.955);background:#ecddb8;
+  box-shadow:0 0 0 1px rgba(245,232,200,0.32),0 0 44px 0 rgba(245,232,200,0.46)}
+.lg-name{font-family:var(--fd);font-size:31px;letter-spacing:.06em}
+.lg-role{font-family:var(--fb);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.lg-note{font-family:var(--fb);font-size:12px;color:var(--ink-40)}
+#home-cards{margin-top:14px}
+#home-cards .mode-card{margin-bottom:10px}
+.mc-badgechip{position:absolute;top:12px;right:14px;min-width:22px;height:22px;border-radius:11px;
+  background:var(--terra,#e08763);color:#fff;font-family:var(--fb);font-size:12px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;padding:0 7px}
+.lg-switch{margin:20px 2px 8px;font-family:var(--fb);font-size:12px;color:var(--ink-40);text-align:center}
+.lg-switch button{background:none;border:none;color:var(--ink-60);text-decoration:underline;cursor:pointer;font:inherit}
+body.remy-preview::before{content:"Preview \2014 what San Fermo sees \00b7 ordering disabled";position:fixed;left:0;right:0;bottom:0;z-index:99999;
+  background:rgba(201,162,39,.93);color:#0a1028;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;text-align:center;padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px))}
 /* Entry header is now IDENTICAL to the portal header (.ph/.ph-remy) so the intro morph lands
    once and never bumps when you enter a side. Moon colour + glow, center align, gap 10. */
 /* min-height matches the portal header's icon-driven height (52 pad-top + 38 icon row) so
@@ -1765,6 +1798,63 @@ button.p-ask.unset{color:var(--olive);font-weight:500;font-size:13px}
 .p-hx:hover{color:var(--terra);border-color:var(--terra)}
 .p-unhide{flex:0 0 auto;font-family:var(--fb);font-size:9.5px;letter-spacing:.02em;color:var(--ink-60);background:none;border:1px solid var(--ink-12);border-radius:11px;padding:2px 8px;cursor:pointer;white-space:nowrap;line-height:1.4}
 .prow.p-hidden{opacity:.5}
+/* devolved pricing rows + expansion (2026-08-19) */
+.prow.p3{grid-template-columns:1.5fr 0.72fr 1.05fr 14px;cursor:pointer}
+.prow.p3.phdr{cursor:default}
+.prow.p3.open{border-bottom:none;background:rgba(255,255,255,.03)}
+.p-chev{font-size:10px;color:var(--ink-30);text-align:right}
+.p-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--terra,#e08763);margin-left:6px;vertical-align:2px}
+.p-ask small{font-size:10px;font-weight:400;color:var(--ink-40)}
+span.p-ask.unset{color:var(--ink-30);font-weight:400}
+.p-expand{border-bottom:1px solid var(--ink-6);padding:2px 8px 13px;background:rgba(255,255,255,.025);border-radius:0 0 12px 12px;margin-bottom:2px}
+.px-sec{margin-top:10px}
+.px-h{font-family:var(--fb);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-40);margin-bottom:4px}
+.px-dim{font-family:var(--fb);font-size:12px;color:var(--ink-40);line-height:1.45}
+.px-mode{font-family:var(--fb);font-size:12.5px;color:var(--ink-60);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.px-comp{display:block;width:100%;text-align:left;background:none;border:1px solid var(--ink-12);border-radius:8px;padding:7px 10px;margin-top:5px;color:var(--ink-70);font-family:var(--fb);font-size:12.5px;cursor:pointer}
+.px-comp.on{border-color:var(--gold,#c9a227);color:var(--ink)}
+.px-log{font-family:var(--fb);font-size:12px;color:var(--ink-60);padding:2px 0}
+/* inventory view (2026-08-19) */
+.iv-row{display:grid;grid-template-columns:1.6fr 64px 70px 58px 54px;gap:7px;align-items:center;padding:10px 3px;border-bottom:1px solid var(--ink-6)}
+.iv-row.low{background:rgba(201,162,39,.05)}
+.iv-row.out{background:rgba(224,135,99,.06)}
+.iv-name{font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.15}
+.iv-sub{font-family:var(--fb);font-size:11px;color:var(--ink-40);margin-top:2px;line-height:1.35}
+.iv-out{color:var(--terra,#e08763)}
+.iv-low{color:var(--gold,#c9a227)}
+.iv-in{width:100%;box-sizing:border-box;text-align:right;font-family:inherit;font-size:14px;padding:6px 7px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink)}
+.iv-un{width:100%;box-sizing:border-box;font-family:var(--fb);font-size:12px;padding:6px 3px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink)}
+.iv-rf{font-family:var(--fb);font-size:11px;padding:6px 8px;border-radius:8px;border:1px solid rgba(155,176,106,.5);background:rgba(155,176,106,.12);color:var(--olive,#a8b97e);cursor:pointer}
+.iv-rfspace{display:inline-block}
+/* fresh sheet (2026-08-19) */
+.fs-stat{font-family:var(--fb);font-size:13px;color:var(--ink-70);margin:2px 0 8px}
+.fs-chips{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 10px}
+.fs-chip{border-radius:999px;padding:6px 12px;font-family:var(--fb);font-size:12px;cursor:pointer;border:1px solid var(--ink-12);background:none;color:var(--ink-70)}
+.fs-chip.warn{border-color:rgba(201,162,39,.55);color:var(--gold,#c9a227);background:rgba(201,162,39,.08)}
+.fs-chip.out{border-color:rgba(224,135,99,.55);color:var(--terra,#e08763);background:rgba(224,135,99,.08)}
+.fs-sec{font-family:var(--fb);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-40);margin:16px 0 5px;padding-bottom:4px;border-bottom:1px solid var(--ink-6)}
+.fs-row{display:flex;align-items:center;gap:6px;padding:9px 2px;border-bottom:1px solid var(--ink-6)}
+.fs-main{flex:1;min-width:0}
+.fs-name{font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.15}
+.fs-mk{font-size:11px;opacity:.7}
+.fs-sub{font-family:var(--fb);font-size:11.5px;color:var(--ink-50);margin-top:2px;line-height:1.35}
+.fs-warn{color:var(--gold,#c9a227);font-weight:600}
+.fs-act{flex:0 0 auto;width:32px;height:32px;border-radius:9px;border:1px solid var(--ink-12);background:var(--ink-6,rgba(255,255,255,.04));color:var(--ink-60);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+/* Price Drift home card (cream card -> dark ink) */
+.pd-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid rgba(10,16,40,.08)}
+.pd-rt{flex:1;font-family:var(--fb);font-size:12.5px;line-height:1.35;color:rgba(10,16,40,.8)}
+.pd-ra{display:flex;gap:6px;flex-shrink:0}
+.pd-btn{background:rgba(10,16,40,.06);border:1px solid rgba(10,16,40,.22);border-radius:8px;padding:5px 10px;font-family:var(--fb);font-size:11.5px;cursor:pointer;color:#0a1028}
+.pd-btn.ok{background:#2e4624;border-color:#2e4624;color:#f5e8c8}
+.pd-more{font-family:var(--fb);font-size:11.5px;color:rgba(10,16,40,.5);padding-top:6px}
+.pd-chips{display:flex;gap:6px;margin:8px 0 4px}
+.pd-chip{background:none;border:1px solid rgba(10,16,40,.25);border-radius:999px;padding:3px 10px;font-size:11px;font-family:var(--fb);cursor:pointer;color:rgba(10,16,40,.7)}
+.pd-chip.on{background:#0a1028;color:#f5e8c8;border-color:#0a1028}
+.pd-vrow{display:flex;gap:8px;align-items:baseline;font-family:var(--fb);font-size:12.5px;padding:4px 0;color:rgba(10,16,40,.8)}
+.pd-vrow .up{color:#a33f26;font-weight:600}
+.pd-vrow .down{color:#2e4624;font-weight:600}
+.pd-vp{margin-left:auto;font-size:11.5px;color:rgba(10,16,40,.55)}
+.mode-card.pd-card.alert{border-color:rgba(224,135,99,.65);box-shadow:0 0 0 1px rgba(224,135,99,.3),0 0 34px -4px rgba(224,135,99,.4)}
 .p-hidtog{display:block;width:100%;margin-top:12px;background:none;border:none;color:var(--ink-45);font-family:var(--fb);font-size:11.5px;cursor:pointer;text-align:center;text-decoration:underline;text-decoration-color:var(--ink-12)}
 .io-btn-inv{width:100%;margin-top:8px;background:transparent;color:var(--ink);border:1px dashed var(--ink-30);padding:11px;border-radius:10px;font-family:var(--fb);font-size:13.5px;font-weight:500;cursor:pointer}
 .io-btn-inv:active{background:var(--ink-6)}
@@ -1891,6 +1981,20 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
   </div>
 </div>
 
+<!-- LOGIN (2026-08-19): two-person picker for the bare window. #doors above stays in the DOM
+     (hidden via body.remy-who) — the dual-door IIFE's scope flag depends on it existing. -->
+<div id="login" class="gone">
+  <svg id="login-sky" viewBox="0 0 1000 1800" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="lg-wrap">
+    <div class="lg-eyebrow">Who&rsquo;s here?</div>
+    <div class="lg-cards">
+      <button class="lg-card" data-who="kelly"><span class="lg-name">Kelly</span><span class="lg-role">Swan House Farm</span></button>
+      <button class="lg-card" data-who="sam"><span class="lg-name">Sam</span><span class="lg-role">San Fermo</span></button>
+    </div>
+    <div class="lg-note">Remembered on this device.</div>
+  </div>
+</div>
+
 <!-- FARM (real fresh-sheet, ported from remy-farm-freshsheet-real.html) -->
 <div id="farm" class="gone">
   <!-- full-width header matches .de-head so Remy persists in the SAME spot as the doors/kitchen -->
@@ -1901,22 +2005,31 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
 <div class="phone">
   <div id="offline-banner" style="display:none">You&rsquo;re offline &mdash; everything saves here and syncs when you&rsquo;re back online.</div>
   <div class="seg">
-    <button class="on" data-view="push">Pushing</button>
+    <button data-view="home" id="seg-home">Home</button>
+    <button class="on" data-view="push">Fresh sheet</button>
     <button data-view="list">Full list</button>
     <button data-view="pricing" id="seg-pricing">Pricing</button>
+    <button data-view="inventory" id="seg-inventory">Inventory</button>
     <button data-view="orders" id="seg-orders">Orders</button>
-    <button data-view="weather" id="seg-weather">Weather</button>
     <button data-view="restaurants" id="seg-restaurants">Restaurants</button>
+    <button data-view="weather" id="seg-weather">Weather</button>
   </div>
   <button class="guided-link" data-view="guided">Set up your farm profile &rarr;</button>
 
+  <div class="view" id="view-home">
+    <div class="vh" id="home-greet">Welcome</div>
+    <div class="vh-sub" id="home-sub"></div>
+    <div class="mode-cards" id="home-cards"></div>
+    <div class="lg-switch" id="home-switch"></div>
+  </div>
+
   <div class="view live" id="view-push">
-    <div class="vh">What you&rsquo;re pushing</div>
-    <div class="vh-sub">These ride to the top of San Fermo&rsquo;s order screen, flagged as farm surplus.</div>
+    <div class="vh">Your fresh sheet</div>
+    <div class="vh-sub">What buyers can see and order right now. Star &#9733; an item in the Full list to push it to the top of their screen.</div>
     <div id="push-list"></div>
-    <button class="add-btn" id="add-toggle">+ Add something to push</button>
-    <div class="picker" id="picker">
-      <div class="picker-hd">In season now &middot; tap to push</div>
+    <!-- picker retired 2026-08-19 (pushing = the star in Full list); kept hidden because
+         renderPick still writes into #pick-grid from a dozen call sites -->
+    <div class="picker" id="picker" style="display:none">
       <div class="pick-grid" id="pick-grid"></div>
     </div>
     <div class="loop-note">Marking something down to move tells the kitchen it&rsquo;s a deal this week.</div>
@@ -1927,13 +2040,15 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
       <div class="list-intro" id="list-intro">Everything you&rsquo;re growing. Tap a status to change it, <b>&#9733;</b> to push. Pricing lives in the Pricing tab.</div>
       <button class="pmode-toggle" id="edit-mode-toggle" aria-pressed="false">Edit</button>
       <button class="pmode-toggle" id="photo-mode-toggle" aria-pressed="false">Photo mode</button>
-      <button class="pmode-toggle" id="stock-mode-toggle" aria-pressed="false">Stock</button>
+
       <button class="pmode-toggle" id="bytype-toggle" aria-pressed="false">By type</button>
     </div>
     <button class="ng-add-btn" id="ng-toggle">+ New Growth</button>
     <div id="list-filters" class="lfilters"></div>
     <div id="list-rows"></div>
   </div>
+
+  <div class="view" id="view-inventory"><div id="inv-body"></div></div>
 
   <div class="view" id="view-pricing">
     <div id="pricing-body"></div>
@@ -45406,13 +45521,13 @@ function runIntroMorph(){
         word.style.transform = 'translate('+tx+'px, '+ty+'px) scale('+scale+')';
         // Same idea for the glow: shrink the text-shadow as it lands
         word.classList.add('landed');
-      }, 1150);
+      }, 500);   /* 2026-08-19: faster zoom (was 1150) */
 
       setTimeout(function(){
         // Reveal the real header REMY at the exact spot the morph lands
         headerRemy.classList.add('in');
         if(headerBack) headerBack.classList.add('in');
-      }, 2030);
+      }, 1080);   /* was 2030 */
 
       setTimeout(function(){
         // San Fermo brand fades in alongside, just after REMY settles
@@ -45420,11 +45535,11 @@ function runIntroMorph(){
         // Fade the overlay (which contains the morphed intro word) so the
         // header REMY underneath is what stays visible
         intro.classList.add('gone');
-      }, 2120);
+      }, 1160);   /* was 2120 */
     });
   });
   };
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(_go); setTimeout(_go, 1200); }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(_go); setTimeout(_go, 800); }
   else { _go(); }
 }
 </script>
@@ -45461,6 +45576,8 @@ function runIntroMorph(){
   // on the kitchen, and make the farm side unreachable — so no order-to-Kelly path exists here.
   // window._REMY_EMBED is the global guard any future order-send checks (hard stop while prototyping).
   var _embed=/[?&]embed=/.test(location.search||'');
+  var _preview=/[?&]embed=preview\b/.test(location.search||'');
+  if(_preview){try{window._REMY_PREVIEW=true;document.body.classList.add('remy-preview');}catch(e){}}
   var _tenant=!!window.__REMY_TENANT; var _scoped=_embed||_tenant; try{window._REMY_SCOPED=_scoped;}catch(e){}
   if(_embed){try{window._REMY_EMBED=true;document.body.classList.add('remy-embed');}catch(e){}}
   if(k)k.addEventListener('click',function(e){e.preventDefault();pick(k,'kitchen',function(){hide(doors);});});
@@ -45475,6 +45592,40 @@ function runIntroMorph(){
   if(_scoped){ hide(doors); window.scrollTo(0,0);
     var _pb=document.getElementById('ph-back'); if(_pb)_pb.style.display='none';   // no "Doors" back in embed (farm is unreachable)
     document.querySelectorAll('#portal .ph-wordmark').forEach(function(pw){pw.style.cursor='default';pw.title='';});
+  }
+
+  /* ── LOGIN GATE (2026-08-19): bare window only. Supersedes the doors VISUALLY; #doors stays
+     in the DOM (see the CSS note at body.remy-who). Identity is UX attribution, not auth —
+     Firestore writes are still governed by rules + App Check exactly as before. ── */
+  if(!_scoped){
+    document.body.classList.add('remy-who');
+    hide(doors);
+    var _lg=document.getElementById('login');
+    var _who=null; try{_who=localStorage.getItem('remy.who.v1');}catch(e){}
+    var _deepOrders=/(?:[?&]view=orders\b)|(?:#orders\b)/.test((location.search||'')+' '+(location.hash||''));
+    function _lgEnter(w,fresh){
+      if(fresh){try{localStorage.setItem('remy.who.v1',w);}catch(e){}}
+      try{window.__REMY_WHO=w;}catch(e){}
+      if(_lg)_lg.classList.add('gone');
+      show(farm); window.scrollTo(0,0);
+      if(_deepOrders)return;                       // the checkin-app deep link owns the landing view
+      if(window._remyHomeEnter)window._remyHomeEnter(w);
+      else window.__REMY_PENDING_HOME=w;           // farm IIFE hasn't run yet — it consumes this
+    }
+    window._remyLoginShow=function(){               // "Not you?" — forget the device identity
+      try{localStorage.removeItem('remy.who.v1');}catch(e){}
+      try{window.__REMY_WHO=null;}catch(e){}
+      hide(farm); if(_lg)_lg.classList.remove('gone'); window.scrollTo(0,0);
+    };
+    if(_lg)_lg.querySelectorAll('.lg-card').forEach(function(b){
+      b.addEventListener('click',function(){
+        b.classList.add('picking');
+        setTimeout(function(){_lgEnter(b.dataset.who,true);b.classList.remove('picking');},260);
+      });
+    });
+    if(_who==='sam'||_who==='kelly'){ _lgEnter(_who,false); }
+    else if(_lg){ _lg.classList.remove('gone'); }
+    seedStars(document.getElementById('login-sky'),76);
   }
 
   /* deep-link: ?view=orders (or #orders) lands straight on the farm side's Incoming Orders tab.
@@ -45675,8 +45826,8 @@ window.RemyTenant=(function(){
 function snapshot(){
   var items={};
   grow.forEach(function(g){
-    if(g.ask!=null||g.askUnit||g.locked||g.pHide||g.photo||g.voice||g.voiceText||(g.grow_method&&g.grow_method.length)||g.harvest_mode||g.variety||g.teaser){
-      items[g.name]={ask:(g.ask==null?null:g.ask),askUnit:g.askUnit||'',askMode:g.askMode||'',askPct:(g.askPct==null?null:g.askPct),locked:!!g.locked,lockMkt:(g.lockMkt==null?null:g.lockMkt),compSrc:g.compSrc||'',pHide:!!g.pHide,askVendor:g.askVendor||'',photo:g.photo||'',voice:g.voice||'',voiceText:g.voiceText||'',grow_method:(g.grow_method||[]),harvest_mode:g.harvest_mode||'',variety:g.variety||'',teaser:g.teaser||''};
+    if(g.ask!=null||g.askUnit||g.locked||g.pHide||g.photo||g.voice||g.voiceText||(g.grow_method&&g.grow_method.length)||g.harvest_mode||g.variety||g.teaser||g.compAlt||(g.driftLog&&g.driftLog.length)||g.driftAck||g.driftDismiss!=null){
+      items[g.name]={ask:(g.ask==null?null:g.ask),askUnit:g.askUnit||'',askMode:g.askMode||'',askPct:(g.askPct==null?null:g.askPct),locked:!!g.locked,lockMkt:(g.lockMkt==null?null:g.lockMkt),compSrc:g.compSrc||'',pHide:!!g.pHide,askVendor:g.askVendor||'',photo:g.photo||'',voice:g.voice||'',voiceText:g.voiceText||'',grow_method:(g.grow_method||[]),harvest_mode:g.harvest_mode||'',variety:g.variety||'',teaser:g.teaser||'',compAlt:g.compAlt||'',driftLog:(g.driftLog||[]),driftAck:(g.driftAck||0),driftDismiss:(g.driftDismiss==null?null:g.driftDismiss)};
     }
   });
   // farmer-added crops: persist their membership + defining fields so they survive reload and
@@ -45727,7 +45878,11 @@ function applyState(x){
     if('photo' in it){if(!isLocalMedia(g.photo))g.photo=it.photo||'';}
     if('voice' in it){if(!isLocalMedia(g.voice))g.voice=it.voice||'';}
     if('voiceText' in it)g.voiceText=it.voiceText||'';
-    if(it.grow_method)g.grow_method=it.grow_method;if(it.harvest_mode)g.harvest_mode=it.harvest_mode;if(it.variety)g.variety=it.variety;if(it.teaser)g.teaser=it.teaser;});}
+    if(it.grow_method)g.grow_method=it.grow_method;if(it.harvest_mode)g.harvest_mode=it.harvest_mode;if(it.variety)g.variety=it.variety;if(it.teaser)g.teaser=it.teaser;
+    if('compAlt' in it)g.compAlt=it.compAlt||'';
+    if(it.driftLog&&it.driftLog.length)g.driftLog=it.driftLog;
+    if('driftAck' in it)g.driftAck=it.driftAck||0;
+    if('driftDismiss' in it)g.driftDismiss=(it.driftDismiss==null?null:it.driftDismiss);});}
   // per-tenant hide: prune crops the farm hid for THIS tenant. Only tenant docs carry x.hidden, so the
   // farm reading its own san_fermo doc resets all flags to false (Kelly always sees everything).
   try{ grow.forEach(function(g){g._tHidden=false;}); if(Array.isArray(x.hidden)&&x.hidden.length){var _h={};x.hidden.forEach(function(n){_h[n]=1;}); grow.forEach(function(g){if(_h[g.name])g._tHidden=true;}); } }catch(e){}
@@ -46007,7 +46162,9 @@ function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then
    source of truth and can reset it; a bad write is recoverable, never a data-boundary breach). */
 window.__REMY_INV=window.__REMY_INV||{};
 function _invRec(name){ try{ return (window.__REMY_INV&&window.__REMY_INV[name])||null; }catch(e){ return null; } }
-function _invRerender(){ try{if(typeof _cfNotify==='function')_cfNotify();}catch(e){} try{if(window.__cfRenderOrder)window.__cfRenderOrder();}catch(e){} try{if(typeof renderPush==='function'&&!window._REMY_SCOPED)renderPush();}catch(e){} try{if(typeof renderList==='function'&&!window._REMY_SCOPED&&typeof stockMode!=='undefined'&&stockMode)renderList();}catch(e){} }
+function _invRerender(){ try{if(typeof _cfNotify==='function')_cfNotify();}catch(e){} try{if(window.__cfRenderOrder)window.__cfRenderOrder();}catch(e){} try{if(typeof renderPush==='function'&&!window._REMY_SCOPED)renderPush();}catch(e){} try{if(typeof renderList==='function'&&!window._REMY_SCOPED&&typeof stockMode!=='undefined'&&stockMode)renderList();}catch(e){}
+  try{if(typeof renderInventory==='function'&&!window._REMY_SCOPED){var _vi=document.getElementById('view-inventory');if(_vi&&_vi.classList.contains('live'))renderInventory();}}catch(e){}
+  try{if(typeof _homeRefreshIfLive==='function'&&!window._REMY_SCOPED)_homeRefreshIfLive();}catch(e){} }
 /* Self-healing inventory listener. A Firestore snapshot listener that hits an error is TERMINATED and
    never auto-recovers, so the old empty error handler let a single stream drop (App Check re-attest on
    the long-lived listen, sleep/wake, network flap) silently kill live "X left" until a reload. Now the
@@ -46018,7 +46175,10 @@ function _invAttach(){ try{
     if(!(FB.db))return;
     if(window._invUnsub){ try{window._invUnsub();}catch(e){} window._invUnsub=null; }
     window._invUnsub=FB.db.collection('farmInventory').doc('swan_house').onSnapshot(function(d){
-      try{ var x=(d&&d.exists)?d.data():null; window.__REMY_INV=(x&&x.items)||{}; _invRerender(); }catch(e){}
+      try{ var x=(d&&d.exists)?d.data():null; window.__REMY_INV=(x&&x.items)||{};
+           window.__REMY_INV_META={last_weekly_reset:(x&&x.last_weekly_reset)||0};
+           try{ if(typeof _invMaybeWeeklyReset==='function')_invMaybeWeeklyReset(); }catch(_r){}
+           _invRerender(); }catch(e){}
     },function(e){
       try{ window.__REMY_INV_ERR={code:(e&&e.code)||'',msg:(e&&e.message)||'',at:Date.now()}; }catch(_e){}
       try{ console.warn('[REMY inv listener error — will re-attach]', e&&e.code, e&&e.message); }catch(_e){}
@@ -46237,11 +46397,29 @@ function renderRestaurants(){
       +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:2px">'+(meta||'No pricing set yet')+'</div></div>'
       +'<span style="flex:0 0 auto;color:var(--ink-45,#8893ad);font-size:20px">&rsaquo;</span></button>';
   }).join('');
+  // San Fermo pinned first (2026-08-19): the same file at ?embed=preview IS the staff-portal
+  // surface, so the iframe shows exactly what the kitchen sees. Lazy src; sends are refused
+  // in preview windows (RemyOrders.place guard).
+  var sfRow='<button class="cr-sfrow" id="cr-sf" style="width:100%;text-align:left;display:flex;align-items:center;gap:12px;padding:16px 15px;margin-bottom:10px;border-radius:14px;border:1px solid rgba(155,176,106,.4);background:rgba(155,176,106,.07);cursor:pointer">'
+    +'<div style="flex:1 1 auto;min-width:0"><div style="font-family:var(--fd,serif);font-size:18px;color:var(--ink,#eaf0ff)">San Fermo</div>'
+    +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:2px">Your kitchen &middot; see your sheet exactly as they see it</div></div>'
+    +'<span style="flex:0 0 auto;color:var(--ink-45,#8893ad);font-size:20px">&#9662;</span></button>'
+    +'<div id="sf-preview" style="display:none;margin:-2px 0 14px">'
+    +'<div style="font-family:var(--fb,sans-serif);font-size:11.5px;color:var(--ink-45,#8893ad);margin:0 0 6px">Live preview &middot; browsing works, ordering is disabled in here.</div>'
+    +'<iframe id="sf-preview-frame" title="Remy as San Fermo sees it" style="width:100%;height:70vh;border:1px solid var(--ink-12,rgba(255,255,255,.12));border-radius:14px;background:#0a1028"></iframe>'
+    +'</div>';
   host.innerHTML='<div class="vh">Connected restaurants</div>'
     +'<div class="vh-sub">Wholesale buyers that order from you through their own Remy window. Tap one to set its pricing.</div>'
+    +sfRow
     +(rows||'<div style="padding:16px 2px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-60,#9aa6c0)">No connected restaurants yet.</div>')
     +'<div style="margin-top:14px;font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-45,#8893ad);line-height:1.5">To connect a new restaurant, its private login is set up once on the back end, then it shows up here to price.</div>';
   host.querySelectorAll('.cr-row').forEach(function(b){ b.onclick=function(){ _rTab.tid=b.dataset.tid; _rFilter='all'; _rCatFilter='all'; renderRestaurants(); }; });
+  var sfb=host.querySelector('#cr-sf');
+  if(sfb)sfb.onclick=function(){ var p=host.querySelector('#sf-preview'); if(!p)return;
+    var open=(p.style.display!=='none');
+    p.style.display=open?'none':'block';
+    if(!open){ var f=host.querySelector('#sf-preview-frame');
+      if(f&&!f.getAttribute('src'))f.setAttribute('src', location.pathname+'?embed=preview'); } };
 }
 function renderRestaurantDetail(host,tid){
   var ov=tenantOverrides[tid]||(tenantOverrides[tid]={});
@@ -46423,7 +46601,7 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
   // Expose a tiny order-write helper so the kitchen-side Order composer (a separate IIFE) can place
   // a real order into remy-orders without reaching into FB directly. Attested via the same App Check.
   try{window.RemyOrders={ready:function(){return !!(FB.ready&&FB.db);},
-    place:function(order){try{if(window.RemyTenant)window.RemyTenant.stamp(order);}catch(e){}var _op=FB.db.collection('orders').doc(order.order_id).set(order);try{_invDecrement(order);}catch(e){}return _op;},
+    place:function(order){if(window._REMY_PREVIEW)return Promise.reject(new Error('preview-window'));try{if(window.RemyTenant)window.RemyTenant.stamp(order);}catch(e){}var _op=FB.db.collection('orders').doc(order.order_id).set(order);try{_invDecrement(order);}catch(e){}return _op;},
     orders:function(){return (ordersData||[]).slice();},           // live restaurant+farm orders (this farm)
     onOrders:function(cb){try{if(typeof cb==='function')_ordListeners.push(cb);}catch(e){}}};}catch(e){}
   // offline persistence: prices/status/markdown/transcripts queue locally + auto-sync on reconnect
@@ -47161,7 +47339,7 @@ function fmCanon(n){ n=(n||'').replace(/\([^)]*\)/g,'').toLowerCase(); return n.
 function fmBuild(feed){ var m={}; if(feed){ _fmPrem=feed.premium_pct||20; var items=feed.items||{};
   Object.keys(items).forEach(function(k){ var it=items[k];
     if(it.swan_per_lb!=null && it.market!=null && it.swan_price){ var mpl=it.swan_per_lb*(it.market/it.swan_price);
-      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||'',climb:(it.climb!=null?it.climb:null),compType:(it.comp_type||'commodity'),hubBasis:(it.hub_basis||'')}; } } }); }
+      if(mpl>0){ var key=fmCanon(it.display||k); if(!(key in m)) m[key]={perlb:mpl,freshness:it.freshness||'',vendor:it.vendor||'',climb:(it.climb!=null?it.climb:null),compType:(it.comp_type||'commodity'),hubBasis:(it.hub_basis||''),alts:(it.alts||null),hist:(it.hist||null),date:(it.date||'')}; } } }); }
   return m; }
 var _FM_WT={'lb':1,'#':1,'lbs':1,'1/2 lb':0.5,'1/2#':0.5,'1/4 lb':0.25,'1/4#':0.25,'oz':1/16};
 function fmFactor(g){ var u=(g.askUnit||'').toLowerCase().trim();
@@ -47169,7 +47347,16 @@ function fmFactor(g){ var u=(g.askUnit||'').toLowerCase().trim();
   for(var i=0;i<su.length;i++){ if((su[i].unit||'').toLowerCase().trim()===u && su[i].per>0) return {f:su[i].per, est:su[i].basis==='estimate'}; }
   if(_FM_WT[u]!=null) return {f:_FM_WT[u], est:false};
   return null; }
-function _compType(g){ var r=_fmMap&&_fmMap[fmCanon(g.name)]; return (r&&r.compType==='hub')?'hub':'commodity'; }
+/* fmRec (2026-08-19): the ONE way to read a crop's market comp. Honors g.compAlt — the comp
+   Kelly picked in the expanded pricing card — falling back to the feed's prioritized pick. */
+function fmRec(g){ var r=_fmMap&&_fmMap[fmCanon(g&&g.name)]; if(!r)return null;
+  if(g&&g.compAlt&&r.alts){ for(var i=0;i<r.alts.length;i++){ var a=r.alts[i];
+    if(a.vendor===g.compAlt&&a.per_lb>0)
+      return {perlb:a.per_lb,freshness:a.freshness||'',vendor:a.vendor,climb:null,
+              compType:(a.kind==='hub'?'hub':'commodity'),hubBasis:a.basis||'',
+              alts:r.alts,hist:r.hist,date:a.date||'',alt:true}; } }
+  return r; }
+function _compType(g){ var r=fmRec(g); return (r&&r.compType==='hub')?'hub':'commodity'; }
 function _isHub(g){ return _compType(g)==='hub'; }
 /* Target premium over the comp. HUB comp -> 0 (a hub price IS local market; the 20% only ever
    existed to bridge a COMMODITY comp up to local). COMMODITY comp -> her set %. manual -> null. */
@@ -47180,7 +47367,7 @@ function _targetPct(g){ if(!g||!g.askMode||g.askMode==='manual') return null;
 /* A locked crop whose comp SOURCE flipped (Franks <-> local hub) must never silently reprice —
    the jump can be 3-4x. Treated exactly like an out-of-band move: hold the ask, tell her, one tap. */
 function compSrcChanged(g){ if(!g||!g.locked||!g.compSrc) return null;
-  var r=_fmMap&&_fmMap[fmCanon(g.name)]; if(!r||!(r.perlb>0)) return null;
+  var r=fmRec(g); if(!r||!(r.perlb>0)) return null;
   var now=(r.compType==='hub')?'hub':'commodity'; if(now===g.compSrc) return null;
   var fac=fmFactor(g); if(!fac) return null;
   var t=_targetPct(g); if(t==null)t=0;
@@ -47189,7 +47376,7 @@ function compSrcChanged(g){ if(!g||!g.locked||!g.compSrc) return null;
 function farmDrift(g){
   if(!_fmMap||!g||g.ask==null||g.ask===''||!g.askMode||g.askMode==='manual') return null;
   var fac=fmFactor(g); if(!fac) return null;
-  var rec=_fmMap[fmCanon(g.name)]; if(!rec||!(rec.perlb>0)) return null;
+  var rec=fmRec(g); if(!rec||!(rec.perlb>0)) return null;
   var mkl=rec.perlb, askPerLb=Number(g.ask)/fac.f;
   var eff=(askPerLb-mkl)/mkl*100;
   var target=(_targetPct(g)==null?0:_targetPct(g));
@@ -47215,16 +47402,17 @@ function driftTicker(g){
     h+='<button class="dr-fix" data-dn="'+String(g.name).replace(/"/g,'&quot;')+'">&rarr; '+ra+'</button>'; }
   return '<div class="pc-drift'+(alert?' alert':'')+'">'+h+'</div>'; }
 window.driftApply=function(name){ var g=byName[name]; if(!g) return;
+  var _pv=(g.ask==null||g.ask==='')?null:Number(g.ask);
   var cs=compSrcChanged(g);
   if(cs){   // she accepted the new comp family: adopt it, re-anchor, and switch mode to suit
-    g.ask=Number(cs.recAsk.toFixed(2)); g.compSrc=cs.to;
+    _dlog(g,_pv,Number(cs.recAsk.toFixed(2)),0); g.ask=Number(cs.recAsk.toFixed(2)); g.compSrc=cs.to; g.driftDismiss=null;
     if(cs.to==='hub'){ g.askMode='match'; g.askPct=0; }
     var _m0=_lockMkl(g); if(_m0!=null)g.lockMkt=_m0;
     persist(); renderPush();
     if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList();
     if(typeof renderPricing==='function')renderPricing(); return; }
   var d=farmDrift(g); if(!d) return;
-  g.ask=Number(d.recAsk.toFixed(2));
+  _dlog(g,_pv,Number(d.recAsk.toFixed(2)),0); g.ask=Number(d.recAsk.toFixed(2)); g.driftDismiss=null;
   if(g.locked){ var _m=_lockMkl(g); if(_m!=null)g.lockMkt=_m; }   // a manual follow re-anchors the lock band
   persist(); renderPush();
   if(typeof renderPick==='function')renderPick(); if(typeof renderList==='function')renderList();
@@ -47233,7 +47421,7 @@ window.driftApply=function(name){ var g=byName[name]; if(!g) return;
 /* ── Pricing tab (4th pill, Sam 2026-07-10). The mock's per-row table for market-comped crops:
    Item · Your ask · Market(+trend) · Drift·suggestion. Badge on the pill counts items drifted
    past the 15% band. Reuses farmDrift; tap a suggestion = driftApply (restores her set %). ── */
-function _pHasMkt(g){ return !!(g.market&&g.market.price!=null) || !!(_fmMap&&_fmMap[fmCanon(g.name)]); }
+function _pHasMkt(g){ return !!(g.market&&g.market.price!=null) || !!fmRec(g); }
 // Sort/state priority: drift(0) > within-band(1) > verify(2) > set-% vs market(3) > set-a-price(4).
 // A manual price (she ignored the market) or no market at all = set-a-price, sorted last.
 function _pState(g,d){
@@ -47285,8 +47473,14 @@ function _pBindRowEvents(scope){
   scope.querySelectorAll('[data-unhide]').forEach(function(b){b.onclick=function(){pUnhide(b.dataset.unhide);};});
   scope.querySelectorAll('[data-lock]').forEach(function(b){b.onclick=function(){pLock(b.dataset.lock);};});
   scope.querySelectorAll('[data-unlock]').forEach(function(b){b.onclick=function(){pUnlock(b.dataset.unlock);};});
-  // data-price = open the ask modal; skip elements that are lock controls
+  // data-price = open the ask modal (now an explicit "Adjust price" button in the expansion)
   scope.querySelectorAll('[data-price]').forEach(function(b){b.onclick=function(){ var g=byName[b.dataset.price]; if(g&&g.prepped&&typeof ptOpen==='function'){ptOpen(b.dataset.price);} else if(typeof atOpen==='function'){atOpen(b.dataset.price);} };});
+  // the row itself is the disclosure control; buttons inside it keep their own actions
+  scope.querySelectorAll('[data-pex]').forEach(function(r){ r.onclick=function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button'))return;
+    var n=r.getAttribute('data-pex'); _pExpanded[n]=!_pExpanded[n]; _pRefreshRows(); }; });
+  scope.querySelectorAll('[data-calt]').forEach(function(b){ b.onclick=function(){
+    var s=b.getAttribute('data-calt'), i=s.indexOf('|'); pCompAlt(s.slice(0,i), s.slice(i+1)); }; });
 }
 // Search/chip refresh redraws ONLY the row host — deliberately NO autoTuneLocked() and NO
 // persist(): a keystroke must never enter the render->write chain (the 2026-07-26 (2) loop).
@@ -47310,7 +47504,8 @@ function pricingBadgeCount(){ var n=0; grow.forEach(function(g){ if(g.pHide)retu
   if(compSrcChanged(g)){n++;return;}
   var d=farmDrift(g); if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH)n++; }); return n; }
 function updatePricingSeg(){ var b=document.getElementById('seg-pricing'); if(!b)return; var n=pricingBadgeCount();
-  if(n>0){b.classList.add('has-drift');b.setAttribute('data-badge',String(n));} else {b.classList.remove('has-drift');b.removeAttribute('data-badge');} }
+  if(n>0){b.classList.add('has-drift');b.setAttribute('data-badge',String(n));} else {b.classList.remove('has-drift');b.removeAttribute('data-badge');}
+  _homeRefreshIfLive(); }
 /* ── Auto-tune / lock (Sam 2026-07-10, lifting the deferred "auto-track" from design-rationale L20).
    A locked crop keeps Kelly's set % as the market moves — the ask auto-recomputes to hold her
    premium, so she never re-prices. Guardrails from the deferred spec: opt-in only; SKIP a stale
@@ -47339,21 +47534,29 @@ var _pQ='', _pFilt='';   // Pricing search + filter chips (2026-07-26)
     '.p-fchip{flex:0 0 auto;background:none;border:1px solid var(--ink-12,rgba(255,255,255,.16));border-radius:999px;padding:5px 12px;font-size:12px;letter-spacing:.03em;color:inherit;opacity:.75;cursor:pointer;font-family:inherit}'+
     '.p-fchip.on{background:var(--gold,#c9a227);border-color:var(--gold,#c9a227);color:#0a1028;opacity:1}';
   document.head.appendChild(st); }catch(e){} })();
+var _pExpanded={};   // pricing rows open state (session-only, resets on reload)
+var _pdWin=30;       // Price Drift card: history window in days
+/* Every real price move gets a dated log entry on the crop (cap 20, rides snapshot()).
+   auto=1: applied by auto-lock inside the band (ack-only on the Home card).
+   auto=0: Kelly's own tap (Follow / Raise / Lower / comp switch repricing). */
+function _dlog(g,from,to,auto){ try{ if(from!=null&&Math.abs(Number(from)-Number(to))<0.005)return;
+  (g.driftLog=g.driftLog||[]).push({t:Date.now(),f:(from==null?null:Number(from)),to:Number(to),auto:auto?1:0});
+  if(g.driftLog.length>20)g.driftLog=g.driftLog.slice(-20); }catch(e){} }
 function _pType(g){var c=(g.category||'').toLowerCase();
   if(/protein/.test(c))return 'Protein'; if(/flower/.test(c))return 'Flower';
   if(/berry|fruit/.test(c))return 'Fruit'; if(/herb/.test(c))return 'Herb';
   if(/green/.test(c))return 'Green'; if(/produce|veg/.test(c))return 'Veg'; return 'Other';}
-function _pLockable(g){ if(!g||g.category==='prepped'||!_fmMap)return false; var r=_fmMap[fmCanon(g.name)]; return !!(r&&r.perlb>0); }
+function _pLockable(g){ if(!g||g.category==='prepped'||!_fmMap)return false; var r=fmRec(g); return !!(r&&r.perlb>0); }
 // target-% ask at the CURRENT market, independent of any existing ask (so an unpriced crop can be locked).
 function _pRecAsk(g){ if(!_fmMap)return null; var fac=fmFactor(g); if(!fac)return null;
-  var r=_fmMap[fmCanon(g.name)]; if(!r||!(r.perlb>0))return null;
+  var r=fmRec(g); if(!r||!(r.perlb>0))return null;
   if(/STALE|PRIOR/.test(r.freshness||''))return {stale:true};
   var target=(_targetPct(g)==null?0:_targetPct(g));
   return {ask:Number((r.perlb*(1+target/100)*fac.f).toFixed(2)),stale:false}; }
 // Band guard (Sam 2026-07-12): a locked crop follows the market ONLY while the comp stays within
 // _LOCK_BAND% of the market level at lock (g.lockMkt). A bigger move either way is HELD for review
 // (could be a fluke low/high comp) -- the ask is left where it was; she taps Follow to re-anchor.
-function _lockMkl(g){ if(!_fmMap)return null; var r=_fmMap[fmCanon(g.name)]; if(!r||!(r.perlb>0))return null;
+function _lockMkl(g){ if(!_fmMap)return null; var r=fmRec(g); if(!r||!(r.perlb>0))return null;
   if(/STALE|PRIOR/.test(r.freshness||''))return null; return r.perlb; }
 // non-null only when a locked crop's live comp is currently OUT of band -> {dir,pct,mkl,recAsk}
 function lockBandState(g){ if(!g||!g.locked||g.lockMkt==null||!(g.lockMkt>0))return null;
@@ -47368,7 +47571,7 @@ function autoTuneOne(g){ if(!g.locked)return false;
   var mkl=_lockMkl(g);
   if(mkl!=null&&g.lockMkt==null)g.lockMkt=mkl;   // backfill baseline for crops locked before the band existed
   if(lockBandState(g))return false;              // out of band -> hold, do not follow the move
-  if(g.ask==null||g.ask===''||Math.abs(r.ask-Number(g.ask))>=0.01){g.ask=r.ask;return true;} return false; }
+  if(g.ask==null||g.ask===''||Math.abs(r.ask-Number(g.ask))>=0.01){_dlog(g,g.ask,r.ask,1);g.ask=r.ask;return true;} return false; }
 function autoTuneLocked(){ if(!_fmMap)return; var ch=false; grow.forEach(function(g){ if(g.locked&&autoTuneOne(g))ch=true; });
   // Three conditions before auto-tune is allowed to PUBLISH (it always adjusts on screen):
   //  1. the cloud sheet actually landed — otherwise this device is running on its own localStorage
@@ -47410,45 +47613,89 @@ function _pAutoBarHTML(){
   '</div>';
   return '<div class="p-auto open">'+head+body+'</div>';
 }
+/* Devolved row (2026-08-19, Sam's brief): item · your ask · market comp. Everything else lives
+   in the expansion. The ROW is the disclosure control (tap anywhere not a button); the dim caret
+   is an affordance, not a button. */
 function _pRowHTML(g,d,st){
   var unit=g.askUnit||'', jn=String(g.name).replace(/"/g,'&quot;');
+  var open=!!_pExpanded[g.name];
   var lockBtn=_pLockable(g)?('<button class="p-lock'+(g.locked?' on':'')+'" '+(g.locked?('data-unlock="'+jn+'"'):('data-lock="'+jn+'"'))+'>'+(g.locked?'&#128274;&#8202;Auto':'Auto')+'</button>'):'';
   var hideBtn=g.pHide?('<button class="p-unhide" data-unhide="'+jn+'">Unhide</button>'):('<button class="p-hx" data-phide="'+jn+'">Hide</button>');
-  var setTxt=g.locked?('auto'+(unit?(' &middot; '+unit):'')):((g.askMode&&g.askMode!=='manual'&&g.askPct!=null)?('set '+(g.askMode==='markdown'?'&minus;':'+')+Math.round(g.askPct)+'%'+(unit?(' &middot; '+unit):'')):((g.ask!=null&&g.ask!=='')?('set price'+(unit?(' &middot; '+unit):'')):'tap to price'));
-  // premium % and ask are BOTH tappable -> the pricing modal (scale the premium OR set $ manually)
-  var item='<div class="p-item"><div class="p-nrow"><span class="p-name">'+g.name+'</span>'+lockBtn+hideBtn+'</div><button class="p-setl" data-price="'+jn+'">'+setTxt+'</button></div>';
-  var ask='<button class="p-ask'+((g.ask!=null&&g.ask!=='')?'':' unset')+'" data-price="'+jn+'">'+((g.ask!=null&&g.ask!=='')?('$'+Number(g.ask).toFixed(2)):'Set $')+'</button>';
-  var mktHtml, driftHtml;
+  var alertDot=(st&&st.s==='drift')?'<span class="p-dot" title="price drifting"></span>':'';
+  var item='<div class="p-item"><div class="p-nrow"><span class="p-name">'+g.name+alertDot+'</span>'+lockBtn+hideBtn+'</div></div>';
+  var priced=(g.ask!=null&&g.ask!=='');
+  var ask='<span class="p-ask'+(priced?'':' unset')+'">'+(priced?('$'+Number(g.ask).toFixed(2)+(unit?('<small>/'+unit+'</small>'):'')):'&mdash;')+'</span>';
+  var mktHtml;
   if(d){
     var clsMkt=d.stale?'stale':(d.mktTrend>0?'up':(d.mktTrend<0?'down':'flat'));
     var ar=d.stale?'&#9201;':(d.mktTrend>0?'&#9650;':(d.mktTrend<0?'&#9660;':'&ndash;'));
-    var mch=(!d.stale&&d.mktTrend!=null&&Math.round(d.mktTrend)!==0)?('<span class="p-mch '+clsMkt+'">'+(d.mktTrend>0?'+':'')+Math.round(d.mktTrend)+'%</span>'):'';
     var src=d.vendor?('<span class="p-src">via '+vEsc(d.vendor)+'</span>'):'';
-    mktHtml='<div class="p-mkt"><span class="p-mktp">$'+d.marketHer.toFixed(2)+'</span><span class="p-ar '+clsMkt+'">'+ar+'</span>'+mch+src+'</div>';
-    var tgtR=(d.target>=0?'+':'')+Math.round(d.target)+'%';
-    if(g.locked){
-      var lb=lockBandState(g);
-      driftHtml=d.stale?'<div class="p-drift"><div class="p-now">&#128274; held &middot; comp stale</div></div>'
-               :lb?('<div class="p-drift"><div class="p-now warn">&#9888; market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held</div><button class="p-sug" data-follow="'+jn+'">Follow to $'+lb.recAsk.toFixed(2)+'</button></div>')
-                       :'<div class="p-drift"><div class="p-now ok">&#128274; auto '+tgtR+' &middot; follows market</div></div>';
-    } else if(d.stale){ driftHtml='<div class="p-drift"><div class="p-now">market '+(d.vendor?('via '+vEsc(d.vendor)+' '):'')+'stale</div><button class="p-sug warn" data-price="'+jn+'">Verify market</button></div>'; }
-    else {
-      var effR=(d.eff>=0?'+':'')+Math.round(d.eff)+'%';
-      var onT=Math.abs(d.drift)<=_FM_THRESH, nowCls=onT?'ok':(d.eff<0?'under':'over');
-      var nowTxt=(d.eff<0)?('now <b class="under">'+effR+'</b> &middot; under market'):('now <b class="'+nowCls+'">'+effR+'</b> vs '+tgtR);
-      var sug=onT?('<button class="p-sug ghost" data-price="'+jn+'">&#10003; on target &middot; adjust</button>'):
-        ('<button class="p-sug" data-dn="'+jn+'">'+(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)+'</button>');
-      driftHtml='<div class="p-drift"><div class="p-now">'+nowTxt+(d.est?' &middot; est':'')+'</div>'+sug+'</div>';
-    }
+    mktHtml='<div class="p-mkt"><span class="p-mktp">$'+d.marketHer.toFixed(2)+'</span><span class="p-ar '+clsMkt+'">'+ar+'</span>'+src+'</div>';
   } else {
-    var rec=_fmMap?_fmMap[fmCanon(g.name)]:null, hasMkt=_pHasMkt(g);
+    var rec=fmRec(g), hasMkt=_pHasMkt(g);
     var mp=hasMkt?((rec&&rec.perlb)?('$'+rec.perlb.toFixed(2)+'/lb'+(rec.vendor?('<span class="p-src">via '+vEsc(rec.vendor)+'</span>'):'')):('$'+Number(g.market.price).toFixed(2)+'/'+(g.market.unit||''))):'<span class="p-nomkt">no market price</span>';
     mktHtml='<div class="p-mkt"><span>'+mp+'</span></div>';
-    var lbl=(!hasMkt)?'Set a price':'Set % vs market';
-    driftHtml='<div class="p-drift">'+(!hasMkt?'<div class="p-now p-nomkt">no market listed</div>':'')+'<button class="p-sug warn" data-price="'+jn+'">'+lbl+'</button></div>';
   }
-  return '<div class="prow'+(g.locked?' locked':'')+(g.pHide?' p-hidden':'')+'">'+item+ask+mktHtml+driftHtml+_bunchSwitchHTML(g,jn)+'</div>';
+  var chev='<span class="p-chev">'+(open?'&#9662;':'&#9656;')+'</span>';
+  return '<div class="prow p3'+(g.locked?' locked':'')+(g.pHide?' p-hidden':'')+(open?' open':'')+'" data-pex="'+jn+'">'+item+ask+mktHtml+chev+'</div>'+(open?_pExpandHTML(g,d):'');
 }
+/* The drift/band readout that used to be the fourth column — now the head of the expansion. */
+function _pDriftBlock(g,d){
+  var jn=String(g.name).replace(/"/g,'&quot;');
+  var cs=compSrcChanged(g);
+  if(cs)return '<div class="p-now warn">&#9888; comp flipped to '+(cs.to==='hub'?'local market':'Franks')+' &middot; $'+cs.mkl.toFixed(2)+'/lb &middot; held</div><button class="p-sug" data-dn="'+jn+'">Follow to $'+cs.recAsk.toFixed(2)+'</button>';
+  if(!d){ var hasMkt=_pHasMkt(g);
+    return hasMkt?('<button class="p-sug warn" data-price="'+jn+'">Set % vs market</button>')
+                 :('<div class="p-now p-nomkt">no market listed</div><button class="p-sug warn" data-price="'+jn+'">Set a price</button>'); }
+  var tgtR=(d.target>=0?'+':'')+Math.round(d.target)+'%';
+  if(g.locked){ var lb=lockBandState(g);
+    if(d.stale)return '<div class="p-now">&#128274; held &middot; comp stale</div>';
+    if(lb)return '<div class="p-now warn">&#9888; market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held</div><button class="p-sug" data-follow="'+jn+'">Follow to $'+lb.recAsk.toFixed(2)+'</button>';
+    return '<div class="p-now ok">&#128274; auto '+tgtR+' &middot; follows market</div>'; }
+  if(d.stale)return '<div class="p-now">market stale</div><button class="p-sug warn" data-price="'+jn+'">Verify market</button>';
+  var effR=(d.eff>=0?'+':'')+Math.round(d.eff)+'%';
+  var onT=Math.abs(d.drift)<=_FM_THRESH;
+  var nowTxt=(d.eff<0)?('now <b class="under">'+effR+'</b> &middot; under market'):('now <b class="'+(onT?'ok':'over')+'">'+effR+'</b> vs '+tgtR);
+  var sug=onT?'':('<button class="p-sug" data-dn="'+jn+'">'+(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)+'</button>');
+  return '<div class="p-now">'+nowTxt+(d.est?' &middot; est':'')+'</div>'+sug;
+}
+function _pdWhen(t){ try{ return new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric'}); }catch(e){ return ''; } }
+function _pExpandHTML(g,d){
+  var jn=String(g.name).replace(/"/g,'&quot;'), unit=g.askUnit||'';
+  var rec=fmRec(g);
+  var mode=g.locked?('Auto-locked'+(g.askPct!=null?(' at '+(g.askMode==='markdown'?'&minus;':'+')+Math.round(g.askPct)+'%'):'')):
+    ((g.askMode&&g.askMode!=='manual'&&g.askPct!=null)?('Set '+(g.askMode==='markdown'?'&minus;':'+')+Math.round(g.askPct)+'% vs market'):
+    ((g.ask!=null&&g.ask!=='')?'Priced by hand':'No price yet'));
+  var h='<div class="px-sec">'+_pDriftBlock(g,d)+'</div>';
+  h+='<div class="px-sec px-mode">'+mode+(unit?(' &middot; per '+unit):'')+' <button class="p-sug" data-price="'+jn+'">Adjust price</button></div>';
+  if(rec){
+    var alts=rec.alts||[];
+    if(alts.length>1){
+      h+='<div class="px-sec"><div class="px-h">'+alts.length+' market comps &middot; using '+vEsc(rec.vendor||'')+'</div>'+alts.map(function(a){
+        var on=(g.compAlt||'')===''?(a.vendor===rec.vendor):(g.compAlt===a.vendor);
+        return '<button class="px-comp'+(on?' on':'')+'" data-calt="'+jn+'|'+String(a.vendor).replace(/"/g,'&quot;')+'">'+(on?'&#9673;':'&#9675;')+' '+vEsc(a.vendor)+' &middot; $'+Number(a.per_lb).toFixed(2)+'/lb &middot; '+vEsc(a.freshness||'')+(a.kind==='hub'?' &middot; local':'')+'</button>';
+      }).join('')+(g.compAlt?('<button class="px-comp" data-calt="'+jn+'|">&#8634; Back to Remy&rsquo;s pick</button>'):'')+'</div>';
+    } else {
+      h+='<div class="px-sec px-dim">One market comp &middot; '+vEsc(rec.vendor||'reference')+(rec.date?(' &middot; '+vEsc(rec.date)):'')+'</div>';
+    }
+    if(rec.hist){ var t30=rec.hist.t30, ty=rec.hist.tyoy;
+      h+='<div class="px-sec px-dim">Market: '+(t30!=null?('30d '+(t30>=0?'+':'')+Math.round(t30)+'%'):'')+(ty!=null?(' &middot; 1yr '+(ty>=0?'+':'')+Math.round(ty)+'%'):'')+(rec.hist.rng?(' &middot; range $'+rec.hist.rng.min+'&ndash;$'+rec.hist.rng.max):'')+'</div>'; }
+  } else { h+='<div class="px-sec px-dim">No market comp &mdash; this price is yours alone.</div>'; }
+  var L=(g.driftLog||[]);
+  if(L.length){ h+='<div class="px-sec"><div class="px-h">Recent price moves</div>'+L.slice(-5).reverse().map(function(e){
+      return '<div class="px-log">$'+(e.f==null?'&mdash;':Number(e.f).toFixed(2))+' &rarr; $'+Number(e.to).toFixed(2)+' &middot; '+(e.auto?'auto':'you')+' &middot; '+_pdWhen(e.t)+'</div>'; }).join('')+'</div>'; }
+  if((g.category||'')==='herb'){
+    h+=(g.askUnit==='bunch')?('<div class="px-sec px-dim">Selling by the bunch ('+SWAN_BUNCH_LABEL+' standard), converted from a weight price.</div>')
+                            :('<div class="px-sec">'+_bunchSwitchHTML(g,jn)+'</div>');
+  }
+  return '<div class="p-expand">'+h+'</div>';
+}
+function pCompAlt(name,vendor){ var g=byName[name]; if(!g)return;
+  g.compAlt=vendor||'';
+  // her explicit comp choice is a new baseline: re-anchor the lock and let auto-tune settle
+  if(g.locked){ g.compSrc=_compType(g); var m=_lockMkl(g); if(m!=null)g.lockMkt=m; autoTuneOne(g); }
+  g.driftDismiss=null;
+  persist(); renderPricing(); if(typeof renderPush==='function')renderPush(); }
 /* ── Herbs sell by the BUNCH (Sam 2026-07-22): defined Swan standard, 1.5 oz. ─────────────────
    Never a silent reprice: the row shows exactly what the per-bunch ask will be and Kelly's one tap
    is the accept (same contract as the drift/band Follow buttons). */
@@ -47477,13 +47724,13 @@ function renderPricing(){
   var rows=_pRows();
   var body=rows.map(function(r){ return _pRowHTML(r.g,r.d,r.st); }).join('');
   el.innerHTML='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Pricing</span><span class="pricing-sub">Swan House &middot; vs market</span></div>'+
-    '<div class="pricing-intro">Tap your ask or your % to adjust any item. A suggestion restores your set premium in one tap. Band &plusmn;10%.</div>'+
+    '<div class="pricing-intro">Tap any item to open it &mdash; adjust the price, pick a comp, see recent moves. Price alerts land on Home.</div>'+
     _pAutoBarHTML()+
     ((_fmErr&&!_fmFeed)?'<div class="p-feed-err"><div class="p-feed-err-t">Market prices didn&rsquo;t load</div>'+
       '<div class="p-feed-err-s">Nothing can be compared against the market until they do, so this list may look quieter than it should. Check your signal, then try again.</div>'+
       '<button class="p-feed-retry" id="p-feed-retry">Try again</button></div>':'')+
     _pSearchChipsHTML()+
-    '<div class="prow phdr"><span>Item</span><span>Your ask</span><span>Market</span><span style="text-align:right">Drift &middot; adjust</span></div>'+
+    '<div class="prow p3 phdr"><span>Item</span><span>Your ask</span><span>Market</span><span></span></div>'+
     '<div id="p-rowhost">'+(body||_pEmptyHTML())+'</div>'+_pHiddenTogHTML()+'</div>';
   _pBindRowEvents(el);
   var fr=document.getElementById('p-feed-retry');
@@ -47497,14 +47744,67 @@ function renderPricing(){
   updatePricingSeg();
 }
 
+/* ── FRESH SHEET (2026-08-19): the review layer over what buyers see. Pure reads. ── */
+function _fsData(){
+  var live=[],coming=[],unpriced=[],nostock=[],soldout=[];
+  grow.forEach(function(g){
+    if(IN_SEASON[g.status]){ live.push(g);
+      if(g.ask==null||g.ask==='')unpriced.push(g.name);
+      var iv=(window.__REMY_INV||{})[g.name];
+      if(!iv||iv.stock==null)nostock.push(g.name);
+      else if(iv.remaining!=null&&Number(iv.remaining)<=0)soldout.push(g.name);
+    } else if(g.status==='Coming Soon')coming.push(g);
+  });
+  try{ live.sort(_sellSort); }catch(e){}
+  return {live:live,coming:coming,unpriced:unpriced,nostock:nostock,soldout:soldout};
+}
+function _fsHeadHTML(fs){
+  var chips='';
+  function chip(list,label,go,cls){ if(!list.length)return '';
+    return '<button class="fs-chip '+cls+'" data-fsgo="'+go+'" title="'+list.join(', ').replace(/"/g,'&quot;')+'">'+list.length+' '+label+' &rsaquo;</button>'; }
+  chips+=chip(fs.unpriced,'unpriced','pricing','warn');
+  chips+=chip(fs.soldout,'sold out but listed','inventory','out');
+  chips+=chip(fs.nostock,'no stock set','inventory','dim');
+  return '<div class="fs-stat">'+fs.live.length+' item'+(fs.live.length===1?'':'s')+' live to buyers'
+    +(fs.coming.length?(' &middot; '+fs.coming.length+' coming soon'):'')+'</div>'
+    +(chips?('<div class="fs-chips">'+chips+'</div>'):'')
+    +'<div class="fs-sec">Pushed to the top</div>';
+}
+function _fsRowsHTML(fs){
+  var inv=window.__REMY_INV||{};
+  function row(g,comingSoon){
+    var n=String(g.name).replace(/"/g,'&quot;');
+    var iv=inv[g.name]||{};
+    var unit=g.askUnit||iv.unit||'';
+    var priced=(g.ask!=null&&g.ask!=='');
+    var stock=(iv.stock==null)?'':(iv.remaining!=null&&Number(iv.remaining)<=0?' &middot; <b class="fs-warn">sold out</b>'
+              :(iv.remaining!=null?(' &middot; '+(Math.round(iv.remaining*100)/100)+(unit?(' '+unit):'')+' left'):''));
+    var sub=comingSoon
+      ? (g.teaser?('<i>&ldquo;'+g.teaser+'&rdquo;</i>'):'buyers can look, not order')
+      : (g.status+' &middot; '+(priced?('$'+Number(g.ask).toFixed(2)+(unit?('/'+unit):'')):'<b class="fs-warn">no price</b>')+stock);
+    var marks=(g.photo?' <span class="fs-mk">&#128247;</span>':'')+(g.voiceText||g.voice?' <span class="fs-mk">&#127908;</span>':'');
+    var acts=comingSoon?'':('<button class="fs-act '+(g.prepped?'price-btn':'ask-btn')+'" data-n="'+n+'" title="Price">$</button>'
+      +'<button class="fs-act photo-btn" data-n="'+n+'" title="Photo">&#128247;</button>'
+      +'<button class="fs-act voice-btn" data-n="'+n+'" title="Voice note">&#127908;</button>'
+      +'<button class="fs-act method-btn" data-n="'+n+'" title="Details">&#127793;</button>');
+    return '<div class="fs-row"><div class="fs-main"><div class="fs-name">'+g.name+marks+'</div><div class="fs-sub">'+sub+'</div></div>'+acts+'</div>';
+  }
+  var rest=fs.live.filter(function(g){return !pushed.has(g.name);});
+  var h='';
+  if(rest.length)h+='<div class="fs-sec">On the sheet</div>'+rest.map(function(g){return row(g,false);}).join('');
+  if(fs.coming.length)h+='<div class="fs-sec">Coming soon &middot; buyers can look, not order</div>'+fs.coming.map(function(g){return row(g,true);}).join('');
+  return h;
+}
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
   /* fmFetch resolves on a LATER task, after applyRemote's synchronous finally has already cleared
      _asApplying — so autoTuneLocked's anti-loop gate was false by the time this ran, and a render
      triggered by a remote snapshot could still publish. Capture the flag at schedule time. */
   if(fmNeed()){ var _wasApply=_asApplying; fmFetch(function(feed){ fmApply(feed); if(!_wasApply&&typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
+  var fs=_fsData();
+  el.innerHTML=_fsHeadHTML(fs);
   var names=Array.from(pushed);
-  if(!names.length){el.innerHTML='<div class="empty-push">Nothing flagged to move yet. Add what you want to push this week.</div>';return;}
+  if(!names.length)el.insertAdjacentHTML('beforeend','<div class="empty-push">Nothing pushed this week &mdash; star &#9733; items in the Full list to feature them.</div>');
   names.forEach(function(n){
     var g=byName[n]||{name:n,qty:''};
     var md=markdown.has(n);
@@ -47527,6 +47827,8 @@ function renderPush(){
       '</div>';
     el.appendChild(c);
   });
+  el.insertAdjacentHTML('beforeend',_fsRowsHTML(fs));
+  el.querySelectorAll('[data-fsgo]').forEach(function(b){b.onclick=function(){setView(b.getAttribute('data-fsgo'));};});
   el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);persist();renderPush();renderPick();renderList();};});
   el.querySelectorAll('.ask-btn').forEach(function(b){b.onclick=function(){atOpen(b.dataset.n);};});
   el.querySelectorAll('.price-btn').forEach(function(b){b.onclick=function(){ptOpen(b.dataset.n);};});
@@ -47636,7 +47938,7 @@ function renderPick(){
     g.appendChild(b);
   });
 }
-document.getElementById('add-toggle').onclick=function(){document.getElementById('picker').classList.toggle('open');};
+(function(){var _at=document.getElementById('add-toggle');if(_at)_at.onclick=function(){document.getElementById('picker').classList.toggle('open');};})();   // picker retired 2026-08-19
 
 var stockMode=false;
 var STK_UNITS=['lb','bunch','each','dozen','pint','quart','case','flat','bag','oz'];   // sell-unit choices (stock mode)
@@ -47950,6 +48252,241 @@ function renderWeather(){
   el.querySelectorAll('.wx-chip').forEach(function(b){b.onclick=function(){_wxGroup=b.dataset.g;renderWeather();};});
   _wxLiveRefresh();
 }
+/* ── INVENTORY VIEW (2026-08-19, Phase 3): stock + weekly par, out of Full list. ──────────────
+   farmInventory/swan_house items[name] = {stock, remaining, unit, par}. Deep-merge writes keep
+   par through stock sets. The Thursday-00:00 reset is lazy: the first farm window after the
+   boundary writes stock=remaining=par for every par'd item, gated by doc.last_weekly_reset. */
+var _invQ='', _invResetTried=false;
+function _invResetBoundary(){ var d=new Date(); d.setHours(0,0,0,0);
+  var back=(d.getDay()-4+7)%7; d.setDate(d.getDate()-back); return d.getTime(); }   // Thu=4
+function _invMaybeWeeklyReset(){ try{
+  if(_invResetTried)return;
+  if(window._REMY_SCOPED)return;                       // embed/tenant windows never write resets
+  if(!(FB&&FB.ready&&FB.db))return;
+  var meta=window.__REMY_INV_META||{}; var b=_invResetBoundary();
+  if((meta.last_weekly_reset||0)>=b)return;
+  _invResetTried=true;                                  // one attempt per page load
+  var inv=window.__REMY_INV||{}; var patch={}, n=0;
+  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!(iv.par>0))return;
+    patch[k]={stock:iv.par, remaining:iv.par}; n++; });
+  var doc={last_weekly_reset:b, farm_id:'swan_house', updated_at:Date.now()};
+  if(n)doc.items=patch;
+  FB.db.collection('farmInventory').doc('swan_house').set(doc,{merge:true}).catch(function(){});
+  if(n)try{console.log('[inv] weekly par reset:',n,'items');}catch(e){}
+}catch(e){} }
+function _invSetPar(name,val){ try{ if(!(FB.db)||!name)return;
+  var v=(val==null||String(val).trim()==='')?null:parseFloat(val);
+  if(v!=null&&(isNaN(v)||v<0))return;
+  var patch={}; patch[name]={par:v};
+  FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
+}catch(e){} }
+function _invRefill(name){ try{ var iv=_invRec(name); if(!iv||!(iv.par>0)||!(FB.db))return;
+  var unit=((byName[name]&&byName[name].askUnit)||iv.unit||'');
+  var patch={}; patch[name]={stock:iv.par, remaining:iv.par, unit:unit};
+  FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
+}catch(e){} }
+function _invRefillAll(){ try{ if(!(FB.db))return; var inv=window.__REMY_INV||{}; var patch={},n=0;
+  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!(iv.par>0))return; patch[k]={stock:iv.par,remaining:iv.par}; n++; });
+  if(!n)return;
+  FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
+}catch(e){} }
+function _invState(name){ var iv=_invRec(name); if(!iv||iv.stock==null)return null;
+  var rem=(iv.remaining!=null?Number(iv.remaining):null);
+  var low=(rem!=null&&rem>0&&iv.stock>0&&rem/Number(iv.stock)<=0.2);
+  return {iv:iv, rem:rem, sold:(rem!=null&&rem<=0), low:low,
+          taken:(rem!=null&&iv.stock!=null?Math.max(0,Math.round((Number(iv.stock)-rem)*100)/100):null)}; }
+function renderInventory(){
+  var el=document.getElementById('inv-body'); if(!el)return;
+  var inv=window.__REMY_INV||{};
+  var meta=window.__REMY_INV_META||{};
+  var tracked=[], untracked=[];
+  grow.forEach(function(g){ if((g.status||'')==='Done')return;
+    if(_invState(g.name))tracked.push(g); else untracked.push(g); });
+  var q=_invQ.toLowerCase();
+  if(q){ var f=function(g){return g.name.toLowerCase().indexOf(q)>=0;}; tracked=tracked.filter(f); untracked=untracked.filter(f); }
+  tracked.sort(function(a,b){ var sa=_invState(a.name),sb=_invState(b.name);
+    var ra=sa.sold?0:(sa.low?1:2), rb=sb.sold?0:(sb.low?1:2);
+    if(ra!==rb)return ra-rb; return a.name.localeCompare(b.name); });
+  untracked.sort(function(a,b){return a.name.localeCompare(b.name);});
+  var anyPar=Object.keys(inv).some(function(k){return (inv[k]||{}).par>0;});
+  function jesc(s){return String(s).replace(/"/g,'&quot;');}
+  function row(g){
+    var jn=jesc(g.name), st=_invState(g.name), iv=st?st.iv:{};
+    var unit=(iv.unit||(byName[g.name]&&byName[g.name].askUnit)||'');
+    var uopts=(unit?'':'<option value="" selected disabled>unit</option>')+STK_UNITS.map(function(u){return '<option value="'+u+'"'+(u===unit?' selected':'')+'>'+u+'</option>';}).join('');
+    if(unit&&STK_UNITS.indexOf(unit)<0)uopts='<option value="'+unit+'" selected>'+unit+'</option>'+uopts;
+    var sub;
+    if(st){ sub=(st.sold?'<b class="iv-out">sold out</b>':(st.rem!=null?(st.rem+(unit?(' '+unit):'')+' left'):''));
+      if(st.taken)sub+=' &middot; '+st.taken+' gone this week';
+      if(iv.par>0)sub+=' &middot; par '+iv.par;
+      if(st.low)sub+=' &middot; <b class="iv-low">running low</b>'; }
+    else sub='not tracked &mdash; set a stock to start';
+    return '<div class="iv-row'+(st&&st.sold?' out':(st&&st.low?' low':''))+'">'
+      +'<div class="iv-main"><div class="iv-name">'+g.name+'</div><div class="iv-sub">'+sub+'</div></div>'
+      +'<input class="iv-in" data-ivs="'+jn+'" inputmode="decimal" placeholder="stock" value="'+(st&&iv.stock!=null?iv.stock:'')+'" aria-label="Stock">'
+      +'<select class="iv-un" data-ivu="'+jn+'" aria-label="Sell unit">'+uopts+'</select>'
+      +'<input class="iv-in" data-ivp="'+jn+'" inputmode="decimal" placeholder="par" value="'+(st&&iv.par!=null?iv.par:'')+'" aria-label="Weekly par">'
+      +((st&&iv.par>0&&st.rem!=null&&st.rem<iv.par)?('<button class="iv-rf" data-ivr="'+jn+'">Refill</button>'):'<span class="iv-rfspace"></span>')
+      +'</div>';
+  }
+  var lastReset=meta.last_weekly_reset?new Date(meta.last_weekly_reset).toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}):'';
+  el.innerHTML='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Inventory</span><span class="pricing-sub">Swan House &middot; weekly stock</span></div>'
+    +'<div class="pricing-intro">Stock is what buyers draw down. Set a <b>par</b> and it refills itself every Wednesday night at midnight'+(lastReset?(' (last reset '+lastReset+')'):'')+'. Leave par empty to manage an item by hand.</div>'
+    +'<div class="p-searchwrap"><input id="iv-search" class="p-search" type="search" placeholder="Find an item&hellip;" value="'+jesc(_invQ)+'"><button id="iv-search-x" class="p-search-x" aria-label="Clear">&times;</button></div>'
+    +(anyPar?'<button class="p-sug" id="iv-refill-all" style="margin:2px 0 8px">Refill everything to par now</button>':'')
+    +'<div class="prow p3 phdr" style="grid-template-columns:1.6fr 64px 70px 58px 54px"><span>Item</span><span>Stock</span><span>Unit</span><span>Par</span><span></span></div>'
+    +(tracked.length?tracked.map(row).join(''):'<div class="empty-push">Nothing tracked yet'+(q?' matches':'')+'. Set a stock below to start.</div>')
+    +(untracked.length?('<div class="px-h" style="margin:16px 0 4px">Not tracked</div>'+untracked.map(row).join('')):'')
+    +'</div>';
+  el.querySelectorAll('[data-ivs]').forEach(function(i){ i.onchange=function(){_stkSetItem(i.dataset.ivs,i.value);}; });
+  el.querySelectorAll('[data-ivu]').forEach(function(s){ s.onchange=function(){_stkSetUnit(s.dataset.ivu,s.value);}; });
+  el.querySelectorAll('[data-ivp]').forEach(function(i){ i.onchange=function(){_invSetPar(i.dataset.ivp,i.value);}; });
+  el.querySelectorAll('[data-ivr]').forEach(function(b){ b.onclick=function(){_invRefill(b.dataset.ivr);}; });
+  var ra=el.querySelector('#iv-refill-all'); if(ra)ra.onclick=function(){_invRefillAll();};
+  var si=el.querySelector('#iv-search');
+  if(si){ si.oninput=function(){_invQ=si.value.trim();renderInventory();var s2=el.querySelector('#iv-search');if(s2){s2.focus();try{s2.setSelectionRange(s2.value.length,s2.value.length);}catch(e){}}};
+    var sx=el.querySelector('#iv-search-x'); if(sx)sx.onclick=function(){_invQ='';renderInventory();}; }
+}
+/* ── HOME (2026-08-19): card-grid landing. Pure render — reads state, never persists.
+   Blurbs re-render via the orders listener + updatePricingSeg hooks below. ── */
+var _homeLast='';
+function _homeDriftNames(){ var out=[]; try{ grow.forEach(function(g){ if(g.pHide)return;
+  if(typeof compSrcChanged==='function'&&compSrcChanged(g)){out.push(g.name);return;}
+  var d=farmDrift(g); if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH)out.push(g.name); }); }catch(e){}
+  return out; }
+function _homeOrderWho(){ var who=[]; try{ (ordersData||[]).forEach(function(o){
+  if((o.status||'placed')!=='placed')return;
+  var n=o.source==='farm_dinner'?'the farm dinner':(o.buyer_id&&o.buyer_id!=='san_fermo')?(o.restaurant||'Sea Creatures'):(o.placed_by||'San Fermo');
+  if(who.indexOf(n)<0)who.push(n); }); }catch(e){}
+  return who; }
+function _homeInvLine(){ try{ var inv=window.__REMY_INV||{}; var names=Object.keys(inv);
+  var stocked=0, out=[], low=[];
+  names.forEach(function(n){ var iv=inv[n]||{}; if(iv.stock==null)return; stocked++;
+    var r=(iv.remaining!=null?Number(iv.remaining):null); if(r==null)return;
+    if(r<=0)out.push(n); else if(iv.stock>0&&r/Number(iv.stock)<=0.2)low.push(n); });
+  if(!stocked)return {n:0,txt:'Set weekly stock and pars for what you sell.'};
+  if(!out.length&&!low.length)return {n:0,txt:stocked+' items stocked \u00b7 pars refill Thursday 12am.'};
+  var txt=(out.length?('Sold out: '+out.slice(0,3).join(', ')+(out.length>3?(' +'+(out.length-3)):'')):'');
+  if(low.length)txt+=(txt?' \u00b7 ':'')+'Low: '+low.slice(0,3).join(', ')+(low.length>3?(' +'+(low.length-3)):'');
+  return {n:out.length+low.length,txt:txt+'.'}; }catch(e){ return {n:0,txt:''}; } }
+function _homeWxLine(){ try{ var W=window.__REMY_WX; if(!W)return {n:0,txt:'Regional conditions and the ENSO tracker.'};
+  var hi=W.high_regions||0; if(!hi)return {n:0,txt:'All regions clear this week.'};
+  var gs={}; (W.regions||[]).forEach(function(r){ if((r.signals||[]).some(function(s){return s.level==='high';}))gs[r.group||r.name]=1; });
+  var names=Object.keys(gs);
+  return {n:hi,txt:'Heat building in '+(names.length?names.join(' + '):hi+' regions')+' \u00b7 '+hi+' region'+(hi>1?'s':'')+' flagged.'}; }catch(e){ return {n:0,txt:''}; } }
+/* ── PRICE DRIFT home card (2026-08-19). Active: approvals (out-of-band / unlocked / comp-flip,
+   Approve = the same driftApply as the pricing tab; Keep mine = dismissed until the comp moves
+   again) + ack-only auto moves from the drift log. Quiet: sinks toward the bottom and shows
+   market movement over a chosen window, most volatile first. Pure render; the buttons persist. ── */
+function _pdDismissed(g,mkl){ return g.driftDismiss!=null&&g.driftDismiss>0&&mkl>0&&Math.abs(mkl-g.driftDismiss)/g.driftDismiss<0.02; }
+function _pdPendingList(){ var out=[]; try{ grow.forEach(function(g){ if(g.pHide)return;
+  var cs=compSrcChanged(g);
+  if(cs){ out.push({n:g.name,why:'comp flipped to '+(cs.to==='hub'?'local market':'Franks')+' ($'+cs.mkl.toFixed(2)+'/lb) &middot; held',act:'Follow to $'+cs.recAsk.toFixed(2)}); return; }
+  if(g.locked){ var lb=lockBandState(g);
+    if(lb&&!_pdDismissed(g,lb.mkl))out.push({n:g.name,why:'market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held',act:'Follow to $'+lb.recAsk.toFixed(2)}); return; }
+  var d=farmDrift(g);
+  if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH&&!_pdDismissed(g,d.mkl))
+    out.push({n:g.name,why:'now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target',act:(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)});
+ }); }catch(e){} return out; }
+function _pdUnackedEntry(g){ var L=g.driftLog||[]; if(!L.length)return null; var e=L[L.length-1]; return (e.auto&&e.t>(g.driftAck||0))?e:null; }
+function _pdUnackedList(){ var out=[]; try{ grow.forEach(function(g){ var e=_pdUnackedEntry(g);
+  if(e)out.push({n:g.name,f:(e.f==null?'&mdash;':Number(e.f).toFixed(2)),to:Number(e.to).toFixed(2),when:_pdWhen(e.t)}); }); }catch(e){} return out; }
+function _pdVolatile(win){ var out=[],cut=Date.now()-win*86400000,seen={};
+  try{ grow.forEach(function(g){ var r=fmRec(g); var h=r&&r.hist; if(!h||!h.pts||h.pts.length<2)return;
+    if(seen[fmCanon(g.name)])return; seen[fmCanon(g.name)]=1;
+    var pts=h.pts.filter(function(p){ try{return new Date(p.d+'T12:00:00').getTime()>=cut;}catch(e){return false;} });
+    if(pts.length<2)return; var a=pts[0].p,b=pts[pts.length-1].p; if(!(a>0))return;
+    out.push({n:g.name,pct:(b-a)/a*100,a:a,b:b}); }); }catch(e){}
+  out.sort(function(x,y){return Math.abs(y.pct)-Math.abs(x.pct);}); return out; }
+function pdApprove(n){ if(window.driftApply)driftApply(n); _homeLast=''; renderHome(); }
+function pdDismiss(n){ var g=byName[n]; if(!g)return; var r=fmRec(g); if(r&&r.perlb>0)g.driftDismiss=r.perlb;
+  persist(); _homeLast=''; renderHome(); }
+function pdAck(n){ var g=byName[n]; if(!g)return; g.driftAck=Date.now(); persist(); _homeLast=''; renderHome(); }
+function pdAckAll(){ var t=Date.now(),any=false; grow.forEach(function(g){ if(_pdUnackedEntry(g)){g.driftAck=t;any=true;} });
+  if(any)persist(); _homeLast=''; renderHome(); }
+function _pdCardHTML(){ try{
+  var pend=_pdPendingList(), un=_pdUnackedList();
+  var badge=pend.length+un.length, active=badge>0, inner;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  if(active){
+    var rows='';
+    pend.slice(0,4).forEach(function(p){
+      rows+='<div class="pd-row"><div class="pd-rt"><b>'+esc(p.n)+'</b> '+p.why+'</div>'+
+        '<div class="pd-ra"><button class="pd-btn ok" data-pda="'+esc(p.n)+'">'+p.act+'</button>'+
+        '<button class="pd-btn" data-pdd="'+esc(p.n)+'">Keep mine</button></div></div>';});
+    if(pend.length>4)rows+='<div class="pd-more">+'+(pend.length-4)+' more in Pricing</div>';
+    un.slice(0,4).forEach(function(u){
+      rows+='<div class="pd-row"><div class="pd-rt"><b>'+esc(u.n)+'</b> $'+u.f+' &rarr; $'+u.to+' &middot; auto, in band &middot; '+u.when+'</div>'+
+        '<div class="pd-ra"><button class="pd-btn" data-pdk="'+esc(u.n)+'">OK</button></div></div>';});
+    if(un.length>1)rows+='<div class="pd-more"><button class="pd-btn" id="pd-ackall">OK to all auto moves</button></div>';
+    inner='<div class="mc-label">Price drift</div><div class="mc-desc">'+
+      (pend.length?(pend.length+' need'+(pend.length===1?'s':'')+' your call'):'')+
+      (pend.length&&un.length?' &middot; ':'')+
+      (un.length?(un.length+' auto move'+(un.length>1?'s':'')+' to note'):'')+'</div>'+rows;
+  } else {
+    var chips=[30,60,90,365].map(function(w){return '<button class="pd-chip'+(w===_pdWin?' on':'')+'" data-w="'+w+'">'+(w===365?'1 yr':(w+'d'))+'</button>';}).join('');
+    var vol=_pdVolatile(_pdWin), vr='';
+    vol.slice(0,5).forEach(function(v){ vr+='<div class="pd-vrow"><span>'+esc(v.n)+'</span><span class="'+(v.pct>=0?'up':'down')+'">'+(v.pct>=0?'+':'')+Math.round(v.pct)+'%</span><span class="pd-vp">$'+v.a.toFixed(2)+' &rarr; $'+v.b.toFixed(2)+'/lb</span></div>'; });
+    inner='<div class="mc-label">Price drift</div><div class="mc-desc">All quiet &middot; market moves, last '+(_pdWin===365?'year':(_pdWin+' days'))+'</div><div class="pd-chips">'+chips+'</div>'+(vr||'<div class="pd-more">No tracked history yet.</div>');
+  }
+  return {active:active, html:'<div class="mode-card pd-card'+(active?' alert':'')+'" data-hv="pricing" style="animation-delay:__D__">'+
+    (badge?('<div class="mc-badgechip">'+badge+'</div>'):'')+'<div class="mc-body">'+inner+'</div></div>'};
+}catch(e){ return null; } }
+function renderHome(){
+  var el=document.getElementById('home-cards'); if(!el)return;
+  var who=window.__REMY_WHO||'';
+  var h=new Date().getHours(), tod=h<12?'Morning':h<17?'Afternoon':'Evening';
+  var gr=document.getElementById('home-greet');
+  if(gr)gr.textContent=tod+(who==='kelly'?', Kelly':who==='sam'?', Sam':'');
+  var sb=document.getElementById('home-sub');
+  if(sb)sb.textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  var peakN=0; grow.forEach(function(g){ if(g.status==='Peak')peakN++; });
+  var drift=_homeDriftNames();
+  var oWho=_homeOrderWho();
+  var wx=_homeWxLine();
+  var ivl=_homeInvLine();
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var cards=[
+    {v:'orders',t:'Orders',d:oWho.length?('New order'+(oWho.length>1?'s':'')+' from '+esc(oWho.join(', '))+'.'):'No new orders waiting.',b:oWho.length},
+    (function(){ try{ var fs=_fsData(); var gaps=fs.unpriced.length+fs.soldout.length;
+      return {v:'push',t:'Fresh sheet',b:gaps,
+        d:fs.live.length+' live to buyers'+(pushed.size?(' \u00b7 '+pushed.size+' pushed'):'')
+          +(fs.unpriced.length?(' \u00b7 '+fs.unpriced.length+' unpriced'):'')
+          +(fs.soldout.length?(' \u00b7 '+fs.soldout.length+' sold out'):'')+'.'};
+    }catch(e){ return {v:'push',t:'Fresh sheet',d:'What buyers see right now.',b:0}; } })(),
+    {v:'pricing',t:'Pricing',d:drift.length?('Drifting: '+esc(drift.slice(0,3).join(', '))+(drift.length>3?' +'+(drift.length-3)+' more':'')+'.'):'Prices steady against the market this week.',b:drift.length},
+    {v:'list',t:'Full list',d:grow.length+' crops on the sheet \u00b7 '+peakN+' at peak.',b:0},
+    {v:'inventory',t:'Inventory',d:esc(ivl.txt),b:ivl.n},
+    {v:'restaurants',t:'Restaurants',d:'What San Fermo and Sea Creatures can see and order.',b:0},
+    {v:'weather',t:'Weather',d:esc(wx.txt),b:wx.n}
+  ];
+  var htmls=cards.map(function(c){
+    return '<div class="mode-card" data-hv="'+c.v+'" style="animation-delay:__D__">'+
+      (c.b?('<div class="mc-badgechip">'+c.b+'</div>'):'')+
+      '<div class="mc-body"><div class="mc-label">'+c.t+'</div><div class="mc-desc">'+c.d+'</div></div>'+
+      '<div class="mc-arrow">&#8594;</div></div>';
+  });
+  // Price Drift card: needs-attention -> right after Orders; quiet -> sinks next to the bottom
+  var pd=_pdCardHTML();
+  if(pd)htmls.splice(pd.active?1:htmls.length-1,0,pd.html);
+  var html=htmls.map(function(h,i){ return h.replace('__D__',(0.05+i*0.07)+'s'); }).join('');
+  if(html!==_homeLast){ _homeLast=html; el.innerHTML=html;
+    el.querySelectorAll('.mode-card').forEach(function(cd){ cd.onclick=function(e){
+      if(e.target&&e.target.closest&&e.target.closest('.pd-btn,.pd-chip'))return;
+      setView(cd.getAttribute('data-hv')); }; });
+    el.querySelectorAll('.pd-btn[data-pda]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdApprove(b.dataset.pda);};});
+    el.querySelectorAll('.pd-btn[data-pdd]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdDismiss(b.dataset.pdd);};});
+    el.querySelectorAll('.pd-btn[data-pdk]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdAck(b.dataset.pdk);};});
+    var _pa=el.querySelector('#pd-ackall'); if(_pa)_pa.onclick=function(e){e.stopPropagation();pdAckAll();};
+    el.querySelectorAll('.pd-chip').forEach(function(b){b.onclick=function(e){e.stopPropagation();_pdWin=Number(b.dataset.w)||30;_homeLast='';renderHome();};}); }
+  var sw=document.getElementById('home-switch');
+  if(sw){ var nm=who==='kelly'?'Kelly':who==='sam'?'Sam':'';
+    sw.innerHTML=nm?('Signed in as '+nm+' \u00b7 <button id="home-notyou">Not you?</button>'):'';
+    var nb=document.getElementById('home-notyou');
+    if(nb)nb.onclick=function(){ _homeLast=''; if(window._remyLoginShow)window._remyLoginShow(); }; }
+}
+function _homeRefreshIfLive(){ try{ var h=document.getElementById('view-home');
+  if(h&&h.classList.contains('live'))renderHome(); }catch(e){} }
 function setView(v){
   ROOT.querySelectorAll('.view').forEach(function(x){x.classList.remove('live');});
   document.getElementById('view-'+v).classList.add('live');
@@ -47957,6 +48494,9 @@ function setView(v){
   // center the active pill by scrolling ONLY the pill bar. Never scrollIntoView — it recursively
   // scrolls every scrollable ancestor and dragged a whole screen mid-transition (the "freeze").
   try{ requestAnimationFrame(function(){ try{ var _s=ROOT.querySelector('.seg'), _a=ROOT.querySelector('.seg button.on'); if(_s&&_a){ var _sr=_s.getBoundingClientRect(), _ar=_a.getBoundingClientRect(); var _t=_s.scrollLeft+(_ar.left-_sr.left)-(_s.clientWidth-_ar.width)/2; if(_s.scrollTo){_s.scrollTo({left:_t,behavior:'smooth'});}else{_s.scrollLeft=_t;} if(typeof _segFade==='function')_segFade(); } }catch(e){} }); }catch(e){}
+  if(v==='home'){ renderHome(); try{startOrdersSync();}catch(e){}
+    try{ if(typeof fmNeed==='function'&&fmNeed()&&typeof fmRefresh==='function')fmRefresh(); }catch(e){} }
+  if(v==='inventory')renderInventory();
   if(v==='guided'){gi=0;renderGuided();}
   if(v==='orders'){startOrdersSync();renderOrders();}
   if(v==='pricing')renderPricing();
@@ -47992,6 +48532,7 @@ flushQueue();
    farm side already uses (FB.db, compat SDK — matches the staff-portal writer). */
 var ordersData=[], ordersUnsub=null, ordersExpanded={};
 var _ordListeners=[];function _ordNotify(){for(var i=0;i<_ordListeners.length;i++){try{_ordListeners[i](ordersData);}catch(e){}}}
+_ordListeners.push(function(){_homeRefreshIfLive();});
 function oesc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function ofmtDate(iso){try{return new Date(iso).toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'});}catch(e){return iso||'';}}
 /* requested_date is a date-only YYYY-MM-DD string (no time/zone). new Date(iso) parses that as
@@ -48007,6 +48548,10 @@ function ordOpenCount(){return ordersData.filter(function(o){return (o.status||'
 function updateOrdersSeg(){var b=document.getElementById('seg-orders');if(!b)return;var n=ordOpenCount();b.textContent='Orders';b.classList.remove('has-new');
   if(n>0){b.classList.add('has-drift');b.setAttribute('data-badge',String(n));}
   else{b.classList.remove('has-drift');b.removeAttribute('data-badge');}}
+window._remyHomeEnter=function(who){ try{window.__REMY_WHO=who;}catch(e){}
+  _homeLast=''; try{setView('home');}catch(e){} try{startOrdersSync();}catch(e){} };
+if(window.__REMY_PENDING_HOME){ (function(){ var _w=window.__REMY_PENDING_HOME;
+  try{delete window.__REMY_PENDING_HOME;}catch(e){} window._remyHomeEnter(_w); })(); }
 function startOrdersSync(){
   if(!(FB&&FB.ready&&FB.db))return;
   if(ordersUnsub)return;
@@ -48852,7 +49397,7 @@ window.RemyFarm={
       alert('Order sent to Swan House ✓  ('+lines.length+' item'+(lines.length>1?'s':'')+')\nKelly & Tim check Sunday–Tuesday mornings.');
     }).catch(function(e){
       cfOrder._sending=false;
-      alert('Order didn’t send — check your connection and try again.');
+      alert((e&&e.message==='preview-window')?'Preview only — this window shows what San Fermo sees. Orders don’t send from here.':'Order didn’t send — check your connection and try again.');
     });
   };
 
@@ -49544,7 +50089,7 @@ window.RemyFarm={
       _basket=_basket.filter(function(x){return x.vendor!==v;}); renderBasketBar();
       var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel();
       alert('Order sent to Swan House ✓');
-    }).catch(function(){ alert('Order didn’t send — check your connection and try again.'); });
+    }).catch(function(e){ alert((e&&e.message==='preview-window')?'Preview only — orders don’t send from here.':'Order didn’t send — check your connection and try again.'); });
   }
 
   function pkUnitSel(i,x){
@@ -50704,7 +51249,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='3391db735f51';
+window.REMY_BUILD='3bf5e9a9c7bb';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
