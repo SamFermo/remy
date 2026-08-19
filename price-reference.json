@@ -15,6 +15,60 @@
    "climb": 0.0,
    "swan_per_lb": 2.7,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 2.25,
+     "date": "2026-01-24",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-07-30",
+      "p": 1.5
+     },
+     {
+      "d": "2025-12-22",
+      "p": 2.25
+     },
+     {
+      "d": "2025-12-27",
+      "p": 2.25
+     },
+     {
+      "d": "2026-01-02",
+      "p": 2.25
+     },
+     {
+      "d": "2026-01-05",
+      "p": 2.25
+     },
+     {
+      "d": "2026-01-09",
+      "p": 2.25
+     },
+     {
+      "d": "2026-01-12",
+      "p": 2.25
+     },
+     {
+      "d": "2026-01-24",
+      "p": 2.25
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": null,
+    "rng": {
+     "min": 1.5,
+     "max": 2.25
+    },
+    "n": 8
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -46,6 +100,68 @@
    "hub_pack": "5 lb",
    "swan_per_lb": 10.03,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "PSFH",
+     "per_lb": 10.03,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 18.5,
+     "date": "2026-08-11",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-07-31",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-01",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-03",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-04",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-05",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-07",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-08",
+      "p": 18.5
+     },
+     {
+      "d": "2026-08-11",
+      "p": 18.5
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": -2.9,
+    "rng": {
+     "min": 4.0,
+     "max": 12.0
+    },
+    "n": 182
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -75,6 +191,52 @@
    "climb": -21.1,
    "swan_per_lb": 22.79,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Preservation Meats",
+     "per_lb": 14.99,
+     "date": "2025-07-07",
+     "freshness": "PRIOR-YEAR",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-05-16",
+      "p": 18.99
+     },
+     {
+      "d": "2025-05-21",
+      "p": 18.99
+     },
+     {
+      "d": "2025-05-23",
+      "p": 18.99
+     },
+     {
+      "d": "2025-06-19",
+      "p": 18.99
+     },
+     {
+      "d": "2025-06-27",
+      "p": 14.99
+     },
+     {
+      "d": "2025-07-07",
+      "p": 14.99
+     }
+    ],
+    "t30": -21.1,
+    "tyoy": null,
+    "rng": {
+     "min": 14.99,
+     "max": 18.99
+    },
+    "n": 6
+   },
    "offers": [
     {
      "vendor": "Preservation Meats",
@@ -130,6 +292,32 @@
     "freshness": "STALE",
     "confidence": "high"
    },
+   "alts": [
+    {
+     "vendor": "Preservation Meats",
+     "per_lb": 21.99,
+     "date": "2026-04-10",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-04-10",
+      "p": 21.99
+     }
+    ],
+    "t30": null,
+    "tyoy": null,
+    "rng": {
+     "min": 21.99,
+     "max": 21.99
+    },
+    "n": 1
+   },
    "offers": [
     {
      "vendor": "Preservation Meats",
@@ -170,6 +358,60 @@
    "comp_type": "commodity",
    "swan_per_lb": 1.5,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 1.25,
+     "date": "2026-07-18",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-12-23",
+      "p": 1.15
+     },
+     {
+      "d": "2026-01-05",
+      "p": 1.25
+     },
+     {
+      "d": "2026-01-10",
+      "p": 1.5
+     },
+     {
+      "d": "2026-01-12",
+      "p": 1.5
+     },
+     {
+      "d": "2026-01-16",
+      "p": 1.5
+     },
+     {
+      "d": "2026-01-19",
+      "p": 1.5
+     },
+     {
+      "d": "2026-01-22",
+      "p": 1.5
+     },
+     {
+      "d": "2026-07-18",
+      "p": 1.25
+     }
+    ],
+    "t30": null,
+    "tyoy": null,
+    "rng": {
+     "min": 0.99,
+     "max": 1.5
+    },
+    "n": 16
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -198,6 +440,60 @@
    "comp_type": "commodity",
    "swan_per_lb": 6.1333,
    "per_lb_basis": "estimate",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 5.11,
+     "date": "2026-08-11",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-11-03",
+      "p": 3.58
+     },
+     {
+      "d": "2025-11-13",
+      "p": 3.58
+     },
+     {
+      "d": "2025-11-15",
+      "p": 3.58
+     },
+     {
+      "d": "2025-11-28",
+      "p": 3.58
+     },
+     {
+      "d": "2026-07-31",
+      "p": 5.11
+     },
+     {
+      "d": "2026-08-01",
+      "p": 5.11
+     },
+     {
+      "d": "2026-08-10",
+      "p": 5.11
+     },
+     {
+      "d": "2026-08-11",
+      "p": 5.11
+     }
+    ],
+    "t30": null,
+    "tyoy": 39.4,
+    "rng": {
+     "min": 32.25,
+     "max": 46.0
+    },
+    "n": 33
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -263,6 +559,68 @@
    "hub_pack": "1 lb",
    "swan_per_lb": 13.0,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 13.0,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 24.0,
+     "date": "2026-07-18",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-03-21",
+      "p": 24.0
+     },
+     {
+      "d": "2026-03-28",
+      "p": 24.0
+     },
+     {
+      "d": "2026-03-30",
+      "p": 24.0
+     },
+     {
+      "d": "2026-04-20",
+      "p": 24.0
+     },
+     {
+      "d": "2026-07-02",
+      "p": 24.0
+     },
+     {
+      "d": "2026-07-07",
+      "p": 24.0
+     },
+     {
+      "d": "2026-07-13",
+      "p": 24.0
+     },
+     {
+      "d": "2026-07-18",
+      "p": 24.0
+     }
+    ],
+    "t30": null,
+    "tyoy": -16.7,
+    "rng": {
+     "min": 6.0,
+     "max": 12.5
+    },
+    "n": 40
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -307,6 +665,60 @@
    "comp_type": "commodity",
    "swan_per_lb": 7.0,
    "per_lb_basis": "estimate",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 5.82,
+     "date": "2026-06-12",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-01-05",
+      "p": 5.82
+     },
+     {
+      "d": "2026-01-10",
+      "p": 5.82
+     },
+     {
+      "d": "2026-01-20",
+      "p": 5.82
+     },
+     {
+      "d": "2026-01-24",
+      "p": 5.82
+     },
+     {
+      "d": "2026-01-29",
+      "p": 5.82
+     },
+     {
+      "d": "2026-02-03",
+      "p": 5.82
+     },
+     {
+      "d": "2026-06-10",
+      "p": 5.82
+     },
+     {
+      "d": "2026-06-12",
+      "p": 5.82
+     }
+    ],
+    "t30": null,
+    "tyoy": null,
+    "rng": {
+     "min": 0.99,
+     "max": 0.99
+    },
+    "n": 17
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -365,6 +777,60 @@
    "climb": 16.7,
    "swan_per_lb": 4.8,
    "per_lb_basis": "estimate",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 4.0,
+     "date": "2026-08-12",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-07-22",
+      "p": 4.0
+     },
+     {
+      "d": "2026-07-25",
+      "p": 4.0
+     },
+     {
+      "d": "2026-07-29",
+      "p": 4.0
+     },
+     {
+      "d": "2026-07-30",
+      "p": 4.0
+     },
+     {
+      "d": "2026-08-01",
+      "p": 4.0
+     },
+     {
+      "d": "2026-08-10",
+      "p": 4.0
+     },
+     {
+      "d": "2026-08-11",
+      "p": 4.0
+     },
+     {
+      "d": "2026-08-12",
+      "p": 4.0
+     }
+    ],
+    "t30": 16.7,
+    "tyoy": 7.7,
+    "rng": {
+     "min": 1.5,
+     "max": 2.5
+    },
+    "n": 49
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -396,6 +862,68 @@
    "hub_pack": "6 bunches",
    "swan_per_lb": 41.6,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 41.6,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "1oz bunch"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 7.35,
+     "date": "2026-08-07",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-05-26",
+      "p": 7.35
+     },
+     {
+      "d": "2026-06-01",
+      "p": 7.35
+     },
+     {
+      "d": "2026-06-08",
+      "p": 7.35
+     },
+     {
+      "d": "2026-06-12",
+      "p": 7.35
+     },
+     {
+      "d": "2026-07-10",
+      "p": 7.35
+     },
+     {
+      "d": "2026-07-11",
+      "p": 7.35
+     },
+     {
+      "d": "2026-07-13",
+      "p": 7.35
+     },
+     {
+      "d": "2026-08-07",
+      "p": 7.35
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": 0.0,
+    "rng": {
+     "min": 1.25,
+     "max": 1.25
+    },
+    "n": 76
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -498,6 +1026,60 @@
    "climb": -17.1,
    "swan_per_lb": 4.2857,
    "per_lb_basis": "estimate",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 3.57,
+     "date": "2026-08-10",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-06-15",
+      "p": 4.64
+     },
+     {
+      "d": "2026-06-22",
+      "p": 4.27
+     },
+     {
+      "d": "2026-06-29",
+      "p": 4.27
+     },
+     {
+      "d": "2026-07-10",
+      "p": 4.27
+     },
+     {
+      "d": "2026-07-17",
+      "p": 4.27
+     },
+     {
+      "d": "2026-07-20",
+      "p": 4.27
+     },
+     {
+      "d": "2026-08-03",
+      "p": 3.57
+     },
+     {
+      "d": "2026-08-10",
+      "p": 3.57
+     }
+    ],
+    "t30": -17.1,
+    "tyoy": 11.1,
+    "rng": {
+     "min": 2.25,
+     "max": 3.25
+    },
+    "n": 60
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -581,6 +1163,60 @@
    "climb": 0.0,
    "swan_per_lb": 6.24,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 5.2,
+     "date": "2025-09-29",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-09-02",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-04",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-09",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-15",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-18",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-22",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-26",
+      "p": 5.2
+     },
+     {
+      "d": "2025-09-29",
+      "p": 5.2
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": null,
+    "rng": {
+     "min": 52.0,
+     "max": 52.0
+    },
+    "n": 15
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -621,6 +1257,60 @@
    "climb": -5.7,
    "swan_per_lb": 3.0,
    "per_lb_basis": "estimate",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 2.5,
+     "date": "2026-08-05",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-02-11",
+      "p": 1.41
+     },
+     {
+      "d": "2026-06-06",
+      "p": 3.33
+     },
+     {
+      "d": "2026-06-19",
+      "p": 1.41
+     },
+     {
+      "d": "2026-06-20",
+      "p": 3.33
+     },
+     {
+      "d": "2026-06-23",
+      "p": 2.53
+     },
+     {
+      "d": "2026-07-15",
+      "p": 2.5
+     },
+     {
+      "d": "2026-08-03",
+      "p": 2.67
+     },
+     {
+      "d": "2026-08-05",
+      "p": 2.5
+     }
+    ],
+    "t30": -5.7,
+    "tyoy": null,
+    "rng": {
+     "min": 19.75,
+     "max": 48.0
+    },
+    "n": 28
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -648,7 +1338,17 @@
    "needs_check": false,
    "comp_type": "commodity",
    "swan_per_lb": 26.34,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Key City",
+     "per_lb": 21.95,
+     "date": "2026-05-27",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "catalogue"
+    }
+   ]
   },
   "Lavender": {
    "swan_price": 34.67,
@@ -665,6 +1365,16 @@
    "hub_pack": "6 oz bunch",
    "swan_per_lb": 34.67,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 34.67,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    }
+   ],
    "offers": [
     {
      "vendor": "Farmstand",
@@ -697,6 +1407,60 @@
    "climb": 0.4,
    "swan_per_lb": 14.55,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 12.12,
+     "date": "2026-08-12",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-07-25",
+      "p": 12.12
+     },
+     {
+      "d": "2026-07-29",
+      "p": 12.12
+     },
+     {
+      "d": "2026-08-01",
+      "p": 12.12
+     },
+     {
+      "d": "2026-08-03",
+      "p": 12.12
+     },
+     {
+      "d": "2026-08-07",
+      "p": 11.0
+     },
+     {
+      "d": "2026-08-08",
+      "p": 12.12
+     },
+     {
+      "d": "2026-08-10",
+      "p": 12.12
+     },
+     {
+      "d": "2026-08-12",
+      "p": 12.12
+     }
+    ],
+    "t30": 0.4,
+    "tyoy": 4.3,
+    "rng": {
+     "min": 22.0,
+     "max": 24.25
+    },
+    "n": 29
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -737,6 +1501,60 @@
    "climb": 0.0,
    "swan_per_lb": 29.4,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 24.5,
+     "date": "2026-06-15",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-06-24",
+      "p": 22.5
+     },
+     {
+      "d": "2025-06-28",
+      "p": 22.5
+     },
+     {
+      "d": "2025-06-30",
+      "p": 22.5
+     },
+     {
+      "d": "2025-07-01",
+      "p": 22.5
+     },
+     {
+      "d": "2025-07-01",
+      "p": 22.5
+     },
+     {
+      "d": "2026-05-16",
+      "p": 24.5
+     },
+     {
+      "d": "2026-06-11",
+      "p": 24.5
+     },
+     {
+      "d": "2026-06-15",
+      "p": 24.5
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": 8.9,
+    "rng": {
+     "min": 22.5,
+     "max": 24.5
+    },
+    "n": 8
+   },
    "offers": [
     {
      "vendor": "Farmstand",
@@ -784,6 +1602,68 @@
    "hub_pack": "3 bu",
    "swan_per_lb": 69.33,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 69.33,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "1oz bunch"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 15.0,
+     "date": "2026-08-13",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-06-10",
+      "p": 15.0
+     },
+     {
+      "d": "2026-06-16",
+      "p": 30.0
+     },
+     {
+      "d": "2026-06-17",
+      "p": 15.0
+     },
+     {
+      "d": "2026-07-10",
+      "p": 15.0
+     },
+     {
+      "d": "2026-07-13",
+      "p": 15.0
+     },
+     {
+      "d": "2026-07-18",
+      "p": 15.0
+     },
+     {
+      "d": "2026-08-04",
+      "p": 30.0
+     },
+     {
+      "d": "2026-08-13",
+      "p": 15.0
+     }
+    ],
+    "t30": -20.0,
+    "tyoy": -3.7,
+    "rng": {
+     "min": 1.25,
+     "max": 7.5
+    },
+    "n": 84
+   },
    "offers": [
     {
      "vendor": "Farmstand",
@@ -827,7 +1707,17 @@
    "needs_check": true,
    "comp_type": "commodity",
    "swan_per_lb": 11.4,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "foraged_found",
+     "per_lb": 9.5,
+     "date": "2025-04-29",
+     "freshness": "PRIOR-YEAR",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ]
   },
   "Oregano": {
    "swan_price": 34.67,
@@ -844,6 +1734,68 @@
    "hub_pack": "6 oz",
    "swan_per_lb": 34.67,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 34.67,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 30.0,
+     "date": "2026-08-13",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-07-23",
+      "p": 30.0
+     },
+     {
+      "d": "2026-07-25",
+      "p": 30.0
+     },
+     {
+      "d": "2026-07-28",
+      "p": 30.0
+     },
+     {
+      "d": "2026-07-30",
+      "p": 30.0
+     },
+     {
+      "d": "2026-08-03",
+      "p": 30.0
+     },
+     {
+      "d": "2026-08-04",
+      "p": 30.0
+     },
+     {
+      "d": "2026-08-08",
+      "p": 15.96
+     },
+     {
+      "d": "2026-08-13",
+      "p": 30.0
+     }
+    ],
+    "t30": 35.1,
+    "tyoy": 38.2,
+    "rng": {
+     "min": 3.99,
+     "max": 7.5
+    },
+    "n": 136
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -891,6 +1843,68 @@
    "hub_pack": "30 bu case",
    "swan_per_lb": 11.09,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 11.09,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "2oz bunch"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 5.82,
+     "date": "2026-08-13",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-05-08",
+      "p": 5.82
+     },
+     {
+      "d": "2026-05-11",
+      "p": 5.82
+     },
+     {
+      "d": "2026-05-14",
+      "p": 5.82
+     },
+     {
+      "d": "2026-06-10",
+      "p": 5.82
+     },
+     {
+      "d": "2026-06-15",
+      "p": 5.82
+     },
+     {
+      "d": "2026-08-04",
+      "p": 5.82
+     },
+     {
+      "d": "2026-08-12",
+      "p": 5.82
+     },
+     {
+      "d": "2026-08-13",
+      "p": 5.82
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": 0.0,
+    "rng": {
+     "min": 0.99,
+     "max": 1.25
+    },
+    "n": 82
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -922,6 +1936,16 @@
    "hub_pack": "22# case @ $53.90",
    "swan_per_lb": 2.94,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 2.45,
+     "date": "2026-04-20",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "by weight"
+    }
+   ],
    "offers": [
     {
      "vendor": "Franks",
@@ -960,6 +1984,44 @@
     "date": "2026-05-19",
     "freshness": "STALE",
     "confidence": "high"
+   },
+   "alts": [
+    {
+     "vendor": "EC Wilson",
+     "per_lb": 4.79,
+     "date": "2026-05-10",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    },
+    {
+     "vendor": "Preservation Meats",
+     "per_lb": 5.79,
+     "date": "2026-05-19",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "catalogue"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-05-06",
+      "p": 4.79
+     },
+     {
+      "d": "2026-05-10",
+      "p": 4.79
+     }
+    ],
+    "t30": null,
+    "tyoy": null,
+    "rng": {
+     "min": 4.79,
+     "max": 4.79
+    },
+    "n": 2
    },
    "offers": [
     {
@@ -1013,6 +2075,16 @@
     "freshness": "STALE",
     "confidence": "low"
    },
+   "alts": [
+    {
+     "vendor": "Preservation Meats",
+     "per_lb": 5.99,
+     "date": "2026-05-19",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "catalogue"
+    }
+   ],
    "offers": [
     {
      "vendor": "Alluvial",
@@ -1042,6 +2114,16 @@
    "swan_per_lb": 4.79,
    "per_lb_basis": "exact",
    "note": "Market comp is hot-house (forced) rhubarb, not field-grown — field rhubarb typically prices below it. Confirm before pricing off this.",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 3.99,
+     "date": "2026-08-08",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
    "offers": [
     {
      "vendor": "PSFH",
@@ -1111,6 +2193,68 @@
    "hub_pack": "12 bu case",
    "swan_per_lb": 46.8,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 46.8,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "1oz bunch"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 12.5,
+     "date": "2026-08-13",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-05-13",
+      "p": 12.5
+     },
+     {
+      "d": "2026-06-01",
+      "p": 12.5
+     },
+     {
+      "d": "2026-06-16",
+      "p": 12.5
+     },
+     {
+      "d": "2026-06-23",
+      "p": 12.5
+     },
+     {
+      "d": "2026-07-06",
+      "p": 12.5
+     },
+     {
+      "d": "2026-07-20",
+      "p": 12.5
+     },
+     {
+      "d": "2026-08-03",
+      "p": 12.5
+     },
+     {
+      "d": "2026-08-13",
+      "p": 12.5
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": 0.0,
+    "rng": {
+     "min": 7.5,
+     "max": 12.5
+    },
+    "n": 44
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -1167,7 +2311,17 @@
    "needs_check": true,
    "comp_type": "commodity",
    "swan_per_lb": 6.94,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 5.78,
+     "date": "2026-04-30",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ]
   },
   "Snow Peas": {
    "swan_price": 5.04,
@@ -1181,6 +2335,60 @@
    "comp_type": "commodity",
    "swan_per_lb": 5.04,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 4.2,
+     "date": "2026-06-15",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-08-09",
+      "p": 5.25
+     },
+     {
+      "d": "2025-08-16",
+      "p": 5.25
+     },
+     {
+      "d": "2025-08-18",
+      "p": 5.25
+     },
+     {
+      "d": "2025-08-25",
+      "p": 4.4
+     },
+     {
+      "d": "2026-05-26",
+      "p": 4.55
+     },
+     {
+      "d": "2026-05-30",
+      "p": 4.55
+     },
+     {
+      "d": "2026-06-04",
+      "p": 4.55
+     },
+     {
+      "d": "2026-06-15",
+      "p": 4.2
+     }
+    ],
+    "t30": null,
+    "tyoy": -18.7,
+    "rng": {
+     "min": 4.2,
+     "max": 5.25
+    },
+    "n": 22
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -1211,7 +2419,17 @@
    "note": "French",
    "hub_pack": "0.5 lb",
    "swan_per_lb": 26.0,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 26.0,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    }
+   ]
   },
   "Squash": {
    "swan_price": 1.57,
@@ -1228,6 +2446,16 @@
    "hub_pack": "20# case @ $26.25 (Zucchini)",
    "swan_per_lb": 1.57,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 1.31,
+     "date": "2026-07-13",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "by weight"
+    }
+   ],
    "offers": [
     {
      "vendor": "Franks",
@@ -1258,7 +2486,17 @@
    "note": "winter savory",
    "hub_pack": "6 bunches",
    "swan_per_lb": 41.6,
-   "per_lb_basis": "exact"
+   "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 41.6,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "1oz bunch"
+    }
+   ]
   },
   "Tarragon": {
    "swan_price": 41.6,
@@ -1275,6 +2513,68 @@
    "hub_pack": "6 bunches",
    "swan_per_lb": 41.6,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 41.6,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "1oz bunch"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 8.5,
+     "date": "2026-04-15",
+     "freshness": "STALE",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-01-05",
+      "p": 7.0
+     },
+     {
+      "d": "2026-01-12",
+      "p": 7.0
+     },
+     {
+      "d": "2026-01-19",
+      "p": 7.0
+     },
+     {
+      "d": "2026-01-24",
+      "p": 7.0
+     },
+     {
+      "d": "2026-02-07",
+      "p": 8.5
+     },
+     {
+      "d": "2026-02-11",
+      "p": 8.5
+     },
+     {
+      "d": "2026-03-13",
+      "p": 8.5
+     },
+     {
+      "d": "2026-04-15",
+      "p": 8.5
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": null,
+    "rng": {
+     "min": 7.0,
+     "max": 12.0
+    },
+    "n": 30
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -1306,6 +2606,68 @@
    "hub_pack": "6 oz",
    "swan_per_lb": 34.67,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Farmstand",
+     "per_lb": 34.67,
+     "date": "2026-07-16",
+     "freshness": "FRESH",
+     "kind": "hub",
+     "basis": "by weight"
+    },
+    {
+     "vendor": "Franks",
+     "per_lb": 19.5,
+     "date": "2026-08-08",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-06-04",
+      "p": 19.5
+     },
+     {
+      "d": "2026-06-12",
+      "p": 19.5
+     },
+     {
+      "d": "2026-06-15",
+      "p": 19.5
+     },
+     {
+      "d": "2026-07-10",
+      "p": 19.5
+     },
+     {
+      "d": "2026-07-18",
+      "p": 19.5
+     },
+     {
+      "d": "2026-07-21",
+      "p": 19.5
+     },
+     {
+      "d": "2026-07-30",
+      "p": 19.5
+     },
+     {
+      "d": "2026-08-08",
+      "p": 19.5
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": 0.0,
+    "rng": {
+     "min": 9.75,
+     "max": 9.75
+    },
+    "n": 53
+   },
    "offers": [
     {
      "vendor": "PSFH",
@@ -1361,6 +2723,48 @@
    "comp_type": "commodity",
    "swan_per_lb": 2.39,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 1.99,
+     "date": "2026-07-13",
+     "freshness": "AGING",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2025-01-06",
+      "p": 2.75
+     },
+     {
+      "d": "2025-01-13",
+      "p": 1.99
+     },
+     {
+      "d": "2025-04-07",
+      "p": 2.75
+     },
+     {
+      "d": "2025-04-14",
+      "p": 2.75
+     },
+     {
+      "d": "2026-07-13",
+      "p": 1.99
+     }
+    ],
+    "t30": null,
+    "tyoy": null,
+    "rng": {
+     "min": 1.99,
+     "max": 2.75
+    },
+    "n": 5
+   },
    "offers": [
     {
      "vendor": "Franks",
@@ -1390,6 +2794,60 @@
    "climb": 0.0,
    "swan_per_lb": 1.65,
    "per_lb_basis": "exact",
+   "alts": [
+    {
+     "vendor": "Franks",
+     "per_lb": 1.38,
+     "date": "2026-08-10",
+     "freshness": "FRESH",
+     "kind": "commodity",
+     "basis": "invoice"
+    }
+   ],
+   "hist": {
+    "unit": "lb",
+    "pts": [
+     {
+      "d": "2026-07-03",
+      "p": 1.31
+     },
+     {
+      "d": "2026-07-11",
+      "p": 1.31
+     },
+     {
+      "d": "2026-07-13",
+      "p": 1.31
+     },
+     {
+      "d": "2026-07-25",
+      "p": 1.38
+     },
+     {
+      "d": "2026-08-03",
+      "p": 1.38
+     },
+     {
+      "d": "2026-08-07",
+      "p": 1.38
+     },
+     {
+      "d": "2026-08-08",
+      "p": 1.38
+     },
+     {
+      "d": "2026-08-10",
+      "p": 1.38
+     }
+    ],
+    "t30": 0.0,
+    "tyoy": -2.7,
+    "rng": {
+     "min": 26.25,
+     "max": 36.5
+    },
+    "n": 15
+   },
    "offers": [
     {
      "vendor": "Franks",
