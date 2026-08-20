@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-19T06:43:27",
+ "generated_at": "2026-08-20T07:48:32",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -139,11 +139,21 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 18 at 10:18AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 19 at 4:32PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 19 at 1:44PM PDT by NWS Spokane WA"
+    },
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 19 at 12:20PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 4,
    "vendors": [
     "Farmstand Local Foods"
    ],
