@@ -51994,7 +51994,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='7c39c5d0ddca';
+window.REMY_BUILD='57d5985d06e4';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
@@ -52029,13 +52029,15 @@ window.REMY_BUILD='7c39c5d0ddca';
     function done(j){ busy=false;
       if(!j||!j.build)return;
       if(String(j.build)===String(window.REMY_BUILD))return;
-      /* self-heal (2026-08-19): re-navigate ONCE per target build to a ?v= URL neither the
-         browser nor the CDN has cached, instead of waiting for a tap. sessionStorage-gated so
-         a mid-propagation edge can never loop us; the banner stays as the fallback. */
+      /* self-heal (2026-08-19; hardened 2026-08-21): re-navigate ONCE per target build to a
+         ?v=<TIMESTAMP> URL. It must be a timestamp, not the build id: ?v=<build> is a stable URL
+         Fastly can (and did) cache stale per query-string variant, stranding a device. A
+         never-before-seen timestamp always MISSes the edge and pulls fresh from origin. The
+         guard keys on the build id so a still-stale land can't loop; the banner is the fallback. */
       var hk='remy.selfheal.'+String(j.build), tried=false;
       try{ tried=(sessionStorage.getItem(hk)==='1'); }catch(e){}
       if(!tried){ try{ sessionStorage.setItem(hk,'1'); }catch(e){}
-        try{ var u=new URL(location.href); u.searchParams.set('v',String(j.build)); location.replace(u.href); return; }catch(e){} }
+        try{ var u=new URL(location.href); u.searchParams.set('v',String(Date.now())); location.replace(u.href); return; }catch(e){} }
       shown=true; try{ mount().classList.add('on'); }catch(e){}
     }
     try{ fetch(buildURL(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
