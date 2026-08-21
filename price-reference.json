@@ -90,7 +90,7 @@
    "market": 10.03,
    "unit": "lb",
    "vendor": "PSFH",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -104,7 +104,7 @@
     {
      "vendor": "PSFH",
      "per_lb": 10.03,
-     "date": "2026-07-16",
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -545,25 +545,25 @@
    "farm_set": true
   },
   "Chives": {
-   "swan_price": 13.0,
-   "market": 13.0,
+   "swan_price": 27.3,
+   "market": 27.3,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
    "comp_type": "hub",
    "hub_basis": "by weight",
    "note": "garlic chives; 6 oz pack works out to 33.97/lb",
-   "hub_pack": "1 lb",
-   "swan_per_lb": 13.0,
+   "hub_pack": "8 oz",
+   "swan_per_lb": 27.3,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Farmstand",
-     "per_lb": 13.0,
-     "date": "2026-07-16",
+     "per_lb": 27.3,
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -848,28 +848,28 @@
    ]
   },
   "Dill": {
-   "swan_price": 41.6,
-   "market": 41.6,
+   "swan_price": 31.2,
+   "market": 31.2,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
-   "source": "local hub (1oz bunch)",
+   "source": "local hub (2oz bunch)",
    "needs_check": false,
    "comp_type": "hub",
-   "hub_basis": "1oz bunch",
+   "hub_basis": "2oz bunch",
    "note": "published 1 oz bunches",
-   "hub_pack": "6 bunches",
-   "swan_per_lb": 41.6,
+   "hub_pack": "6 ct",
+   "swan_per_lb": 31.2,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Farmstand",
-     "per_lb": 41.6,
-     "date": "2026-07-16",
+     "per_lb": 31.2,
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
-     "basis": "1oz bunch"
+     "basis": "2oz bunch"
     },
     {
      "vendor": "Franks",
@@ -1355,7 +1355,7 @@
    "market": 34.67,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -1369,7 +1369,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 34.67,
-     "date": "2026-07-16",
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -1592,7 +1592,7 @@
    "market": 69.33,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
@@ -1606,7 +1606,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 69.33,
-     "date": "2026-07-16",
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "1oz bunch"
@@ -1724,7 +1724,7 @@
    "market": 34.67,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -1738,7 +1738,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 34.67,
-     "date": "2026-07-16",
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -1829,25 +1829,25 @@
    "canonical_unit": "each"
   },
   "Parsley": {
-   "swan_price": 11.09,
-   "market": 11.09,
+   "swan_price": 20.8,
+   "market": 20.8,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (2oz bunch)",
    "needs_check": false,
    "comp_type": "hub",
    "hub_basis": "2oz bunch",
    "note": "curly; published 2 oz bunches",
-   "hub_pack": "30 bu case",
-   "swan_per_lb": 11.09,
+   "hub_pack": "6 bu",
+   "swan_per_lb": 20.8,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Farmstand",
-     "per_lb": 11.09,
-     "date": "2026-07-16",
+     "per_lb": 20.8,
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "2oz bunch"
@@ -2179,25 +2179,25 @@
    "farm_set": true
   },
   "Rosemary": {
-   "swan_price": 46.8,
-   "market": 46.8,
+   "swan_price": 83.2,
+   "market": 83.2,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
    "comp_type": "hub",
    "hub_basis": "1oz bunch",
    "note": "published 1 oz bunches",
-   "hub_pack": "12 bu case",
-   "swan_per_lb": 46.8,
+   "hub_pack": "3 bu",
+   "swan_per_lb": 83.2,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Farmstand",
-     "per_lb": 46.8,
-     "date": "2026-07-16",
+     "per_lb": 83.2,
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "1oz bunch"
@@ -2411,7 +2411,7 @@
    "unit": "lb",
    "vendor": "Farmstand",
    "date": "2026-07-16",
-   "freshness": "FRESH",
+   "freshness": "AGING",
    "source": "local hub (by weight)",
    "needs_check": false,
    "comp_type": "hub",
@@ -2425,7 +2425,7 @@
      "vendor": "Farmstand",
      "per_lb": 26.0,
      "date": "2026-07-16",
-     "freshness": "FRESH",
+     "freshness": "AGING",
      "kind": "hub",
      "basis": "by weight"
     }
@@ -2478,7 +2478,7 @@
    "unit": "lb",
    "vendor": "Farmstand",
    "date": "2026-07-16",
-   "freshness": "FRESH",
+   "freshness": "AGING",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
    "comp_type": "hub",
@@ -2492,7 +2492,7 @@
      "vendor": "Farmstand",
      "per_lb": 41.6,
      "date": "2026-07-16",
-     "freshness": "FRESH",
+     "freshness": "AGING",
      "kind": "hub",
      "basis": "1oz bunch"
     }
@@ -2504,7 +2504,7 @@
    "unit": "lb",
    "vendor": "Farmstand",
    "date": "2026-07-16",
-   "freshness": "FRESH",
+   "freshness": "AGING",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
    "comp_type": "hub",
@@ -2518,7 +2518,7 @@
      "vendor": "Farmstand",
      "per_lb": 41.6,
      "date": "2026-07-16",
-     "freshness": "FRESH",
+     "freshness": "AGING",
      "kind": "hub",
      "basis": "1oz bunch"
     },
@@ -2596,7 +2596,7 @@
    "market": 34.67,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-07-16",
+   "date": "2026-08-16",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -2610,7 +2610,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 34.67,
-     "date": "2026-07-16",
+     "date": "2026-08-16",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
