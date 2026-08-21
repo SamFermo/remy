@@ -1929,6 +1929,24 @@ span.p-ask.unset{color:var(--ink-30);font-weight:400}
 .pdm-nochart{font-family:var(--fb);font-size:12.5px;color:var(--ink-40);padding:22px 6px;text-align:center}
 #pd-modal .pdm-close{display:block;width:100%;margin-top:12px;background:none;border:1px solid var(--ink-12);
   border-radius:10px;padding:10px;color:var(--ink-60);font-family:var(--fb);font-size:13px;cursor:pointer}
+/* comp review modal (2026-08-21) */
+#pd-cmodal{position:fixed;inset:0;z-index:9500}
+#pd-cmodal .pdm-back{position:absolute;inset:0;background:rgba(2,4,13,.66)}
+#pd-cmodal .pdm-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92vw,400px);
+  max-height:86vh;overflow-y:auto;background:#0d1430;border:1px solid var(--ink-12);border-radius:18px;padding:18px 16px}
+#pd-cmodal .pdm-close{display:block;width:100%;margin-top:12px;background:none;border:1px solid var(--ink-12);
+  border-radius:10px;padding:10px;color:var(--ink-60);font-family:var(--fb);font-size:13px;cursor:pointer}
+.cm-ask{font-family:var(--fb);font-size:13.5px;color:var(--ink-80,#c4cde2);margin-top:8px}
+.cm-comp{display:block;width:100%;text-align:left;background:none;border:1px solid var(--ink-12);border-radius:9px;
+  padding:9px 11px;margin-top:6px;color:var(--ink-70);font-family:var(--fb);font-size:13px;cursor:pointer;line-height:1.4}
+.cm-comp.on{border-color:var(--gold,#c9a227);color:var(--ink)}
+.cm-date{display:block;font-size:11px;color:var(--ink-40)}
+.cm-hist{display:block;width:100%;text-align:center;background:none;border:none;color:var(--ink-50);
+  font-family:var(--fb);font-size:12px;text-decoration:underline;cursor:pointer;margin:10px 0 2px;padding:4px}
+.cm-acts{display:flex;gap:8px;margin-top:10px}
+.pdm-act{flex:1;padding:12px 8px;border-radius:11px;font-family:var(--fb);font-size:13.5px;cursor:pointer;
+  background:rgba(255,255,255,.06);border:1px solid var(--ink-12);color:var(--ink)}
+.pdm-act.ok{background:rgba(155,176,106,.18);border-color:rgba(155,176,106,.6);color:var(--olive,#cfe0a6);font-weight:600}
 .p-hidtog{display:block;width:100%;margin-top:12px;background:none;border:none;color:var(--ink-45);font-family:var(--fb);font-size:11.5px;cursor:pointer;text-align:center;text-decoration:underline;text-decoration-color:var(--ink-12)}
 .io-btn-inv{width:100%;margin-top:8px;background:transparent;color:var(--ink);border:1px dashed var(--ink-30);padding:11px;border-radius:10px;font-family:var(--fb);font-size:13.5px;font-weight:500;cursor:pointer}
 .io-btn-inv:active{background:var(--ink-6)}
@@ -48943,7 +48961,62 @@ function _pdSpark(pts,w,h){ try{ if(!pts||pts.length<2)return '';
   var xy=pts.map(function(p,i){ return (i/(pts.length-1)*w).toFixed(1)+','+((h-3)-((p.p-mn)/span*(h-6))+1.5).toFixed(1); });
   return '<svg class="db-spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><polyline points="'+xy.join(' ')+'"/></svg>';
 }catch(e){ return ''; } }
-function pdReview(n){ try{_pExpanded[n]=true;}catch(e){} setView('pricing'); }
+function pdReview(n){ _pdCompModal(n); }
+function _pdAfterAction(){ try{ var b=document.getElementById('view-drift');
+  if(b&&b.classList.contains('live'))renderDriftBoard(); }catch(e){} }
+/* Comp review modal (2026-08-21): the drift row's real workbench. */
+function _pdCompModal(name){
+  var g=byName[name]; if(!g)return;
+  var old=document.getElementById('pd-cmodal'); if(old)old.remove();
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var rec=fmRec(g), unit=g.askUnit||'';
+  var priced=(g.ask!=null&&g.ask!=='');
+  var askLb=null; try{ var fac=fmFactor(g); if(fac&&priced)askLb=Number(g.ask)/fac.f; }catch(e){}
+  // suggestion vs the ACTIVE comp — same decision family as the pending list
+  var cs=compSrcChanged(g), lb=(g.locked?lockBandState(g):null), d=farmDrift(g);
+  var sug=null, verb='Follow', why='';
+  if(cs){ sug=cs.recAsk; why='comp source flipped &middot; now $'+cs.mkl.toFixed(2)+'/lb'; }
+  else if(lb){ sug=lb.recAsk; why='market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held'; }
+  else if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH){ sug=d.recAsk; verb=(d.dir==='up'?'Raise':'Lower');
+    why='now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target'; }
+  else if(d&&d.stale){ why='comp is stale &mdash; holding'; }
+  else { why='inside the band &mdash; nothing owed'; }
+  var alts=(rec&&rec.alts&&rec.alts.length)?rec.alts
+          :(rec?[{vendor:rec.vendor,per_lb:rec.perlb,date:rec.date,freshness:rec.freshness,kind:rec.compType}]:[]);
+  var comps=alts.map(function(a){
+    var on=(g.compAlt||'')===''?(rec&&a.vendor===rec.vendor):(g.compAlt===a.vendor);
+    return '<button class="cm-comp'+(on?' on':'')+'" data-cmalt="'+esc(name)+'|'+esc(a.vendor)+'">'
+      +(on?'&#9673;':'&#9675;')+' <b>'+esc(a.vendor)+'</b> &middot; $'+Number(a.per_lb).toFixed(2)+'/lb'
+      +'<span class="cm-date">'+esc(a.date||'')+(a.freshness?(' &middot; '+esc(a.freshness)):'')+(a.kind==='hub'?' &middot; local':'')+'</span></button>';
+  }).join('')||'<div class="px-dim">No market comps for this item.</div>';
+  if(g.compAlt)comps+='<button class="cm-comp" data-cmalt="'+esc(name)+'|">&#8634; Back to Remy&rsquo;s pick</button>';
+  var wrap=document.createElement('div'); wrap.id='pd-cmodal';
+  wrap.innerHTML='<div class="pdm-back"></div><div class="pdm-card">'
+    +'<div class="pdm-name">'+esc(name)+'</div>'
+    +'<div class="pdm-sub">'+why+'</div>'
+    +'<div class="cm-ask">Your price: '+(priced?('<b>$'+Number(g.ask).toFixed(2)+(unit?('/'+unit):'')+'</b>'+(askLb!=null&&unit!=='lb'?(' <span class="cm-date">($'+askLb.toFixed(2)+'/lb)</span>'):'')):'<b class="fs-warn">not set</b>')
+    +(g.locked?' &middot; &#128274; auto-locked':'')+'</div>'
+    +'<div class="px-h" style="margin-top:12px">Market comps</div>'+comps
+    +'<button class="cm-hist" data-cmhist="'+esc(name)+'">Full price history &rsaquo;</button>'
+    +'<div class="cm-acts">'
+      +(sug!=null?('<button class="pdm-act ok" data-cma="'+esc(name)+'">'+verb+' to $'+Number(sug).toFixed(2)+(unit?('/'+unit):'')+'</button>'):'')
+      +'<button class="pdm-act" data-cmk="'+esc(name)+'">Keep mine</button>'
+    +'</div>'
+    +'<button class="pdm-close">Close</button></div>';
+  document.body.appendChild(wrap);
+  function close(){ try{wrap.remove();}catch(e){} }
+  wrap.querySelector('.pdm-back').onclick=close;
+  wrap.querySelector('.pdm-close').onclick=close;
+  wrap.querySelectorAll('[data-cmalt]').forEach(function(b){ b.onclick=function(){
+    var s=b.getAttribute('data-cmalt'), i=s.indexOf('|');
+    pCompAlt(s.slice(0,i), s.slice(i+1));
+    _pdAfterAction(); _homeLast='';
+    _pdCompModal(name);                                   // reopen with the numbers recomputed
+  };});
+  var hb=wrap.querySelector('[data-cmhist]'); if(hb)hb.onclick=function(){ close(); _pdModal(name); };
+  var ab=wrap.querySelector('[data-cma]'); if(ab)ab.onclick=function(){ close(); pdApprove(name); _pdAfterAction(); };
+  var kb=wrap.querySelector('[data-cmk]'); if(kb)kb.onclick=function(){ close(); pdDismiss(name); _pdAfterAction(); };
+}
 function _pdBindActions(el,rerender){
   el.querySelectorAll('[data-pda]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdApprove(b.dataset.pda);rerender();};});
   el.querySelectorAll('[data-pdd]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdDismiss(b.dataset.pdd);rerender();};});
@@ -48957,10 +49030,11 @@ function renderDriftBoard(){
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   var h='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Price drift</span><span class="pricing-sub">review board</span></div>';
   if(pend.length){ h+='<div class="db-sec">Needs your call ('+pend.length+')</div>'+pend.map(function(p){
-    return '<div class="db-row"><div class="db-main"><b>'+esc(p.n)+'</b> '+p.why+'</div><div class="db-acts">'+
+    return '<div class="db-row" data-pdc="'+esc(p.n)+'" style="cursor:pointer"><div class="db-main"><b>'+esc(p.n)+'</b> '+p.why+'</div><div class="db-acts">'+
       (p.big?('<button class="db-btn warn" data-pdr="'+esc(p.n)+'">Big move &middot; check comp</button>')
             :('<button class="db-btn ok" data-pda="'+esc(p.n)+'">'+p.act+'</button>'))+
-      '<button class="db-btn" data-pdd="'+esc(p.n)+'">Keep mine</button></div></div>'; }).join('');
+      '<button class="db-btn" data-pdd="'+esc(p.n)+'">Keep mine</button>'+
+      '<span class="p-chev">&#9656;</span></div></div>'; }).join('');
   } else h+='<div class="db-sec">Needs your call</div><div class="px-dim" style="padding:6px 2px">Nothing waiting &mdash; you&rsquo;re caught up.</div>';
   if(un.length){ h+='<div class="db-sec">Auto moves to note ('+un.length+')</div>'+un.map(function(u){
     return '<div class="db-row"><div class="db-main"><b>'+esc(u.n)+'</b> $'+u.f+' &rarr; $'+u.to+' &middot; auto'+(u.pct!=null?(' '+(u.pct>=0?'+':'')+u.pct+'%'):'')+' &middot; '+u.when+'</div>'+
@@ -48983,6 +49057,9 @@ function renderDriftBoard(){
   var aa=el.querySelector('#db-ackall'); if(aa)aa.onclick=function(){pdAckAll();renderDriftBoard();};
   el.querySelectorAll('.pd-chip').forEach(function(b){b.onclick=function(){_pdWin=Number(b.dataset.w)||30;renderDriftBoard();};});
   el.querySelectorAll('[data-pdv]').forEach(function(r){r.onclick=function(){_pdModal(r.getAttribute('data-pdv'));};});
+  el.querySelectorAll('[data-pdc]').forEach(function(r){r.onclick=function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button'))return;
+    _pdCompModal(r.getAttribute('data-pdc'));};});
 }
 /* Full-history modal for one item's market price (2026-08-21): all points, range, 30d/1yr,
    Kelly's ask overlaid per-lb when her unit converts. */
@@ -51917,7 +51994,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='60242b38c02b';
+window.REMY_BUILD='7c39c5d0ddca';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
