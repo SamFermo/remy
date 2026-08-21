@@ -173,7 +173,33 @@ html.tenant-seacreatures .cf-segb.on,html.tenant-seacreatures .kpill.active{colo
 }
 
 /* ── APP SHELL ── */
-#app{height:100%;position:relative;overflow:hidden;z-index:1}
+#app{height:100%;position:relative;overflow:hidden;overflow:clip;z-index:1}
+/* fix build 2026-08-19: sticky pills, home button, drift board, collapsed filters */
+#farm .seg{position:sticky;top:0;z-index:80;background:rgba(5,9,24,.86);
+  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+#fh-home{display:inline-block;margin:2px 0 0 2px;background:none;border:1px solid var(--ink-12,rgba(255,255,255,.14));
+  border-radius:999px;padding:4px 13px;font-family:var(--fb,sans-serif);font-size:11.5px;letter-spacing:.05em;
+  color:var(--ink-60,#9aa6c0);cursor:pointer}
+#de-remy-farm{cursor:pointer}
+body.remy-home-live .guided-link{display:none}
+body.remy-home-live #fh-home{opacity:.35;pointer-events:none}
+#filter-toggle.on{background:var(--gold,#c9a227);color:#0a1028;border-color:var(--gold,#c9a227)}
+.db-sec{font-family:var(--fb);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-40);margin:18px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--ink-6)}
+.db-row{display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid var(--ink-6)}
+.db-main{flex:1;min-width:0;font-family:var(--fb);font-size:13px;line-height:1.4;color:var(--ink-80,#c4cde2)}
+.db-acts{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.db-btn{background:rgba(255,255,255,.06);border:1px solid var(--ink-12);border-radius:8px;padding:6px 11px;
+  font-family:var(--fb);font-size:12px;cursor:pointer;color:var(--ink,#eaf0ff)}
+.db-btn.ok{background:rgba(155,176,106,.18);border-color:rgba(155,176,106,.55);color:var(--olive,#cfe0a6)}
+.db-btn.warn{background:rgba(201,162,39,.14);border-color:rgba(201,162,39,.5);color:var(--gold,#e7d3a6)}
+.db-vrow{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--ink-6)}
+.db-vname{flex:1;font-family:var(--fd);font-size:15px;color:var(--ink)}
+.db-vpct{font-family:var(--fb);font-size:13px;font-weight:600;min-width:52px;text-align:right}
+.db-vpct.up{color:var(--terra,#e08763)}
+.db-vpct.down{color:var(--olive,#a8b97e)}
+.db-spark{flex:0 0 auto}
+.db-spark polyline{fill:none;stroke:var(--gold,#c9a227);stroke-width:1.6}
+.db-vsub{font-family:var(--fb);font-size:11px;color:var(--ink-40)}
 
 /* ── PORTAL ── transparent so the starfield shines through */
 #portal{position:absolute;inset:0;display:flex;flex-direction:column;
@@ -1815,7 +1841,7 @@ span.p-ask.unset{color:var(--ink-30);font-weight:400}
 .px-comp.on{border-color:var(--gold,#c9a227);color:var(--ink)}
 .px-log{font-family:var(--fb);font-size:12px;color:var(--ink-60);padding:2px 0}
 /* inventory view (2026-08-19) */
-.iv-row{display:grid;grid-template-columns:1.6fr 64px 70px 58px 54px;gap:7px;align-items:center;padding:10px 3px;border-bottom:1px solid var(--ink-6)}
+.iv-row{display:grid;grid-template-columns:1.55fr 60px 66px 74px 54px;gap:7px;align-items:center;padding:10px 3px;border-bottom:1px solid var(--ink-6)}
 .iv-row.low{background:rgba(201,162,39,.05)}
 .iv-row.out{background:rgba(224,135,99,.06)}
 .iv-name{font-family:var(--fd);font-size:15px;color:var(--ink);line-height:1.15}
@@ -1825,6 +1851,8 @@ span.p-ask.unset{color:var(--ink-30);font-weight:400}
 .iv-in{width:100%;box-sizing:border-box;text-align:right;font-family:inherit;font-size:14px;padding:6px 7px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink)}
 .iv-un{width:100%;box-sizing:border-box;font-family:var(--fb);font-size:12px;padding:6px 3px;border-radius:8px;border:1px solid var(--ink-12);background:var(--bg-card,rgba(255,255,255,.05));color:var(--ink)}
 .iv-rf{font-family:var(--fb);font-size:11px;padding:6px 8px;border-radius:8px;border:1px solid rgba(155,176,106,.5);background:rgba(155,176,106,.12);color:var(--olive,#a8b97e);cursor:pointer}
+.iv-wk{font-family:var(--fb);font-size:10.5px;padding:6px 6px;border-radius:8px;border:1px solid var(--ink-12);background:none;color:var(--ink-50);cursor:pointer;white-space:nowrap}
+.iv-wk.on{border-color:rgba(201,162,39,.6);background:rgba(201,162,39,.1);color:var(--gold,#c9a227)}
 .iv-rfspace{display:inline-block}
 /* fresh sheet (2026-08-19) */
 .fs-stat{font-family:var(--fb);font-size:13px;color:var(--ink-70);margin:2px 0 8px}
@@ -1840,6 +1868,29 @@ span.p-ask.unset{color:var(--ink-30);font-weight:400}
 .fs-sub{font-family:var(--fb);font-size:11.5px;color:var(--ink-50);margin-top:2px;line-height:1.35}
 .fs-warn{color:var(--gold,#c9a227);font-weight:600}
 .fs-act{flex:0 0 auto;width:32px;height:32px;border-radius:9px;border:1px solid var(--ink-12);background:var(--ink-6,rgba(255,255,255,.04));color:var(--ink-60);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+/* fresh-sheet one-pager (2026-08-20) */
+.fs-tchips{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px 0 8px;scrollbar-width:none}
+.fs-tchips::-webkit-scrollbar{display:none}
+.fs-tchip{flex:0 0 auto;background:none;border:1px solid var(--ink-12,rgba(255,255,255,.16));border-radius:999px;padding:5px 12px;font-size:12px;letter-spacing:.03em;color:inherit;opacity:.75;cursor:pointer;font-family:var(--fb)}
+.fs-tchip.on{background:var(--moon,#f5e8c8);border-color:var(--moon,#f5e8c8);color:#0a1028;opacity:1}
+.sh-page{padding-bottom:14px}
+.sh-cat{font-family:var(--fb);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold,#c9a227);margin:15px 0 3px;padding-bottom:3px;border-bottom:1px solid var(--ink-12)}
+.sh-row{display:flex;align-items:baseline;gap:2px;padding:6px 1px;cursor:pointer}
+.sh-row.sold{opacity:.45}
+.sh-name{font-family:var(--fd);font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%}
+.sh-star{color:var(--gold,#c9a227);font-size:12px}
+.sh-soldtag{font-family:var(--fb);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--terra,#e08763)}
+.sh-dots{flex:1;border-bottom:1px dotted var(--ink-12,rgba(255,255,255,.18));transform:translateY(-3px)}
+.sh-price{font-family:var(--fb);font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap}
+.sh-price small{font-size:10px;font-weight:400;color:var(--ink-40)}
+.sh-soon{font-family:var(--fd);font-style:italic;font-size:12.5px;color:var(--ink-50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%}
+#fs-actionsheet{position:fixed;inset:0;z-index:9500}
+#fs-actionsheet .fsa-back{position:absolute;inset:0;background:rgba(2,4,13,.6)}
+#fs-actionsheet .fsa-card{position:absolute;left:10px;right:10px;bottom:12px;background:#0d1430;border:1px solid var(--ink-12);border-radius:18px;padding:16px 14px calc(14px + env(safe-area-inset-bottom,0px))}
+.fsa-name{font-family:var(--fd);font-size:19px;color:var(--ink)}
+.fsa-sub{font-family:var(--fb);font-size:12px;color:var(--ink-50);margin:2px 0 10px}
+.fsa-btn{display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid var(--ink-12);border-radius:11px;padding:12px 13px;margin-top:7px;color:var(--ink);font-family:var(--fb);font-size:14px;cursor:pointer}
+.fsa-btn.fsa-close{text-align:center;background:none;color:var(--ink-50)}
 /* Price Drift home card (cream card -> dark ink) */
 .pd-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid rgba(10,16,40,.08)}
 .pd-rt{flex:1;font-family:var(--fb);font-size:12.5px;line-height:1.35;color:rgba(10,16,40,.8)}
@@ -1998,14 +2049,14 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
 <!-- FARM (real fresh-sheet, ported from remy-farm-freshsheet-real.html) -->
 <div id="farm" class="gone">
   <!-- full-width header matches .de-head so Remy persists in the SAME spot as the doors/kitchen -->
-  <div class="de-head"><button class="fh-back doorback" aria-label="Back to the doors">&#8592; Doors</button><span class="de-remy">Remy</span><span class="de-brand">&middot; Swan House Farm</span></div>
+  <div class="de-head"><button class="fh-back doorback" aria-label="Back to the doors">&#8592; Doors</button><span class="de-remy" id="de-remy-farm">Remy</span><span class="de-brand">&middot; Swan House Farm</span></div>
+  <button id="fh-home">&#8962; Home</button>
   <div class="de-note" id="fh-week"></div>
   <div class="farm-shell">
 <p class="sr-only">Remy farm fresh-sheet on real Swan House data: a push board, the full grow list, and a guided weekly review.</p>
 <div class="phone">
   <div id="offline-banner" style="display:none">You&rsquo;re offline &mdash; everything saves here and syncs when you&rsquo;re back online.</div>
   <div class="seg">
-    <button data-view="home" id="seg-home">Home</button>
     <button class="on" data-view="push">Fresh sheet</button>
     <button data-view="list">Full list</button>
     <button data-view="pricing" id="seg-pricing">Pricing</button>
@@ -2037,11 +2088,11 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
 
   <div class="view" id="view-list">
     <div class="list-head">
-      <div class="list-intro" id="list-intro">Everything you&rsquo;re growing. Tap a status to change it, <b>&#9733;</b> to push. Pricing lives in the Pricing tab.</div>
+      <div class="list-intro" id="list-intro"></div>
       <button class="pmode-toggle" id="edit-mode-toggle" aria-pressed="false">Edit</button>
       <button class="pmode-toggle" id="photo-mode-toggle" aria-pressed="false">Photo mode</button>
-
       <button class="pmode-toggle" id="bytype-toggle" aria-pressed="false">By type</button>
+      <button class="pmode-toggle" id="filter-toggle" aria-pressed="false">Filter</button>
     </div>
     <button class="ng-add-btn" id="ng-toggle">+ New Growth</button>
     <div id="list-filters" class="lfilters"></div>
@@ -2049,6 +2100,10 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
   </div>
 
   <div class="view" id="view-inventory"><div id="inv-body"></div></div>
+
+  <div class="view" id="view-drift">
+    <div id="drift-body"></div>
+  </div>
 
   <div class="view" id="view-pricing">
     <div id="pricing-body"></div>
@@ -30937,7 +30992,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583166Z",
+        "authored_at": "2026-08-20T17:57:54.265511Z",
         "authored_by": "remy-portal"
       },
       {
@@ -30992,7 +31047,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583103Z",
+        "authored_at": "2026-08-20T17:57:54.265454Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31001,9 +31056,9 @@ const DATA = {
         "desc": "rosemary olive oil, fried rosemary, maldon sea salt",
         "price": "6",
         "hero": {
-          "kind": "sourced",
+          "maps_to": null,
           "price_tracked": false,
-          "maps_to": null
+          "kind": "sourced"
         },
         "target_pct": 25,
         "components": [
@@ -31065,7 +31120,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583140Z",
+        "authored_at": "2026-08-20T17:57:54.265479Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31148,7 +31203,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583126Z",
+        "authored_at": "2026-08-20T17:57:54.265466Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31217,7 +31272,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583133Z",
+        "authored_at": "2026-08-20T17:57:54.265473Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31314,7 +31369,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583130Z",
+        "authored_at": "2026-08-20T17:57:54.265470Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31323,8 +31378,8 @@ const DATA = {
         "desc": "strawberries, chamomile gel\u00e9e, strawberry buttermilk poppy seed vinaigrette, crostini",
         "price": "18",
         "hero": {
-          "price_tracked": false,
           "maps_to": null,
+          "price_tracked": false,
           "kind": "sourced"
         },
         "target_pct": 25,
@@ -31415,7 +31470,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583100Z",
+        "authored_at": "2026-08-20T17:57:54.265451Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31540,7 +31595,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583109Z",
+        "authored_at": "2026-08-20T17:57:54.265459Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31549,9 +31604,9 @@ const DATA = {
         "desc": "saffron spaghetti, swan house beef & pork, tomato, fennel, rosemary, parmigiano reggiano",
         "price": "32",
         "hero": {
+          "kind": "sourced",
           "price_tracked": false,
-          "maps_to": null,
-          "kind": "sourced"
+          "maps_to": null
         },
         "target_pct": 25,
         "components": [
@@ -31641,7 +31696,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583172Z",
+        "authored_at": "2026-08-20T17:57:54.265519Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31780,7 +31835,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583160Z",
+        "authored_at": "2026-08-20T17:57:54.265504Z",
         "authored_by": "remy-portal"
       },
       {
@@ -31943,7 +31998,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583137Z",
+        "authored_at": "2026-08-20T17:57:54.265476Z",
         "authored_by": "remy-portal"
       },
       {
@@ -32026,7 +32081,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583163Z",
+        "authored_at": "2026-08-20T17:57:54.265508Z",
         "authored_by": "remy-portal"
       },
       {
@@ -32269,7 +32324,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583112Z",
+        "authored_at": "2026-08-20T17:57:54.265462Z",
         "authored_by": "remy-portal"
       },
       {
@@ -32324,7 +32379,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583150Z",
+        "authored_at": "2026-08-20T17:57:54.265491Z",
         "authored_by": "remy-portal"
       },
       {
@@ -32365,7 +32420,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-08-20T14:41:03.583168Z",
+        "authored_at": "2026-08-20T17:57:54.265514Z",
         "authored_by": "remy-portal"
       }
     ],
@@ -41860,7 +41915,7 @@ const DATA = {
     }
   ],
   "price_drift": {
-    "generated": "2026-08-19",
+    "generated": "2026-08-20",
     "threshold_pct": 5.0,
     "summary": {
       "tracked_items": 369,
@@ -45924,7 +45979,7 @@ function runIntroMorph(){
 (function(){
 var ROOT=document.getElementById('farm');
 
-window.__REMY_WX = /*__WX__*/{"generated_at":"2026-08-20T07:48:32","enso":{"phase":"El Niño","band":"moderate","status":"El Niño developing","trend":"warming","oni":1.39,"oni_season":"MJJ 2026","consec_seasons":2,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"FMA 2025","oni":-0.08},{"season":"MAM 2025","oni":0.02},{"season":"AMJ 2025","oni":-0.04},{"season":"MJJ 2025","oni":-0.02},{"season":"JJA 2025","oni":-0.11},{"season":"JAS 2025","oni":-0.26},{"season":"ASO 2025","oni":-0.43},{"season":"SON 2025","oni":-0.57},{"season":"OND 2025","oni":-0.61},{"season":"NDJ 2025","oni":-0.6},{"season":"DJF 2026","oni":-0.39},{"season":"JFM 2026","oni":-0.21},{"season":"FMA 2026","oni":0.11},{"season":"MAM 2026","oni":0.46},{"season":"AMJ 2026","oni":0.95},{"season":"MJJ 2026","oni":1.39}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 2.0°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":80,"low_f":55,"avg_f":68.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":95,"low_f":63,"avg_f":80.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued August 19 at 4:32PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued August 19 at 1:44PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued August 19 at 12:20PM PDT by NWS Spokane WA"}],"fire":false,"high_count":4,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":97,"low_f":61,"avg_f":78.0,"forecast":"Mostly Clear","signals":[{"level":"high","text":"Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[],"fire":false,"high_count":1,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":96,"low_f":60,"avg_f":80.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (96F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[],"fire":false,"high_count":1,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":99,"low_f":55,"avg_f":80.0,"forecast":"Sunny then Haze","signals":[{"level":"high","text":"Heat building (80F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[],"fire":false,"high_count":1,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":93,"low_f":59,"avg_f":78.0,"forecast":"Patchy Smoke then Mostly Sunny","signals":[{"level":"high","text":"Heat building (78F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[],"fire":false,"high_count":1,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised","grass_fed"],"seasonal_relevance":"Year-round; peak grass growth spring-fall"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":83,"low_f":56,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Above-normal temps (70F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":82,"low_f":56,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":80,"low_f":59,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":78,"low_f":58,"avg_f":68.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Marine conditions: high 78F, low 58F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":66,"low_f":53,"avg_f":60.0,"forecast":"Partly Sunny","signals":[{"level":"info","text":"Marine conditions: high 66F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":72,"low_f":53,"avg_f":61.0,"forecast":"Mostly Cloudy","signals":[{"level":"info","text":"Marine conditions: high 72F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":73,"low_f":54,"avg_f":63.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":78,"low_f":53,"avg_f":66.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":67,"low_f":51,"avg_f":59.0,"forecast":"Patchy Fog then Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":100,"low_f":67,"avg_f":85.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":70,"low_f":54,"avg_f":61.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":89,"low_f":55,"avg_f":73.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":95,"low_f":55,"avg_f":76.0,"forecast":"Haze","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":5}/*__END_WX__*/;
+window.__REMY_WX = /*__WX__*/{"generated_at":"2026-08-20T10:59:46","enso":{"phase":"El Niño","band":"moderate","status":"El Niño developing","trend":"warming","oni":1.39,"oni_season":"MJJ 2026","consec_seasons":2,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"FMA 2025","oni":-0.08},{"season":"MAM 2025","oni":0.02},{"season":"AMJ 2025","oni":-0.04},{"season":"MJJ 2025","oni":-0.02},{"season":"JJA 2025","oni":-0.11},{"season":"JAS 2025","oni":-0.26},{"season":"ASO 2025","oni":-0.43},{"season":"SON 2025","oni":-0.57},{"season":"OND 2025","oni":-0.61},{"season":"NDJ 2025","oni":-0.6},{"season":"DJF 2026","oni":-0.39},{"season":"JFM 2026","oni":-0.21},{"season":"FMA 2026","oni":0.11},{"season":"MAM 2026","oni":0.46},{"season":"AMJ 2026","oni":0.95},{"season":"MJJ 2026","oni":1.39}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 2.0°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":80,"low_f":55,"avg_f":68.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":95,"low_f":63,"avg_f":80.0,"forecast":"Haze","signals":[{"level":"high","text":"Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:28AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"},{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued August 20 at 9:41AM PDT until August 23 at 8:00AM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued August 19 at 4:32PM PDT by NWS Spokane WA"},{"event":"Air Quality Alert","severity":"Unknown","headline":"Air Quality Alert issued August 19 at 1:44PM PDT by NWS Spokane WA"}],"fire":true,"high_count":5,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":96,"low_f":60,"avg_f":80.0,"forecast":"Sunny","signals":[{"level":"high","text":"Heat building (96F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (80F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:28AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"},{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued August 20 at 9:41AM PDT until August 22 at 10:00PM PDT by NWS Spokane WA"}],"fire":true,"high_count":3,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":99,"low_f":55,"avg_f":80.0,"forecast":"Sunny then Haze","signals":[{"level":"high","text":"Heat building (80F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:28AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"},{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued August 20 at 9:41AM PDT until August 22 at 10:00PM PDT by NWS Spokane WA"}],"fire":true,"high_count":3,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":97,"low_f":61,"avg_f":78.0,"forecast":"Mostly Clear","signals":[{"level":"high","text":"Heat building (97F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."},{"level":"info","text":"Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:30AM PDT until August 21 at 10:00PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":2,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":93,"low_f":59,"avg_f":78.0,"forecast":"Patchy Smoke then Mostly Sunny","signals":[{"level":"high","text":"Heat building (78F avg). Monitor grass growth conditions; drought risk in summer."}],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:30AM PDT until August 21 at 10:00PM PDT by NWS Pendleton OR"}],"fire":false,"high_count":2,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised","grass_fed"],"seasonal_relevance":"Year-round; peak grass growth spring-fall"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":95,"low_f":55,"avg_f":76.0,"forecast":"Haze","signals":[],"alerts":[{"event":"Heat Advisory","severity":"Moderate","headline":"Heat Advisory issued August 20 at 10:28AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"},{"event":"Fire Weather Watch","severity":"Severe","headline":"Fire Weather Watch issued August 20 at 9:41AM PDT until August 23 at 11:00AM PDT by NWS Spokane WA"}],"fire":true,"high_count":2,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":83,"low_f":56,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Above-normal temps (70F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":82,"low_f":56,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":80,"low_f":59,"avg_f":70.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":78,"low_f":58,"avg_f":68.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Marine conditions: high 78F, low 58F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":66,"low_f":53,"avg_f":60.0,"forecast":"Partly Sunny","signals":[{"level":"info","text":"Marine conditions: high 66F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":72,"low_f":53,"avg_f":61.0,"forecast":"Mostly Cloudy","signals":[{"level":"info","text":"Marine conditions: high 72F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":73,"low_f":54,"avg_f":63.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":78,"low_f":53,"avg_f":66.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":67,"low_f":51,"avg_f":59.0,"forecast":"Patchy Fog then Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":100,"low_f":67,"avg_f":85.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":70,"low_f":54,"avg_f":61.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":89,"low_f":55,"avg_f":73.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":6}/*__END_WX__*/;
 var DATA = /*__DATA__*/ {"week": "week of June 22", "kelly_last_touch": "6/10", "market_count": 39, "growList": [{"name": "Chive Blossoms", "category": "flower_edible", "status": "Peak", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Kale (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 48.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 43.2, "ref_measurable": true, "per_lb": 3.33, "per_lb_basis": "estimate", "per_lb_note": "24 bunch/CS x ~0.6 lb/bunch", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "greens bunch 0.75-1.5#, midpoint (UGA/UK ext.)"}]}}, {"name": "Lettuce (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 29.1, "ref_measurable": true, "per_lb": 12.0, "per_lb_basis": "exact", "per_lb_note": "2#/CS baby head mix", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lovage", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.5, "unit": "#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 29.4, "ref_measurable": true, "per_lb": 24.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Mint", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 3.75, "unit": "1/4#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 69.33, "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Parsley (Farm)", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 11.09, "ref_measurable": true, "per_lb": 5.82, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16)", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Tomato Leaf", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": null}, {"name": "Beef Shanks", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 15.0, "unit": "lb", "freshness": "AGING", "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Beef Tenderloin", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 33.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 33.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Bronze Fennel", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 45.0, "unit": "24CT CS", "freshness": "AGING", "ref_measurable": false}}, {"name": "Cabbage (Farm)", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 1.8, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Chicken Eggs", "category": "egg", "status": "Available", "qty": "", "push": false, "market": {"price": 8.5, "unit": "dozen", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "dozen", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Chives", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 6.0, "unit": "1/4#", "freshness": "AGING", "vendor": "Farmstand", "swan_price": 13.0, "ref_measurable": true, "per_lb": 24.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Dill (Farm)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 1.25, "unit": "bn", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 41.6, "ref_measurable": true, "per_lb": 7.35, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16); raw sample 93 g", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Duck Eggs", "category": "egg", "status": "Available", "qty": "", "push": false, "market": {"price": 1.0, "unit": "each", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "each", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Edible Flowers", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": {"price": 15, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Fennel Fronds", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 2.85, "unit": "each", "freshness": "FRESH", "vendor": "Franks", "swan_price": 3.59, "ref_measurable": true, "per_lb": 4.07, "per_lb_basis": "estimate", "per_lb_note": "per fennel bulb", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Grape Leaves", "category": "green", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Ground Beef / Bolo Meat", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 13.2, "unit": "lb", "freshness": "FRESH", "ref_measurable": true, "per_lb": 13.2, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Honeysuckle", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": {"price": 12, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Lamb Loin Chops", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 21.95, "unit": "lb", "freshness": "FRESH", "vendor": "Key City", "swan_price": 26.34, "ref_measurable": true, "per_lb": 21.95, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lavender", "category": "flower_cut", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Lemon Balm (Farm)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Nasturtium", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Oregano", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 3.99, "unit": "1/4#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 34.67, "ref_measurable": true, "per_lb": 15.96, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Rose Petals", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Rosemary", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 12.5, "unit": "#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 46.8, "ref_measurable": true, "per_lb": 12.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Snap Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 5.78, "unit": "lb", "freshness": "AGING", "vendor": "Franks", "swan_price": 6.94, "ref_measurable": true, "per_lb": 5.78, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Snow Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 4.55, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 5.04, "ref_measurable": true, "per_lb": 4.55, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Sorrel (French)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 8.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Farmstand", "swan_price": 26.0, "ref_measurable": true, "per_lb": 8.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Thyme", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 9.75, "unit": "1/2#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 34.67, "ref_measurable": true, "per_lb": 19.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Garlic Scapes", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 6.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Franks", "swan_price": 7.2, "ref_measurable": true, "per_lb": 6.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Turnips", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 2.75, "unit": "bn", "freshness": "PRIOR-YEAR", "vendor": "Franks", "swan_price": 2.39, "ref_measurable": true, "per_lb": 2.75, "per_lb_basis": "estimate", "per_lb_note": "root veg, tops-on, ~1#", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "root veg, tops-on, ~1#"}]}}, {"name": "Borage", "category": "herb", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Loganberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Mixed Berries (Farm)", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Raspberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Angelica", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Apples (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.25, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 2.7, "ref_measurable": true, "per_lb": 2.25, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Basil (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 5.5, "unit": "1/2#", "freshness": "FRESH", "vendor": "PSFH", "swan_price": 10.03, "ref_measurable": true, "per_lb": 11.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Calendula", "category": "flower_edible", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Candy Roaster Squash", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Cherry Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 38.7, "ref_measurable": true, "per_lb": 3.58, "per_lb_basis": "estimate", "per_lb_note": "12 pint/CS x ~0.75 lb/pint", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Cilantro (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Franks", "swan_price": 1.19, "ref_measurable": true, "per_lb": 5.82, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16)", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Cucumber (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Heirloom Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 52.0, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 62.4, "ref_measurable": true, "per_lb": 5.2, "per_lb_basis": "exact", "per_lb_note": "10#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lemon Verbena", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Onions", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Peppers (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.5, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 16.79, "ref_measurable": true, "per_lb": 2.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Savory", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Squash (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 1.8, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Tarragon (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 8.5, "unit": "1/4#", "freshness": "AGING", "ref_measurable": true, "per_lb": 34.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}], "vendor": "Farmstand", "swan_price": 41.6}}, {"name": "Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 38.7, "ref_measurable": false}}, {"name": "Zucchini (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 36.5, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 31.5, "ref_measurable": true, "per_lb": 1.82, "per_lb_basis": "exact", "per_lb_note": "20#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Flowering Branches", "category": "flower_cut", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Green Garlic", "category": "produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Lilacs", "category": "flower_cut", "status": "Done", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Nettle", "category": "green", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Radish", "category": "produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Rhubarb (Farm)", "category": "produce", "status": "Done", "qty": "", "push": false, "market": {"price": 3.99, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 4.79, "ref_measurable": true, "per_lb": 3.99, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}]} /*__END__*/;
 
 var MIC='<svg class="ic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
@@ -46083,6 +46138,9 @@ function snapshot(){
 }
 function applyState(x){
   if(!x)return;
+  try{ if(x.updated_srv&&x.updated_srv.toDate)window.__REMY_LAST_TOUCH=x.updated_srv.toDate();
+       else if(x.updated_at)window.__REMY_LAST_TOUCH=new Date(x.updated_at);
+       if(typeof _refreshMeta==='function')_refreshMeta(); }catch(_mt){}
   if(x.farm_profile&&typeof x.farm_profile==='object'){
     var _incoming=x.farm_profile, _hasContent=!!((_incoming.story||'').trim()||(_incoming.grow_methods||[]).length||(_incoming.certifications||'').trim()||(_incoming.region_season||'').trim());
     var _localHas=!!((farmProfile&&(farmProfile.story||'').trim())||(farmProfile&&(farmProfile.grow_methods||[]).length));
@@ -46391,6 +46449,7 @@ function fbSave(){try{var x=snapshot();
    set, and the next tap wrote the null back to the cloud. ONE READER, and it is applyRemote. */
 function fbLoad(){try{FB.db.collection('farmAvailability').doc(BUYER).get().then(function(d){
   window._REMY_CLOUD_LOADED=true;                    // a real read landed, empty doc included
+  try{_listOrderLock=null;}catch(e){}                // re-derive the sell order off REAL statuses
   if(d&&d.exists)applyRemote(d);
   _cloudSettled=true;
   try{flushCloud();}catch(e){}      // now there is a baseline to diff a queued save against
@@ -46499,6 +46558,7 @@ function applyRemote(d){ try{
     if(_asEditing()){ _asDeferred=d; return; }           // hold it until the edit lands
     _asDeferred=null;
     window._REMY_CLOUD_LOADED=true;
+    try{_listOrderLock=null;}catch(e){}
     _asApplying=true;
     try{ _reapItems(x); applyState(x); _asRender(); } finally { _asApplying=false; }
     /* Persist what we just applied. Every other mutator of grow/byName reaches lsSave() through
@@ -46640,31 +46700,41 @@ function renderRestaurants(){
       +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:2px">'+(meta||'No pricing set yet')+'</div></div>'
       +'<span style="flex:0 0 auto;color:var(--ink-45,#8893ad);font-size:20px">&rsaquo;</span></button>';
   }).join('');
-  // San Fermo pinned first (2026-08-19): the same file at ?embed=preview IS the staff-portal
-  // surface, so the iframe shows exactly what the kitchen sees. Lazy src; sends are refused
-  // in preview windows (RemyOrders.place guard).
-  var sfRow='<button class="cr-sfrow" id="cr-sf" style="width:100%;text-align:left;display:flex;align-items:center;gap:12px;padding:16px 15px;margin-bottom:10px;border-radius:14px;border:1px solid rgba(155,176,106,.4);background:rgba(155,176,106,.07);cursor:pointer">'
+  // San Fermo pinned first (2026-08-19 rev2, Sam): a normal restaurant panel — the BASELINE.
+  // The iframe preview is retired (the Fresh sheet covers "what do buyers see").
+  var sfRow='<button class="cr-row" data-tid="san_fermo" style="width:100%;text-align:left;display:flex;align-items:center;gap:12px;padding:16px 15px;margin-bottom:10px;border-radius:14px;border:1px solid rgba(155,176,106,.4);background:rgba(155,176,106,.07);cursor:pointer">'
     +'<div style="flex:1 1 auto;min-width:0"><div style="font-family:var(--fd,serif);font-size:18px;color:var(--ink,#eaf0ff)">San Fermo</div>'
-    +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:2px">Your kitchen &middot; see your sheet exactly as they see it</div></div>'
-    +'<span style="flex:0 0 auto;color:var(--ink-45,#8893ad);font-size:20px">&#9662;</span></button>'
-    +'<div id="sf-preview" style="display:none;margin:-2px 0 14px">'
-    +'<div style="font-family:var(--fb,sans-serif);font-size:11.5px;color:var(--ink-45,#8893ad);margin:0 0 6px">Live preview &middot; browsing works, ordering is disabled in here.</div>'
-    +'<iframe id="sf-preview-frame" title="Remy as San Fermo sees it" style="width:100%;height:70vh;border:1px solid var(--ink-12,rgba(255,255,255,.12));border-radius:14px;background:#0a1028"></iframe>'
-    +'</div>';
+    +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0);margin-top:2px">Baseline &middot; pays your ask; other restaurants price against it</div></div>'
+    +'<span style="flex:0 0 auto;color:var(--ink-45,#8893ad);font-size:20px">&rsaquo;</span></button>';
   host.innerHTML='<div class="vh">Connected restaurants</div>'
     +'<div class="vh-sub">Wholesale buyers that order from you through their own Remy window. Tap one to set its pricing.</div>'
     +sfRow
     +(rows||'<div style="padding:16px 2px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-60,#9aa6c0)">No connected restaurants yet.</div>')
     +'<div style="margin-top:14px;font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-45,#8893ad);line-height:1.5">To connect a new restaurant, its private login is set up once on the back end, then it shows up here to price.</div>';
   host.querySelectorAll('.cr-row').forEach(function(b){ b.onclick=function(){ _rTab.tid=b.dataset.tid; _rFilter='all'; _rCatFilter='all'; renderRestaurants(); }; });
-  var sfb=host.querySelector('#cr-sf');
-  if(sfb)sfb.onclick=function(){ var p=host.querySelector('#sf-preview'); if(!p)return;
-    var open=(p.style.display!=='none');
-    p.style.display=open?'none':'block';
-    if(!open){ var f=host.querySelector('#sf-preview-frame');
-      if(f&&!f.getAttribute('src'))f.setAttribute('src', location.pathname+'?embed=preview'); } };
+}
+function renderSFBaseline(host){
+  var back='<button id="crb-back" style="background:none;border:none;color:var(--ink-60,#9aa6c0);font-family:var(--fb,sans-serif);font-size:13px;cursor:pointer;padding:4px 0 10px">&larr; Restaurants</button>';
+  var rows=grow.filter(function(g){return (g.status||'')!=='Done'&&(g.status||'')!=='Not Yet';}).slice().sort(_sellSort).map(function(g){
+    var jn=String(g.name).replace(/"/g,'&quot;');
+    var priced=(g.ask!=null&&g.ask!=='');
+    var lockNote=g.locked?' &middot; &#128274; auto':'';
+    return '<div style="display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.07)">'
+      +'<div style="flex:1 1 auto;min-width:0"><div style="font-family:var(--fd,serif);font-size:16px;color:var(--ink,#eaf0ff)">'+g.name+'</div>'
+      +'<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60,#9aa6c0)">'+(g.status||'')+lockNote+'</div></div>'
+      +'<span style="flex:0 0 auto;font-family:var(--fb,sans-serif);font-size:15px;font-weight:600;color:var(--ink,#eaf0ff)">'+(priced?('$'+Number(g.ask).toFixed(2)+(g.askUnit?('<small style="font-weight:400;color:var(--ink-45,#8893ad)">/'+g.askUnit+'</small>'):'')):'<span style="color:var(--gold,#c9a227);font-size:12px">no price</span>')+'</span>'
+      +'<button class="sfb-adj" data-n="'+jn+'" style="flex:0 0 auto;font-family:var(--fb,sans-serif);font-size:12px;padding:8px 11px;border-radius:9px;cursor:pointer;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--ink-70,#aab4cc)">Adjust</button>'
+      +'</div>';
+  }).join('');
+  host.innerHTML=back+'<div class="vh">San Fermo</div>'
+    +'<div class="vh-sub">The baseline. San Fermo pays your ask exactly as set in Pricing; every other restaurant is marked up or down against these numbers.</div>'
+    +rows;
+  var bk=host.querySelector('#crb-back'); if(bk)bk.onclick=function(){_rTab.tid=null;renderRestaurants();};
+  host.querySelectorAll('.sfb-adj').forEach(function(b){ b.onclick=function(){ var g=byName[b.dataset.n];
+    if(g&&g.prepped&&typeof ptOpen==='function')ptOpen(b.dataset.n); else if(typeof atOpen==='function')atOpen(b.dataset.n); }; });
 }
 function renderRestaurantDetail(host,tid){
+  if(tid==='san_fermo'){ renderSFBaseline(host); return; }
   var ov=tenantOverrides[tid]||(tenantOverrides[tid]={});
   if(ov.markupPct==null)ov.markupPct=25; ov.items=ov.items||{};
   function unit(g){return (g&&g.askUnit)?('/'+g.askUnit):'';}
@@ -47129,8 +47199,7 @@ function setEditMode(on){
   editMode=on;if(on){setPhotoMode(false);if(typeof setStockMode==='function')setStockMode(false);}
   var b=document.getElementById('edit-mode-toggle');if(b){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
   var i=document.getElementById('list-intro');
-  if(i)i.innerHTML=on?'Edit mode &mdash; &ldquo;Won&rsquo;t have it&rdquo; hides a crop for now (set its status to bring it back). Crops you added show <b>Delete</b>.'
-                     :'Everything you&rsquo;re growing. Tap a status to change it, <b>&#9733;</b> to push. Pricing lives in the Pricing tab.';
+  if(i)i.innerHTML=on?'Edit mode &mdash; change a crop&rsquo;s type, or delete the ones you added.':'';
   renderList();
 }
 /* Farm-side "By type" view — group the full crop list into collapsible category sections (Sam, 2026-06-27). */
@@ -47177,6 +47246,9 @@ function ngSave(){
   var nm=document.getElementById('ng-name');if(nm)nm.addEventListener('keydown',function(e){if(e.key==='Enter')ngSave();});
   var e=document.getElementById('edit-mode-toggle');if(e)e.onclick=function(){setEditMode(!editMode);};
   var stm=document.getElementById('stock-mode-toggle');if(stm)stm.onclick=function(){setStockMode(!stockMode);};
+  var ftg=document.getElementById('filter-toggle');if(ftg)ftg.onclick=function(){_listFiltOpen=!_listFiltOpen;
+    if(!_listFiltOpen){listFilter='all';listCatFilter='all';}
+    ftg.classList.toggle('on',_listFiltOpen);ftg.setAttribute('aria-pressed',_listFiltOpen?'true':'false');renderList();};
   var bt=document.getElementById('bytype-toggle');if(bt)bt.onclick=function(){setListByType(!listByType);};
 })();
 
@@ -48001,42 +48073,81 @@ function _fsData(){
   try{ live.sort(_sellSort); }catch(e){}
   return {live:live,coming:coming,unpriced:unpriced,nostock:nostock,soldout:soldout};
 }
+var _fsCat='all';   // fresh-sheet focused view (Sam 2026-08-20: per-type view for mobile)
 function _fsHeadHTML(fs){
   var chips='';
   function chip(list,label,go,cls){ if(!list.length)return '';
     return '<button class="fs-chip '+cls+'" data-fsgo="'+go+'" title="'+list.join(', ').replace(/"/g,'&quot;')+'">'+list.length+' '+label+' &rsaquo;</button>'; }
   chips+=chip(fs.unpriced,'unpriced','pricing','warn');
-  chips+=chip(fs.soldout,'sold out but listed','inventory','out');
-  chips+=chip(fs.nostock,'no stock set','inventory','dim');
-  return '<div class="fs-stat">'+fs.live.length+' item'+(fs.live.length===1?'':'s')+' live to buyers'
+  chips+=chip(fs.soldout,'sold out','inventory','out');
+  return '<div class="fs-stat">'+_liveWeek()+' &middot; '+fs.live.length+' item'+(fs.live.length===1?'':'s')+' offered'
     +(fs.coming.length?(' &middot; '+fs.coming.length+' coming soon'):'')+'</div>'
-    +(chips?('<div class="fs-chips">'+chips+'</div>'):'')
-    +'<div class="fs-sec">Pushed to the top</div>';
+    +(chips?('<div class="fs-chips">'+chips+'</div>'):'');
 }
-function _fsRowsHTML(fs){
+function _fsSheetHTML(fs){
   var inv=window.__REMY_INV||{};
-  function row(g,comingSoon){
+  // category chips: only types present among live items
+  var present={}; fs.live.forEach(function(g){present[g.category||'other']=1;});
+  var chips='<button class="fs-tchip'+(_fsCat==='all'?' on':'')+'" data-fscat="all">Full sheet</button>';
+  catTypes().forEach(function(t){ if(present[t.k])chips+='<button class="fs-tchip'+(_fsCat===t.k?' on':'')+'" data-fscat="'+t.k+'">'+t.l+'</button>'; });
+  Object.keys(present).sort().forEach(function(k){ if(k!=='other'&&catTypeOrder(k)===99)chips+='<button class="fs-tchip'+(_fsCat===k?' on':'')+'" data-fscat="'+k+'">'+catTypeLabel(k)+'</button>'; });
+  if(present.other)chips+='<button class="fs-tchip'+(_fsCat==='other'?' on':'')+'" data-fscat="other">Other</button>';
+  function line(g,comingSoon){
     var n=String(g.name).replace(/"/g,'&quot;');
     var iv=inv[g.name]||{};
     var unit=g.askUnit||iv.unit||'';
     var priced=(g.ask!=null&&g.ask!=='');
-    var stock=(iv.stock==null)?'':(iv.remaining!=null&&Number(iv.remaining)<=0?' &middot; <b class="fs-warn">sold out</b>'
-              :(iv.remaining!=null?(' &middot; '+(Math.round(iv.remaining*100)/100)+(unit?(' '+unit):'')+' left'):''));
-    var sub=comingSoon
-      ? (g.teaser?('<i>&ldquo;'+g.teaser+'&rdquo;</i>'):'buyers can look, not order')
-      : (g.status+' &middot; '+(priced?('$'+Number(g.ask).toFixed(2)+(unit?('/'+unit):'')):'<b class="fs-warn">no price</b>')+stock);
-    var marks=(g.photo?' <span class="fs-mk">&#128247;</span>':'')+(g.voiceText||g.voice?' <span class="fs-mk">&#127908;</span>':'');
-    var acts=comingSoon?'':('<button class="fs-act '+(g.prepped?'price-btn':'ask-btn')+'" data-n="'+n+'" title="Price">$</button>'
-      +'<button class="fs-act photo-btn" data-n="'+n+'" title="Photo">&#128247;</button>'
-      +'<button class="fs-act voice-btn" data-n="'+n+'" title="Voice note">&#127908;</button>'
-      +'<button class="fs-act method-btn" data-n="'+n+'" title="Details">&#127793;</button>');
-    return '<div class="fs-row"><div class="fs-main"><div class="fs-name">'+g.name+marks+'</div><div class="fs-sub">'+sub+'</div></div>'+acts+'</div>';
+    var sold=(iv.stock!=null&&iv.remaining!=null&&Number(iv.remaining)<=0);
+    var star=pushed.has(g.name)?'<span class="sh-star">&#9733;</span> ':'';
+    var marks=(g.photo?' <span class="fs-mk">&#128247;</span>':'')+((g.voiceText||g.voice)?' <span class="fs-mk">&#127908;</span>':'');
+    var right=comingSoon
+      ? '<span class="sh-soon">'+(g.teaser?('&ldquo;'+g.teaser+'&rdquo;'):'coming soon')+'</span>'
+      : (priced?('<span class="sh-price">$'+Number(g.ask).toFixed(2)+(unit?('<small>/'+unit+'</small>'):'')+'</span>'):'<span class="sh-price fs-warn">&mdash;</span>');
+    return '<div class="sh-row'+(sold?' sold':'')+'" data-fsrow="'+n+'">'
+      +'<span class="sh-name">'+star+g.name+marks+(sold?' <span class="sh-soldtag">sold out</span>':'')+'</span>'
+      +'<span class="sh-dots"></span>'+right+'</div>';
   }
-  var rest=fs.live.filter(function(g){return !pushed.has(g.name);});
-  var h='';
-  if(rest.length)h+='<div class="fs-sec">On the sheet</div>'+rest.map(function(g){return row(g,false);}).join('');
-  if(fs.coming.length)h+='<div class="fs-sec">Coming soon &middot; buyers can look, not order</div>'+fs.coming.map(function(g){return row(g,true);}).join('');
+  var groups={}; fs.live.forEach(function(g){ var k=g.category||'other'; (groups[k]=groups[k]||[]).push(g); });
+  var cats=Object.keys(groups).sort(function(a,b){return (catTypeOrder(a)-catTypeOrder(b))||catTypeLabel(a).localeCompare(catTypeLabel(b));});
+  var h='<div class="fs-tchips">'+chips+'</div><div class="sh-page">';
+  cats.forEach(function(c){
+    if(_fsCat!=='all'&&_fsCat!==c)return;
+    var arr=groups[c].slice().sort(function(a,b){return a.name.localeCompare(b.name);});
+    h+='<div class="sh-cat">'+catTypeLabel(c)+'</div>'+arr.map(function(g){return line(g,false);}).join('');
+  });
+  if(fs.coming.length&&(_fsCat==='all')){
+    h+='<div class="sh-cat">Coming soon</div>'+fs.coming.map(function(g){return line(g,true);}).join('');
+  }
+  h+='</div>';
   return h;
+}
+/* item action sheet — the old push-card affordances, one tap away from the sheet */
+function _fsSheetOpen(name){
+  var g=byName[name]; if(!g)return;
+  var old=document.getElementById('fs-actionsheet'); if(old)old.remove();
+  var jn=String(name).replace(/"/g,'&quot;');
+  var wrap=document.createElement('div'); wrap.id='fs-actionsheet';
+  wrap.innerHTML='<div class="fsa-back"></div><div class="fsa-card">'
+    +'<div class="fsa-name">'+g.name+'</div>'
+    +'<div class="fsa-sub">'+(g.status||'')+((g.ask!=null&&g.ask!=='')?(' &middot; $'+Number(g.ask).toFixed(2)+(g.askUnit?('/'+g.askUnit):'')):' &middot; no price')+'</div>'
+    +'<button class="fsa-btn" data-fsa="price">'+((g.ask!=null&&g.ask!=='')?'Edit price':'Set price')+'</button>'
+    +'<button class="fsa-btn" data-fsa="push">'+(pushed.has(name)?'&#9733; Un-push':'&#9734; Push to the top')+'</button>'
+    +'<button class="fsa-btn" data-fsa="photo">'+(g.photo?'Photo &middot; view / replace':'Add a photo')+'</button>'
+    +'<button class="fsa-btn" data-fsa="voice">'+(g.voiceText?'Edit voice note':'Voice note')+'</button>'
+    +'<button class="fsa-btn" data-fsa="details">&#127793; Listing details</button>'
+    +'<button class="fsa-btn fsa-close" data-fsa="close">Close</button></div>';
+  document.body.appendChild(wrap);
+  function close(){ try{wrap.remove();}catch(e){} }
+  wrap.querySelector('.fsa-back').onclick=close;
+  wrap.querySelectorAll('[data-fsa]').forEach(function(b){ b.onclick=function(){
+    var a=b.getAttribute('data-fsa'); close();
+    if(a==='price'){ if(g.prepped&&typeof ptOpen==='function')ptOpen(name); else if(typeof atOpen==='function')atOpen(name); }
+    else if(a==='push'){ if(pushed.has(name)){pushed.delete(name);markdown.delete(name);}else{pushed.add(name);}
+      persist(); renderPush(); if(typeof renderList==='function')renderList(); if(typeof renderPick==='function')renderPick(); }
+    else if(a==='photo'){ if(g.photo&&typeof openPhotoView==='function')openPhotoView(name); else if(typeof pickPhoto==='function')pickPhoto(name); }
+    else if(a==='voice'){ if(typeof vtOpen==='function')vtOpen(name); }
+    else if(a==='details'){ if(typeof methodOpen==='function')methodOpen(name); }
+  };});
 }
 function renderPush(){
   var el=document.getElementById('push-list');el.innerHTML='';
@@ -48045,9 +48156,10 @@ function renderPush(){
      triggered by a remote snapshot could still publish. Capture the flag at schedule time. */
   if(fmNeed()){ var _wasApply=_asApplying; fmFetch(function(feed){ fmApply(feed); if(!_wasApply&&typeof autoTuneLocked==='function')autoTuneLocked(); renderPush(); if(typeof updatePricingSeg==='function')updatePricingSeg(); }); }
   var fs=_fsData();
-  el.innerHTML=_fsHeadHTML(fs);
-  var names=Array.from(pushed);
-  if(!names.length)el.insertAdjacentHTML('beforeend','<div class="empty-push">Nothing pushed this week &mdash; star &#9733; items in the Full list to feature them.</div>');
+  el.innerHTML=_fsHeadHTML(fs)+_fsSheetHTML(fs);
+  el.querySelectorAll('[data-fscat]').forEach(function(b){b.onclick=function(){_fsCat=b.getAttribute('data-fscat');renderPush();};});
+  el.querySelectorAll('[data-fsrow]').forEach(function(r){r.onclick=function(){_fsSheetOpen(r.getAttribute('data-fsrow'));};});
+  var names=[];   // push-card list retired 2026-08-20 — the sheet + action sheet replace it
   names.forEach(function(n){
     var g=byName[n]||{name:n,qty:''};
     var md=markdown.has(n);
@@ -48070,7 +48182,6 @@ function renderPush(){
       '</div>';
     el.appendChild(c);
   });
-  el.insertAdjacentHTML('beforeend',_fsRowsHTML(fs));
   el.querySelectorAll('[data-fsgo]').forEach(function(b){b.onclick=function(){setView(b.getAttribute('data-fsgo'));};});
   el.querySelectorAll('.pc-x').forEach(function(b){b.onclick=function(){pushed.delete(b.dataset.n);markdown.delete(b.dataset.n);persist();renderPush();renderPick();renderList();};});
   el.querySelectorAll('.ask-btn').forEach(function(b){b.onclick=function(){atOpen(b.dataset.n);};});
@@ -48252,7 +48363,8 @@ function _statCtl(g){
   return '<span class="status '+cls+' stwrap" data-n="'+g.name+'"><span class="st-label">'+cur+' \u25BE</span>'
     +'<select class="st-sel" data-n="'+g.name+'" aria-label="Status">'+opts+'</select></span>';
 }
-var _listOrderLock=null;   // name -> index, captured at the first flat render, reset only by reload
+var _listOrderLock=null;   // name -> index; re-derived on cloud settle + each Full-list entry (2026-08-19)
+var _listFiltOpen=false;   // filter chips collapsed by default (Sam 2026-08-19)
 function _lockOrder(){ if(_listOrderLock)return; _listOrderLock={};
   grow.slice().sort(_sellSort).forEach(function(g,i){_listOrderLock[g.name]=i;}); }
 function _lockedSort(a,b){ var ia=_listOrderLock[a.name], ib=_listOrderLock[b.name];
@@ -48269,7 +48381,7 @@ function lrowNode(g){
     r.innerHTML=
       '<div class="lr-main"><div class="lr-name">'+g.name+(g._added?' <span class="lr-mine">added</span>':'')+'</div>'+(g.qty?'<div class="lr-qty">'+g.qty+'</div>':'')+'</div>'+
       _statCtl(g)+
-      '<button class="lr-rm'+(g._added?' del':'')+'" data-n="'+g.name+'">'+(g._added?'Delete':'Won&rsquo;t have it')+'</button>'+
+      (g._added?('<button class="lr-rm del" data-n="'+g.name+'">Delete</button>'):'')+
       '<div style="flex-basis:100%;display:flex;align-items:center;gap:7px;margin-top:2px"><span style="font-family:var(--fb);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40,#717c96)">Type</span><select class="lr-cat" data-n="'+g.name+'" aria-label="Type">'+_opts+'</select></div>';
   } else if(stockMode){
     var _iv=(window.__REMY_INV&&window.__REMY_INV[g.name])||{};
@@ -48296,7 +48408,7 @@ function lrowNode(g){
 function renderList(){
   var el=document.getElementById('list-rows');el.innerHTML='';
   var fc=document.getElementById('list-filters');
-  if(fc){ fc.style.display='block'; fc.style.overflow='visible';
+  if(fc){ fc.style.display=_listFiltOpen?'block':'none'; fc.style.overflow='visible';
     var teBtn=listByType?('<button class="lfchip" id="type-edit-toggle" style="border-style:dashed">'+(typeEditOpen?'Done editing types':'Edit types')+'</button>'):'';
     fc.innerHTML='<div class="lfilters" style="margin:0 0 6px">'+_filterChips(listFilter)+'</div>'
       +'<div class="lfilters" style="margin:0">'+_catChips(listCatFilter)+teBtn+'</div>'
@@ -48510,34 +48622,36 @@ function _invMaybeWeeklyReset(){ try{
   if((meta.last_weekly_reset||0)>=b)return;
   _invResetTried=true;                                  // one attempt per page load
   var inv=window.__REMY_INV||{}; var patch={}, n=0;
-  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!(iv.par>0))return;
-    patch[k]={stock:iv.par, remaining:iv.par}; n++; });
+  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!_invEnrolled(iv)||!(iv.stock>0))return;
+    patch[k]={remaining:iv.stock}; n++; });
   var doc={last_weekly_reset:b, farm_id:'swan_house', updated_at:Date.now()};
   if(n)doc.items=patch;
   FB.db.collection('farmInventory').doc('swan_house').set(doc,{merge:true}).catch(function(){});
   if(n)try{console.log('[inv] weekly par reset:',n,'items');}catch(e){}
 }catch(e){} }
-function _invSetPar(name,val){ try{ if(!(FB.db)||!name)return;
-  var v=(val==null||String(val).trim()==='')?null:parseFloat(val);
-  if(v!=null&&(isNaN(v)||v<0))return;
-  var patch={}; patch[name]={par:v};
+/* Weekly enrollment (Sam 2026-08-20): the stock Kelly sets IS the refill level, so par is
+   gone. wk===true enrolls; legacy pars she already entered count as enrolled (wk==null&&par>0)
+   — her setup carries over with no data migration. */
+function _invEnrolled(iv){ return !!(iv&&(iv.wk===true||(iv.wk==null&&iv.par>0))); }
+function _invSetWk(name,on){ try{ if(!(FB.db)||!name)return;
+  var patch={}; patch[name]={wk:!!on};
   FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
 }catch(e){} }
-function _invRefill(name){ try{ var iv=_invRec(name); if(!iv||!(iv.par>0)||!(FB.db))return;
-  var unit=((byName[name]&&byName[name].askUnit)||iv.unit||'');
-  var patch={}; patch[name]={stock:iv.par, remaining:iv.par, unit:unit};
+function _invRefill(name){ try{ var iv=_invRec(name); if(!iv||!(iv.stock>0)||!(FB.db))return;
+  var patch={}; patch[name]={remaining:iv.stock};
   FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
 }catch(e){} }
 function _invRefillAll(){ try{ if(!(FB.db))return; var inv=window.__REMY_INV||{}; var patch={},n=0;
-  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!(iv.par>0))return; patch[k]={stock:iv.par,remaining:iv.par}; n++; });
+  Object.keys(inv).forEach(function(k){ var iv=inv[k]||{}; if(!_invEnrolled(iv)||!(iv.stock>0))return; patch[k]={remaining:iv.stock}; n++; });
   if(!n)return;
   FB.db.collection('farmInventory').doc('swan_house').set({items:patch,farm_id:'swan_house',updated_at:Date.now()},{merge:true}).catch(function(){});
 }catch(e){} }
 function _invState(name){ var iv=_invRec(name); if(!iv||iv.stock==null)return null;
   var rem=(iv.remaining!=null?Number(iv.remaining):null);
   var low=(rem!=null&&rem>0&&iv.stock>0&&rem/Number(iv.stock)<=0.2);
-  return {iv:iv, rem:rem, sold:(rem!=null&&rem<=0), low:low,
-          taken:(rem!=null&&iv.stock!=null?Math.max(0,Math.round((Number(iv.stock)-rem)*100)/100):null)}; }
+  var tk=(rem!=null&&iv.stock!=null)?Math.max(0,Math.round((Number(iv.stock)-rem)*100)/100):null;
+  if(tk!=null&&iv.stock>0&&tk>Number(iv.stock))tk=Number(iv.stock);   // negative-remaining display cap
+  return {iv:iv, rem:rem, sold:(rem!=null&&rem<=0), low:low, taken:tk}; }
 function renderInventory(){
   var el=document.getElementById('inv-body'); if(!el)return;
   var inv=window.__REMY_INV||{};
@@ -48551,39 +48665,40 @@ function renderInventory(){
     var ra=sa.sold?0:(sa.low?1:2), rb=sb.sold?0:(sb.low?1:2);
     if(ra!==rb)return ra-rb; return a.name.localeCompare(b.name); });
   untracked.sort(function(a,b){return a.name.localeCompare(b.name);});
-  var anyPar=Object.keys(inv).some(function(k){return (inv[k]||{}).par>0;});
+  var anyPar=Object.keys(inv).some(function(k){return _invEnrolled(inv[k]);});
   function jesc(s){return String(s).replace(/"/g,'&quot;');}
   function row(g){
     var jn=jesc(g.name), st=_invState(g.name), iv=st?st.iv:{};
     var unit=(iv.unit||(byName[g.name]&&byName[g.name].askUnit)||'');
     var uopts=(unit?'':'<option value="" selected disabled>unit</option>')+STK_UNITS.map(function(u){return '<option value="'+u+'"'+(u===unit?' selected':'')+'>'+u+'</option>';}).join('');
     if(unit&&STK_UNITS.indexOf(unit)<0)uopts='<option value="'+unit+'" selected>'+unit+'</option>'+uopts;
+    var en=_invEnrolled(iv);
     var sub;
-    if(st){ sub=(st.sold?'<b class="iv-out">sold out</b>':(st.rem!=null?(st.rem+(unit?(' '+unit):'')+' left'):''));
+    if(st){ sub=(st.sold?'<b class="iv-out">sold out</b>':(st.rem!=null?(Math.round(st.rem*100)/100+(unit?(' '+unit):'')+' left'):''));
       if(st.taken)sub+=' &middot; '+st.taken+' gone this week';
-      if(iv.par>0)sub+=' &middot; par '+iv.par;
+      if(en)sub+=' &middot; refills Thu';
       if(st.low)sub+=' &middot; <b class="iv-low">running low</b>'; }
     else sub='not tracked &mdash; set a stock to start';
     return '<div class="iv-row'+(st&&st.sold?' out':(st&&st.low?' low':''))+'">'
       +'<div class="iv-main"><div class="iv-name">'+g.name+'</div><div class="iv-sub">'+sub+'</div></div>'
       +'<input class="iv-in" data-ivs="'+jn+'" inputmode="decimal" placeholder="stock" value="'+(st&&iv.stock!=null?iv.stock:'')+'" aria-label="Stock">'
       +'<select class="iv-un" data-ivu="'+jn+'" aria-label="Sell unit">'+uopts+'</select>'
-      +'<input class="iv-in" data-ivp="'+jn+'" inputmode="decimal" placeholder="par" value="'+(st&&iv.par!=null?iv.par:'')+'" aria-label="Weekly par">'
-      +((st&&iv.par>0&&st.rem!=null&&st.rem<iv.par)?('<button class="iv-rf" data-ivr="'+jn+'">Refill</button>'):'<span class="iv-rfspace"></span>')
+      +(st?('<button class="iv-wk'+(en?' on':'')+'" data-ivw="'+jn+'" aria-pressed="'+(en?'true':'false')+'">'+(en?'&#128274;&#8202;Weekly':'Weekly')+'</button>'):'<span class="iv-rfspace"></span>')
+      +((st&&iv.stock>0&&st.rem!=null&&st.rem<Number(iv.stock))?('<button class="iv-rf" data-ivr="'+jn+'">Refill</button>'):'<span class="iv-rfspace"></span>')
       +'</div>';
   }
   var lastReset=meta.last_weekly_reset?new Date(meta.last_weekly_reset).toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'}):'';
   el.innerHTML='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Inventory</span><span class="pricing-sub">Swan House &middot; weekly stock</span></div>'
-    +'<div class="pricing-intro">Stock is what buyers draw down. Set a <b>par</b> and it refills itself every Wednesday night at midnight'+(lastReset?(' (last reset '+lastReset+')'):'')+'. Leave par empty to manage an item by hand.</div>'
+    +'<div class="pricing-intro">Stock is what buyers draw down. Tap <b>Weekly</b> on an item and it refills to its set stock every Wednesday night at midnight'+(lastReset?(' (last reset '+lastReset+')'):'')+'; everything else you refill by hand.</div>'
     +'<div class="p-searchwrap"><input id="iv-search" class="p-search" type="search" placeholder="Find an item&hellip;" value="'+jesc(_invQ)+'"><button id="iv-search-x" class="p-search-x" aria-label="Clear">&times;</button></div>'
-    +(anyPar?'<button class="p-sug" id="iv-refill-all" style="margin:2px 0 8px">Refill everything to par now</button>':'')
-    +'<div class="prow p3 phdr" style="grid-template-columns:1.6fr 64px 70px 58px 54px"><span>Item</span><span>Stock</span><span>Unit</span><span>Par</span><span></span></div>'
+    +(anyPar?'<button class="p-sug" id="iv-refill-all" style="margin:2px 0 8px">Refill all weekly items now</button>':'')
+    +'<div class="prow p3 phdr" style="grid-template-columns:1.55fr 60px 66px 74px 54px"><span>Item</span><span>Stock</span><span>Unit</span><span>Refill</span><span></span></div>'
     +(tracked.length?tracked.map(row).join(''):'<div class="empty-push">Nothing tracked yet'+(q?' matches':'')+'. Set a stock below to start.</div>')
     +(untracked.length?('<div class="px-h" style="margin:16px 0 4px">Not tracked</div>'+untracked.map(row).join('')):'')
     +'</div>';
   el.querySelectorAll('[data-ivs]').forEach(function(i){ i.onchange=function(){_stkSetItem(i.dataset.ivs,i.value);}; });
   el.querySelectorAll('[data-ivu]').forEach(function(s){ s.onchange=function(){_stkSetUnit(s.dataset.ivu,s.value);}; });
-  el.querySelectorAll('[data-ivp]').forEach(function(i){ i.onchange=function(){_invSetPar(i.dataset.ivp,i.value);}; });
+  el.querySelectorAll('[data-ivw]').forEach(function(b){ b.onclick=function(){ var iv=_invRec(b.dataset.ivw); _invSetWk(b.dataset.ivw,!_invEnrolled(iv)); }; });
   el.querySelectorAll('[data-ivr]').forEach(function(b){ b.onclick=function(){_invRefill(b.dataset.ivr);}; });
   var ra=el.querySelector('#iv-refill-all'); if(ra)ra.onclick=function(){_invRefillAll();};
   var si=el.querySelector('#iv-search');
@@ -48608,7 +48723,7 @@ function _homeInvLine(){ try{ var inv=window.__REMY_INV||{}; var names=Object.ke
     var r=(iv.remaining!=null?Number(iv.remaining):null); if(r==null)return;
     if(r<=0)out.push(n); else if(iv.stock>0&&r/Number(iv.stock)<=0.2)low.push(n); });
   if(!stocked)return {n:0,txt:'Set weekly stock and pars for what you sell.'};
-  if(!out.length&&!low.length)return {n:0,txt:stocked+' items stocked \u00b7 pars refill Thursday 12am.'};
+  if(!out.length&&!low.length)return {n:0,txt:stocked+' items stocked \u00b7 weekly items refill Thursday 12am.'};
   var txt=(out.length?('Sold out: '+out.slice(0,3).join(', ')+(out.length>3?(' +'+(out.length-3)):'')):'');
   if(low.length)txt+=(txt?' \u00b7 ':'')+'Low: '+low.slice(0,3).join(', ')+(low.length>3?(' +'+(low.length-3)):'');
   return {n:out.length+low.length,txt:txt+'.'}; }catch(e){ return {n:0,txt:''}; } }
@@ -48624,16 +48739,20 @@ function _homeWxLine(){ try{ var W=window.__REMY_WX; if(!W)return {n:0,txt:'Regi
 function _pdDismissed(g,mkl){ return g.driftDismiss!=null&&g.driftDismiss>0&&mkl>0&&Math.abs(mkl-g.driftDismiss)/g.driftDismiss<0.02; }
 function _pdPendingList(){ var out=[]; try{ grow.forEach(function(g){ if(g.pHide)return;
   var cs=compSrcChanged(g);
-  if(cs){ out.push({n:g.name,why:'comp flipped to '+(cs.to==='hub'?'local market':'Franks')+' ($'+cs.mkl.toFixed(2)+'/lb) &middot; held',act:'Follow to $'+cs.recAsk.toFixed(2)}); return; }
+  var un=(g.askUnit?('/'+g.askUnit):'');
+  function _big(rec){ var a=(g.ask==null||g.ask==='')?null:Number(g.ask);
+    return (a&&a>0)?(Math.abs(rec-a)/a*100>75):false; }
+  if(cs){ out.push({n:g.name,big:_big(cs.recAsk),why:'comp flipped to '+(cs.to==='hub'?'local market':'Franks')+' ($'+cs.mkl.toFixed(2)+'/lb) &middot; held',act:'Follow to $'+cs.recAsk.toFixed(2)+un}); return; }
   if(g.locked){ var lb=lockBandState(g);
-    if(lb&&!_pdDismissed(g,lb.mkl))out.push({n:g.name,why:'market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held',act:'Follow to $'+lb.recAsk.toFixed(2)}); return; }
+    if(lb&&!_pdDismissed(g,lb.mkl))out.push({n:g.name,big:_big(lb.recAsk),why:'market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held',act:'Follow to $'+lb.recAsk.toFixed(2)+un}); return; }
   var d=farmDrift(g);
   if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH&&!_pdDismissed(g,d.mkl))
-    out.push({n:g.name,why:'now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target',act:(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)});
+    out.push({n:g.name,big:_big(d.recAsk),why:'now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target',act:(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)+un});
  }); }catch(e){} return out; }
 function _pdUnackedEntry(g){ var L=g.driftLog||[]; if(!L.length)return null; var e=L[L.length-1]; return (e.auto&&e.t>(g.driftAck||0))?e:null; }
 function _pdUnackedList(){ var out=[]; try{ grow.forEach(function(g){ var e=_pdUnackedEntry(g);
-  if(e)out.push({n:g.name,f:(e.f==null?'&mdash;':Number(e.f).toFixed(2)),to:Number(e.to).toFixed(2),when:_pdWhen(e.t)}); }); }catch(e){} return out; }
+  if(!e)return; var p=(e.f&&e.f>0)?Math.round((e.to-e.f)/e.f*100):null;
+  out.push({n:g.name,f:(e.f==null?'&mdash;':Number(e.f).toFixed(2)),to:Number(e.to).toFixed(2),pct:p,when:_pdWhen(e.t)}); }); }catch(e){} return out; }
 function _pdVolatile(win){ var out=[],cut=Date.now()-win*86400000,seen={};
   try{ grow.forEach(function(g){ var r=fmRec(g); var h=r&&r.hist; if(!h||!h.pts||h.pts.length<2)return;
     if(seen[fmCanon(g.name)])return; seen[fmCanon(g.name)]=1;
@@ -48655,11 +48774,13 @@ function _pdCardHTML(){ try{
     var rows='';
     pend.slice(0,4).forEach(function(p){
       rows+='<div class="pd-row"><div class="pd-rt"><b>'+esc(p.n)+'</b> '+p.why+'</div>'+
-        '<div class="pd-ra"><button class="pd-btn ok" data-pda="'+esc(p.n)+'">'+p.act+'</button>'+
+        '<div class="pd-ra">'+(p.big
+          ?('<button class="pd-btn" data-pdr="'+esc(p.n)+'">Big move &middot; check comp</button>')
+          :('<button class="pd-btn ok" data-pda="'+esc(p.n)+'">'+p.act+'</button>'))+
         '<button class="pd-btn" data-pdd="'+esc(p.n)+'">Keep mine</button></div></div>';});
     if(pend.length>4)rows+='<div class="pd-more">+'+(pend.length-4)+' more in Pricing</div>';
     un.slice(0,4).forEach(function(u){
-      rows+='<div class="pd-row"><div class="pd-rt"><b>'+esc(u.n)+'</b> $'+u.f+' &rarr; $'+u.to+' &middot; auto, in band &middot; '+u.when+'</div>'+
+      rows+='<div class="pd-row"><div class="pd-rt"><b>'+esc(u.n)+'</b> $'+u.f+' &rarr; $'+u.to+' &middot; auto'+(u.pct!=null?(' '+(u.pct>=0?'+':'')+u.pct+'%'):'')+' &middot; '+u.when+'</div>'+
         '<div class="pd-ra"><button class="pd-btn" data-pdk="'+esc(u.n)+'">OK</button></div></div>';});
     if(un.length>1)rows+='<div class="pd-more"><button class="pd-btn" id="pd-ackall">OK to all auto moves</button></div>';
     inner='<div class="mc-label">Price drift</div><div class="mc-desc">'+
@@ -48672,9 +48793,56 @@ function _pdCardHTML(){ try{
     vol.slice(0,5).forEach(function(v){ vr+='<div class="pd-vrow"><span>'+esc(v.n)+'</span><span class="'+(v.pct>=0?'up':'down')+'">'+(v.pct>=0?'+':'')+Math.round(v.pct)+'%</span><span class="pd-vp">$'+v.a.toFixed(2)+' &rarr; $'+v.b.toFixed(2)+'/lb</span></div>'; });
     inner='<div class="mc-label">Price drift</div><div class="mc-desc">All quiet &middot; market moves, last '+(_pdWin===365?'year':(_pdWin+' days'))+'</div><div class="pd-chips">'+chips+'</div>'+(vr||'<div class="pd-more">No tracked history yet.</div>');
   }
-  return {active:active, html:'<div class="mode-card pd-card'+(active?' alert':'')+'" data-hv="pricing" style="animation-delay:__D__">'+
+  return {active:active, html:'<div class="mode-card pd-card'+(active?' alert':'')+'" data-hv="drift" style="animation-delay:__D__">'+
     (badge?('<div class="mc-badgechip">'+badge+'</div>'):'')+'<div class="mc-body">'+inner+'</div></div>'};
 }catch(e){ return null; } }
+function _pdSpark(pts,w,h){ try{ if(!pts||pts.length<2)return '';
+  var vals=pts.map(function(p){return p.p;}), mn=Math.min.apply(null,vals), mx=Math.max.apply(null,vals);
+  var span=(mx-mn)||1;
+  var xy=pts.map(function(p,i){ return (i/(pts.length-1)*w).toFixed(1)+','+((h-3)-((p.p-mn)/span*(h-6))+1.5).toFixed(1); });
+  return '<svg class="db-spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><polyline points="'+xy.join(' ')+'"/></svg>';
+}catch(e){ return ''; } }
+function pdReview(n){ try{_pExpanded[n]=true;}catch(e){} setView('pricing'); }
+function _pdBindActions(el,rerender){
+  el.querySelectorAll('[data-pda]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdApprove(b.dataset.pda);rerender();};});
+  el.querySelectorAll('[data-pdd]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdDismiss(b.dataset.pdd);rerender();};});
+  el.querySelectorAll('[data-pdk]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdAck(b.dataset.pdk);rerender();};});
+  el.querySelectorAll('[data-pdr]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdReview(b.dataset.pdr);};});
+}
+function renderDriftBoard(){
+  var el=document.getElementById('drift-body'); if(!el)return;
+  try{ if(typeof fmNeed==='function'&&fmNeed()&&typeof fmRefresh==='function')fmRefresh(); }catch(e){}
+  var pend=_pdPendingList(), un=_pdUnackedList();
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var h='<div class="pricing-wrap"><div class="pricing-head"><span class="pricing-h">Price drift</span><span class="pricing-sub">review board</span></div>';
+  if(pend.length){ h+='<div class="db-sec">Needs your call ('+pend.length+')</div>'+pend.map(function(p){
+    return '<div class="db-row"><div class="db-main"><b>'+esc(p.n)+'</b> '+p.why+'</div><div class="db-acts">'+
+      (p.big?('<button class="db-btn warn" data-pdr="'+esc(p.n)+'">Big move &middot; check comp</button>')
+            :('<button class="db-btn ok" data-pda="'+esc(p.n)+'">'+p.act+'</button>'))+
+      '<button class="db-btn" data-pdd="'+esc(p.n)+'">Keep mine</button></div></div>'; }).join('');
+  } else h+='<div class="db-sec">Needs your call</div><div class="px-dim" style="padding:6px 2px">Nothing waiting &mdash; you&rsquo;re caught up.</div>';
+  if(un.length){ h+='<div class="db-sec">Auto moves to note ('+un.length+')</div>'+un.map(function(u){
+    return '<div class="db-row"><div class="db-main"><b>'+esc(u.n)+'</b> $'+u.f+' &rarr; $'+u.to+' &middot; auto'+(u.pct!=null?(' '+(u.pct>=0?'+':'')+u.pct+'%'):'')+' &middot; '+u.when+'</div>'+
+      '<div class="db-acts"><button class="db-btn" data-pdk="'+esc(u.n)+'">OK</button></div></div>'; }).join('');
+    if(un.length>1)h+='<div style="padding:8px 2px"><button class="db-btn" id="db-ackall">OK to all</button></div>';
+  }
+  var chips=[30,60,90,365].map(function(w){return '<button class="pd-chip'+(w===_pdWin?' on':'')+'" data-w="'+w+'" style="border-color:var(--ink-12);color:var(--ink-70)">'+(w===365?'1 yr':(w+'d'))+'</button>';}).join('');
+  h+='<div class="db-sec">Market movement</div><div class="pd-chips" style="margin:6px 0 8px">'+chips+'</div>';
+  var vol=_pdVolatile(_pdWin), cut=Date.now()-_pdWin*86400000;
+  if(vol.length){ h+=vol.slice(0,10).map(function(v){
+      var g=byName[v.n], r=g?fmRec(g):null;
+      var pts=(r&&r.hist&&r.hist.pts)?r.hist.pts.filter(function(p){try{return new Date(p.d+'T12:00:00').getTime()>=cut;}catch(e){return false;}}):[];
+      return '<div class="db-vrow"><div style="flex:1;min-width:0"><div class="db-vname">'+esc(v.n)+'</div>'+
+        '<div class="db-vsub">$'+v.a.toFixed(2)+' &rarr; $'+v.b.toFixed(2)+'/lb'+((r&&r.vendor)?(' &middot; via '+esc(r.vendor)):'')+'</div></div>'+
+        _pdSpark(pts,110,30)+
+        '<span class="db-vpct '+(v.pct>=0?'up':'down')+'">'+(v.pct>=0?'+':'')+Math.round(v.pct)+'%</span></div>'; }).join('');
+  } else h+='<div class="px-dim" style="padding:6px 2px">No tracked comp history in this window yet.</div>';
+  h+='</div>';
+  el.innerHTML=h;
+  _pdBindActions(el,renderDriftBoard);
+  var aa=el.querySelector('#db-ackall'); if(aa)aa.onclick=function(){pdAckAll();renderDriftBoard();};
+  el.querySelectorAll('.pd-chip').forEach(function(b){b.onclick=function(){_pdWin=Number(b.dataset.w)||30;renderDriftBoard();};});
+}
 function renderHome(){
   var el=document.getElementById('home-cards'); if(!el)return;
   var who=window.__REMY_WHO||'';
@@ -48720,6 +48888,7 @@ function renderHome(){
     el.querySelectorAll('.pd-btn[data-pda]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdApprove(b.dataset.pda);};});
     el.querySelectorAll('.pd-btn[data-pdd]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdDismiss(b.dataset.pdd);};});
     el.querySelectorAll('.pd-btn[data-pdk]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdAck(b.dataset.pdk);};});
+    el.querySelectorAll('.pd-btn[data-pdr]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pdReview(b.dataset.pdr);};});
     var _pa=el.querySelector('#pd-ackall'); if(_pa)_pa.onclick=function(e){e.stopPropagation();pdAckAll();};
     el.querySelectorAll('.pd-chip').forEach(function(b){b.onclick=function(e){e.stopPropagation();_pdWin=Number(b.dataset.w)||30;_homeLast='';renderHome();};}); }
   var sw=document.getElementById('home-switch');
@@ -48739,6 +48908,10 @@ function setView(v){
   try{ requestAnimationFrame(function(){ try{ var _s=ROOT.querySelector('.seg'), _a=ROOT.querySelector('.seg button.on'); if(_s&&_a){ var _sr=_s.getBoundingClientRect(), _ar=_a.getBoundingClientRect(); var _t=_s.scrollLeft+(_ar.left-_sr.left)-(_s.clientWidth-_ar.width)/2; if(_s.scrollTo){_s.scrollTo({left:_t,behavior:'smooth'});}else{_s.scrollLeft=_t;} if(typeof _segFade==='function')_segFade(); } }catch(e){} }); }catch(e){}
   if(v==='home'){ renderHome(); try{startOrdersSync();}catch(e){}
     try{ if(typeof fmNeed==='function'&&fmNeed()&&typeof fmRefresh==='function')fmRefresh(); }catch(e){} }
+  try{ var _ap=document.getElementById('app'); if(_ap&&_ap.scrollLeft)_ap.scrollLeft=0; }catch(e){}
+  try{ document.body.classList.toggle('remy-home-live',v==='home'); }catch(e){}
+  if(v==='list'){ _listOrderLock=null; try{renderList();}catch(e){} }
+  if(v==='drift')renderDriftBoard();
   if(v==='inventory')renderInventory();
   if(v==='guided'){gi=0;renderGuided();}
   if(v==='orders'){startOrdersSync();renderOrders();}
@@ -48747,6 +48920,8 @@ function setView(v){
   if(v==='restaurants')renderRestaurants();
 }
 ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setView(b.dataset.view);};});
+(function(){var _hb=document.getElementById('fh-home');if(_hb)_hb.onclick=function(){setView('home');};
+  var _rw=document.getElementById('de-remy-farm');if(_rw)_rw.onclick=function(){setView('home');};})();
 // scroll affordance: fade the right edge while there's more pill bar to reveal (drops at the end)
 function _segFade(){try{var s=ROOT.querySelector('.seg');if(!s)return;s.classList.toggle('more-right',(s.scrollLeft+s.clientWidth)<(s.scrollWidth-2));}catch(e){}}
 try{var _segEl=ROOT.querySelector('.seg');if(_segEl){_segEl.addEventListener('scroll',_segFade,{passive:true});_segFade();}}catch(e){}
@@ -48754,10 +48929,20 @@ ROOT.querySelector('.guided-link').onclick=function(){fpSetupOpen();};
 document.getElementById('g-back').onclick=function(){setView('push');};
 
 /* "Swan House Farm" is now the header brand next to Remy; this top-right note carries the week */
-document.getElementById('fh-week').textContent=(DATA.week||'');
-document.getElementById('meta').innerHTML='Live from your Swan House sheet <span class="dot">&middot;</span> last touched '+(DATA.kelly_last_touch||'?')+' <span class="dot">&middot;</span> '+grow.length+' crops, '+DATA.market_count+' with a market comp';
+function _liveWeek(){ var d=new Date(), m=new Date(d); m.setDate(d.getDate()-((d.getDay()+6)%7));
+  return 'week of '+m.toLocaleDateString('en-US',{month:'long',day:'numeric'}); }
+function _refreshMeta(){
+  try{ document.getElementById('fh-week').textContent=_liveWeek(); }catch(e){}
+  try{ var lt=window.__REMY_LAST_TOUCH?(' <span class="dot">&middot;</span> last touched '+window.__REMY_LAST_TOUCH.toLocaleDateString('en-US',{month:'numeric',day:'numeric'})):'';
+    var mc=0; try{ grow.forEach(function(g){ if(_pHasMkt(g))mc++; }); }catch(e2){}
+    document.getElementById('meta').innerHTML='Live from your Swan House sheet'+lt+' <span class="dot">&middot;</span> '+grow.length+' crops, '+mc+' with a market comp';
+  }catch(e){}
+}
+_refreshMeta();
+
 
 applyState(lsLoad());
+try{ var _gl=ROOT.querySelector('.guided-link'); if(_gl&&farmProfile&&farmProfile.completed_at)_gl.textContent='Edit farm profile \u2192'; }catch(e){}
 /* Restore what the server was last CONFIRMED to hold, alongside the sheet itself. Without this the
    first snapshot of a session can never be recognised as carrying another device's deletion, and
    the crop is republished on the next tap — the cold-start hole Bones found in round 5. */
@@ -48823,19 +49008,41 @@ function renderOrders(){
   var c=document.getElementById('orders-rows');if(!c)return;
   if(!(FB&&FB.ready&&FB.db)){c.innerHTML='<div class="io-empty">Connecting to the order feed&hellip;</div>';return;}
   var visible=ordersData.filter(function(o){var s=o.status||'placed';return s!=='cancelled'&&s!=='merged';});   // cancelled + merged hidden (clutter)
-  var farm=visible.filter(ordIsFarmDinner), rest=visible.filter(function(o){return !ordIsFarmDinner(o);});
+  // finalized invoices leave the working queues and file under Invoices (Sam 2026-08-20)
+  var invd=visible.filter(ordIsInvoiced), act=visible.filter(function(o){return !ordIsInvoiced(o);});
+  var farm=act.filter(ordIsFarmDinner), rest=act.filter(function(o){return !ordIsFarmDinner(o);});
   if(ordersSrc==='farm_dinner'&&!farm.length)ordersSrc='restaurant';
-  var seg=farm.length?('<div style="display:flex;gap:8px;margin-bottom:12px">'+
-    '<button class="io-srcb" data-src="restaurant" style="flex:1;padding:9px;border-radius:10px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:13px;border:1px solid '+(ordersSrc==='restaurant'?'rgba(255,255,255,.5)':'rgba(255,255,255,.15)')+';background:'+(ordersSrc==='restaurant'?'rgba(255,255,255,.1)':'transparent')+';color:var(--ink,#eaf0ff)">Restaurant ('+rest.length+')</button>'+
-    '<button class="io-srcb" data-src="farm_dinner" style="flex:1;padding:9px;border-radius:10px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:13px;border:1px solid '+(ordersSrc==='farm_dinner'?'rgba(155,176,106,.7)':'rgba(255,255,255,.15)')+';background:'+(ordersSrc==='farm_dinner'?'rgba(155,176,106,.16)':'transparent')+';color:var(--ink,#eaf0ff)">Farm dinners ('+farm.length+')</button>'+
+  if(ordersSrc==='invoices'&&!invd.length)ordersSrc='restaurant';
+  function _segb(key,label,n,on,tint){ return '<button class="io-srcb" data-src="'+key+'" style="flex:1;padding:9px;border-radius:10px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:13px;border:1px solid '+(on?(tint||'rgba(255,255,255,.5)'):'rgba(255,255,255,.15)')+';background:'+(on?(tint?tint.replace(/[\d.]+\)$/,'0.16)'):'rgba(255,255,255,.1)'):'transparent')+';color:var(--ink,#eaf0ff)">'+label+' ('+n+')</button>'; }
+  var seg=(farm.length||invd.length)?('<div style="display:flex;gap:8px;margin-bottom:12px">'+
+    _segb('restaurant','Restaurant',rest.length,ordersSrc==='restaurant')+
+    (farm.length?_segb('farm_dinner','Farm dinners',farm.length,ordersSrc==='farm_dinner','rgba(155,176,106,.7)'):'')+
+    (invd.length?_segb('invoices','Invoices',invd.length,ordersSrc==='invoices','rgba(201,162,39,.7)'):'')+
     '</div>'):'';
-  var show=ordersSrc==='farm_dinner'?farm:rest;
+  var show=ordersSrc==='farm_dinner'?farm:(ordersSrc==='invoices'?invd:rest);
   // keep selections valid: only ids still visible in the current segment
   Object.keys(ordersSel).forEach(function(id){if(!show.some(function(o){return o.order_id===id;}))delete ordersSel[id];});
   var selCount=Object.keys(ordersSel).length;
-  var selToggle=(show.length>=2)?('<div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="io-selbtn" style="background:none;border:1px solid rgba(255,255,255,.2);color:var(--ink-70,#aab4cc);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:12px">'+(ordersSelMode?'Done':'Select to combine')+'</button></div>'):'';
+  var selToggle=(ordersSrc!=='invoices'&&show.length>=2)?('<div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="io-selbtn" style="background:none;border:1px solid rgba(255,255,255,.2);color:var(--ink-70,#aab4cc);border-radius:9px;padding:7px 12px;cursor:pointer;font-family:var(--fb,sans-serif);font-size:12px">'+(ordersSelMode?'Done':'Select to combine')+'</button></div>'):'';
   var combineBar=ordersSelMode?('<div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;padding:10px 12px;border-radius:11px;background:rgba(58,90,122,.18);border:1px solid rgba(58,90,122,.5)"><span style="flex:1;font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink-80,#c4cde2)">'+(selCount?(selCount+' selected'):'Tap orders to combine')+'</span><button class="io-combine" '+(selCount<2?'disabled':'')+' style="font-family:var(--fb,sans-serif);font-size:14px;padding:9px 16px;border-radius:10px;cursor:'+(selCount<2?'default':'pointer')+';border:none;background:'+(selCount<2?'rgba(255,255,255,.12)':'var(--ink,#eaf0ff)')+';color:'+(selCount<2?'var(--ink-50,#8893ad)':'#06101f')+';font-weight:600">Combine'+(selCount>=2?(' ('+selCount+')'):'')+'</button></div>'):'';
-  var body=show.length?show.map(orderCard).join(''):('<div class="io-empty">'+(ordersSrc==='farm_dinner'?'No farm-dinner harvests yet. When Kelly packs one and sends it, it lands here.':'No restaurant orders yet. When San Fermo sends one, it lands here.')+'</div>');
+  var body;
+  if(ordersSrc==='invoices'){
+    // grouped by month, newest first, with a running total per month
+    var groups={}; show.forEach(function(o){ var d=(o.invoice&&o.invoice.finalized_at)||o.placed_at||''; var k=String(d).slice(0,7); (groups[k]=groups[k]||[]).push(o); });
+    var keys=Object.keys(groups).sort().reverse();
+    body=keys.map(function(k){
+      var arr=groups[k].slice().sort(function(a,b){ return String((b.invoice&&b.invoice.finalized_at)||b.placed_at||'').localeCompare(String((a.invoice&&a.invoice.finalized_at)||a.placed_at||'')); });
+      var tot=0,priced=0; arr.forEach(function(o){ if(o.invoice&&o.invoice.total!=null){tot+=Number(o.invoice.total)||0;priced++;} });
+      var mh; try{ var p=k.split('-'); mh=new Date(+p[0],+p[1]-1,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}); }catch(e){ mh=k; }
+      return '<div class="io-mhead" style="display:flex;align-items:baseline;gap:10px;margin:16px 0 8px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.12)">'
+        +'<span style="font-family:var(--fd,serif);font-size:17px;color:var(--ink,#eaf0ff)">'+mh+'</span>'
+        +'<span style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-50,#8893ad)">'+arr.length+' invoice'+(arr.length!==1?'s':'')+(priced?(' &middot; $'+tot.toFixed(2)):'')+'</span></div>'
+        +arr.map(orderCard).join('');
+    }).join('');
+    if(!body)body='<div class="io-empty">No finalized invoices yet. Finalize one from an order and it files here.</div>';
+  } else {
+    body=show.length?show.map(orderCard).join(''):('<div class="io-empty">'+(ordersSrc==='farm_dinner'?'No farm-dinner harvests yet. When Kelly packs one and sends it, it lands here.':'No restaurant orders yet. When San Fermo sends one, it lands here.')+'</div>');
+  }
   c.innerHTML=seg+selToggle+combineBar+body;
   wireOrders(c);
   c.querySelectorAll('.io-srcb').forEach(function(b){b.addEventListener('click',function(){ordersSrc=b.getAttribute('data-src');renderOrders();});});
@@ -48843,6 +49050,7 @@ function renderOrders(){
   c.querySelectorAll('.io-combine').forEach(function(b){b.addEventListener('click',function(){ordCombine(Object.keys(ordersSel));});});
   c.querySelectorAll('[data-sel]').forEach(function(el){el.addEventListener('click',function(){var id=el.getAttribute('data-sel');if(ordersSel[id])delete ordersSel[id];else ordersSel[id]=true;renderOrders();});});
 }
+function ordIsInvoiced(o){ return !!(o&&o.invoice&&(o.invoice.finalized_at||o.invoice.total!=null)); }
 function ordRecipient(o){
   if(o&&o.restaurant&&o.restaurant.name)return o.restaurant.name;
   if(o&&o.buyer_id&&o.buyer_id!=='san_fermo')return String(o.buyer_id).replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
@@ -49290,7 +49498,7 @@ function invHarvest(o){ if(o)invPrintDoc(invHarvestHtml(o)); }
 
 /* expose the live farmer state for the restaurant-side Connected Farms mirror (read-only) */
 window.RemyFarm={
-  week:DATA.week, lastTouch:DATA.kelly_last_touch, marketCount:DATA.market_count,
+  week:_liveWeek(), lastTouch:'live', marketCount:DATA.market_count,
   list:function(){return grow.filter(function(g){return !g._tHidden;}).map(function(g){var _ir=_invRec(g.name);return {
     name:g.name, category:g.category, status:g.status, qty:g.qty, prepped:!!g.prepped,
     market:g.market||null, ask:(g.ask==null?null:g.ask), askUnit:g.askUnit||'', askMode:g.askMode||'',
@@ -51492,7 +51700,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='4683e7ca2cea';
+window.REMY_BUILD='e443e891f0fe';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
@@ -51527,6 +51735,13 @@ window.REMY_BUILD='4683e7ca2cea';
     function done(j){ busy=false;
       if(!j||!j.build)return;
       if(String(j.build)===String(window.REMY_BUILD))return;
+      /* self-heal (2026-08-19): re-navigate ONCE per target build to a ?v= URL neither the
+         browser nor the CDN has cached, instead of waiting for a tap. sessionStorage-gated so
+         a mid-propagation edge can never loop us; the banner stays as the fallback. */
+      var hk='remy.selfheal.'+String(j.build), tried=false;
+      try{ tried=(sessionStorage.getItem(hk)==='1'); }catch(e){}
+      if(!tried){ try{ sessionStorage.setItem(hk,'1'); }catch(e){}
+        try{ var u=new URL(location.href); u.searchParams.set('v',String(j.build)); location.replace(u.href); return; }catch(e){} }
       shown=true; try{ mount().classList.add('on'); }catch(e){}
     }
     try{ fetch(buildURL(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
