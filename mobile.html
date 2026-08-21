@@ -48123,7 +48123,9 @@ function _pDriftBlock(g,d){
   var tgtR=(d.target>=0?'+':'')+Math.round(d.target)+'%';
   if(g.locked){ var lb=lockBandState(g);
     if(d.stale)return '<div class="p-now">&#128274; held &middot; comp stale</div>';
-    if(lb)return '<div class="p-now warn">&#9888; market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held</div><button class="p-sug" data-follow="'+jn+'">Follow to $'+lb.recAsk.toFixed(2)+'</button>';
+    if(lb){ var hf=_heldFrame(g);
+      if(hf)return '<div class="p-now warn">&#9888; '+hf.why+'</div><button class="p-sug" data-follow="'+jn+'">'+hf.verb+' to $'+hf.ask.toFixed(2)+(g.askUnit?('/'+g.askUnit):'')+'</button>';
+      return '<div class="p-now warn">&#9888; market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held</div><button class="p-sug" data-follow="'+jn+'">Follow to $'+lb.recAsk.toFixed(2)+(g.askUnit?('/'+g.askUnit):'')+'</button>'; }
     return '<div class="p-now ok">&#128274; auto '+tgtR+' &middot; follows market</div>'; }
   if(d.stale)return '<div class="p-now">market stale</div><button class="p-sug warn" data-price="'+jn+'">Verify market</button>';
   var effR=(d.eff>=0?'+':'')+Math.round(d.eff)+'%';
@@ -48895,6 +48897,17 @@ function _homeWxLine(){ try{ var W=window.__REMY_WX; if(!W)return {n:0,txt:'Regi
    again) + ack-only auto moves from the drift log. Quiet: sinks toward the bottom and shows
    market movement over a chosen window, most volatile first. Pure render; the buttons persist. ── */
 function _pdDismissed(g,mkl){ return g.driftDismiss!=null&&g.driftDismiss>0&&mkl>0&&Math.abs(mkl-g.driftDismiss)/g.driftDismiss<0.02; }
+/* Held-drift framing (2026-08-21): a locked item held out of band is described by HER PRICE vs
+   CURRENT market, not "market jumped X% since lock". lockMkt is a stale anchor (often set against
+   a comp that was later corrected), so the since-lock number is misleading and balloons on every
+   comp refresh. farmDrift.eff = her ask's actual % vs today's market — stable and true. Returns
+   {why, verb, ask} or null (unpriced → caller falls back to the since-lock wording). */
+function _heldFrame(g){ try{ var d=(typeof farmDrift==='function')?farmDrift(g):null;
+  if(!d||d.stale||d.recAsk==null)return null;
+  var e=Math.round(d.eff);
+  var txt=(e<0)?('your price is '+Math.abs(e)+'% under market'):((e>0)?('your price is '+e+'% over market'):'your price matches market');
+  return {why:txt+' &middot; held', verb:(d.dir==='up'?'Raise':'Lower'), ask:d.recAsk};
+}catch(_e){ return null; } }
 function _pdPendingList(){ var out=[]; try{ grow.forEach(function(g){ if(g.pHide)return;
   var cs=compSrcChanged(g);
   var un=(g.askUnit?('/'+g.askUnit):'');
@@ -48902,7 +48915,9 @@ function _pdPendingList(){ var out=[]; try{ grow.forEach(function(g){ if(g.pHide
     return (a&&a>0)?(Math.abs(rec-a)/a*100>75):false; }
   if(cs){ out.push({n:g.name,big:_big(cs.recAsk),why:'comp flipped to '+(cs.to==='hub'?'local market':'Franks')+' ($'+cs.mkl.toFixed(2)+'/lb) &middot; held',act:'Follow to $'+cs.recAsk.toFixed(2)+un}); return; }
   if(g.locked){ var lb=lockBandState(g);
-    if(lb&&!_pdDismissed(g,lb.mkl))out.push({n:g.name,big:_big(lb.recAsk),why:'market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held',act:'Follow to $'+lb.recAsk.toFixed(2)+un}); return; }
+    if(lb&&!_pdDismissed(g,lb.mkl)){ var hf=_heldFrame(g);
+      if(hf)out.push({n:g.name,big:_big(hf.ask),why:hf.why,act:hf.verb+' to $'+hf.ask.toFixed(2)+un});
+      else out.push({n:g.name,big:_big(lb.recAsk),why:'market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held',act:'Follow to $'+lb.recAsk.toFixed(2)+un}); } return; }
   var d=farmDrift(g);
   if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH&&!_pdDismissed(g,d.mkl))
     out.push({n:g.name,big:_big(d.recAsk),why:'now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target',act:(d.dir==='up'?'Raise':'Lower')+' to $'+d.recAsk.toFixed(2)+un});
@@ -48976,7 +48991,7 @@ function _pdCompModal(name){
   var cs=compSrcChanged(g), lb=(g.locked?lockBandState(g):null), d=farmDrift(g);
   var sug=null, verb='Follow', why='';
   if(cs){ sug=cs.recAsk; why='comp source flipped &middot; now $'+cs.mkl.toFixed(2)+'/lb'; }
-  else if(lb){ sug=lb.recAsk; why='market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held'; }
+  else if(lb){ var hf=_heldFrame(g); if(hf){ sug=hf.ask; verb=hf.verb; why=hf.why; } else { sug=lb.recAsk; why='market '+(lb.dir==='down'?'dropped':'jumped')+' '+lb.pct+'% since lock &middot; held'; } }
   else if(d&&!d.stale&&Math.abs(d.drift)>_FM_THRESH){ sug=d.recAsk; verb=(d.dir==='up'?'Raise':'Lower');
     why='now '+(d.eff>=0?'+':'')+Math.round(d.eff)+'% vs your '+(d.target>=0?'+':'')+Math.round(d.target)+'% target'; }
   else if(d&&d.stale){ why='comp is stale &mdash; holding'; }
@@ -51994,7 +52009,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='57d5985d06e4';
+window.REMY_BUILD='0bef4f0694f2';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
