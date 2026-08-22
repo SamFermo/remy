@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-21T06:46:46",
+ "generated_at": "2026-08-22T09:08:01",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -137,23 +137,18 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 2:36AM PDT until August 23 at 8:00AM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 2:22AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued August 22 at 8:33AM PDT until August 23 at 8:00AM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 20 at 3:12PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 21 at 2:55PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 4,
+   "high_count": 3,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -186,18 +181,13 @@
    ],
    "alerts": [
     {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 4:50AM PDT until August 21 at 10:00PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 4:44AM PDT until August 22 at 10:00PM PDT by NWS Pendleton OR"
+     "headline": "Red Flag Warning issued August 22 at 5:31AM PDT until August 22 at 10:00PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -232,18 +222,13 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 2:36AM PDT until August 22 at 10:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 2:22AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued August 22 at 8:33AM PDT until August 22 at 10:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -272,18 +257,13 @@
    ],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 2:36AM PDT until August 22 at 10:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 2:22AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued August 22 at 8:33AM PDT until August 23 at 5:00AM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -312,18 +292,13 @@
    ],
    "alerts": [
     {
-     "event": "Heat Advisory",
-     "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 4:50AM PDT until August 21 at 10:00PM PDT by NWS Pendleton OR"
-    },
-    {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 4:44AM PDT until August 22 at 10:00PM PDT by NWS Pendleton OR"
+     "headline": "Red Flag Warning issued August 22 at 5:31AM PDT until August 22 at 10:00PM PDT by NWS Pendleton OR"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -348,14 +323,14 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 2:36AM PDT until August 23 at 11:00AM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued August 22 at 8:33AM PDT until August 23 at 11:00AM PDT by NWS Spokane WA"
     },
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued August 21 at 2:22AM PDT until August 21 at 10:00PM PDT by NWS Spokane WA"
+     "headline": "Heat Advisory issued August 21 at 9:49PM PDT until August 22 at 7:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
@@ -370,6 +345,36 @@
    "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
   },
   {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 79,
+   "low_f": 49,
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Red Flag Warning",
+     "severity": "Severe",
+     "headline": "Red Flag Warning issued August 22 at 6:49AM PDT until August 22 at 5:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": true,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
@@ -382,9 +387,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 21 at 5:30AM PDT until August 22 at 11:00PM PDT by NWS Seattle WA"
+     "headline": "Red Flag Warning issued August 22 at 6:49AM PDT until August 22 at 8:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": true,
@@ -564,30 +569,6 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 79,
-   "low_f": 49,
-   "avg_f": 60.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
-  },
-  {
    "id": "oregon_cascades",
    "name": "Oregon Cascades",
    "category": "foraging",
@@ -688,5 +669,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 8
 }
