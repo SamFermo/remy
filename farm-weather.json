@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-24T06:38:49",
+ "generated_at": "2026-08-25T06:46:53",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -139,7 +139,7 @@
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 23 at 11:28PM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 24 at 10:42AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
