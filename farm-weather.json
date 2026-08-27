@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-26T06:36:36",
+ "generated_at": "2026-08-27T06:44:16",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -94,10 +94,10 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 84,
-   "low_f": 54,
-   "avg_f": 67.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "high_f": 73,
+   "low_f": 49,
+   "avg_f": 62.0,
+   "forecast": "Partly Sunny then Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -121,34 +121,25 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 94,
-   "low_f": 58,
-   "avg_f": 77.0,
-   "forecast": "Haze",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (94F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (77F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
+   "high_f": 85,
+   "low_f": 49,
+   "avg_f": 67.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
    "alerts": [
     {
-     "event": "Fire Weather Watch",
+     "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Fire Weather Watch issued August 26 at 3:29AM PDT until August 27 at 8:00PM PDT by NWS Spokane WA"
+     "headline": "Red Flag Warning issued August 27 at 2:56AM PDT until August 27 at 8:00PM PDT by NWS Spokane WA"
     },
     {
      "event": "Air Quality Alert",
      "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 25 at 10:51AM PDT by NWS Spokane WA"
+     "headline": "Air Quality Alert issued August 26 at 10:50AM PDT by NWS Spokane WA"
     }
    ],
    "fire": true,
-   "high_count": 3,
+   "high_count": 2,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -165,29 +156,19 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 95,
-   "low_f": 60,
-   "avg_f": 76.0,
-   "forecast": "Patchy Smoke",
+   "high_f": 86,
+   "low_f": 52,
+   "avg_f": 67.0,
+   "forecast": "Partly Cloudy",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (76F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Heat building (86F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     }
    ],
-   "alerts": [
-    {
-     "event": "Special Weather Statement",
-     "severity": "Moderate",
-     "headline": "Special Weather Statement issued August 25 at 9:27AM PDT by NWS Pendleton OR"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -201,28 +182,48 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "snoqualmie_valley_wa",
-   "name": "Snoqualmie Valley, WA",
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
    "category": "agricultural",
-   "group": "Puget & Valleys",
+   "group": "Eastern WA",
    "home": false,
-   "high_f": 89,
-   "low_f": 55,
-   "avg_f": 70.0,
-   "forecast": "Patchy Fog then Sunny",
+   "high_f": 87,
+   "low_f": 48,
+   "avg_f": 68.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (89F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (70F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Heat building (87F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     }
    ],
    "alerts": [],
    "fire": false,
    "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "snoqualmie_valley_wa",
+   "name": "Snoqualmie Valley, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 73,
+   "low_f": 51,
+   "avg_f": 63.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
    "vendors": [
     "Local Roots Farm",
     "Farmstand Local Foods"
@@ -240,19 +241,14 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 88,
-   "low_f": 55,
-   "avg_f": 70.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (88F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    }
-   ],
+   "high_f": 73,
+   "low_f": 51,
+   "avg_f": 61.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
    "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -269,19 +265,14 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 86,
-   "low_f": 58,
-   "avg_f": 70.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (86F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    }
-   ],
+   "high_f": 72,
+   "low_f": 55,
+   "avg_f": 63.0,
+   "forecast": "Cloudy",
+   "signals": [],
    "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Franks Produce",
     "EC Wilson"
@@ -294,57 +285,19 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 95,
-   "low_f": 59,
-   "avg_f": 78.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (95F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (78F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "eastern_wa_rangeland",
    "name": "Eastern WA Rangeland",
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 98,
-   "low_f": 57,
-   "avg_f": 78.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (78F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
+   "high_f": 86,
+   "low_f": 45,
+   "avg_f": 66.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
    "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Preservation Meat Collective"
    ],
@@ -356,49 +309,19 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 90,
-   "low_f": 56,
-   "avg_f": 76.0,
-   "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (76F avg). Monitor grass growth conditions; drought risk in summer."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
-   ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
    "id": "olympic_peninsula_hood_canal",
    "name": "Olympic Peninsula / Hood Canal",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 81,
-   "low_f": 55,
-   "avg_f": 67.0,
-   "forecast": "Sunny then Patchy Smoke",
+   "high_f": 67,
+   "low_f": 51,
+   "avg_f": 60.0,
+   "forecast": "Chance Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 81F, low 55F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 67F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -422,14 +345,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 68,
-   "low_f": 53,
-   "avg_f": 60.0,
-   "forecast": "Partly Sunny",
+   "high_f": 63,
+   "low_f": 52,
+   "avg_f": 57.0,
+   "forecast": "Showers And Thunderstorms",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 68F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 63F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -452,14 +375,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 76,
-   "low_f": 52,
-   "avg_f": 63.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 70,
+   "low_f": 50,
+   "avg_f": 58.0,
+   "forecast": "Cloudy",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 76F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 70F, low 50F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -482,10 +405,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 78,
-   "low_f": 51,
-   "avg_f": 63.0,
-   "forecast": "Areas Of Smoke",
+   "high_f": 56,
+   "low_f": 44,
+   "avg_f": 50.0,
+   "forecast": "Partly Sunny then Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -506,9 +429,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 79,
-   "low_f": 49,
-   "avg_f": 64.0,
+   "high_f": 65,
+   "low_f": 41,
+   "avg_f": 54.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
@@ -524,15 +447,40 @@
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 84,
+   "low_f": 44,
+   "avg_f": 65.0,
+   "forecast": "Patchy Smoke",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
    "id": "northern_ca_coast_forests",
    "name": "Northern California Coast/Forests",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 71,
-   "low_f": 50,
-   "avg_f": 60.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 65,
+   "low_f": 49,
+   "avg_f": 58.0,
+   "forecast": "Patchy Drizzle then Mostly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -552,9 +500,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 97,
-   "low_f": 65,
-   "avg_f": 83.0,
+   "high_f": 98,
+   "low_f": 61,
+   "avg_f": 80.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
@@ -575,10 +523,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 74,
-   "low_f": 51,
-   "avg_f": 61.0,
-   "forecast": "Sunny",
+   "high_f": 57,
+   "low_f": 45,
+   "avg_f": 50.0,
+   "forecast": "Chance Light Rain then Showers And Thunderstorms Likely",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -598,10 +546,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 85,
-   "low_f": 52,
-   "avg_f": 70.0,
-   "forecast": "Sunny",
+   "high_f": 82,
+   "low_f": 43,
+   "avg_f": 62.0,
+   "forecast": "Mostly Cloudy then Slight Chance Showers And Thunderstorms",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -622,10 +570,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 93,
-   "low_f": 53,
-   "avg_f": 73.0,
-   "forecast": "Areas Of Smoke",
+   "high_f": 81,
+   "low_f": 44,
+   "avg_f": 63.0,
+   "forecast": "Areas Of Smoke then Haze",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -647,5 +595,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 8
+ "high_regions": 3
 }
