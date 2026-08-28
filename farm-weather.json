@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-27T06:44:16",
+ "generated_at": "2026-08-28T06:35:38",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -116,41 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 85,
-   "low_f": 49,
-   "avg_f": 67.0,
-   "forecast": "Areas Of Smoke",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued August 27 at 2:56AM PDT until August 27 at 8:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 26 at 10:50AM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": true,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
@@ -209,6 +174,36 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 85,
+   "low_f": 49,
+   "avg_f": 67.0,
+   "forecast": "Areas Of Smoke",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Air Quality Alert",
+     "severity": "Unknown",
+     "headline": "Air Quality Alert issued August 27 at 10:00AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "snoqualmie_valley_wa",
