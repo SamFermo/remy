@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T13:19:26",
+ "generated_at": "2026-08-30T06:39:26",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -116,41 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 86,
-   "low_f": 47,
-   "avg_f": 68.0,
-   "forecast": "Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Heat building (86F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Blowing Dust Advisory",
-     "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued August 29 at 12:02PM PDT until August 29 at 5:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
@@ -186,6 +151,35 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 86,
+   "low_f": 47,
+   "avg_f": 68.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Heat building (86F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -214,36 +208,6 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 87,
-   "low_f": 45,
-   "avg_f": 67.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Blowing Dust Advisory",
-     "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued August 29 at 12:02PM PDT until August 29 at 5:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -318,6 +282,30 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 87,
+   "low_f": 45,
+   "avg_f": 67.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -606,5 +594,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 4
+ "high_regions": 3
 }
