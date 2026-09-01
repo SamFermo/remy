@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T07:08:51",
+ "generated_at": "2026-09-01T06:51:03",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -97,7 +97,7 @@
    "high_f": 73,
    "low_f": 49,
    "avg_f": 62.0,
-   "forecast": "Mostly Sunny",
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -121,18 +121,14 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 87,
-   "low_f": 51,
-   "avg_f": 71.0,
-   "forecast": "Sunny",
+   "high_f": 88,
+   "low_f": 47,
+   "avg_f": 66.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Heat building (87F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
-    },
-    {
-     "level": "info",
-     "text": "Above-normal temps (71F avg). Growing-heat is running ahead of a normal year, so expect earlier harvests."
+     "text": "Heat building (88F high). Spring crops may bolt; crops are gaining growing-heat faster than usual, so they will mature sooner."
     }
    ],
    "alerts": [],
@@ -151,15 +147,15 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
    "high_f": 86,
-   "low_f": 47,
-   "avg_f": 68.0,
-   "forecast": "Sunny",
+   "low_f": 45,
+   "avg_f": 65.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "high",
@@ -167,36 +163,6 @@
     }
    ],
    "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 84,
-   "low_f": 48,
-   "avg_f": 65.0,
-   "forecast": "Showers And Thunderstorms",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Air Quality Alert",
-     "severity": "Unknown",
-     "headline": "Air Quality Alert issued August 30 at 11:56AM PDT by NWS Spokane WA"
-    }
-   ],
    "fire": false,
    "high_count": 1,
    "vendors": [
@@ -215,10 +181,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 76,
-   "low_f": 50,
-   "avg_f": 63.0,
-   "forecast": "Chance Showers And Thunderstorms",
+   "high_f": 75,
+   "low_f": 49,
+   "avg_f": 62.0,
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -240,10 +206,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 74,
-   "low_f": 50,
-   "avg_f": 63.0,
-   "forecast": "Chance Showers And Thunderstorms",
+   "high_f": 75,
+   "low_f": 49,
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -265,9 +231,9 @@
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 73,
-   "low_f": 55,
-   "avg_f": 65.0,
-   "forecast": "Chance Showers And Thunderstorms",
+   "low_f": 53,
+   "avg_f": 63.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -284,15 +250,39 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 85,
+   "low_f": 44,
+   "avg_f": 65.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "eastern_wa_rangeland",
    "name": "Eastern WA Rangeland",
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 87,
-   "low_f": 45,
-   "avg_f": 67.0,
-   "forecast": "Sunny",
+   "high_f": 84,
+   "low_f": 40,
+   "avg_f": 63.0,
+   "forecast": "Partly Sunny then Slight Chance Rain Showers",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -313,14 +303,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 72,
-   "low_f": 52,
-   "avg_f": 62.0,
-   "forecast": "Light Rain Likely",
+   "high_f": 70,
+   "low_f": 49,
+   "avg_f": 58.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 72F, low 52F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 70F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -345,13 +335,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 64,
-   "low_f": 53,
+   "low_f": 51,
    "avg_f": 58.0,
-   "forecast": "Mostly Sunny",
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 64F, low 53F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 64F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -374,14 +364,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 67,
-   "low_f": 51,
-   "avg_f": 59.0,
-   "forecast": "Slight Chance Light Rain",
+   "high_f": 66,
+   "low_f": 49,
+   "avg_f": 58.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 67F, low 51F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 66F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -404,10 +394,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 67,
-   "low_f": 44,
-   "avg_f": 53.0,
-   "forecast": "Chance Showers And Thunderstorms",
+   "high_f": 60,
+   "low_f": 43,
+   "avg_f": 50.0,
+   "forecast": "Partly Sunny then Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -428,10 +418,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 73,
-   "low_f": 39,
-   "avg_f": 56.0,
-   "forecast": "Sunny",
+   "high_f": 60,
+   "low_f": 41,
+   "avg_f": 48.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -451,10 +441,10 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 86,
-   "low_f": 42,
-   "avg_f": 65.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 82,
+   "low_f": 43,
+   "avg_f": 59.0,
+   "forecast": "Patchy Smoke",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -476,10 +466,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 66,
-   "low_f": 48,
-   "avg_f": 58.0,
-   "forecast": "Sunny",
+   "high_f": 59,
+   "low_f": 47,
+   "avg_f": 55.0,
+   "forecast": "Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -499,10 +489,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 94,
-   "low_f": 58,
-   "avg_f": 77.0,
-   "forecast": "Sunny",
+   "high_f": 76,
+   "low_f": 53,
+   "avg_f": 65.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -522,10 +512,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 61,
-   "low_f": 45,
-   "avg_f": 52.0,
-   "forecast": "Chance Showers And Thunderstorms",
+   "high_f": 60,
+   "low_f": 44,
+   "avg_f": 51.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -545,10 +535,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 79,
-   "low_f": 42,
-   "avg_f": 60.0,
-   "forecast": "Showers And Thunderstorms Likely",
+   "high_f": 82,
+   "low_f": 41,
+   "avg_f": 58.0,
+   "forecast": "Mostly Sunny then Slight Chance Showers And Thunderstorms",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -569,10 +559,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 83,
-   "low_f": 44,
-   "avg_f": 63.0,
-   "forecast": "Sunny",
+   "high_f": 86,
+   "low_f": 40,
+   "avg_f": 59.0,
+   "forecast": "Partly Sunny then Chance Rain Showers",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -594,5 +584,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 3
+ "high_regions": 2
 }
