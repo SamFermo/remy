@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T06:51:03",
+ "generated_at": "2026-09-02T06:36:07",
  "enso": {
   "phase": "El Niño",
   "band": "moderate",
@@ -174,6 +174,71 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 66,
+   "low_f": 49,
+   "avg_f": 58.0,
+   "forecast": "Partly Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 66F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued September 2 at 4:49AM PDT until September 2 at 8:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
+  },
+  {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 59,
+   "low_f": 47,
+   "avg_f": 55.0,
+   "forecast": "Chance Light Rain",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued September 2 at 1:48AM PDT until September 2 at 8:00PM PDT by NWS Eureka CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -359,36 +424,6 @@
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 66,
-   "low_f": 49,
-   "avg_f": 58.0,
-   "forecast": "Partly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 66F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
-  },
-  {
    "id": "cascade_range_forests",
    "name": "Cascade Range / Western WA Forests",
    "category": "foraging",
@@ -459,29 +494,6 @@
     "grass_fed"
    ],
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 59,
-   "low_f": 47,
-   "avg_f": 55.0,
-   "forecast": "Chance Light Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
    "id": "northern_ca_interior",
@@ -584,5 +596,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 2
+ "high_regions": 4
 }
