@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-06T07:48:05",
+ "generated_at": "2026-09-07T08:58:12",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -130,11 +130,21 @@
     {
      "event": "Hydrologic Outlook",
      "severity": "Unknown",
+     "headline": "Hydrologic Outlook issued September 7 at 4:02AM MDT by NWS Missoula MT"
+    },
+    {
+     "event": "Flood Watch",
+     "severity": "Severe",
+     "headline": "Flood Watch issued September 7 at 3:59AM MDT until September 8 at 12:00PM MDT by NWS Missoula MT"
+    },
+    {
+     "event": "Hydrologic Outlook",
+     "severity": "Unknown",
      "headline": "Hydrologic Outlook issued September 5 at 10:43AM MDT by NWS Missoula MT"
     }
    ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 3,
    "vendors": [
     "Foraged & Found Edibles"
    ],
