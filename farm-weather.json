@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T10:02:11",
+ "generated_at": "2026-09-14T10:05:25",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -116,101 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 79,
-   "low_f": 48,
-   "avg_f": 63.0,
-   "forecast": "Mostly Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued September 12 at 7:41PM PDT until September 13 at 8:00PM PDT by NWS Spokane WA"
-    },
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued September 12 at 7:41PM PDT until September 13 at 8:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 80,
-   "low_f": 44,
-   "avg_f": 60.0,
-   "forecast": "Mostly Cloudy then Light Rain Likely",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued September 12 at 7:41PM PDT until September 13 at 8:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 81,
-   "low_f": 45,
-   "avg_f": 60.0,
-   "forecast": "Partly Sunny then Slight Chance Light Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued September 12 at 7:41PM PDT until September 13 at 8:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
    "id": "northern_ca_interior",
    "name": "Northern California Interior",
    "category": "foraging",
@@ -225,7 +130,7 @@
     {
      "event": "Red Flag Warning",
      "severity": "Severe",
-     "headline": "Red Flag Warning issued September 13 at 9:41AM PDT until September 14 at 5:00PM PDT by NWS Sacramento CA"
+     "headline": "Red Flag Warning issued September 14 at 3:05AM PDT until September 14 at 5:00PM PDT by NWS Sacramento CA"
     }
    ],
    "fire": true,
@@ -338,6 +243,78 @@
     "berries"
    ],
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 80,
+   "low_f": 44,
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy then Light Rain Likely",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 79,
+   "low_f": 48,
+   "avg_f": 63.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 81,
+   "low_f": 45,
+   "avg_f": 60.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -603,5 +580,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 4
+ "high_regions": 1
 }
