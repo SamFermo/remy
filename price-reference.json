@@ -187,6 +187,22 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 12.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Basil",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Basil – $12/lb"
     }
    ],
    "display": "Basil",
@@ -523,8 +539,30 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 pint",
+     "per": 6.0,
+     "per_unit": "pint",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "pint",
+     "case_price": 72.0,
+     "pack_known": true,
+     "sku": "Cherry Tomatoes",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Cherry Tomatoes – 12 pints for $72 (very limited)",
+     "per_basis": "derived from smallest case on the sheet",
+     "limited": "very limited",
+     "tiers": [
+      "12 pints for $72"
+     ]
     }
-   ]
+   ],
+   "canonical_unit": "pint"
   },
   "Chicken Eggs": {
    "swan_price": 8.55,
@@ -860,8 +898,33 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "15 lb case",
+     "per": 3.5,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 48.75,
+     "pack_known": true,
+     "sku": "Silver Slicer Cucumber",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Silver Slicer Cucumber - $3.50/lb; 15# case for $48.75; 30# for $90 SALE",
+     "sale": true,
+     "tiers": [
+      "15# case for $48.75",
+      "30# for $90"
+     ],
+     "also_on_sheet": [
+      "Mixed Cucumber Case - 15# case for $45; 30# for $82.50; 45# or more for $2.50/lb SALE"
+     ]
     }
-   ]
+   ],
+   "canonical_unit": "lb"
   },
   "Dill": {
    "swan_price": 31.2,
@@ -2728,8 +2791,28 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb case",
+     "per": 3.25,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 30.0,
+     "pack_known": true,
+     "sku": "Bulk Tokyo Market Turnips",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Bulk Tokyo Market Turnips - $3.25/lb; 10# case for $30",
+     "tiers": [
+      "10# case for $30"
+     ]
     }
-   ]
+   ],
+   "canonical_unit": "lb"
   },
   "Zucchini": {
    "swan_price": 35.4,
@@ -2934,6 +3017,26 @@
      "pack_unit": "bu",
      "case_price": 19.92,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 15.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 70.0,
+     "pack_known": true,
+     "sku": "Arugula",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Arugula – $15/lb; 5# for $70 (limited)",
+     "limited": "limited",
+     "tiers": [
+      "5# for $70"
+     ]
     }
    ]
   },
@@ -3311,6 +3414,26 @@
      "pack_unit": "lb",
      "case_price": 6.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb",
+     "per": 3.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Chioggia Beets",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Chioggia Beets - $3.75/lb; 10# for $35; 25# for $81.25",
+     "tiers": [
+      "10# for $35",
+      "25# for $81.25"
+     ]
     }
    ]
   },
@@ -3345,6 +3468,26 @@
      "pack_unit": "lb",
      "case_price": 39.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb",
+     "per": 3.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Golden Beets",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Golden Beets - $3.75/lb; 10# for $35; 25# for $81.25",
+     "tiers": [
+      "10# for $35",
+      "25# for $81.25"
+     ]
     }
    ]
   },
@@ -3379,6 +3522,26 @@
      "pack_unit": "lb",
      "case_price": 34.25,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb",
+     "per": 3.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Red Beets",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Red Beets - $3.75/lb; 10# for $35; 25# for $81.25",
+     "tiers": [
+      "10# for $35",
+      "25# for $81.25"
+     ]
     }
    ]
   },
@@ -3782,6 +3945,26 @@
      "pack_unit": "lb",
      "case_price": 26.5,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb",
+     "per": 3.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Nantes Carrots",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Nantes Carrots - $3.75/lb; 10# for $35; 25# for $81.25",
+     "tiers": [
+      "10# for $35",
+      "25# for $81.25"
+     ]
     }
    ]
   },
@@ -4175,6 +4358,26 @@
      "pack_unit": "ct",
      "case_price": 39.6,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 each",
+     "per": 3.5,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "each",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Frisee",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Frisee - $3.50/ea; 12 for $39 (limited)",
+     "limited": "limited",
+     "tiers": [
+      "12 for $39"
+     ]
     }
    ]
   },
@@ -4264,6 +4467,25 @@
      "pack_unit": "bu",
      "case_price": 31.2,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.75,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 42.0,
+     "pack_known": true,
+     "sku": "Collard Greens",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Collard Greens - $3.75/bunch; 12 for $42",
+     "tiers": [
+      "12 for $42"
+     ]
     }
    ]
   },
@@ -4515,6 +4737,27 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "15 lb case",
+     "per": 3.5,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 48.75,
+     "pack_known": true,
+     "sku": "Marketmore Heirloom Cucumber",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Marketmore Heirloom Cucumber - $3.50/lb; 15# case for $48.75; 30# for $90 SALE",
+     "sale": true,
+     "tiers": [
+      "15# case for $48.75",
+      "30# for $90"
+     ]
     }
    ]
   },
@@ -4675,6 +4918,26 @@
      "pack_unit": "lb",
      "case_price": 39.0,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "15 lb case",
+     "per": 4.5,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 63.75,
+     "pack_known": true,
+     "sku": "Italian Eggplant",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Italian Eggplant – $4.50/lb; 15# case for $63.75 SALE",
+     "sale": true,
+     "tiers": [
+      "15# case for $63.75"
+     ]
     }
    ]
   },
@@ -4864,6 +5127,26 @@
      "pack_unit": "ct",
      "case_price": 43.68,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 each",
+     "per": 3.5,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "each",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Escarole",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Escarole - $3.50/ea; 12 for $39 SALE",
+     "sale": true,
+     "tiers": [
+      "12 for $39"
+     ]
     }
    ]
   },
@@ -4911,6 +5194,25 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb case",
+     "per": 4.25,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 40.0,
+     "pack_known": true,
+     "sku": "Fennel",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Fennel - $4.25/lb; 10# case for $40",
+     "tiers": [
+      "10# case for $40"
+     ]
     }
    ]
   },
@@ -5144,6 +5446,25 @@
      "pack_unit": "lb",
      "case_price": 50.15,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 14.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 65.0,
+     "pack_known": true,
+     "sku": "Spicy Salad Mix",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Spicy Salad Mix – $14/lb; 5# for $65",
+     "tiers": [
+      "5# for $65"
+     ]
     }
    ]
   },
@@ -5254,6 +5575,25 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.75,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 42.0,
+     "pack_known": true,
+     "sku": "Curly Kale",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Curly Kale - $3.75/bunch; 12 for $42",
+     "tiers": [
+      "12 for $42"
+     ]
     }
    ]
   },
@@ -5997,6 +6337,25 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 each",
+     "per": 3.5,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "each",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Red Butter Lettuce",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Red Butter Lettuce – $3.50/ea; 12 for $39",
+     "tiers": [
+      "12 for $39"
+     ]
     }
    ]
   },
@@ -6841,6 +7200,25 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.5,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Green Onions",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Green Onions - $3.50/bunch; 12 for $39",
+     "tiers": [
+      "12 for $39"
+     ]
     }
    ]
   },
@@ -6888,6 +7266,23 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 3.25,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Red Onion",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Red Onion – $3.25/lb (First Cut Farm)",
+     "producer": "First Cut Farm"
     }
    ]
   },
@@ -7003,6 +7398,23 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 3.25,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Sweet Onion",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Sweet Onion – $3.25/lb (First Cut Farm)",
+     "producer": "First Cut Farm"
     }
    ]
   },
@@ -7314,6 +7726,25 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.5,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Italian Parsley",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Italian Parsley – $3.50/bunch; 12 for $39",
+     "tiers": [
+      "12 for $39"
+     ]
     }
    ]
   },
@@ -7856,6 +8287,25 @@
      "pack_unit": "lb",
      "case_price": 26.4,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 10.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 45.0,
+     "pack_known": true,
+     "sku": "Shishito Peppers",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Shishito Peppers – $10/lb; 5# for $45",
+     "tiers": [
+      "5# for $45"
+     ]
     }
    ]
   },
@@ -8219,6 +8669,23 @@
      "case_price": null,
      "pack_known": true,
      "pack_note": "weight-per-case unknown"
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 6.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Variegato di Lusia Radicchio",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Variegato di Lusia Radicchio – $6/lb (limited)",
+     "limited": "limited"
     }
    ]
   },
@@ -8533,6 +9000,23 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 7.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Shallots",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Shallots -- $7/lb (First Cut Farm)",
+     "producer": "First Cut Farm"
     }
    ]
   },
@@ -8809,6 +9293,23 @@
      "pack_unit": "lb",
      "case_price": 50.16,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": null,
+     "per": 3.5,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true,
+     "sku": "Italian Heirloom Zucchini",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Italian Heirloom Zucchini - $3.50/lb (very limited)",
+     "limited": "very limited"
     }
    ]
   },
@@ -9453,6 +9954,28 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb flat",
+     "per": 6.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true,
+     "sku": "Mixed Heirloom-esque Tomatoes",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Mixed Heirloom-esque Tomatoes – 10# flat for $60; 20# for $115; 30# + for $5.50/lb",
+     "per_basis": "derived from smallest case on the sheet",
+     "tiers": [
+      "10# flat for $60",
+      "20# for $115",
+      "30# + for $5.50/lb"
+     ]
     }
    ]
   },
@@ -9589,6 +10112,28 @@
      "pack_unit": null,
      "case_price": null,
      "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb flat",
+     "per": 4.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 40.0,
+     "pack_known": true,
+     "sku": "Roma Tomatoes",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Roma Tomatoes – 10# flat for $40; 20#+ for $3.75/lb SALE",
+     "per_basis": "derived from smallest case on the sheet",
+     "sale": true,
+     "tiers": [
+      "10# flat for $40",
+      "20#+ for $3.75/lb"
+     ]
     }
    ]
   },
@@ -13712,6 +14257,432 @@
      "pack_known": true
     }
    ]
+  },
+  "Green Tomatoes": {
+   "display": "Green Tomatoes",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb flat",
+     "per": 3.5,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Green Tomatoes",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Green Tomatoes – 10# flat for $35",
+     "per_basis": "derived from smallest case on the sheet",
+     "tiers": [
+      "10# flat for $35"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Italian Drying Tomatoes": {
+   "display": "Italian Drying Tomatoes",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb flat",
+     "per": 6.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 57.5,
+     "pack_known": true,
+     "sku": "Heirloom Drying Tomatoes",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Heirloom Drying Tomatoes – $6.00/lb; 10# flat for $57.50 SALE",
+     "sale": true,
+     "tiers": [
+      "10# flat for $57.50"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Gatherer's Gold Frying Pepper": {
+   "display": "Gatherer's Gold Frying Pepper",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 6.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 27.5,
+     "pack_known": true,
+     "sku": "Gatherers Gold Italian Frying Peppers",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Gatherer’s Gold Italian Frying Peppers – $6/lb; 5# for $27.50",
+     "tiers": [
+      "5# for $27.50"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Baby Lettuce (Little Gem)": {
+   "display": "Baby Lettuce (Little Gem)",
+   "category": "vegetable",
+   "canonical_unit": "each",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "24 each",
+     "per": 2.0,
+     "per_unit": "each",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 24.0,
+     "pack_unit": "each",
+     "case_price": 42.0,
+     "pack_known": true,
+     "sku": "Mixed Baby Lettuce",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Mixed Baby Lettuce – $2/ea; 24 for $42; 48+ for $1.50/ea",
+     "tiers": [
+      "24 for $42",
+      "48+ for $1.50/ea"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Frilly Green Mustard": {
+   "display": "Frilly Green Mustard",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 13.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true,
+     "sku": "Frilly Green Mustard",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Frilly Green Mustard – $13/lb; 5# for $60",
+     "tiers": [
+      "5# for $60"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Frilly Purple Mustard": {
+   "display": "Frilly Purple Mustard",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 13.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true,
+     "sku": "Frilly Purple Mustard",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Frilly Purple Mustard – $13/lb; 5# for $60",
+     "tiers": [
+      "5# for $60"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Mizuna": {
+   "display": "Mizuna",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 13.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true,
+     "sku": "Mizuna",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Mizuna – $13/lb; 5# for $60",
+     "tiers": [
+      "5# for $60"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Dill Flowers": {
+   "display": "Dill Flowers",
+   "category": "herb",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.25,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 36.0,
+     "pack_known": true,
+     "sku": "Dill Flowers",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Dill Flowers – $3.25/bu; 12 for $36",
+     "tiers": [
+      "12 for $36"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Green Coriander": {
+   "display": "Green Coriander",
+   "category": "herb",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.25,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 36.0,
+     "pack_known": true,
+     "sku": "Green Coriander",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Green Coriander – $3.25/bu; 12 for $36",
+     "tiers": [
+      "12 for $36"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Fennel Flowers": {
+   "display": "Fennel Flowers",
+   "category": "edible_flower",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.25,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 36.0,
+     "pack_known": true,
+     "sku": "Fennel Flowers",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Fennel Flowers – $3.25/bu; 12 for $36",
+     "tiers": [
+      "12 for $36"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Italian Chard": {
+   "display": "Italian Chard",
+   "category": "vegetable",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.75,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 42.0,
+     "pack_known": true,
+     "sku": "Italian Chard",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Italian Chard - $3.75/bunch; 12 for $42",
+     "tiers": [
+      "12 for $42"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Catalonia Chicory aka Dandelion": {
+   "display": "Catalonia Chicory aka Dandelion",
+   "category": "mushroom",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.25,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 36.0,
+     "pack_known": true,
+     "sku": "Catalonia Chicory aka Dandelion",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Catalonia Chicory aka Dandelion - $3.25/bu; 12 for $36; 24 for $66 SALE",
+     "sale": true,
+     "tiers": [
+      "12 for $36",
+      "24 for $66"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Shin Kuroda Carrots": {
+   "display": "Shin Kuroda Carrots",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "10 lb",
+     "per": 3.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 35.0,
+     "pack_known": true,
+     "sku": "Shin Kuroda Carrots",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Shin Kuroda Carrots - $3.75/lb; 10# for $35; 25# for $81.25",
+     "tiers": [
+      "10# for $35",
+      "25# for $81.25"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Tokyo Market Turnips": {
+   "display": "Tokyo Market Turnips",
+   "category": "vegetable",
+   "canonical_unit": "bu",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.5,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Tokyo Market Turnips",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Tokyo Market Turnips - $3.50/bunch; 12 for $39",
+     "tiers": [
+      "12 for $39"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
+  "Canary Melons": {
+   "display": "Canary Melons",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "15 lb case",
+     "per": 2.75,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-09-18",
+     "freshness": "LIVE",
+     "pack_qty": 15.0,
+     "pack_unit": "lb",
+     "case_price": 37.5,
+     "pack_known": true,
+     "sku": "Canary Melon",
+     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet_line": "Canary Melon - $2.75/lb; 15# case for $37.50",
+     "tiers": [
+      "15# case for $37.50"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
   }
  },
  "offers_folded": {
@@ -15449,5 +16420,23 @@
     5
    ]
   ]
+ },
+ "local_roots_folded": {
+  "sheet": "9/18",
+  "delivery": "2026-09-23",
+  "offers": 43,
+  "new_cards": 15,
+  "skipped_no_canonical": [
+   "Broccoli",
+   "Green Cabbage",
+   "Lacinato Kale",
+   "Seconds Carrots",
+   "German Hardy White Garlic"
+  ],
+  "card_fallbacks": [],
+  "second_sku_same_card": [
+   "Mixed Cucumber Case"
+  ],
+  "computed": "2026-09-24"
  }
 }
