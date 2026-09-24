@@ -66,6 +66,10 @@ body.remy-embed{
    hides immediately and .ph-remy/.ph-brand (default opacity:0, normally revealed by the same late
    script) show up the moment they exist — no waiting on the big script at all. */
 html.remy-embed-early #intro{display:none!important}
+/* 2026-09-24: the doors too. In the sf-portal the late doors script only FADES #doors (.gone), so on a
+   phone the moon painted for ~2s on every Farm Order open, and its doors were tappable. display:none
+   keeps #doors in the DOM (the dual-door IIFE needs it there, see body.remy-who). */
+html.remy-embed-early #doors{display:none!important}
 html.remy-embed-early .ph-remy,html.remy-embed-early .ph-brand{opacity:1!important}
 /* cards become cream "moons"; scope a dark ink onto each cream-surfaced container so its
    var(--ink) descendants inherit the portal --card-ink (#241f15) automatically. The list is
@@ -1979,7 +1983,7 @@ span.p-ask.unset{color:var(--ink-30);font-weight:400}
 .inv-cur{font-family:var(--fb);font-size:14px;color:var(--ink-60)}
 .inv-price{font-family:var(--fb);font-size:15px;color:var(--ink);text-align:right;border:none;background:transparent;width:64px;padding:6px 7px 6px 2px}
 .inv-amt{font-family:var(--fb);font-size:15px;font-weight:600;color:var(--ink);margin-left:auto;min-width:62px;text-align:right}
-.inv-perunit{font-family:var(--fb);font-size:11px;color:var(--ink-30);margin:5px 0 0 22px}
+.inv-perunit{font-family:var(--fb);font-size:11px;color:var(--ink-30);margin:5px 0 0 22px}.inv-dist{font-family:var(--fb);font-size:12px;color:var(--ink-60);margin:4px 0 0 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.inv-dist-use{font-family:var(--fb);font-size:12px;padding:3px 12px;border-radius:8px;border:1px solid var(--ink-30);background:transparent;color:var(--ink);cursor:pointer}
 .inv-ref{font-family:var(--fb);font-size:11px;color:var(--ink-60);margin:3px 0 0 22px}
 .inv-total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--fb);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-60);border-top:1px solid var(--ink-12);margin-top:8px;padding-top:12px}
 .inv-total b{font-family:var(--fd);font-size:26px;letter-spacing:0;text-transform:none;color:var(--ink)}
@@ -51305,6 +51309,24 @@ function invKellyAsk(line){var g=invCrop(line.item);if(g&&g.ask!=null)return {pr
 // unchanged here on purpose; fix travels with the stamp() round.
 function invTenantOrder(){var o=INV&&INV.order;var b=o&&o.buyer_id;return !!(b&&b!=='san_fermo'&&b!=='swan_house');}
 function invFeedItem(item){var it=(INV.feed&&INV.feed.items)||{};return it[item]||null;}
+/* Distributor hint (Sam 2026-09-24): a line with NO price (off-sheet item, never saved, not a tenant
+   order) shows the lowest current distributor offer from the price feed as a tap-to-use suggestion.
+   Never pre-filled, so nothing bills at a distributor price unless Kelly taps Use or types it.
+   Exact unit match only, same rule as the spine: no conversion, so no wrong-unit price. */
+function invDistHint(r){
+  if(!r||r.tenant||r.saved||(r.price!=null&&String(r.price).trim()!==''))return null;
+  var fe=invFeedItem(r.item);
+  if(!fe){var base=String(r.item||'').replace(/\s*\(farm\)\s*$/i,'');fe=invFeedItem(base);}
+  var offs=(fe&&fe.offers)||[], u=invNormUnit(r.unit), best=null;
+  offs.forEach(function(o){ if(o&&typeof o.per==='number'&&o.per>0&&invNormUnit(o.per_unit)===u&&(!best||o.per<best.per))best=o; });
+  return best;
+}
+function invDistHintHtml(r,i){
+  var b=invDistHint(r); if(!b)return '';
+  var d=b.last_seen?String(b.last_seen).slice(5).replace('-','/'):'';
+  return '<div class="inv-dist" id="inv-dist-'+i+'">'+oesc(b.vendor||'Distributor')+' $'+b.per.toFixed(2)+'/'+oesc(invNormUnit(b.per_unit))+(d?(' &middot; '+oesc(d)):'')+
+    ' <button type="button" class="inv-dist-use" data-disti="'+i+'" data-distp="'+b.per.toFixed(2)+'">Use</button></div>';
+}
 // Defaults for a line: Kelly's saved price + unit travel together (her price is already in her
 // unit); else the prior filed line (re-finalize); else the market spine on an exact unit match;
 // else blank. The unit is a LABEL Kelly controls — changing it never converts qty or price.
@@ -51410,6 +51432,7 @@ function invRender(){
         '<span class="inv-amt" id="inv-amt-'+i+'"></span>'+
       '</div>'+
       '<div class="inv-perunit" id="inv-per-'+i+'"></div>'+
+      invDistHintHtml(r,i)+
       '<div class="inv-ref">'+(r.tenant?((r.price!=null&&String(r.price)!=='')?'Price agreed at order &mdash; their sheet, not your base price':'No price on this order &mdash; set what they pay')
                  :(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices'))+'</div>'+
     '</div>';
@@ -51417,6 +51440,7 @@ function invRender(){
   document.getElementById('inv-rows').innerHTML=rows;
   m.querySelectorAll('.inv-qty').forEach(function(el){el.addEventListener('input',function(){INV.rows[+el.getAttribute('data-qi')].qty=el.value;invRecalc();});});
   m.querySelectorAll('.inv-price').forEach(function(el){el.addEventListener('input',function(){INV.rows[+el.getAttribute('data-pi')].price=el.value;invRecalc();});});
+  m.querySelectorAll('.inv-dist-use').forEach(function(el){el.addEventListener('click',function(){var i=+el.getAttribute('data-disti');INV.rows[i].price=el.getAttribute('data-distp');var pe=m.querySelector('[data-pi="'+i+'"]');if(pe)pe.value=INV.rows[i].price;invRecalc();});});
   // unit is a label Kelly controls — change it freely; qty and price never recompute (no conversion)
   m.querySelectorAll('.inv-unit-sel').forEach(function(el){el.addEventListener('change',function(){INV.rows[+el.getAttribute('data-ui')].unit=el.value;invRecalc();});});
   m.querySelectorAll('[data-inci]').forEach(function(el){el.addEventListener('change',function(){var r=INV.rows[+el.getAttribute('data-inci')];r.incl=el.checked;el.closest('.inv-row').classList.toggle('off',!r.incl);invRecalc();});});
@@ -51432,6 +51456,7 @@ function invRecalc(){
     var cell=document.getElementById('inv-amt-'+i);if(cell)cell.textContent=(amt!=null)?('$'+amt.toFixed(2)):(r.incl?'—':'');
     var per=document.getElementById('inv-per-'+i);
     if(per){var p=parseFloat(r.price);per.textContent=isNaN(p)?'set a price':('$'+p.toFixed(2)+' per '+(r.unit||'unit'));}
+    var dh=document.getElementById('inv-dist-'+i);if(dh)dh.style.display=(String(r.price==null?'':r.price).trim()==='')?'':'none';
     if(r.incl&&amt!=null){tot+=amt;any=true;}
     if(r.incl&&r.flagged)flagged=true;
   });
@@ -53729,7 +53754,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='536b27c9164d';
+window.REMY_BUILD='f0d44aa57a48';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
