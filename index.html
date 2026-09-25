@@ -47716,6 +47716,44 @@ function runIntroMorph(){
   else { _go(); }
 }
 </script>
+<script>
+/* RemyWeek (2026-09-24): the ONE definition of San Fermo's weekly Swan House order window.
+   Cutoff Sunday 10pm Pacific; delivery = cutoff Sunday + DELIV_OFFSET days (Tuesday, Sully).
+   Late window = cutoff .. end of delivery day: adds still land on that week, marked LATE.
+   After that the next week opens. The sf-portal carries a byte-identical copy of this block. */
+window.RemyWeek=(function(){
+  var TZ='America/Los_Angeles', CUT_H=22, DELIV_OFFSET=2;
+  var WD={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  var F=null;
+  function pt(ms){
+    if(!F)F=new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,weekday:'short'});
+    var p={}; F.formatToParts(new Date(ms)).forEach(function(x){p[x.type]=x.value;});
+    return {y:+p.year,m:+p.month,d:+p.day,h:(+p.hour)%24,mi:+p.minute,s:+p.second,wd:WD[p.weekday]};
+  }
+  function key(y,m,d){return new Date(Date.UTC(y,m-1,d)).toISOString().slice(0,10);}
+  function add(k,n){var t=new Date(k+'T00:00:00Z');t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10);}
+  function wall(k,h){return Date.parse(k+'T'+(h<10?'0':'')+h+':00:00Z');}
+  function ptMs(k,h){   // Pacific wall-clock k h:00 -> epoch ms (DST-safe: iterate on the offset)
+    var want=wall(k,h), g=want+8*3600e3;
+    for(var i=0;i<3;i++){var q=pt(g);g+=want-Date.UTC(q.y,q.m-1,q.d,q.h,q.mi,q.s);}
+    return g;
+  }
+  function at(ms){
+    ms=(ms==null)?Date.now():ms;
+    var q=pt(ms), lastSun=add(key(q.y,q.m,q.d),-q.wd);
+    var lastCut=ptMs(lastSun,CUT_H), lateEnd=ptMs(add(lastSun,DELIV_OFFSET+1),0);
+    var k, late;
+    if(ms<lastCut){k=lastSun;late=false;}
+    else if(ms<lateEnd){k=lastSun;late=true;}
+    else {k=add(lastSun,7);late=false;}
+    var cut=ptMs(k,CUT_H);
+    return {key:k, id:'week-san_fermo-'+k, cutoffMs:cut, late:late, msLeft:Math.max(0,cut-ms), delivery:add(k,DELIV_OFFSET)};
+  }
+  function left(ms){var m=Math.max(0,Math.floor(ms/60000)),d=Math.floor(m/1440),h=Math.floor((m%1440)/60),mi=m%60;return d?(d+'d '+h+'h'):(h?(h+'h '+mi+'m'):(mi+'m'));}
+  function day(k){var t=new Date(k+'T12:00:00Z');return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][t.getUTCDay()]+' '+(t.getUTCMonth()+1)+'/'+t.getUTCDate();}
+  return {at:at, left:left, day:day, CUT_H:CUT_H, DELIV_OFFSET:DELIV_OFFSET};
+})();
+</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -48791,6 +48829,38 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
   // Expose a tiny order-write helper so the kitchen-side Order composer (a separate IIFE) can place
   // a real order into remy-orders without reaching into FB directly. Attested via the same App Check.
   try{window.RemyOrders={ready:function(){return !!(FB.ready&&FB.db);},
+    addToWeek:function(lines,meta){
+      /* San Fermo's weekly order: append in a transaction to orders/<RemyWeek id>, creating it on the
+         first item. A finalized / cancelled / merged week falls back to a separate order (old path). */
+      if(window._REMY_PREVIEW)return Promise.reject(new Error('preview-window'));
+      if(!(FB.db&&FB.db.runTransaction&&window.RemyWeek))return Promise.reject(new Error('no-db'));
+      meta=meta||{}; var w=window.RemyWeek.at(), now=new Date().toISOString();
+      lines=(lines||[]).map(function(l){var x=Object.assign({},l);x.added_at=now;if(w.late)x.late=true;return x;});
+      var ref=FB.db.collection('orders').doc(w.id);
+      return FB.db.runTransaction(function(tx){return tx.get(ref).then(function(d){
+        var o=d.exists?d.data():null;
+        if(o&&(o.status==='cancelled'||o.status==='merged'||(o.invoice&&o.invoice.finalized_at)))return {fallback:true};
+        if(!o){
+          o={order_id:w.id, weekly:true, week_cutoff:w.key, placed_by:meta.who||'San Fermo', placed_at:now,
+             requested_date:meta.date||w.delivery, confirmed_date:null, status:'placed', order_note:meta.note||'',
+             channel:'remy-weekly-v1', synced:false, buyer_id:'san_fermo', farm_id:'swan_house', lines:lines};
+          tx.set(ref,o); return {created:true, week:w};
+        }
+        var upd={lines:(o.lines||[]).concat(lines), updated_at:now};
+        if(meta.note)upd.order_note=(o.order_note?(o.order_note+'\n'):'')+meta.note;
+        if(o.status==='acked')upd.status='placed';   // new items after Kelly's "Got it" -> back to New so she sees them
+        tx.update(ref,upd); return {appended:true, week:w};
+      });}).then(function(r){
+        if(r&&r.fallback){
+          var sep={order_id:'remyord-'+Date.now()+'-'+Math.random().toString(36).slice(2,6), placed_by:meta.who||'San Fermo',
+            placed_at:now, requested_date:meta.date||'', confirmed_date:null, status:'placed', order_note:meta.note||'',
+            channel:'remy-order-v1', synced:false, lines:lines};
+          return window.RemyOrders.place(sep).then(function(){return {separate:true, week:w};});
+        }
+        try{_invDecrement({lines:lines});}catch(e){}
+        return r;
+      });
+    },
     place:function(order){if(window._REMY_PREVIEW)return Promise.reject(new Error('preview-window'));try{if(window.RemyTenant)window.RemyTenant.stamp(order);}catch(e){}var _op=FB.db.collection('orders').doc(order.order_id).set(order);try{_invDecrement(order);}catch(e){}return _op;},
     orders:function(){return (ordersData||[]).slice();},           // live restaurant+farm orders (this farm)
     onOrders:function(cb){try{if(typeof cb==='function')_ordListeners.push(cb);}catch(e){}}};}catch(e){}
@@ -51087,7 +51157,9 @@ function ordRecipient(o){
   if(o&&o.buyer_id&&o.buyer_id!=='san_fermo')return String(o.buyer_id).replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
   return 'San Fermo';
 }
+function ordTags(l){return (l&&l.late?' <span class="io-l-flag" style="background:#7a3b1e;color:#ffe3d3">LATE</span>':'')+(l&&l.pr?' <span class="io-l-flag" style="background:#2f5d4a;color:#dff3e8">PROCESS &amp; RETURN</span>':'');}
 function ordCardWho(o){
+  if(o&&o.weekly)return 'Weekly order · '+(window.RemyWeek?window.RemyWeek.day(o.week_cutoff):o.week_cutoff)+' cutoff · '+(o.placed_by||'San Fermo');
   if(o.source==='farm_dinner')return 'Swan House'+(o.series_label?(' · '+o.series_label):'');
   if(o.buyer_id&&o.buyer_id!=='san_fermo'){var r=(o.restaurant&&o.restaurant.name)?o.restaurant.name:ordRecipient(o);return r+(o.placed_by?(' · '+o.placed_by):'');}
   return o.placed_by||'';
@@ -51098,6 +51170,8 @@ function orderCard(o){
   var lines=o.lines||[];
   var packed=lines.filter(function(l){return l.packed;}).length;
   var reqd=o.requested_date?('needed '+ofmtDateOnly(o.requested_date)):'no date set';
+  if(o.weekly){var _nl=lines.filter(function(l){return l.late;}).length,_np=lines.filter(function(l){return l.pr;}).length;
+    if(_nl)reqd+=' · '+_nl+' late'; if(_np)reqd+=' · '+_np+' process & return';}
   if(ordersSelMode){
     var sel=!!ordersSel[o.order_id];
     var who=ordCardWho(o);
@@ -51112,11 +51186,12 @@ function orderCard(o){
     return '<div class="io-l'+(l.packed?' packed':'')+'">'+
       '<span class="io-l-check" data-ord="'+oesc(o.order_id)+'" data-li="'+i+'" role="checkbox" aria-checked="'+(l.packed?'true':'false')+'">'+(l.packed?'✓':'')+'</span>'+
       '<span class="io-l-body">'+
-        '<span class="io-l-name">'+oesc(l.qty)+' '+oesc(l.unit)+' '+oesc(l.item)+(flag?(' <span class="io-l-flag f-'+flag+'">'+flag.toUpperCase()+'</span>'):'')+(l.ordered_by?(' <span class="io-l-who" style="color:var(--ink-50,#8893ad);font-size:11px">· '+oesc(l.ordered_by)+'</span>'):'')+(l.farm_added?(' <span class="io-l-flag" style="background:rgba(155,176,106,.22);color:#cfe0a8">added</span>'):'')+'</span>'+
+        '<span class="io-l-name">'+oesc(l.qty)+' '+oesc(l.unit)+' '+oesc(l.item)+ordTags(l)+(flag?(' <span class="io-l-flag f-'+flag+'">'+flag.toUpperCase()+'</span>'):'')+(l.ordered_by?(' <span class="io-l-who" style="color:var(--ink-50,#8893ad);font-size:11px">· '+oesc(l.ordered_by)+'</span>'):'')+(l.farm_added?(' <span class="io-l-flag" style="background:rgba(155,176,106,.22);color:#cfe0a8">added</span>'):'')+'</span>'+
         (l.farm_note?('<span class="io-l-note">'+oesc(l.farm_note)+'</span>'):'')+
         '<span class="io-l-actions">'+
           '<button class="io-mini" data-flag="short" data-ord="'+oesc(o.order_id)+'" data-li="'+i+'">Short</button>'+
           '<button class="io-mini" data-flag="sub" data-ord="'+oesc(o.order_id)+'" data-li="'+i+'">Sub</button>'+
+          '<button class="io-mini" data-pr="1" data-ord="'+oesc(o.order_id)+'" data-li="'+i+'">'+(l.pr?'Undo P&amp;R':'P&amp;R')+'</button>'+
           (flag?('<button class="io-mini io-mini-clear" data-flag="clear" data-ord="'+oesc(o.order_id)+'" data-li="'+i+'">Clear</button>'):'')+
         '</span>'+
       '</span>'+
@@ -51151,6 +51226,11 @@ function wireOrders(c){
   c.querySelectorAll('[data-cancel]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var id=el.getAttribute('data-cancel');if(!confirm('Cancel this order? It drops out of the finalize flow and shows as cancelled.'))return;var o=ordersData.find(function(x){return x.order_id===id;});if(o)o.status='cancelled';renderOrders();ordersUpdate(id,{status:'cancelled'});});});
   c.querySelectorAll('[data-inv]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();invOpen(el.getAttribute('data-inv'));});});
   c.querySelectorAll('[data-pdf]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var o=ordersData.find(function(x){return x.order_id===el.getAttribute('data-pdf');});if(o)invPdf(o);});});
+  c.querySelectorAll('[data-pr]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();
+    var o=ordersData.find(function(x){return x.order_id===el.getAttribute('data-ord');});if(!o)return;
+    var l=(o.lines||[])[+el.getAttribute('data-li')];if(!l)return;
+    if(l.pr){delete l.pr;}else{l.pr=true;}
+    renderOrders();ordersUpdate(o.order_id,{lines:o.lines});});});
   c.querySelectorAll('[data-harv]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var o=ordersData.find(function(x){return x.order_id===el.getAttribute('data-harv');});if(o)invHarvest(o);});});
   c.querySelectorAll('[data-additem]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();ordAddOpen(el.getAttribute('data-additem'));});});
   c.querySelectorAll('[data-orddel]').forEach(function(el){el.addEventListener('click',function(ev){ev.stopPropagation();var id=el.getAttribute('data-orddel');
@@ -51174,6 +51254,7 @@ function ordAddOpen(orderId){
     fld('Item','<select id="oa-pick" style="'+ist+'"><option value="">— Pick from your list —</option>'+cropOpts+'<option value="__new__">+ Type a new item…</option></select><input id="oa-item" placeholder="New item name" style="'+ist+';display:none;margin-top:8px">')+
     '<div style="display:flex;gap:10px"><div style="flex:1">'+fld('Qty','<input id="oa-qty" inputmode="decimal" value="1" style="'+ist+'">')+'</div>'+
       '<div style="flex:1.3">'+fld('Unit','<select id="oa-unit" style="'+ist+'">'+invUnitOptions('lb')+'</select>')+'</div></div>'+
+    '<label style="display:flex;align-items:flex-start;gap:9px;margin:0 0 14px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-80,#c4cde2);cursor:pointer;line-height:1.4"><input type="checkbox" id="oa-pr" style="width:18px;height:18px;flex:0 0 auto;margin-top:1px"><span><b style="color:#dff3e8">Process &amp; Return</b> &mdash; no charge. Chris processes it and sends it back up.</span></label>'+
     fld('Price <span style="text-transform:none;color:var(--ink-50,#8893ad)">(optional &mdash; leave blank to fill at the invoice)</span>','<input id="oa-price" inputmode="decimal" placeholder="$ per unit" style="'+ist+'">')+
     '<label id="oa-saverow" style="display:none;align-items:center;gap:9px;margin:2px 0 14px;font-family:var(--fb,sans-serif);font-size:14px;color:var(--ink-80,#c4cde2);cursor:pointer"><input type="checkbox" id="oa-save" style="width:18px;height:18px;flex:0 0 auto"><span>Save <b id="oa-savename" style="color:#cfe0a8"></b> to my crop list'+'<span style="display:block;font-size:12px;color:var(--ink-60,#9aa6c0)">New item &mdash; keeps it (with your price) for next time</span></span></label>'+
     '<div style="display:flex;gap:10px;margin-top:6px"><button id="oa-cancel" style="flex:0 0 auto;font-family:var(--fb,sans-serif);font-size:15px;padding:13px 18px;border-radius:12px;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--ink-80,#c4cde2)">Cancel</button>'+
@@ -51186,6 +51267,7 @@ function ordAddOpen(orderId){
   s.querySelector('#oa-pick').addEventListener('change',oaPickChange);
   s.querySelector('#oa-item').addEventListener('input',oaSyncSave);
   s.querySelector('#oa-save').addEventListener('change',function(){s.querySelector('#oa-saverow').dataset.touched='1';});
+  s.querySelector('#oa-pr').addEventListener('change',function(){s.querySelector('#oa-price').parentElement.style.display=this.checked?'none':'';});
   s.querySelector('#oa-cancel').onclick=close;
   s.querySelector('#oa-add').onclick=function(){
     var item=oaCurrentItem();
@@ -51195,6 +51277,7 @@ function ordAddOpen(orderId){
     var pv=s.querySelector('#oa-price').value, price=(pv!==''&&!isNaN(parseFloat(pv)))?parseFloat(pv):null;
     var line={item:item, qty:qty, unit:unit, packed:false, farm_added:true};
     if(price!=null)line.price=price;
+    if(s.querySelector('#oa-pr').checked){line.pr=true;delete line.price;}
     o.lines=(o.lines||[]).concat([line]);
     ordersExpanded[o.order_id]=true;
     // save a brand-new item to Kelly's crop list (with her price) if she opted in — reuses the
@@ -51208,7 +51291,11 @@ function ordAddOpen(orderId){
       try{renderList();renderPick();}catch(e){}
     }
     renderOrders();
-    ordersUpdate(o.order_id,{lines:o.lines});
+    /* append in a transaction against the SERVER copy, so an item Chris added a moment ago is kept */
+    if(FB&&FB.db&&FB.db.runTransaction){var _ref=FB.db.collection('orders').doc(o.order_id);
+      FB.db.runTransaction(function(tx){return tx.get(_ref).then(function(d){var cur=(d.exists&&d.data().lines)||[];tx.update(_ref,{lines:cur.concat([line])});});})
+        .catch(function(){alert('Could not save — check your connection.');});}
+    else ordersUpdate(o.order_id,{lines:o.lines});
     close();
   };
   s.style.transform='translateY(0)';
@@ -51392,7 +51479,7 @@ function invBuildRows(o){
     var df=invLineDefaults(l,ex);
     return {item:l.item, unit:df.unit, ordered:l.qty, qty:qd.qty, flagged:qd.flagged, defaulted:qd.defaulted,
             farm_status:l.farm_status||null, farm_note:l.farm_note||'',
-            price:(df.price==null?'':String(df.price)), saved:df.saved, tenant:!!df.tenant, incl:true};
+            price:(l.pr?'0':(df.price==null?'':String(df.price))), saved:df.saved, tenant:!!df.tenant, incl:true, pr:!!l.pr, late:!!l.late};
   });
 }
 function invOpen(id){
@@ -51417,6 +51504,7 @@ function invRender(){
   var rows=INV.rows.map(function(r,i){
     var flag=(r.farm_status||'').toUpperCase();
     var flagHtml=flag?(' <span class="io-l-flag f-'+r.farm_status+'">'+flag+'</span>'):'';
+    flagHtml+=ordTags(r);
     var shortInfo=r.defaulted?('<span class="inv-defnote">qty set to the '+flag.toLowerCase()+' ('+oesc(String(r.ordered))+'&rarr;'+oesc(String(r.qty))+')</span>')
                  :(r.flagged?('<span class="inv-flagnote">'+flag+" — couldn't read a qty, confirm it</span>"):'');
     return '<div class="inv-row'+(r.incl?'':' off')+(r.flagged?' flagged':'')+'">'+
@@ -51427,14 +51515,14 @@ function invRender(){
         '<input class="inv-qty" data-qi="'+i+'" inputmode="decimal" value="'+oesc(String(r.qty))+'" aria-label="quantity">'+
         '<select class="inv-unit-sel" data-ui="'+i+'" aria-label="unit">'+invUnitOptions(r.unit)+'</select>'+
         '<span class="inv-op">&times;</span>'+
-        '<span class="inv-money"><span class="inv-cur">$</span><input class="inv-price" data-pi="'+i+'" inputmode="decimal" value="'+oesc(r.price)+'" placeholder="0.00" aria-label="price per unit"></span>'+
+        '<span class="inv-money"><span class="inv-cur">$</span><input class="inv-price" data-pi="'+i+'" inputmode="decimal" value="'+oesc(r.price)+'"'+(r.pr?' disabled':'')+' placeholder="0.00" aria-label="price per unit"></span>'+
         '<span class="inv-op">=</span>'+
         '<span class="inv-amt" id="inv-amt-'+i+'"></span>'+
       '</div>'+
       '<div class="inv-perunit" id="inv-per-'+i+'"></div>'+
       invDistHintHtml(r,i)+
-      '<div class="inv-ref">'+(r.tenant?((r.price!=null&&String(r.price)!=='')?'Price agreed at order &mdash; their sheet, not your base price':'No price on this order &mdash; set what they pay')
-                 :(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices'))+'</div>'+
+      '<div class="inv-ref">'+(r.pr?'Process &amp; Return &mdash; no charge. Chris processes it and sends it back up.':(r.tenant?((r.price!=null&&String(r.price)!=='')?'Price agreed at order &mdash; their sheet, not your base price':'No price on this order &mdash; set what they pay')
+                 :(r.saved?'From your saved prices in Remy':'No saved price yet &mdash; set it here and it saves to your prices')))+'</div>'+
     '</div>';
   }).join('');
   document.getElementById('inv-rows').innerHTML=rows;
@@ -51474,6 +51562,9 @@ function invFinalize(){
     var q=parseFloat(r.qty),p=parseFloat(r.price);
     var has=!isNaN(p),amt=(!isNaN(q)&&has)?+(q*p).toFixed(2):null;
     var fe=fitems[r.item];
+    // Process & Return: $0, never writes a unit/price back to her crop, never enters the farm-set book.
+    if(r.pr)return {item:r.item, unit:r.unit, qty:(isNaN(q)?r.qty:q), price:0, amount:0, pr:true,
+                    farm_status:r.farm_status||null, farm_note:r.farm_note||'', source:'process_return', farm_set:false};
     // UNIT type always feeds back to Kelly's crop (applies throughout Remy). PRICE only when she
     // ticks "Save these prices to my Remy prices" — otherwise a one-off invoice price stays here.
     var g=invCrop(r.item);
@@ -51523,6 +51614,7 @@ function invPrintHtml(o){
   var inv=o.invoice||{};var lines=inv.lines||[];
   var rows=lines.map(function(l){
     var note=l.farm_status?(' <span class="ip-flag">('+oesc(l.farm_status)+(l.farm_note?': '+oesc(l.farm_note):'')+')</span>'):'';
+    if(l.pr)note+=' <span class="ip-flag">(process &amp; return &middot; no charge)</span>';
     return '<tr><td>'+oesc(l.item)+note+'</td><td>'+oesc(String(l.qty))+' '+oesc(l.unit||'')+'</td><td>'+(l.price!=null?'$'+Number(l.price).toFixed(2):'')+'</td><td>'+(l.amount!=null?'$'+Number(l.amount).toFixed(2):'')+'</td></tr>';
   }).join('');
   var fin=(inv.finalized_at||'').slice(0,10);
@@ -51535,13 +51627,15 @@ function invPdf(o){ if(o&&o.invoice)invPrintDoc(invPrintHtml(o)); }
 // HARVEST LIST pdf — purely what to pick/pack, NO pricing. Uses the live editor rows (short-corrected
 // quantities) when open, else the order lines. Blank "Packed" column to tick while packing.
 function invHarvestRows(o){
-  if(INV.order===o&&INV.rows&&INV.rows.length)return INV.rows.map(function(r){return {item:r.item,qty:r.qty,unit:r.unit,farm_status:r.farm_status,farm_note:r.farm_note};});
+  if(INV.order===o&&INV.rows&&INV.rows.length)return INV.rows.map(function(r){return {item:r.item,qty:r.qty,unit:r.unit,farm_status:r.farm_status,farm_note:r.farm_note,pr:r.pr,late:r.late};});
   // from the card (editor not open): short-correct the qty so the packing list shows what to pack
-  return (o.lines||[]).map(function(l){var qd=invQtyDefault(l);return {item:l.item,qty:qd.qty,unit:l.unit,farm_status:l.farm_status,farm_note:l.farm_note};});
+  return (o.lines||[]).map(function(l){var qd=invQtyDefault(l);return {item:l.item,qty:qd.qty,unit:l.unit,farm_status:l.farm_status,farm_note:l.farm_note,pr:l.pr,late:l.late};});
 }
 function invHarvestHtml(o){
   var rows=invHarvestRows(o).map(function(r){
     var note=(r.farm_status||r.farm_note)?(' <span class="ip-flag">('+(r.farm_status?oesc(r.farm_status):'note')+(r.farm_note?': '+oesc(r.farm_note):'')+')</span>'):'';
+    if(r.pr)note+=' <span class="ip-flag">(process &amp; return)</span>';
+    if(r.late)note+=' <span class="ip-flag">(late add)</span>';
     return '<tr><td>'+oesc(r.item)+note+'</td><td>'+oesc(String(r.qty))+' '+oesc(r.unit||'')+'</td><td class="ip-box">&#9744;</td></tr>';
   }).join('');
   return '<div class="ip-doc">'+invDocHead(o,'Harvest list')+
@@ -51754,6 +51848,23 @@ window.RemyFarm={
   var ST={view:(window._REMY_SCOPED?'order':'pushing'),sort:'smart',q:'',sfilter:'all'};
   window._cfSetSFilter=function(s){ST.sfilter=s;render();};
   var cfOrder={items:{},date:'',filter:'all',note:''};   // in-progress order to Swan House (review -> send)
+  /* Weekly standing order (2026-09-24): San Fermo only; tenants keep the one-off order path. */
+  function _cfWeekly(){ try{ if(window.__REMY_TENANT||!window.RemyWeek)return false;
+    var b=(window.RemyTenant&&window.RemyTenant.buyer)?window.RemyTenant.buyer():'san_fermo'; return b==='san_fermo'; }catch(e){return false;} }
+  function _cfTags(l){ return (l&&l.late?' <span style="font-size:10px;font-weight:700;letter-spacing:.05em;padding:1px 6px;border-radius:6px;background:#7a3b1e;color:#ffe3d3">LATE</span>':'')+
+    (l&&l.pr?' <span style="font-size:10px;font-weight:700;letter-spacing:.05em;padding:1px 6px;border-radius:6px;background:#2f5d4a;color:#dff3e8">PROCESS &amp; RETURN</span>':''); }
+  function _cfWeekBanner(){
+    var W=window.RemyWeek, w=W.at(), raw=(window.RemyOrders&&window.RemyOrders.orders)?(window.RemyOrders.orders()||[]):[];
+    var o=raw.filter(function(x){return x.order_id===w.id;})[0], n=o?(o.lines||[]).length:0;
+    var head=w.late?('This week’s order closed Sun 10pm · Kelly is harvesting for '+W.day(w.delivery))
+                   :('This week’s order · closes Sun 10pm · <b>'+W.left(w.msLeft)+' left</b>');
+    var sub=n?(n+' item'+(n>1?'s':'')+' on it'+(w.late?' · anything you add now is marked LATE':' · add more anytime before the cutoff'))
+             :(w.late?'Nothing was ordered this week · anything you add now is marked LATE':('Nothing on it yet · delivery '+W.day(w.delivery)));
+    return '<div id="cf-week" class="cf-ord-cart" style="margin:0 0 10px;padding:12px 14px;border-radius:12px;border:1px solid '+(w.late?'#c4633f':'var(--gold)')+';background:var(--bg-card);font-family:var(--fb,sans-serif)">'+
+      '<div style="font-size:14px;color:var(--ink)">'+head+'</div>'+
+      '<div style="font-size:12.5px;color:var(--ink-60);margin-top:3px">'+sub+'</div></div>';
+  }
+  setInterval(function(){ try{ var el=document.getElementById('cf-week'); if(el&&_cfWeekly())el.outerHTML=_cfWeekBanner(); }catch(e){} },60000);
   var cfSentOpen={};   // expanded rows in the Sent-orders view
   var CF_UNITS=['lb','1/2 lb','oz','each','dozen','bunch','pint','quart','case','flat','bag'];
   function cfJss(s){return String(s==null?'':s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
@@ -51897,6 +52008,19 @@ window.RemyFarm={
       requested_date:cfOrder.date||'', confirmed_date:null, status:'placed',
       order_note:(cfOrder.note||''), channel:'remy-order-v1', synced:false, lines:lines};
     cfOrder._sending=true;
+    if(_cfWeekly()&&window.RemyOrders.addToWeek){
+      window.RemyOrders.addToWeek(lines,{who:who, note:(cfOrder.note||''), date:(cfOrder.date||'')}).then(function(r){
+        cfOrder.items={};cfOrder.date='';cfOrder.note='';cfOrder._sending=false;render();
+        var n=lines.length+' item'+(lines.length>1?'s':''), w=(r&&r.week)||window.RemyWeek.at();
+        alert(r&&r.separate?('Sent to Swan House ✓  ('+n+')\nThis week’s order was already invoiced, so these went as a separate order.')
+          :w.late?('Added to this week’s order ✓  ('+n+')\nIt’s past the Sunday 10pm cutoff, so Kelly sees these marked LATE.')
+          :('Added to this week’s order ✓  ('+n+')\nKeep adding anytime before Sunday 10pm.'));
+      }).catch(function(e){
+        cfOrder._sending=false;
+        alert((e&&e.message==='preview-window')?'Preview only — this window shows what San Fermo sees. Orders don’t send from here.':'Order didn’t send — check your connection and try again.');
+      });
+      return;
+    }
     window.RemyOrders.place(order).then(function(){
       cfOrder.items={};cfOrder.date='';cfOrder.note='';cfOrder._sending=false;render();
       alert('Order sent to Swan House ✓  ('+lines.length+' item'+(lines.length>1?'s':'')+')\nKelly & Tim check Sunday–Tuesday mornings.');
@@ -52109,7 +52233,7 @@ window.RemyFarm={
       });
     });
     if(!body)body='<div class="cf-empty">Nothing available from Swan House to order right now.</div>';
-    return cart+chips+body;
+    return (_cfWeekly()?_cfWeekBanner():'')+cart+chips+body;
   }
   // "Sent" view — the orders San Fermo has sent to Swan House + the farm's live status. Read-only.
   function cfWhen(pa){var d;if(typeof pa==='number')d=new Date(pa);
@@ -52138,7 +52262,7 @@ window.RemyFarm={
       if(open&&inv){
         var invLines=(inv.lines||[]).map(function(l){
           var fs=l.farm_status?' <span style="color:#c4633f;font-size:11px;font-weight:600">'+esc(l.farm_status)+(l.farm_note?': '+esc(l.farm_note):'')+'</span>':'';
-          return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+'</span><span style="color:var(--ink-60);white-space:nowrap">'+(l.price!=null?'$'+Number(l.price).toFixed(2)+' · ':'')+(l.amount!=null?'<b style="color:var(--ink)">$'+Number(l.amount).toFixed(2)+'</b>':'')+'</span></div>';
+          return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+_cfTags(l)+'</span><span style="color:var(--ink-60);white-space:nowrap">'+(l.price!=null?'$'+Number(l.price).toFixed(2)+' · ':'')+(l.amount!=null?'<b style="color:var(--ink)">$'+Number(l.amount).toFixed(2)+'</b>':'')+'</span></div>';
         }).join('');
         detail='<div style="margin-top:10px;border-top:1px solid var(--ink-12);padding-top:9px">'+invLines+
           '<div style="display:flex;justify-content:space-between;padding:7px 0 0;font-family:var(--fb,sans-serif);font-size:13.5px;font-weight:700;color:var(--ink);border-top:1px solid var(--ink-12);margin-top:5px"><span>Total · finalized '+esc((inv.finalized_at||'').slice(0,10))+'</span><span>$'+Number(inv.total||0).toFixed(2)+'</span></div>'+
@@ -52147,11 +52271,11 @@ window.RemyFarm={
       }else if(open){
         detail='<div style="margin-top:10px;border-top:1px solid var(--ink-12);padding-top:9px">'+lines.map(function(l){
         var fs=l.farm_status==='short'?' <span style="color:#c4633f;font-size:11px;font-weight:600">short</span>':(l.farm_status==='sub'?(' <span style="color:#c4633f;font-size:11px;font-weight:600">sub'+(l.farm_note?': '+esc(l.farm_note):'')+'</span>'):'');
-        return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+(l.packed?'✓ ':'')+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+'</span>'+(l.ask!=null?'<span style="color:var(--ink-60);white-space:nowrap">$'+Number(l.ask).toFixed(2)+'</span>':'')+'</div>';
+        return '<div style="display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-family:var(--fb,sans-serif);font-size:13.5px;color:var(--ink)"><span>'+(l.packed?'✓ ':'')+esc(String(l.qty))+' '+esc(l.unit||'')+' '+esc(l.item||'')+fs+_cfTags(l)+'</span>'+(l.ask!=null?'<span style="color:var(--ink-60);white-space:nowrap">$'+Number(l.ask).toFixed(2)+'</span>':'')+'</div>';
       }).join('')+(o.order_note?('<div style="font-family:var(--fb,sans-serif);font-size:12px;color:var(--ink-60);font-style:italic;margin-top:6px">“'+esc(o.order_note)+'”</div>'):'')+'</div>';
       }
       out+='<div class="cf-ord-card" onclick="_cfSentToggle(\''+cfJss(o.order_id)+'\')" style="border:1px solid var(--ink-12);border-radius:11px;padding:12px 13px;margin-bottom:8px;cursor:pointer;background:var(--bg-card)">'+
-        '<div style="display:flex;align-items:center;gap:10px"><span style="flex:1;font-family:var(--fd,serif);font-size:16px;color:var(--ink)">'+esc(when||'—')+' · '+esc(o.placed_by||'')+'</span>'+badge+'</div>'+
+        '<div style="display:flex;align-items:center;gap:10px"><span style="flex:1;font-family:var(--fd,serif);font-size:16px;color:var(--ink)">'+(o.weekly?((window.RemyWeek&&o.order_id===window.RemyWeek.at().id)?'This week’s order':('Week of '+esc(window.RemyWeek?window.RemyWeek.day(o.week_cutoff):o.week_cutoff)+' order')):(esc(when||'—')+' · '+esc(o.placed_by||'')))+'</span>'+badge+'</div>'+
         '<div style="font-family:var(--fb,sans-serif);font-size:12.5px;color:var(--ink-60);margin-top:4px">'+lines.length+' item'+(lines.length!==1?'s':'')+' · needed '+esc(needed)+(flags?(' · <span style="color:#c4633f">'+flags+' short/sub</span>'):'')+'</div>'+
         detail+'</div>';
     });
@@ -53754,7 +53878,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='8dc30c320e80';
+window.REMY_BUILD='b911f2677c6b';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
