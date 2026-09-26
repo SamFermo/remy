@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-25",
+ "generated": "2026-09-26",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -111,7 +111,7 @@
     {
      "vendor": "Franks",
      "per_lb": 18.5,
-     "date": "2026-09-17",
+     "date": "2026-09-24",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -121,45 +121,45 @@
     "unit": "lb",
     "pts": [
      {
-      "d": "2026-09-04",
-      "p": 18.5
-     },
-     {
-      "d": "2026-09-05",
-      "p": 18.5
-     },
-     {
-      "d": "2026-09-08",
-      "p": 18.5
-     },
-     {
-      "d": "2026-09-10",
-      "p": 18.5
-     },
-     {
-      "d": "2026-09-11",
-      "p": 18.5
-     },
-     {
-      "d": "2026-09-12",
-      "p": 18.5
-     },
-     {
       "d": "2026-09-16",
       "p": 18.5
      },
      {
       "d": "2026-09-17",
       "p": 18.5
+     },
+     {
+      "d": "2026-09-18",
+      "p": 18.5
+     },
+     {
+      "d": "2026-09-19",
+      "p": 18.5
+     },
+     {
+      "d": "2026-09-21",
+      "p": 18.5
+     },
+     {
+      "d": "2026-09-22",
+      "p": 18.5
+     },
+     {
+      "d": "2026-09-23",
+      "p": 18.5
+     },
+     {
+      "d": "2026-09-24",
+      "p": 18.5
      }
     ],
-    "t30": 0.0,
+    "t30": 0.4,
     "tyoy": -5.1,
     "rng": {
      "min": 4.0,
      "max": 12.0
     },
-    "n": 206
+    "n": 212
    },
    "offers": [
     {
@@ -181,8 +181,8 @@
      "per": 9.25,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "last_seen": "2026-09-24",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -194,14 +194,14 @@
      "per": 12.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Basil",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Basil – $12/lb"
     }
    ],
@@ -378,23 +378,23 @@
    "per_lb_basis": "exact"
   },
   "Cabbage": {
-   "swan_price": 1.5,
-   "market": 1.25,
+   "swan_price": 4.79,
+   "market": 3.99,
    "unit": "lb",
    "vendor": "Franks",
-   "date": "2026-07-18",
-   "freshness": "AGING",
+   "date": "2026-09-18",
+   "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
    "comp_type": "commodity",
-   "swan_per_lb": 1.5,
+   "swan_per_lb": 4.79,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Franks",
-     "per_lb": 1.25,
-     "date": "2026-07-18",
-     "freshness": "AGING",
+     "per_lb": 3.99,
+     "date": "2026-09-18",
+     "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
     }
@@ -402,10 +402,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2025-12-23",
-      "p": 1.15
-     },
      {
       "d": "2026-01-05",
       "p": 1.25
@@ -433,25 +429,29 @@
      {
       "d": "2026-07-18",
       "p": 1.25
+     },
+     {
+      "d": "2026-09-18",
+      "p": 3.99
      }
     ],
     "t30": null,
     "tyoy": null,
     "rng": {
      "min": 0.99,
-     "max": 1.5
+     "max": 3.99
     },
-    "n": 16
+    "n": 17
    },
    "offers": [
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.25,
+     "per": 3.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-07-18",
-     "freshness": "STALE",
+     "last_seen": "2026-09-18",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -464,7 +464,7 @@
    "market": 46.0,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-09-12",
+   "date": "2026-09-19",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
@@ -476,7 +476,7 @@
     {
      "vendor": "Franks",
      "per_lb": 5.11,
-     "date": "2026-09-12",
+     "date": "2026-09-19",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -485,10 +485,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-08-21",
-      "p": 5.11
-     },
      {
       "d": "2026-08-25",
       "p": 5.11
@@ -516,15 +512,19 @@
      {
       "d": "2026-09-12",
       "p": 5.11
+     },
+     {
+      "d": "2026-09-19",
+      "p": 5.11
      }
     ],
     "t30": 0.0,
-    "tyoy": 42.4,
+    "tyoy": 42.5,
     "rng": {
      "min": 32.25,
      "max": 46.0
     },
-    "n": 42
+    "n": 43
    },
    "offers": [
     {
@@ -533,8 +533,8 @@
      "per": 46.0,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-12",
-     "freshness": "DATED(13)",
+     "last_seen": "2026-09-19",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -546,14 +546,14 @@
      "per": 6.0,
      "per_unit": "pint",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pint",
      "case_price": 72.0,
      "pack_known": true,
      "sku": "Cherry Tomatoes",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Cherry Tomatoes – 12 pints for $72 (very limited)",
      "per_basis": "derived from smallest case on the sheet",
      "limited": "very limited",
@@ -696,8 +696,8 @@
    "market": 0.99,
    "unit": "bn",
    "vendor": "Franks",
-   "date": "2026-06-12",
-   "freshness": "STALE",
+   "date": "2026-09-18",
+   "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
    "comp_type": "commodity",
@@ -707,8 +707,8 @@
     {
      "vendor": "Franks",
      "per_lb": 5.82,
-     "date": "2026-06-12",
-     "freshness": "STALE",
+     "date": "2026-09-18",
+     "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
     }
@@ -716,10 +716,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-01-05",
-      "p": 5.82
-     },
      {
       "d": "2026-01-10",
       "p": 5.82
@@ -747,15 +743,19 @@
      {
       "d": "2026-06-12",
       "p": 5.82
+     },
+     {
+      "d": "2026-09-18",
+      "p": 5.82
      }
     ],
     "t30": null,
-    "tyoy": null,
+    "tyoy": 0.0,
     "rng": {
      "min": 0.99,
      "max": 0.99
     },
-    "n": 17
+    "n": 18
    },
    "offers": [
     {
@@ -790,8 +790,8 @@
      "per": 0.99,
      "per_unit": "bn",
      "source": "invoice",
-     "last_seen": "2026-06-12",
-     "freshness": "STALE",
+     "last_seen": "2026-09-18",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -807,7 +807,7 @@
    "market": 2.0,
    "unit": "each",
    "vendor": "Franks",
-   "date": "2026-09-14",
+   "date": "2026-09-23",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
@@ -819,7 +819,7 @@
     {
      "vendor": "Franks",
      "per_lb": 4.0,
-     "date": "2026-09-14",
+     "date": "2026-09-23",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -828,14 +828,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-08-15",
-      "p": 4.0
-     },
-     {
-      "d": "2026-08-19",
-      "p": 4.0
-     },
      {
       "d": "2026-08-20",
       "p": 4.0
@@ -859,15 +851,23 @@
      {
       "d": "2026-09-14",
       "p": 4.0
+     },
+     {
+      "d": "2026-09-19",
+      "p": 4.0
+     },
+     {
+      "d": "2026-09-23",
+      "p": 4.0
      }
     ],
     "t30": 0.0,
-    "tyoy": -20.0,
+    "tyoy": -15.8,
     "rng": {
      "min": 1.5,
      "max": 2.5
     },
-    "n": 57
+    "n": 59
    },
    "offers": [
     {
@@ -876,8 +876,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -889,14 +889,14 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 48.75,
      "pack_known": true,
      "sku": "Silver Slicer Cucumber",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Silver Slicer Cucumber - $3.50/lb; 15# case for $48.75; 30# for $90 SALE",
      "sale": true,
      "tiers": [
@@ -1021,7 +1021,7 @@
      "per_unit": "bn",
      "source": "invoice",
      "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "freshness": "DATED(9)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1077,24 +1077,24 @@
    "canonical_unit": "lb"
   },
   "Fennel Fronds": {
-   "swan_price": 2.39,
-   "market": 1.99,
+   "swan_price": 3.3,
+   "market": 2.75,
    "unit": "each",
    "vendor": "Franks",
-   "date": "2026-08-24",
-   "freshness": "AGING",
+   "date": "2026-09-21",
+   "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
    "comp_type": "commodity",
-   "climb": -33.4,
-   "swan_per_lb": 3.4143,
+   "climb": 10.0,
+   "swan_per_lb": 4.7143,
    "per_lb_basis": "estimate",
    "alts": [
     {
      "vendor": "Franks",
-     "per_lb": 2.84,
-     "date": "2026-08-24",
-     "freshness": "AGING",
+     "per_lb": 3.93,
+     "date": "2026-09-21",
+     "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
     }
@@ -1102,10 +1102,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-06-29",
-      "p": 4.27
-     },
      {
       "d": "2026-07-10",
       "p": 4.27
@@ -1133,25 +1129,29 @@
      {
       "d": "2026-08-24",
       "p": 2.84
+     },
+     {
+      "d": "2026-09-21",
+      "p": 3.93
      }
     ],
-    "t30": -33.4,
-    "tyoy": -11.6,
+    "t30": 10.0,
+    "tyoy": 22.2,
     "rng": {
      "min": 1.99,
      "max": 3.25
     },
-    "n": 62
+    "n": 63
    },
    "offers": [
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.99,
+     "per": 2.75,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-08-24",
-     "freshness": "STALE",
+     "last_seen": "2026-09-21",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1200,18 +1200,19 @@
    "market": 48.5,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-09-17",
+   "date": "2026-09-19",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
    "comp_type": "commodity",
+   "climb": 0.0,
    "swan_per_lb": 5.82,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Franks",
      "per_lb": 4.85,
-     "date": "2026-09-17",
+     "date": "2026-09-19",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1220,10 +1221,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2025-09-18",
-      "p": 5.2
-     },
      {
       "d": "2025-09-22",
       "p": 5.2
@@ -1251,15 +1248,19 @@
      {
       "d": "2026-09-17",
       "p": 4.85
+     },
+     {
+      "d": "2026-09-19",
+      "p": 4.85
      }
     ],
-    "t30": null,
+    "t30": 0.0,
     "tyoy": -6.7,
     "rng": {
      "min": 48.5,
      "max": 52.0
     },
-    "n": 19
+    "n": 20
    },
    "offers": [
     {
@@ -1268,8 +1269,8 @@
      "per": 48.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "last_seen": "2026-09-19",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1425,19 +1426,19 @@
    "market": 24.25,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-09-14",
+   "date": "2026-09-22",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
    "comp_type": "commodity",
-   "climb": 0.6,
+   "climb": 0.7,
    "swan_per_lb": 14.55,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Franks",
      "per_lb": 12.12,
-     "date": "2026-09-14",
+     "date": "2026-09-22",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1446,14 +1447,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-08-29",
-      "p": 12.12
-     },
-     {
-      "d": "2026-08-31",
-      "p": 12.12
-     },
      {
       "d": "2026-09-02",
       "p": 12.12
@@ -1477,15 +1470,23 @@
      {
       "d": "2026-09-14",
       "p": 12.12
+     },
+     {
+      "d": "2026-09-19",
+      "p": 12.12
+     },
+     {
+      "d": "2026-09-22",
+      "p": 12.12
      }
     ],
-    "t30": 0.6,
+    "t30": 0.7,
     "tyoy": null,
     "rng": {
      "min": 22.0,
      "max": 24.25
     },
-    "n": 45
+    "n": 47
    },
    "offers": [
     {
@@ -1494,8 +1495,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1640,7 +1641,7 @@
     {
      "vendor": "Franks",
      "per_lb": 15.0,
-     "date": "2026-09-10",
+     "date": "2026-09-21",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1649,10 +1650,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-06-16",
-      "p": 30.0
-     },
      {
       "d": "2026-06-17",
       "p": 15.0
@@ -1680,15 +1677,19 @@
      {
       "d": "2026-09-10",
       "p": 15.0
+     },
+     {
+      "d": "2026-09-21",
+      "p": 15.0
      }
     ],
-    "t30": -25.0,
-    "tyoy": 2.3,
+    "t30": -33.3,
+    "tyoy": 11.6,
     "rng": {
      "min": 1.25,
      "max": 7.5
     },
-    "n": 85
+    "n": 86
    },
    "offers": [
     {
@@ -1697,8 +1698,8 @@
      "per": 3.75,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "last_seen": "2026-09-21",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1755,8 +1756,8 @@
     },
     {
      "vendor": "Franks",
-     "per_lb": 30.0,
-     "date": "2026-09-14",
+     "per_lb": 15.96,
+     "date": "2026-09-21",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1765,14 +1766,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-08-15",
-      "p": 30.0
-     },
-     {
-      "d": "2026-08-17",
-      "p": 30.0
-     },
      {
       "d": "2026-08-21",
       "p": 30.0
@@ -1796,15 +1789,23 @@
      {
       "d": "2026-09-14",
       "p": 30.0
+     },
+     {
+      "d": "2026-09-19",
+      "p": 30.0
+     },
+     {
+      "d": "2026-09-21",
+      "p": 15.96
      }
     ],
-    "t30": 14.6,
-    "tyoy": 34.0,
+    "t30": -44.4,
+    "tyoy": -29.7,
     "rng": {
      "min": 3.99,
      "max": 7.5
     },
-    "n": 144
+    "n": 146
    },
    "offers": [
     {
@@ -1836,11 +1837,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 7.5,
+     "per": 3.99,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-21",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2312,7 +2313,7 @@
      "per_unit": "#",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2712,7 +2713,7 @@
      "per_unit": "1/2#",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2808,14 +2809,14 @@
      "per": 3.25,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 30.0,
      "pack_known": true,
      "sku": "Bulk Tokyo Market Turnips",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Bulk Tokyo Market Turnips - $3.25/lb; 10# case for $30",
      "tiers": [
       "10# case for $30"
@@ -2899,7 +2900,7 @@
      "per_unit": "CS",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3040,26 +3041,6 @@
      "pack_unit": "bu",
      "case_price": 19.92,
      "pack_known": true
-    },
-    {
-     "vendor": "Local Roots",
-     "pack": "5 lb",
-     "per": 15.0,
-     "per_unit": "lb",
-     "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 70.0,
-     "pack_known": true,
-     "sku": "Arugula",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Arugula – $15/lb; 5# for $70 (limited)",
-     "limited": "limited",
-     "tiers": [
-      "5# for $70"
-     ]
     }
    ]
   },
@@ -3185,8 +3166,8 @@
      "per": 9.25,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "last_seen": "2026-09-24",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3219,8 +3200,8 @@
      "per": 9.25,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "last_seen": "2026-09-24",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3253,8 +3234,8 @@
      "per": 9.25,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "last_seen": "2026-09-24",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3321,14 +3302,14 @@
      "per": 3.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
      "pack_known": true,
      "sku": "Chioggia Beets",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Chioggia Beets - $3.75/lb; 10# for $35; 25# for $81.25",
      "tiers": [
       "10# for $35",
@@ -3375,14 +3356,14 @@
      "per": 3.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
      "pack_known": true,
      "sku": "Golden Beets",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Golden Beets - $3.75/lb; 10# for $35; 25# for $81.25",
      "tiers": [
       "10# for $35",
@@ -3429,14 +3410,14 @@
      "per": 3.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
      "pack_known": true,
      "sku": "Red Beets",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Red Beets - $3.75/lb; 10# for $35; 25# for $81.25",
      "tiers": [
       "10# for $35",
@@ -3513,7 +3494,7 @@
      "per_unit": "jar",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3755,11 +3736,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.25,
+     "per": 3.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-07-18",
-     "freshness": "STALE",
+     "last_seen": "2026-09-18",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3802,11 +3783,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.25,
+     "per": 3.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-07-18",
-     "freshness": "STALE",
+     "last_seen": "2026-09-18",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3836,11 +3817,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.25,
+     "per": 3.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-07-18",
-     "freshness": "STALE",
+     "last_seen": "2026-09-18",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3883,21 +3864,23 @@
     {
      "vendor": "Local Roots",
      "pack": "10 lb",
-     "per": 3.75,
+     "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 35.0,
+     "case_price": 32.5,
      "pack_known": true,
      "sku": "Nantes Carrots",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Nantes Carrots - $3.75/lb; 10# for $35; 25# for $81.25",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
+     "sheet_line": "Nantes Carrots - $3.50/lb; 10# for $32.50; 25# for $75; 50#+ for $2.75/lb SALE",
+     "sale": true,
      "tiers": [
-      "10# for $35",
-      "25# for $81.25"
+      "10# for $32.50",
+      "25# for $75",
+      "50#+ for $2.75/lb"
      ]
     }
    ]
@@ -4140,7 +4123,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4278,14 +4261,14 @@
      "per": 3.5,
      "per_unit": "each",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "each",
      "case_price": 39.0,
      "pack_known": true,
      "sku": "Frisee",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Frisee - $3.50/ea; 12 for $39 (limited)",
      "limited": "limited",
      "tiers": [
@@ -4387,14 +4370,14 @@
      "per": 3.75,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 42.0,
      "pack_known": true,
      "sku": "Collard Greens",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Collard Greens - $3.75/bunch; 12 for $42",
      "tiers": [
       "12 for $42"
@@ -4461,8 +4444,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4495,8 +4478,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4529,8 +4512,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4563,8 +4546,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4597,8 +4580,8 @@
      "per": 2.0,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4610,14 +4593,14 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 48.75,
      "pack_known": true,
      "sku": "Marketmore Heirloom Cucumber",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Marketmore Heirloom Cucumber - $3.50/lb; 15# case for $48.75; 30# for $90 SALE",
      "sale": true,
      "tiers": [
@@ -4791,14 +4774,14 @@
      "per": 4.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 63.75,
      "pack_known": true,
      "sku": "Italian Eggplant",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Italian Eggplant – $4.50/lb; 15# case for $63.75 SALE",
      "sale": true,
      "tiers": [
@@ -4992,14 +4975,14 @@
      "per": 3.5,
      "per_unit": "each",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "each",
      "case_price": 39.0,
      "pack_known": true,
      "sku": "Escarole",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Escarole - $3.50/ea; 12 for $39 SALE",
      "sale": true,
      "tiers": [
@@ -5060,7 +5043,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "freshness": "DATED(9)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5072,14 +5055,14 @@
      "per": 4.25,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 40.0,
      "pack_known": true,
      "sku": "Fennel",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Fennel - $4.25/lb; 10# case for $40",
      "tiers": [
       "10# case for $40"
@@ -5134,7 +5117,7 @@
      "per_unit": "jar",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5291,7 +5274,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5303,14 +5286,14 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
      "pack_known": true,
      "sku": "Green Tomatoes",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Green Tomatoes – 10# flat for $35",
      "per_basis": "derived from smallest case on the sheet",
      "tiers": [
@@ -5454,14 +5437,14 @@
      "per": 3.75,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 42.0,
      "pack_known": true,
      "sku": "Curly Kale",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Curly Kale - $3.75/bunch; 12 for $42",
      "tiers": [
       "12 for $42"
@@ -5965,8 +5948,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5999,8 +5982,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6067,8 +6050,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6135,8 +6118,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6903,14 +6886,14 @@
      "per": 3.25,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Red Onion",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Red Onion – $3.25/lb (First Cut Farm)",
      "producer": "First Cut Farm"
     }
@@ -7035,14 +7018,14 @@
      "per": 3.25,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Sweet Onion",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Sweet Onion – $3.25/lb (First Cut Farm)",
      "producer": "First Cut Farm"
     }
@@ -7266,11 +7249,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 7.5,
+     "per": 3.99,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-21",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7384,14 +7367,14 @@
      "per": 3.5,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
      "pack_known": true,
      "sku": "Italian Parsley",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Italian Parsley – $3.50/bunch; 12 for $39",
      "tiers": [
       "12 for $39"
@@ -7945,14 +7928,14 @@
      "per": 10.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 45.0,
      "pack_known": true,
      "sku": "Shishito Peppers",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Shishito Peppers – $10/lb; 5# for $45",
      "tiers": [
       "5# for $45"
@@ -8361,16 +8344,15 @@
      "per": 6.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Variegato di Lusia Radicchio",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Variegato di Lusia Radicchio – $6/lb (limited)",
-     "limited": "limited"
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
+     "sheet_line": "Variegato di Lusia Radicchio – $6/lb"
     }
    ]
   },
@@ -8820,14 +8802,14 @@
      "per": 7.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Shallots",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Shallots -- $7/lb (First Cut Farm)",
      "producer": "First Cut Farm"
     }
@@ -9493,7 +9475,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9527,7 +9509,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9561,7 +9543,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9595,7 +9577,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9642,7 +9624,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9676,7 +9658,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9710,7 +9692,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9744,7 +9726,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9778,7 +9760,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9813,7 +9795,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9825,14 +9807,14 @@
      "per": 6.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 60.0,
      "pack_known": true,
      "sku": "Mixed Heirloom-esque Tomatoes",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Mixed Heirloom-esque Tomatoes – 10# flat for $60; 20# for $115; 30# + for $5.50/lb",
      "per_basis": "derived from smallest case on the sheet",
      "tiers": [
@@ -9882,7 +9864,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9890,24 +9872,23 @@
     },
     {
      "vendor": "Local Roots",
-     "pack": "10 lb flat",
-     "per": 4.0,
+     "pack": "20 lb",
+     "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 20.0,
      "pack_unit": "lb",
-     "case_price": 40.0,
+     "case_price": 70.0,
      "pack_known": true,
      "sku": "Roma Tomatoes",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Roma Tomatoes – 10# flat for $40; 20#+ for $3.75/lb SALE",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
+     "sheet_line": "Roma Tomatoes – 10# flat for $3.75; 20# for $70; 30# plus for $3.25/lb; SALE",
      "per_basis": "derived from smallest case on the sheet",
      "sale": true,
      "tiers": [
-      "10# flat for $40",
-      "20#+ for $3.75/lb"
+      "20# for $70"
      ]
     }
    ]
@@ -9938,7 +9919,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9972,7 +9953,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10006,7 +9987,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10040,7 +10021,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10075,7 +10056,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10129,7 +10110,7 @@
      "per": 14.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -10276,8 +10257,8 @@
      "per": 1.75,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-08",
-     "freshness": "DATED(17)",
+     "last_seen": "2026-09-23",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10310,7 +10291,7 @@
      "per": 26.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -10352,8 +10333,8 @@
      "per": 17.85,
      "per_unit": "gal",
      "source": "invoice",
-     "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "last_seen": "2026-09-21",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10458,7 +10439,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-09-11",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10538,11 +10519,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 2.69,
+     "per": 3.14,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-09-22",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10743,7 +10724,7 @@
      "per": 40.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -10869,8 +10850,8 @@
      "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-08",
-     "freshness": "DATED(17)",
+     "last_seen": "2026-09-19",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11310,7 +11291,7 @@
      "per": 17.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11331,7 +11312,7 @@
      "per": 11.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11352,7 +11333,7 @@
      "per": 6.69,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11373,7 +11354,7 @@
      "per": 6.69,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11394,7 +11375,7 @@
      "per": 16.65,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11415,7 +11396,7 @@
      "per": 7.65,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11436,7 +11417,7 @@
      "per": 49.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11457,7 +11438,7 @@
      "per": 22.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11478,7 +11459,7 @@
      "per": 18.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11499,7 +11480,7 @@
      "per": 12.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11520,7 +11501,7 @@
      "per": 5.69,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11541,7 +11522,7 @@
      "per": 5.09,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11562,7 +11543,7 @@
      "per": 10.95,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-06-23",
+     "last_seen": "2026-06-26",
      "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
@@ -11815,7 +11796,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11946,7 +11927,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12085,7 +12066,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12169,7 +12150,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12274,7 +12255,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12295,7 +12276,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-17",
-     "freshness": "DATED(8)",
+     "freshness": "DATED(9)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12476,7 +12457,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-11",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12560,7 +12541,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12594,7 +12575,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12615,7 +12596,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12670,7 +12651,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12901,7 +12882,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-08",
-     "freshness": "DATED(17)",
+     "freshness": "DATED(18)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12943,7 +12924,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12964,7 +12945,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12985,7 +12966,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13006,7 +12987,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13069,7 +13050,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13153,7 +13134,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13237,7 +13218,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13258,7 +13239,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-10",
-     "freshness": "DATED(15)",
+     "freshness": "DATED(16)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13405,7 +13386,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-03",
-     "freshness": "DATED(22)",
+     "freshness": "DATED(23)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13489,7 +13470,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13523,7 +13504,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-09-15",
-     "freshness": "DATED(10)",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13586,7 +13567,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13607,7 +13588,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-08-31",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13624,11 +13605,11 @@
     {
      "vendor": "PFI",
      "pack": "lb",
-     "per": 12.22,
+     "per": 12.2,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-08-27",
-     "freshness": "DATED(29)",
+     "last_seen": "2026-09-25",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13648,8 +13629,8 @@
      "per": 24.0,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-08-24",
-     "freshness": "STALE",
+     "last_seen": "2026-09-25",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13704,7 +13685,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13725,7 +13706,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-08-27",
-     "freshness": "DATED(29)",
+     "freshness": "DATED(30)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13767,7 +13748,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-06",
-     "freshness": "DATED(19)",
+     "freshness": "DATED(20)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13788,7 +13769,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-06",
-     "freshness": "DATED(19)",
+     "freshness": "DATED(20)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13830,7 +13811,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-08-27",
-     "freshness": "DATED(29)",
+     "freshness": "DATED(30)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13871,7 +13852,7 @@
      "per": 32.75,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-09-21",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -13935,7 +13916,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-09-14",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13973,21 +13954,22 @@
     {
      "vendor": "Local Roots",
      "pack": "10 lb flat",
-     "per": 6.0,
+     "per": 5.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 57.5,
+     "case_price": 55.0,
      "pack_known": true,
      "sku": "Heirloom Drying Tomatoes",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Heirloom Drying Tomatoes – $6.00/lb; 10# flat for $57.50 SALE",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
+     "sheet_line": "Heirloom Drying Tomatoes – $5.75/lb; 10# flat for $55; 20#+ for $5.25/lb SALE",
      "sale": true,
      "tiers": [
-      "10# flat for $57.50"
+      "10# flat for $55",
+      "20#+ for $5.25/lb"
      ]
     }
    ],
@@ -14005,74 +13987,17 @@
      "per": 6.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 27.5,
      "pack_known": true,
      "sku": "Gatherers Gold Italian Frying Peppers",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Gatherer’s Gold Italian Frying Peppers – $6/lb; 5# for $27.50",
      "tiers": [
       "5# for $27.50"
-     ]
-    }
-   ],
-   "created_by": "build_local_roots_offers.py"
-  },
-  "Baby Lettuce (Little Gem)": {
-   "display": "Baby Lettuce (Little Gem)",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Local Roots",
-     "pack": "24 each",
-     "per": 2.0,
-     "per_unit": "each",
-     "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
-     "freshness": "LIVE",
-     "pack_qty": 24.0,
-     "pack_unit": "each",
-     "case_price": 42.0,
-     "pack_known": true,
-     "sku": "Mixed Baby Lettuce",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Mixed Baby Lettuce – $2/ea; 24 for $42; 48+ for $1.50/ea",
-     "tiers": [
-      "24 for $42",
-      "48+ for $1.50/ea"
-     ]
-    }
-   ],
-   "created_by": "build_local_roots_offers.py"
-  },
-  "Red Butter Lettuce": {
-   "display": "Red Butter Lettuce",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Local Roots",
-     "pack": "12 each",
-     "per": 3.5,
-     "per_unit": "each",
-     "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "each",
-     "case_price": 39.0,
-     "pack_known": true,
-     "sku": "Red Butter Lettuce",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
-     "sheet_line": "Red Butter Lettuce – $3.50/ea; 12 for $39",
-     "tiers": [
-      "12 for $39"
      ]
     }
    ],
@@ -14090,14 +14015,14 @@
      "per": 14.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 65.0,
      "pack_known": true,
      "sku": "Spicy Salad Mix",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Spicy Salad Mix – $14/lb; 5# for $65",
      "tiers": [
       "5# for $65"
@@ -14118,14 +14043,14 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
      "pack_known": true,
      "sku": "Frilly Green Mustard",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Frilly Green Mustard – $13/lb; 5# for $60",
      "tiers": [
       "5# for $60"
@@ -14146,14 +14071,14 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
      "pack_known": true,
      "sku": "Frilly Purple Mustard",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Frilly Purple Mustard – $13/lb; 5# for $60",
      "tiers": [
       "5# for $60"
@@ -14174,14 +14099,14 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
      "pack_known": true,
      "sku": "Mizuna",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Mizuna – $13/lb; 5# for $60",
      "tiers": [
       "5# for $60"
@@ -14202,14 +14127,14 @@
      "per": 3.25,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
      "pack_known": true,
      "sku": "Dill Flowers",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Dill Flowers – $3.25/bu; 12 for $36",
      "tiers": [
       "12 for $36"
@@ -14230,14 +14155,14 @@
      "per": 3.25,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
      "pack_known": true,
      "sku": "Green Coriander",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Green Coriander – $3.25/bu; 12 for $36",
      "tiers": [
       "12 for $36"
@@ -14258,14 +14183,14 @@
      "per": 3.25,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
      "pack_known": true,
      "sku": "Fennel Flowers",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Fennel Flowers – $3.25/bu; 12 for $36",
      "tiers": [
       "12 for $36"
@@ -14286,14 +14211,14 @@
      "per": 3.75,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 42.0,
      "pack_known": true,
      "sku": "Italian Chard",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Italian Chard - $3.75/bunch; 12 for $42",
      "tiers": [
       "12 for $42"
@@ -14314,14 +14239,14 @@
      "per": 3.25,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
      "pack_known": true,
      "sku": "Catalonia Chicory aka Dandelion",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Catalonia Chicory aka Dandelion - $3.25/bu; 12 for $36; 24 for $66 SALE",
      "sale": true,
      "tiers": [
@@ -14344,14 +14269,14 @@
      "per": 3.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
      "pack_known": true,
      "sku": "Shin Kuroda Carrots",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Shin Kuroda Carrots - $3.75/lb; 10# for $35; 25# for $81.25",
      "tiers": [
       "10# for $35",
@@ -14373,14 +14298,14 @@
      "per": 3.5,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
      "pack_known": true,
      "sku": "Tokyo Market Turnips",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Tokyo Market Turnips - $3.50/bunch; 12 for $39",
      "tiers": [
       "12 for $39"
@@ -14401,14 +14326,14 @@
      "per": 2.75,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 37.5,
      "pack_known": true,
      "sku": "Canary Melon",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Canary Melon - $2.75/lb; 15# case for $37.50",
      "tiers": [
       "15# case for $37.50"
@@ -14429,14 +14354,14 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
      "pack_known": true,
      "sku": "Italian Heirloom Zucchini",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Italian Heirloom Zucchini - $3.50/lb (very limited)",
      "limited": "very limited"
     }
@@ -14455,14 +14380,14 @@
      "per": 3.5,
      "per_unit": "bu",
      "source": "fresh_sheet",
-     "last_seen": "2026-09-18",
+     "last_seen": "2026-09-25",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
      "pack_known": true,
      "sku": "Green Onions",
-     "sheet": "Local Roots fresh sheet 9/18 (delivery 2026-09-23)",
+     "sheet": "Local Roots fresh sheet 9/25 (delivery 2026-09-30)",
      "sheet_line": "Green Onions - $3.50/bunch; 12 for $39",
      "tiers": [
       "12 for $39"
@@ -14476,7 +14401,7 @@
   "seed": "offers-seed-2026-09-24.json",
   "franks_catalog": "franks-catalog-canonical-2026-07-09.json",
   "seed_generated": "2026-09-24",
-  "computed": "2026-09-25",
+  "computed": "2026-09-26",
   "folded_onto_existing": 9,
   "new_picker_items": 233,
   "offer_records": 291,
@@ -14486,37 +14411,42 @@
   "appended": 71,
   "new_items": 38,
   "commodity_appended": 12,
-  "computed": "2026-09-25"
+  "computed": "2026-09-26"
  },
  "franks_catalog_folded": {
   "appended": 26,
   "new_items": 18,
-  "computed": "2026-09-25"
+  "computed": "2026-09-26"
  },
  "specialty_folded": {
   "appended": 5,
   "new_items": 22,
-  "computed": "2026-09-25"
+  "computed": "2026-09-26"
  },
  "distributor_folded": {
   "appended": 26,
   "new_items": 100,
-  "computed": "2026-09-25"
+  "computed": "2026-09-26"
  },
  "local_roots_folded": {
-  "sheet": "9/18",
-  "delivery": "2026-09-23",
-  "offers": 43,
-  "new_cards": 18,
+  "sheet": "9/25",
+  "delivery": "2026-09-30",
+  "offers": 40,
+  "new_cards": 16,
   "skipped_no_canonical": [
+   "Ruby Red Potatoes",
+   "Satina Yellow Potatoes",
+   "Brussels Sprout Tops",
    "Broccoli",
    "Green Cabbage",
+   "Rose Cabbage Rose Cabbage",
    "Lacinato Kale",
+   "Purple Carrots",
    "Seconds Carrots",
-   "German Hardy White Garlic"
+   "German Hardy White Garlic",
+   "Yellow Onion"
   ],
   "card_fallbacks": [
-   "Red Butter Lettuce -> Lettuce, Red Butter (card missing)",
    "Spicy Salad Mix -> Greens, Salad Mix (card missing)",
    "Italian Heirloom Zucchini -> Summer Squash, Zucchini (card missing)",
    "Green Onions -> Onions, Green Bunching (Scallions) (card missing)"
@@ -14524,10 +14454,10 @@
   "second_sku_same_card": [
    "Mixed Cucumber Case"
   ],
-  "computed": "2026-09-25"
+  "computed": "2026-09-26"
  },
  "order_prev": {
-  "generated": "2026-09-25",
+  "generated": "2026-09-26",
   "windows": {
    "recent": 30,
    "year": 365,
@@ -14555,6 +14485,7 @@
    "48ct bulk heart lettuce romaine",
    "48ct corn",
    "50ct edible flower mix",
+   "7loc clr mineral spk wtr",
    "7oz cranberry cranjuice24 juice kist packer ruby",
    "aleppo chili merlino",
    "all aplily5 flour hometown lily purpose",
@@ -14574,6 +14505,7 @@
    "arborio riso spizzuli toro",
    "argo cornstarch",
    "artisan boneless duroc oak pork shoulder vine",
+   "avocado",
    "back chicken neck",
    "balacco balocco champbi dry finger lady savoiardi",
    "balocco dry finger lady savoiardi",
@@ -14587,6 +14519,7 @@
    "berrie flat raspberry",
    "berrie flt full strawberry",
    "bibb clamshell lettuce living",
+   "bibb lettuce living loose",
    "blazer13 cairn cairnspring cm1010 mill spring t85 trail trailblazer",
    "bob flour garbanzo garbflour mill",
    "bob flour garbanzo mill",
@@ -14606,12 +14539,14 @@
    "butter pre",
    "butter pre sal",
    "buttermilk dairy gal",
+   "cabbage",
    "canoil canola pride restaurant salad sunora",
    "canola pride restaurant salad",
    "caputo flour imported oopasta pasta",
    "carrot loose",
    "castelvetrano whl",
    "celery",
+   "celery root",
    "champagne champvin41mer merlino plastic vinegar",
    "champagne merlino plastic vinegar",
    "chanterelle mushroom",
@@ -14622,6 +14557,7 @@
    "chs fior latte mozz",
    "chs parm",
    "chs parm roundbale whl",
+   "cilantro herb",
    "cinnamon inch korintji merlino stick",
    "clam farmed live manila tideland",
    "clam juice ocean rtu seawatch",
@@ -14648,6 +14584,7 @@
    "darigold gallon lid milk milkdariwm",
    "darigold gallon milk",
    "dill herb",
+   "edible flower mix",
    "eggplant",
    "evoo italy olio",
    "evoo italy olio verde",
@@ -14681,12 +14618,13 @@
    "herb mint",
    "herb oregano",
    "herb rosemary",
+   "herb sage",
    "herb thyme",
    "huckleberry",
+   "iceberg lettuce",
    "iso merlino saffron spanish",
    "italian onion",
    "jar onion peeled shallot",
-   "juice lemon",
    "juice lime",
    "king salmon troll",
    "matiz prs",
@@ -14701,9 +14639,13 @@
    "onion",
    "onion peeled shallot",
    "pecorino romano",
+   "pepper serrano",
+   "potato size yukon",
+   "radish",
    "roma tomato",
    "squash zucchini",
    "sungold tomato",
+   "tomatillo",
    "tomatoe",
    "veal"
   ],
@@ -15084,6 +15026,7 @@
    "honeysuckle",
    "horseradish root",
    "huckleberry",
+   "iceberg lettuce",
    "inlet live mediterranean mussel tideland totten",
    "iso merlino saffron spanish",
    "italian jmm link sausage",
@@ -15663,6 +15606,7 @@
    "huckleberrie",
    "huckleberry",
    "hypomyce lobster mushroom",
+   "iceberg lettuce",
    "inlet live mediterranean mussel tideland totten",
    "inlet live oyster priced totten virginica",
    "iqf only prawn spot tail",
@@ -15826,7 +15770,6 @@
    "almond almondslice mandelin natural sliced",
    "almond mandelin natural sliced",
    "ammex bx344100 glove glovenitrilemedsub nitrile",
-   "ammex bx344100 glove nitrile",
    "ammex bx348100 extra glovesglovenitrilexlsub nitrile",
    "anc boquerone matiz prs",
    "arborio margherita riso spizzuli toro",
@@ -15889,7 +15832,6 @@
    "grain semolina semolinashep shepherd",
    "grain semolina shepherd",
    "grande low milk moisture mozzarella mozzshredg shredded",
-   "grande low milk moisture mozzarella shredded",
    "grapefruit ruby",
    "guanciale pepper",
    "head lettuce mix",
@@ -15935,6 +15877,7 @@
    "48ct bulk heart lettuce romaine",
    "48ct corn",
    "50ct edible flower mix",
+   "7loc clr mineral spk wtr",
    "7oz cranberry cranjuice24 juice kist packer ruby",
    "aleppo chili merlino",
    "all aplily5 flour hometown lily purpose",
@@ -15954,6 +15897,7 @@
    "arborio riso spizzuli toro",
    "argo cornstarch",
    "artisan boneless duroc oak pork shoulder vine",
+   "avocado",
    "back chicken neck",
    "balacco balocco champbi dry finger lady savoiardi",
    "balocco dry finger lady savoiardi",
@@ -15967,6 +15911,7 @@
    "berrie flat raspberry",
    "berrie flt full strawberry",
    "bibb clamshell lettuce living",
+   "bibb lettuce living loose",
    "blazer13 cairn cairnspring cm1010 mill spring t85 trail trailblazer",
    "bob flour garbanzo garbflour mill",
    "bob flour garbanzo mill",
@@ -15986,12 +15931,14 @@
    "butter pre",
    "butter pre sal",
    "buttermilk dairy gal",
+   "cabbage",
    "canoil canola pride restaurant salad sunora",
    "canola pride restaurant salad",
    "caputo flour imported oopasta pasta",
    "carrot loose",
    "castelvetrano whl",
    "celery",
+   "celery root",
    "champagne champvin41mer merlino plastic vinegar",
    "champagne merlino plastic vinegar",
    "chanterelle mushroom",
@@ -16002,6 +15949,7 @@
    "chs fior latte mozz",
    "chs parm",
    "chs parm roundbale whl",
+   "cilantro herb",
    "cinnamon inch korintji merlino stick",
    "clam farmed live manila tideland",
    "clam juice ocean rtu seawatch",
@@ -16028,6 +15976,7 @@
    "darigold gallon lid milk milkdariwm",
    "darigold gallon milk",
    "dill herb",
+   "edible flower mix",
    "eggplant",
    "evoo italy olio",
    "evoo italy olio verde",
@@ -16061,12 +16010,13 @@
    "herb mint",
    "herb oregano",
    "herb rosemary",
+   "herb sage",
    "herb thyme",
    "huckleberry",
+   "iceberg lettuce",
    "iso merlino saffron spanish",
    "italian onion",
    "jar onion peeled shallot",
-   "juice lemon",
    "juice lime",
    "king salmon troll",
    "matiz prs",
@@ -16081,23 +16031,27 @@
    "onion",
    "onion peeled shallot",
    "pecorino romano",
+   "pepper serrano",
+   "potato size yukon",
+   "radish",
    "roma tomato",
    "squash zucchini",
    "sungold tomato",
+   "tomatillo",
    "tomatoe",
    "veal"
   ],
   "regular_top": [
    [
     "herbs, basil",
-    26
-   ],
-   [
-    "lettuce, romaine heart*, bulk",
-    19
+    25
    ],
    [
     "lettuce, mix baby head",
+    20
+   ],
+   [
+    "lettuce, romaine heart*, bulk",
     18
    ],
    [
@@ -16109,15 +16063,15 @@
     17
    ],
    [
-    "corn, yellow/white",
-    15
+    "herbs, basil #",
+    16
    ],
    [
     "dairy, milk, whole",
     15
    ],
    [
-    "onion, yellow, jumbo",
+    "corn, yellow/white",
     14
    ],
    [
@@ -16125,19 +16079,23 @@
     13
    ],
    [
+    "onion, shallots, peeled",
+    13
+   ],
+   [
+    "cucumber, english",
+    13
+   ],
+   [
+    "onion, yellow, jumbo",
+    13
+   ],
+   [
     "herbs, oregano",
     11
    ],
    [
-    "onion, shallots, peeled",
-    11
-   ],
-   [
-    "cucumber, english",
-    11
-   ],
-   [
-    "herbs, basil #",
+    "eggplant",
     10
    ],
    [
@@ -16145,43 +16103,43 @@
     9
    ],
    [
-    "eggplant",
+    "flowers, edible mix",
     9
    ],
    [
-    "chs parm roundbale whl",
-    8
-   ],
-   [
-    "berries, strawberry, local full flt",
-    8
-   ],
-   [
     "garlic, peeled",
-    8
+    9
    ],
    [
     "fennel",
+    9
+   ],
+   [
+    "guanciale w/pepper",
+    9
+   ],
+   [
+    "lemon, choice",
     8
    ],
    [
-    "chs burrata",
-    7
-   ],
-   [
-    "tomato, sungold, org. 12pt/",
-    7
-   ],
-   [
-    "flowers, edible mix",
-    7
+    "onion, yellow, jumbo #",
+    8
    ],
    [
     "grapefruit, ruby",
     7
    ],
    [
-    "lemon, choice",
+    "berries, strawberry, local full flt",
+    7
+   ],
+   [
+    "chs burrata",
+    7
+   ],
+   [
+    "chs parm roundbale whl",
     7
    ],
    [
@@ -16189,23 +16147,19 @@
     7
    ],
    [
+    "juice, lemon gal",
+    7
+   ],
+   [
     "juice, lemon",
     7
    ],
    [
-    "guanciale w/pepper",
-    7
-   ],
-   [
-    "columela sherry vinegar (spain)",
+    "celery",
     6
    ],
    [
-    "shepherds grain semolina",
-    6
-   ],
-   [
-    "belgioioso mascarpone bulk tubs (domestic)",
+    "tomato, sungold, org. 12pt/",
     6
    ],
    [
@@ -16213,7 +16167,7 @@
     6
    ],
    [
-    "juice, lemon gal",
+    "carrot, jumbo, loose",
     6
    ],
    [
@@ -16225,12 +16179,8 @@
     6
    ],
    [
-    "goya fine corn meal 5 lb bag",
-    5
-   ],
-   [
-    "toro/spizzuli arborio riso",
-    5
+    "olives castelvetrano whl",
+    6
    ],
    [
     "mandelin natural sliced almonds almondslice mandelin",
@@ -16245,7 +16195,11 @@
     5
    ],
    [
-    "squash, zucchini",
+    "chs burrata italy frzn",
+    5
+   ],
+   [
+    "columela sherry vinegar (spain)",
     5
    ]
   ]

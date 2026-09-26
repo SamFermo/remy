@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T16:42:35",
+ "generated_at": "2026-09-26T14:03:23",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -116,207 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 70,
-   "low_f": 41,
-   "avg_f": 56.0,
-   "forecast": "Chance Rain Showers",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued September 25 at 6:28AM PDT until September 25 at 11:00PM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 70,
-   "low_f": 41,
-   "avg_f": 57.0,
-   "forecast": "Chance Rain Showers then Patchy Blowing Dust",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued September 24 at 5:38PM PDT until September 25 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 71,
-   "low_f": 40,
-   "avg_f": 57.0,
-   "forecast": "Rain Showers",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued September 24 at 5:38PM PDT until September 25 at 9:00PM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 62,
-   "low_f": 44,
-   "avg_f": 54.0,
-   "forecast": "Showers And Thunderstorms",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 62F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued September 25 at 2:09AM PDT until September 25 at 5:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 59,
-   "low_f": 47,
-   "avg_f": 54.0,
-   "forecast": "Rain Likely",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 59F, low 47F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Gale Warning",
-     "severity": "Moderate",
-     "headline": "Gale Warning issued September 25 at 8:13AM PDT until September 26 at 5:00AM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 62,
-   "low_f": 46,
-   "avg_f": 55.0,
-   "forecast": "Showers And Thunderstorms",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 62F, low 46F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued September 25 at 2:09AM PDT until September 25 at 8:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
-  },
-  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
@@ -391,6 +190,56 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 70,
+   "low_f": 41,
+   "avg_f": 56.0,
+   "forecast": "Chance Rain Showers",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 70,
+   "low_f": 41,
+   "avg_f": 57.0,
+   "forecast": "Chance Rain Showers then Patchy Blowing Dust",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -413,6 +262,121 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 71,
+   "low_f": 40,
+   "avg_f": 57.0,
+   "forecast": "Rain Showers",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 62,
+   "low_f": 44,
+   "avg_f": 54.0,
+   "forecast": "Showers And Thunderstorms",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 62F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 59,
+   "low_f": 47,
+   "avg_f": 54.0,
+   "forecast": "Rain Likely",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 59F, low 47F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 62,
+   "low_f": 46,
+   "avg_f": 55.0,
+   "forecast": "Showers And Thunderstorms",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 62F, low 46F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
    "id": "cascade_range_forests",
@@ -610,5 +574,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 0
 }
