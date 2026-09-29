@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-28T20:53:45",
+ "generated_at": "2026-09-29T13:55:59",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -135,7 +135,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued September 28 at 10:41AM PDT until September 29 at 5:00PM PDT by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued September 29 at 2:52AM PDT until September 29 at 5:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
