@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-29T13:55:59",
+ "generated_at": "2026-09-30T14:09:21",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -114,42 +114,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
-  },
-  {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 60,
-   "low_f": 48,
-   "avg_f": 55.0,
-   "forecast": "Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 60F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Small Craft Advisory",
-     "severity": "Minor",
-     "headline": "Small Craft Advisory issued September 29 at 2:52AM PDT until September 29 at 5:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -353,6 +317,36 @@
     "tideland_farmed"
    ],
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 60,
+   "low_f": 48,
+   "avg_f": 55.0,
+   "forecast": "Rain",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 60F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
    "id": "port_townsend_puget_sound",
@@ -580,5 +574,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 1
+ "high_regions": 0
 }
