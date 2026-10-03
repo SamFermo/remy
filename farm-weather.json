@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T13:57:52",
+ "generated_at": "2026-10-03T01:01:04",
  "enso": {
   "phase": "El Niño",
   "band": "strong",
@@ -114,6 +114,35 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 97,
+   "low_f": 66,
+   "avg_f": 83.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Heat Advisory",
+     "severity": "Moderate",
+     "headline": "Heat Advisory issued October 2 at 10:00AM PDT until October 7 at 10:00PM PDT by NWS Sacramento CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -474,29 +503,6 @@
    "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 97,
-   "low_f": 66,
-   "avg_f": 83.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
-  },
-  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
@@ -574,5 +580,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 0
+ "high_regions": 1
 }
