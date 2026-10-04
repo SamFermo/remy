@@ -1,21 +1,17 @@
 {
- "generated_at": "2026-10-03T14:05:54",
+ "generated_at": "2026-10-03T21:52:16",
  "enso": {
   "phase": "El Niño",
-  "band": "strong",
+  "band": "very strong",
   "status": "El Niño developing",
   "trend": "warming",
-  "oni": 1.8,
-  "oni_season": "JJA 2026",
-  "consec_seasons": 3,
+  "oni": 2.16,
+  "oni_season": "JAS 2026",
+  "consec_seasons": 4,
   "official_threshold_seasons": 5,
   "nino34_anom": 1.5,
   "nino34_month": "Jun 2026",
   "history": [
-   {
-    "season": "MAM 2025",
-    "oni": 0.02
-   },
    {
     "season": "AMJ 2025",
     "oni": -0.04
@@ -75,6 +71,10 @@
    {
     "season": "JJA 2026",
     "oni": 1.8
+   },
+   {
+    "season": "JAS 2026",
+    "oni": 2.16
    }
   ],
   "impact": "Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.",
@@ -82,7 +82,7 @@
    "title": "El Niño is building",
    "define": "El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.",
    "timing": "It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.",
-   "rate": "The ocean has swung about 2.2°C warmer over the last six months — a fast move."
+   "rate": "The ocean has swung about 2.4°C warmer over the last six months — a fast move."
   },
   "source": "NOAA Climate Prediction Center",
   "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"
@@ -130,7 +130,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued October 2 at 10:00AM PDT until October 7 at 10:00PM PDT by NWS Sacramento CA"
+     "headline": "Heat Advisory issued October 3 at 2:14PM PDT until October 7 at 10:00PM PDT by NWS Sacramento CA"
     }
    ],
    "fire": false,
