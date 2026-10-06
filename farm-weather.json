@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05T07:02:27",
+ "generated_at": "2026-10-06T19:50:52",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -99,15 +99,9 @@
    "avg_f": 59.0,
    "forecast": "Areas Of Fog then Mostly Sunny",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued October 5 at 5:07AM PDT until October 5 at 12:00PM PDT by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -120,103 +114,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
-  },
-  {
-   "id": "snohomish_sammamish_valleys_wa",
-   "name": "Snohomish/Sammamish Valleys, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 72,
-   "low_f": 47,
-   "avg_f": 60.0,
-   "forecast": "Patchy Fog then Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued October 5 at 5:07AM PDT until October 5 at 12:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "flowers",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring through fall; berries peak June-August"
-  },
-  {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 71,
-   "low_f": 51,
-   "avg_f": 61.0,
-   "forecast": "Mostly Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued October 5 at 5:07AM PDT until October 5 at 12:00PM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Franks Produce",
-    "EC Wilson"
-   ],
-   "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
-   ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 61,
-   "low_f": 48,
-   "avg_f": 55.0,
-   "forecast": "Areas Of Fog",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 61F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Minor",
-     "headline": "Dense Fog Advisory issued October 5 at 4:56AM PDT until October 5 at 11:00AM PDT by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
    "id": "northern_ca_interior",
@@ -233,7 +130,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued October 4 at 1:16PM PDT until October 7 at 10:00PM PDT by NWS Sacramento CA"
+     "headline": "Heat Advisory issued October 6 at 11:32AM PDT until October 9 at 10:00PM PDT by NWS Sacramento CA"
     }
    ],
    "fire": false,
@@ -271,6 +168,55 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Spring through fall; berries in summer"
+  },
+  {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 72,
+   "low_f": 47,
+   "avg_f": 60.0,
+   "forecast": "Patchy Fog then Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 71,
+   "low_f": 51,
+   "avg_f": 61.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
    "id": "yakima_valley_wa",
@@ -400,6 +346,36 @@
     "tideland_farmed"
    ],
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 61,
+   "low_f": 48,
+   "avg_f": 55.0,
+   "forecast": "Areas Of Fog",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 61F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
    "id": "port_townsend_puget_sound",
@@ -604,5 +580,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 5
+ "high_regions": 1
 }
