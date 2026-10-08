@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-07T14:38:39",
+ "generated_at": "2026-10-08T14:56:08",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -130,7 +130,7 @@
     {
      "event": "Heat Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued October 6 at 11:32AM PDT until October 9 at 10:00PM PDT by NWS Sacramento CA"
+     "headline": "Heat Advisory issued October 7 at 8:51AM PDT until October 8 at 10:00PM PDT by NWS Sacramento CA"
     }
    ],
    "fire": false,
