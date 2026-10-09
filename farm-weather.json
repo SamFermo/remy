@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-08T14:56:08",
+ "generated_at": "2026-10-09T13:53:25",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,21 +116,117 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
    "home": false,
-   "high_f": 100,
-   "low_f": 59,
-   "avg_f": 81.0,
-   "forecast": "Haze then Sunny",
+   "high_f": 80,
+   "low_f": 42,
+   "avg_f": 62.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [
     {
-     "event": "Heat Advisory",
+     "event": "Blowing Dust Advisory",
      "severity": "Moderate",
-     "headline": "Heat Advisory issued October 7 at 8:51AM PDT until October 8 at 10:00PM PDT by NWS Sacramento CA"
+     "headline": "Blowing Dust Advisory issued October 9 at 3:55AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 82,
+   "low_f": 40,
+   "avg_f": 62.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Blowing Dust Advisory",
+     "severity": "Moderate",
+     "headline": "Blowing Dust Advisory issued October 9 at 3:55AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 60,
+   "low_f": 47,
+   "avg_f": 54.0,
+   "forecast": "Areas Of Fog then Mostly Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 60F, low 47F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Small Craft Advisory",
+     "severity": "Minor",
+     "headline": "Small Craft Advisory issued October 9 at 2:52AM PDT until October 9 at 8:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 70,
+   "low_f": 41,
+   "avg_f": 55.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Winter Weather Advisory",
+     "severity": "Moderate",
+     "headline": "Winter Weather Advisory issued October 8 at 1:30PM MDT until October 11 at 6:00PM MDT by NWS Missoula MT"
     }
    ],
    "fire": false,
@@ -139,10 +235,11 @@
     "Foraged & Found Edibles"
    ],
    "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
    ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -245,30 +342,6 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 80,
-   "low_f": 42,
-   "avg_f": 62.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -291,30 +364,6 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 82,
-   "low_f": 40,
-   "avg_f": 62.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -346,36 +395,6 @@
     "tideland_farmed"
    ],
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 60,
-   "low_f": 47,
-   "avg_f": 54.0,
-   "forecast": "Areas Of Fog then Mostly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 60F, low 47F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
    "id": "port_townsend_puget_sound",
@@ -503,6 +522,29 @@
    "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 100,
+   "low_f": 59,
+   "avg_f": 81.0,
+   "forecast": "Haze then Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
@@ -524,30 +566,6 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 70,
-   "low_f": 41,
-   "avg_f": 55.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "northern_idaho",
@@ -580,5 +598,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 1
+ "high_regions": 4
 }
