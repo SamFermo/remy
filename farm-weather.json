@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T13:53:25",
+ "generated_at": "2026-10-09T13:50:24",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,6 +116,38 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 82,
+   "low_f": 41,
+   "avg_f": 63.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Special Weather Statement",
+     "severity": "Moderate",
+     "headline": "Special Weather Statement issued October 9 at 12:08PM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "columbia_basin_wa",
    "name": "Columbia Basin, WA",
    "category": "agricultural",
@@ -130,7 +162,7 @@
     {
      "event": "Blowing Dust Advisory",
      "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued October 9 at 3:55AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
+     "headline": "Blowing Dust Advisory issued October 9 at 11:45AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -160,7 +192,7 @@
     {
      "event": "Blowing Dust Advisory",
      "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued October 9 at 3:55AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
+     "headline": "Blowing Dust Advisory issued October 9 at 11:45AM PDT until October 9 at 7:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -195,7 +227,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued October 9 at 2:52AM PDT until October 9 at 8:00PM PDT by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued October 9 at 1:01PM PDT until October 9 at 8:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -226,7 +258,7 @@
     {
      "event": "Winter Weather Advisory",
      "severity": "Moderate",
-     "headline": "Winter Weather Advisory issued October 8 at 1:30PM MDT until October 11 at 6:00PM MDT by NWS Missoula MT"
+     "headline": "Winter Weather Advisory issued October 9 at 11:35AM MDT until October 12 at 6:00AM MDT by NWS Missoula MT"
     }
    ],
    "fire": false,
@@ -314,32 +346,6 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 82,
-   "low_f": 41,
-   "avg_f": 63.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "okanogan_highlands_wa",
@@ -598,5 +604,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 4
+ "high_regions": 5
 }
