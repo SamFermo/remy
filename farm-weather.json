@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T10:38:44",
+ "generated_at": "2026-10-11T13:48:41",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -135,7 +135,7 @@
     {
      "event": "Winter Weather Advisory",
      "severity": "Moderate",
-     "headline": "Winter Weather Advisory issued October 9 at 11:35AM MDT until October 12 at 6:00AM MDT by NWS Missoula MT"
+     "headline": "Winter Weather Advisory issued October 10 at 11:42AM MDT until October 12 at 6:00AM MDT by NWS Missoula MT"
     }
    ],
    "fire": false,
@@ -149,6 +149,66 @@
     "spring_foraged"
    ],
    "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 63,
+   "low_f": 34,
+   "avg_f": 51.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Blowing Dust Advisory",
+     "severity": "Moderate",
+     "headline": "Blowing Dust Advisory issued October 10 at 1:57PM PDT until October 11 at 5:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 64,
+   "low_f": 31,
+   "avg_f": 50.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Blowing Dust Advisory",
+     "severity": "Moderate",
+     "headline": "Blowing Dust Advisory issued October 10 at 1:57PM PDT until October 11 at 5:00PM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -170,7 +230,7 @@
     {
      "event": "Frost Advisory",
      "severity": "Minor",
-     "headline": "Frost Advisory issued October 10 at 3:03AM PDT until October 12 at 8:00AM PDT by NWS Seattle WA"
+     "headline": "Frost Advisory issued October 10 at 10:50PM PDT until October 12 at 8:00AM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -373,30 +433,6 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 63,
-   "low_f": 34,
-   "avg_f": 51.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -419,30 +455,6 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 64,
-   "low_f": 31,
-   "avg_f": 50.0,
-   "forecast": "Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -607,5 +619,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 5
+ "high_regions": 7
 }
