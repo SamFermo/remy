@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T13:48:41",
+ "generated_at": "2026-10-12T13:51:04",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,39 +116,41 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
    "home": false,
-   "high_f": 49,
-   "low_f": 28,
-   "avg_f": 37.0,
-   "forecast": "Light Rain Likely",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (28F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
+   "high_f": 65,
+   "low_f": 36,
+   "avg_f": 51.0,
+   "forecast": "Sunny",
+   "signals": [],
    "alerts": [
     {
-     "event": "Winter Weather Advisory",
-     "severity": "Moderate",
-     "headline": "Winter Weather Advisory issued October 10 at 11:42AM MDT until October 12 at 6:00AM MDT by NWS Missoula MT"
+     "event": "Freeze Watch",
+     "severity": "Severe",
+     "headline": "Freeze Watch issued October 12 at 5:57AM PDT until October 13 at 9:00AM PDT by NWS Pendleton OR"
+    },
+    {
+     "event": "Freeze Warning",
+     "severity": "Severe",
+     "headline": "Freeze Warning issued October 12 at 5:57AM PDT until October 12 at 9:00AM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
    "high_count": 2,
    "vendors": [
-    "Foraged & Found Edibles"
+    "Farmstand Local Foods",
+    "Franks Produce"
    ],
    "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
    ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "columbia_basin_wa",
@@ -163,9 +165,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Blowing Dust Advisory",
-     "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued October 10 at 1:57PM PDT until October 11 at 5:00PM PDT by NWS Spokane WA"
+     "event": "Freeze Watch",
+     "severity": "Severe",
+     "headline": "Freeze Watch issued October 12 at 6:43AM PDT until October 13 at 9:00AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -181,34 +183,34 @@
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 64,
-   "low_f": 31,
-   "avg_f": 50.0,
-   "forecast": "Sunny",
+   "high_f": 60,
+   "low_f": 34,
+   "avg_f": 49.0,
+   "forecast": "Chance Rain Showers",
    "signals": [],
    "alerts": [
     {
-     "event": "Blowing Dust Advisory",
-     "severity": "Moderate",
-     "headline": "Blowing Dust Advisory issued October 10 at 1:57PM PDT until October 11 at 5:00PM PDT by NWS Spokane WA"
+     "event": "Freeze Watch",
+     "severity": "Severe",
+     "headline": "Freeze Watch issued October 12 at 6:43AM PDT until October 13 at 9:00AM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
    "high_count": 1,
    "vendors": [
-    "Preservation Meat Collective"
+    "Farmstand Local Foods"
    ],
    "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
+    "apples",
+    "potatoes",
+    "grains"
    ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -230,7 +232,7 @@
     {
      "event": "Frost Advisory",
      "severity": "Minor",
-     "headline": "Frost Advisory issued October 10 at 10:50PM PDT until October 12 at 8:00AM PDT by NWS Seattle WA"
+     "headline": "Frost Advisory issued October 11 at 11:04PM PDT until October 12 at 8:00AM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -276,33 +278,62 @@
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 76,
-   "low_f": 47,
-   "avg_f": 64.0,
-   "forecast": "Sunny",
+   "high_f": 60,
+   "low_f": 38,
+   "avg_f": 50.0,
+   "forecast": "Patchy Fog then Sunny",
    "signals": [],
    "alerts": [
     {
-     "event": "Red Flag Warning",
-     "severity": "Severe",
-     "headline": "Red Flag Warning issued October 10 at 10:16AM PDT until October 12 at 5:00AM PDT by NWS Sacramento CA"
+     "event": "Frost Advisory",
+     "severity": "Minor",
+     "headline": "Frost Advisory issued October 12 at 6:47AM PDT until October 12 at 9:00AM PDT by NWS Eureka CA"
     }
    ],
-   "fire": true,
+   "fire": false,
    "high_count": 1,
    "vendors": [
     "Foraged & Found Edibles"
    ],
    "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
+    "mushrooms_wild",
+    "winter_foraged"
    ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 49,
+   "low_f": 28,
+   "avg_f": 37.0,
+   "forecast": "Light Rain Likely",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (28F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "northern_idaho",
@@ -407,54 +438,28 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 65,
-   "low_f": 36,
-   "avg_f": 51.0,
+   "high_f": 64,
+   "low_f": 31,
+   "avg_f": 50.0,
    "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
    "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
+    "Preservation Meat Collective"
    ],
    "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
+    "lamb",
+    "beef",
+    "pasture_raised"
    ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 60,
-   "low_f": 34,
-   "avg_f": 49.0,
-   "forecast": "Chance Rain Showers",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -566,15 +571,15 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 60,
-   "low_f": 38,
-   "avg_f": 50.0,
-   "forecast": "Patchy Fog then Sunny",
+   "high_f": 76,
+   "low_f": 47,
+   "avg_f": 64.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -583,10 +588,10 @@
     "Foraged & Found Edibles"
    ],
    "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
+    "winter_mushrooms",
+    "wild_edibles"
    ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
    "id": "southern_bc",
@@ -619,5 +624,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 8
 }
