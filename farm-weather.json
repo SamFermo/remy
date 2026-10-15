@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T07:43:19",
+ "generated_at": "2026-10-15T13:54:12",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -99,9 +99,15 @@
    "avg_f": 58.0,
    "forecast": "Mostly Cloudy",
    "signals": [],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"
+    }
+   ],
    "fire": false,
-   "high_count": 0,
+   "high_count": 1,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -114,6 +120,67 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 74,
+   "low_f": 45,
+   "avg_f": 58.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 72,
+   "low_f": 50,
+   "avg_f": 60.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
    "id": "western_montana",
@@ -168,55 +235,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Spring through fall; berries in summer"
-  },
-  {
-   "id": "snohomish_sammamish_valleys_wa",
-   "name": "Snohomish/Sammamish Valleys, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 74,
-   "low_f": 45,
-   "avg_f": 58.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "flowers",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring through fall; berries peak June-August"
-  },
-  {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 72,
-   "low_f": 50,
-   "avg_f": 60.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Franks Produce",
-    "EC Wilson"
-   ],
-   "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
-   ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
    "id": "yakima_valley_wa",
@@ -579,5 +597,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 1
+ "high_regions": 4
 }
