@@ -1267,6 +1267,29 @@ body.remy-grower #doors,body.remy-grower #farm,body.remy-grower #portal,body.rem
 .gw-pane{display:none;padding:0 18px}
 .gw-pane.on{display:block}
 #gw-saved{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:rgba(168,185,126,.16);border:1px solid rgba(168,185,126,.5);color:#6f8a3c;font-size:11px;letter-spacing:.08em;padding:7px 15px;border-radius:20px;opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:6}
+.pk-tag{display:inline-block;margin-left:7px;padding:2px 7px;border-radius:999px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle}
+.pk-tag-over{background:rgba(224,121,106,.18);color:#e0796a;border:1px solid rgba(224,121,106,.5)}
+.pk-tag-best{background:rgba(168,185,126,.18);color:#a8b97e;border:1px solid rgba(168,185,126,.5)}
+.pk-add.pk-add-over{opacity:.45}
+.gw-cf-card{margin-top:12px;padding:11px 13px;border:1px solid var(--ink-12);border-radius:12px;background:var(--bg-card)}
+.gw-cf-hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:var(--fb,sans-serif)}
+.gw-cf-name{font-size:14px;font-weight:600;color:var(--ink)}
+.gw-cf-sub{font-size:11px;letter-spacing:.06em;color:var(--ink-60)}
+.gw-cf-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--ink-12);font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink)}
+.gw-cf-row:first-of-type{border-top:0}
+.gw-cf-nm{flex:1}
+.gw-cf-lbs{color:var(--ink-60);font-size:12px}
+.gw-cf-pr{min-width:70px;text-align:right}
+.gw-sh-wrap{padding:4px 0 30px;font-family:var(--fb,sans-serif)}
+.gw-sh-note{font-size:12px;color:var(--ink-60);margin:4px 0 12px;line-height:1.45}
+.gw-sh-row{padding:10px 12px;border:1px solid var(--ink-12);border-radius:12px;background:var(--bg-card);margin:0 0 8px}
+.gw-sh-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.gw-sh-nm{font-size:15px;color:var(--ink)}
+.gw-sh-st{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+.gw-sh-st.have{color:#a8b97e}.gw-sh-st.low{color:#d9b36c}
+.gw-sh-mid{display:flex;gap:14px;font-size:13px;color:var(--ink);margin-top:5px}
+.gw-sh-tb{font-size:11.5px;color:var(--ink-60);margin-top:5px;line-height:1.4}
+.gw-sh-tb.over{color:#e0796a}
 .gw-row{background:#fff;border:1px solid #E3DDCF;border-radius:14px;padding:12px 14px;margin:0 0 10px}
 .gw-row-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .gw-row-name{font-family:var(--fd,Georgia,serif);font-size:18px;color:#2B2A26}
@@ -2235,6 +2258,10 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
     <div id="restaurants-body"></div>
   </div>
 
+  <div class="view" id="view-grower">
+    <div id="grower-shelf-body"></div>
+  </div>
+
   <div class="meta" id="meta"></div>
   <div id="saved" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:rgba(168,185,126,0.16);border:1px solid rgba(168,185,126,0.5);color:#a8b97e;font-family:var(--fb);font-size:11px;letter-spacing:0.08em;padding:7px 15px;border-radius:20px;opacity:0;transition:opacity .3s ease;pointer-events:none">Saved</div>
   <div id="photoView">
@@ -2578,7 +2605,7 @@ button.cf-r-tap{background:none;border:1px solid var(--ink-12);border-radius:7px
 
 <script>
 const DATA = {
-  "generated": "2026-10-16",
+  "generated": "2026-10-13",
   "ingredients": [
     {
       "name": "Black Cod",
@@ -9585,13 +9612,13 @@ const DATA = {
         0,
         0
       ],
-      "notes": "KC 10/14: IQF, $32.95/5lb box, $29.95/25lb case. KC 10/7: IQF Alaskan spot prawns $32.95/lb (5# box), $29.95/lb (25# case), SE Alaska. KC 8/26: now IQF only (fresh season done) $29.95/lb (25lb case) / $32.95/lb (5lb bag), ocean run head-off. KC 8/19: IQF ocean run head-off, $29.95 case / $32.95 5# bag. KC 8/19: IQF ocean-run head-off, $29.95/# (25# case), $32.95/# (5# bag). KC 8/19 reaffirm: Wild IQF Alaska, ocean-run head-off $29.95/lb (25#) / $32.95/lb (5#).  KC 7/22: frozen IQF holding $29.95/lb (25#) / $32.95/lb (5#). Key City 7/14: frozen IQF holding $29.95/lb (25#) / $32.95/lb (5#). KC 7/1: Spot Prawns frozen IQF, 5# pack up to $32.95 (from $31.99 on 6/24); 25# case $29.95 unchanged. Fresh AK done for the season. Key City 6/24: now FROZEN IQF tails-only $29.95/# (25# box) / $31.99/# (5# pkg) \u2014 fresh AK season winding down. Key City 5/27: $25.95/lb 4lb min, still in season. Key City 5/22: Wild Alaskan Fresh Spot Prawns $25.95/lb (tails only). \"While supplies last.\" 4lb minimum delivery prior week.",
-      "price_range": "$29.95-32.95/lb IQF (KC 10/14: $32.95/5lb box, $29.95/25lb case)",
+      "notes": "KC 10/7: IQF Alaskan spot prawns $32.95/lb (5# box), $29.95/lb (25# case), SE Alaska. KC 8/26: now IQF only (fresh season done) $29.95/lb (25lb case) / $32.95/lb (5lb bag), ocean run head-off. KC 8/19: IQF ocean run head-off, $29.95 case / $32.95 5# bag. KC 8/19: IQF ocean-run head-off, $29.95/# (25# case), $32.95/# (5# bag). KC 8/19 reaffirm: Wild IQF Alaska, ocean-run head-off $29.95/lb (25#) / $32.95/lb (5#).  KC 7/22: frozen IQF holding $29.95/lb (25#) / $32.95/lb (5#). Key City 7/14: frozen IQF holding $29.95/lb (25#) / $32.95/lb (5#). KC 7/1: Spot Prawns frozen IQF, 5# pack up to $32.95 (from $31.99 on 6/24); 25# case $29.95 unchanged. Fresh AK done for the season. Key City 6/24: now FROZEN IQF tails-only $29.95/# (25# box) / $31.99/# (5# pkg) \u2014 fresh AK season winding down. Key City 5/27: $25.95/lb 4lb min, still in season. Key City 5/22: Wild Alaskan Fresh Spot Prawns $25.95/lb (tails only). \"While supplies last.\" 4lb minimum delivery prior week.",
+      "price_range": "$29.95-32.95/lb IQF",
       "last_seen_fresh_sheet": "2026-05-20",
       "last_source": {
-        "date": "2026-10-14",
-        "channel": "email",
-        "note": "Key City fresh sheet 10/14"
+        "date": "2026-10-07",
+        "channel": "body",
+        "note": "KC featured items 10/7"
       }
     },
     {
@@ -10561,12 +10588,12 @@ const DATA = {
         1,
         1
       ],
-      "notes": "KC 10/14: steady at $7.99 whole/$11.99 filet. KC 9/9: WA 7up farmed steelhead $7.99 whole/$11.99 filet. Key City 5/27: WA & Sustainably Farmed Steelhead on the Columbia River. $7.99/lb, large 7up size.",
-      "price_range": "$7.99/lb whole, $11.99/lb filet (Colville Nation, Upper Columbia; KC 10/14)",
+      "notes": "KC 9/9: WA 7up farmed steelhead $7.99 whole/$11.99 filet. Key City 5/27: WA & Sustainably Farmed Steelhead on the Columbia River. $7.99/lb, large 7up size.",
+      "price_range": "$7.99/lb whole, $11.99/lb filet (Colville Nation, Upper Columbia)",
       "last_source": {
-        "date": "2026-10-14",
-        "channel": "email",
-        "note": "Key City fresh sheet 10/14"
+        "date": "2026-09-09",
+        "channel": "fresh_sheet",
+        "note": "KC 9/9"
       }
     },
     {
@@ -10681,16 +10708,16 @@ const DATA = {
         2,
         1,
         2,
-        1,
+        0,
         0,
         0
       ],
-      "notes": "KC 10/14: WA gill-net king from the Quileute River, $12.99 whole/$18.99 filet. KC 9/16: WA Net King, caught WA coastal rivers. WA Net King from Washington coastal rivers (river varies: Quileute earlier, Columbia River on the 9/14 invoice C302345). Whole holding $10.95/lb across recent net-king invoices.",
-      "price_range": "$12.99/lb whole, $18.99/lb filet (KC 10/14, WA gill-net, Quileute R.)",
+      "notes": "KC 9/16: WA Net King, caught WA coastal rivers. WA Net King from Washington coastal rivers (river varies: Quileute earlier, Columbia River on the 9/14 invoice C302345). Whole holding $10.95/lb across recent net-king invoices.",
+      "price_range": "$10.95/lb whole, $15.99/lb filet",
       "last_source": {
-        "date": "2026-10-14",
+        "date": "2026-09-18",
         "channel": "email",
-        "note": "Key City fresh sheet 10/14"
+        "note": "KC 9/16: WA Net King, caught WA coastal rivers."
       }
     },
     {
@@ -24622,12 +24649,12 @@ const DATA = {
         0,
         0
       ],
-      "notes": "FS 10/14: Ken's Red kiwi berries from Broken Shovel Kiwi Farm (Burien) now in - burgundy flesh, brix up to 28, highly limited, more in coming weeks. FS 10/1: Sweet Chico & Anna from Burnt Ridge Orchards, first del 10/7, short season. Farmstand 9/16: Ken's Reds from Broken Shovel Kiwi Farm ~2 weeks out (early Oct). Fan-favorite short-season pick. Farmstand 9/30: Ananasnaya (Sweet Chico & Anna) from Burnt Ridge Orchards, first delivery Wed 10/7.",
+      "notes": "FS 10/1: Sweet Chico & Anna from Burnt Ridge Orchards, first del 10/7, short season. Farmstand 9/16: Ken's Reds from Broken Shovel Kiwi Farm ~2 weeks out (early Oct). Fan-favorite short-season pick. Farmstand 9/30: Ananasnaya (Sweet Chico & Anna) from Burnt Ridge Orchards, first delivery Wed 10/7.",
       "price_range": "market",
       "last_source": {
-        "date": "2026-10-14",
+        "date": "2026-10-01",
         "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
+        "note": "Farmstand Sept newsletter 10/1"
       }
     },
     {
@@ -26155,18 +26182,18 @@ const DATA = {
         0,
         0,
         0,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         0
       ],
-      "notes": "FS 10/14: Four Elements Farm (Puyallup), true local season starting - 'never meant to be a year-round dish.' Added from hub catalog sweep 2026-09-24 (Sam review: new, batch G). Hub listing(s): Farmstand \"Brussels Sprouts\". Availability window NOT yet curated; months zeroed so it emits no false signal.",
+      "notes": "Added from hub catalog sweep 2026-09-24 (Sam review: new, batch G). Hub listing(s): Farmstand \"Brussels Sprouts\". Availability window NOT yet curated; months zeroed so it emits no false signal.",
       "price_range": "$7.80/lb",
       "chart_hidden": true,
       "last_source": {
-        "date": "2026-10-14",
-        "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
+        "date": "2026-09-24",
+        "channel": "hub",
+        "note": "offers-review 2026-09-24"
       }
     },
     {
@@ -29460,114 +29487,6 @@ const DATA = {
         "date": "2026-10-11",
         "channel": "email",
         "note": "F&F Week of October 12th sheet"
-      }
-    },
-    {
-      "name": "Fioretto Cauliflower",
-      "category": "produce",
-      "vendor": "Farmstand Local Foods",
-      "months": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2,
-        1,
-        0
-      ],
-      "notes": "FS 10/14: flush from Hayshaker and Local Color farms this week. Japanese stick/stem cauliflower.",
-      "price_range": "TBD",
-      "source": "vendor",
-      "last_source": {
-        "date": "2026-10-14",
-        "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
-      }
-    },
-    {
-      "name": "Trinidad Scorpion Peppers",
-      "category": "produce",
-      "vendor": "Farmstand Local Foods",
-      "months": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0
-      ],
-      "notes": "FS 10/14: Frog Hollow Farm (Walla Walla). One of the world's hottest peppers with complex tropical fruitiness for sauces and spices.",
-      "price_range": "TBD",
-      "source": "vendor",
-      "last_source": {
-        "date": "2026-10-14",
-        "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
-      }
-    },
-    {
-      "name": "Scarlet Turnips",
-      "category": "produce",
-      "vendor": "Farmstand Local Foods",
-      "months": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2,
-        1,
-        1
-      ],
-      "notes": "FS 10/14: Bumblebee Farm (Fall City). Japanese heirloom, red exterior/white inside, very sweet and tender, great raw or cooked.",
-      "price_range": "TBD",
-      "source": "vendor",
-      "last_source": {
-        "date": "2026-10-14",
-        "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
-      }
-    },
-    {
-      "name": "Radicchio, Mixed (Sunnyside)",
-      "category": "green",
-      "vendor": "Farmstand Local Foods",
-      "months": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2,
-        1,
-        1
-      ],
-      "notes": "FS 10/14: Sunnyside Farm (Snohomish). Chicory week - mildly bitter mixed radicchio in season.",
-      "price_range": "TBD",
-      "source": "vendor",
-      "last_source": {
-        "date": "2026-10-14",
-        "channel": "body",
-        "note": "Farmstand Fresh Sheet 10/14"
       }
     }
   ],
@@ -34983,12 +34902,12 @@ const DATA = {
     {
       "ingredient": "Black Cod",
       "latest_price": 11.99,
-      "latest_date": "2026-10-14",
+      "latest_date": "2026-10-08",
       "prev_30d_price": null,
       "trend_30d_pct": null,
       "trend_yoy_pct": null,
       "trend_season_pct": null,
-      "entry_count": 10,
+      "entry_count": 9,
       "vendor": "key_city_fish",
       "unit": "lb",
       "price_range": {
@@ -34996,6 +34915,10 @@ const DATA = {
         "max": 11.99
       },
       "history": [
+        {
+          "date": "2025-04-05",
+          "price": 11.95
+        },
         {
           "date": "2025-04-17",
           "price": 11.95
@@ -35022,10 +34945,6 @@ const DATA = {
         },
         {
           "date": "2026-10-08",
-          "price": 11.99
-        },
-        {
-          "date": "2026-10-14",
           "price": 11.99
         }
       ]
@@ -35183,12 +35102,12 @@ const DATA = {
     {
       "ingredient": "Chicken Feet",
       "latest_price": 2.59,
-      "latest_date": "2026-10-10",
+      "latest_date": "2026-09-30",
       "prev_30d_price": 2.59,
       "trend_30d_pct": 0.0,
       "trend_yoy_pct": 23.9,
       "trend_season_pct": null,
-      "entry_count": 68,
+      "entry_count": 65,
       "vendor": "ec_wilson",
       "unit": "lb",
       "price_range": {
@@ -35196,6 +35115,18 @@ const DATA = {
         "max": 2.59
       },
       "history": [
+        {
+          "date": "2026-09-05",
+          "price": 2.59
+        },
+        {
+          "date": "2026-09-10",
+          "price": 2.59
+        },
+        {
+          "date": "2026-09-14",
+          "price": 2.59
+        },
         {
           "date": "2026-09-17",
           "price": 2.59
@@ -35214,18 +35145,6 @@ const DATA = {
         },
         {
           "date": "2026-09-30",
-          "price": 2.59
-        },
-        {
-          "date": "2026-10-05",
-          "price": 2.59
-        },
-        {
-          "date": "2026-10-07",
-          "price": 2.59
-        },
-        {
-          "date": "2026-10-10",
           "price": 2.59
         }
       ]
@@ -35632,18 +35551,18 @@ const DATA = {
     },
     {
       "ingredient": "Duck Breast, Culver Pekin",
-      "latest_price": 18.95,
-      "latest_date": "2026-10-07",
-      "prev_30d_price": 17.89,
-      "trend_30d_pct": 5.9,
+      "latest_price": 17.89,
+      "latest_date": "2026-08-10",
+      "prev_30d_price": null,
+      "trend_30d_pct": null,
       "trend_yoy_pct": null,
       "trend_season_pct": null,
-      "entry_count": 6,
+      "entry_count": 5,
       "vendor": "ec_wilson",
       "unit": "lb",
       "price_range": {
         "min": 12.59,
-        "max": 18.95
+        "max": 17.89
       },
       "history": [
         {
@@ -35665,10 +35584,6 @@ const DATA = {
         {
           "date": "2026-08-10",
           "price": 17.89
-        },
-        {
-          "date": "2026-10-07",
-          "price": 18.95
         }
       ]
     },
@@ -38128,16 +38043,16 @@ const DATA = {
   "menu_map": {
     "schema_version": "1.0",
     "description": "Curated in-use ingredient map from the live SF staff-portal menu. Decision schema: tracked/sourced/sub_recipe/pantry/untracked/prose. The price board reads this.",
-    "generated": "2026-10-16",
+    "generated": "2026-10-13",
     "source": {
       "file": "Codename: Riker/staff-portal/data/menu.json",
       "menuDate": "2026-06-18",
       "captured": "2026-06-22",
       "authored": true,
-      "last_digest": "2026-10-16",
+      "last_digest": "2026-10-13",
       "reapplied": "2026-07-03",
       "reconciled_against": "2026-07-25",
-      "reconciled_at": "2026-10-16"
+      "reconciled_at": "2026-10-13"
     },
     "kinds": {
       "tracked": "maps to a price-tracked ingredient; can fire a creep warning",
@@ -38206,7 +38121,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569986Z",
+        "authored_at": "2026-10-13T18:08:15.655631Z",
         "authored_by": "remy-portal"
       },
       {
@@ -38261,7 +38176,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569583Z",
+        "authored_at": "2026-10-13T18:08:15.655267Z",
         "authored_by": "remy-portal"
       },
       {
@@ -38270,9 +38185,9 @@ const DATA = {
         "desc": "rosemary olive oil, fried rosemary, maldon sea salt",
         "price": "6",
         "hero": {
-          "price_tracked": false,
+          "kind": "sourced",
           "maps_to": null,
-          "kind": "sourced"
+          "price_tracked": false
         },
         "target_pct": 25,
         "components": [
@@ -38334,7 +38249,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569623Z",
+        "authored_at": "2026-10-13T18:08:15.655304Z",
         "authored_by": "remy-portal"
       },
       {
@@ -38417,7 +38332,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569604Z",
+        "authored_at": "2026-10-13T18:08:15.655287Z",
         "authored_by": "remy-portal"
       },
       {
@@ -38486,7 +38401,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569616Z",
+        "authored_at": "2026-10-13T18:08:15.655297Z",
         "authored_by": "remy-portal"
       },
       {
@@ -38860,7 +38775,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569997Z",
+        "authored_at": "2026-10-13T18:08:15.655643Z",
         "authored_by": "remy-portal",
         "stale_components": [
           {
@@ -39017,7 +38932,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569975Z",
+        "authored_at": "2026-10-13T18:08:15.655619Z",
         "authored_by": "remy-portal",
         "stale_components": [
           {
@@ -39313,7 +39228,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569620Z",
+        "authored_at": "2026-10-13T18:08:15.655301Z",
         "authored_by": "remy-portal"
       },
       {
@@ -39599,110 +39514,115 @@ const DATA = {
         "seeded_from": "fresh-talk"
       },
       {
-        "name": "Classic Tiramisu",
+        "name": "Earl Grey Tiramisu",
         "section": "Desserts",
-        "desc": "mascarpone, ladyfingers, planteray rum, caff\u00e8 umbria decaf coffee, cocoa powder",
+        "desc": "mascarpone, ladyfingers, miro tea, planteray dark rum, bergamot agrumato",
         "price": "15",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
             "raw": "mascarpone",
-            "kind": "untracked",
+            "kind": "sourced",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "exact",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 4.77,
+              "unit": "lb"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 0.25
+            }
           },
           {
             "raw": "ladyfingers",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "exact",
+            "vendor": "House-made",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.8,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 1
+            }
           },
           {
-            "raw": "planteray rum",
+            "raw": "miro tea",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "exact",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.2,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 1
+            }
           },
           {
-            "raw": "caff\u00e8 umbria decaf coffee",
+            "raw": "planteray dark rum",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "exact",
+            "vendor": "Merlino Foods",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.5,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 1
+            }
           },
           {
-            "raw": "cocoa powder",
+            "raw": "bergamot agrumato",
             "kind": "untracked",
             "maps_to": null,
-            "vendor": "",
+            "confidence": "exact",
+            "vendor": "Chefs' Warehouse",
             "price": {
-              "amount": null,
-              "unit": ""
+              "amount": 0.3,
+              "unit": "portion"
             },
             "portion": {
-              "qty": null
-            },
-            "confidence": ""
+              "qty": 1
+            }
           }
         ],
-        "seeded_from": "fresh-talk"
+        "authored": true,
+        "authored_at": "2026-10-13T18:08:15.655278Z",
+        "authored_by": "remy-portal"
       },
       {
-        "name": "Lemon Olive Oil Cake",
+        "name": "Pavlova",
         "section": "Desserts",
-        "desc": "olio verde, apple mascarpone, lemon syrup, brown butter powdered sugar",
+        "desc": "marigold meringue, vanilla pastry cream, gently cooked Washington peaches",
         "price": "13",
         "hero": null,
+        "target_pct": 25,
         "components": [
           {
-            "raw": "olio verde",
-            "kind": "untracked",
-            "maps_to": null,
-            "vendor": "",
+            "raw": "marigold meringue",
+            "kind": "sub_recipe",
+            "maps_to": "Marigolds",
+            "confidence": "authored",
+            "vendor": "Swan House Farms",
             "price": {
               "amount": null,
               "unit": ""
             },
             "portion": {
               "qty": null
-            },
-            "confidence": ""
+            }
           },
           {
-            "raw": "apple mascarpone",
-            "kind": "untracked",
+            "raw": "vanilla pastry cream",
+            "kind": "pantry",
             "maps_to": null,
+            "confidence": "authored",
             "vendor": "",
             "price": {
               "amount": null,
@@ -39710,39 +39630,26 @@ const DATA = {
             },
             "portion": {
               "qty": null
-            },
-            "confidence": ""
+            }
           },
           {
-            "raw": "lemon syrup",
-            "kind": "untracked",
-            "maps_to": null,
-            "vendor": "",
+            "raw": "gently cooked Washington peaches",
+            "kind": "tracked",
+            "maps_to": "Peaches",
+            "confidence": "authored",
+            "vendor": "Franks Quality Produce",
             "price": {
               "amount": null,
               "unit": ""
             },
             "portion": {
               "qty": null
-            },
-            "confidence": ""
-          },
-          {
-            "raw": "brown butter powdered sugar",
-            "kind": "untracked",
-            "maps_to": null,
-            "vendor": "",
-            "price": {
-              "amount": null,
-              "unit": ""
-            },
-            "portion": {
-              "qty": null
-            },
-            "confidence": ""
+            }
           }
         ],
-        "seeded_from": "fresh-talk"
+        "authored": true,
+        "authored_at": "2026-10-09T20:56:34.453Z",
+        "authored_by": "remy-session-2026-10-09"
       },
       {
         "name": "Seasonal Gelato",
@@ -39782,7 +39689,7 @@ const DATA = {
           }
         ],
         "authored": true,
-        "authored_at": "2026-10-16T13:26:47.569988Z",
+        "authored_at": "2026-10-13T18:08:15.655634Z",
         "authored_by": "remy-portal"
       }
     ],
@@ -42021,13 +41928,33 @@ const DATA = {
     }
   },
   "menu_price_board": {
-    "generated": "2026-10-16",
+    "generated": "2026-10-13",
     "source": "sf-staff-portal live menu",
     "menu_date": "2026-07-25",
     "menu_captured": "2026-06-22",
     "threshold_pct": 10.0,
     "warnings": [],
     "in_use": [
+      {
+        "ingredient": "Peaches",
+        "dishes": [
+          "Pavlova"
+        ],
+        "pct_30d": 0.9,
+        "latest_price": 3.14,
+        "unit": "lb",
+        "prev_30d_price": 3.11,
+        "vendors": [
+          {
+            "vendor": "Franks Quality Produce",
+            "price": 3.14,
+            "unit": "lb",
+            "source": "trend",
+            "primary": true
+          }
+        ],
+        "no_trend": false
+      },
       {
         "ingredient": "Rosemary",
         "dishes": [
@@ -42251,6 +42178,18 @@ const DATA = {
         "ingredient": "Cherry Tomatoes (Farm)",
         "dishes": [
           "Stuffed Farfalle"
+        ],
+        "pct_30d": null,
+        "latest_price": null,
+        "unit": null,
+        "prev_30d_price": null,
+        "vendors": [],
+        "no_trend": true
+      },
+      {
+        "ingredient": "Marigolds",
+        "dishes": [
+          "Pavlova"
         ],
         "pct_30d": null,
         "latest_price": null,
@@ -46581,8 +46520,8 @@ const DATA = {
       {
         "name": "Fresh 7up Black Cod- J-cut, Wild, WA, USA",
         "price": 11.99,
-        "unit": "LB",
-        "date": "2026-10-14"
+        "unit": "lb",
+        "date": "2026-10-08"
       },
       {
         "name": "Fresh 7up Head-on Net Coho Salmon Whole, Wild, WA, USA",
@@ -46818,7 +46757,7 @@ const DATA = {
         "name": "Butter",
         "price": 2.61,
         "unit": "CS",
-        "date": "2026-10-15"
+        "date": "2026-08-27"
       },
       {
         "name": "Butter Le Pres",
@@ -46860,7 +46799,7 @@ const DATA = {
         "name": "Cheese Burrata",
         "price": 32.75,
         "unit": "CS",
-        "date": "2026-10-15"
+        "date": "2026-10-12"
       },
       {
         "name": "Cheese Burrata Italy Frzn",
@@ -46884,7 +46823,7 @@ const DATA = {
         "name": "Cheese Parmigiano",
         "price": 11.26,
         "unit": "CS",
-        "date": "2026-10-15"
+        "date": "2026-10-12"
       },
       {
         "name": "Cheese Parmigiano Roundbale Whole",
@@ -47054,21 +46993,21 @@ const DATA = {
         "price": 1.19,
         "unit": "lb",
         "group": "Chicken",
-        "date": "2026-10-10"
+        "date": "2026-09-30"
       },
       {
         "name": "Chicken Feet",
         "price": 2.59,
         "unit": "lb",
         "group": "Chicken",
-        "date": "2026-10-10"
+        "date": "2026-09-30"
       },
       {
         "name": "Duck Breast, Culver Pekin",
-        "price": 18.95,
+        "price": 17.89,
         "unit": "each",
         "group": "Duck",
-        "date": "2026-10-07"
+        "date": "2026-08-10"
       },
       {
         "name": "Duck Fat Tub",
@@ -47602,7 +47541,7 @@ const DATA = {
   },
   "weather": {
     "vendor_alerts": {},
-    "last_fetched": "2026-10-16T14:08:04.484104"
+    "last_fetched": "2026-10-13T18:20:26.437838"
   },
   "commodity": [
     {
@@ -49728,13 +49667,13 @@ const DATA = {
     }
   ],
   "price_drift": {
-    "generated": "2026-10-15",
+    "generated": "2026-10-12",
     "threshold_pct": 5.0,
     "summary": {
-      "tracked_items": 434,
-      "with_history": 253,
-      "flagged": 29,
-      "franks_commodity": 222
+      "tracked_items": 427,
+      "with_history": 249,
+      "flagged": 30,
+      "franks_commodity": 218
     },
     "flagged": [
       {
@@ -49882,6 +49821,17 @@ const DATA = {
       },
       {
         "name": "Carrot, Jumbo, Loose",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "lb",
+        "prev_price": 1.25,
+        "latest_price": 1.5,
+        "change_pct": 20.0,
+        "direction": "up",
+        "latest_date": "2026-09-03"
+      },
+      {
+        "name": "Carrot, Jumbo, Loose",
         "vendor": "Franks Produce",
         "lane": "franks_commodity",
         "unit": "lb",
@@ -49901,17 +49851,6 @@ const DATA = {
         "change_pct": 18.97,
         "direction": "up",
         "latest_date": "2026-03-13"
-      },
-      {
-        "name": "Fennel",
-        "vendor": "Frank's Quality Produce",
-        "lane": "franks_commodity",
-        "unit": "24CT",
-        "prev_price": 41.0,
-        "latest_price": 48.5,
-        "change_pct": 18.29,
-        "direction": "up",
-        "latest_date": "2026-10-02"
       },
       {
         "name": "Lemon, Choice, 115Ct Cs",
@@ -50011,6 +49950,17 @@ const DATA = {
         "change_pct": -9.68,
         "direction": "down",
         "latest_date": "2026-07-20"
+      },
+      {
+        "name": "Fennel",
+        "vendor": "Frank's Quality Produce",
+        "lane": "franks_commodity",
+        "unit": "24CT",
+        "prev_price": 45.0,
+        "latest_price": 41.0,
+        "change_pct": -8.89,
+        "direction": "down",
+        "latest_date": "2026-08-31"
       },
       {
         "name": "DAIRY, HEAVY CREAM 6 x",
@@ -51214,7 +51164,7 @@ const DATA = {
         "last_seen": "2026-03-11"
       },
       "Farmstand Local Foods": {
-        "count": 368,
+        "count": 364,
         "last_seen": "2026-08-16"
       },
       "Foraged & Found Edibles": {
@@ -51242,7 +51192,7 @@ const DATA = {
         "last_seen": "2026-08-16"
       }
     },
-    "total_ingredients": 913,
+    "total_ingredients": 909,
     "menu_dishes": 15,
     "commodity_items": 155,
     "discovery_items": 139,
@@ -53989,7 +53939,7 @@ window.RemyWeek=(function(){
 (function(){
 var ROOT=document.getElementById('farm');
 
-window.__REMY_WX = /*__WX__*/{"generated_at":"2026-10-15T13:54:12","enso":{"phase":"El Niño","band":"very strong","status":"El Niño developing","trend":"warming","oni":2.16,"oni_season":"JAS 2026","consec_seasons":4,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"AMJ 2025","oni":-0.04},{"season":"MJJ 2025","oni":-0.02},{"season":"JJA 2025","oni":-0.11},{"season":"JAS 2025","oni":-0.26},{"season":"ASO 2025","oni":-0.43},{"season":"SON 2025","oni":-0.57},{"season":"OND 2025","oni":-0.61},{"season":"NDJ 2025","oni":-0.6},{"season":"DJF 2026","oni":-0.39},{"season":"JFM 2026","oni":-0.21},{"season":"FMA 2026","oni":0.11},{"season":"MAM 2026","oni":0.46},{"season":"AMJ 2026","oni":0.95},{"season":"MJJ 2026","oni":1.39},{"season":"JJA 2026","oni":1.8},{"season":"JAS 2026","oni":2.16}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 2.4°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":72,"low_f":46,"avg_f":58.0,"forecast":"Mostly Cloudy","signals":[],"alerts":[{"event":"Dense Fog Advisory","severity":"Moderate","headline":"Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":74,"low_f":45,"avg_f":58.0,"forecast":"Mostly Cloudy","signals":[],"alerts":[{"event":"Dense Fog Advisory","severity":"Moderate","headline":"Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":72,"low_f":50,"avg_f":60.0,"forecast":"Mostly Cloudy","signals":[],"alerts":[{"event":"Dense Fog Advisory","severity":"Moderate","headline":"Dense Fog Advisory issued October 15 at 2:07AM PDT until October 15 at 9:00AM PDT by NWS Seattle WA"}],"fire":false,"high_count":1,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":64,"low_f":31,"avg_f":46.0,"forecast":"Sunny","signals":[{"level":"high","text":"Freezing temps (31F low). Frost after rain may increase mushroom fruiting in 7-10 days."}],"alerts":[],"fire":false,"high_count":1,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":75,"low_f":45,"avg_f":59.0,"forecast":"Mostly Cloudy","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":72,"low_f":43,"avg_f":58.0,"forecast":"Areas Of Frost then Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":71,"low_f":38,"avg_f":56.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":70,"low_f":37,"avg_f":55.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":78,"low_f":34,"avg_f":56.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":68,"low_f":50,"avg_f":58.0,"forecast":"Partly Sunny","signals":[{"level":"info","text":"Marine conditions: high 68F, low 50F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":63,"low_f":50,"avg_f":56.0,"forecast":"Chance Light Rain","signals":[{"level":"info","text":"Marine conditions: high 63F, low 50F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":66,"low_f":48,"avg_f":56.0,"forecast":"Mostly Cloudy","signals":[{"level":"info","text":"Marine conditions: high 66F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":62,"low_f":44,"avg_f":51.0,"forecast":"Partly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":70,"low_f":39,"avg_f":55.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":73,"low_f":35,"avg_f":54.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised","grass_fed"],"seasonal_relevance":"Year-round; peak grass growth spring-fall"},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":78,"low_f":43,"avg_f":60.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":91,"low_f":54,"avg_f":74.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":60,"low_f":43,"avg_f":49.0,"forecast":"Mostly Cloudy","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":70,"low_f":34,"avg_f":51.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":4}/*__END_WX__*/;
+window.__REMY_WX = /*__WX__*/{"generated_at":"2026-10-16T18:52:43","enso":{"phase":"El Niño","band":"very strong","status":"El Niño developing","trend":"warming","oni":2.16,"oni_season":"JAS 2026","consec_seasons":4,"official_threshold_seasons":5,"nino34_anom":1.5,"nino34_month":"Jun 2026","history":[{"season":"AMJ 2025","oni":-0.04},{"season":"MJJ 2025","oni":-0.02},{"season":"JJA 2025","oni":-0.11},{"season":"JAS 2025","oni":-0.26},{"season":"ASO 2025","oni":-0.43},{"season":"SON 2025","oni":-0.57},{"season":"OND 2025","oni":-0.61},{"season":"NDJ 2025","oni":-0.6},{"season":"DJF 2026","oni":-0.39},{"season":"JFM 2026","oni":-0.21},{"season":"FMA 2026","oni":0.11},{"season":"MAM 2026","oni":0.46},{"season":"AMJ 2026","oni":0.95},{"season":"MJJ 2026","oni":1.39},{"season":"JJA 2026","oni":1.8},{"season":"JAS 2026","oni":2.16}],"impact":"Warmer, drier winters with less mountain snow. That points at a lighter snowpack feeding next spring’s irrigation, an earlier and warmer spring, and a longer, drier late summer at the farm.","plain":{"title":"El Niño is building","define":"El Niño means the tropical Pacific Ocean is running warmer than normal. Once it holds more than about half a degree above normal, it counts as El Niño — and that tends to make our winters milder and drier with less mountain snow.","timing":"It usually strengthens through fall and peaks in the heart of winter (November–January), so the biggest effects here land December–March. You have the summer and fall before it really shows up.","rate":"The ocean has swung about 2.4°C warmer over the last six months — a fast move."},"source":"NOAA Climate Prediction Center","source_url":"https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php"},"regions":[{"id":"skagit_valley_wa","name":"Skagit Valley, WA","category":"agricultural","group":"Home","home":true,"high_f":72,"low_f":37,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Swan House Farm","Local Roots Farm","Foraged & Found Edibles"],"key_products":["greens","brassicas","flowers","root_vegetables"],"seasonal_relevance":"Year-round; peak spring/early summer for greens and flowers"},{"id":"snoqualmie_valley_wa","name":"Snoqualmie Valley, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":75,"low_f":38,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Local Roots Farm","Farmstand Local Foods"],"key_products":["greens","brassicas","root_vegetables"],"seasonal_relevance":"Spring through fall; berries in summer"},{"id":"snohomish_sammamish_valleys_wa","name":"Snohomish/Sammamish Valleys, WA","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":74,"low_f":39,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["greens","flowers","berries"],"seasonal_relevance":"Spring through fall; berries peak June-August"},{"id":"puget_lowlands_seattle_wa","name":"Puget Lowlands / Greater Seattle","category":"agricultural","group":"Puget & Valleys","home":false,"high_f":73,"low_f":45,"avg_f":57.0,"forecast":"Partly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Franks Produce","EC Wilson"],"key_products":["greens","seasonal_produce","local_farms"],"seasonal_relevance":"Year-round; spring/fall peak seasons"},{"id":"yakima_valley_wa","name":"Yakima Valley, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":70,"low_f":36,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods","Franks Produce"],"key_products":["stone_fruit","apples","asparagus","berries"],"seasonal_relevance":"Spring (asparagus), summer (stone fruit, berries), fall (apples)"},{"id":"columbia_basin_wa","name":"Columbia Basin, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":68,"low_f":34,"avg_f":53.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["produce_irrigated","potatoes","root_vegetables"],"seasonal_relevance":"Summer through fall; potatoes year-round storage"},{"id":"okanogan_highlands_wa","name":"Okanogan Highlands, WA","category":"agricultural","group":"Eastern WA","home":false,"high_f":67,"low_f":35,"avg_f":53.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Farmstand Local Foods"],"key_products":["apples","potatoes","grains"],"seasonal_relevance":"Fall (apples), year-round (storage potatoes)"},{"id":"eastern_wa_rangeland","name":"Eastern WA Rangeland","category":"rangeland","group":"Eastern WA","home":false,"high_f":76,"low_f":32,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Preservation Meat Collective"],"key_products":["lamb","beef","pasture_raised"],"seasonal_relevance":"Year-round pasture-raised; peak grass quality spring-fall"},{"id":"olympic_peninsula_hood_canal","name":"Olympic Peninsula / Hood Canal","category":"marine","group":"Coast & Marine","home":false,"high_f":69,"low_f":44,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[{"level":"info","text":"Marine conditions: high 69F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["shellfish","oysters","clams","mussels","tideland_farmed"],"seasonal_relevance":"Year-round; quality varies with water temperature and plankton blooms"},{"id":"neah_bay_strait_juan_de_fuca","name":"Neah Bay / Strait of Juan de Fuca","category":"marine","group":"Coast & Marine","home":false,"high_f":61,"low_f":45,"avg_f":52.0,"forecast":"Partly Sunny then Chance Light Rain","signals":[{"level":"info","text":"Marine conditions: high 61F, low 45F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","rockfish","tribal_fish"],"seasonal_relevance":"Seasonal fishing windows; ocean conditions critical"},{"id":"port_townsend_puget_sound","name":"Port Townsend / Puget Sound","category":"marine","group":"Coast & Marine","home":false,"high_f":65,"low_f":44,"avg_f":53.0,"forecast":"Partly Sunny","signals":[{"level":"info","text":"Marine conditions: high 65F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."}],"alerts":[],"fire":false,"high_count":0,"vendors":["Key City Fish Co"],"key_products":["halibut","black_cod","sole","rockfish"],"seasonal_relevance":"Year-round; best access in calmer conditions"},{"id":"cascade_range_forests","name":"Cascade Range / Western WA Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":62,"low_f":33,"avg_f":46.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_greens","fiddleheads"],"seasonal_relevance":"Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"},{"id":"oregon_cascades","name":"Oregon Cascades","category":"foraging","group":"Forage Belt","home":false,"high_f":71,"low_f":36,"avg_f":49.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","wild_edibles"],"seasonal_relevance":"Spring (morels), fall (chanterelles, porcini)"},{"id":"eastern_oregon_rangeland","name":"Eastern Oregon Rangeland","category":"rangeland","group":"Forage Belt","home":false,"high_f":null,"low_f":null,"avg_f":null,"forecast":"","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":[],"key_products":[],"seasonal_relevance":""},{"id":"northern_ca_coast_forests","name":"Northern California Coast/Forests","category":"foraging","group":"Forage Belt","home":false,"high_f":75,"low_f":41,"avg_f":54.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["mushrooms_wild","winter_foraged"],"seasonal_relevance":"Winter (November-February); takes advantage of CA winter rainfall"},{"id":"northern_ca_interior","name":"Northern California Interior","category":"foraging","group":"Forage Belt","home":false,"high_f":92,"low_f":52,"avg_f":71.0,"forecast":"Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["winter_mushrooms","wild_edibles"],"seasonal_relevance":"Winter months; mushroom flushes after rain"},{"id":"southern_bc","name":"Southern British Columbia","category":"foraging","group":"Forage Belt","home":false,"high_f":59,"low_f":36,"avg_f":45.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels, spring greens"},{"id":"western_montana","name":"Western Montana","category":"foraging","group":"Forage Belt","home":false,"high_f":61,"low_f":37,"avg_f":50.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["morels","wild_edibles","spring_foraged"],"seasonal_relevance":"Spring (April-May); morels peak late April-early May"},{"id":"northern_idaho","name":"Northern Idaho","category":"foraging","group":"Forage Belt","home":false,"high_f":69,"low_f":35,"avg_f":51.0,"forecast":"Mostly Sunny","signals":[],"alerts":[],"fire":false,"high_count":0,"vendors":["Foraged & Found Edibles"],"key_products":["spring_foraged","mushrooms_wild"],"seasonal_relevance":"Spring (April-May); morels and spring mushrooms"}],"groups":["Home","Puget & Valleys","Eastern WA","Coast & Marine","Forage Belt"],"high_regions":0}/*__END_WX__*/;
 var DATA = /*__DATA__*/ {"week": "week of June 22", "kelly_last_touch": "6/10", "market_count": 43, "growList": [{"name": "Chive Blossoms", "category": "flower_edible", "status": "Peak", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Kale (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 48.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 43.2, "ref_measurable": true, "per_lb": 3.33, "per_lb_basis": "estimate", "per_lb_note": "24 bunch/CS x ~0.6 lb/bunch", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "greens bunch 0.75-1.5#, midpoint (UGA/UK ext.)"}]}}, {"name": "Lettuce (Farm)", "category": "green", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.0, "unit": "CS", "freshness": "FRESH", "vendor": "Franks", "swan_price": 29.1, "ref_measurable": true, "per_lb": 12.0, "per_lb_basis": "exact", "per_lb_note": "2#/CS baby head mix", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lovage", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 24.5, "unit": "#", "freshness": "FRESH", "vendor": "Franks", "swan_price": 29.4, "ref_measurable": true, "per_lb": 24.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Mint", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 3.75, "unit": "1/4#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 69.33, "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Parsley (Farm)", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 20.8, "ref_measurable": true, "per_lb": 5.82, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16)", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Tomato Leaf", "category": "herb", "status": "Peak", "qty": "", "push": false, "market": null}, {"name": "Beef Shanks", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 15.0, "unit": "lb", "freshness": "AGING", "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Beef Tenderloin", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 33.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 33.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Bronze Fennel", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 45.0, "unit": "24CT CS", "freshness": "AGING", "ref_measurable": false}}, {"name": "Cabbage (Farm)", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 4.79, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Chicken Eggs", "category": "egg", "status": "Available", "qty": "", "push": false, "market": {"price": 8.5, "unit": "dozen", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "dozen", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Chives", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 6.0, "unit": "1/4#", "freshness": "AGING", "vendor": "Farmstand", "swan_price": 13.0, "ref_measurable": true, "per_lb": 24.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Dill (Farm)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 1.25, "unit": "bn", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 31.2, "ref_measurable": true, "per_lb": 7.35, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16); raw sample 93 g", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Duck Eggs", "category": "egg", "status": "Available", "qty": "", "push": false, "market": {"price": 1.0, "unit": "each", "freshness": "AGING", "ref_measurable": true, "sell_units": [{"unit": "each", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Edible Flowers", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": {"price": 15, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Fennel Fronds", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 2.85, "unit": "each", "freshness": "FRESH", "vendor": "Franks", "swan_price": 3.3, "ref_measurable": true, "per_lb": 4.07, "per_lb_basis": "estimate", "per_lb_note": "per fennel bulb", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Grape Leaves", "category": "green", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Ground Beef / Bolo Meat", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 13.2, "unit": "lb", "freshness": "FRESH", "ref_measurable": true, "per_lb": 13.2, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Honeysuckle", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": {"price": 12, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Lamb Loin Chops", "category": "protein", "status": "Available", "qty": "", "push": false, "market": {"price": 21.95, "unit": "lb", "freshness": "FRESH", "vendor": "Key City", "swan_price": 26.34, "ref_measurable": true, "per_lb": 21.95, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lavender", "category": "flower_cut", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Lemon Balm (Farm)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Nasturtium", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Oregano", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 3.99, "unit": "1/4#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 69.33, "ref_measurable": true, "per_lb": 15.96, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Rose Petals", "category": "flower_edible", "status": "Available", "qty": "", "push": false, "market": null}, {"name": "Rosemary", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 12.5, "unit": "#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 83.2, "ref_measurable": true, "per_lb": 12.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Snap Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 5.78, "unit": "lb", "freshness": "AGING", "vendor": "Franks", "swan_price": 6.94, "ref_measurable": true, "per_lb": 5.78, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Snow Peas", "category": "produce", "status": "Available", "qty": "", "push": false, "market": {"price": 4.55, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 5.04, "ref_measurable": true, "per_lb": 4.55, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Sorrel (French)", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 8.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Farmstand", "swan_price": 26.0, "ref_measurable": true, "per_lb": 8.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Thyme", "category": "herb", "status": "Available", "qty": "", "push": false, "market": {"price": 9.75, "unit": "1/2#", "freshness": "FRESH", "vendor": "Farmstand", "swan_price": 34.67, "ref_measurable": true, "per_lb": 19.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Garlic Scapes", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 6.0, "unit": "lb", "freshness": "RESEARCH", "vendor": "Franks", "swan_price": 7.2, "ref_measurable": true, "per_lb": 6.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Turnips", "category": "produce", "status": "Trickling", "qty": "", "push": false, "market": {"price": 2.75, "unit": "bn", "freshness": "PRIOR-YEAR", "vendor": "Franks", "swan_price": 2.39, "ref_measurable": true, "per_lb": 2.75, "per_lb_basis": "estimate", "per_lb_note": "root veg, tops-on, ~1#", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 1.0, "basis": "estimate", "note": "root veg, tops-on, ~1#"}]}}, {"name": "Borage", "category": "herb", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Loganberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Mixed Berries (Farm)", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Raspberries", "category": "berry", "status": "Coming Soon", "qty": "", "push": false, "market": null}, {"name": "Angelica", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Apples (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.25, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 2.39, "ref_measurable": true, "per_lb": 2.25, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Basil (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 5.5, "unit": "1/2#", "freshness": "FRESH", "vendor": "PSFH", "swan_price": 11.22, "ref_measurable": true, "per_lb": 11.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Calendula", "category": "flower_edible", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Candy Roaster Squash", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Cherry Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 55.2, "ref_measurable": true, "per_lb": 3.58, "per_lb_basis": "estimate", "per_lb_note": "12 pint/CS x ~0.75 lb/pint", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Cilantro (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 0.99, "unit": "bn", "freshness": "FRESH", "vendor": "Franks", "swan_price": 1.19, "ref_measurable": true, "per_lb": 5.82, "per_lb_basis": "estimate", "per_lb_note": "herb bunch standard 0.17 lb (Sam 2026-07-16)", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}]}}, {"name": "Cucumber (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Heirloom Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 52.0, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 58.2, "ref_measurable": true, "per_lb": 5.2, "per_lb_basis": "exact", "per_lb_note": "10#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lemon Verbena", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Onions", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Peppers (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 2.5, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 2.94, "ref_measurable": true, "per_lb": 2.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Savory", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": null}, {"name": "Squash (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 1.5, "unit": "lb", "freshness": "STALE", "vendor": "Franks", "swan_price": 1.57, "ref_measurable": true, "per_lb": 1.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Tarragon (Farm)", "category": "herb", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 8.5, "unit": "1/4#", "freshness": "AGING", "ref_measurable": true, "per_lb": 34.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}, {"unit": "bunch", "per": 0.09375, "basis": "defined", "note": "Swan standard bunch = 1.5 oz (defined)"}], "vendor": "Farmstand", "swan_price": 41.6}}, {"name": "Tomatoes (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 32.25, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 38.7, "ref_measurable": false}}, {"name": "Zucchini (Farm)", "category": "produce", "status": "Not Yet", "qty": "", "push": false, "market": {"price": 36.5, "unit": "CS", "freshness": "STALE", "vendor": "Franks", "swan_price": 35.4, "ref_measurable": true, "per_lb": 1.82, "per_lb_basis": "exact", "per_lb_note": "20#/CS", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Flowering Branches", "category": "flower_cut", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Green Garlic", "category": "produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Lilacs", "category": "flower_cut", "status": "Done", "qty": "", "push": false, "market": {"price": 20, "unit": "bunch", "freshness": "FARM-SET", "ref_measurable": true, "sell_units": [{"unit": "bunch", "per": 1.0, "basis": "exact", "native": true}]}}, {"name": "Nettle", "category": "green", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Radish", "category": "produce", "status": "Done", "qty": "", "push": false, "market": null}, {"name": "Rhubarb (Farm)", "category": "produce", "status": "Done", "qty": "", "push": false, "market": {"price": 3.99, "unit": "lb", "freshness": "FRESH", "vendor": "Franks", "swan_price": 4.79, "ref_measurable": true, "per_lb": 3.99, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Pork Belly", "category": "protein", "status": "Done", "qty": "", "push": false, "market": {"price": 12.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 12.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}], "offers": [{"vendor": "Alluvial", "price": 12.0, "unit": "lb", "per_lb": 12.0, "per_lb_basis": "exact"}, {"vendor": "Preservation Meats", "price": 5.79, "unit": "lb", "per_lb": 5.79, "per_lb_basis": "exact"}]}}, {"name": "Lamb Racks", "category": "protein", "status": "Coming Soon", "qty": "", "push": false, "market": {"price": 15.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 15.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lamb Neck", "category": "protein", "status": "Coming Soon", "qty": "", "push": false, "market": {"price": 13.5, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 13.5, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}, {"name": "Lamb Shanks", "category": "protein", "status": "Coming Soon", "qty": "", "push": false, "market": {"price": 17.0, "unit": "lb", "freshness": "PRIOR-YEAR", "ref_measurable": true, "per_lb": 17.0, "per_lb_basis": "exact", "sell_units": [{"unit": "lb", "per": 1.0, "basis": "exact"}, {"unit": "1/4 lb", "per": 0.25, "basis": "exact"}, {"unit": "1/2 lb", "per": 0.5, "basis": "exact"}]}}]} /*__END__*/;
 
 var MIC='<svg class="ic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
@@ -54870,8 +54820,8 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
         return r;
       });
     },
-    place:function(order){if(window._REMY_PREVIEW)return Promise.reject(new Error('preview-window'));try{if(window.RemyTenant)window.RemyTenant.stamp(order);}catch(e){}var _op=FB.db.collection('orders').doc(order.order_id).set(order);try{_invDecrement(order);}catch(e){}return _op;},
-    orders:function(){return (ordersData||[]).slice();},           // live restaurant+farm orders (this farm)
+    place:function(order){if(window._REMY_PREVIEW)return Promise.reject(new Error('preview-window'));if(!order.farm_id)order.farm_id='swan_house';try{if(window.RemyTenant)window.RemyTenant.stamp(order);}catch(e){}var _op=FB.db.collection('orders').doc(order.order_id).set(order);try{_invDecrement(order);}catch(e){}return _op;},
+    orders:function(){return (_allOrders||[]).slice();},           // live orders, every farm (the kitchen's Sent view)
     onOrders:function(cb){try{if(typeof cb==='function')_ordListeners.push(cb);}catch(e){}}};}catch(e){}
   /*REMY-GROWER-BEGIN*/
   /* Grower window (2026-10-13). A seller's view of the one Remy: her own sheet (growerSheets/<gid>),
@@ -55022,6 +54972,76 @@ function fbInit(){try{if(!window.firebase)return;firebase.initializeApp({apiKey:
     window.RemyGrower={boot:boot, rowPatch:rowPatch, toBeatLine:toBeatLine, orderQuery:orderQuery};
   })();
   /*REMY-GROWER-END*/
+  /*REMY-GROWER-KITCHEN-BEGIN*/
+  /* Kitchen side of the grower window (2026-10-16). Reads growerSheets/* live (the open side may) and
+     folds each variety into the picker card its to-beat comp came from, so Tori's price sits beside the
+     Food Hub's; varieties with no comp get their own card. Pure helpers exported for tests. */
+  (function(){
+    var LIVE_D=3, DATED_D=10;
+    function esc(x){ return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+    function fresh(ts){ var age=(Date.now()-(Number(ts)||0))/86400000; return age<LIVE_D?'LIVE':age<DATED_D?'DATED':'STALE'; }
+    function growerOffers(gid, sheet){
+      sheet=sheet||{}; var items=sheet.items||{}, comps=sheet.comps||{}, out=[];
+      Object.keys(items).sort().forEach(function(v){
+        var it=items[v]||{}; if(it.status!=='have'&&it.status!=='low')return;
+        var per=(typeof it.price==='number'&&isFinite(it.price))?it.price:null; if(per===null)return;
+        var c=comps[v]||{}; var tb=(typeof c.to_beat==='number')?c.to_beat:null;
+        out.push({key:c.pref_key||('grower:'+gid+':'+v), display:v,
+          offer:{vendor:sheet.name||'Grower', per:per, per_unit:'lb', source:'grower', grower_id:gid, variety:v,
+                 freshness:fresh(it.updated_at), to_beat:tb, over:(tb!==null&&per>tb), lbs:it.lbs, status:it.status}});
+      });
+      return out;
+    }
+    function growerFold(pk, list){
+      pk=pk||{}; list=list||[]; var gids={}; list.forEach(function(x){gids[x.offer.grower_id]=1;});
+      Object.keys(pk).forEach(function(k){ var rec=pk[k]; if(!rec||!rec.offers)return;
+        rec.offers=rec.offers.filter(function(o){return !(o.source==='grower'&&gids[o.grower_id]);});
+        if(!rec.offers.length&&k.indexOf('grower:')===0)delete pk[k]; });
+      list.forEach(function(x){
+        if(!pk[x.key])pk[x.key]={display:x.display, category:'mushroom', canonical_unit:'lb', offers:[]};
+        pk[x.key].offers.push(x.offer); });
+      return pk;
+    }
+    function growerTag(o){
+      if(!o||o.source!=='grower'||typeof o.to_beat!=='number')return '';
+      if(o.over)return '<span class="pk-tag pk-tag-over">over market</span>';
+      if(o.per<o.to_beat)return '<span class="pk-tag pk-tag-best">cheapest</span>';
+      return '';
+    }
+    function gwCfCardHTML(sheet, gid){
+      var list=growerOffers(gid, sheet); if(!list.length)return '';
+      var who=(sheet.who||[]).join(' & ');
+      return '<div class="gw-cf-card"><div class="gw-cf-hd"><div class="gw-cf-name">'+esc(sheet.name)+(who?' &middot; '+esc(who):'')+'</div><div class="gw-cf-sub">'+list.length+' this week</div></div>'
+        +list.map(function(x){ var o=x.offer;
+          return '<div class="gw-cf-row"><span class="gw-cf-nm">'+esc(o.variety)+growerTag(o)+'</span><span class="gw-cf-lbs">'+esc(o.lbs!=null?o.lbs+' lb':'')+'</span><span class="gw-cf-pr">$'+Number(o.per).toFixed(2)+'/lb</span>'
+            +'<button class="pk-add gw-cf-add'+(o.over?' pk-add-over':'')+'" data-ing="'+esc(o.variety)+'" data-vendor="'+esc(o.vendor)+'" data-per="'+o.per+'" data-punit="lb" data-pack="" data-caseprice="" data-packqty="" data-packunit="">+</button></div>'; }).join('')
+        +'</div>';
+    }
+    var sheets={};   // gid -> sheet
+    function gwCfCards(){ return Object.keys(sheets).sort().map(function(g){return gwCfCardHTML(sheets[g], g);}).join(''); }
+    function push(){
+      var list=[]; Object.keys(sheets).forEach(function(g){ list=list.concat(growerOffers(g, sheets[g])); });
+      try{ if(window._pkGrowerFold)window._pkGrowerFold(list); }catch(e){}
+      try{ if(typeof _cfNotify==='function')_cfNotify(); }catch(e){}
+    }
+    function start(){
+      FB.db.collection('growers').onSnapshot(function(snap){
+        snap.docs.forEach(function(d){ var g=d.data()||{}; if(g.active===false||sheets.hasOwnProperty(d.id))return;
+          sheets[d.id]=null;
+          FB.db.collection('growerSheets').doc(d.id).onSnapshot(function(sd){ sheets[d.id]=sd.exists?sd.data():null; push(); },
+            function(e){ try{console.warn('[REMY grower kitchen]',d.id,e&&(e.code||e.message));}catch(_e){} }); });
+      }, function(e){ try{console.warn('[REMY grower kitchen] growers',e&&(e.code||e.message));}catch(_e){} });
+    }
+    function boot(){
+      if(window.__REMY_GROWER||window.__REMY_TENANT)return;   // the grower sees only her own window; a tenant token cannot read sheets
+      (function wait(n){ if(window.FB&&FB.ready&&FB.db){ try{start();}catch(e){} } else if(n<240)setTimeout(function(){wait(n+1);},500); })(0);
+      try{ document.addEventListener('click',function(e){ var b=e.target&&e.target.closest&&e.target.closest('.gw-cf-add'); if(!b)return;
+        if(window.pkAddOffer){ window.pkAddOffer(b.dataset); b.classList.add('added'); if(window.openBasket)window.openBasket(); } }); }catch(e){}
+    }
+    window.RemyGrowerKitchen={growerOffers:growerOffers, growerFold:growerFold, growerTag:growerTag, gwCfCardHTML:gwCfCardHTML, gwCfCards:gwCfCards};
+    try{ boot(); }catch(e){}
+  })();
+  /*REMY-GROWER-KITCHEN-END*/
   // offline persistence: prices/status/markdown/transcripts queue locally + auto-sync on reconnect
   /* If this rejects there is NO offline queue on this device, and every assumption about offline
      saving is void for it — silently. One recorded code is the cheapest diagnostic in the file. */
@@ -57148,6 +57168,7 @@ function _pdModal(name){
 }
 function renderHome(){
   var el=document.getElementById('home-cards'); if(!el)return;
+  try{ if(window.RemyGrowerFarm)window.RemyGrowerFarm.ensure(); }catch(e){}
   var who=window.__REMY_WHO||'';
   var h=new Date().getHours(), tod=h<12?'Morning':h<17?'Afternoon':'Evening';
   var gr=document.getElementById('home-greet');
@@ -57172,6 +57193,7 @@ function renderHome(){
     {v:'list',t:'Full list',d:grow.length+' crops on the sheet \u00b7 '+peakN+' at peak.',b:0},
     {v:'inventory',t:'Inventory',d:esc(ivl.txt),b:ivl.n},
     {v:'restaurants',t:'Restaurants',d:'What San Fermo and Sea Creatures can see and order.',b:0},
+    (window.RemyGrowerFarm?window.RemyGrowerFarm.gwHomeCard(window.RemyGrowerFarm.sheet()):{v:'grower',t:'Mushrooms · Tori',d:'',b:0}),
     {v:'weather',t:'Weather',d:esc(wx.txt),b:wx.n}
   ];
   var htmls=cards.map(function(c){
@@ -57220,6 +57242,7 @@ function setView(v){
   if(v==='pricing')renderPricing();
   if(v==='weather'){renderWeather();_wxMarkSeen();}
   if(v==='restaurants')renderRestaurants();
+  if(v==='grower'&&window.RemyGrowerFarm)window.RemyGrowerFarm.renderGrowerShelf();
 }
 ROOT.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){setView(b.dataset.view);};});
 (function(){var _hb=document.getElementById('fh-home');if(_hb)_hb.onclick=function(){setView('home');};
@@ -57272,7 +57295,7 @@ function ofmtDateOnly(iso){if(!iso)return '';var p=String(iso).split('-');if(p.l
   try{return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString('en-US',{weekday:'short',month:'numeric',day:'numeric'});}catch(e){return iso;}}
 /* multi-farm seam: order docs carry no seller/farm_id yet (single san_fermo↔Swan pair today).
    When they do, filter to this farm here — never hardcode the farm name. */
-function orderForThisFarm(o){return true;}
+function orderForThisFarm(o){return (o.farm_id||'swan_house')==='swan_house';}   // 2026-10-16: grower orders never reach Kelly's feed
 function ordStatusLabel(o){var s=o.status||'placed';return s==='acked'?'Got it':s==='delivered'?'Delivered':s==='cancelled'?'Cancelled':'New';}
 function ordOpenCount(){return ordersData.filter(function(o){return (o.status||'placed')==='placed';}).length;}
 function updateOrdersSeg(){var b=document.getElementById('seg-orders');if(!b)return;var n=ordOpenCount();b.textContent='Orders';b.classList.remove('has-new');
@@ -57289,7 +57312,8 @@ function startOrdersSync(){
     var _col=FB.db.collection('orders'); var _b=window.__REMY_BUYER;
     var _q=(_b&&_b!=='san_fermo')?_col.where('buyer_id','==',_b).limit(40):_col.orderBy('placed_at','desc').limit(40);
     ordersUnsub=_q.onSnapshot(function(snap){
-      ordersData=snap.docs.map(function(d){return d.data();}).filter(orderForThisFarm);
+      _allOrders=snap.docs.map(function(d){return d.data();});
+      ordersData=_allOrders.filter(orderForThisFarm);
       ordersData.sort(function(a,b){return String(b.placed_at||'').localeCompare(String(a.placed_at||''));});
       updateOrdersSeg();
       _ordNotify();   // let the kitchen-side "Sent" view refresh too
@@ -57303,6 +57327,7 @@ function ordersUpdate(id,patch){
   return FB.db.collection('orders').doc(id).update(patch).catch(function(){alert('Could not save — check your connection.');});
 }
 var ordersSrc='restaurant', ordersSelMode=false, ordersSel={};
+var _allOrders=[];   // the unfiltered snapshot (kitchen Sent view); ordersData is the farm's Swan-only list
 /* Farm-dinner harvests (pushed from the dinner app, source:'farm_dinner') share the orders feed +
    finalize machinery but get their own segment so they don't muddy the restaurant-order read. */
 function ordIsFarmDinner(o){return (o.source==='farm_dinner')||(o.placed_by==='swan_house');}
@@ -57548,6 +57573,8 @@ function ordCombine(ids){
   var _bk=Object.keys(_bset);
   if(_bk.length>1){ alert('Those orders are from different restaurants, so they can\u2019t go on one invoice. Combine each restaurant\u2019s orders separately.'); return; }
   var _bid=_bk[0];
+  var _fids={}; orders.forEach(function(o){_fids[o.farm_id||'swan_house']=1;});
+  if(Object.keys(_fids).length>1){ alert('Pick orders for one farm at a time.'); return; }
   var _rs=orders.map(function(o){return o.restaurant;}).filter(Boolean);
   var _rids={}; _rs.forEach(function(r){_rids[r.id||r.name]=1;});
   /* One tenant can hold several restaurants (Walrus, Whale Wins). Naming just the first
@@ -57564,7 +57591,7 @@ function ordCombine(ids){
   var dates=orders.map(function(o){return o.requested_date;}).filter(Boolean).sort();
   var isFarm=orders.every(ordIsFarmDinner);
   var newId='combined-'+Date.now();
-  var combined={order_id:newId, combined:true, combined_from:ids, buyer_id:_bid,
+  var combined={order_id:newId, combined:true, combined_from:ids, buyer_id:_bid, farm_id:Object.keys(_fids)[0],
     source:isFarm?'farm_dinner':'combined', placed_by:contributors.join(' + '),
     placed_at:new Date().toISOString(), requested_date:dates[0]||'', status:'placed',
     order_note:'Combined from '+orders.length+' orders ('+contributors.join(', ')+')', lines:lines};
@@ -57879,6 +57906,51 @@ function invHarvestHtml(o){
 function invHarvest(o){ if(o)invPrintDoc(invHarvestHtml(o)); }
 
 /* expose the live farmer state for the restaurant-side Connected Farms mirror (read-only) */
+/*REMY-GROWER-FARM-BEGIN*/
+/* Kelly's read-only shelf of the grower's board (2026-10-16). Same live doc Tori edits; Kelly reads, never
+   writes (the open side may write by rules, this view simply has no controls). */
+(function(){
+  var GID='swan_mushrooms', NAME='Tori', _sheet=null, _started=false, _homeTimer=null;
+  var ST={have:'Have it',low:'Low',off:'Not this week'};
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function money(x){ return '$'+Number(x).toFixed(2); }
+  function live(sheet){ var items=(sheet&&sheet.items)||{}; return Object.keys(items).filter(function(v){var it=items[v]||{}; return (it.status==='have'||it.status==='low');})
+    .map(function(v){ var it=items[v]; return {name:v, lbs:it.lbs, price:(typeof it.price==='number')?it.price:null, status:it.status}; })
+    .sort(function(a,b){ return (a.price==null?1e9:a.price)-(b.price==null?1e9:b.price); }); }
+  function gwHomeCard(sheet){
+    var t='Mushrooms · '+NAME;
+    if(!sheet)return {v:'grower',t:t,d:NAME+"'s board hasn't loaded yet.",b:0};
+    var lv=live(sheet); if(!lv.length)return {v:'grower',t:t,d:'Nothing on '+NAME+"'s sheet this week.",b:0};
+    var first=lv[0]; var d=lv.length+(lv.length===1?' variety':' varieties')+' this week'+(first.price!=null?(' \u00b7 '+esc(first.name.toLowerCase())+' '+money(first.price)+'/lb'):'')+'.';
+    return {v:'grower',t:t,d:d,b:lv.length};
+  }
+  function tbLine(it, comp){
+    comp=comp||{}; if(typeof comp.to_beat!=='number')return {text:'No comp yet.', over:false};
+    var txt='To beat: '+(comp.source||'market')+' '+money(comp.to_beat)+(comp.date?' ('+comp.date+')':'')+(comp.suggested!=null?('. Suggested '+money(comp.suggested)+'.'):'');
+    var over=(typeof it.price==='number'&&it.price>comp.to_beat); if(over)txt+=' Over market.';
+    return {text:txt, over:over};
+  }
+  function gwShelfHTML(sheet){
+    if(!sheet)return '<div class="gw-sh-wrap"><div class="gw-sh-note">'+NAME+"'s board hasn't loaded yet.</div></div>";
+    var items=sheet.items||{}, comps=sheet.comps||{};
+    var names=Object.keys(items).sort(function(a,b){ var la=(items[a].status==='off')?1:0, lb=(items[b].status==='off')?1:0; return la-lb||a.localeCompare(b); });
+    var rows=names.map(function(v){ var it=items[v]||{}, st=it.status||'off', tb=tbLine(it, comps[v]);
+      return '<div class="gw-sh-row"><div class="gw-sh-top"><span class="gw-sh-nm">'+esc(v)+'</span><span class="gw-sh-st '+esc(st)+'">'+esc(ST[st]||st)+'</span></div>'
+        +'<div class="gw-sh-mid"><span>'+esc(it.lbs!=null?it.lbs:0)+' lb</span><span>'+(typeof it.price==='number'?money(it.price)+'/lb':'no price yet')+'</span></div>'
+        +'<div class="gw-sh-tb'+(tb.over?' over':'')+'">'+esc(tb.text)+'</div></div>'; }).join('');
+    return '<div class="gw-sh-wrap"><div class="gw-sh-note">Read-only. '+NAME+' edits this from her own window; what you see here is what the kitchen can order from her'+(sheet.comps_at?(' \u00b7 comps as of '+esc(sheet.comps_at)):'')+'.</div>'+(rows||'<div class="gw-sh-note">Nothing on the sheet.</div>')+'</div>';
+  }
+  function renderGrowerShelf(){ var el=document.getElementById('grower-shelf-body'); if(el)el.innerHTML=gwShelfHTML(_sheet); }
+  function ensure(){
+    if(_started)return; if(!(window.FB&&FB.ready&&FB.db))return; _started=true;
+    FB.db.collection('growerSheets').doc(GID).onSnapshot(function(d){ _sheet=d.exists?d.data():null;
+      renderGrowerShelf();
+      clearTimeout(_homeTimer); _homeTimer=setTimeout(function(){ try{ if(typeof renderHome==='function'&&document.body.classList.contains('remy-home-live')){_homeLast='';renderHome();} }catch(e){} },150);
+    }, function(e){ try{console.warn('[REMY grower shelf]',e&&(e.code||e.message));}catch(_e){} });
+  }
+  window.RemyGrowerFarm={gwHomeCard:gwHomeCard, gwShelfHTML:gwShelfHTML, renderGrowerShelf:renderGrowerShelf, ensure:ensure, sheet:function(){return _sheet;}};
+})();
+/*REMY-GROWER-FARM-END*/
 window.RemyFarm={
   week:_liveWeek(), lastTouch:'live', marketCount:DATA.market_count,
   list:function(){return grow.filter(function(g){return !g._tHidden&&!g.sfHide;}).map(function(g){var _ir=_invRec(g.name);return {
@@ -58115,6 +58187,7 @@ window.RemyFarm={
   // Use an explicit null check so rank 0 (Peak) sorts first.
   function srank(s){var r=STATUS_RANK[s];return (r==null)?9:r;}
   function farmList(){return (window.RemyFarm&&window.RemyFarm.list)?window.RemyFarm.list():[];}
+  function gwCfCards(){ try{ return (window.RemyGrowerKitchen&&!window._REMY_PREVIEW)?window.RemyGrowerKitchen.gwCfCards():''; }catch(e){ return ''; } }
   function priceStr(g){
     if(g.ask!=null)return '$'+Number(g.ask).toFixed(2)+(g.askUnit?('/'+g.askUnit):'');
     if(g.market&&g.market.per_lb!=null)return '~$'+Number(g.market.per_lb).toFixed(2)+'/lb';
@@ -58248,7 +58321,7 @@ window.RemyFarm={
     var id='remyord-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
     var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(),
       requested_date:cfOrder.date||'', confirmed_date:null, status:'placed',
-      order_note:(cfOrder.note||''), channel:'remy-order-v1', synced:false, lines:lines};
+      order_note:(cfOrder.note||''), channel:'remy-order-v1', synced:false, farm_id:'swan_house', lines:lines};
     cfOrder._sending=true;
     if(_cfWeekly()&&window.RemyOrders.addToWeek){
       window.RemyOrders.addToWeek(lines,{who:who, note:(cfOrder.note||''), date:(cfOrder.date||'')}).then(function(r){
@@ -58316,7 +58389,7 @@ window.RemyFarm={
       }
       schedHtml=bioHtml+'<div class="cf-sched" style="background:var(--bg-card,#fff);border:1px solid var(--ink-12);border-left:3px solid var(--gold);border-radius:10px;padding:11px 14px;margin:0 0 14px;font-family:var(--fb,sans-serif);font-size:13px;color:var(--ink);line-height:1.45">Order by <b>Monday 9pm</b> for delivery <b>Wednesday afternoon</b>, or by <b>Tuesday 9pm</b> for delivery <b>Thursday afternoon</b>.</div>';
     }
-    h.innerHTML=head+schedHtml+seg+(_v==='pushing'?pushingHtml():(_v==='order'?orderHtml():(_v==='sent'?sentHtml():listHtml())));
+    h.innerHTML=head+gwCfCards()+schedHtml+seg+(_v==='pushing'?pushingHtml():(_v==='order'?orderHtml():(_v==='sent'?sentHtml():listHtml())));
     bind();
   }
   function pushingHtml(){
@@ -58836,6 +58909,9 @@ window.RemyFarm={
   var _pkErr=false;           // loud-failure flag if the feed fetch fails
   // Self-contained feed fetch (this IIFE can't see the invoice tool's invFetchFeed).
   var _pkFeed=null, _pkFeedTried=false;
+  var _pkGrowerList=null;   // grower offers (live sheets), folded into _pkOffers whenever either side changes
+  window._pkGrowerFold=function(list){ _pkGrowerList=list||[]; if(_pkOffers&&window.RemyGrowerKitchen){ _pkOffers=window.RemyGrowerKitchen.growerFold(_pkOffers,_pkGrowerList); if(document.getElementById('pk-list-host'))renderPickerList(); } };
+  window.pkAddOffer=function(d){pkAdd(d);};
   function pkFetchFeed(cb){
     if(_pkFeedTried){cb(_pkFeed);return;}
     _pkFeedTried=true;
@@ -58907,6 +58983,7 @@ window.RemyFarm={
   window.pkSetNeedBy=function(v){_needBy=v||'';};
   var VENDOR_LANE={
     'Swan':{lane:'swan'},
+    'Swan House Mushrooms':{lane:'grower',gid:'swan_mushrooms'},
     'Farmstand':{lane:'hub', to:'info@farmstandlocalfoods.com', portal:'Farmstand online shop', note:'order by their posted cutoff'},
     'PSFH':{lane:'email', to:'orders@pugetsoundfoodhub.com', greet:'team', note:'Sun 12pm cutoff for Tue/Wed, $300 combined min'},
     'Franks':{lane:'email', to:'warehouse@franksproduce.net', greet:'Jeff'},
@@ -58919,7 +58996,7 @@ window.RemyFarm={
   function pkVendorItems(v){ return _basket.filter(function(x){return x.vendor===v;}); }
   function pkSendBtn(v){
     var lane=pkLane(v).lane;
-    var label=(lane==='swan')?'Send to Swan House':(lane==='hub')?('Order list for '+esc(v)):'Draft order email';
+    var label=(lane==='swan')?'Send to Swan House':(lane==='grower')?('Send to '+esc(v)):(lane==='hub')?('Order list for '+esc(v)):'Draft order email';
     return '<button class="pk-send" data-v="'+esc(v)+'">'+label+' &rarr;</button>';
   }
   function pkUnitLabel(x){ var u=x.unit||x.per_unit||''; if(u==='case')return (x.qty===1?'case':'cases'); return u; }
@@ -58934,6 +59011,7 @@ window.RemyFarm={
   window.pkSendV=function(v){
     var cfg=pkLane(v);
     if(cfg.lane==='swan'){ pkSwanPlace(v); return; }
+    if(cfg.lane==='grower'){ pkGrowerPlace(v, cfg); return; }
     var text=pkOrderText(v), isHub=(cfg.lane==='hub');
     var ov=document.getElementById('pkComposeOv');
     if(!ov){ov=document.createElement('div');ov.id='pkComposeOv';ov.className='pk-basket-ov';document.body.appendChild(ov);
@@ -58947,6 +59025,26 @@ window.RemyFarm={
       '<div class="pk-bk-note">Review and send from your mail app. Remy won’t send on its own.</div>'+
       '<button class="pk-bk-close" onclick="document.getElementById(\'pkComposeOv\').remove()">Close</button></div>';
   };
+  /* 2026-10-16: a grower lane places a real order like Swan's, addressed by farm_id so the rules route it to
+     the grower's window and keep it out of Kelly's feed. Same orderer resolution as pkSwanPlace. */
+  function pkGrowerPlace(v, lane){
+    var items=pkVendorItems(v); if(!items.length)return;
+    if(!(window.RemyOrders&&window.RemyOrders.ready&&window.RemyOrders.ready())){ alert('Can’t reach the order server right now — try again when you’re back online.'); return; }
+    if(!confirm('Send this order to '+v+' ('+items.length+' item'+(items.length>1?'s':'')+')?'))return;
+    var who='San Fermo';
+    try{ if(window.parent&&window.parent!==window&&window.parent.__remyPortalUser){who=String(window.parent.__remyPortalUser)||who;} }catch(e){}
+    try{ var _gid=(window.RemyGate&&window.RemyGate.identity)?window.RemyGate.identity():null;
+         if(_gid&&_gid.chef)who=_gid.chef+(_gid.rest?(' \u00b7 '+_gid.rest):''); }catch(e){}
+    var _gNote=''; try{ var _nEl=document.getElementById('pk-ordnote'); _gNote=String((_nEl?_nEl.value:_pkOrdNote)||'').trim(); }catch(e){ _gNote=String(_pkOrdNote||'').trim(); }
+    var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:v}, qty:x.qty, unit:(x.unit||x.per_unit||'lb'), free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:(x.per==null?null:x.per)};});
+    var id='remygrw-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
+    var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:_gNote, channel:'remy-grower-v1', synced:false, farm_id:lane.gid, lines:lines};
+    window.RemyOrders.place(order).then(function(){
+      _basket=_basket.filter(function(x){return x.vendor!==v;}); _pkOrdNote=''; renderBasketBar();
+      var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel();
+      alert('Order sent to '+v+' ✓');
+    }).catch(function(e){ alert((e&&e.message==='preview-window')?'Preview only — orders don’t send from here.':'Order didn’t send — check your connection and try again.'); });
+  }
   function pkSwanPlace(v){
     var items=pkVendorItems(v); if(!items.length)return;
     if(!(window.RemyOrders&&window.RemyOrders.ready&&window.RemyOrders.ready())){ alert('Can’t reach the order server right now — try again when you’re back online.'); return; }
@@ -58967,7 +59065,7 @@ window.RemyFarm={
       _pkNote=String((_nEl?_nEl.value:_pkOrdNote)||'').trim(); }catch(e){ _pkNote=String(_pkOrdNote||'').trim(); }
     var lines=items.map(function(x){return {item:x.name, seasonal_ref:{name:x.name,vendor:'Swan House Farms'}, qty:x.qty, unit:(x.unit||x.per_unit||''), free_text:false, farm_status:null, farm_note:'', packed:false, ordered_by:who, ask:null};});
     var id='remyrtr-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
-    var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:_pkNote, channel:'remy-router-v1', synced:false, lines:lines};
+    var order={order_id:id, placed_by:who, placed_at:new Date().toISOString(), requested_date:_needBy||'', confirmed_date:null, status:'placed', order_note:_pkNote, channel:'remy-router-v1', synced:false, farm_id:'swan_house', lines:lines};
     window.RemyOrders.place(order).then(function(){
       _basket=_basket.filter(function(x){return x.vendor!==v;}); _pkOrdNote=''; renderBasketBar();
       var o=document.getElementById('pkBasketOv'); if(!_basket.length){if(o)o.remove();} else renderBasketPanel();
@@ -59046,10 +59144,10 @@ window.RemyFarm={
     var pr=(o.per!=null)?('$'+Number(o.per).toFixed(2)+' <span class="pk-u">/'+esc(o.per_unit||'')+'</span>'):'<span class="pk-noprice">order price</span>';
     var off=(cu&&o.per_unit!==cu)?' pk-otherlane':'';
     var caseStr=pkCaseStr(o);
-    var add='<button class="pk-add" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" data-caseprice="'+(o.case_price==null?'':o.case_price)+'" data-packqty="'+(o.pack_qty==null?'':o.pack_qty)+'" data-packunit="'+esc(o.pack_unit||'')+'" data-packknown="'+(o.pack_known===false?'0':'1')+'" aria-label="Add to order">+</button>';
+    var add='<button class="pk-add'+(o.over?' pk-add-over':'')+'" data-ing="'+esc(ing||'')+'" data-vendor="'+esc(o.vendor||'')+'" data-per="'+(o.per==null?'':o.per)+'" data-punit="'+esc(o.per_unit||'')+'" data-pack="'+esc(o.pack||'')+'" data-caseprice="'+(o.case_price==null?'':o.case_price)+'" data-packqty="'+(o.pack_qty==null?'':o.pack_qty)+'" data-packunit="'+esc(o.pack_unit||'')+'" data-packknown="'+(o.pack_known===false?'0':'1')+'" aria-label="Add to order">+</button>';
     return '<div class="pk-off'+off+'">'+pkFreshDot(o.freshness)+
       '<span class="pk-vn">'+esc(o.vendor||'')+(caseStr?('<span class="pk-caseline">'+caseStr+'</span>'):'')+'</span>'+
-      '<span class="pk-pr">'+pr+'</span>'+add+'</div>';
+      '<span class="pk-pr">'+pr+((window.RemyGrowerKitchen&&o.source==='grower')?window.RemyGrowerKitchen.growerTag(o):'')+'</span>'+add+'</div>';
   }
   function pkCard(rec){
     var cu=rec.canonical_unit, offers=pkSortOffers(rec.offers, cu);
@@ -59081,6 +59179,7 @@ window.RemyFarm={
     if(_pkOffers===null && !_pkErr){
       pkFetchFeed(function(feed){
         if(!feed){_pkErr=true;} else {_pkOffers=pkBuildFromFeed(feed); if(!Object.keys(_pkOffers).length)_pkErr=true;}
+        if(_pkGrowerList)_pkOffers=window.RemyGrowerKitchen.growerFold(_pkOffers,_pkGrowerList);
         setTimeout(renderPickerList,0);
       });
     } else { setTimeout(renderPickerList,0); }  // offers cached — fill the freshly-mounted host
@@ -60132,7 +60231,7 @@ try{ var _rg=function(){RemyGate.init();RemyGate.setHeader();}; if(document.read
    id differs from the one baked in below, we tell her and give her one tap. The tap navigates to a
    NEW url (?v=…) rather than calling reload() — a plain reload can legitimately be served from the
    HTTP cache, a URL the browser has never seen cannot. ── */
-window.REMY_BUILD='c587e619239a';
+window.REMY_BUILD='358636c1da0e';
 (function(){
   var bar=null, busy=false, lastAt=0, shown=false, TTL=900000;
   function buildURL(){ try{ return new URL('build.json',location.href).href+'?cb='+Date.now(); }
