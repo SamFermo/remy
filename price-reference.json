@@ -85,11 +85,11 @@
    ]
   },
   "Basil": {
-   "swan_price": 29.95,
-   "market": 29.95,
+   "swan_price": 16.95,
+   "market": 16.95,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-10-04",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -97,13 +97,13 @@
    "hub_basis": "by weight",
    "note": "The Crows Farm; Farmstand also 14.95 and 29.95 /lb",
    "hub_pack": "1 lb",
-   "swan_per_lb": 29.95,
+   "swan_per_lb": 16.95,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Farmstand",
-     "per_lb": 29.95,
-     "date": "2026-10-04",
+     "per_lb": 16.95,
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -168,7 +168,7 @@
      "per": 29.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -639,19 +639,6 @@
    },
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "8 oz",
-     "per": 26.0,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 8.0,
-     "pack_unit": "oz",
-     "case_price": 13.0,
-     "pack_known": true
-    },
-    {
      "vendor": "Franks",
      "pack": null,
      "per": 5.75,
@@ -664,10 +651,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "display": "Chives",
-   "category": "herb",
-   "canonical_unit": "lb"
+   ]
   },
   "Cilantro": {
    "swan_price": 1.19,
@@ -742,7 +726,7 @@
      "per": 1.32,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "ct",
@@ -751,15 +735,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "24 bu case",
-     "per": 2.06,
+     "pack": "3 bu",
+     "per": 2.17,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 24.0,
+     "pack_qty": 3.0,
      "pack_unit": "bu",
-     "case_price": 49.44,
+     "case_price": 6.51,
      "pack_known": true
     },
     {
@@ -988,7 +972,7 @@
      "per": 116.16,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "oz",
@@ -1558,19 +1542,6 @@
    },
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "6 bunches",
-     "per": 2.6,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "bu",
-     "case_price": 15.6,
-     "pack_known": true
-    },
-    {
      "vendor": "Franks",
      "pack": null,
      "per": 24.5,
@@ -1583,10 +1554,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "display": "Lovage",
-   "category": "herb",
-   "canonical_unit": "each"
+   ]
   },
   "Mint": {
    "swan_price": 69.33,
@@ -1667,19 +1635,6 @@
    },
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "3 bu",
-     "per": 4.65,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "bu",
-     "case_price": 13.95,
-     "pack_known": true
-    },
-    {
      "vendor": "Franks",
      "pack": null,
      "per": 3.75,
@@ -1692,10 +1647,7 @@
      "case_price": null,
      "pack_known": true
     }
-   ],
-   "display": "Mint",
-   "category": "herb",
-   "canonical_unit": "each"
+   ]
   },
   "Nettles": {
    "swan_price": 11.4,
@@ -1804,24 +1756,11 @@
      "per": 2.5,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 30.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "1 bu",
-     "per": 4.25,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "bu",
-     "case_price": 4.25,
      "pack_known": true
     },
     {
@@ -1847,7 +1786,7 @@
    "market": 20.8,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-09-24",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "local hub (2oz bunch)",
    "needs_check": false,
@@ -1861,7 +1800,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 20.8,
-     "date": "2026-09-24",
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "2oz bunch"
@@ -2181,7 +2120,7 @@
    "market": 83.2,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-10-04",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
@@ -2195,7 +2134,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 83.2,
-     "date": "2026-10-04",
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "1oz bunch"
@@ -2260,7 +2199,7 @@
      "per": 2.5,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -2269,15 +2208,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "12 bu case",
-     "per": 2.93,
+     "pack": "3 bu",
+     "per": 2.98,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 12.0,
+     "pack_qty": 3.0,
      "pack_unit": "bu",
-     "case_price": 35.16,
+     "case_price": 8.94,
      "pack_known": true
     },
     {
@@ -2408,7 +2347,7 @@
    "market": 26.0,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-10-04",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "local hub (by weight)",
    "needs_check": false,
@@ -2422,7 +2361,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 26.0,
-     "date": "2026-10-04",
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "by weight"
@@ -2435,7 +2374,7 @@
      "per": 26.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 0.5,
      "pack_unit": "lb",
@@ -2612,7 +2551,7 @@
    "market": 41.6,
    "unit": "lb",
    "vendor": "Farmstand",
-   "date": "2026-10-04",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "local hub (1oz bunch)",
    "needs_check": false,
@@ -2626,7 +2565,7 @@
     {
      "vendor": "Farmstand",
      "per_lb": 41.6,
-     "date": "2026-10-04",
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "hub",
      "basis": "1oz bunch"
@@ -2691,11 +2630,24 @@
      "per": 2.5,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 30.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "3 bu",
+     "per": 2.98,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 8.94,
      "pack_known": true
     },
     {
@@ -2910,7 +2862,7 @@
      "per": 1.13,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -2920,14 +2872,14 @@
     {
      "vendor": "Farmstand",
      "pack": "10 lb",
-     "per": 2.34,
+     "per": 1.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 23.4,
+     "case_price": 19.5,
      "pack_known": true
     }
    ]
@@ -2944,7 +2896,7 @@
      "per": 3.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -2978,7 +2930,7 @@
      "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -3008,15 +2960,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "22 lb case",
+     "pack": "21 lb case",
      "per": 1.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 22.0,
+     "pack_qty": 21.0,
      "pack_unit": "lb",
-     "case_price": 42.9,
+     "case_price": 40.95,
      "pack_known": true
     },
     {
@@ -3046,7 +2998,7 @@
      "per": 1.76,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -3080,7 +3032,7 @@
      "per": 1.89,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 21.0,
      "pack_unit": "lb",
@@ -3111,14 +3063,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 2.39,
+     "per": 2.19,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 11.95,
+     "case_price": 10.95,
      "pack_known": true
     },
     {
@@ -3148,7 +3100,7 @@
      "per": 1.96,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -3157,15 +3109,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "20 lb case",
-     "per": 2.6,
+     "pack": "10 lb case",
+     "per": 4.22,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 20.0,
+     "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 52.0,
+     "case_price": 42.2,
      "pack_known": true
     },
     {
@@ -3195,7 +3147,7 @@
      "per": 1.7,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -3208,7 +3160,7 @@
      "per": 2.28,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 21.0,
      "pack_unit": "lb",
@@ -3242,45 +3194,11 @@
      "per": 2.59,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 12.95,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 1.99,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-08-18",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Apples, King David": {
-   "display": "Apples, King David",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "19 lb case",
-     "per": 3.25,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 19.0,
-     "pack_unit": "lb",
-     "case_price": 61.75,
      "pack_known": true
     },
     {
@@ -3306,15 +3224,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "3 lbs",
-     "per": 1.95,
+     "pack": "5 lbs",
+     "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 3.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 5.85,
+     "case_price": 26.0,
      "pack_known": true
     },
     {
@@ -3344,7 +3262,7 @@
      "per": 2.36,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -3378,7 +3296,7 @@
      "per": 3.32,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -3399,45 +3317,11 @@
      "per": 0.52,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "ct",
      "case_price": 13.0,
-     "pack_known": true
-    }
-   ]
-  },
-  "Avocado, Hass": {
-   "display": "Avocado, Hass",
-   "category": "fruit",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "3 ct",
-     "per": 2.65,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "ct",
-     "case_price": 7.95,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": null,
-     "per_unit": "lb",
-     "source": "catalog",
-     "last_seen": null,
-     "freshness": "",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
      "pack_known": true
     }
    ]
@@ -3454,7 +3338,7 @@
      "per": 2.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -3476,27 +3360,6 @@
     }
    ]
   },
-  "Bachelor Buttons, Pink Mix": {
-   "display": "Bachelor Buttons, Pink Mix",
-   "category": "uncategorized",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "100 ct clamshell",
-     "per": 0.13,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 100.0,
-     "pack_unit": "ct",
-     "case_price": 13.0,
-     "pack_known": true
-    }
-   ]
-  },
   "Banana Leaves (Farmstand)": {
    "display": "Banana Leaves (Farmstand)",
    "category": "uncategorized",
@@ -3509,7 +3372,7 @@
      "per": 3.99,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "ct",
@@ -3530,7 +3393,7 @@
      "per": 3.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "bu",
@@ -3555,20 +3418,20 @@
   "Basil, Sweet Thai": {
    "display": "Basil, Sweet Thai",
    "category": "herb",
-   "canonical_unit": "each",
+   "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "18 bunches",
-     "per": 0.87,
-     "per_unit": "each",
+     "pack": "3 oz",
+     "per": 41.6,
+     "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 18.0,
-     "pack_unit": "bu",
-     "case_price": 15.66,
+     "pack_qty": 3.0,
+     "pack_unit": "oz",
+     "case_price": 7.8,
      "pack_known": true
     },
     {
@@ -3586,27 +3449,6 @@
     }
    ]
   },
-  "Beans, Green": {
-   "display": "Beans, Green",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lb",
-     "per": 3.9,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 19.5,
-     "pack_known": true
-    }
-   ]
-  },
   "Beets, Chioggia": {
    "display": "Beets, Chioggia",
    "category": "vegetable",
@@ -3619,7 +3461,7 @@
      "per": 2.2,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -3632,7 +3474,7 @@
      "per": 1.82,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -3673,7 +3515,7 @@
      "per": 1.43,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -3686,7 +3528,7 @@
      "per": 1.56,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -3715,27 +3557,6 @@
     }
    ]
   },
-  "Beets, Gold, Baby": {
-   "display": "Beets, Gold, Baby",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lb case",
-     "per": 3.38,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 16.9,
-     "pack_known": true
-    }
-   ]
-  },
   "Beet, Red": {
    "display": "Beet, Red",
    "category": "vegetable",
@@ -3748,7 +3569,7 @@
      "per": 1.25,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -3761,7 +3582,7 @@
      "per": 1.27,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -3802,7 +3623,7 @@
      "per": 1.96,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -3823,7 +3644,7 @@
      "per": 12.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -3844,7 +3665,7 @@
      "per": 25.5,
      "per_unit": "flat",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": "flat",
@@ -3865,7 +3686,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -3874,15 +3695,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 2.34,
+     "pack": "15 lbs",
+     "per": 1.46,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 15.0,
      "pack_unit": "lb",
-     "case_price": 23.4,
+     "case_price": 21.9,
      "pack_known": true
     }
    ]
@@ -3899,7 +3720,7 @@
      "per": 79.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "oz",
@@ -3929,15 +3750,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "6 ct",
-     "per": 4.12,
-     "per_unit": "each",
+     "pack": "35 lb case",
+     "per": 1.6,
+     "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "ct",
-     "case_price": 24.72,
+     "pack_qty": 35.0,
+     "pack_unit": "lb",
+     "case_price": 56.0,
      "pack_known": true
     },
     {
@@ -3946,7 +3767,7 @@
      "per": 2.05,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 18.0,
      "pack_unit": "lb",
@@ -3964,14 +3785,14 @@
     {
      "vendor": "Farmstand",
      "pack": "20 lb case",
-     "per": 2.15,
+     "per": 2.21,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
-     "case_price": 43.0,
+     "case_price": 44.2,
      "pack_known": true
     }
    ]
@@ -3988,7 +3809,7 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
@@ -4009,7 +3830,7 @@
      "per": 2.64,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -4022,7 +3843,7 @@
      "per": 3.06,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -4056,7 +3877,7 @@
      "per": 2.64,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 18.0,
      "pack_unit": "bu",
@@ -4087,14 +3908,14 @@
     {
      "vendor": "Farmstand",
      "pack": "6 bu",
-     "per": 4.55,
+     "per": 5.2,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
-     "case_price": 27.3,
+     "case_price": 31.2,
      "pack_known": true
     },
     {
@@ -4124,7 +3945,7 @@
      "per": 4.62,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -4154,15 +3975,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "5 lb case",
+     "pack": "2 lb",
      "per": 10.4,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 5.0,
+     "pack_qty": 2.0,
      "pack_unit": "lb",
-     "case_price": 52.0,
+     "case_price": 20.8,
      "pack_known": true
     }
    ]
@@ -4179,7 +4000,7 @@
      "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -4200,7 +4021,7 @@
      "per": 1.98,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -4221,7 +4042,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -4237,29 +4058,29 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "45 lb case",
-     "per": 0.92,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 45.0,
-     "pack_unit": "lb",
-     "case_price": 41.4,
-     "pack_known": true
-    },
-    {
      "vendor": "PSFH",
      "pack": "45lb",
      "per": 0.94,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 45.0,
      "pack_unit": "lb",
      "case_price": 42.3,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "45 lb case",
+     "per": 1.01,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 45.0,
+     "pack_unit": "lb",
+     "case_price": 45.45,
      "pack_known": true
     },
     {
@@ -4284,29 +4105,29 @@
    "farm_priced": false,
    "offers": [
     {
+     "vendor": "Farmstand",
+     "pack": "35 lb case",
+     "per": 1.67,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 35.0,
+     "pack_unit": "lb",
+     "case_price": 58.45,
+     "pack_known": true
+    },
+    {
      "vendor": "PSFH",
      "pack": "35 lbs case",
      "per": 1.81,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
      "case_price": 63.35,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "17 lbs",
-     "per": 2.47,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 17.0,
-     "pack_unit": "lb",
-     "case_price": 41.99,
      "pack_known": true
     },
     {
@@ -4333,14 +4154,14 @@
     {
      "vendor": "Farmstand",
      "pack": "45 lb case",
-     "per": 0.87,
+     "per": 1.01,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 45.0,
      "pack_unit": "lb",
-     "case_price": 39.15,
+     "case_price": 45.45,
      "pack_known": true
     },
     {
@@ -4349,7 +4170,7 @@
      "per": 1.06,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -4358,15 +4179,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "10 lbs",
-     "per": 1.69,
+     "pack": "45 lb case",
+     "per": 1.16,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 45.0,
      "pack_unit": "lb",
-     "case_price": 16.9,
+     "case_price": 52.2,
      "pack_known": true
     },
     {
@@ -4392,15 +4213,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "35 lb case",
-     "per": 1.26,
+     "pack": "5 lbs",
+     "per": 1.19,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 35.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 44.1,
+     "case_price": 5.95,
      "pack_known": true
     },
     {
@@ -4409,7 +4230,7 @@
      "per": 1.28,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -4431,6 +4252,27 @@
     }
    ]
   },
+  "Calendula": {
+   "display": "Calendula",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "8 oz bag",
+     "per": 26.0,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "oz",
+     "case_price": 13.0,
+     "pack_known": true
+    }
+   ]
+  },
   "Caraflex Cabbage (Local Roots)": {
    "display": "Caraflex Cabbage (Local Roots)",
    "category": "vegetable",
@@ -4443,7 +4285,7 @@
      "per": 1.76,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -4464,7 +4306,7 @@
      "per": 1.8,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -4508,40 +4350,6 @@
     }
    ]
   },
-  "Carrots, Baby": {
-   "display": "Carrots, Baby",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 bu",
-     "per": 3.9,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "bu",
-     "case_price": 23.4,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": "25#SK",
-     "per": 1.06,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-04-20",
-     "freshness": "STALE",
-     "pack_qty": 25.0,
-     "pack_unit": "lb",
-     "case_price": 26.5,
-     "pack_known": true
-    }
-   ]
-  },
   "Carrots, Bagged": {
    "display": "Carrots, Bagged",
    "category": "vegetable",
@@ -4554,7 +4362,7 @@
      "per": 1.37,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -4571,36 +4379,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "25 lb bag",
-     "per": 1.14,
+     "pack": "25 lbs",
+     "per": 1.59,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
-     "case_price": 28.5,
-     "pack_known": true
-    }
-   ]
-  },
-  "Carrots, Orange, Baby": {
-   "display": "Carrots, Orange, Baby",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 3.12,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 31.2,
+     "case_price": 39.75,
      "pack_known": true
     }
    ]
@@ -4608,7 +4395,7 @@
   "Carrots, Purple": {
    "display": "Carrots, Purple",
    "category": "vegetable",
-   "canonical_unit": "each",
+   "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
@@ -4617,7 +4404,7 @@
      "per": 2.2,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -4626,15 +4413,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "24 ct case",
-     "per": 2.87,
-     "per_unit": "each",
+     "pack": "5 lbs",
+     "per": 1.99,
+     "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 24.0,
-     "pack_unit": "ct",
-     "case_price": 68.88,
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 9.95,
      "pack_known": true
     }
    ]
@@ -4651,7 +4438,7 @@
      "per": 2.58,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -4664,7 +4451,7 @@
      "per": 1.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -4685,7 +4472,7 @@
      "per": 0.53,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -4706,7 +4493,7 @@
      "per": 0.94,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -4727,11 +4514,45 @@
      "per": 0.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
      "case_price": 22.5,
+     "pack_known": true
+    }
+   ]
+  },
+  "Cauliflower, Sprouting, Purple": {
+   "display": "Cauliflower, Sprouting, Purple",
+   "category": "edible_flower",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "10 lbs",
+     "per": 5.46,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 10.0,
+     "pack_unit": "lb",
+     "case_price": 54.6,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": "12CT CS",
+     "per": 3.62,
+     "per_unit": "each",
+     "source": "invoice",
+     "last_seen": "2026-04-20",
+     "freshness": "STALE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 43.44,
      "pack_known": true
     }
    ]
@@ -4744,15 +4565,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "20 lb case",
-     "per": 1.62,
+     "pack": "10 lb case",
+     "per": 4.55,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 20.0,
+     "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 32.4,
+     "case_price": 45.5,
      "pack_known": true
     },
     {
@@ -4761,7 +4582,7 @@
      "per": 5.02,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -4795,7 +4616,7 @@
      "per": 1.69,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -4805,14 +4626,14 @@
     {
      "vendor": "Farmstand",
      "pack": "25 lb case",
-     "per": 1.72,
+     "per": 1.77,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
-     "case_price": 43.0,
+     "case_price": 44.25,
      "pack_known": true
     }
    ]
@@ -4829,7 +4650,7 @@
      "per": 1.62,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -4842,7 +4663,7 @@
      "per": 1.22,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -4864,27 +4685,6 @@
     }
    ]
   },
-  "Celtuce, Stem Lettuce": {
-   "display": "Celtuce, Stem Lettuce",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lb",
-     "per": 5.2,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 26.0,
-     "pack_known": true
-    }
-   ]
-  },
   "Chard, Green": {
    "display": "Chard, Green",
    "category": "vegetable",
@@ -4897,7 +4697,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -4918,7 +4718,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -4939,7 +4739,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -4960,7 +4760,7 @@
      "per": 3.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -4972,7 +4772,7 @@
   "Chives, Garlic": {
    "display": "Chives, Garlic",
    "category": "herb",
-   "canonical_unit": "lb",
+   "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
     {
@@ -4981,7 +4781,7 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "ct",
@@ -4990,15 +4790,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "2 lb",
-     "per": 13.0,
-     "per_unit": "lb",
+     "pack": "1 bu",
+     "per": 3.25,
+     "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 26.0,
+     "pack_qty": 1.0,
+     "pack_unit": "bu",
+     "case_price": 3.25,
      "pack_known": true
     },
     {
@@ -5028,7 +4828,7 @@
      "per": 1.65,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -5049,7 +4849,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -5089,7 +4889,7 @@
      "per": 1.52,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -5111,33 +4911,33 @@
     }
    ]
   },
-  "Corn, Honey Select": {
-   "display": "Corn, Honey Select",
-   "category": "vegetable",
-   "canonical_unit": "each",
+  "Cranberries (Fresh)": {
+   "display": "Cranberries (Fresh)",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "20 ct case",
-     "per": 1.43,
-     "per_unit": "each",
+     "pack": "1 lb",
+     "per": 11.95,
+     "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 20.0,
-     "pack_unit": "ct",
-     "case_price": 28.6,
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 11.95,
      "pack_known": true
     },
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 44.0,
-     "per_unit": "cs",
+     "per": 2.85,
+     "per_unit": "bag_12oz",
      "source": "invoice",
-     "last_seen": "2026-10-03",
-     "freshness": "DATED(20)",
+     "last_seen": "2025-12-20",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5157,147 +4957,11 @@
      "per": 2.38,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
      "case_price": 59.5,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 2.0,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-09-23",
-     "freshness": "DATED(30)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Cucumbers, Calypso": {
-   "display": "Cucumbers, Calypso",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lb case",
-     "per": 3.25,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 16.25,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 2.0,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-09-23",
-     "freshness": "DATED(30)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Cucumbers, English": {
-   "display": "Cucumbers, English",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "3 ct",
-     "per": 3.98,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "ct",
-     "case_price": 11.94,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 2.0,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-09-23",
-     "freshness": "DATED(30)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Cucumbers, Mexican Gherkin": {
-   "display": "Cucumbers, Mexican Gherkin",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "3 lb case",
-     "per": 7.8,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "lb",
-     "case_price": 23.4,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 2.0,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-09-23",
-     "freshness": "DATED(30)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Cucumber, Pickling": {
-   "display": "Cucumber, Pickling",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "20 lb case",
-     "per": 1.3,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 20.0,
-     "pack_unit": "lb",
-     "case_price": 26.0,
      "pack_known": true
     },
     {
@@ -5323,15 +4987,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "25 lb case",
-     "per": 1.46,
+     "pack": "5 lb",
+     "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 25.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 36.5,
+     "case_price": 13.0,
      "pack_known": true
     },
     {
@@ -5361,7 +5025,7 @@
      "per": 1.98,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -5374,7 +5038,7 @@
      "per": 2.06,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
@@ -5395,7 +5059,7 @@
      "per": 2.06,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
@@ -5416,7 +5080,7 @@
      "per": 3.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
@@ -5437,7 +5101,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -5450,7 +5114,7 @@
      "per": 1.23,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -5471,11 +5135,32 @@
      "per": 266.67,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 0.75,
      "pack_unit": "oz",
      "case_price": 12.5,
+     "pack_known": true
+    }
+   ]
+  },
+  "Edible Flowers, Mixed": {
+   "display": "Edible Flowers, Mixed",
+   "category": "edible_flower",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "8 oz bag",
+     "per": 39.0,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 8.0,
+     "pack_unit": "oz",
+     "case_price": 19.5,
      "pack_known": true
     }
    ]
@@ -5488,15 +5173,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "6 ct",
-     "per": 3.32,
+     "pack": "3 ct",
+     "per": 3.65,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 6.0,
+     "pack_qty": 3.0,
      "pack_unit": "ct",
-     "case_price": 19.92,
+     "case_price": 10.95,
      "pack_known": true
     },
     {
@@ -5505,7 +5190,7 @@
      "per": 4.62,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -5526,7 +5211,7 @@
      "per": 3.09,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -5547,74 +5232,11 @@
      "per": 3.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 39.0,
-     "pack_known": true
-    }
-   ]
-  },
-  "Eggplant, Japanese": {
-   "display": "Eggplant, Japanese",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lbs",
-     "per": 3.55,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 35.5,
-     "pack_known": true
-    }
-   ]
-  },
-  "Eggplant, Mixed": {
-   "display": "Eggplant, Mixed",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "2 lbs",
-     "per": 5.75,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 11.5,
-     "pack_known": true
-    }
-   ]
-  },
-  "Eggplant, Piccolo (Mini)": {
-   "display": "Eggplant, Piccolo (Mini)",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "1 lb",
-     "per": 6.5,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "lb",
-     "case_price": 6.5,
      "pack_known": true
     }
    ]
@@ -5631,7 +5253,7 @@
      "per": 4.29,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -5649,14 +5271,14 @@
     {
      "vendor": "Farmstand",
      "pack": "6 ct",
-     "per": 3.9,
+     "per": 4.55,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "ct",
-     "case_price": 23.4,
+     "case_price": 27.3,
      "pack_known": true
     }
    ]
@@ -5673,7 +5295,7 @@
      "per": 2.98,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1,
      "pack_unit": "each",
@@ -5694,7 +5316,7 @@
      "per": 2.77,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": "case",
@@ -5715,7 +5337,7 @@
      "per": 145.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "oz",
@@ -5736,7 +5358,7 @@
      "per": 208.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "oz",
@@ -5757,7 +5379,7 @@
      "per": 1.82,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -5766,15 +5388,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "6 ct",
-     "per": 3.9,
+     "pack": "12 ct",
+     "per": 3.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 6.0,
+     "pack_qty": 12.0,
      "pack_unit": "ct",
-     "case_price": 23.4,
+     "case_price": 39.0,
      "pack_known": true
     },
     {
@@ -5806,15 +5428,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "12 ct",
+     "pack": "3 ct",
      "per": 2.17,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 12.0,
+     "pack_qty": 3.0,
      "pack_unit": "ct",
-     "case_price": 26.04,
+     "case_price": 6.51,
      "pack_known": true
     },
     {
@@ -5823,7 +5445,7 @@
      "per": 2.2,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -5877,40 +5499,6 @@
     }
    ]
   },
-  "Fennel Seeds, Fresh": {
-   "display": "Fennel Seeds, Fresh",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 ct",
-     "per": 3.9,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "ct",
-     "case_price": 23.4,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 1.99,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-08-24",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Figs, Brown Turkey": {
    "display": "Figs, Brown Turkey",
    "category": "fruit",
@@ -5923,7 +5511,7 @@
      "per": 7.32,
      "per_unit": "pint",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "pint",
@@ -5944,7 +5532,7 @@
      "per": 10.48,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -5965,7 +5553,7 @@
      "per": 1.31,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -5986,7 +5574,7 @@
      "per": 7.21,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -6007,7 +5595,7 @@
      "per": 7.47,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
@@ -6029,8 +5617,8 @@
     }
    ]
   },
-  "Garlic, Tualco Heirloom": {
-   "display": "Garlic, Tualco Heirloom",
+  "Garlic, Softneck": {
+   "display": "Garlic, Softneck",
    "category": "vegetable",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -6038,14 +5626,14 @@
     {
      "vendor": "Farmstand",
      "pack": "1 lb",
-     "per": 14.3,
+     "per": 15.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
-     "case_price": 14.3,
+     "case_price": 15.5,
      "pack_known": true
     },
     {
@@ -6075,7 +5663,7 @@
      "per": 3.25,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 19.0,
      "pack_unit": "lb",
@@ -6084,65 +5672,36 @@
     }
    ]
   },
-  "Grapes, Canadice": {
-   "display": "Grapes, Canadice",
+  "Grapefruit, Star Ruby": {
+   "display": "Grapefruit, Star Ruby",
    "category": "fruit",
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 4.68,
+     "pack": "5 lbs",
+     "per": 2.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 46.8,
+     "case_price": 14.5,
      "pack_known": true
-    }
-   ]
-  },
-  "Grapes, Interlaken": {
-   "display": "Grapes, Interlaken",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
+    },
     {
-     "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 4.68,
+     "vendor": "Franks",
+     "pack": null,
+     "per": 1.75,
      "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 46.8,
-     "pack_known": true
-    }
-   ]
-  },
-  "Grapes, Reliance": {
-   "display": "Grapes, Reliance",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 4.68,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 46.8,
+     "source": "invoice",
+     "last_seen": "2026-10-02",
+     "freshness": "DATED(21)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -6156,14 +5715,14 @@
     {
      "vendor": "Farmstand",
      "pack": "45 lb case",
-     "per": 0.87,
+     "per": 1.16,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 45.0,
      "pack_unit": "lb",
-     "case_price": 39.15,
+     "case_price": 52.2,
      "pack_known": true
     },
     {
@@ -6193,7 +5752,7 @@
      "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -6229,15 +5788,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "5 pounds",
-     "per": 3.38,
+     "pack": "5 lb",
+     "per": 3.12,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 16.9,
+     "case_price": 15.6,
      "pack_known": true
     },
     {
@@ -6287,7 +5846,7 @@
      "per": 2.24,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -6308,7 +5867,7 @@
      "per": 1.98,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6329,7 +5888,7 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6350,7 +5909,7 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6371,7 +5930,7 @@
      "per": 2.82,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6384,7 +5943,7 @@
      "per": 2.94,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6405,7 +5964,7 @@
      "per": 1.08,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "ct",
@@ -6426,7 +5985,7 @@
      "per": 9.24,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -6447,7 +6006,7 @@
      "per": 9.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
@@ -6481,7 +6040,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -6535,7 +6094,7 @@
      "per": 2.38,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
@@ -6569,7 +6128,7 @@
      "per": 1.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -6603,7 +6162,7 @@
      "per": 1.3,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -6616,7 +6175,7 @@
      "per": 1.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -6650,7 +6209,7 @@
      "per": 1.82,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -6684,7 +6243,7 @@
      "per": 1.35,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -6718,7 +6277,7 @@
      "per": 1.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -6752,11 +6311,45 @@
      "per": 3.03,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "bu",
      "case_price": 9.09,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 42.5,
+     "per_unit": "CS",
+     "source": "invoice",
+     "last_seen": "2026-10-15",
+     "freshness": "DATED(8)",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Kale, Redbor": {
+   "display": "Kale, Redbor",
+   "category": "vegetable",
+   "canonical_unit": "each",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "3 bu",
+     "per": 3.9,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 11.7,
      "pack_known": true
     },
     {
@@ -6786,7 +6379,7 @@
      "per": 3.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6820,7 +6413,7 @@
      "per": 1.74,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -6860,7 +6453,7 @@
      "per": 2.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -6881,7 +6474,7 @@
      "per": 1.78,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -6894,7 +6487,7 @@
      "per": 1.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -6928,7 +6521,7 @@
      "per": 2.42,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -6959,14 +6552,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 3.19,
+     "per": 3.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 15.95,
+     "case_price": 17.5,
      "pack_known": true
     },
     {
@@ -6996,7 +6589,7 @@
      "per": 2.6,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -7017,7 +6610,7 @@
      "per": 0.52,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "ct",
@@ -7038,7 +6631,7 @@
      "per": 4.11,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1,
      "pack_unit": "lb",
@@ -7059,7 +6652,7 @@
      "per": 2.88,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -7093,7 +6686,7 @@
      "per": 2.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "ct",
@@ -7127,7 +6720,7 @@
      "per": 2.33,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -7148,45 +6741,11 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 33.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 24.25,
-     "per_unit": "CS",
-     "source": "invoice",
-     "last_seen": "2026-10-14",
-     "freshness": "DATED(9)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Lettuce, New Red Fire": {
-   "display": "Lettuce, New Red Fire",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 ct case",
-     "per": 3.9,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "ct",
-     "case_price": 46.8,
      "pack_known": true
     },
     {
@@ -7216,7 +6775,7 @@
      "per": 2.08,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -7238,27 +6797,6 @@
     }
    ]
   },
-  "Lettuce, Red Leaf": {
-   "display": "Lettuce, Red Leaf",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 ct case",
-     "per": 2.82,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "ct",
-     "case_price": 33.84,
-     "pack_known": true
-    }
-   ]
-  },
   "Lettuce, Romaine": {
    "display": "Lettuce, Romaine",
    "category": "vegetable",
@@ -7267,49 +6805,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "12 ct case",
-     "per": 3.25,
+     "pack": "6 ct",
+     "per": 2.92,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 12.0,
+     "pack_qty": 6.0,
      "pack_unit": "ct",
-     "case_price": 39.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 24.25,
-     "per_unit": "CS",
-     "source": "invoice",
-     "last_seen": "2026-10-14",
-     "freshness": "DATED(9)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Lettuce, Romaine, Mini": {
-   "display": "Lettuce, Romaine, Mini",
-   "category": "vegetable",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "18ct case",
-     "per": 2.53,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 18.0,
-     "pack_unit": "ct",
-     "case_price": 45.54,
+     "case_price": 17.52,
      "pack_known": true
     },
     {
@@ -7339,7 +6843,7 @@
      "per": 11.88,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7360,7 +6864,7 @@
      "per": 20.8,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7381,7 +6885,7 @@
      "per": 2.6,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -7403,41 +6907,6 @@
     }
    ]
   },
-  "Melons, Honeydew": {
-   "display": "Melons, Honeydew",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "~15 lbs",
-     "per": 1.53,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 15.0,
-     "pack_unit": "lb",
-     "case_price": 22.95,
-     "pack_known": true,
-     "pack_approx": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": null,
-     "per_unit": "lb",
-     "source": "catalog",
-     "last_seen": null,
-     "freshness": "",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Microgreens - Farmers Mix": {
    "display": "Microgreens - Farmers Mix",
    "category": "micro_sprout",
@@ -7450,7 +6919,7 @@
      "per": 29.04,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
@@ -7471,7 +6940,7 @@
      "per": 22.44,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
@@ -7492,7 +6961,7 @@
      "per": 29.7,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
@@ -7513,7 +6982,7 @@
      "per": 31.68,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
@@ -7534,24 +7003,11 @@
      "per": 31.68,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
      "case_price": 31.68,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "1 oz",
-     "per": 52.0,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "oz",
-     "case_price": 3.25,
      "pack_known": true
     }
    ]
@@ -7568,7 +7024,7 @@
      "per": 31.68,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
@@ -7589,52 +7045,12 @@
      "per": 22.44,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 8.0,
      "pack_unit": "pkg",
      "case_price": 22.44,
      "pack_known": true
-    }
-   ]
-  },
-  "Mizuna": {
-   "display": "Mizuna",
-   "category": "uncategorized",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 ct",
-     "per": 2.93,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "ct",
-     "case_price": 17.58,
-     "pack_known": true
-    },
-    {
-     "vendor": "Local Roots",
-     "pack": "5 lb",
-     "per": 13.0,
-     "per_unit": "lb",
-     "source": "fresh_sheet",
-     "last_seen": "2026-10-17",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 60.0,
-     "pack_known": true,
-     "sku": "Mizuna",
-     "sheet": "Local Roots fresh sheet 10/17 (delivery 2026-10-21)",
-     "sheet_line": "Mizuna – $13/lb; 5# for $60",
-     "tiers": [
-      "5# for $60"
-     ]
     }
    ]
   },
@@ -7650,7 +7066,7 @@
      "per": 6.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7671,7 +7087,7 @@
      "per": 7.92,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7692,7 +7108,7 @@
      "per": 12.25,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7713,7 +7129,7 @@
      "per": 7.92,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7726,7 +7142,7 @@
      "per": 11.18,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7747,7 +7163,7 @@
      "per": 8.71,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7760,7 +7176,7 @@
      "per": 12.61,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7794,7 +7210,7 @@
      "per": 11.97,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pkg",
@@ -7815,7 +7231,7 @@
      "per": 9.24,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7828,7 +7244,7 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7849,7 +7265,7 @@
      "per": 9.24,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -7870,7 +7286,7 @@
      "per": 6.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7891,7 +7307,7 @@
      "per": 13.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -7912,11 +7328,32 @@
      "per": 16.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
      "case_price": 16.95,
+     "pack_known": true
+    }
+   ]
+  },
+  "Mushrooms, Lions Mane": {
+   "display": "Mushrooms, Lions Mane",
+   "category": "mushroom",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "1 lb",
+     "per": 13.0,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 13.0,
      "pack_known": true
     }
    ]
@@ -7933,32 +7370,11 @@
      "per": 9.24,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 46.2,
-     "pack_known": true
-    }
-   ]
-  },
-  "Mushroom, Maitake": {
-   "display": "Mushroom, Maitake",
-   "category": "mushroom",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "1 lb",
-     "per": 13.95,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "lb",
-     "case_price": 13.95,
      "pack_known": true
     }
    ]
@@ -7975,7 +7391,7 @@
      "per": 11.97,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pkg",
@@ -7996,7 +7412,7 @@
      "per": 6.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -8017,7 +7433,7 @@
      "per": 11.97,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pkg",
@@ -8038,7 +7454,7 @@
      "per": 11.7,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -8059,7 +7475,7 @@
      "per": 11.97,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pkg",
@@ -8080,7 +7496,7 @@
      "per": 8.71,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -8090,14 +7506,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lb case",
-     "per": 9.59,
+     "per": 8.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 47.95,
+     "case_price": 44.95,
      "pack_known": true
     }
    ]
@@ -8114,7 +7530,7 @@
      "per": 3.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -8123,23 +7539,23 @@
     }
    ]
   },
-  "Okra, Red": {
-   "display": "Okra, Red",
+  "Mustard Greens, Red Giant": {
+   "display": "Mustard Greens, Red Giant",
    "category": "vegetable",
-   "canonical_unit": "lb",
+   "canonical_unit": "each",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "2 lbs",
-     "per": 12.97,
-     "per_unit": "lb",
+     "pack": "12 ct",
+     "per": 3.25,
+     "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 25.94,
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 39.0,
      "pack_known": true
     }
    ]
@@ -8156,7 +7572,7 @@
      "per": 4.47,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
@@ -8178,6 +7594,93 @@
     }
    ]
   },
+  "Onions, Cipollini, Yellow": {
+   "display": "Onions, Cipollini, Yellow",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "2 lbs",
+     "per": 4.47,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 2.0,
+     "pack_unit": "lb",
+     "case_price": 8.94,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Onions, Green Bunching (Scallions)": {
+   "display": "Onions, Green Bunching (Scallions)",
+   "category": "vegetable",
+   "canonical_unit": "each",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "3 bu",
+     "per": 1.98,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "bu",
+     "case_price": 5.94,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    },
+    {
+     "vendor": "Local Roots",
+     "pack": "12 bu",
+     "per": 3.5,
+     "per_unit": "bu",
+     "source": "fresh_sheet",
+     "last_seen": "2026-10-17",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "bu",
+     "case_price": 39.0,
+     "pack_known": true,
+     "sku": "Green Onions",
+     "sheet": "Local Roots fresh sheet 10/17 (delivery 2026-10-21)",
+     "sheet_line": "Green Onions - $3.50/bunch; 12 for $39",
+     "tiers": [
+      "12 for $39"
+     ]
+    }
+   ]
+  },
   "Onions, Red": {
    "display": "Onions, Red",
    "category": "vegetable",
@@ -8185,29 +7688,29 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 1.39,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 6.95,
-     "pack_known": true
-    },
-    {
      "vendor": "PSFH",
      "pack": "40 lbs",
      "per": 1.98,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
      "case_price": 79.2,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 2.6,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 13.0,
      "pack_known": true
     },
     {
@@ -8254,7 +7757,7 @@
      "per": 1.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -8288,7 +7791,7 @@
      "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -8317,29 +7820,29 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 1.3,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 6.5,
-     "pack_known": true
-    },
-    {
      "vendor": "PSFH",
      "pack": "40 lbs",
      "per": 1.81,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
      "case_price": 72.4,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 2.39,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 11.95,
      "pack_known": true
     },
     {
@@ -8386,7 +7889,7 @@
      "per": 4.62,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -8399,7 +7902,7 @@
      "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -8429,15 +7932,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lb",
-     "per": 4.55,
+     "pack": "5 lbs",
+     "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 45.5,
+     "case_price": 13.0,
      "pack_known": true
     },
     {
@@ -8467,7 +7970,7 @@
      "per": 2.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "lb",
@@ -8501,7 +8004,7 @@
      "per": 1.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -8535,7 +8038,7 @@
      "per": 1.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -8548,7 +8051,7 @@
      "per": 1.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 40.0,
      "pack_unit": "lb",
@@ -8579,14 +8082,14 @@
     {
      "vendor": "Farmstand",
      "pack": "3 lbs",
-     "per": 2.5,
+     "per": 2.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
-     "case_price": 7.5,
+     "case_price": 7.95,
      "pack_known": true
     },
     {
@@ -8604,27 +8107,6 @@
     }
    ]
   },
-  "Papalo": {
-   "display": "Papalo",
-   "category": "herb",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "4 bu",
-     "per": 3.9,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 4.0,
-     "pack_unit": "bu",
-     "case_price": 15.6,
-     "pack_known": true
-    }
-   ]
-  },
   "Parsley, Curly": {
    "display": "Parsley, Curly",
    "category": "herb",
@@ -8637,7 +8119,7 @@
      "per": 1.08,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "bu",
@@ -8650,7 +8132,7 @@
      "per": 1.67,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "ct",
@@ -8684,7 +8166,7 @@
      "per": 1.23,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "ct",
@@ -8737,7 +8219,7 @@
      "per": 1.17,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "bu",
@@ -8758,7 +8240,7 @@
      "per": 2.6,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -8787,50 +8269,29 @@
    "farm_priced": false,
    "offers": [
     {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 2.3,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 11.5,
+     "pack_known": true
+    },
+    {
      "vendor": "PSFH",
      "pack": "20 lb",
      "per": 2.33,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
      "case_price": 46.6,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 2.7,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 13.5,
-     "pack_known": true
-    }
-   ]
-  },
-  "Pea Shoots": {
-   "display": "Pea Shoots",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "3 oz",
-     "per": 31.2,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "oz",
-     "case_price": 5.85,
      "pack_known": true
     }
    ]
@@ -8847,47 +8308,12 @@
      "per": 5.78,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1,
      "pack_unit": "lb",
      "case_price": 5.78,
      "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "2 lbs",
-     "per": 7.8,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 15.6,
-     "pack_known": true
-    }
-   ]
-  },
-  "Pears, Asian, Hosui": {
-   "display": "Pears, Asian, Hosui",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "~2 lbs",
-     "per": 6.47,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 12.94,
-     "pack_known": true,
-     "pack_approx": true
     }
    ]
   },
@@ -8903,7 +8329,7 @@
      "per": 1.42,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 44.0,
      "pack_unit": "lb",
@@ -8912,15 +8338,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "26 lb case",
-     "per": 1.76,
+     "pack": "42 lb case",
+     "per": 1.75,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 26.0,
+     "pack_qty": 42.0,
      "pack_unit": "lb",
-     "case_price": 45.76,
+     "case_price": 73.5,
      "pack_known": true
     }
    ]
@@ -8937,7 +8363,7 @@
      "per": 1.75,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 44.0,
      "pack_unit": "lb",
@@ -8946,57 +8372,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "23 lb case",
+     "pack": "43 lb case",
      "per": 2.15,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 23.0,
+     "pack_qty": 43.0,
      "pack_unit": "lb",
-     "case_price": 49.45,
-     "pack_known": true
-    }
-   ]
-  },
-  "Pears, D'Anjou, Red": {
-   "display": "Pears, D'Anjou, Red",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "26 lb case",
-     "per": 2.15,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 26.0,
-     "pack_unit": "lb",
-     "case_price": 55.9,
-     "pack_known": true
-    }
-   ]
-  },
-  "Pears, Red Comice": {
-   "display": "Pears, Red Comice",
-   "category": "fruit",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 2.7,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 13.5,
+     "case_price": 92.45,
      "pack_known": true
     }
    ]
@@ -9010,14 +8394,14 @@
     {
      "vendor": "Farmstand",
      "pack": "2 lbs",
-     "per": 2.48,
+     "per": 2.75,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
-     "case_price": 4.96,
+     "case_price": 5.5,
      "pack_known": true
     }
    ]
@@ -9034,7 +8418,7 @@
      "per": 5.2,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "bu",
@@ -9055,7 +8439,7 @@
      "per": 6.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
@@ -9076,7 +8460,7 @@
      "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
@@ -9097,7 +8481,7 @@
      "per": 1.85,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -9110,7 +8494,7 @@
      "per": 3.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
@@ -9144,24 +8528,11 @@
      "per": 4.75,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 71.25,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lb",
-     "per": 5.2,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 26.0,
      "pack_known": true
     },
     {
@@ -9191,7 +8562,7 @@
      "per": 3.37,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9201,14 +8572,14 @@
     {
      "vendor": "Farmstand",
      "pack": "3 lbs",
-     "per": 6.32,
+     "per": 6.17,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
-     "case_price": 18.96,
+     "case_price": 18.51,
      "pack_known": true
     },
     {
@@ -9238,7 +8609,7 @@
      "per": 3.77,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9272,7 +8643,7 @@
      "per": 3.37,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9285,7 +8656,7 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9319,7 +8690,7 @@
      "per": 2.64,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9353,7 +8724,7 @@
      "per": 3.37,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9366,7 +8737,7 @@
      "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -9400,7 +8771,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9421,7 +8792,7 @@
      "per": 11.88,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -9442,7 +8813,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9463,7 +8834,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9497,7 +8868,7 @@
      "per": 4.62,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9531,7 +8902,7 @@
      "per": 132.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "oz",
@@ -9552,24 +8923,11 @@
      "per": 3.96,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 39.6,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "1 lb",
-     "per": 8.95,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "lb",
-     "case_price": 8.95,
      "pack_known": true
     },
     {
@@ -9599,7 +8957,7 @@
      "per": 3.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9620,7 +8978,7 @@
      "per": 2.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -9642,6 +9000,27 @@
     }
    ]
   },
+  "Peppers, Pasilla Bajio": {
+   "display": "Peppers, Pasilla Bajio",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "3 lbs",
+     "per": 5.2,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 3.0,
+     "pack_unit": "lb",
+     "case_price": 15.6,
+     "pack_known": true
+    }
+   ]
+  },
   "Peppers, Peach Habanero": {
    "display": "Peppers, Peach Habanero",
    "category": "fruit",
@@ -9650,11 +9029,11 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "1 lb",
+     "pack": "1 lb bag",
      "per": 13.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -9675,7 +9054,7 @@
      "per": 3.12,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -9696,7 +9075,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9709,7 +9088,7 @@
      "per": 5.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9743,7 +9122,7 @@
      "per": 4.36,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9756,7 +9135,7 @@
      "per": 5.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -9794,7 +9173,7 @@
      "per": 2.64,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9807,7 +9186,7 @@
      "per": 4.75,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 15.0,
      "pack_unit": "lb",
@@ -9841,7 +9220,7 @@
      "per": 4.22,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9862,7 +9241,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -9883,7 +9262,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9904,24 +9283,11 @@
      "per": 4.68,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 23.4,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 4.94,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 24.7,
      "pack_known": true
     },
     {
@@ -9939,6 +9305,61 @@
     }
    ]
   },
+  "Peppers, Turkish Sweet Frying Mix": {
+   "display": "Peppers, Turkish Sweet Frying Mix",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "1 lb",
+     "per": 9.1,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 9.1,
+     "pack_known": true
+    }
+   ]
+  },
+  "Persimmons, Hachiya": {
+   "display": "Persimmons, Hachiya",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 2.59,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 12.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 38.0,
+     "per_unit": "cs",
+     "source": "invoice",
+     "last_seen": "2026-02-13",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
   "Poblano Peppers": {
    "display": "Poblano Peppers",
    "category": "vegetable",
@@ -9951,7 +9372,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -9972,7 +9393,7 @@
      "per": 6.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1,
      "pack_unit": "each",
@@ -9989,15 +9410,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lb",
-     "per": 3.9,
+     "pack": "5 lbs",
+     "per": 2.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 39.0,
+     "case_price": 11.5,
      "pack_known": true
     }
    ]
@@ -10014,7 +9435,7 @@
      "per": 3.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -10032,14 +9453,14 @@
     {
      "vendor": "Farmstand",
      "pack": "2 lbs",
-     "per": 2.98,
+     "per": 2.62,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
-     "case_price": 5.96,
+     "case_price": 5.24,
      "pack_known": true
     }
    ]
@@ -10056,53 +9477,11 @@
      "per": 4.68,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 23.4,
-     "pack_known": true
-    }
-   ]
-  },
-  "Potatoes, Pinto Gold": {
-   "display": "Potatoes, Pinto Gold",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "2 lbs",
-     "per": 3.75,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 2.0,
-     "pack_unit": "lb",
-     "case_price": 7.5,
-     "pack_known": true
-    }
-   ]
-  },
-  "Potatoes, Purple Fiesta Fingerling": {
-   "display": "Potatoes, Purple Fiesta Fingerling",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lbs",
-     "per": 2.6,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 26.0,
      "pack_known": true
     }
    ]
@@ -10119,7 +9498,7 @@
      "per": 1.32,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10129,14 +9508,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 3.99,
+     "per": 2.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 19.95,
+     "case_price": 14.5,
      "pack_known": true
     }
    ]
@@ -10153,7 +9532,7 @@
      "per": 0.58,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10166,11 +9545,24 @@
      "per": 0.74,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
      "case_price": 37.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 1.99,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 9.95,
      "pack_known": true
     }
    ]
@@ -10187,7 +9579,7 @@
      "per": 4.55,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -10204,15 +9596,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 3.99,
+     "pack": "3 lbs",
+     "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 5.0,
+     "pack_qty": 3.0,
      "pack_unit": "lb",
-     "case_price": 19.95,
+     "case_price": 7.8,
      "pack_known": true
     }
    ]
@@ -10229,7 +9621,7 @@
      "per": 0.4,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10246,15 +9638,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 2.34,
+     "pack": "10 pounds",
+     "per": 4.55,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 5.0,
+     "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 11.7,
+     "case_price": 45.5,
      "pack_known": true
     }
    ]
@@ -10271,7 +9663,7 @@
      "per": 2.79,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -10292,7 +9684,7 @@
      "per": 1.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10313,7 +9705,7 @@
      "per": 0.66,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10326,11 +9718,24 @@
      "per": 0.74,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
      "case_price": 37.0,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lb",
+     "per": 1.99,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 9.95,
      "pack_known": true
     }
    ]
@@ -10347,7 +9752,7 @@
      "per": 0.42,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 50.0,
      "pack_unit": "lb",
@@ -10368,7 +9773,7 @@
      "per": 3.35,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -10389,7 +9794,7 @@
      "per": 3.12,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -10429,7 +9834,7 @@
      "per": 3.96,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -10447,14 +9852,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 2.6,
+     "per": 4.79,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 13.0,
+     "case_price": 23.95,
      "pack_known": true
     }
    ]
@@ -10471,7 +9876,7 @@
      "per": 1.98,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -10492,7 +9897,7 @@
      "per": 3.25,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -10513,7 +9918,7 @@
      "per": 1.76,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -10522,17 +9927,16 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "1 case (10 heads)",
-     "per": 4.42,
+     "pack": "3 ct",
+     "per": 3.32,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "case",
-     "case_price": null,
-     "pack_known": true,
-     "pack_note": "weight-per-case unknown"
+     "pack_qty": 3.0,
+     "pack_unit": "ct",
+     "case_price": 9.96,
+     "pack_known": true
     },
     {
      "vendor": "Local Roots",
@@ -10552,6 +9956,48 @@
     }
    ]
   },
+  "Radicchio, Mixed (Sunnyside)": {
+   "display": "Radicchio, Mixed (Sunnyside)",
+   "category": "vegetable",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 7.8,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 39.0,
+     "pack_known": true
+    }
+   ]
+  },
+  "Radicchio, Palla Rossa": {
+   "display": "Radicchio, Palla Rossa",
+   "category": "vegetable",
+   "canonical_unit": "each",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "5 ct",
+     "per": 4.8,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "ct",
+     "case_price": 24.0,
+     "pack_known": true
+    }
+   ]
+  },
   "Radicchio, Treviso": {
    "display": "Radicchio, Treviso",
    "category": "vegetable",
@@ -10564,11 +10010,45 @@
      "per": 2.64,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 31.68,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "12 ct case",
+     "per": 3.25,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 12.0,
+     "pack_unit": "ct",
+     "case_price": 39.0,
+     "pack_known": true
+    }
+   ]
+  },
+  "Radicchio, Verona": {
+   "display": "Radicchio, Verona",
+   "category": "vegetable",
+   "canonical_unit": "each",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "5 ct",
+     "per": 4.8,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "ct",
+     "case_price": 24.0,
      "pack_known": true
     }
    ]
@@ -10581,15 +10061,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lbs",
-     "per": 2.6,
+     "pack": "10 lb case",
+     "per": 2.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 26.0,
+     "case_price": 29.9,
      "pack_known": true
     },
     {
@@ -10619,7 +10099,7 @@
      "per": 1.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -10653,7 +10133,7 @@
      "per": 1.56,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -10687,7 +10167,7 @@
      "per": 1.46,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -10721,7 +10201,7 @@
      "per": 1.46,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -10755,7 +10235,7 @@
      "per": 1.35,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "bu",
@@ -10768,7 +10248,7 @@
      "per": 1.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -10802,7 +10282,7 @@
      "per": 2.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -10815,7 +10295,7 @@
      "per": 2.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -10849,7 +10329,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -10870,7 +10350,7 @@
      "per": 5.32,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "ct",
@@ -10888,14 +10368,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 1.59,
+     "per": 2.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 7.95,
+     "case_price": 11.5,
      "pack_known": true
     }
    ]
@@ -10907,29 +10387,29 @@
    "farm_priced": false,
    "offers": [
     {
+     "vendor": "Farmstand",
+     "pack": "25 lb bag",
+     "per": 1.77,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 25.0,
+     "pack_unit": "lb",
+     "case_price": 44.25,
+     "pack_known": true
+    },
+    {
      "vendor": "PSFH",
      "pack": "25 lb",
      "per": 1.8,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
      "case_price": 45.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "25 lb case",
-     "per": 2.5,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 25.0,
-     "pack_unit": "lb",
-     "case_price": 62.5,
      "pack_known": true
     }
    ]
@@ -10941,29 +10421,29 @@
    "farm_priced": false,
    "offers": [
     {
+     "vendor": "Farmstand",
+     "pack": "1 bunch",
+     "per": 2.08,
+     "per_unit": "each",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "bu",
+     "case_price": 2.08,
+     "pack_known": true
+    },
+    {
      "vendor": "PSFH",
      "pack": "12 ct",
      "per": 2.31,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
      "case_price": 27.72,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "1 bu",
-     "per": 2.5,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "bu",
-     "case_price": 2.5,
      "pack_known": true
     }
    ]
@@ -10980,7 +10460,7 @@
      "per": 45.76,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "oz",
@@ -11001,7 +10481,7 @@
      "per": 15.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -11018,15 +10498,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "3 lb case",
-     "per": 9.65,
+     "pack": "3 lbs",
+     "per": 6.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
-     "case_price": 28.95,
+     "case_price": 19.95,
      "pack_known": true
     }
    ]
@@ -11043,7 +10523,7 @@
      "per": 3.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -11056,7 +10536,7 @@
      "per": 3.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -11107,7 +10587,7 @@
      "per": 6.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 2.0,
      "pack_unit": "lb",
@@ -11128,7 +10608,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -11141,7 +10621,7 @@
      "per": 1.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -11162,7 +10642,7 @@
      "per": 2.25,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "bu",
@@ -11175,7 +10655,7 @@
      "per": 5.12,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": "case",
@@ -11196,7 +10676,7 @@
      "per": 9.65,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 3.0,
      "pack_unit": "lb",
@@ -11218,23 +10698,36 @@
     }
    ]
   },
-  "Squash Blossoms (Tualco Valley Farm)": {
-   "display": "Squash Blossoms (Tualco Valley Farm)",
-   "category": "edible_flower",
-   "canonical_unit": "each",
+  "Strawberries (Local)": {
+   "display": "Strawberries (Local)",
+   "category": "uncategorized",
+   "canonical_unit": "pint",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "24 ct",
-     "per": 0.7,
-     "per_unit": "each",
+     "pack": "2 pints",
+     "per": 5.75,
+     "per_unit": "pint",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 24.0,
-     "pack_unit": "ct",
-     "case_price": 16.8,
+     "pack_qty": 2.0,
+     "pack_unit": "pint",
+     "case_price": 11.5,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 2.91,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-07-14",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -11251,7 +10744,7 @@
      "per": 52.4,
      "per_unit": "flat",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": "flat",
@@ -11285,32 +10778,11 @@
      "per": 1.11,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
      "case_price": 38.85,
-     "pack_known": true
-    }
-   ]
-  },
-  "Summer Squash, Crookneck, Yellow": {
-   "display": "Summer Squash, Crookneck, Yellow",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 1.95,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "lb",
-     "case_price": 23.4,
      "pack_known": true
     }
    ]
@@ -11327,53 +10799,11 @@
      "per": 2.16,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 22.0,
      "pack_unit": "lb",
      "case_price": 47.52,
-     "pack_known": true
-    }
-   ]
-  },
-  "Summer Squash, Patty Pan, Yellow": {
-   "display": "Summer Squash, Patty Pan, Yellow",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 2.38,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "lb",
-     "case_price": 28.56,
-     "pack_known": true
-    }
-   ]
-  },
-  "Summer Squash, Round, Eight Ball": {
-   "display": "Summer Squash, Round, Eight Ball",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 1.95,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "lb",
-     "case_price": 23.4,
      "pack_known": true
     }
    ]
@@ -11390,7 +10820,7 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -11411,7 +10841,7 @@
      "per": 1.5,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 22.0,
      "pack_unit": "lb",
@@ -11420,36 +10850,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 1.95,
+     "pack": "5 lb",
+     "per": 2.6,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 12.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 23.4,
-     "pack_known": true
-    }
-   ]
-  },
-  "Summer Squash, Zucchini, Lebanese": {
-   "display": "Summer Squash, Zucchini, Lebanese",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 2.38,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "lb",
-     "case_price": 28.56,
+     "case_price": 13.0,
      "pack_known": true
     }
    ]
@@ -11466,7 +10875,7 @@
      "per": 1.3,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 20.0,
      "pack_unit": "lb",
@@ -11475,23 +10884,36 @@
     }
    ]
   },
-  "Summer Squash, Zucchini, Striped Italian": {
-   "display": "Summer Squash, Zucchini, Striped Italian",
-   "category": "vegetable",
+  "Sunchokes": {
+   "display": "Sunchokes",
+   "category": "uncategorized",
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "12 lbs",
-     "per": 2.38,
+     "pack": "5 lbs",
+     "per": 3.79,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 12.0,
+     "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 28.56,
+     "case_price": 18.95,
+     "pack_known": true
+    },
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": 4.5,
+     "per_unit": "lb",
+     "source": "invoice",
+     "last_seen": "2026-02-09",
+     "freshness": "STALE",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
      "pack_known": true
     }
    ]
@@ -11505,14 +10927,14 @@
     {
      "vendor": "Farmstand",
      "pack": "24 ct case",
-     "per": 1.3,
+     "per": 1.37,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
-     "case_price": 31.2,
+     "case_price": 32.88,
      "pack_known": true
     },
     {
@@ -11542,7 +10964,7 @@
      "per": 3.96,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 30.0,
      "pack_unit": "lb",
@@ -11560,14 +10982,14 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 2.99,
+     "per": 2.79,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 14.95,
+     "case_price": 13.95,
      "pack_known": true
     }
    ]
@@ -11584,7 +11006,7 @@
      "per": 1.32,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
@@ -11605,45 +11027,11 @@
      "per": 1.54,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 24.0,
      "pack_unit": "ct",
      "case_price": 36.96,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tarragon, French": {
-   "display": "Tarragon, French",
-   "category": "herb",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 bunches",
-     "per": 2.6,
-     "per_unit": "each",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "bu",
-     "case_price": 15.6,
-     "pack_known": true
-    },
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 8.5,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-04-15",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
      "pack_known": true
     }
    ]
@@ -11660,7 +11048,7 @@
      "per": 13.0,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 1.0,
      "pack_unit": "lb",
@@ -11681,7 +11069,7 @@
      "per": 2.6,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "bu",
@@ -11715,7 +11103,7 @@
      "per": 4.41,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -11728,7 +11116,7 @@
      "per": 4.55,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -11762,7 +11150,7 @@
      "per": 3.9,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -11791,29 +11179,29 @@
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Farmstand",
-     "pack": "3 lb case",
-     "per": 3.9,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 3.0,
-     "pack_unit": "lb",
-     "case_price": 11.7,
-     "pack_known": true
-    },
-    {
      "vendor": "PSFH",
      "pack": "10 lb",
      "per": 3.96,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 39.6,
+     "pack_known": true
+    },
+    {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 5.2,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 26.0,
      "pack_known": true
     },
     {
@@ -11843,7 +11231,7 @@
      "per": 3.17,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -11877,7 +11265,7 @@
      "per": 4.55,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -11911,7 +11299,7 @@
      "per": 4.4,
      "per_unit": "pint",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 6.0,
      "pack_unit": "pint",
@@ -11945,7 +11333,7 @@
      "per": 46.2,
      "per_unit": "flat",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": "flat",
@@ -11954,151 +11342,15 @@
     },
     {
      "vendor": "Farmstand",
-     "pack": "6 pints",
-     "per": 4.49,
+     "pack": "3 pints",
+     "per": 4.83,
      "per_unit": "pint",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 6.0,
+     "pack_qty": 3.0,
      "pack_unit": "pint",
-     "case_price": 26.94,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Cherry, Red": {
-   "display": "Tomatoes, Cherry, Red",
-   "category": "fruit",
-   "canonical_unit": "pint",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 pints",
-     "per": 5.2,
-     "per_unit": "pint",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "pint",
-     "case_price": 31.2,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Early Girl": {
-   "display": "Tomatoes, Early Girl",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lb box",
-     "per": 4.0,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 40.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Grape, Red": {
-   "display": "Tomatoes, Grape, Red",
-   "category": "fruit",
-   "canonical_unit": "flat",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 pint half-flat",
-     "per": 65.0,
-     "per_unit": "flat",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": null,
-     "pack_unit": "flat",
-     "case_price": null,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Heirloom, Amish Paste": {
-   "display": "Tomatoes, Heirloom, Amish Paste",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lb Case",
-     "per": 4.94,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 49.4,
+     "case_price": 14.49,
      "pack_known": true
     },
     {
@@ -12124,15 +11376,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 5.2,
+     "pack": "2 lbs",
+     "per": 5.97,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
-     "pack_qty": 10.0,
+     "pack_qty": 2.0,
      "pack_unit": "lb",
-     "case_price": 52.0,
+     "case_price": 11.94,
      "pack_known": true
     },
     {
@@ -12157,12 +11409,25 @@
    "farm_priced": false,
    "offers": [
     {
+     "vendor": "Farmstand",
+     "pack": "5 lbs",
+     "per": 3.19,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 15.95,
+     "pack_known": true
+    },
+    {
      "vendor": "PSFH",
      "pack": "10 lb",
      "per": 4.22,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12196,7 +11461,7 @@
      "per": 3.96,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12227,23 +11492,10 @@
     {
      "vendor": "Farmstand",
      "pack": "5 lbs",
-     "per": 4.99,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 24.95,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
      "per": 5.2,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
@@ -12277,45 +11529,11 @@
      "per": 2.64,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 26.4,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Stupice": {
-   "display": "Tomatoes, Stupice",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "12 pound flat",
-     "per": 4.12,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "lb",
-     "case_price": 49.44,
      "pack_known": true
     },
     {
@@ -12345,45 +11563,11 @@
      "per": 4.62,
      "per_unit": "pint",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "pint",
      "case_price": 55.44,
-     "pack_known": true
-    },
-    {
-     "vendor": "Chefs' Warehouse",
-     "pack": "CS",
-     "per": 106.97,
-     "per_unit": "case",
-     "source": "invoice",
-     "last_seen": "2026-10-05",
-     "freshness": "DATED(18)",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Tomatoes, Sungold Cherry": {
-   "display": "Tomatoes, Sungold Cherry",
-   "category": "fruit",
-   "canonical_unit": "pint",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "6 pints",
-     "per": 6.5,
-     "per_unit": "pint",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 6.0,
-     "pack_unit": "pint",
-     "case_price": 39.0,
      "pack_known": true
     },
     {
@@ -12410,14 +11594,14 @@
     {
      "vendor": "Farmstand",
      "pack": "~5 lbs",
-     "per": 4.59,
+     "per": 3.99,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 5.0,
      "pack_unit": "lb",
-     "case_price": 22.95,
+     "case_price": 19.95,
      "pack_known": true,
      "pack_approx": true
     },
@@ -12436,6 +11620,27 @@
     }
    ]
   },
+  "Turmeric (Fresh)": {
+   "display": "Turmeric (Fresh)",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Farmstand",
+     "pack": "1 lb",
+     "per": 31.2,
+     "per_unit": "lb",
+     "source": "hub_catalog",
+     "last_seen": "2026-10-23",
+     "freshness": "LIVE",
+     "pack_qty": 1.0,
+     "pack_unit": "lb",
+     "case_price": 31.2,
+     "pack_known": true
+    }
+   ]
+  },
   "Turnips, Purple Top": {
    "display": "Turnips, Purple Top",
    "category": "vegetable",
@@ -12448,7 +11653,7 @@
      "per": 1.66,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -12461,7 +11666,7 @@
      "per": 1.69,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
@@ -12482,7 +11687,7 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 12.0,
      "pack_unit": "ct",
@@ -12516,7 +11721,7 @@
      "per": 3.64,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12529,7 +11734,7 @@
      "per": 4.22,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12551,40 +11756,6 @@
     }
    ]
   },
-  "White Chanterelle": {
-   "display": "White Chanterelle",
-   "category": "mushroom",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "1 lb",
-     "per": 13.95,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 1.0,
-     "pack_unit": "lb",
-     "case_price": 13.95,
-     "pack_known": true
-    },
-    {
-     "vendor": "Foraged & Found",
-     "pack": null,
-     "per": 12.75,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2025-11-06",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Winter Squash, Autumn Frost": {
    "display": "Winter Squash, Autumn Frost",
    "category": "vegetable",
@@ -12597,7 +11768,7 @@
      "per": 2.34,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12631,7 +11802,7 @@
      "per": 1.13,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -12644,7 +11815,7 @@
      "per": 1.95,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12678,7 +11849,7 @@
      "per": 2.34,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12708,15 +11879,15 @@
    "offers": [
     {
      "vendor": "Farmstand",
-     "pack": "10 lb case",
-     "per": 2.34,
+     "pack": "10 lbs",
+     "per": 2.15,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
-     "case_price": 23.4,
+     "case_price": 21.5,
      "pack_known": true
     },
     {
@@ -12746,7 +11917,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -12780,7 +11951,7 @@
      "per": 1.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -12814,24 +11985,11 @@
      "per": 1.39,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
      "case_price": 48.65,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "30 lb case",
-     "per": 1.52,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 30.0,
-     "pack_unit": "lb",
-     "case_price": 45.6,
      "pack_known": true
     },
     {
@@ -12861,24 +12019,11 @@
      "per": 1.48,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 25.0,
      "pack_unit": "lb",
      "case_price": 37.0,
-     "pack_known": true
-    },
-    {
-     "vendor": "Farmstand",
-     "pack": "5 lbs",
-     "per": 2.6,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 5.0,
-     "pack_unit": "lb",
-     "case_price": 13.0,
      "pack_known": true
     },
     {
@@ -12908,7 +12053,7 @@
      "per": 1.14,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 35.0,
      "pack_unit": "lb",
@@ -12942,7 +12087,7 @@
      "per": 2.34,
      "per_unit": "lb",
      "source": "hub_catalog",
-     "last_seen": "2026-10-19",
+     "last_seen": "2026-10-23",
      "freshness": "LIVE",
      "pack_qty": 10.0,
      "pack_unit": "lb",
@@ -12960,27 +12105,6 @@
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
-  "Yellow Wax Beans": {
-   "display": "Yellow Wax Beans",
-   "category": "vegetable",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Farmstand",
-     "pack": "10 lbs",
-     "per": 5.2,
-     "per_unit": "lb",
-     "source": "hub_catalog",
-     "last_seen": "2026-10-19",
-     "freshness": "LIVE",
-     "pack_qty": 10.0,
-     "pack_unit": "lb",
-     "case_price": 52.0,
      "pack_known": true
     }
    ]
@@ -13082,27 +12206,6 @@
     }
    ]
   },
-  "Cranberries (Fresh)": {
-   "display": "Cranberries (Fresh)",
-   "category": "uncategorized",
-   "canonical_unit": "bag_12oz",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 2.85,
-     "per_unit": "bag_12oz",
-     "source": "invoice",
-     "last_seen": "2025-12-20",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Duck Breast, Culver Pekin": {
    "display": "Duck Breast, Culver Pekin",
    "category": "uncategorized",
@@ -13145,20 +12248,20 @@
     }
    ]
   },
-  "Grapefruit, Ruby": {
-   "display": "Grapefruit, Ruby",
-   "category": "fruit",
+  "Golden Chanterelle (Wild)": {
+   "display": "Golden Chanterelle (Wild)",
+   "category": "mushroom",
    "canonical_unit": "lb",
    "farm_priced": false,
    "offers": [
     {
-     "vendor": "Franks",
+     "vendor": "Foraged & Found",
      "pack": null,
-     "per": 1.75,
+     "per": 12.75,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-02",
-     "freshness": "DATED(21)",
+     "last_seen": "2025-11-06",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13431,27 +12534,6 @@
     }
    ]
   },
-  "Persimmons (Fuyu)": {
-   "display": "Persimmons (Fuyu)",
-   "category": "fruit",
-   "canonical_unit": "cs",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 38.0,
-     "per_unit": "cs",
-     "source": "invoice",
-     "last_seen": "2026-02-13",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Plums & Pluots": {
    "display": "Plums & Pluots",
    "category": "fruit",
@@ -13717,27 +12799,6 @@
     }
    ]
   },
-  "Sunchokes": {
-   "display": "Sunchokes",
-   "category": "uncategorized",
-   "canonical_unit": "lb",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Franks",
-     "pack": null,
-     "per": 4.5,
-     "per_unit": "lb",
-     "source": "invoice",
-     "last_seen": "2026-02-09",
-     "freshness": "STALE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Tomato, Roma": {
    "display": "Tomato, Roma",
    "category": "vegetable",
@@ -13761,6 +12822,27 @@
   },
   "Apricot": {
    "display": "Apricot",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Avocado": {
+   "display": "Avocado",
    "category": "fruit",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -13992,6 +13074,27 @@
   },
   "Limes": {
    "display": "Limes",
+   "category": "fruit",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Franks",
+     "pack": null,
+     "per": null,
+     "per_unit": "lb",
+     "source": "catalog",
+     "last_seen": null,
+     "freshness": "",
+     "pack_qty": null,
+     "pack_unit": null,
+     "case_price": null,
+     "pack_known": true
+    }
+   ]
+  },
+  "Melon, Honeydew": {
+   "display": "Melon, Honeydew",
    "category": "fruit",
    "canonical_unit": "lb",
    "farm_priced": false,
@@ -16904,6 +16007,34 @@
    ],
    "created_by": "build_local_roots_offers.py"
   },
+  "Mizuna": {
+   "display": "Mizuna",
+   "category": "uncategorized",
+   "canonical_unit": "lb",
+   "farm_priced": false,
+   "offers": [
+    {
+     "vendor": "Local Roots",
+     "pack": "5 lb",
+     "per": 13.0,
+     "per_unit": "lb",
+     "source": "fresh_sheet",
+     "last_seen": "2026-10-17",
+     "freshness": "LIVE",
+     "pack_qty": 5.0,
+     "pack_unit": "lb",
+     "case_price": 60.0,
+     "pack_known": true,
+     "sku": "Mizuna",
+     "sheet": "Local Roots fresh sheet 10/17 (delivery 2026-10-21)",
+     "sheet_line": "Mizuna – $13/lb; 5# for $60",
+     "tiers": [
+      "5# for $60"
+     ]
+    }
+   ],
+   "created_by": "build_local_roots_offers.py"
+  },
   "Green Coriander": {
    "display": "Green Coriander",
    "category": "herb",
@@ -17107,55 +16238,27 @@
     }
    ],
    "created_by": "build_local_roots_offers.py"
-  },
-  "Green Onions": {
-   "display": "Green Onions",
-   "category": "vegetable",
-   "canonical_unit": "bu",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Local Roots",
-     "pack": "12 bu",
-     "per": 3.5,
-     "per_unit": "bu",
-     "source": "fresh_sheet",
-     "last_seen": "2026-10-17",
-     "freshness": "LIVE",
-     "pack_qty": 12.0,
-     "pack_unit": "bu",
-     "case_price": 39.0,
-     "pack_known": true,
-     "sku": "Green Onions",
-     "sheet": "Local Roots fresh sheet 10/17 (delivery 2026-10-21)",
-     "sheet_line": "Green Onions - $3.50/bunch; 12 for $39",
-     "tiers": [
-      "12 for $39"
-     ]
-    }
-   ],
-   "created_by": "build_local_roots_offers.py"
   }
  },
  "offers_folded": {
-  "seed": "offers-seed-2026-10-19.json",
+  "seed": "offers-seed-2026-10-23.json",
   "franks_catalog": "franks-catalog-canonical-2026-07-09.json",
-  "seed_generated": "2026-10-19",
+  "seed_generated": "2026-10-23",
   "computed": "2026-10-23",
-  "folded_onto_existing": 10,
-  "new_picker_items": 330,
-  "offer_records": 416,
+  "folded_onto_existing": 7,
+  "new_picker_items": 300,
+  "offer_records": 379,
   "freshness_at_compute": "LIVE"
  },
  "franks_folded": {
-  "appended": 103,
-  "new_items": 35,
+  "appended": 98,
+  "new_items": 32,
   "commodity_appended": 18,
   "computed": "2026-10-23"
  },
  "franks_catalog_folded": {
   "appended": 29,
-  "new_items": 16,
+  "new_items": 18,
   "computed": "2026-10-23"
  },
  "specialty_folded": {
@@ -17164,7 +16267,7 @@
   "computed": "2026-10-23"
  },
  "distributor_folded": {
-  "appended": 29,
+  "appended": 23,
   "new_items": 101,
   "computed": "2026-10-23"
  },
@@ -17202,8 +16305,7 @@
    "Yellow Onion"
   ],
   "card_fallbacks": [
-   "Spicy Salad Mix -> Greens, Salad Mix (card missing)",
-   "Green Onions -> Onions, Green Bunching (Scallions) (card missing)"
+   "Spicy Salad Mix -> Greens, Salad Mix (card missing)"
   ],
   "second_sku_same_card": [
    "Austrian Crescent Fingerling Potato",
