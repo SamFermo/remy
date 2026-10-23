@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T08:39:26",
+ "generated_at": "2026-10-23T06:53:25",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,6 +116,38 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 70,
+   "low_f": 33,
+   "avg_f": 51.0,
+   "forecast": "Mostly Clear",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Freeze Watch",
+     "severity": "Severe",
+     "headline": "Freeze Watch issued October 22 at 10:48PM PDT until October 24 at 10:00AM PDT by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -130,7 +162,7 @@
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued October 22 at 1:10AM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
+     "headline": "Wind Advisory issued October 22 at 11:09PM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -160,7 +192,7 @@
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued October 22 at 1:10AM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
+     "headline": "Wind Advisory issued October 22 at 11:09PM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -276,32 +308,6 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 70,
-   "low_f": 33,
-   "avg_f": 51.0,
-   "forecast": "Mostly Clear",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
    "id": "columbia_basin_wa",
@@ -591,5 +597,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 3
+ "high_regions": 4
 }
