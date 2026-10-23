@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T06:53:25",
+ "generated_at": "2026-10-23T09:40:40",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -128,9 +128,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Freeze Watch",
+     "event": "Freeze Warning",
      "severity": "Severe",
-     "headline": "Freeze Watch issued October 22 at 10:48PM PDT until October 24 at 10:00AM PDT by NWS Pendleton OR"
+     "headline": "Freeze Warning issued October 23 at 9:21AM PDT until October 24 at 10:00AM PDT by NWS Pendleton OR"
     }
    ],
    "fire": false,
@@ -148,6 +148,36 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 66,
+   "low_f": 33,
+   "avg_f": 52.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Freeze Warning",
+     "severity": "Severe",
+     "headline": "Freeze Warning issued October 23 at 9:37AM PDT until October 24 at 10:00AM PDT by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -162,7 +192,7 @@
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued October 22 at 11:09PM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
+     "headline": "Wind Advisory issued October 23 at 9:37AM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -192,7 +222,7 @@
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued October 22 at 11:09PM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
+     "headline": "Wind Advisory issued October 23 at 9:37AM PDT until October 23 at 3:00PM PDT by NWS Spokane WA"
     }
    ],
    "fire": false,
@@ -308,30 +338,6 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 66,
-   "low_f": 33,
-   "avg_f": 52.0,
-   "forecast": "Mostly Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
    "id": "olympic_peninsula_hood_canal",
@@ -597,5 +603,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 4
+ "high_regions": 5
 }
