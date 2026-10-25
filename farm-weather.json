@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T06:57:56",
+ "generated_at": "2026-10-25T06:48:59",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,68 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 60,
-   "low_f": 33,
-   "avg_f": 48.0,
-   "forecast": "Widespread Frost then Mostly Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Freeze Warning",
-     "severity": "Severe",
-     "headline": "Freeze Warning issued October 23 at 9:21AM PDT until October 24 at 10:00AM PDT by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 58,
-   "low_f": 32,
-   "avg_f": 48.0,
-   "forecast": "Widespread Frost then Mostly Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Freeze Warning",
-     "severity": "Severe",
-     "headline": "Freeze Warning issued October 23 at 10:20PM PDT until October 24 at 10:00AM PDT by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "neah_bay_strait_juan_de_fuca",
    "name": "Neah Bay / Strait of Juan de Fuca",
    "category": "marine",
@@ -197,7 +135,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued October 24 at 1:28AM PDT until October 25 at 5:00PM PDT by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued October 25 at 1:19AM PDT until October 25 at 11:00PM PDT by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -212,35 +150,6 @@
     "tribal_fish"
    ],
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 61,
-   "low_f": 40,
-   "avg_f": 50.0,
-   "forecast": "Mostly Sunny",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Frost Advisory",
-     "severity": "Minor",
-     "headline": "Frost Advisory issued October 24 at 5:54AM PDT until October 24 at 9:00AM PDT by NWS Eureka CA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
    "id": "western_montana",
@@ -344,6 +253,56 @@
     "local_farms"
    ],
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 60,
+   "low_f": 33,
+   "avg_f": 48.0,
+   "forecast": "Widespread Frost then Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 58,
+   "low_f": 32,
+   "avg_f": 48.0,
+   "forecast": "Widespread Frost then Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
   },
   {
    "id": "okanogan_highlands_wa",
@@ -527,6 +486,29 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 61,
+   "low_f": 40,
+   "avg_f": 50.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
    "id": "northern_ca_interior",
    "name": "Northern California Interior",
    "category": "foraging",
@@ -603,5 +585,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 5
+ "high_regions": 2
 }
