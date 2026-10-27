@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T09:35:00",
+ "generated_at": "2026-10-27T07:15:29",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,6 +116,70 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 42,
+   "low_f": 31,
+   "avg_f": 37.0,
+   "forecast": "Mostly Cloudy then Slight Chance Light Rain",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (31F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Winter Weather Advisory",
+     "severity": "Moderate",
+     "headline": "Winter Weather Advisory issued October 27 at 4:22AM PDT until October 28 at 5:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 42,
+   "low_f": 32,
+   "avg_f": 37.0,
+   "forecast": "Chance Rain And Snow",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Winter Weather Advisory",
+     "severity": "Moderate",
+     "headline": "Winter Weather Advisory issued October 27 at 4:22AM PDT until October 28 at 5:00PM PDT by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
    "id": "oregon_cascades",
    "name": "Oregon Cascades",
    "category": "foraging",
@@ -142,34 +206,6 @@
     "wild_edibles"
    ],
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
-  },
-  {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 42,
-   "low_f": 31,
-   "avg_f": 37.0,
-   "forecast": "Mostly Cloudy then Slight Chance Light Rain",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (31F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
    "id": "western_montana",
@@ -469,30 +505,6 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 42,
-   "low_f": 32,
-   "avg_f": 37.0,
-   "forecast": "Chance Rain And Snow",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
-  },
-  {
    "id": "eastern_oregon_rangeland",
    "name": "Eastern Oregon Rangeland",
    "category": "rangeland",
@@ -589,5 +601,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 3
+ "high_regions": 4
 }
