@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T06:46:48",
+ "generated_at": "2026-11-01T06:48:52",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -94,20 +94,14 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 54,
+   "high_f": 58,
    "low_f": 33,
-   "avg_f": 44.0,
-   "forecast": "Chance Light Rain",
+   "avg_f": 48.0,
+   "forecast": "Areas Of Frost then Mostly Sunny",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Frost Advisory",
-     "severity": "Minor",
-     "headline": "Frost Advisory issued October 31 at 4:17AM PDT until October 31 at 9:00AM PDT by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -122,25 +116,115 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 55,
+   "low_f": 43,
+   "avg_f": 50.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 55F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Small Craft Advisory",
+     "severity": "Minor",
+     "headline": "Small Craft Advisory issued November 1 at 1:33AM PDT until November 3 at 1:00AM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
+   "id": "cascade_range_forests",
+   "name": "Cascade Range / Western WA Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 47,
+   "low_f": 31,
+   "avg_f": 42.0,
+   "forecast": "Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (31F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "wild_greens",
+    "fiddleheads"
+   ],
+   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
+  },
+  {
+   "id": "eastern_oregon_rangeland",
+   "name": "Eastern Oregon Rangeland",
+   "category": "rangeland",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 54,
+   "low_f": 30,
+   "avg_f": 43.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued October 31 at 11:41PM PDT until November 1 at 12:00PM PST by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised",
+    "grass_fed"
+   ],
+   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+  },
+  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 53,
-   "low_f": 33,
+   "high_f": 57,
+   "low_f": 34,
    "avg_f": 45.0,
-   "forecast": "Chance Light Rain",
+   "forecast": "Areas Of Fog",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Frost Advisory",
-     "severity": "Minor",
-     "headline": "Frost Advisory issued October 31 at 4:17AM PDT until October 31 at 9:00AM PDT by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Local Roots Farm",
     "Farmstand Local Foods"
@@ -158,20 +242,14 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 52,
-   "low_f": 33,
-   "avg_f": 45.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 57,
+   "low_f": 34,
+   "avg_f": 48.0,
+   "forecast": "Areas Of Fog then Partly Sunny",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Frost Advisory",
-     "severity": "Minor",
-     "headline": "Frost Advisory issued October 31 at 4:17AM PDT until October 31 at 9:00AM PDT by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -183,129 +261,15 @@
    "seasonal_relevance": "Spring through fall; berries peak June-August"
   },
   {
-   "id": "cascade_range_forests",
-   "name": "Cascade Range / Western WA Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 40,
-   "low_f": 30,
-   "avg_f": 36.0,
-   "forecast": "Mostly Sunny then Patchy Fog",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (30F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_greens",
-    "fiddleheads"
-   ],
-   "seasonal_relevance": "Spring (morels, fiddleheads), summer-fall (chanterelles, hedgehogs)"
-  },
-  {
-   "id": "oregon_cascades",
-   "name": "Oregon Cascades",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 44,
-   "low_f": 29,
-   "avg_f": 37.0,
-   "forecast": "Partly Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (29F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
-  },
-  {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 41,
-   "low_f": 30,
-   "avg_f": 36.0,
-   "forecast": "Chance Light Snow",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (30F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 48,
-   "low_f": 31,
-   "avg_f": 40.0,
-   "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (31F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
    "id": "puget_lowlands_seattle_wa",
    "name": "Puget Lowlands / Greater Seattle",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 53,
+   "high_f": 57,
    "low_f": 40,
-   "avg_f": 48.0,
-   "forecast": "Chance Light Rain",
+   "avg_f": 50.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -327,14 +291,14 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 56,
-   "low_f": 28,
-   "avg_f": 43.0,
-   "forecast": "Patchy Fog then Mostly Sunny",
+   "high_f": 58,
+   "low_f": 30,
+   "avg_f": 47.0,
+   "forecast": "Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Freezing temps expected (28F low). Early spring greens and flowers at risk; protected crops advised."
+     "text": "Freezing temps expected (30F low). Early spring greens and flowers at risk; protected crops advised."
     }
    ],
    "alerts": [],
@@ -358,16 +322,11 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 52,
-   "low_f": 31,
-   "avg_f": 43.0,
-   "forecast": "Partly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (31F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
+   "high_f": 56,
+   "low_f": 33,
+   "avg_f": 46.0,
+   "forecast": "Sunny",
+   "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
@@ -387,10 +346,10 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 51,
+   "high_f": 55,
    "low_f": 32,
-   "avg_f": 43.0,
-   "forecast": "Slight Chance Rain Showers",
+   "avg_f": 45.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -411,10 +370,10 @@
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 57,
-   "low_f": 33,
-   "avg_f": 46.0,
-   "forecast": "Partly Sunny",
+   "high_f": 59,
+   "low_f": 31,
+   "avg_f": 47.0,
+   "forecast": "Areas Of Fog then Mostly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -435,14 +394,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 51,
-   "low_f": 38,
-   "avg_f": 45.0,
-   "forecast": "Light Rain Likely",
+   "high_f": 56,
+   "low_f": 40,
+   "avg_f": 49.0,
+   "forecast": "Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 51F, low 38F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 56F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -461,49 +420,19 @@
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 51,
-   "low_f": 41,
-   "avg_f": 47.0,
-   "forecast": "Light Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 51F, low 41F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
    "id": "port_townsend_puget_sound",
    "name": "Port Townsend / Puget Sound",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 51,
-   "low_f": 40,
-   "avg_f": 46.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 55,
+   "low_f": 41,
+   "avg_f": 48.0,
+   "forecast": "Mostly Sunny",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 51F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 55F, low 41F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -521,29 +450,27 @@
    "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
-   "id": "eastern_oregon_rangeland",
-   "name": "Eastern Oregon Rangeland",
-   "category": "rangeland",
+   "id": "oregon_cascades",
+   "name": "Oregon Cascades",
+   "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 54,
-   "low_f": 34,
-   "avg_f": 43.0,
-   "forecast": "Partly Sunny",
+   "high_f": 49,
+   "low_f": 32,
+   "avg_f": 41.0,
+   "forecast": "Mostly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
    "vendors": [
-    "Preservation Meat Collective"
+    "Foraged & Found Edibles"
    ],
    "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised",
-    "grass_fed"
+    "mushrooms_wild",
+    "wild_edibles"
    ],
-   "seasonal_relevance": "Year-round; peak grass growth spring-fall"
+   "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
    "id": "northern_ca_coast_forests",
@@ -551,10 +478,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 55,
-   "low_f": 34,
-   "avg_f": 45.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 59,
+   "low_f": 39,
+   "avg_f": 49.0,
+   "forecast": "Patchy Fog",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -574,10 +501,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 67,
-   "low_f": 41,
-   "avg_f": 56.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 68,
+   "low_f": 46,
+   "avg_f": 57.0,
+   "forecast": "Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -592,15 +519,62 @@
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 45,
+   "low_f": 34,
+   "avg_f": 41.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 47,
+   "low_f": 32,
+   "avg_f": 39.0,
+   "forecast": "Chance Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
    "id": "northern_idaho",
    "name": "Northern Idaho",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 51,
-   "low_f": 33,
-   "avg_f": 42.0,
-   "forecast": "Partly Sunny",
+   "high_f": 52,
+   "low_f": 32,
+   "avg_f": 43.0,
+   "forecast": "Areas Of Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -622,5 +596,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 3
 }
