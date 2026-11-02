@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T06:48:52",
+ "generated_at": "2026-11-02T07:30:06",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -135,7 +135,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 1 at 1:33AM PDT until November 3 at 1:00AM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 2 at 12:33AM PST until November 3 at 1:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -193,9 +193,9 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Dense Fog Advisory",
+     "event": "Special Weather Statement",
      "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued October 31 at 11:41PM PDT until November 1 at 12:00PM PST by NWS Pendleton OR"
+     "headline": "Special Weather Statement issued November 2 at 6:13AM PST by NWS Pendleton OR"
     }
    ],
    "fire": false,
