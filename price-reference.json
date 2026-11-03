@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02",
+ "generated": "2026-11-03",
  "premium_pct": 20,
  "items": {
   "Apples": {
@@ -111,7 +111,7 @@
     {
      "vendor": "Franks",
      "per_lb": 17.5,
-     "date": "2026-10-16",
+     "date": "2026-10-27",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -120,10 +120,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-09-29",
-      "p": 18.5
-     },
      {
       "d": "2026-10-01",
       "p": 18.5
@@ -151,15 +147,19 @@
      {
       "d": "2026-10-16",
       "p": 17.5
+     },
+     {
+      "d": "2026-10-27",
+      "p": 17.5
      }
     ],
-    "t30": -5.0,
+    "t30": -5.4,
     "tyoy": -10.3,
     "rng": {
      "min": 4.0,
      "max": 12.0
     },
-    "n": 222
+    "n": 223
    },
    "offers": [
     {
@@ -168,8 +168,8 @@
      "per": 8.75,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-10-16",
-     "freshness": "DATED(17)",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -350,19 +350,20 @@
    "market": 0.99,
    "unit": "lb",
    "vendor": "Franks",
-   "date": "2026-10-01",
-   "freshness": "AGING",
+   "date": "2026-10-28",
+   "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
    "comp_type": "commodity",
+   "climb": -75.2,
    "swan_per_lb": 1.19,
    "per_lb_basis": "exact",
    "alts": [
     {
      "vendor": "Franks",
      "per_lb": 0.99,
-     "date": "2026-10-01",
-     "freshness": "AGING",
+     "date": "2026-10-28",
+     "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
     }
@@ -370,10 +371,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-01-10",
-      "p": 1.5
-     },
      {
       "d": "2026-01-12",
       "p": 1.5
@@ -401,15 +398,19 @@
      {
       "d": "2026-10-01",
       "p": 0.99
+     },
+     {
+      "d": "2026-10-28",
+      "p": 0.99
      }
     ],
-    "t30": null,
+    "t30": -75.2,
     "tyoy": 0.0,
     "rng": {
      "min": 0.99,
      "max": 3.99
     },
-    "n": 18
+    "n": 19
    },
    "offers": [
     {
@@ -418,8 +419,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -502,7 +503,7 @@
      "per_unit": "CS",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -571,7 +572,7 @@
     {
      "vendor": "Franks",
      "per_lb": 23.0,
-     "date": "2026-10-12",
+     "date": "2026-10-26",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -580,10 +581,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-03-28",
-      "p": 24.0
-     },
      {
       "d": "2026-03-30",
       "p": 24.0
@@ -611,15 +608,19 @@
      {
       "d": "2026-10-12",
       "p": 23.0
+     },
+     {
+      "d": "2026-10-26",
+      "p": 23.0
      }
     ],
     "t30": null,
-    "tyoy": -4.2,
+    "tyoy": null,
     "rng": {
      "min": 5.75,
      "max": 12.5
     },
-    "n": 41
+    "n": 42
    },
    "offers": [
     {
@@ -628,8 +629,8 @@
      "per": 5.75,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -857,9 +858,9 @@
     },
     {
      "vendor": "Franks",
-     "per_lb": 7.35,
-     "date": "2026-09-25",
-     "freshness": "AGING",
+     "per_lb": 11.71,
+     "date": "2026-10-26",
+     "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
     }
@@ -867,18 +868,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-07-13",
-      "p": 7.35
-     },
-     {
-      "d": "2026-08-07",
-      "p": 7.35
-     },
-     {
-      "d": "2026-08-15",
-      "p": 7.35
-     },
      {
       "d": "2026-08-25",
       "p": 7.35
@@ -898,25 +887,37 @@
      {
       "d": "2026-09-25",
       "p": 7.35
+     },
+     {
+      "d": "2026-10-23",
+      "p": 11.71
+     },
+     {
+      "d": "2026-10-24",
+      "p": 11.71
+     },
+     {
+      "d": "2026-10-26",
+      "p": 11.71
      }
     ],
-    "t30": 0.0,
-    "tyoy": 0.0,
+    "t30": 59.2,
+    "tyoy": 59.2,
     "rng": {
      "min": 1.25,
-     "max": 1.25
+     "max": 1.99
     },
-    "n": 82
+    "n": 85
    },
    "offers": [
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.25,
+     "per": 1.99,
      "per_unit": "bn",
      "source": "invoice",
-     "last_seen": "2026-09-25",
-     "freshness": "STALE",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -973,19 +974,19 @@
    "market": 2.75,
    "unit": "each",
    "vendor": "Franks",
-   "date": "2026-10-19",
+   "date": "2026-10-26",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
    "comp_type": "commodity",
-   "climb": 38.2,
+   "climb": 0.0,
    "swan_per_lb": 4.7143,
    "per_lb_basis": "estimate",
    "alts": [
     {
      "vendor": "Franks",
      "per_lb": 3.93,
-     "date": "2026-10-19",
+     "date": "2026-10-26",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -994,10 +995,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-08-10",
-      "p": 3.57
-     },
      {
       "d": "2026-08-18",
       "p": 3.57
@@ -1025,15 +1022,19 @@
      {
       "d": "2026-10-19",
       "p": 3.93
+     },
+     {
+      "d": "2026-10-26",
+      "p": 3.93
      }
     ],
-    "t30": 38.2,
+    "t30": 0.0,
     "tyoy": 22.2,
     "rng": {
      "min": 1.99,
      "max": 3.25
     },
-    "n": 67
+    "n": 68
    },
    "offers": [
     {
@@ -1042,8 +1043,8 @@
      "per": 2.75,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1186,7 +1187,7 @@
    "market": 42.5,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-10-17",
+   "date": "2026-10-23",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": true,
@@ -1197,7 +1198,7 @@
     {
      "vendor": "Franks",
      "per_lb": 2.95,
-     "date": "2026-10-17",
+     "date": "2026-10-23",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1206,10 +1207,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-06-23",
-      "p": 2.53
-     },
      {
       "d": "2026-07-15",
       "p": 2.5
@@ -1237,6 +1234,10 @@
      {
       "d": "2026-10-17",
       "p": 2.95
+     },
+     {
+      "d": "2026-10-23",
+      "p": 2.95
      }
     ],
     "t30": null,
@@ -1245,7 +1246,7 @@
      "min": 19.75,
      "max": 48.0
     },
-    "n": 32
+    "n": 33
    },
    "offers": [
     {
@@ -1254,8 +1255,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1368,7 +1369,7 @@
    "market": 24.25,
    "unit": "CS",
    "vendor": "Franks",
-   "date": "2026-10-22",
+   "date": "2026-10-28",
    "freshness": "FRESH",
    "source": "invoice",
    "needs_check": false,
@@ -1380,7 +1381,7 @@
     {
      "vendor": "Franks",
      "per_lb": 12.12,
-     "date": "2026-10-22",
+     "date": "2026-10-28",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1389,26 +1390,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-10-06",
-      "p": 12.12
-     },
-     {
-      "d": "2026-10-09",
-      "p": 12.12
-     },
-     {
-      "d": "2026-10-10",
-      "p": 12.12
-     },
-     {
-      "d": "2026-10-14",
-      "p": 12.12
-     },
-     {
-      "d": "2026-10-16",
-      "p": 12.12
-     },
      {
       "d": "2026-10-17",
       "p": 12.12
@@ -1420,6 +1401,26 @@
      {
       "d": "2026-10-22",
       "p": 12.12
+     },
+     {
+      "d": "2026-10-23",
+      "p": 12.12
+     },
+     {
+      "d": "2026-10-24",
+      "p": 12.12
+     },
+     {
+      "d": "2026-10-26",
+      "p": 12.12
+     },
+     {
+      "d": "2026-10-27",
+      "p": 12.12
+     },
+     {
+      "d": "2026-10-28",
+      "p": 12.12
      }
     ],
     "t30": 0.0,
@@ -1428,7 +1429,7 @@
      "min": 22.0,
      "max": 24.25
     },
-    "n": 60
+    "n": 65
    },
    "offers": [
     {
@@ -1437,8 +1438,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1625,7 +1626,7 @@
      "per_unit": "1/4#",
      "source": "invoice",
      "last_seen": "2026-10-05",
-     "freshness": "DATED(28)",
+     "freshness": "DATED(29)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1683,7 +1684,7 @@
     {
      "vendor": "Franks",
      "per_lb": 15.96,
-     "date": "2026-10-20",
+     "date": "2026-10-26",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -1692,14 +1693,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-09-19",
-      "p": 30.0
-     },
-     {
-      "d": "2026-09-21",
-      "p": 15.96
-     },
      {
       "d": "2026-09-28",
       "p": 15.96
@@ -1723,15 +1716,23 @@
      {
       "d": "2026-10-20",
       "p": 15.96
+     },
+     {
+      "d": "2026-10-24",
+      "p": 30.0
+     },
+     {
+      "d": "2026-10-26",
+      "p": 15.96
      }
     ],
-    "t30": -38.6,
-    "tyoy": -24.1,
+    "t30": -30.5,
+    "tyoy": -23.3,
     "rng": {
      "min": 3.99,
      "max": 7.5
     },
-    "n": 152
+    "n": 154
    },
    "offers": [
     {
@@ -1740,8 +1741,8 @@
      "per": 3.99,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-10-20",
-     "freshness": "DATED(13)",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -1834,7 +1835,7 @@
      "per_unit": "bn",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2110,7 +2111,7 @@
     {
      "vendor": "Franks",
      "per_lb": 12.5,
-     "date": "2026-10-14",
+     "date": "2026-10-26",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -2119,10 +2120,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-07-06",
-      "p": 12.5
-     },
      {
       "d": "2026-07-20",
       "p": 12.5
@@ -2150,6 +2147,10 @@
      {
       "d": "2026-10-14",
       "p": 12.5
+     },
+     {
+      "d": "2026-10-26",
+      "p": 12.5
      }
     ],
     "t30": 0.0,
@@ -2158,7 +2159,7 @@
      "min": 7.5,
      "max": 12.5
     },
-    "n": 48
+    "n": 49
    },
    "offers": [
     {
@@ -2193,8 +2194,8 @@
      "per": 12.5,
      "per_unit": "#",
      "source": "invoice",
-     "last_seen": "2026-10-14",
-     "freshness": "DATED(19)",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2506,7 +2507,7 @@
      "per_unit": "1/4#",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2541,7 +2542,7 @@
     {
      "vendor": "Franks",
      "per_lb": 19.5,
-     "date": "2026-10-22",
+     "date": "2026-10-27",
      "freshness": "FRESH",
      "kind": "commodity",
      "basis": "invoice"
@@ -2550,10 +2551,6 @@
    "hist": {
     "unit": "lb",
     "pts": [
-     {
-      "d": "2026-07-21",
-      "p": 19.5
-     },
      {
       "d": "2026-07-30",
       "p": 19.5
@@ -2581,6 +2578,10 @@
      {
       "d": "2026-10-22",
       "p": 19.5
+     },
+     {
+      "d": "2026-10-27",
+      "p": 19.5
      }
     ],
     "t30": 0.0,
@@ -2589,7 +2590,7 @@
      "min": 9.75,
      "max": 9.75
     },
-    "n": 58
+    "n": 59
    },
    "offers": [
     {
@@ -2624,8 +2625,8 @@
      "per": 9.75,
      "per_unit": "1/2#",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -2722,7 +2723,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3298,8 +3299,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -3367,7 +3368,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
@@ -3421,7 +3422,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
@@ -3475,7 +3476,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
@@ -3955,8 +3956,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4002,8 +4003,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4062,8 +4063,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4109,8 +4110,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4199,7 +4200,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 32.5,
@@ -4543,7 +4544,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-05",
-     "freshness": "DATED(28)",
+     "freshness": "DATED(29)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4660,8 +4661,8 @@
      "per": 5.75,
      "per_unit": "1/4#",
      "source": "invoice",
-     "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "last_seen": "2026-10-26",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -4716,7 +4717,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
@@ -4756,7 +4757,7 @@
      "per_unit": "cs",
      "source": "invoice",
      "last_seen": "2026-10-03",
-     "freshness": "DATED(30)",
+     "freshness": "STALE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5149,7 +5150,7 @@
      "per_unit": "each",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "each",
      "case_price": 42.0,
@@ -5215,7 +5216,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "freshness": "DATED(22)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5228,7 +5229,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 40.0,
@@ -5424,8 +5425,8 @@
      "per": 0.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-01",
-     "freshness": "STALE",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5459,7 +5460,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 45.0,
@@ -5512,7 +5513,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
@@ -5670,8 +5671,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5704,8 +5705,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5718,7 +5719,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
@@ -5758,8 +5759,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5792,8 +5793,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5839,8 +5840,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5873,8 +5874,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5907,8 +5908,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5941,8 +5942,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -5975,8 +5976,8 @@
      "per": 42.5,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "last_seen": "2026-10-23",
+     "freshness": "DATED(11)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6010,7 +6011,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 45.0,
@@ -6261,8 +6262,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6295,8 +6296,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6350,8 +6351,8 @@
      "per": 24.25,
      "per_unit": "CS",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-10-28",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -6532,7 +6533,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
@@ -7078,7 +7079,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
@@ -7144,7 +7145,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7276,7 +7277,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7557,7 +7558,7 @@
      "per_unit": "bn",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7591,7 +7592,7 @@
      "per_unit": "bn",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -7604,7 +7605,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
@@ -8547,7 +8548,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9206,7 +9207,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 45.0,
@@ -9330,7 +9331,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -9915,7 +9916,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10118,7 +10119,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10770,11 +10771,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10817,11 +10818,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10851,11 +10852,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10885,11 +10886,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10919,11 +10920,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10953,11 +10954,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -10987,11 +10988,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11021,11 +11022,11 @@
     {
      "vendor": "Franks",
      "pack": null,
-     "per": 1.75,
+     "per": 1.99,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-09-29",
-     "freshness": "STALE",
+     "last_seen": "2026-10-27",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11084,11 +11085,11 @@
     {
      "vendor": "Key City",
      "pack": null,
-     "per": 11.99,
+     "per": 9.75,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-23",
-     "freshness": "DATED(10)",
+     "last_seen": "2026-10-31",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11122,7 +11123,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-24",
-     "freshness": "DATED(9)",
+     "freshness": "DATED(10)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11164,7 +11165,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-07",
-     "freshness": "DATED(26)",
+     "freshness": "DATED(27)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -11387,7 +11388,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-24",
-     "freshness": "DATED(9)",
+     "freshness": "DATED(10)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12639,7 +12640,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "freshness": "DATED(22)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12660,7 +12661,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-05",
-     "freshness": "DATED(28)",
+     "freshness": "DATED(29)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12723,7 +12724,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12778,7 +12779,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12799,7 +12800,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -12832,7 +12833,7 @@
      "per": 2.03,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-26",
+     "last_seen": "2026-11-02",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -12930,7 +12931,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13014,7 +13015,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13035,7 +13036,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13076,8 +13077,8 @@
      "per": 53.72,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13098,7 +13099,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13139,8 +13140,8 @@
      "per": 9.04,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13182,7 +13183,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13224,7 +13225,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13245,7 +13246,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "freshness": "DATED(22)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13308,7 +13309,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13329,7 +13330,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13405,7 +13406,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-15",
-     "freshness": "DATED(18)",
+     "freshness": "DATED(19)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13426,7 +13427,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "freshness": "DATED(22)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13467,8 +13468,8 @@
      "per": 86.77,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13489,7 +13490,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13531,7 +13532,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13565,7 +13566,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13641,7 +13642,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13662,7 +13663,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13683,7 +13684,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13704,7 +13705,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13746,7 +13747,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13788,7 +13789,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "freshness": "DATED(12)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13914,7 +13915,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13935,7 +13936,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13964,8 +13965,8 @@
     }
    ]
   },
-  "Merlino Mustard Seed Yellow": {
-   "display": "Merlino Mustard Seed Yellow",
+  "Merlino Mustard Seed Black/Brown": {
+   "display": "Merlino Mustard Seed Black/Brown",
    "category": "pantry",
    "canonical_unit": "each",
    "farm_priced": false,
@@ -13973,11 +13974,11 @@
     {
      "vendor": "Merlino",
      "pack": "EA",
-     "per": 10.38,
+     "per": 8.47,
      "per_unit": "each",
      "source": "invoice",
-     "last_seen": "2026-10-22",
-     "freshness": "DATED(11)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -13998,7 +13999,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-08",
-     "freshness": "DATED(25)",
+     "freshness": "DATED(26)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14019,7 +14020,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14123,8 +14124,8 @@
      "per": 79.8,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14145,7 +14146,7 @@
      "per_unit": "each",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14313,7 +14314,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14375,8 +14376,8 @@
      "per": 9.86,
      "per_unit": "lb",
      "source": "invoice",
-     "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "last_seen": "2026-11-02",
+     "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14410,7 +14411,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14431,7 +14432,7 @@
      "per_unit": "lb",
      "source": "invoice",
      "last_seen": "2026-10-19",
-     "freshness": "DATED(14)",
+     "freshness": "DATED(15)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14451,7 +14452,7 @@
      "per": 36.66,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-26",
+     "last_seen": "2026-11-02",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -14666,7 +14667,7 @@
      "per": 11.26,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-26",
+     "last_seen": "2026-11-02",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -14751,7 +14752,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14772,7 +14773,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-15",
-     "freshness": "DATED(18)",
+     "freshness": "DATED(19)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14792,7 +14793,7 @@
      "per": 32.97,
      "per_unit": "case",
      "source": "invoice",
-     "last_seen": "2026-10-26",
+     "last_seen": "2026-11-02",
      "freshness": "LIVE",
      "pack_qty": null,
      "pack_unit": null,
@@ -14814,7 +14815,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-05",
-     "freshness": "DATED(28)",
+     "freshness": "DATED(29)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14856,7 +14857,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-12",
-     "freshness": "DATED(21)",
+     "freshness": "DATED(22)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14877,7 +14878,7 @@
      "per_unit": "case",
      "source": "invoice",
      "last_seen": "2026-10-26",
-     "freshness": "LIVE",
+     "freshness": "DATED(8)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14898,7 +14899,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": null,
      "pack_unit": null,
      "case_price": null,
@@ -14923,7 +14924,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 65.0,
@@ -14951,7 +14952,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
@@ -14979,7 +14980,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 5.0,
      "pack_unit": "lb",
      "case_price": 60.0,
@@ -15007,7 +15008,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
@@ -15035,7 +15036,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
@@ -15063,7 +15064,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 25.0,
@@ -15092,7 +15093,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 15.0,
      "pack_unit": "lb",
      "case_price": 45.0,
@@ -15124,7 +15125,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 39.0,
@@ -15152,7 +15153,7 @@
      "per_unit": "bu",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 12.0,
      "pack_unit": "bu",
      "case_price": 36.0,
@@ -15182,7 +15183,7 @@
      "per_unit": "lb",
      "source": "fresh_sheet",
      "last_seen": "2026-10-17",
-     "freshness": "DATED(16)",
+     "freshness": "DATED(17)",
      "pack_qty": 10.0,
      "pack_unit": "lb",
      "case_price": 35.0,
@@ -15203,7 +15204,7 @@
   "seed": "offers-seed-2026-11-01.json",
   "franks_catalog": "franks-catalog-canonical-2026-07-09.json",
   "seed_generated": "2026-11-01",
-  "computed": "2026-11-02",
+  "computed": "2026-11-03",
   "folded_onto_existing": 5,
   "new_picker_items": 267,
   "offer_records": 338,
@@ -15213,22 +15214,22 @@
   "appended": 83,
   "new_items": 33,
   "commodity_appended": 16,
-  "computed": "2026-11-02"
+  "computed": "2026-11-03"
  },
  "franks_catalog_folded": {
   "appended": 28,
   "new_items": 18,
-  "computed": "2026-11-02"
+  "computed": "2026-11-03"
  },
  "specialty_folded": {
   "appended": 5,
   "new_items": 22,
-  "computed": "2026-11-02"
+  "computed": "2026-11-03"
  },
  "distributor_folded": {
   "appended": 20,
   "new_items": 102,
-  "computed": "2026-11-02"
+  "computed": "2026-11-03"
  },
  "local_roots_folded": {
   "sheet": "10/17",
@@ -15270,10 +15271,10 @@
    "Austrian Crescent Fingerling Potato",
    "Pinto Fingerling Potato"
   ],
-  "computed": "2026-11-02"
+  "computed": "2026-11-03"
  },
  "order_prev": {
-  "generated": "2026-11-02",
+  "generated": "2026-11-03",
   "windows": {
    "recent": 30,
    "year": 365,
@@ -15298,12 +15299,11 @@
    "30u butter darigold print unsalted",
    "32oz creme dairy fraiche",
    "48ct bulk heart lettuce romaine",
-   "48ct corn",
    "50ct edible flower mix",
    "6oz chervil herb hydro",
    "72ct navel orange",
    "7up cod cut",
-   "7up coho head net salmon",
+   "add horseradish root",
    "adige alto gasser recla spec specprin",
    "aleppo chili merlino",
    "all aplily5 flour hometown lily purpose",
@@ -15334,8 +15334,10 @@
    "beef chuck cut english rib short",
    "beet loose",
    "belgioioso bulk mascarpone mascarponeblkbel tub",
+   "bell orange pepper",
    "bell pepper",
    "berry juniper juniperberry merlino spicework",
+   "blackmust brown merlino mustard seed",
    "blazer13 cairn cairnspring cm1010 mill spring t85 trail trailblazer",
    "blend canola canolive61 fiordicampo merlino",
    "bnl breast duck grimaud muscovy",
@@ -15352,6 +15354,8 @@
    "butter",
    "butter dairy unsalted",
    "butter pre",
+   "buttermilk dairy gal",
+   "cabbage",
    "can crabmeat dungeness packed vacuum",
    "canoil canola pride restaurant salad sunora",
    "caputo flour imported oopasta pasta",
@@ -15365,6 +15369,7 @@
    "chs delice",
    "chs parm",
    "ciao dop italpeardopmutti italy marzano mutti san tomato",
+   "cinnamon cinnstick inch korintji merlino stick",
    "clam clamjuice juice ocean rtu seawatch watch",
    "clam farmed live manila tideland",
    "clear container deli karat microlite32 plastic round",
@@ -15381,6 +15386,7 @@
    "darigold gallon lid milk milkdariwm",
    "dark grade maple mead pm41 pure syrup",
    "dijon dijon41 eiffel extra merlino strong tower",
+   "dill herb",
    "disposable kopykake mastercspastrybag pastry piping",
    "dressing leonardi saba sabadressing",
    "evoo italy olio",
@@ -15411,6 +15417,7 @@
    "italian onion",
    "jar onion peeled shallot",
    "kabocha squash",
+   "kale lacinato",
    "matiz prs",
    "merlino mustard mustardseed seed",
    "merlino nutmeg",
@@ -15496,6 +15503,7 @@
    "7up coho head net salmon",
    "8x24 liner natural pan parchmentpaper prime primesource source",
    "abbe banyul cave vinegar",
+   "add horseradish root",
    "add jalapeno pepper",
    "adige alto gasser recla spec specprin",
    "adige alto gasser spec",
@@ -15591,6 +15599,7 @@
    "belgioioso bulk mascarpone mascarponeblk tub",
    "belgioioso bulk mascarpone mascarponeblkbel tub",
    "belgioioso bulk mascarpone tub",
+   "bell orange pepper",
    "bell pepper",
    "bellissimo mascarpone",
    "belly cut kurobuta off pork rind river snake square",
@@ -15614,6 +15623,7 @@
    "bibb clamshell lettuce living",
    "bibb lettuce living loose",
    "bill only pea snap sugar",
+   "blackmust brown merlino mustard seed",
    "blaz cairn cairnspring mill rojo spring t85 trail trailblazer yecora",
    "blaz cairn mill rojo spring t85 trail yecora",
    "blazer cairn cairnspring mill rojo spring t85 trail trailblazer yecora",
@@ -15707,6 +15717,7 @@
    "chs parm roundbale whl",
    "ciao dop italpeardopmutti italy marzano mutti san tomato",
    "cilantro herb",
+   "cinnamon cinnstick inch korintji merlino stick",
    "cinnamon inch korintji merlino stick",
    "cinnamon korintji merlino stick",
    "clam clamjuice juice ocean rtu seawatch watch",
@@ -15999,6 +16010,7 @@
    "9ct cantaloupe melon",
    "abbe banyul cave vinegar",
    "abf country natural oregon tenderloin",
+   "add horseradish root",
    "add jalapeno pepper",
    "added meat",
    "adige alto gasser recla spec specprin",
@@ -16157,6 +16169,7 @@
    "bibb clamshell lettuce living",
    "bibb lettuce living loose",
    "bill only pea snap sugar",
+   "blackmust brown merlino mustard seed",
    "blanched nettle",
    "blaz cairn cairnspring mill rojo spring t85 trail trailblazer yecora",
    "blaz cairn mill rojo spring t85 trail yecora",
@@ -16282,6 +16295,7 @@
    "ciao dop italpeardopmutti italy marzano mutti san tomato",
    "cilantro",
    "cilantro herb",
+   "cinnamon cinnstick inch korintji merlino stick",
    "cinnamon inch korintji merlino stick",
    "cinnamon korintji merlino stick",
    "cipollini jar onion peeled",
@@ -16628,7 +16642,9 @@
    "12pt cherry mix tomato",
    "24bn kale lacinato",
    "24ct eggplant",
+   "24ct fennel",
    "2gal dairy milk",
+   "30ct celery",
    "48ct bulk heart lettuce romaine",
    "48ct corn",
    "50ct edible flower mix",
@@ -16641,7 +16657,6 @@
    "ammex bx344100 glove glovenitrilemedsubammex nitrile",
    "ammex bx348100 extra glovesglovenitrilexlsub nitrile",
    "ammex glove glovelgsub latex lx346100",
-   "anc boquerone matiz prs",
    "apple cider cidervinmer merlino vinegar",
    "arborio margherita riso spizzuli toro",
    "back chicken neck",
@@ -16650,24 +16665,24 @@
    "basil micro",
    "beef chuck cut english rib short",
    "belgioioso bulk mascarpone mascarponeblkbel tub",
-   "bell pepper",
    "blazer13 cairn cairnspring cm1010 mill spring t85 trail trailblazer",
    "bob flour garbanzo garbflour mill",
    "bulk heart lettuce romaine",
    "burrata chs",
    "butter dairy unsalted",
+   "can crabmeat dungeness packed vacuum",
    "canoil canola pride restaurant salad sunora",
+   "carrot loose",
    "castelvetrano whl",
    "cherry mix tomato",
    "chicken feet",
+   "chive herb",
    "choice lemon",
    "chs parm",
-   "chs parm roundbale whl",
    "clam farmed live manila tideland",
    "colsherry columela sherry vinegar",
    "corn",
    "corn cornmealfinegoya5lb fine goya meal",
-   "crate duroc free pork",
    "cream dairy gal heavy",
    "cream dairy heavy",
    "crimini mushroom",
@@ -16675,6 +16690,7 @@
    "cucumber english",
    "dairy milk",
    "darigold gallon lid milk milkdariwm",
+   "dill herb",
    "eggplant",
    "evoo italy olio",
    "extra partanna virgin xvpart",
@@ -16695,6 +16711,7 @@
    "herb marjoram",
    "herb oregano",
    "herb sage",
+   "herb thyme",
    "iso merlino saffron spanish",
    "italian onion",
    "jar onion peeled shallot",
@@ -16726,12 +16743,11 @@
    "30u butter darigold print unsalted",
    "32oz creme dairy fraiche",
    "48ct bulk heart lettuce romaine",
-   "48ct corn",
    "50ct edible flower mix",
    "6oz chervil herb hydro",
    "72ct navel orange",
    "7up cod cut",
-   "7up coho head net salmon",
+   "add horseradish root",
    "adige alto gasser recla spec specprin",
    "aleppo chili merlino",
    "all aplily5 flour hometown lily purpose",
@@ -16762,8 +16778,10 @@
    "beef chuck cut english rib short",
    "beet loose",
    "belgioioso bulk mascarpone mascarponeblkbel tub",
+   "bell orange pepper",
    "bell pepper",
    "berry juniper juniperberry merlino spicework",
+   "blackmust brown merlino mustard seed",
    "blazer13 cairn cairnspring cm1010 mill spring t85 trail trailblazer",
    "blend canola canolive61 fiordicampo merlino",
    "bnl breast duck grimaud muscovy",
@@ -16780,6 +16798,8 @@
    "butter",
    "butter dairy unsalted",
    "butter pre",
+   "buttermilk dairy gal",
+   "cabbage",
    "can crabmeat dungeness packed vacuum",
    "canoil canola pride restaurant salad sunora",
    "caputo flour imported oopasta pasta",
@@ -16793,6 +16813,7 @@
    "chs delice",
    "chs parm",
    "ciao dop italpeardopmutti italy marzano mutti san tomato",
+   "cinnamon cinnstick inch korintji merlino stick",
    "clam clamjuice juice ocean rtu seawatch watch",
    "clam farmed live manila tideland",
    "clear container deli karat microlite32 plastic round",
@@ -16809,6 +16830,7 @@
    "darigold gallon lid milk milkdariwm",
    "dark grade maple mead pm41 pure syrup",
    "dijon dijon41 eiffel extra merlino strong tower",
+   "dill herb",
    "disposable kopykake mastercspastrybag pastry piping",
    "dressing leonardi saba sabadressing",
    "evoo italy olio",
@@ -16839,6 +16861,7 @@
    "italian onion",
    "jar onion peeled shallot",
    "kabocha squash",
+   "kale lacinato",
    "matiz prs",
    "merlino mustard mustardseed seed",
    "merlino nutmeg",
@@ -16864,47 +16887,47 @@
    ],
    [
     "onion, yellow, jumbo #",
-    17
+    18
    ],
    [
-    "chicken feet",
-    17
-   ],
-   [
-    "chicken backs and necks",
-    17
+    "lettuce, mix baby head 2#/cs",
+    18
    ],
    [
     "lettuce, romaine heart*, bulk 48ct/cs",
-    14
+    18
+   ],
+   [
+    "chicken feet",
+    16
+   ],
+   [
+    "chicken backs and necks",
+    16
+   ],
+   [
+    "shepherds grain semolina semolinashep shepherd's",
+    13
    ],
    [
     "belgioioso mascarpone bulk tubs (domestic) mascarponeblkbel belgioioso",
     13
    ],
    [
-    "lettuce, mix baby head 2#/cs",
-    13
-   ],
-   [
-    "shepherds grain semolina semolinashep shepherd's",
-    12
-   ],
-   [
     "onion, shallots, peeled 5#/jar",
+    11
+   ],
+   [
+    "chs burrata",
     10
    ],
    [
     "juice, lemon gal",
-    9
-   ],
-   [
-    "chs burrata",
-    9
+    10
    ],
    [
     "dairy, milk, whole 2gal/cs",
-    8
+    9
    ],
    [
     "columela sherry vinegar (spain) 13210 colsherry columela",
@@ -16915,11 +16938,23 @@
     8
    ],
    [
+    "ammex bx344100 black nitrile medium pf gloves glovenitrilemedsubammex",
+    8
+   ],
+   [
     "c&h powder sugar 10x (retail boxes) 404852 powdersug241 c&h",
     8
    ],
    [
-    "ammex bx344100 black nitrile medium pf gloves glovenitrilemedsubammex",
+    "polly-o whole milk ricotta ricottapolly pollio",
+    8
+   ],
+   [
+    "limes, fancy #",
+    8
+   ],
+   [
+    "bob's red mill garbanzo flour garbflour bobs red mill",
     7
    ],
    [
@@ -16935,28 +16970,16 @@
     7
    ],
    [
-    "polly-o whole milk ricotta ricottapolly pollio",
+    "chs parm",
     7
    ],
    [
-    "limes, fancy #",
+    "flowers, edible mix 50ct",
     7
    ],
    [
     "juice, lime 1/2 gal",
-    6
-   ],
-   [
-    "garlic, peeled 5#/jar",
-    6
-   ],
-   [
-    "grapefruit, ruby #",
-    6
-   ],
-   [
-    "bob's red mill garbanzo flour garbflour bobs red mill",
-    6
+    7
    ],
    [
     "ammex bx348100 black nitrile extra large pf glovesglovenitrilexlsub ammex",
@@ -16967,20 +16990,28 @@
     6
    ],
    [
-    "chs parm",
-    6
-   ],
-   [
     "partanna extra virgin olive oil xvpart partanna",
     6
    ],
    [
-    "eggplant, 24ct cs",
-    5
+    "herbs, oregano 1/4 #",
+    6
    ],
    [
-    "tomato, cherry, mix, org 12pt/cs",
-    5
+    "potato, yukon gold, a size #",
+    6
+   ],
+   [
+    "dairy, heavy cream 6 x 1/2 gal/cs",
+    6
+   ],
+   [
+    "lemon, choice, 115ct cs",
+    6
+   ],
+   [
+    "garlic, peeled 5#/jar",
+    6
    ],
    [
     "cairn spring mills cm1010 t85 trail blazer13-14.5% trailblazer cairnspring",
@@ -17003,19 +17034,11 @@
     5
    ],
    [
+    "herbs, dill baby bn",
+    5
+   ],
+   [
     "balacco savoiardi dry lady fingers champbis balocco",
-    5
-   ],
-   [
-    "grande shredded whole milk low moisture mozzarellamozzshredg grande",
-    5
-   ],
-   [
-    "herbs, oregano 1/4 #",
-    5
-   ],
-   [
-    "fresh 7up black cod- j-cut, wild, wa, usa",
     5
    ]
   ]
