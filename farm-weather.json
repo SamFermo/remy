@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T06:46:08",
+ "generated_at": "2026-11-07T06:58:09",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -103,7 +103,7 @@
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued November 5 at 11:21PM PST until November 6 at 4:00PM PST by NWS Seattle WA"
+     "headline": "Wind Advisory issued November 7 at 2:02AM PST until November 8 at 4:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -139,14 +139,14 @@
    ],
    "alerts": [
     {
-     "event": "Gale Watch",
-     "severity": "Moderate",
-     "headline": "Gale Watch issued November 6 at 12:30AM PST until November 8 at 10:00AM PST by NWS Seattle WA"
+     "event": "Small Craft Advisory",
+     "severity": "Minor",
+     "headline": "Small Craft Advisory issued November 7 at 12:43AM PST until November 7 at 10:00AM PST by NWS Seattle WA"
     },
     {
      "event": "Gale Warning",
      "severity": "Moderate",
-     "headline": "Gale Warning issued November 6 at 12:30AM PST until November 6 at 2:00PM PST by NWS Seattle WA"
+     "headline": "Gale Warning issued November 7 at 12:43AM PST until November 8 at 10:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -161,6 +161,103 @@
     "tribal_fish"
    ],
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 64,
+   "low_f": 38,
+   "avg_f": 52.0,
+   "forecast": "Light Rain",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 7 at 2:02AM PST until November 8 at 4:00AM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 63,
+   "low_f": 42,
+   "avg_f": 53.0,
+   "forecast": "Light Rain",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 7 at 2:02AM PST until November 8 at 4:00AM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 62,
+   "low_f": 43,
+   "avg_f": 52.0,
+   "forecast": "Light Rain Likely",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 62F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 7 at 2:02AM PST until November 8 at 4:00AM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
    "id": "snoqualmie_valley_wa",
@@ -186,55 +283,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Spring through fall; berries in summer"
-  },
-  {
-   "id": "snohomish_sammamish_valleys_wa",
-   "name": "Snohomish/Sammamish Valleys, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 64,
-   "low_f": 38,
-   "avg_f": 52.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "flowers",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring through fall; berries peak June-August"
-  },
-  {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 63,
-   "low_f": 42,
-   "avg_f": 53.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Franks Produce",
-    "EC Wilson"
-   ],
-   "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
-   ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
    "id": "yakima_valley_wa",
@@ -374,36 +422,6 @@
     "tideland_farmed"
    ],
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 62,
-   "low_f": 43,
-   "avg_f": 52.0,
-   "forecast": "Light Rain Likely",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 62F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
    "id": "cascade_range_forests",
@@ -601,5 +619,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 2
+ "high_regions": 5
 }
