@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T19:58:57",
+ "generated_at": "2026-11-08T06:44:19",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -94,20 +94,14 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 62,
-   "low_f": 35,
-   "avg_f": 51.0,
-   "forecast": "Light Rain",
+   "high_f": 64,
+   "low_f": 37,
+   "avg_f": 53.0,
+   "forecast": "Light Rain Likely",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 7 at 5:01PM PST until November 8 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -122,124 +116,26 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "snohomish_sammamish_valleys_wa",
-   "name": "Snohomish/Sammamish Valleys, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 64,
-   "low_f": 38,
-   "avg_f": 52.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 7 at 5:01PM PST until November 8 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "flowers",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring through fall; berries peak June-August"
-  },
-  {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 63,
-   "low_f": 42,
-   "avg_f": 53.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 7 at 5:01PM PST until November 8 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Franks Produce",
-    "EC Wilson"
-   ],
-   "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
-   ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 57,
-   "low_f": 41,
-   "avg_f": 50.0,
-   "forecast": "Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 57F, low 41F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 7 at 5:01PM PST until November 8 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
    "id": "neah_bay_strait_juan_de_fuca",
    "name": "Neah Bay / Strait of Juan de Fuca",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 59,
+   "high_f": 60,
    "low_f": 44,
    "avg_f": 53.0,
-   "forecast": "Showers And Thunderstorms",
+   "forecast": "Light Rain Likely",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 59F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 60F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
      "event": "Gale Warning",
      "severity": "Moderate",
-     "headline": "Gale Warning issued November 7 at 2:39PM PST until November 8 at 10:00AM PST by NWS Seattle WA"
+     "headline": "Gale Warning issued November 8 at 3:50AM PST until November 8 at 10:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -256,51 +152,15 @@
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 62,
-   "low_f": 43,
-   "avg_f": 52.0,
-   "forecast": "Light Rain Likely",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 62F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 7 at 5:01PM PST until November 8 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
-  },
-  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 64,
-   "low_f": 38,
+   "low_f": 39,
    "avg_f": 52.0,
-   "forecast": "Light Rain",
+   "forecast": "Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -317,21 +177,65 @@
    "seasonal_relevance": "Spring through fall; berries in summer"
   },
   {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 64,
+   "low_f": 40,
+   "avg_f": 53.0,
+   "forecast": "Chance Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 57,
+   "low_f": 43,
+   "avg_f": 52.0,
+   "forecast": "Light Rain Likely",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 60,
-   "low_f": 31,
-   "avg_f": 48.0,
-   "forecast": "Slight Chance Rain Showers",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (31F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
+   "high_f": 59,
+   "low_f": 36,
+   "avg_f": 46.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
@@ -354,9 +258,9 @@
    "group": "Eastern WA",
    "home": false,
    "high_f": 58,
-   "low_f": 33,
-   "avg_f": 47.0,
-   "forecast": "Partly Sunny then Slight Chance Light Rain",
+   "low_f": 36,
+   "avg_f": 48.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -377,16 +281,11 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 54,
-   "low_f": 30,
-   "avg_f": 45.0,
-   "forecast": "Chance Light Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (30F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
+   "high_f": 57,
+   "low_f": 32,
+   "avg_f": 46.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
@@ -407,9 +306,9 @@
    "group": "Eastern WA",
    "home": false,
    "high_f": 66,
-   "low_f": 35,
-   "avg_f": 50.0,
-   "forecast": "Partly Sunny then Slight Chance Light Rain",
+   "low_f": 38,
+   "avg_f": 51.0,
+   "forecast": "Chance Light Rain then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -425,15 +324,76 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 59,
+   "low_f": 42,
+   "avg_f": 52.0,
+   "forecast": "Chance Light Rain then Partly Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 59F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 62,
+   "low_f": 43,
+   "avg_f": 53.0,
+   "forecast": "Chance Light Rain",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 62F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
+  },
+  {
    "id": "cascade_range_forests",
    "name": "Cascade Range / Western WA Forests",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 51,
-   "low_f": 35,
-   "avg_f": 43.0,
-   "forecast": "Rain",
+   "high_f": 53,
+   "low_f": 36,
+   "avg_f": 44.0,
+   "forecast": "Rain And Snow",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -455,9 +415,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 59,
-   "low_f": 37,
-   "avg_f": 46.0,
-   "forecast": "Partly Sunny",
+   "low_f": 39,
+   "avg_f": 47.0,
+   "forecast": "Slight Chance Rain And Snow Showers then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -477,10 +437,10 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 62,
-   "low_f": 34,
-   "avg_f": 48.0,
-   "forecast": "Partly Sunny",
+   "high_f": 64,
+   "low_f": 37,
+   "avg_f": 49.0,
+   "forecast": "Slight Chance Rain Showers",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -502,10 +462,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 61,
-   "low_f": 42,
-   "avg_f": 52.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 64,
+   "low_f": 45,
+   "avg_f": 54.0,
+   "forecast": "Light Rain then Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -525,10 +485,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 77,
-   "low_f": 49,
+   "high_f": 75,
+   "low_f": 50,
    "avg_f": 62.0,
-   "forecast": "Patchy Smoke then Sunny",
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -548,10 +508,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 49,
-   "low_f": 33,
-   "avg_f": 42.0,
-   "forecast": "Light Rain",
+   "high_f": 51,
+   "low_f": 35,
+   "avg_f": 43.0,
+   "forecast": "Rain And Snow then Chance Rain And Snow",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -571,10 +531,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 52,
-   "low_f": 33,
-   "avg_f": 42.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 53,
+   "low_f": 35,
+   "avg_f": 43.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -596,9 +556,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 59,
-   "low_f": 34,
+   "low_f": 36,
    "avg_f": 45.0,
-   "forecast": "Partly Sunny",
+   "forecast": "Light Rain then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -620,5 +580,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 1
 }
