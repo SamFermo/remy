@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T06:50:00",
+ "generated_at": "2026-11-10T06:44:57",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -99,9 +99,15 @@
    "avg_f": 53.0,
    "forecast": "Light Rain Likely",
    "signals": [],
-   "alerts": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 10 at 2:40AM PST until November 11 at 7:00PM PST by NWS Seattle WA"
+    }
+   ],
    "fire": false,
-   "high_count": 0,
+   "high_count": 1,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -114,6 +120,135 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
+  },
+  {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 59,
+   "low_f": 36,
+   "avg_f": 46.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Special Weather Statement",
+     "severity": "Moderate",
+     "headline": "Special Weather Statement issued November 10 at 1:32AM PST by NWS Pendleton OR"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 58,
+   "low_f": 36,
+   "avg_f": 48.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued November 10 at 12:55AM PST until November 10 at 9:00AM PST by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 66,
+   "low_f": 38,
+   "avg_f": 51.0,
+   "forecast": "Chance Light Rain then Mostly Cloudy",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued November 10 at 12:55AM PST until November 10 at 9:00AM PST by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 59,
+   "low_f": 42,
+   "avg_f": 52.0,
+   "forecast": "Chance Light Rain then Partly Sunny",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 59F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Flood Watch",
+     "severity": "Severe",
+     "headline": "Flood Watch issued November 9 at 9:36PM PST until November 11 at 10:00PM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -135,7 +270,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 9 at 2:21AM PST until November 10 at 10:00AM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 10 at 2:48AM PST until November 11 at 7:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -226,56 +361,6 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 59,
-   "low_f": 36,
-   "avg_f": 46.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 58,
-   "low_f": 36,
-   "avg_f": 48.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -298,61 +383,6 @@
     "grains"
    ],
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 66,
-   "low_f": 38,
-   "avg_f": 51.0,
-   "forecast": "Chance Light Rain then Mostly Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 59,
-   "low_f": 42,
-   "avg_f": 52.0,
-   "forecast": "Chance Light Rain then Partly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 59F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "port_townsend_puget_sound",
@@ -580,5 +610,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 1
+ "high_regions": 6
 }
