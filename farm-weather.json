@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T06:44:57",
+ "generated_at": "2026-11-11T06:54:53",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -94,16 +94,16 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 64,
-   "low_f": 37,
-   "avg_f": 53.0,
-   "forecast": "Light Rain Likely",
+   "high_f": 66,
+   "low_f": 49,
+   "avg_f": 58.0,
+   "forecast": "Cloudy then Slight Chance Light Rain",
    "signals": [],
    "alerts": [
     {
      "event": "Wind Advisory",
      "severity": "Moderate",
-     "headline": "Wind Advisory issued November 10 at 2:40AM PST until November 11 at 7:00PM PST by NWS Seattle WA"
+     "headline": "Wind Advisory issued November 11 at 2:32AM PST until November 11 at 7:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -127,16 +127,16 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 59,
-   "low_f": 36,
-   "avg_f": 46.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 60,
+   "low_f": 37,
+   "avg_f": 47.0,
+   "forecast": "Patchy Fog",
    "signals": [],
    "alerts": [
     {
      "event": "Special Weather Statement",
      "severity": "Moderate",
-     "headline": "Special Weather Statement issued November 10 at 1:32AM PST by NWS Pendleton OR"
+     "headline": "Special Weather Statement issued November 11 at 4:28AM PST by NWS Pendleton OR"
     }
    ],
    "fire": false,
@@ -154,123 +154,26 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 58,
-   "low_f": 36,
-   "avg_f": 48.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued November 10 at 12:55AM PST until November 10 at 9:00AM PST by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
-   "id": "eastern_wa_rangeland",
-   "name": "Eastern WA Rangeland",
-   "category": "rangeland",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 66,
-   "low_f": 38,
-   "avg_f": 51.0,
-   "forecast": "Chance Light Rain then Mostly Cloudy",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued November 10 at 12:55AM PST until November 10 at 9:00AM PST by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Preservation Meat Collective"
-   ],
-   "key_products": [
-    "lamb",
-    "beef",
-    "pasture_raised"
-   ],
-   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 59,
-   "low_f": 42,
-   "avg_f": 52.0,
-   "forecast": "Chance Light Rain then Partly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 59F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued November 9 at 9:36PM PST until November 11 at 10:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
    "id": "neah_bay_strait_juan_de_fuca",
    "name": "Neah Bay / Strait of Juan de Fuca",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 60,
-   "low_f": 44,
-   "avg_f": 53.0,
-   "forecast": "Light Rain Likely",
+   "high_f": 61,
+   "low_f": 49,
+   "avg_f": 55.0,
+   "forecast": "Showers And Thunderstorms then Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 60F, low 44F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 61F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 10 at 2:48AM PST until November 11 at 7:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 11 at 2:15AM PST until November 12 at 10:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -287,15 +190,73 @@
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 64,
+   "low_f": 43,
+   "avg_f": 53.0,
+   "forecast": "Mostly Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 11 at 6:17AM PST until November 13 at 1:00PM PST by NWS Eureka CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 72,
+   "low_f": 46,
+   "avg_f": 57.0,
+   "forecast": "Sunny",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 10 at 12:03PM PST until November 13 at 7:00PM PST by NWS Sacramento CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
    "id": "snoqualmie_valley_wa",
    "name": "Snoqualmie Valley, WA",
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 64,
-   "low_f": 39,
-   "avg_f": 52.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 67,
+   "low_f": 47,
+   "avg_f": 57.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -317,10 +278,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 64,
-   "low_f": 40,
-   "avg_f": 53.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 67,
+   "low_f": 48,
+   "avg_f": 57.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -341,10 +302,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 57,
-   "low_f": 43,
-   "avg_f": 52.0,
-   "forecast": "Light Rain Likely",
+   "high_f": 66,
+   "low_f": 50,
+   "avg_f": 57.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -361,15 +322,39 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 59,
+   "low_f": 36,
+   "avg_f": 48.0,
+   "forecast": "Patchy Fog",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 57,
-   "low_f": 32,
-   "avg_f": 46.0,
-   "forecast": "Partly Sunny",
+   "high_f": 58,
+   "low_f": 39,
+   "avg_f": 49.0,
+   "forecast": "Areas Of Fog",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -385,19 +370,74 @@
    "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
+   "id": "eastern_wa_rangeland",
+   "name": "Eastern WA Rangeland",
+   "category": "rangeland",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 67,
+   "low_f": 41,
+   "avg_f": 54.0,
+   "forecast": "Partly Sunny",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Preservation Meat Collective"
+   ],
+   "key_products": [
+    "lamb",
+    "beef",
+    "pasture_raised"
+   ],
+   "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 60,
+   "low_f": 48,
+   "avg_f": 54.0,
+   "forecast": "Light Rain Likely",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 60F, low 48F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
    "id": "port_townsend_puget_sound",
    "name": "Port Townsend / Puget Sound",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 62,
-   "low_f": 43,
-   "avg_f": 53.0,
-   "forecast": "Chance Light Rain",
+   "high_f": 64,
+   "low_f": 49,
+   "avg_f": 56.0,
+   "forecast": "Slight Chance Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 62F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 64F, low 49F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -421,9 +461,9 @@
    "group": "Forage Belt",
    "home": false,
    "high_f": 53,
-   "low_f": 36,
-   "avg_f": 44.0,
-   "forecast": "Rain And Snow",
+   "low_f": 41,
+   "avg_f": 47.0,
+   "forecast": "Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -444,10 +484,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 59,
-   "low_f": 39,
+   "high_f": 60,
+   "low_f": 36,
    "avg_f": 47.0,
-   "forecast": "Slight Chance Rain And Snow Showers then Mostly Cloudy",
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -467,10 +507,10 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 64,
-   "low_f": 37,
-   "avg_f": 49.0,
-   "forecast": "Slight Chance Rain Showers",
+   "high_f": 66,
+   "low_f": 35,
+   "avg_f": 50.0,
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -487,61 +527,15 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 64,
-   "low_f": 45,
-   "avg_f": 54.0,
-   "forecast": "Light Rain then Cloudy",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
-  },
-  {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 75,
-   "low_f": 50,
-   "avg_f": 62.0,
-   "forecast": "Partly Sunny",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
-  },
-  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 51,
-   "low_f": 35,
-   "avg_f": 43.0,
-   "forecast": "Rain And Snow then Chance Rain And Snow",
+   "high_f": 53,
+   "low_f": 42,
+   "avg_f": 48.0,
+   "forecast": "Slight Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -561,9 +555,9 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 53,
-   "low_f": 35,
-   "avg_f": 43.0,
+   "high_f": 55,
+   "low_f": 37,
+   "avg_f": 46.0,
    "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
@@ -585,10 +579,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 59,
-   "low_f": 36,
-   "avg_f": 45.0,
-   "forecast": "Light Rain then Mostly Cloudy",
+   "high_f": 61,
+   "low_f": 40,
+   "avg_f": 50.0,
+   "forecast": "Areas Of Fog",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -610,5 +604,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 5
 }
