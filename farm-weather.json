@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T07:36:05",
+ "generated_at": "2026-11-14T06:45:50",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -99,15 +99,9 @@
    "avg_f": 52.0,
    "forecast": "Light Rain Likely",
    "signals": [],
-   "alerts": [
-    {
-     "event": "Coastal Flood Advisory",
-     "severity": "Minor",
-     "headline": "Coastal Flood Advisory issued November 13 at 4:31AM PST until November 13 at 12:00PM PST by NWS Seattle WA"
-    }
-   ],
+   "alerts": [],
    "fire": false,
-   "high_count": 1,
+   "high_count": 0,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -120,139 +114,6 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 53,
-   "low_f": 43,
-   "avg_f": 49.0,
-   "forecast": "Light Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 53F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Coastal Flood Advisory",
-     "severity": "Minor",
-     "headline": "Coastal Flood Advisory issued November 13 at 4:31AM PST until November 13 at 12:00PM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued November 13 at 2:24AM PST until November 15 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
-   "id": "snohomish_sammamish_valleys_wa",
-   "name": "Snohomish/Sammamish Valleys, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 60,
-   "low_f": 42,
-   "avg_f": 51.0,
-   "forecast": "Light Rain Likely",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Coastal Flood Advisory",
-     "severity": "Minor",
-     "headline": "Coastal Flood Advisory issued November 13 at 4:31AM PST until November 13 at 12:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "flowers",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring through fall; berries peak June-August"
-  },
-  {
-   "id": "puget_lowlands_seattle_wa",
-   "name": "Puget Lowlands / Greater Seattle",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 59,
-   "low_f": 45,
-   "avg_f": 52.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Coastal Flood Advisory",
-     "severity": "Minor",
-     "headline": "Coastal Flood Advisory issued November 13 at 4:31AM PST until November 13 at 12:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Franks Produce",
-    "EC Wilson"
-   ],
-   "key_products": [
-    "greens",
-    "seasonal_produce",
-    "local_farms"
-   ],
-   "seasonal_relevance": "Year-round; spring/fall peak seasons"
-  },
-  {
-   "id": "okanogan_highlands_wa",
-   "name": "Okanogan Highlands, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 55,
-   "low_f": 39,
-   "avg_f": 47.0,
-   "forecast": "Patchy Fog then Chance Light Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Dense Fog Advisory",
-     "severity": "Moderate",
-     "headline": "Dense Fog Advisory issued November 13 at 7:31AM PST until November 13 at 10:00AM PST by NWS Spokane WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "apples",
-    "potatoes",
-    "grains"
-   ],
-   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -272,13 +133,18 @@
    ],
    "alerts": [
     {
+     "event": "Gale Warning",
+     "severity": "Moderate",
+     "headline": "Gale Warning issued November 14 at 6:06AM PST until November 15 at 4:00AM PST by NWS Seattle WA"
+    },
+    {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 13 at 12:45AM PST until November 13 at 1:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 14 at 6:06AM PST until November 14 at 4:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Key City Fish Co"
    ],
@@ -291,62 +157,41 @@
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
   },
   {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
    "home": false,
-   "high_f": 54,
-   "low_f": 39,
-   "avg_f": 47.0,
-   "forecast": "Rain Showers",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 13 at 7:17AM PST until November 13 at 1:00PM PST by NWS Eureka CA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
-  },
-  {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 56,
+   "high_f": 53,
    "low_f": 43,
-   "avg_f": 51.0,
-   "forecast": "Showers And Thunderstorms",
-   "signals": [],
+   "avg_f": 49.0,
+   "forecast": "Light Rain",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 53F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
    "alerts": [
     {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 12 at 9:09AM PST until November 13 at 7:00PM PST by NWS Sacramento CA"
+     "event": "Flood Watch",
+     "severity": "Severe",
+     "headline": "Flood Watch issued November 14 at 3:11AM PST until November 15 at 4:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
    "high_count": 1,
    "vendors": [
-    "Foraged & Found Edibles"
+    "Key City Fish Co"
    ],
    "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
    ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "western_montana",
@@ -403,6 +248,55 @@
    "seasonal_relevance": "Spring through fall; berries in summer"
   },
   {
+   "id": "snohomish_sammamish_valleys_wa",
+   "name": "Snohomish/Sammamish Valleys, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 60,
+   "low_f": 42,
+   "avg_f": 51.0,
+   "forecast": "Light Rain Likely",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "flowers",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring through fall; berries peak June-August"
+  },
+  {
+   "id": "puget_lowlands_seattle_wa",
+   "name": "Puget Lowlands / Greater Seattle",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 59,
+   "low_f": 45,
+   "avg_f": 52.0,
+   "forecast": "Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Franks Produce",
+    "EC Wilson"
+   ],
+   "key_products": [
+    "greens",
+    "seasonal_produce",
+    "local_farms"
+   ],
+   "seasonal_relevance": "Year-round; spring/fall peak seasons"
+  },
+  {
    "id": "yakima_valley_wa",
    "name": "Yakima Valley, WA",
    "category": "agricultural",
@@ -451,6 +345,30 @@
     "root_vegetables"
    ],
    "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
+   "id": "okanogan_highlands_wa",
+   "name": "Okanogan Highlands, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 55,
+   "low_f": 39,
+   "avg_f": 47.0,
+   "forecast": "Patchy Fog then Chance Light Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "apples",
+    "potatoes",
+    "grains"
+   ],
+   "seasonal_relevance": "Fall (apples), year-round (storage potatoes)"
   },
   {
    "id": "eastern_wa_rangeland",
@@ -579,6 +497,52 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 54,
+   "low_f": 39,
+   "avg_f": 47.0,
+   "forecast": "Rain Showers",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 56,
+   "low_f": 43,
+   "avg_f": 51.0,
+   "forecast": "Showers And Thunderstorms",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
    "id": "southern_bc",
    "name": "Southern British Columbia",
    "category": "foraging",
@@ -632,5 +596,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 9
+ "high_regions": 3
 }
