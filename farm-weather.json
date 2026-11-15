@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T06:45:50",
+ "generated_at": "2026-11-15T06:46:44",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -133,18 +133,13 @@
    ],
    "alerts": [
     {
-     "event": "Gale Warning",
-     "severity": "Moderate",
-     "headline": "Gale Warning issued November 14 at 6:06AM PST until November 15 at 4:00AM PST by NWS Seattle WA"
-    },
-    {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 14 at 6:06AM PST until November 14 at 4:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 15 at 1:37AM PST until November 15 at 10:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Key City Fish Co"
    ],
@@ -155,43 +150,6 @@
     "tribal_fish"
    ],
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 53,
-   "low_f": 43,
-   "avg_f": 49.0,
-   "forecast": "Light Rain",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 53F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Flood Watch",
-     "severity": "Severe",
-     "headline": "Flood Watch issued November 14 at 3:11AM PST until November 15 at 4:00AM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "western_montana",
@@ -395,6 +353,37 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 53,
+   "low_f": 43,
+   "avg_f": 49.0,
+   "forecast": "Light Rain",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 53F, low 43F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
+   ],
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
    "id": "port_townsend_puget_sound",
    "name": "Port Townsend / Puget Sound",
    "category": "marine",
@@ -596,5 +585,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 3
+ "high_regions": 2
 }
