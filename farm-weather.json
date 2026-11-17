@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T06:48:27",
+ "generated_at": "2026-11-17T06:49:31",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,6 +116,75 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 50,
+   "low_f": 35,
+   "avg_f": 43.0,
+   "forecast": "Light Rain",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 17 at 6:16AM PST until November 18 at 3:00AM PST by NWS Eureka CA"
+    },
+    {
+     "event": "Frost Advisory",
+     "severity": "Minor",
+     "headline": "Frost Advisory issued November 17 at 6:16AM PST until November 17 at 9:00AM PST by NWS Eureka CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "mushrooms_wild",
+    "winter_foraged"
+   ],
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "columbia_basin_wa",
+   "name": "Columbia Basin, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 48,
+   "low_f": 28,
+   "avg_f": 38.0,
+   "forecast": "Areas Of Fog",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Freezing temps expected (28F low). Early spring greens and flowers at risk; protected crops advised."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Dense Fog Advisory",
+     "severity": "Moderate",
+     "headline": "Dense Fog Advisory issued November 16 at 10:45PM PST until November 17 at 11:00AM PST by NWS Spokane WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "produce_irrigated",
+    "potatoes",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
+  },
+  {
    "id": "neah_bay_strait_juan_de_fuca",
    "name": "Neah Bay / Strait of Juan de Fuca",
    "category": "marine",
@@ -135,7 +204,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 16 at 12:59AM PST until November 16 at 10:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 17 at 2:31AM PST until November 18 at 4:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -178,6 +247,35 @@
     "wild_edibles"
    ],
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 58,
+   "low_f": 38,
+   "avg_f": 48.0,
+   "forecast": "Chance Light Rain",
+   "signals": [],
+   "alerts": [
+    {
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 16 at 10:21AM PST until November 18 at 4:00PM PST by NWS Sacramento CA"
+    }
+   ],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
    "id": "southern_bc",
@@ -370,35 +468,6 @@
    "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
   },
   {
-   "id": "columbia_basin_wa",
-   "name": "Columbia Basin, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 48,
-   "low_f": 28,
-   "avg_f": 38.0,
-   "forecast": "Areas Of Fog",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (28F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "produce_irrigated",
-    "potatoes",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Summer through fall; potatoes year-round storage"
-  },
-  {
    "id": "okanogan_highlands_wa",
    "name": "Okanogan Highlands, WA",
    "category": "agricultural",
@@ -555,52 +624,6 @@
     "grass_fed"
    ],
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
-  },
-  {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 50,
-   "low_f": 35,
-   "avg_f": 43.0,
-   "forecast": "Light Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
-  },
-  {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 58,
-   "low_f": 38,
-   "avg_f": 48.0,
-   "forecast": "Chance Light Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   }
  ],
  "groups": [
@@ -610,5 +633,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 5
+ "high_regions": 8
 }
