@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T06:52:54",
+ "generated_at": "2026-11-18T09:54:54",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -135,16 +135,11 @@
     {
      "event": "Special Weather Statement",
      "severity": "Moderate",
-     "headline": "Special Weather Statement issued November 18 at 5:10AM PST by NWS Pendleton OR"
-    },
-    {
-     "event": "Special Weather Statement",
-     "severity": "Moderate",
-     "headline": "Special Weather Statement issued November 18 at 1:23AM PST by NWS Pendleton OR"
+     "headline": "Special Weather Statement issued November 18 at 9:00AM PST by NWS Pendleton OR"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods",
     "Franks Produce"
@@ -177,7 +172,7 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 18 at 1:34AM PST until November 18 at 4:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 18 at 9:16AM PST until November 18 at 4:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
