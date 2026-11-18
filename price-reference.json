@@ -13746,27 +13746,6 @@
     }
    ]
   },
-  "Thanksgiving! BILL TO SHIP TO: REMIT TO: Entered: Flo Mavian Mon 11/16/26 7:42AM San Fermo San Fermo Merlino Foods Ship Date: Mon 11/16/26 Ship Via: PLEASE CALL BEFORE": {
-   "display": "Thanksgiving! BILL TO SHIP TO: REMIT TO: Entered: Flo Mavian Mon 11/16/26 7:42AM San Fermo San Fermo Merlino Foods Ship Date: Mon 11/16/26 Ship Via: PLEASE CALL BEFORE",
-   "category": "pantry",
-   "canonical_unit": "each",
-   "farm_priced": false,
-   "offers": [
-    {
-     "vendor": "Merlino",
-     "pack": "EA",
-     "per": 64.4,
-     "per_unit": "each",
-     "source": "invoice",
-     "last_seen": "2026-11-16",
-     "freshness": "LIVE",
-     "pack_qty": null,
-     "pack_unit": null,
-     "case_price": null,
-     "pack_known": true
-    }
-   ]
-  },
   "Arborio Rice": {
    "display": "Arborio Rice",
    "category": "uncategorized",
@@ -14513,7 +14492,7 @@
  },
  "distributor_folded": {
   "appended": 17,
-  "new_items": 106,
+  "new_items": 105,
   "computed": "2026-11-18"
  },
  "local_roots_folded": {
@@ -14575,7 +14554,6 @@
    "24ct fennel",
    "2gal dairy milk",
    "30ct celery",
-   "42am account avenue ballard before bib bill boxe brand call check cod code date description dsr due entered extended fermo flo food gal gallon instruction item lic llc mavian merlino mon o261117j3qf77 operator ordered please price remit sam san sbt5bib seattle ship shipped size soda substitution tax term thanksgiving unit uom useless via weight",
    "48ct bulk heart lettuce romaine",
    "4oz bean madagascar packer pkg vanilla vanillabean4oz",
    "50ct edible flower mix",
@@ -14760,7 +14738,6 @@
    "3ct heart lettuce romaine",
    "3yr balsamic nobili sapori",
    "3yr balsamic vinegar",
-   "42am account avenue ballard before bib bill boxe brand call check cod code date description dsr due entered extended fermo flo food gal gallon instruction item lic llc mavian merlino mon o261117j3qf77 operator ordered please price remit sam san sbt5bib seattle ship shipped size soda substitution tax term thanksgiving unit uom useless via weight",
    "48ct bulk heart lettuce replacement romaine",
    "48ct bulk heart lettuce romaine",
    "48ct corn",
@@ -15268,7 +15245,6 @@
    "3ct heart lettuce romaine",
    "3yr balsamic nobili sapori",
    "3yr balsamic vinegar",
-   "42am account avenue ballard before bib bill boxe brand call check cod code date description dsr due entered extended fermo flo food gal gallon instruction item lic llc mavian merlino mon o261117j3qf77 operator ordered please price remit sam san sbt5bib seattle ship shipped size soda substitution tax term thanksgiving unit uom useless via weight",
    "48ct bulk heart lettuce replacement romaine",
    "48ct bulk heart lettuce romaine",
    "48ct bulk heart nlettuce romaine",
@@ -16030,7 +16006,6 @@
    "24ct fennel",
    "2gal dairy milk",
    "30ct celery",
-   "42am account avenue ballard before bib bill boxe brand call check cod code date description dsr due entered extended fermo flo food gal gallon instruction item lic llc mavian merlino mon o261117j3qf77 operator ordered please price remit sam san sbt5bib seattle ship shipped size soda substitution tax term thanksgiving unit uom useless via weight",
    "48ct bulk heart lettuce romaine",
    "4oz bean madagascar packer pkg vanilla vanillabean4oz",
    "50ct edible flower mix",
