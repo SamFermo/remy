@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T09:54:54",
+ "generated_at": "2026-11-19T06:48:44",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,79 +116,6 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "yakima_valley_wa",
-   "name": "Yakima Valley, WA",
-   "category": "agricultural",
-   "group": "Eastern WA",
-   "home": false,
-   "high_f": 45,
-   "low_f": 24,
-   "avg_f": 34.0,
-   "forecast": "Patchy Freezing Fog",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (24F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Special Weather Statement",
-     "severity": "Moderate",
-     "headline": "Special Weather Statement issued November 18 at 9:00AM PST by NWS Pendleton OR"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Farmstand Local Foods",
-    "Franks Produce"
-   ],
-   "key_products": [
-    "stone_fruit",
-    "apples",
-    "asparagus",
-    "berries"
-   ],
-   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
-  },
-  {
-   "id": "neah_bay_strait_juan_de_fuca",
-   "name": "Neah Bay / Strait of Juan de Fuca",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 51,
-   "low_f": 40,
-   "avg_f": 46.0,
-   "forecast": "Mostly Cloudy",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 51F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Small Craft Advisory",
-     "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 18 at 9:16AM PST until November 18 at 4:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "rockfish",
-    "tribal_fish"
-   ],
-   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
    "id": "cascade_range_forests",
    "name": "Cascade Range / Western WA Forests",
    "category": "foraging",
@@ -244,35 +171,6 @@
     "wild_edibles"
    ],
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
-  },
-  {
-   "id": "northern_ca_interior",
-   "name": "Northern California Interior",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 54,
-   "low_f": 36,
-   "avg_f": 45.0,
-   "forecast": "Rain",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 17 at 11:47PM PST until November 18 at 10:00PM PST by NWS Sacramento CA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "winter_mushrooms",
-    "wild_edibles"
-   ],
-   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   },
   {
    "id": "southern_bc",
@@ -434,6 +332,37 @@
    "seasonal_relevance": "Year-round; spring/fall peak seasons"
   },
   {
+   "id": "yakima_valley_wa",
+   "name": "Yakima Valley, WA",
+   "category": "agricultural",
+   "group": "Eastern WA",
+   "home": false,
+   "high_f": 45,
+   "low_f": 24,
+   "avg_f": 34.0,
+   "forecast": "Patchy Freezing Fog",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Freezing temps expected (24F low). Early spring greens and flowers at risk; protected crops advised."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Farmstand Local Foods",
+    "Franks Produce"
+   ],
+   "key_products": [
+    "stone_fruit",
+    "apples",
+    "asparagus",
+    "berries"
+   ],
+   "seasonal_relevance": "Spring (asparagus), summer (stone fruit, berries), fall (apples)"
+  },
+  {
    "id": "columbia_basin_wa",
    "name": "Columbia Basin, WA",
    "category": "agricultural",
@@ -547,6 +476,36 @@
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
+   "id": "neah_bay_strait_juan_de_fuca",
+   "name": "Neah Bay / Strait of Juan de Fuca",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 51,
+   "low_f": 40,
+   "avg_f": 46.0,
+   "forecast": "Mostly Cloudy",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 51F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "rockfish",
+    "tribal_fish"
+   ],
+   "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
+  },
+  {
    "id": "port_townsend_puget_sound",
    "name": "Port Townsend / Puget Sound",
    "category": "marine",
@@ -623,6 +582,29 @@
     "winter_foraged"
    ],
    "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
+  },
+  {
+   "id": "northern_ca_interior",
+   "name": "Northern California Interior",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 54,
+   "low_f": 36,
+   "avg_f": 45.0,
+   "forecast": "Rain",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "winter_mushrooms",
+    "wild_edibles"
+   ],
+   "seasonal_relevance": "Winter months; mushroom flushes after rain"
   }
  ],
  "groups": [
@@ -632,5 +614,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 8
+ "high_regions": 5
 }
