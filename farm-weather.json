@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T06:49:47",
+ "generated_at": "2026-11-21T06:48:36",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -94,10 +94,10 @@
    "category": "agricultural",
    "group": "Home",
    "home": true,
-   "high_f": 51,
-   "low_f": 33,
-   "avg_f": 43.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 52,
+   "low_f": 34,
+   "avg_f": 45.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -116,26 +116,61 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 34,
+   "low_f": 20,
+   "avg_f": 26.0,
+   "forecast": "Chance Light Snow then Partly Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (20F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Winter Weather Advisory",
+     "severity": "Moderate",
+     "headline": "Winter Weather Advisory issued November 20 at 8:54AM MST until November 21 at 8:00AM MST by NWS Missoula MT"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+  },
+  {
    "id": "neah_bay_strait_juan_de_fuca",
    "name": "Neah Bay / Strait of Juan de Fuca",
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
    "high_f": 51,
-   "low_f": 40,
+   "low_f": 42,
    "avg_f": 46.0,
-   "forecast": "Mostly Cloudy",
+   "forecast": "Mostly Cloudy then Light Rain Likely",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 51F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 51F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 20 at 1:44AM PST until November 21 at 4:00PM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 21 at 12:38AM PST until November 21 at 4:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -157,10 +192,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 39,
+   "high_f": 37,
    "low_f": 29,
    "avg_f": 34.0,
-   "forecast": "Cloudy then Chance Snow Showers",
+   "forecast": "Partly Sunny then Slight Chance Light Snow",
    "signals": [
     {
      "level": "high",
@@ -186,14 +221,14 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 37,
-   "low_f": 25,
-   "avg_f": 32.0,
-   "forecast": "Light Snow",
+   "high_f": 38,
+   "low_f": 28,
+   "avg_f": 34.0,
+   "forecast": "Mostly Cloudy then Snow Showers Likely",
    "signals": [
     {
      "level": "high",
-     "text": "Freezing temps (25F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+     "text": "Freezing temps (28F low). Frost after rain may increase mushroom fruiting in 7-10 days."
     }
    ],
    "alerts": [],
@@ -214,10 +249,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 39,
+   "high_f": 38,
    "low_f": 29,
-   "avg_f": 35.0,
-   "forecast": "Mostly Sunny",
+   "avg_f": 34.0,
+   "forecast": "Partly Sunny",
    "signals": [
     {
      "level": "high",
@@ -237,48 +272,19 @@
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 32,
-   "low_f": 23,
-   "avg_f": 27.0,
-   "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "high",
-     "text": "Freezing temps (23F low). Frost after rain may increase mushroom fruiting in 7-10 days."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
-  },
-  {
    "id": "northern_idaho",
    "name": "Northern Idaho",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 41,
-   "low_f": 29,
-   "avg_f": 35.0,
-   "forecast": "Mostly Sunny",
+   "high_f": 39,
+   "low_f": 25,
+   "avg_f": 32.0,
+   "forecast": "Areas Of Freezing Fog then Partly Sunny",
    "signals": [
     {
      "level": "high",
-     "text": "Freezing temps (29F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+     "text": "Freezing temps (25F low). Frost after rain may increase mushroom fruiting in 7-10 days."
     }
    ],
    "alerts": [],
@@ -300,9 +306,9 @@
    "group": "Puget & Valleys",
    "home": false,
    "high_f": 50,
-   "low_f": 32,
-   "avg_f": 42.0,
-   "forecast": "Cloudy then Chance Rain Showers",
+   "low_f": 35,
+   "avg_f": 44.0,
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -324,10 +330,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 49,
-   "low_f": 33,
-   "avg_f": 42.0,
-   "forecast": "Mostly Cloudy then Chance Rain Showers",
+   "high_f": 50,
+   "low_f": 36,
+   "avg_f": 44.0,
+   "forecast": "Patchy Fog then Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -348,10 +354,10 @@
    "category": "agricultural",
    "group": "Puget & Valleys",
    "home": false,
-   "high_f": 50,
-   "low_f": 37,
-   "avg_f": 45.0,
-   "forecast": "Cloudy then Chance Rain Showers",
+   "high_f": 51,
+   "low_f": 40,
+   "avg_f": 47.0,
+   "forecast": "Patchy Fog then Chance Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -373,14 +379,14 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 45,
-   "low_f": 24,
-   "avg_f": 34.0,
-   "forecast": "Patchy Freezing Fog",
+   "high_f": 42,
+   "low_f": 25,
+   "avg_f": 35.0,
+   "forecast": "Partly Sunny then Slight Chance Rain And Snow",
    "signals": [
     {
      "level": "info",
-     "text": "Freezing temps expected (24F low). Early spring greens and flowers at risk; protected crops advised."
+     "text": "Freezing temps expected (25F low). Early spring greens and flowers at risk; protected crops advised."
     }
    ],
    "alerts": [],
@@ -404,10 +410,10 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 45,
+   "high_f": 39,
    "low_f": 26,
-   "avg_f": 37.0,
-   "forecast": "Light Rain",
+   "avg_f": 34.0,
+   "forecast": "Patchy Freezing Fog then Patchy Fog",
    "signals": [
     {
      "level": "info",
@@ -433,16 +439,11 @@
    "category": "agricultural",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 46,
-   "low_f": 27,
+   "high_f": 42,
+   "low_f": 32,
    "avg_f": 37.0,
    "forecast": "Mostly Sunny",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Freezing temps expected (27F low). Early spring greens and flowers at risk; protected crops advised."
-    }
-   ],
+   "signals": [],
    "alerts": [],
    "fire": false,
    "high_count": 0,
@@ -462,10 +463,10 @@
    "category": "rangeland",
    "group": "Eastern WA",
    "home": false,
-   "high_f": 47,
-   "low_f": 28,
-   "avg_f": 39.0,
-   "forecast": "Partly Sunny then Chance Light Rain",
+   "high_f": 45,
+   "low_f": 29,
+   "avg_f": 37.0,
+   "forecast": "Areas Of Freezing Fog then Mostly Cloudy",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -487,13 +488,13 @@
    "group": "Coast & Marine",
    "home": false,
    "high_f": 49,
-   "low_f": 36,
-   "avg_f": 43.0,
-   "forecast": "Chance Rain Showers",
+   "low_f": 39,
+   "avg_f": 44.0,
+   "forecast": "Patchy Fog then Light Rain Likely",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 49F, low 36F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 49F, low 39F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -517,14 +518,14 @@
    "category": "marine",
    "group": "Coast & Marine",
    "home": false,
-   "high_f": 49,
-   "low_f": 39,
-   "avg_f": 44.0,
-   "forecast": "Mostly Cloudy",
+   "high_f": 50,
+   "low_f": 40,
+   "avg_f": 45.0,
+   "forecast": "Partly Sunny then Slight Chance Light Rain",
    "signals": [
     {
      "level": "info",
-     "text": "Marine conditions: high 49F, low 39F. Check NOAA marine forecasts for sea state and fishing viability."
+     "text": "Marine conditions: high 50F, low 40F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [],
@@ -547,10 +548,10 @@
    "category": "rangeland",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 39,
-   "low_f": 21,
+   "high_f": 40,
+   "low_f": 23,
    "avg_f": 33.0,
-   "forecast": "Light Snow",
+   "forecast": "Partly Sunny",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -572,10 +573,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 49,
-   "low_f": 34,
-   "avg_f": 42.0,
-   "forecast": "Light Rain",
+   "high_f": 51,
+   "low_f": 38,
+   "avg_f": 44.0,
+   "forecast": "Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
@@ -595,10 +596,10 @@
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 54,
-   "low_f": 36,
-   "avg_f": 45.0,
-   "forecast": "Rain",
+   "high_f": 50,
+   "low_f": 39,
+   "avg_f": 44.0,
+   "forecast": "Mostly Cloudy then Light Rain",
    "signals": [],
    "alerts": [],
    "fire": false,
