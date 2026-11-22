@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T06:48:36",
+ "generated_at": "2026-11-22T06:44:12",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -116,39 +116,41 @@
    "seasonal_relevance": "Year-round; peak spring/early summer for greens and flowers"
   },
   {
-   "id": "western_montana",
-   "name": "Western Montana",
-   "category": "foraging",
-   "group": "Forage Belt",
+   "id": "olympic_peninsula_hood_canal",
+   "name": "Olympic Peninsula / Hood Canal",
+   "category": "marine",
+   "group": "Coast & Marine",
    "home": false,
-   "high_f": 34,
-   "low_f": 20,
-   "avg_f": 26.0,
-   "forecast": "Chance Light Snow then Partly Sunny",
+   "high_f": 49,
+   "low_f": 39,
+   "avg_f": 44.0,
+   "forecast": "Patchy Fog then Light Rain Likely",
    "signals": [
     {
-     "level": "high",
-     "text": "Freezing temps (20F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+     "level": "info",
+     "text": "Marine conditions: high 49F, low 39F. Check NOAA marine forecasts for sea state and fishing viability."
     }
    ],
    "alerts": [
     {
-     "event": "Winter Weather Advisory",
-     "severity": "Moderate",
-     "headline": "Winter Weather Advisory issued November 20 at 8:54AM MST until November 21 at 8:00AM MST by NWS Missoula MT"
+     "event": "Hydrologic Outlook",
+     "severity": "Unknown",
+     "headline": "Hydrologic Outlook issued November 22 at 1:21AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
-    "Foraged & Found Edibles"
+    "Key City Fish Co"
    ],
    "key_products": [
-    "morels",
-    "wild_edibles",
-    "spring_foraged"
+    "shellfish",
+    "oysters",
+    "clams",
+    "mussels",
+    "tideland_farmed"
    ],
-   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
+   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -168,9 +170,9 @@
    ],
    "alerts": [
     {
-     "event": "Small Craft Advisory",
-     "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 21 at 12:38AM PST until November 21 at 4:00PM PST by NWS Seattle WA"
+     "event": "Gale Watch",
+     "severity": "Moderate",
+     "headline": "Gale Watch issued November 22 at 1:35AM PST until November 25 at 4:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -270,6 +272,35 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels, spring greens"
+  },
+  {
+   "id": "western_montana",
+   "name": "Western Montana",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 34,
+   "low_f": 20,
+   "avg_f": 26.0,
+   "forecast": "Chance Light Snow then Partly Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (20F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 1,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "morels",
+    "wild_edibles",
+    "spring_foraged"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels peak late April-early May"
   },
   {
    "id": "northern_idaho",
@@ -482,37 +513,6 @@
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
   },
   {
-   "id": "olympic_peninsula_hood_canal",
-   "name": "Olympic Peninsula / Hood Canal",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 49,
-   "low_f": 39,
-   "avg_f": 44.0,
-   "forecast": "Patchy Fog then Light Rain Likely",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 49F, low 39F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "shellfish",
-    "oysters",
-    "clams",
-    "mussels",
-    "tideland_farmed"
-   ],
-   "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
-  },
-  {
    "id": "port_townsend_puget_sound",
    "name": "Port Townsend / Puget Sound",
    "category": "marine",
@@ -621,5 +621,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 6
+ "high_regions": 7
 }
