@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T06:44:12",
+ "generated_at": "2026-11-23T06:43:53",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -135,11 +135,16 @@
     {
      "event": "Hydrologic Outlook",
      "severity": "Unknown",
-     "headline": "Hydrologic Outlook issued November 22 at 1:21AM PST by NWS Seattle WA"
+     "headline": "Hydrologic Outlook issued November 22 at 3:44PM PST by NWS Seattle WA"
+    },
+    {
+     "event": "Hydrologic Outlook",
+     "severity": "Unknown",
+     "headline": "Hydrologic Outlook issued November 22 at 3:21PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 1,
+   "high_count": 2,
    "vendors": [
     "Key City Fish Co"
    ],
@@ -151,6 +156,40 @@
     "tideland_farmed"
    ],
    "seasonal_relevance": "Year-round; quality varies with water temperature and plankton blooms"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 38,
+   "low_f": 29,
+   "avg_f": 34.0,
+   "forecast": "Partly Sunny",
+   "signals": [
+    {
+     "level": "high",
+     "text": "Freezing temps (29F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+    }
+   ],
+   "alerts": [
+    {
+     "event": "Winter Weather Advisory",
+     "severity": "Moderate",
+     "headline": "Winter Weather Advisory issued November 22 at 11:37PM PST until November 24 at 10:00PM PST by NWS Seattle WA"
+    }
+   ],
+   "fire": false,
+   "high_count": 2,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   },
   {
    "id": "neah_bay_strait_juan_de_fuca",
@@ -170,9 +209,9 @@
    ],
    "alerts": [
     {
-     "event": "Gale Watch",
-     "severity": "Moderate",
-     "headline": "Gale Watch issued November 22 at 1:35AM PST until November 25 at 4:00AM PST by NWS Seattle WA"
+     "event": "Small Craft Advisory",
+     "severity": "Minor",
+     "headline": "Small Craft Advisory issued November 23 at 1:04AM PST until November 24 at 3:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
@@ -246,32 +285,33 @@
    "seasonal_relevance": "Spring (morels), fall (chanterelles, porcini)"
   },
   {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
+   "id": "northern_ca_coast_forests",
+   "name": "Northern California Coast/Forests",
    "category": "foraging",
    "group": "Forage Belt",
    "home": false,
-   "high_f": 38,
-   "low_f": 29,
-   "avg_f": 34.0,
-   "forecast": "Partly Sunny",
-   "signals": [
+   "high_f": 51,
+   "low_f": 38,
+   "avg_f": 44.0,
+   "forecast": "Rain",
+   "signals": [],
+   "alerts": [
     {
-     "level": "high",
-     "text": "Freezing temps (29F low). Frost after rain may increase mushroom fruiting in 7-10 days."
+     "event": "Wind Advisory",
+     "severity": "Moderate",
+     "headline": "Wind Advisory issued November 22 at 10:39PM PST until November 24 at 4:00PM PST by NWS Eureka CA"
     }
    ],
-   "alerts": [],
    "fire": false,
    "high_count": 1,
    "vendors": [
     "Foraged & Found Edibles"
    ],
    "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
+    "mushrooms_wild",
+    "winter_foraged"
    ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
+   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
   },
   {
    "id": "western_montana",
@@ -568,29 +608,6 @@
    "seasonal_relevance": "Year-round; peak grass growth spring-fall"
   },
   {
-   "id": "northern_ca_coast_forests",
-   "name": "Northern California Coast/Forests",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 51,
-   "low_f": 38,
-   "avg_f": 44.0,
-   "forecast": "Rain",
-   "signals": [],
-   "alerts": [],
-   "fire": false,
-   "high_count": 0,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "mushrooms_wild",
-    "winter_foraged"
-   ],
-   "seasonal_relevance": "Winter (November-February); takes advantage of CA winter rainfall"
-  },
-  {
    "id": "northern_ca_interior",
    "name": "Northern California Interior",
    "category": "foraging",
@@ -621,5 +638,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 7
+ "high_regions": 8
 }
