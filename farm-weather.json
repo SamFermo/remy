@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T04:45:32",
+ "generated_at": "2026-11-27T04:42:23",
  "enso": {
   "phase": "El Niño",
   "band": "very strong",
@@ -101,18 +101,13 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Coastal Flood Warning",
-     "severity": "Severe",
-     "headline": "Coastal Flood Warning issued November 26 at 2:40AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
+     "event": "Coastal Flood Advisory",
+     "severity": "Minor",
+     "headline": "Coastal Flood Advisory issued November 27 at 1:22AM PST until November 27 at 11:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Swan House Farm",
     "Local Roots Farm",
@@ -139,18 +134,13 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Coastal Flood Warning",
-     "severity": "Severe",
-     "headline": "Coastal Flood Warning issued November 26 at 2:40AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
+     "event": "Coastal Flood Advisory",
+     "severity": "Minor",
+     "headline": "Coastal Flood Advisory issued November 27 at 1:22AM PST until November 27 at 11:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Farmstand Local Foods"
    ],
@@ -174,18 +164,13 @@
    "signals": [],
    "alerts": [
     {
-     "event": "Coastal Flood Warning",
-     "severity": "Severe",
-     "headline": "Coastal Flood Warning issued November 26 at 2:40AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
+     "event": "Coastal Flood Advisory",
+     "severity": "Minor",
+     "headline": "Coastal Flood Advisory issued November 27 at 1:22AM PST until November 27 at 11:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Franks Produce",
     "EC Wilson"
@@ -215,18 +200,13 @@
    ],
    "alerts": [
     {
-     "event": "Coastal Flood Warning",
-     "severity": "Severe",
-     "headline": "Coastal Flood Warning issued November 26 at 2:40AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
+     "event": "Coastal Flood Advisory",
+     "severity": "Minor",
+     "headline": "Coastal Flood Advisory issued November 27 at 1:22AM PST until November 27 at 11:00AM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Key City Fish Co"
    ],
@@ -259,16 +239,11 @@
     {
      "event": "Small Craft Advisory",
      "severity": "Minor",
-     "headline": "Small Craft Advisory issued November 26 at 2:41AM PST until November 26 at 10:00PM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Gale Warning",
-     "severity": "Moderate",
-     "headline": "Gale Warning issued November 26 at 2:41AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
+     "headline": "Small Craft Advisory issued November 27 at 1:51AM PST until November 27 at 4:00PM PST by NWS Seattle WA"
     }
    ],
    "fire": false,
-   "high_count": 2,
+   "high_count": 1,
    "vendors": [
     "Key City Fish Co"
    ],
@@ -279,112 +254,6 @@
     "tribal_fish"
    ],
    "seasonal_relevance": "Seasonal fishing windows; ocean conditions critical"
-  },
-  {
-   "id": "port_townsend_puget_sound",
-   "name": "Port Townsend / Puget Sound",
-   "category": "marine",
-   "group": "Coast & Marine",
-   "home": false,
-   "high_f": 56,
-   "low_f": 42,
-   "avg_f": 47.0,
-   "forecast": "Light Rain Likely",
-   "signals": [
-    {
-     "level": "info",
-     "text": "Marine conditions: high 56F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
-    }
-   ],
-   "alerts": [
-    {
-     "event": "Coastal Flood Advisory",
-     "severity": "Minor",
-     "headline": "Coastal Flood Advisory issued November 26 at 2:40AM PST until November 26 at 10:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Key City Fish Co"
-   ],
-   "key_products": [
-    "halibut",
-    "black_cod",
-    "sole",
-    "rockfish"
-   ],
-   "seasonal_relevance": "Year-round; best access in calmer conditions"
-  },
-  {
-   "id": "southern_bc",
-   "name": "Southern British Columbia",
-   "category": "foraging",
-   "group": "Forage Belt",
-   "home": false,
-   "high_f": 42,
-   "low_f": 32,
-   "avg_f": 37.0,
-   "forecast": "Showers And Thunderstorms then Rain And Snow",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Winter Storm Warning",
-     "severity": "Severe",
-     "headline": "Winter Storm Warning issued November 25 at 11:17PM PST until November 27 at 4:00AM PST by NWS Seattle WA"
-    },
-    {
-     "event": "Winter Storm Watch",
-     "severity": "Severe",
-     "headline": "The Winter Storm Watch has been replaced. Please see the latest information from NWS Seattle WA on this developing situation."
-    }
-   ],
-   "fire": false,
-   "high_count": 2,
-   "vendors": [
-    "Foraged & Found Edibles"
-   ],
-   "key_products": [
-    "spring_foraged",
-    "mushrooms_wild"
-   ],
-   "seasonal_relevance": "Spring (April-May); morels, spring greens"
-  },
-  {
-   "id": "snoqualmie_valley_wa",
-   "name": "Snoqualmie Valley, WA",
-   "category": "agricultural",
-   "group": "Puget & Valleys",
-   "home": false,
-   "high_f": 54,
-   "low_f": 36,
-   "avg_f": 46.0,
-   "forecast": "Showers And Thunderstorms Likely",
-   "signals": [],
-   "alerts": [
-    {
-     "event": "Wind Advisory",
-     "severity": "Moderate",
-     "headline": "Wind Advisory issued November 26 at 2:01AM PST until November 26 at 12:00PM PST by NWS Seattle WA"
-    }
-   ],
-   "fire": false,
-   "high_count": 1,
-   "vendors": [
-    "Local Roots Farm",
-    "Farmstand Local Foods"
-   ],
-   "key_products": [
-    "greens",
-    "brassicas",
-    "root_vegetables"
-   ],
-   "seasonal_relevance": "Spring through fall; berries in summer"
   },
   {
    "id": "western_montana",
@@ -442,6 +311,31 @@
     "mushrooms_wild"
    ],
    "seasonal_relevance": "Spring (April-May); morels and spring mushrooms"
+  },
+  {
+   "id": "snoqualmie_valley_wa",
+   "name": "Snoqualmie Valley, WA",
+   "category": "agricultural",
+   "group": "Puget & Valleys",
+   "home": false,
+   "high_f": 54,
+   "low_f": 36,
+   "avg_f": 46.0,
+   "forecast": "Showers And Thunderstorms Likely",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Local Roots Farm",
+    "Farmstand Local Foods"
+   ],
+   "key_products": [
+    "greens",
+    "brassicas",
+    "root_vegetables"
+   ],
+   "seasonal_relevance": "Spring through fall; berries in summer"
   },
   {
    "id": "yakima_valley_wa",
@@ -555,6 +449,36 @@
     "pasture_raised"
    ],
    "seasonal_relevance": "Year-round pasture-raised; peak grass quality spring-fall"
+  },
+  {
+   "id": "port_townsend_puget_sound",
+   "name": "Port Townsend / Puget Sound",
+   "category": "marine",
+   "group": "Coast & Marine",
+   "home": false,
+   "high_f": 56,
+   "low_f": 42,
+   "avg_f": 47.0,
+   "forecast": "Light Rain Likely",
+   "signals": [
+    {
+     "level": "info",
+     "text": "Marine conditions: high 56F, low 42F. Check NOAA marine forecasts for sea state and fishing viability."
+    }
+   ],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Key City Fish Co"
+   ],
+   "key_products": [
+    "halibut",
+    "black_cod",
+    "sole",
+    "rockfish"
+   ],
+   "seasonal_relevance": "Year-round; best access in calmer conditions"
   },
   {
    "id": "cascade_range_forests",
@@ -673,6 +597,29 @@
     "wild_edibles"
    ],
    "seasonal_relevance": "Winter months; mushroom flushes after rain"
+  },
+  {
+   "id": "southern_bc",
+   "name": "Southern British Columbia",
+   "category": "foraging",
+   "group": "Forage Belt",
+   "home": false,
+   "high_f": 42,
+   "low_f": 32,
+   "avg_f": 37.0,
+   "forecast": "Showers And Thunderstorms then Rain And Snow",
+   "signals": [],
+   "alerts": [],
+   "fire": false,
+   "high_count": 0,
+   "vendors": [
+    "Foraged & Found Edibles"
+   ],
+   "key_products": [
+    "spring_foraged",
+    "mushrooms_wild"
+   ],
+   "seasonal_relevance": "Spring (April-May); morels, spring greens"
   }
  ],
  "groups": [
@@ -682,5 +629,5 @@
   "Coast & Marine",
   "Forage Belt"
  ],
- "high_regions": 10
+ "high_regions": 7
 }
